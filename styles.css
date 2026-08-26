@@ -1,0 +1,192 @@
+﻿/* Ilhabela Interactive Guide - Custom Styles */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Montserrat:wght@400;500;600;700;800&family=Heebo:wght@400;500;700;800&display=swap');
+
+:root {
+  --color-primary: #003345;
+  --color-primary-container: #004b63;
+  --color-secondary: #3b6934;
+  --color-secondary-container: #b9eeab;
+  --color-tertiary: #713400;
+  --color-tertiary-container: #ff9a54;
+  --color-surface: #fbf9f4;
+  --color-surface-container: #f0eee9;
+  --color-on-surface: #1b1c19;
+  --color-on-surface-variant: #40484c;
+}
+
+body {
+  font-family: 'DM Sans', 'Heebo', sans-serif;
+  background-color: var(--color-surface);
+  color: var(--color-on-surface);
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Montserrat', 'Heebo', sans-serif;
+}
+
+/* Glassmorphism Styles */
+.glass-panel {
+  background: rgba(251, 249, 244, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  box-shadow: 0 10px 32px 0 rgba(0, 51, 69, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 8px 24px -4px rgba(0, 51, 69, 0.07);
+  transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.glass-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 16px 36px -6px rgba(0, 51, 69, 0.14);
+}
+
+.glass-pill {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 51, 69, 0.12);
+  transition: all 0.2s ease;
+}
+
+.glass-pill:hover, .glass-pill.active {
+  background: #003345;
+  color: #ffffff !important;
+  border-color: #003345;
+  transform: scale(1.03);
+}
+
+/* Map Container & Styling */
+#map {
+  width: 100%;
+  height: 100%;
+  min-height: 560px;
+  border-radius: 1.5rem;
+  z-index: 10;
+}
+
+.leaflet-container {
+  font-family: 'DM Sans', sans-serif !important;
+  background-color: #dbe4eb !important;
+}
+
+/* Custom Marker Pins */
+.custom-pin {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: transform 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+.custom-pin:hover, .custom-pin.active-pin {
+  transform: scale(1.25) translateY(-6px);
+  z-index: 999 !important;
+}
+
+.pin-icon-wrap {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 6px 18px rgba(0, 51, 69, 0.3);
+  border: 2.5px solid #ffffff;
+  color: #ffffff;
+  position: relative;
+  z-index: 2;
+}
+
+.pin-praias { background: linear-gradient(135deg, #004b63, #00769d); }
+.pin-cachoeiras { background: linear-gradient(135deg, #2d5a27, #48993e); }
+.pin-trilhas { background: linear-gradient(135deg, #713400, #b25807); }
+.pin-picos { background: linear-gradient(135deg, #4a154b, #8a2be2); }
+.pin-baleias { background: linear-gradient(135deg, #0f4c81, #1e88e5); }
+.pin-mergulho { background: linear-gradient(135deg, #00695c, #00b4d8); }
+
+.pin-pulse {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulseHalo 2.2s infinite cubic-bezier(0.4, 0, 0.6, 1);
+}
+
+@keyframes pulseHalo {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 0.7; }
+  100% { transform: translate(-50%, -50%) scale(2.6); opacity: 0; }
+}
+
+/* Custom Leaflet Tooltip */
+.leaflet-tooltip-custom {
+  background: rgba(251, 249, 244, 0.95) !important;
+  backdrop-filter: blur(14px) !important;
+  border: 1px solid rgba(0, 51, 69, 0.15) !important;
+  border-radius: 12px !important;
+  padding: 8px 12px !important;
+  box-shadow: 0 10px 25px rgba(0, 51, 69, 0.15) !important;
+  color: #003345 !important;
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+.leaflet-tooltip-custom::before {
+  border-top-color: rgba(251, 249, 244, 0.95) !important;
+}
+
+/* RTL Support for Hebrew */
+[dir="rtl"] {
+  text-align: right;
+}
+
+[dir="rtl"] .space-x-2 > :not([hidden]) ~ :not([hidden]) {
+  --tw-space-x-reverse: 1;
+}
+
+[dir="rtl"] .mr-2, [dir="rtl"] .mr-3, [dir="rtl"] .mr-4 {
+  margin-right: 0 !important;
+  margin-left: 0.75rem !important;
+}
+
+[dir="rtl"] .ml-2, [dir="rtl"] .ml-3, [dir="rtl"] .ml-4 {
+  margin-left: 0 !important;
+  margin-right: 0.75rem !important;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+::-webkit-scrollbar-track {
+  background: #f0eee9;
+}
+::-webkit-scrollbar-thumb {
+  background: #004b63;
+  border-radius: 4px;
+}
+
+/* Animations */
+.animate-fade-in {
+  animation: fadeIn 0.35s ease forwards;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(8px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.hero-overlay {
+  background: linear-gradient(180deg, rgba(251, 249, 244, 0.1) 0%, rgba(251, 249, 244, 0.85) 75%, #fbf9f4 100%);
+}
