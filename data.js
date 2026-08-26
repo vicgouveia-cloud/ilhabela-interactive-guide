@@ -94,7 +94,12 @@ const touristSpots = [
         ],
         "ecoTip": "כבדו את הקהילה המקומית, אל תשאירו אשפה ותמכו בתושבי המקום."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg/1280px-Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/1._Praia_do_Bonete.jpg/1280px-1._Praia_do_Bonete.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Trilha_do_Bonete_-_Areado.jpg/1280px-Trilha_do_Bonete_-_Areado.jpg"
+    ]
   },
   {
     "id": "baia-de-castelhanos",
@@ -191,7 +196,12 @@ const touristSpots = [
         ],
         "ecoTip": "הכניסה לשביל הפארק מוגבלת לשעות מוגדרות לשמירה על חיות הבר."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg/1280px-Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Caminho_para_Praia_dos_Castelhanos.JPG/1280px-Caminho_para_Praia_dos_Castelhanos.JPG"
+    ]
   },
   {
     "id": "praia-da-fome",
@@ -288,7 +298,11 @@ const touristSpots = [
         ],
         "ecoTip": "אין לדרוך על אלמוגים ואין להאכיל את הדגים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/65/Praia_da_fome_ilhabela.jpg/1280px-Praia_da_fome_ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "praia-do-juliao",
@@ -385,7 +399,11 @@ const touristSpots = [
         ],
         "ecoTip": "כבדו את בריכות הסלעים ואל תיקחו צדפים או בעלי חיים מהחוף."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/76/Praia_Juli%C3%A3o_-_Ilhabela-_S%C3%A3o_Paulo_-_Por_do_sol.JPG/1280px-Praia_Juli%C3%A3o_-_Ilhabela-_S%C3%A3o_Paulo_-_Por_do_sol.JPG",
+      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+    ]
   },
   {
     "id": "praia-do-curral",
@@ -482,7 +500,12 @@ const touristSpots = [
         ],
         "ecoTip": "הקפידו לזרוק אשפה לפחים ומנעו שימוש בפלסטיק חד פעמי."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Praia-do-curral-ilhabela-sp.jpg/1280px-Praia-do-curral-ilhabela-sp.jpg",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+    ]
   },
   {
     "id": "praia-da-armacao",
@@ -579,7 +602,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמרו על בטיחות בקרבת אזורי הורדת סירות ומפרשיות."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0f/Cachorro_caminhando_pela_Praia_da_Arma%C3%A7%C3%A3o.jpg/1280px-Cachorro_caminhando_pela_Praia_da_Arma%C3%A7%C3%A3o.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "praia-do-veloso",
@@ -676,7 +703,11 @@ const touristSpots = [
         ],
         "ecoTip": "מומלץ לשלב רחצה בחוף עם טיול קצר למפל ולוזו הסמוך."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/54/Ilhabela_-_Praia_do_Veloso.jpg/1280px-Ilhabela_-_Praia_do_Veloso.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "praia-da-siriuba",
@@ -773,7 +804,11 @@ const touristSpots = [
         ],
         "ecoTip": "אל תפריעו לחיים הימיים ולכוכבי הים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%284%29.jpg/1280px-Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%284%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "praia-da-enchova",
@@ -870,7 +905,11 @@ const touristSpots = [
         ],
         "ecoTip": "אזור מבודד לחלוטין. קחו עמכם מים ואוכל ואל תשאירו עקבות."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/1._Praia_do_Bonete.jpg/1280px-1._Praia_do_Bonete.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "praia-de-indaiauba",
@@ -967,7 +1006,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמורה בתולית מוגנת. קחו את כל הפסולת עמכם."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3c/Praia_Grande_%28Ilhabela%29.jpg/1280px-Praia_Grande_%28Ilhabela%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-da-laje",
@@ -1064,7 +1107,11 @@ const touristSpots = [
         ],
         "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Cachoeira_da_Laje_-_Ilhabela-SP_Brasil_-_panoramio.jpg/1280px-Cachoeira_da_Laje_-_Ilhabela-SP_Brasil_-_panoramio.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Trilha_do_Bonete_-_Areado.jpg/1280px-Trilha_do_Bonete_-_Areado.jpg"
+    ]
   },
   {
     "id": "cachoeira-da-toca",
@@ -1161,7 +1208,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/7/7b/Cachoeira_da_Toca_-_Ilhabela.jpg/1280px-Cachoeira_da_Toca_-_Ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-do-veloso",
@@ -1258,7 +1309,11 @@ const touristSpots = [
         ],
         "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-do-paqueta",
@@ -1269,7 +1324,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 390,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg/1280px-Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg",
+    "image": "https://images.unsplash.com/photo-1584646098378-0874589d76b1?auto=format&fit=crop&w=1200&q=80",
     "tags": [
       "Piscina Infinita",
       "Vista para o Mar",
@@ -1355,7 +1410,12 @@ const touristSpots = [
         ],
         "ecoTip": "הסלעים חלקים, יש ללכת בזהירות."
       }
-    }
+    },
+    "images": [
+      "https://images.unsplash.com/photo-1584646098378-0874589d76b1?auto=format&fit=crop&w=1200&q=80",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg/1280px-Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-do-gato",
@@ -1452,7 +1512,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/5/52/Cachoeira_do_Gato_em_Ilhabela.jpg/1280px-Cachoeira_do_Gato_em_Ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-dos-tres-tombos",
@@ -1549,7 +1613,11 @@ const touristSpots = [
         ],
         "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/64/Cachoeira_dos_Tres_Tombos%2C_Ilhabela_%282284335155%29.jpg/1280px-Cachoeira_dos_Tres_Tombos%2C_Ilhabela_%282284335155%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "cachoeira-da-friagem",
@@ -1646,7 +1714,11 @@ const touristSpots = [
         ],
         "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg/1280px-Deslizando_na_cachoeira_-_Ilhabela_-_panoramio.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "trilha-da-agua-branca",
@@ -1743,7 +1815,11 @@ const touristSpots = [
         ],
         "ecoTip": "אפשרות מצוינת לטיול משפחתי קליל ומהנה בטבע."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d9/Po%C3%A7o_Natural%2C_Trilha_da_%C3%81gua_Branca.jpg/1280px-Po%C3%A7o_Natural%2C_Trilha_da_%C3%81gua_Branca.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "trilha-do-bonete",
@@ -1840,7 +1916,11 @@ const touristSpots = [
         ],
         "ecoTip": "מומלץ בחום לשכור מדריך מקומי מוסמך לבטיחות ולהכרת סיפורי המקום."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Trilha_do_Bonete_-_Areado.jpg/1280px-Trilha_do_Bonete_-_Areado.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "trilha-da-cabecuda-farol",
@@ -1937,7 +2017,11 @@ const touristSpots = [
         ],
         "ecoTip": "הצטיידו בכובע ובקרם הגנה לשטחים החשופים לשמש."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a3/Farol_ao_Sul_de_Ilhabela.jpg/1280px-Farol_ao_Sul_de_Ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "pico-de-sao-sebastiao",
@@ -2034,7 +2118,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמורה מוגנת ברמה הגבוהה ביותר. חובה לצאת בליווי מדריך מוסמך."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%285%29.jpg/1280px-Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%285%29.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "mirante-do-coracao",
@@ -2131,7 +2219,11 @@ const touristSpots = [
         ],
         "ecoTip": "הישארו על מרפסות התצפית המוסדרות."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Parque_Estadual_de_Ilhabela.jpg/1280px-Parque_Estadual_de_Ilhabela.jpg"
+    ]
   },
   {
     "id": "pico-do-baepi",
@@ -2228,7 +2320,12 @@ const touristSpots = [
         ],
         "ecoTip": "קחו לפחות 2 ליטר מים לאדם, חטיפי אנרגיה וביגוד חם לפסגה."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Vista_do_Pico_do_Baepi_03.jpg/1280px-Vista_do_Pico_do_Baepi_03.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Pico_do_Baepi_Ilhabela.jpg/1280px-Pico_do_Baepi_Ilhabela.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cd/Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%285%29.jpg/1280px-Parque_Estadual_de_Ilhabela_Jo%C3%A3o_Paulo_Marques_DAndretta_%285%29.jpg"
+    ]
   },
   {
     "id": "ponto-baleias-sul-sepituba",
@@ -2325,7 +2422,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמרו על מרחק שייט בטוח כחוק (לפחות 100 מטר) ולעולם אל תרדפו אחרי היונקים."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Humpback_Whale_underwater_shot.jpg/1280px-Humpback_Whale_underwater_shot.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_truncatus_01.jpg/1280px-Tursiops_truncatus_01.jpg"
+    ]
   },
   {
     "id": "ponto-baleias-canal",
@@ -2422,7 +2523,11 @@ const touristSpots = [
         ],
         "ecoTip": "אין להאכיל את חיות הבר ויש לשוט במהירות איטית בסמוך אליהן."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/Humpback_Whale_underwater_shot.jpg/1280px-Humpback_Whale_underwater_shot.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/10/Tursiops_truncatus_01.jpg/1280px-Tursiops_truncatus_01.jpg"
+    ]
   },
   {
     "id": "naufragio-aymore",
@@ -2519,7 +2624,11 @@ const touristSpots = [
         ],
         "ecoTip": "אל תיגעו בבעלי החיים הימיים ושמרו על שרידי הספינה ההיסטורית."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mar%C3%ADtimo_11.jpg/1280px-Mar%C3%ADtimo_11.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Shipwreck_underwater_artificial_reef.jpg/1280px-Shipwreck_underwater_artificial_reef.jpg"
+    ]
   },
   {
     "id": "santuario-ilha-das-cabras",
@@ -2616,7 +2725,11 @@ const touristSpots = [
         ],
         "ecoTip": "שמורה מוגנת בחוק. חל איסור מוחלט על דיג או פגיעה בחי הימי."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/03/Ilha_das_Cabras%2C_Ilhabela_%282285120444%29.jpg/1280px-Ilha_das_Cabras%2C_Ilhabela_%282285120444%29.jpg",
+      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+    ]
   },
   {
     "id": "naufragio-principe-de-asturias",
@@ -2713,7 +2826,11 @@ const touristSpots = [
         ],
         "ecoTip": "אתר מורשת מוגן. חל איסור מוחלט על לקיחת פריטים מהספינה."
       }
-    }
+    },
+    "images": [
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/Mar%C3%ADtimo_11.jpg/1280px-Mar%C3%ADtimo_11.jpg",
+      "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4b/Shipwreck_underwater_artificial_reef.jpg/1280px-Shipwreck_underwater_artificial_reef.jpg"
+    ]
   }
 ];
 

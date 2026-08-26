@@ -497,11 +497,19 @@ function setViewMode(mode) {
   }
 }
 
-// --- SPOT DETAILS MODAL ---
+
+// --- SPOT DETAILS MODAL & PHOTO GALLERY ---
+let currentModalImages = [];
+let currentModalImageIndex = 0;
+
 function openSpotModal(spotId) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
   selectedSpotId = spotId;
+
+  // Setup Gallery
+  currentModalImages = (spot.images && spot.images.length > 0) ? spot.images : [spot.image];
+  currentModalImageIndex = 0;
 
   const tr = getSpotTranslation(spot);
   const modal = document.getElementById('spot-modal');
@@ -513,28 +521,60 @@ function openSpotModal(spotId) {
   const isFav = savedFavorites.has(spot.id);
 
   content.innerHTML = `
-    <!-- Modal Hero -->
-    <div class="relative h-64 md:h-80 w-full rounded-2xl overflow-hidden bg-gray-100 shadow-md">
-      <img src="${spot.image}" alt="${tr.title}" class="w-full h-full object-cover" />
-      <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent"></div>
+    <!-- Modal Hero Gallery Slider -->
+    <div class="relative w-full rounded-2xl overflow-hidden bg-gray-900 shadow-md">
       
-      <div class="absolute bottom-6 left-6 right-6 text-white space-y-2">
+      <!-- Main Slide Image -->
+      <div class="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden flex items-center justify-center">
+        <img id="modal-main-img" src="${currentModalImages[0]}" alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" />
+        <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
+
+        <!-- Prev / Next Slider Arrows -->
+        ${currentModalImages.length > 1 ? `
+          <button onclick="prevModalImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
+            <span class="material-symbols-outlined text-[24px]">chevron_left</span>
+          </button>
+          <button onclick="nextModalImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
+            <span class="material-symbols-outlined text-[24px]">chevron_right</span>
+          </button>
+          
+          <!-- Image Index Indicator -->
+          <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-bold z-20" id="modal-img-counter">
+            1 / ${currentModalImages.length} fotos
+          </div>
+        ` : ''}
+      </div>
+
+      <!-- Floating Title & Badges -->
+      <div class="absolute bottom-4 left-4 right-4 text-white space-y-1.5 z-10 pointer-events-none">
         <div class="flex items-center gap-2">
-          <span class="px-2.5 py-1 rounded-full text-[11px] font-extrabold uppercase ${diffClass}">
+          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${diffClass}">
             ${diffLabel}
           </span>
-          <span class="px-2.5 py-1 rounded-full bg-white/20 backdrop-blur-md text-[11px] font-bold">
+          <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold">
             ★ ${spot.rating} (${spot.reviews} avaliações)
           </span>
         </div>
-        <h2 class="text-2xl md:text-3xl font-extrabold font-heading text-white">${tr.title}</h2>
-        <p class="text-xs md:text-sm text-white/80 line-clamp-2">${tr.subtitle}</p>
+        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white leading-tight">${tr.title}</h2>
+        <p class="text-xs text-white/80 line-clamp-1">${tr.subtitle}</p>
       </div>
 
-      <button onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors">
+      <!-- Favorite Button -->
+      <button onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors z-20">
         <span class="material-symbols-outlined text-[22px] ${isFav ? 'text-red-500 fill-current' : ''}">favorite</span>
       </button>
     </div>
+
+    <!-- Thumbnails Gallery Strip -->
+    ${currentModalImages.length > 1 ? `
+      <div class="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar" id="modal-thumbnails">
+        ${currentModalImages.map((img, idx) => `
+          <button onclick="setModalImage(${idx})" class="modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 ${idx === 0 ? 'border-primary scale-105' : 'border-transparent opacity-70 hover:opacity-100'} transition-all shadow-sm">
+            <img src="${img}" alt="thumbnail" class="w-full h-full object-cover" />
+          </button>
+        `).join('')}
+      </div>
+    ` : ''}
 
     <!-- Description & Highlights -->
     <div class="space-y-4">
@@ -609,7 +649,7 @@ function openSpotModal(spotId) {
       </div>
     </div>
 
-    <!-- Action Buttons (Google Maps & Hire Guide) -->
+    <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
       <a href="https://www.google.com/maps/dir/?api=1&destination=${spot.coords[0]},${spot.coords[1]}" target="_blank" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
         <span class="material-symbols-outlined text-[18px]">directions</span>
@@ -625,6 +665,40 @@ function openSpotModal(spotId) {
 
   modal.classList.remove('hidden');
   modal.classList.add('flex');
+}
+
+function setModalImage(idx) {
+  if (!currentModalImages || currentModalImages.length === 0) return;
+  currentModalImageIndex = (idx + currentModalImages.length) % currentModalImages.length;
+  
+  const imgEl = document.getElementById('modal-main-img');
+  if (imgEl) {
+    imgEl.src = currentModalImages[currentModalImageIndex];
+  }
+
+  const counterEl = document.getElementById('modal-img-counter');
+  if (counterEl) {
+    counterEl.innerText = `${currentModalImageIndex + 1} / ${currentModalImages.length} fotos`;
+  }
+
+  const thumbBtns = document.querySelectorAll('.modal-thumb-btn');
+  thumbBtns.forEach((btn, i) => {
+    if (i === currentModalImageIndex) {
+      btn.className = 'modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-primary scale-105 transition-all shadow-sm';
+    } else {
+      btn.className = 'modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-transparent opacity-70 hover:opacity-100 transition-all shadow-sm';
+    }
+  });
+}
+
+function prevModalImage(e) {
+  if (e) e.stopPropagation();
+  setModalImage(currentModalImageIndex - 1);
+}
+
+function nextModalImage(e) {
+  if (e) e.stopPropagation();
+  setModalImage(currentModalImageIndex + 1);
 }
 
 function closeSpotModal() {
