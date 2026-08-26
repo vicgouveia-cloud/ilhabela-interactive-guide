@@ -526,7 +526,7 @@ function openSpotModal(spotId) {
       
       <!-- Main Slide Image -->
       <div class="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden flex items-center justify-center">
-        <img id="modal-main-img" src="${currentModalImages[0]}" alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" />
+        <img id="modal-main-img" src="${currentModalImages[0]}" alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
         <!-- Prev / Next Slider Arrows -->
@@ -570,7 +570,7 @@ function openSpotModal(spotId) {
       <div class="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar" id="modal-thumbnails">
         ${currentModalImages.map((img, idx) => `
           <button onclick="setModalImage(${idx})" class="modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 ${idx === 0 ? 'border-primary scale-105' : 'border-transparent opacity-70 hover:opacity-100'} transition-all shadow-sm">
-            <img src="${img}" alt="thumbnail" class="w-full h-full object-cover" />
+            <img src="${img}" alt="" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none'" />
           </button>
         `).join('')}
       </div>
