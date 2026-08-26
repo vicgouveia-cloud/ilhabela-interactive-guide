@@ -8,7 +8,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 342,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg/1280px-Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg",
+    "image": "assets/images/praia-do-bonete_1.jpg",
     "tags": [
       "Preservada",
       "Cultura Caiçara",
@@ -96,8 +96,8 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg/1280px-Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-do-bonete_1.jpg",
+      "assets/images/praia-do-bonete_2.jpg"
     ]
   },
   {
@@ -109,7 +109,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 489,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
+    "image": "assets/images/baia-de-castelhanos_1.jpg",
     "tags": [
       "Aventura 4x4",
       "Formato de Coração",
@@ -197,9 +197,8 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/00/Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg/1280px-Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Caminho_para_Praia_dos_Castelhanos.JPG/1280px-Caminho_para_Praia_dos_Castelhanos.JPG"
+      "assets/images/baia-de-castelhanos_1.jpg",
+      "assets/images/baia-de-castelhanos_2.jpg"
     ]
   },
   {
@@ -211,7 +210,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 230,
-    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-da-fome_1.jpg",
     "tags": [
       "Snorkeling",
       "Casarão Histórico",
@@ -299,8 +298,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-da-fome_1.jpg"
     ]
   },
   {
@@ -312,7 +310,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 380,
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-do-juliao_1.jpg",
     "tags": [
       "Piscinas Naturais",
       "Família",
@@ -400,8 +398,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-do-juliao_1.jpg"
     ]
   },
   {
@@ -413,7 +410,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 512,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Praia-do-curral-ilhabela-sp.jpg/1280px-Praia-do-curral-ilhabela-sp.jpg",
+    "image": "assets/images/praia-do-curral_1.jpg",
     "tags": [
       "Pôr do Sol",
       "Bares Sofisticados",
@@ -501,9 +498,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/6/6a/Praia-do-curral-ilhabela-sp.jpg/1280px-Praia-do-curral-ilhabela-sp.jpg",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-do-curral_1.jpg"
     ]
   },
   {
@@ -515,7 +510,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 310,
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-da-armacao_1.jpg",
     "tags": [
       "Capital da Vela",
       "Kitesurf",
@@ -603,8 +598,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-da-armacao_1.jpg"
     ]
   },
   {
@@ -616,7 +610,7 @@ const touristSpots = [
     ],
     "rating": 4.7,
     "reviews": 195,
-    "image": "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-do-veloso_1.jpg",
     "tags": [
       "Mar Calmo",
       "Tranquilidade",
@@ -704,8 +698,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-do-veloso_1.jpg"
     ]
   },
   {
@@ -717,7 +710,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 210,
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-da-siriuba_1.jpg",
     "tags": [
       "Coqueirais",
       "SUP",
@@ -805,8 +798,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-da-siriuba_1.jpg"
     ]
   },
   {
@@ -818,7 +810,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 120,
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-da-enchova_1.jpg",
     "tags": [
       "Selvagem",
       "Pedras Roliças",
@@ -906,8 +898,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-da-enchova_1.jpg"
     ]
   },
   {
@@ -919,7 +910,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 98,
-    "image": "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/praia-de-indaiauba_1.jpg",
     "tags": [
       "Águas Turquesa",
       "Areia Branca",
@@ -1007,8 +998,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/praia-de-indaiauba_1.jpg"
     ]
   },
   {
@@ -1020,7 +1010,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 310,
-    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-da-laje_1.jpg",
     "tags": [
       "Tobogã de Pedra",
       "Piscina Profunda",
@@ -1108,8 +1098,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-da-laje_1.jpg"
     ]
   },
   {
@@ -1121,7 +1110,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 360,
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-da-toca_1.jpg",
     "tags": [
       "Tobogã 50m",
       "Gruta Histórica",
@@ -1209,8 +1198,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-da-toca_1.jpg"
     ]
   },
   {
@@ -1222,7 +1210,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 180,
-    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-do-veloso_1.jpg",
     "tags": [
       "Queda 30m",
       "Samambaias Gigantes",
@@ -1310,8 +1298,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-do-veloso_1.jpg"
     ]
   },
   {
@@ -1323,7 +1310,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 390,
-    "image": "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-do-paqueta_1.jpg",
     "tags": [
       "Piscina Infinita",
       "Vista para o Mar",
@@ -1411,9 +1398,8 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-do-paqueta_1.jpg",
+      "assets/images/cachoeira-do-paqueta_2.jpg"
     ]
   },
   {
@@ -1425,7 +1411,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 310,
-    "image": "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-do-gato_1.jpg",
     "tags": [
       "Queda 40m",
       "Trilha na Mata",
@@ -1513,8 +1499,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-do-gato_1.jpg"
     ]
   },
   {
@@ -1526,7 +1511,7 @@ const touristSpots = [
     ],
     "rating": 4.7,
     "reviews": 265,
-    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-dos-tres-tombos_1.jpg",
     "tags": [
       "Fácil Acesso",
       "Família",
@@ -1614,8 +1599,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-dos-tres-tombos_1.jpg"
     ]
   },
   {
@@ -1627,7 +1611,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 140,
-    "image": "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/cachoeira-da-friagem_1.jpg",
     "tags": [
       "Vista do Canal",
       "Norte da Ilha",
@@ -1715,8 +1699,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/cachoeira-da-friagem_1.jpg"
     ]
   },
   {
@@ -1728,7 +1711,7 @@ const touristSpots = [
     ],
     "rating": 4.8,
     "reviews": 290,
-    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/trilha-da-agua-branca_1.jpg",
     "tags": [
       "Auto-guiada",
       "Birdwatching",
@@ -1816,8 +1799,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1432405972618-c60b0225b8f9?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/trilha-da-agua-branca_1.jpg"
     ]
   },
   {
@@ -1829,7 +1811,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 350,
-    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/trilha-do-bonete_1.jpg",
     "tags": [
       "12km de Trilha",
       "3 Cachoeiras",
@@ -1917,8 +1899,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/c/cf/Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg/1280px-Praia_do_Bonete%2C_Ilhabela%2C_2021.jpg"
+      "assets/images/trilha-do-bonete_1.jpg"
     ]
   },
   {
@@ -1930,7 +1911,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 135,
-    "image": "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/trilha-da-cabecuda-farol_1.jpg",
     "tags": [
       "Farol Histórico 1930",
       "Costeira Oceânica",
@@ -2018,8 +1999,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1551632811-561732d1e306?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/trilha-da-cabecuda-farol_1.jpg"
     ]
   },
   {
@@ -2031,7 +2011,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 112,
-    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/pico-de-sao-sebastiao_1.jpg",
     "tags": [
       "1.378m - Ponto Mais Alto",
       "Montanhismo",
@@ -2119,8 +2099,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/pico-de-sao-sebastiao_1.jpg"
     ]
   },
   {
@@ -2132,7 +2111,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 320,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
+    "image": "assets/images/mirante-do-coracao_1.jpg",
     "tags": [
       "Formato de Coração",
       "Mirante Panorâmico",
@@ -2220,8 +2199,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1f/Castelhanos_-_Ilhabela_-_sp.jpg/1280px-Castelhanos_-_Ilhabela_-_sp.jpg",
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Caminho_para_Praia_dos_Castelhanos.JPG/1280px-Caminho_para_Praia_dos_Castelhanos.JPG"
+      "assets/images/mirante-do-coracao_1.jpg"
     ]
   },
   {
@@ -2233,7 +2211,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 298,
-    "image": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Pico_do_Baepi.jpg/1280px-Pico_do_Baepi.jpg",
+    "image": "assets/images/pico-do-baepi_1.jpg",
     "tags": [
       "1.048m de Altitude",
       "Vista 360°",
@@ -2321,8 +2299,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d1/Pico_do_Baepi.jpg/1280px-Pico_do_Baepi.jpg",
-      "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/pico-do-baepi_1.jpg"
     ]
   },
   {
@@ -2334,7 +2311,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 215,
-    "image": "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/ponto-baleias-sul-sepituba_1.jpg",
     "tags": [
       "Baleias Jubarte",
       "Junho a Agosto",
@@ -2422,8 +2399,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/ponto-baleias-sul-sepituba_1.jpg"
     ]
   },
   {
@@ -2435,7 +2411,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 178,
-    "image": "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/ponto-baleias-canal_1.jpg",
     "tags": [
       "Golfinhos Botos",
       "Canal Abrigado",
@@ -2523,8 +2499,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1568430462989-44163eb1752f?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/ponto-baleias-canal_1.jpg"
     ]
   },
   {
@@ -2536,7 +2511,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 140,
-    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/naufragio-aymore_1.jpg",
     "tags": [
       "Vapor 1920",
       "Mergulho Livre",
@@ -2624,8 +2599,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1519046904884-53103b34b206?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/naufragio-aymore_1.jpg"
     ]
   },
   {
@@ -2637,7 +2611,7 @@ const touristSpots = [
     ],
     "rating": 4.9,
     "reviews": 440,
-    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/santuario-ilha-das-cabras_1.jpg",
     "tags": [
       "Santuário Marinho",
       "Estátua de Netuno",
@@ -2725,8 +2699,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/santuario-ilha-das-cabras_1.jpg"
     ]
   },
   {
@@ -2738,7 +2711,7 @@ const touristSpots = [
     ],
     "rating": 5.0,
     "reviews": 180,
-    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
+    "image": "assets/images/naufragio-principe-de-asturias_1.jpg",
     "tags": [
       "O Titanic Brasileiro",
       "História 1916",
@@ -2826,8 +2799,7 @@ const touristSpots = [
       }
     },
     "images": [
-      "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1200&q=80",
-      "https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80"
+      "assets/images/naufragio-principe-de-asturias_1.jpg"
     ]
   }
 ];
