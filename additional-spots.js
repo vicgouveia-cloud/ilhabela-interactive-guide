@@ -90,6 +90,24 @@ const additionalTouristSpots = [
     attributes: { isDiving: false, isSunset: true, isKiosk: false, isWild: true, isFamily: false, isSurf: false, is4x4: false },
     specs: { difficulty: 'moderate', distance: 'Trilha curta sobre costeira', duration: '1 h a 2 h', elevation: 'Trechos sobre pedras', access: 'Portão sinalizado e caminhada pela costeira', sea: 'Visite somente com mar calmo e tempo firme', structure: 'Sem estrutura; propriedade particular no acesso' },
     translations: { pt: { title: 'Piscinas Naturais do Sul', subtitle: 'Poço de água salgada entre as pedras da costeira', description: 'Uma formação rochosa que cria uma piscina natural voltada para o sul. O acesso exige calçado adequado e avaliação cuidadosa do mar.', highlights: ['Formação rochosa singular', 'Vista para Alcatrazes', 'Água transparente', 'Fotografia'], ecoTip: 'Não visite com mar agitado, chuva ou pedras molhadas; use tênis e respeite os moradores.' } }
+  },
+  {
+    id: 'praia-grande', category: 'praias', coords: [-23.8577515, -45.4163499], rating: null, reviews: 0,
+    image: 'assets/images/praia-grande_verified.jpg', images: ['assets/images/praia-grande_verified.jpg'],
+    photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-grande/',
+    tags: ['Família', 'Estrutura completa', 'Esportes'],
+    attributes: { isDiving: false, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
+    specs: { difficulty: 'easy', distance: '7 km da balsa', duration: '1 h a meio dia', elevation: 'Orla plana', access: 'Carro, ônibus ou bicicleta pela avenida', sea: 'Praia de tombo; atenção com crianças', structure: 'Calçadão, restaurantes, quadras, duchas e estacionamento' },
+    translations: { pt: { title: 'Praia Grande', subtitle: 'Uma das praias mais completas e acessíveis do sul', description: 'Com cerca de 600 metros de faixa de areia, é uma escolha prática para famílias e grupos que procuram mar, alimentação e esportes no mesmo lugar.', highlights: ['Ampla faixa de areia', 'Quadras e calçadão', 'Restaurantes', 'Fácil acesso'], ecoTip: 'Observe as condições do mar e descarte resíduos nos coletores da orla.' } }
+  },
+  {
+    id: 'praia-do-portinho', category: 'praias', coords: [-23.8437449, -45.4043884], rating: null, reviews: 0,
+    image: 'assets/images/praia-do-portinho_verified.jpg', images: ['assets/images/praia-do-portinho_verified.jpg'],
+    photoCredit: 'Marcelo Carbono · Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-portinho',
+    tags: ['Snorkel', 'Tartarugas', 'Capela histórica'],
+    attributes: { isDiving: true, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
+    specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a meio dia', elevation: 'Nível do mar', access: 'Carro, ônibus ou bicicleta pela avenida', sea: 'Enseada pequena; boa visibilidade em dias favoráveis', structure: 'Píer, rampa acessível, quiosques e poucas vagas' },
+    translations: { pt: { title: 'Praia do Portinho', subtitle: 'Pequena enseada com píer, tartarugas e tradição caiçara', description: 'Parte do Santuário Ecológico Submarino, combina mergulho livre, um píer agradável e a Capela de Santo Antônio, construída em 1938.', highlights: ['Santuário submarino', 'Capela de Santo Antônio', 'Píer acessível', 'Possível avistamento de tartarugas'], ecoTip: 'Não toque nos animais e não retire conchas ou organismos do santuário.' } }
   }
 ];
 

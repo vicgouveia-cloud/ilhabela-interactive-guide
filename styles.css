@@ -88,6 +88,52 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   box-shadow: none !important;
 }
 
+.site-header {
+  background: linear-gradient(90deg, rgba(251, 249, 244, 0.94), rgba(232, 244, 225, 0.94), rgba(228, 243, 247, 0.94));
+  border-top: 4px solid #f5bd32;
+}
+
+.brand-mark {
+  background: linear-gradient(145deg, #007b8f 0%, #004b63 58%, #3b6934 100%);
+  box-shadow: 0 5px 16px rgba(0, 75, 99, 0.28), inset 0 0 0 2px rgba(255,255,255,.22);
+}
+
+.filter-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.filter-scroll-track {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  padding-inline: 2.6rem;
+}
+
+.filter-scroll-track::-webkit-scrollbar { display: none; }
+
+.filter-scroll-btn {
+  position: absolute;
+  z-index: 3;
+  width: 2.15rem;
+  height: 2.15rem;
+  border-radius: 999px;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: #004b63;
+  border: 2px solid rgba(255,255,255,.9);
+  box-shadow: 0 4px 14px rgba(0,51,69,.24);
+  transition: opacity .2s ease, transform .2s ease;
+}
+
+.filter-scroll-btn:hover { transform: scale(1.06); }
+.filter-scroll-btn:disabled { opacity: 0; pointer-events: none; }
+.filter-scroll-left { left: .15rem; }
+.filter-scroll-right { right: .15rem; }
+
 .custom-pin {
   position: relative;
   width: 30px;
@@ -167,6 +213,22 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   box-shadow: 0 10px 25px rgba(0, 51, 69, 0.15) !important;
   color: #003345 !important;
   font-family: 'DM Sans', sans-serif !important;
+  width: max-content;
+  max-width: min(260px, calc(100vw - 48px));
+  white-space: normal !important;
+  overflow-wrap: anywhere;
+  text-align: center;
+  line-height: 1.3;
+}
+
+.leaflet-tooltip-custom strong,
+.leaflet-tooltip-custom span { white-space: normal !important; }
+
+@media (max-width: 640px) {
+  .filter-scroll-btn { width: 2rem; height: 2rem; }
+  .filter-scroll-track { padding-inline: 2.4rem; }
+  .leaflet-tooltip-custom { max-width: min(220px, calc(100vw - 40px)); }
+  #map-quick-card { bottom: .75rem !important; left: .75rem !important; right: .75rem !important; }
 }
 
 .leaflet-tooltip-custom::before {

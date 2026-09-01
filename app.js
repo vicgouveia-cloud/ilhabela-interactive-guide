@@ -32,6 +32,9 @@ const verifiedPhotoLibrary = {
   'trilha-da-agua-branca': { images: ['assets/images/trilha-da-agua-branca_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/' },
   'mirante-do-coracao': { images: ['assets/images/mirante-do-coracao_verified.jpg'], credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg' },
   'pico-do-baepi': { images: ['assets/images/pico-do-baepi_verified.jpg'], credit: 'Igorh84 · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg' },
+  'pico-de-sao-sebastiao': { images: ['assets/images/pico-de-sao-sebastiao_verified.jpg'], credit: 'Grupo IMS Ilhabela · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela.jpg' },
+  'ponto-baleias-canal': { images: ['assets/images/ponto-baleias-canal_verified.jpg'], credit: 'Projeto Baleia à Vista · Ilhabela.com.br', source: 'https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/' },
+  'naufragio-aymore': { images: ['assets/images/naufragio-aymore_verified.jpg'], credit: 'Acervo Reserving · mergulho em naufrágios de Ilhabela', source: 'https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ' },
   'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' }
 };
 
@@ -53,6 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderGuides();
   updateSavedCountDisplay();
   populateBookingGuides();
+  initFilterCarousel();
 
   // Set default booking date to tomorrow
   const tomorrow = new Date();
@@ -170,7 +174,7 @@ function initMap() {
     bounds: archipelagoBounds
   });
 
-  mapLayers.voyager.addTo(map);
+  mapLayers.satellite.addTo(map);
 
   // Keep the initial and reset view focused on the municipality's archipelago.
   map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18] });
@@ -275,7 +279,7 @@ function updateMapMarkers() {
       </div>
     `, {
       className: 'leaflet-tooltip-custom',
-      direction: 'top',
+      direction: 'auto',
       offset: [0, -17]
     });
 
@@ -313,8 +317,8 @@ function showMapQuickCard(spot) {
             ${getRatingLabel(spot)}
           </span>
         </div>
-        <h4 class="text-sm font-bold text-primary truncate font-heading">${tr.title}</h4>
-        <p class="text-xs text-on-surface-variant line-clamp-1">${tr.subtitle}</p>
+        <h4 class="text-sm font-bold text-primary leading-tight font-heading">${tr.title}</h4>
+        <p class="text-xs text-on-surface-variant line-clamp-2">${tr.subtitle}</p>
         <button onclick="openSpotModal('${spot.id}')" class="text-xs font-bold text-primary hover:underline flex items-center gap-1 pt-0.5">
           <span>${t('spotDetails')}</span>
           <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -323,6 +327,23 @@ function showMapQuickCard(spot) {
     </div>
   `;
   card.classList.remove('hidden');
+}
+
+function initFilterCarousel() {
+  const track = document.getElementById('category-filter-list');
+  if (!track) return;
+  const left = document.querySelector('[data-filter-scroll="left"]');
+  const right = document.querySelector('[data-filter-scroll="right"]');
+  const update = () => {
+    const max = Math.max(0, track.scrollWidth - track.clientWidth);
+    left.disabled = track.scrollLeft <= 4;
+    right.disabled = track.scrollLeft >= max - 4;
+  };
+  left?.addEventListener('click', () => track.scrollBy({ left: -Math.max(220, track.clientWidth * .72), behavior: 'smooth' }));
+  right?.addEventListener('click', () => track.scrollBy({ left: Math.max(220, track.clientWidth * .72), behavior: 'smooth' }));
+  track.addEventListener('scroll', update, { passive: true });
+  window.addEventListener('resize', update);
+  requestAnimationFrame(update);
 }
 
 // --- FILTERING LOGIC ---

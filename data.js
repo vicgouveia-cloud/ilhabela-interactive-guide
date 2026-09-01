@@ -2006,8 +2006,8 @@ const touristSpots = [
     "id": "pico-de-sao-sebastiao",
     "category": "picos",
     "coords": [
-      -23.8294,
-      -45.3542
+      -23.8755592,
+      -45.3787239
     ],
     "rating": 5.0,
     "reviews": 112,

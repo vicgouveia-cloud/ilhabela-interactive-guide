@@ -49,13 +49,13 @@
 <body class="bg-[#fbf9f4] text-[#1b1c19] min-h-screen pb-20 md:pb-0 antialiased selection:bg-[#004b63] selection:text-white">
 
   <!-- TOP HEADER / NAV -->
-  <header class="fixed top-0 left-0 right-0 z-50 glass-panel border-b border-black/5 px-4 md:px-8 py-3.5 transition-all duration-300">
+  <header class="site-header fixed top-0 left-0 right-0 z-50 glass-panel border-b border-black/5 px-4 md:px-8 py-3.5 transition-all duration-300">
     <div class="max-w-7xl mx-auto flex items-center justify-between">
       
       <!-- Brand Logo -->
       <a href="#hero" class="flex items-center gap-2.5 group cursor-pointer">
-        <div class="w-10 h-10 rounded-xl bg-primary text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform">
-          <span class="material-symbols-outlined text-[22px]">explore</span>
+        <div class="brand-mark w-10 h-10 rounded-full text-white flex items-center justify-center shadow-md group-hover:scale-105 transition-transform" aria-hidden="true">
+          <span class="material-symbols-outlined text-[24px]">sailing</span>
         </div>
         <div>
           <span class="text-xl md:text-2xl font-bold tracking-tight text-primary font-heading" data-i18n="brandTitle">Ilhabela</span>
@@ -199,7 +199,11 @@
       </div>
 
       <!-- Categories Filter Chips -->
-      <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold">
+      <div class="filter-carousel" data-filter-carousel>
+        <button type="button" class="filter-scroll-btn filter-scroll-left" data-filter-scroll="left" aria-label="Ver categorias anteriores">
+          <span class="material-symbols-outlined">chevron_left</span>
+        </button>
+        <div id="category-filter-list" class="filter-scroll-track flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold" tabindex="0" aria-label="Categorias de pontos turísticos">
         <button onclick="filterCategory('all')" data-cat="all" class="cat-pill glass-pill active px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[16px]">explore</span>
           <span data-i18n="filterAll">Todos os Pontos</span>
@@ -252,6 +256,10 @@
           <span class="material-symbols-outlined text-[16px] text-purple-700">visibility</span>
           <span data-i18n="filterLookouts">Mirantes</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mirantes">1</span>
+        </button>
+        </div>
+        <button type="button" class="filter-scroll-btn filter-scroll-right" data-filter-scroll="right" aria-label="Ver mais categorias">
+          <span class="material-symbols-outlined">chevron_right</span>
         </button>
       </div>
 
@@ -311,8 +319,8 @@
 
         <!-- Map Layer Switcher -->
         <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur-md p-1 rounded-xl border border-black/10 text-xs font-bold">
-          <button onclick="switchMapLayer('voyager')" id="layer-voyager" class="px-3 py-1.5 rounded-lg bg-primary text-white transition-all" data-i18n="layerStandard">Mapa</button>
-          <button onclick="switchMapLayer('satellite')" id="layer-satellite" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all" data-i18n="layerSatellite">Satélite HD</button>
+          <button onclick="switchMapLayer('voyager')" id="layer-voyager" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all" data-i18n="layerStandard">Mapa</button>
+          <button onclick="switchMapLayer('satellite')" id="layer-satellite" class="px-3 py-1.5 rounded-lg bg-primary text-white transition-all" data-i18n="layerSatellite">Satélite HD</button>
           <button onclick="switchMapLayer('topo')" id="layer-topo" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all" data-i18n="layerTopo">Topográfico</button>
         </div>
       </div>
@@ -533,9 +541,9 @@
   </footer>
 
   <!-- Scripts with Cache Busting -->
-  <script src="translations.js?v=2.2"></script>
-  <script src="data.js?v=2.2"></script>
-  <script src="additional-spots.js?v=2.2"></script>
-  <script src="app.js?v=2.2"></script>
+  <script src="translations.js?v=2.3"></script>
+  <script src="data.js?v=2.3"></script>
+  <script src="additional-spots.js?v=2.3"></script>
+  <script src="app.js?v=2.3"></script>
 </body>
 </html>
