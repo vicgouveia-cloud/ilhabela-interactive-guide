@@ -1,9 +1,0 @@
-﻿{
-  "name": "ilhabela-interactive-guide",
-  "version": "1.0.0",
-  "private": true,
-  "description": "Guia Turístico Interativo de Ilhabela",
-  "scripts": {
-    "build": "echo 'Static build complete'"
-  }
-}
