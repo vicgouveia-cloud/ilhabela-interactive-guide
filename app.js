@@ -1,4 +1,4 @@
-﻿// Ilhabela Interactive Guide - Main Application Logic
+// Ilhabela Interactive Guide - Main Application Logic
 let map = null;
 let mapLayers = {};
 let mapMarkers = [];
@@ -148,9 +148,9 @@ function initMap() {
   L.control.zoom({ position: 'bottomright' }).addTo(map);
   L.control.scale({ position: 'bottomleft', imperial: false, maxWidth: 120 }).addTo(map);
 
-  // Map Tile Layers
-  mapLayers.voyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
-    attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
+  // Map Tile Layers (100% Free & Sem necessidade de API Key)
+  mapLayers.voyager = L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>',
     maxZoom: 19,
     noWrap: true,
     bounds: archipelagoBounds
@@ -163,9 +163,9 @@ function initMap() {
     bounds: archipelagoBounds
   });
 
-  mapLayers.topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenTopoMap',
-    maxZoom: 17,
+  mapLayers.topo = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Topo_Map/MapServer/tile/{z}/{y}/{x}', {
+    attribution: '&copy; Esri, USGS, NOAA, OpenStreetMap contributors',
+    maxZoom: 18,
     noWrap: true,
     bounds: archipelagoBounds
   });
