@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ilhabela Interactive Guide • Guia Turístico Interativo</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23003345'/%3E%3Cpath d='M12 42c10-4 15-15 24-16 7-1 10 4 16 1-2 12-11 21-23 21-7 0-12-2-17-6Z' fill='%23b9eeab'/%3E%3Ccircle cx='44' cy='17' r='7' fill='%23ffcf70'/%3E%3C/svg%3E" />
   
   <!-- Tailwind CSS CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -120,7 +121,7 @@
   <section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
     <!-- Background Image & Gradient -->
     <div class="absolute inset-0 z-0">
-      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=2000&q=80" alt="Ilhabela" class="w-full h-full object-cover object-center filter brightness-[0.92]" />
+      <img src="assets/images/mirante-do-coracao_verified.jpg" alt="Vista real da Baía de Castelhanos, em Ilhabela" class="w-full h-full object-cover object-center filter brightness-[0.92]" />
       <div class="absolute inset-0 hero-overlay"></div>
     </div>
 
@@ -240,6 +241,18 @@
           <span data-i18n="filterDiving">Mergulho & Naufrágios</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mergulho">2</span>
         </button>
+
+        <button onclick="filterCategory('cultura')" data-cat="cultura" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+          <span class="material-symbols-outlined text-[16px] text-orange-700">museum</span>
+          <span data-i18n="filterCulture">Cultura & História</span>
+          <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-cultura">2</span>
+        </button>
+
+        <button onclick="filterCategory('mirantes')" data-cat="mirantes" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+          <span class="material-symbols-outlined text-[16px] text-purple-700">visibility</span>
+          <span data-i18n="filterLookouts">Mirantes</span>
+          <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mirantes">1</span>
+        </button>
       </div>
 
       <!-- Feature Badges Filter (Horizontal Sub-filters) -->
@@ -290,6 +303,10 @@
           <p class="text-sm text-on-surface-variant" id="results-text">
             <span id="results-count-num">12</span> <span data-i18n="resultsCount">pontos turísticos encontrados</span>
           </p>
+          <p class="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-secondary">
+            <span class="material-symbols-outlined text-[14px]">lock</span>
+            Navegação limitada ao arquipélago de Ilhabela
+          </p>
         </div>
 
         <!-- Map Layer Switcher -->
@@ -303,6 +320,11 @@
       <!-- MAP FRAME -->
       <div class="relative w-full h-[580px] md:h-[680px] rounded-3xl overflow-hidden shadow-2xl border border-black/10">
         <div id="map"></div>
+
+        <button onclick="resetMapView()" class="absolute top-4 right-4 z-[999] inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-bold text-primary shadow-lg hover:bg-white transition-colors" aria-label="Voltar para a visão completa de Ilhabela">
+          <span class="material-symbols-outlined text-[16px]">center_focus_strong</span>
+          <span class="hidden sm:inline">Ver toda Ilhabela</span>
+        </button>
 
         <!-- Map Quick Info Floating Box (Desktop & Mobile Interactive) -->
         <div id="map-quick-card" class="hidden absolute bottom-6 left-6 right-6 md:right-auto md:w-96 z-[999] glass-panel rounded-2xl p-4 shadow-2xl border border-white/80 animate-fade-in">
@@ -513,6 +535,7 @@
   <!-- Scripts -->
   <script src="translations.js"></script>
   <script src="data.js"></script>
+  <script src="additional-spots.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

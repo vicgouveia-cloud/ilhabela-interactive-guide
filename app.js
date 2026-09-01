@@ -9,6 +9,41 @@ let searchQuery = '';
 let savedFavorites = new Set(JSON.parse(localStorage.getItem('ilhabela_saved') || '[]'));
 let selectedSpotId = null;
 
+// Curated photo library. Every entry below was matched to the named attraction;
+// the source remains visible in the gallery so visitors can verify provenance.
+const verifiedPhotoLibrary = {
+  'praia-do-bonete': { images: ['assets/images/praia-do-bonete_verified.jpg', 'assets/images/praia-do-bonete_verified_2.jpg', 'assets/images/praia-do-bonete_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Praia_do_Bonete_(Ilhabela)' },
+  'baia-de-castelhanos': { images: ['assets/images/baia-de-castelhanos_verified.jpg', 'assets/images/baia-de-castelhanos_verified_2.jpg', 'assets/images/mirante-do-coracao_verified.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Praia_de_Castelhanos' },
+  'praia-da-fome': { images: ['assets/images/praia-da-fome_verified.jpg', 'assets/images/praia-da-fome_verified_2.jpg', 'assets/images/praia-da-fome_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Praia_da_Fome_(Ilhabela)' },
+  'praia-do-juliao': { images: ['assets/images/praia-do-juliao_verified.jpg', 'assets/images/praia-do-juliao_verified_2.jpg', 'assets/images/praia-do-juliao_verified_3.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/praias/praia-do-juliao' },
+  'praia-do-curral': { images: ['assets/images/praia-do-curral_verified.jpg', 'assets/images/praia-do-curral_verified_2.jpg', 'assets/images/praia-do-curral_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Praia_do_Curral_(Ilhabela)' },
+  'praia-da-armacao': { images: ['assets/images/praia-da-armacao_verified.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Cachorro_caminhando_pela_Praia_da_Arma%C3%A7%C3%A3o.jpg' },
+  'praia-do-veloso': { images: ['assets/images/praia-do-veloso_verified.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Ilhabela_-_Praia_do_Veloso.jpg' },
+  'praia-da-siriuba': { images: ['assets/images/praia-da-siriuba_verified.jpg', 'assets/images/praia-da-siriuba_verified_2.jpg', 'assets/images/praia-da-siriuba_verified_3.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/praias/praia-da-siriuba' },
+  'praia-da-enchova': { images: ['assets/images/praia-da-enchova_verified.jpg', 'assets/images/praia-da-enchova_verified_2.jpg', 'assets/images/praia-da-enchova_verified_3.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/praias/praia-das-enchovas' },
+  'praia-de-indaiauba': { images: ['assets/images/praia-de-indaiauba_verified.jpg'], credit: 'Prefeitura de Ilhabela', source: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela' },
+  'cachoeira-da-laje': { images: ['assets/images/cachoeira-da-laje_verified.jpg'], credit: 'Arthur Grangeiro de Souza · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Arthur_Grangeiro_de_Souza_(165).jpg' },
+  'cachoeira-da-toca': { images: ['assets/images/cachoeira-da-toca_verified.png'], credit: 'Miquel Girones · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:ILHABELACACHO.png' },
+  'cachoeira-do-veloso': { images: ['assets/images/cachoeira-do-veloso_verified.jpg'], credit: 'Italo Reis · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Cachoeira_do_Veloso,_em_Ilhabela.jpg' },
+  'cachoeira-do-paqueta': { images: ['assets/images/cachoeira-do-paqueta_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/pontos-turisticos/cachoeira-do-paqueta/' },
+  'cachoeira-do-gato': { images: ['assets/images/cachoeira-do-gato_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/cachoeiras/cachoeira-do-gato/' },
+  'cachoeira-dos-tres-tombos': { images: ['assets/images/cachoeira-dos-tres-tombos_verified.jpg'], credit: 'Virto.Photo · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Cachoeira_dos_Tr%C3%AAs_Tombos.jpg' },
+  'cachoeira-da-friagem': { images: ['assets/images/cachoeira-da-friagem_verified.webp'], credit: 'Trilhabela', source: 'https://trilhabela.com.br/passeio/cachoeira-da-friagem-ilhabela/' },
+  'trilha-da-agua-branca': { images: ['assets/images/trilha-da-agua-branca_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/' },
+  'mirante-do-coracao': { images: ['assets/images/mirante-do-coracao_verified.jpg'], credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg' },
+  'pico-do-baepi': { images: ['assets/images/pico-do-baepi_verified.jpg'], credit: 'Igorh84 · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg' },
+  'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' }
+};
+
+touristSpots.forEach(spot => {
+  const verified = verifiedPhotoLibrary[spot.id];
+  if (!verified) return;
+  spot.image = verified.images[0];
+  spot.images = verified.images;
+  spot.photoCredit = verified.credit;
+  spot.photoSource = verified.source;
+});
+
 // Initialize on DOM Loaded
 document.addEventListener('DOMContentLoaded', () => {
   initI18n();
@@ -93,38 +128,62 @@ function getGuideTranslation(guide) {
 // --- LEAFLET MAP INITIALIZATION ---
 function initMap() {
   const ilhabelaCenter = [-23.824, -45.365];
+  const archipelagoBounds = L.latLngBounds(
+    [-24.02, -45.50],
+    [-23.65, -45.18]
+  );
   
   map = L.map('map', {
     center: ilhabelaCenter,
     zoom: 11,
     minZoom: 10,
     maxZoom: 18,
-    zoomControl: false
+    zoomControl: false,
+    maxBounds: archipelagoBounds,
+    maxBoundsViscosity: 1.0,
+    worldCopyJump: false
   });
 
   // Custom Zoom Control (bottom-right)
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  L.control.scale({ position: 'bottomleft', imperial: false, maxWidth: 120 }).addTo(map);
 
   // Map Tile Layers
   mapLayers.voyager = L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://carto.com/">CARTO</a>',
-    maxZoom: 19
+    maxZoom: 19,
+    noWrap: true,
+    bounds: archipelagoBounds
   });
 
   mapLayers.satellite = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
     attribution: '&copy; Esri & Earthstar Geographics',
-    maxZoom: 19
+    maxZoom: 19,
+    noWrap: true,
+    bounds: archipelagoBounds
   });
 
   mapLayers.topo = L.tileLayer('https://{s}.tile.opentopomap.org/{z}/{x}/{y}.png', {
     attribution: '&copy; OpenTopoMap',
-    maxZoom: 17
+    maxZoom: 17,
+    noWrap: true,
+    bounds: archipelagoBounds
   });
 
   mapLayers.voyager.addTo(map);
 
+  // Keep the initial and reset view focused on the municipality's archipelago.
+  map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18] });
+
   // Render Markers
   updateMapMarkers();
+}
+
+function resetMapView() {
+  if (!map) return;
+  map.closePopup();
+  document.getElementById('map-quick-card')?.classList.add('hidden');
+  map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18], animate: true });
 }
 
 function switchMapLayer(layerKey) {
@@ -154,8 +213,24 @@ function getCategoryIcon(cat) {
     case 'picos': return 'terrain';
     case 'baleias': return 'water_lux';
     case 'mergulho': return 'scuba_diving';
+    case 'cultura': return 'museum';
+    case 'mirantes': return 'visibility';
     default: return 'place';
   }
+}
+
+function getCategoryLabel(cat) {
+  const keys = {
+    praias: 'filterBeaches', cachoeiras: 'filterWaterfalls', trilhas: 'filterTrails',
+    picos: 'filterPeaks', baleias: 'filterWhales', mergulho: 'filterDiving',
+    cultura: 'filterCulture', mirantes: 'filterLookouts'
+  };
+  return t(keys[cat] || cat);
+}
+
+function getRatingLabel(spot, withReviews = false) {
+  if (typeof spot.rating !== 'number') return t('newInGuide');
+  return `★ ${spot.rating}${withReviews ? ` (${spot.reviews})` : ''}`;
 }
 
 function updateMapMarkers() {
@@ -174,18 +249,23 @@ function updateMapMarkers() {
     const customIcon = L.divIcon({
       className: 'custom-pin-container',
       html: `
-        <div class="custom-pin pin-${spot.category}" id="pin-${spot.id}">
+        <div class="custom-pin" id="pin-${spot.id}">
           <div class="pin-pulse pin-${spot.category}"></div>
           <div class="pin-icon-wrap pin-${spot.category}">
-            <span class="material-symbols-outlined text-[20px]">${catIcon}</span>
+            <span class="material-symbols-outlined text-[16px]">${catIcon}</span>
           </div>
         </div>
       `,
-      iconSize: [42, 42],
-      iconAnchor: [21, 21]
+      iconSize: [30, 30],
+      iconAnchor: [15, 15]
     });
 
-    const marker = L.marker(spot.coords, { icon: customIcon }).addTo(map);
+    const marker = L.marker(spot.coords, {
+      icon: customIcon,
+      keyboard: true,
+      title: tr.title || '',
+      alt: `${tr.title || 'Atração'} — abrir detalhes`
+    }).addTo(map);
 
     // Hover Tooltip
     marker.bindTooltip(`
@@ -196,7 +276,7 @@ function updateMapMarkers() {
     `, {
       className: 'leaflet-tooltip-custom',
       direction: 'top',
-      offset: [0, -22]
+      offset: [0, -17]
     });
 
     // Hover preview card
@@ -230,7 +310,7 @@ function showMapQuickCard(spot) {
             ${diffLabel}
           </span>
           <span class="text-[11px] font-bold text-amber-600 flex items-center gap-0.5">
-            ★ ${spot.rating}
+            ${getRatingLabel(spot)}
           </span>
         </div>
         <h4 class="text-sm font-bold text-primary truncate font-heading">${tr.title}</h4>
@@ -363,7 +443,7 @@ function updateSavedCountDisplay() {
 }
 
 function renderCategoryCounts() {
-  const counts = { all: touristSpots.length, praias: 0, cachoeiras: 0, trilhas: 0, picos: 0, baleias: 0, mergulho: 0 };
+  const counts = { all: touristSpots.length, praias: 0, cachoeiras: 0, trilhas: 0, picos: 0, baleias: 0, mergulho: 0, cultura: 0, mirantes: 0 };
   touristSpots.forEach(s => {
     if (counts[s.category] !== undefined) counts[s.category]++;
   });
@@ -411,13 +491,13 @@ function renderCustomSpotsList(spots) {
         
         <!-- Image Banner -->
         <div class="relative h-52 w-full overflow-hidden bg-gray-100">
-          <img src="${spot.image}" alt="${tr.title}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+          <img src="${spot.image}" alt="${tr.title}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           
           <!-- Category & Difficulty Badges -->
           <div class="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
             <span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-primary shadow-sm flex items-center gap-1">
               <span class="material-symbols-outlined text-[14px]">${getCategoryIcon(spot.category)}</span>
-              ${t(`filter${spot.category.charAt(0).toUpperCase() + spot.category.slice(1)}`)}
+              ${getCategoryLabel(spot.category)}
             </span>
             <span class="px-2 py-1 rounded-full text-[10px] font-extrabold uppercase shadow-sm ${diffClass}">
               ${diffLabel}
@@ -431,7 +511,7 @@ function renderCustomSpotsList(spots) {
 
           <!-- Rating Pill -->
           <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1">
-            <span class="text-amber-400">★</span> ${spot.rating} (${spot.reviews})
+            <span class="text-amber-400">${typeof spot.rating === 'number' ? '★' : '●'}</span> ${getRatingLabel(spot, true).replace('★ ', '')}
           </div>
         </div>
 
@@ -526,7 +606,7 @@ function openSpotModal(spotId) {
       
       <!-- Main Slide Image -->
       <div class="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden flex items-center justify-center">
-        <img id="modal-main-img" src="${currentModalImages[0]}" alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80'" />
+        <img id="modal-main-img" src="${currentModalImages[0]}" alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" onerror="this.src='assets/images/baia-de-castelhanos_verified.jpg'" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
         <!-- Prev / Next Slider Arrows -->
@@ -552,12 +632,18 @@ function openSpotModal(spotId) {
             ${diffLabel}
           </span>
           <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold">
-            ★ ${spot.rating} (${spot.reviews} avaliações)
+            ${typeof spot.rating === 'number' ? `${getRatingLabel(spot, true)} avaliações` : getRatingLabel(spot)}
           </span>
         </div>
         <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white leading-tight">${tr.title}</h2>
         <p class="text-xs text-white/80 line-clamp-1">${tr.subtitle}</p>
       </div>
+
+      ${spot.photoSource ? `
+        <a id="modal-photo-credit" href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-[10px] font-semibold text-white/90 hover:bg-black/75 transition-colors" onclick="event.stopPropagation()">
+          Foto: ${spot.photoCredit}
+        </a>
+      ` : ''}
 
       <!-- Favorite Button -->
       <button onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors z-20">
@@ -570,7 +656,7 @@ function openSpotModal(spotId) {
       <div class="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar" id="modal-thumbnails">
         ${currentModalImages.map((img, idx) => `
           <button onclick="setModalImage(${idx})" class="modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 ${idx === 0 ? 'border-primary scale-105' : 'border-transparent opacity-70 hover:opacity-100'} transition-all shadow-sm">
-            <img src="${img}" alt="" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none'" />
+            <img src="${img}" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none'" />
           </button>
         `).join('')}
       </div>

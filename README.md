@@ -8,16 +8,20 @@
 
 - 🗺️ **Mapa Interativo (Leaflet.js):**
   - Camadas alternáveis: Mapa Turístico (*CartoDB Voyager*), Satélite HD (*Esri World Imagery*) e Topográfico (*OpenTopoMap*).
-  - Marcadores animados com efeito halo de pulso e ícones temáticos por categoria.
+  - Navegação limitada ao arquipélago de Ilhabela, com botão de recentralização e escala métrica.
+  - Marcadores compactos com ícones temáticos por categoria e halo exibido somente na interação.
   - Hover no desktop e toque no celular com prévia rápida em card translúcido (*Glassmorphism*).
-- 📍 **Catálogo com 28 Atrações Detalhadas:**
+- 📍 **Catálogo com 38 Atrações Detalhadas:**
   - **10 Praias:** Bonete, Castelhanos, Fome, Julião, Curral, Feiticeira, Jabaquara, Armação, Veloso, Siriúba, Enchova, Indaiaúba.
   - **7 Cachoeiras:** Paquetá (piscina de borda infinita natural), Gato (40m), Três Tombos, Laje (tobogã de 30m), Toca (tobogã de 50m e alambique), Veloso e Friagem.
   - **3 Grandes Trilhas:** Trilha Tradicional do Bonete (12km), Trilha da Água Branca (auto-guiada com 5 poços) e Trilha do Farol da Ponta da Cabeçuda.
   - **3 Picos & Mirantes:** Pico do Baepi (1.048m, vista 360°), Pico de São Sebastião (1.378m, ponto mais alto da ilha) e Mirante do Coração de Castelhanos.
   - **2 Santuários de Baleias & Golfinhos:** Ponta da Sepituba (migração de Jubartes) e Rota dos Botos e Golfinhos do Canal.
   - **3 Pontos de Mergulho & Naufrágios:** Santuário Ecológico da Ilha das Cabras (Estátua de Netuno submersa), Naufrágio Príncipe de Astúrias e Vapor Aymoré.
+  - **Novos roteiros acessíveis e culturais:** Jabaquara, Feiticeira, Pedra do Sino, Perequê, Praia do Poço, Saco do Eustáquio, Piscinas Naturais do Sul, Centro Histórico, Fazenda Engenho D’Água e Mirante do Piúva.
+  - **Categorias próprias de Cultura & História e Mirantes**, com marcadores circulares dedicados.
 - 📋 **Ficha Técnica Individual:** Dificuldade (*Fácil, Moderado, Difícil, Extremo*), distância, duração, elevação, tipo de acesso, condições marítimas, quiosques, dicas ecológicas, dicas contra borrachudos e botão **Como Chegar** integrado ao Google Maps.
+- 📷 **Fotografia Curada:** imagens reais conferidas por atração, galerias dos destinos principais e crédito com acesso à fonte original.
 - 🧭 **Contratação de Guias Credenciados (CADASTUR):** Catálogo de especialistas locais com especialidades, idiomas, cálculo dinâmico de orçamento e agendamento instantâneo via WhatsApp.
 - 🌐 **Suporte Multilíngue a 5 Idiomas:**
   - 🇧🇷 Português (PT)
