@@ -44,9 +44,9 @@
   </script>
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="styles.css?v=3.0" />
 </head>
-<body class="bg-[#fbf9f4] text-[#1b1c19] min-h-screen pb-20 md:pb-0 antialiased selection:bg-[#004b63] selection:text-white">
+<body class="bg-[#fbf9f4] text-[#1b1c19] min-h-screen antialiased selection:bg-[#004b63] selection:text-white">
 
   <!-- TOP HEADER / NAV -->
   <header class="site-header fixed top-0 left-0 right-0 z-50 glass-panel border-b border-black/5 px-4 md:px-8 py-3.5 transition-all duration-300">
@@ -118,7 +118,7 @@
   </header>
 
   <!-- HERO SECTION -->
-  <section id="hero" class="relative pt-28 pb-16 md:pt-36 md:pb-24 overflow-hidden">
+  <section id="hero" class="relative pt-24 pb-12 md:pt-36 md:pb-24 overflow-hidden">
     <!-- Background Image & Gradient -->
     <div class="absolute inset-0 z-0">
       <img src="assets/images/mirante-do-coracao_verified.jpg" alt="Vista real da Baía de Castelhanos, em Ilhabela" class="w-full h-full object-cover object-center filter brightness-[0.92]" />
@@ -162,8 +162,8 @@
   </section>
 
   <!-- SEARCH & FILTER BAR (STICKY) -->
-  <section class="sticky top-[68px] z-40 px-4 md:px-8 py-3 bg-[#fbf9f4]/90 backdrop-blur-xl border-y border-black/5 shadow-sm">
-    <div class="max-w-7xl mx-auto space-y-3">
+  <section class="sticky-filter-bar px-3 sm:px-4 md:px-8 py-2.5 md:py-3">
+    <div class="max-w-7xl mx-auto space-y-2.5 md:space-y-3">
       
       <!-- Top Search & Quick Views -->
       <div class="flex flex-col sm:flex-row items-center gap-3">
@@ -185,12 +185,12 @@
         </div>
 
         <!-- View Switcher Tabs -->
-        <div class="flex items-center gap-1 bg-surface-container p-1 rounded-full border border-black/5 text-xs font-bold">
-          <button id="tab-map" onclick="setViewMode('map')" class="px-4 py-1.5 rounded-full bg-primary text-white shadow-sm flex items-center gap-1.5 transition-all">
+        <div class="view-switcher">
+          <button id="tab-map" onclick="setViewMode('map')" class="view-tab active">
             <span class="material-symbols-outlined text-[16px]">map</span>
             <span data-i18n="viewModeMap">Mapa</span>
           </button>
-          <button id="tab-grid" onclick="setViewMode('grid')" class="px-4 py-1.5 rounded-full text-on-surface-variant hover:text-primary flex items-center gap-1.5 transition-all">
+          <button id="tab-grid" onclick="setViewMode('grid')" class="view-tab">
             <span class="material-symbols-outlined text-[16px]">grid_view</span>
             <span data-i18n="viewModeGrid">Cartões</span>
           </button>
@@ -299,43 +299,44 @@
   </section>
 
   <!-- INTERACTIVE MAP & EXPLORATION SECTION -->
-  <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 space-y-12">
+  <main class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-5 md:py-8 space-y-10 md:space-y-12">
     
     <!-- MAP CONTAINER -->
     <section id="map-section" class="space-y-4">
-      <div class="flex items-center justify-between">
+      <!-- Spots count header -->
+      <div class="flex items-start sm:items-center justify-between gap-3 flex-wrap">
         <div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="navMap">
+          <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="navMap">
             Mapa Interativo de Ilhabela
           </h2>
-          <p class="text-sm text-on-surface-variant" id="results-text">
+          <p class="text-xs sm:text-sm text-on-surface-variant mt-0.5" id="results-text">
             <span id="results-count-num">12</span> <span data-i18n="resultsCount">pontos turísticos encontrados</span>
           </p>
-          <p class="mt-1 inline-flex items-center gap-1 text-[11px] font-semibold text-secondary">
-            <span class="material-symbols-outlined text-[14px]">lock</span>
+          <p class="mt-1 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+            <span class="material-symbols-outlined text-[13px]">lock</span>
             Navegação limitada ao arquipélago de Ilhabela
           </p>
         </div>
 
         <!-- Map Layer Switcher -->
-        <div class="flex items-center gap-1.5 bg-white/80 backdrop-blur-md p-1 rounded-xl border border-black/10 text-xs font-bold">
-          <button onclick="switchMapLayer('voyager')" id="layer-voyager" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all" data-i18n="layerStandard">Mapa</button>
-          <button onclick="switchMapLayer('satellite')" id="layer-satellite" class="px-3 py-1.5 rounded-lg bg-primary text-white transition-all" data-i18n="layerSatellite">Satélite HD</button>
-          <button onclick="switchMapLayer('topo')" id="layer-topo" class="px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all" data-i18n="layerTopo">Topográfico</button>
+        <div class="map-layer-switcher">
+          <button onclick="switchMapLayer('voyager')" id="layer-voyager" class="map-layer-btn" data-i18n="layerStandard">Mapa</button>
+          <button onclick="switchMapLayer('satellite')" id="layer-satellite" class="map-layer-btn active" data-i18n="layerSatellite">Satélite</button>
+          <button onclick="switchMapLayer('topo')" id="layer-topo" class="map-layer-btn" data-i18n="layerTopo">Topo</button>
         </div>
       </div>
 
       <!-- MAP FRAME -->
-      <div class="relative w-full h-[580px] md:h-[680px] rounded-3xl overflow-hidden shadow-2xl border border-black/10">
+      <div class="map-frame">
         <div id="map"></div>
 
-        <button onclick="resetMapView()" class="absolute top-4 right-4 z-[999] inline-flex items-center gap-1.5 px-3 py-2 rounded-xl bg-white/90 backdrop-blur-md border border-black/10 text-xs font-bold text-primary shadow-lg hover:bg-white transition-colors" aria-label="Voltar para a visão completa de Ilhabela">
+        <button onclick="resetMapView()" class="map-overlay-btn top-right" aria-label="Voltar para a visão completa de Ilhabela">
           <span class="material-symbols-outlined text-[16px]">center_focus_strong</span>
           <span class="hidden sm:inline">Ver toda Ilhabela</span>
         </button>
 
-        <!-- Map Quick Info Floating Box (Desktop & Mobile Interactive) -->
-        <div id="map-quick-card" class="hidden absolute bottom-6 left-6 right-6 md:right-auto md:w-96 z-[999] glass-panel rounded-2xl p-4 shadow-2xl border border-white/80 animate-fade-in">
+        <!-- Map Quick Info Floating Box -->
+        <div id="map-quick-card" class="hidden absolute glass-panel rounded-2xl p-4 shadow-2xl border border-white/80 animate-fade-in">
           <!-- Injected via JavaScript -->
         </div>
       </div>
@@ -353,28 +354,28 @@
       </div>
 
       <!-- Grid Cards Container -->
-      <div id="spots-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+      <div id="spots-grid" class="spots-grid">
         <!-- Rendered dynamically by app.js -->
       </div>
     </section>
 
     <!-- CERTIFIED LOCAL GUIDES SECTION -->
-    <section id="guides-section" class="pt-12 pb-16 border-t border-black/10 space-y-8">
+    <section id="guides-section" class="pt-10 md:pt-12 pb-16 border-t border-black/10 space-y-8">
       <div class="text-center max-w-2xl mx-auto space-y-3">
         <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container text-secondary text-xs font-bold uppercase tracking-wider">
           <span class="material-symbols-outlined text-[16px]">verified</span>
           <span data-i18n="verifiedBadge">CADASTUR Verificado</span>
         </div>
-        <h2 class="text-3xl md:text-4xl font-extrabold text-primary font-heading" data-i18n="guidesTitle">
+        <h2 class="text-2xl sm:text-3xl md:text-4xl font-extrabold text-primary font-heading" data-i18n="guidesTitle">
           Especialistas Locais Credenciados
         </h2>
-        <p class="text-base text-on-surface-variant" data-i18n="guidesSubtitle">
+        <p class="text-sm sm:text-base text-on-surface-variant" data-i18n="guidesSubtitle">
           Conecte-se com guias certificados pelo CADASTUR e Parque Estadual para experiências autênticas, seguras e personalizadas.
         </p>
       </div>
 
       <!-- Guides Grid -->
-      <div id="guides-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+      <div id="guides-grid" class="guides-grid">
         <!-- Rendered dynamically by app.js -->
       </div>
     </section>
@@ -382,26 +383,25 @@
   </main>
 
   <!-- MODAL 1: SPOT DETAIL MODAL / DRAWER -->
-  <div id="spot-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-    <div class="relative w-full max-w-3xl max-h-[90vh] overflow-y-auto glass-panel rounded-3xl p-6 md:p-8 shadow-2xl border border-white/80 space-y-6">
-      
+  <div id="spot-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="spot-modal-title">
+    <div class="modal-sheet">
+      <span class="modal-drag-handle" aria-hidden="true"></span>
       <!-- Close Button -->
-      <button onclick="closeSpotModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-primary transition-colors z-10">
+      <button onclick="closeSpotModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
 
       <!-- Modal Content Injected via JS -->
-      <div id="spot-modal-content" class="space-y-6"></div>
-
+      <div id="spot-modal-content" class="space-y-5"></div>
     </div>
   </div>
 
   <!-- MODAL 2: GUIDE BOOKING MODAL -->
-  <div id="booking-modal" class="fixed inset-0 z-[100] hidden items-center justify-center p-4 bg-black/60 backdrop-blur-sm animate-fade-in">
-    <div class="relative w-full max-w-xl max-h-[90vh] overflow-y-auto glass-panel rounded-3xl p-6 md:p-8 shadow-2xl border border-white/80 space-y-6">
-      
+  <div id="booking-modal" class="modal-overlay" role="dialog" aria-modal="true">
+    <div class="modal-sheet" style="max-width: min(100%, 520px); margin-inline: auto;">
+      <span class="modal-drag-handle" aria-hidden="true"></span>
       <!-- Close Button -->
-      <button onclick="closeBookingModal()" class="absolute top-6 right-6 w-10 h-10 rounded-full bg-black/5 hover:bg-black/10 flex items-center justify-center text-primary transition-colors z-10">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
 
@@ -498,21 +498,21 @@
   </div>
 
   <!-- MOBILE BOTTOM NAVIGATION -->
-  <nav class="md:hidden fixed bottom-0 left-0 right-0 z-50 glass-panel border-t border-black/10 py-2 px-6 flex items-center justify-around text-xs font-bold text-on-surface-variant">
-    <button onclick="setViewMode('map')" class="flex flex-col items-center gap-0.5 hover:text-primary">
-      <span class="material-symbols-outlined text-[20px]">map</span>
+  <nav class="md:hidden bottom-nav" id="bottom-nav" aria-label="Navegação principal">
+    <button onclick="setViewMode('map')" id="bn-map" class="bottom-nav-item active" aria-label="Mapa">
+      <span class="material-symbols-outlined nav-icon">map</span>
       <span data-i18n="navMap">Mapa</span>
     </button>
-    <button onclick="setViewMode('grid')" class="flex flex-col items-center gap-0.5 hover:text-primary">
-      <span class="material-symbols-outlined text-[20px]">grid_view</span>
+    <button onclick="setViewMode('grid')" id="bn-grid" class="bottom-nav-item" aria-label="Destinos">
+      <span class="material-symbols-outlined nav-icon">grid_view</span>
       <span data-i18n="navExplore">Destinos</span>
     </button>
-    <a href="#guides-section" class="flex flex-col items-center gap-0.5 hover:text-primary">
-      <span class="material-symbols-outlined text-[20px]">person_pin</span>
+    <a href="#guides-section" class="bottom-nav-item" aria-label="Guias">
+      <span class="material-symbols-outlined nav-icon">person_pin</span>
       <span data-i18n="navGuides">Guias</span>
     </a>
-    <button onclick="filterFavorites()" class="flex flex-col items-center gap-0.5 hover:text-red-500">
-      <span class="material-symbols-outlined text-[20px] text-red-500">favorite</span>
+    <button onclick="filterFavorites()" class="bottom-nav-item" id="bn-saved" aria-label="Salvos">
+      <span class="material-symbols-outlined nav-icon text-red-500">favorite</span>
       <span data-i18n="navSaved">Salvos</span>
     </button>
   </nav>
@@ -541,9 +541,9 @@
   </footer>
 
   <!-- Scripts with Cache Busting -->
-  <script src="translations.js?v=2.3"></script>
-  <script src="data.js?v=2.3"></script>
-  <script src="additional-spots.js?v=2.3"></script>
-  <script src="app.js?v=2.3"></script>
+  <script src="translations.js?v=3.0"></script>
+  <script src="data.js?v=3.0"></script>
+  <script src="additional-spots.js?v=3.0"></script>
+  <script src="app.js?v=3.0"></script>
 </body>
 </html>

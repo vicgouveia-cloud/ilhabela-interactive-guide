@@ -179,6 +179,16 @@ function initMap() {
   // Keep the initial and reset view focused on the municipality's archipelago.
   map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18] });
 
+  // Invalidate size on container resize (fixes mobile orientation change / layout shifts)
+  if (window.ResizeObserver) {
+    const mapEl = document.getElementById('map');
+    if (mapEl) {
+      new ResizeObserver(() => {
+        map.invalidateSize({ animate: false });
+      }).observe(mapEl.parentElement || mapEl);
+    }
+  }
+
   // Render Markers
   updateMapMarkers();
 }
@@ -200,11 +210,7 @@ function switchMapLayer(layerKey) {
   ['voyager', 'satellite', 'topo'].forEach(key => {
     const btn = document.getElementById(`layer-${key}`);
     if (btn) {
-      if (key === layerKey) {
-        btn.className = 'px-3 py-1.5 rounded-lg bg-primary text-white transition-all';
-      } else {
-        btn.className = 'px-3 py-1.5 rounded-lg text-on-surface-variant hover:text-primary transition-all';
-      }
+      btn.classList.toggle('active', key === layerKey);
     }
   });
 }
@@ -584,18 +590,23 @@ function setViewMode(mode) {
   const btnMap = document.getElementById('tab-map');
   const btnGrid = document.getElementById('tab-grid');
 
+  // Top tab buttons
   if (mode === 'map') {
-    if (mapSec) mapSec.classList.remove('hidden');
-    if (gridSec) gridSec.classList.remove('hidden');
-    if (btnMap) btnMap.className = 'px-4 py-1.5 rounded-full bg-primary text-white shadow-sm flex items-center gap-1.5 transition-all';
-    if (btnGrid) btnGrid.className = 'px-4 py-1.5 rounded-full text-on-surface-variant hover:text-primary flex items-center gap-1.5 transition-all';
-    if (map) map.invalidateSize();
-    mapSec.scrollIntoView({ behavior: 'smooth' });
+    if (btnMap) btnMap.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
+    if (btnGrid) btnGrid.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
+    if (map) { setTimeout(() => map.invalidateSize(), 120); }
+    if (mapSec) mapSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
   } else {
-    if (btnGrid) btnGrid.className = 'px-4 py-1.5 rounded-full bg-primary text-white shadow-sm flex items-center gap-1.5 transition-all';
-    if (btnMap) btnMap.className = 'px-4 py-1.5 rounded-full text-on-surface-variant hover:text-primary flex items-center gap-1.5 transition-all';
-    gridSec.scrollIntoView({ behavior: 'smooth' });
+    if (btnGrid) btnGrid.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
+    if (btnMap) btnMap.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
+    if (gridSec) gridSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
+
+  // Sync bottom nav active state (mobile)
+  const bnMap  = document.getElementById('bn-map');
+  const bnGrid = document.getElementById('bn-grid');
+  if (bnMap)  bnMap.classList.toggle('active', mode === 'map');
+  if (bnGrid) bnGrid.classList.toggle('active', mode === 'grid');
 }
 
 
