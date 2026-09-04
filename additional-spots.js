@@ -125,7 +125,7 @@ const localRecommendations = {
       tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'],
       whatsapp: '12974017333',
       whatsappDisplay: '+55 (12) 97401-7333',
-      image: ''
+      image: 'assets/images/chagas-passeios.jpg'
     }
   ],
 
