@@ -115,8 +115,22 @@ touristSpots.push(...additionalTouristSpots);
 
 // Recomendações locais por atração. A atração continua sendo o conteúdo principal.
 const localRecommendations = {
+  'praia-do-veloso': [
+    {
+      category: 'tour',
+      type: 'Passeios e ecoturismo',
+      name: 'Chagas Passeios',
+      tagline: 'Nascida na Praia do Veloso em 2009',
+      description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.',
+      tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'],
+      whatsapp: '12974017333',
+      whatsappDisplay: '+55 (12) 97401-7333',
+      image: ''
+    }
+  ],
+
   'praia-do-portinho': [
-    { category: 'tour', type: 'Passeios e atividades', name: 'Portinho Passeios', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'], whatsapp: '19991536623', whatsappDisplay: '(19) 99153-6623', instagram: '@portinhopasseios', url: 'http://www.portinhopasseios.com.br', image: 'assets/images/portinho-passeios.jpg' },
+    { category: 'tour', type: 'Passeios e atividades', name: 'Portinho Passeios', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'], whatsapp: '19991536623', whatsappDisplay: '(19) 99153-6623', instagram: '@portinhopasseios', url: 'http://www.portinhopasseios.com.br', image: '' },
     { category: 'food', type: 'Alimentação e bebidas', name: 'Quiosque Maxx Beach', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas'], highlightTitle: 'Destaque editorial', highlightDesc: 'Caipirinha com folhas de mexerica', whatsapp: '11912586558', whatsappDisplay: '(11) 91258-6558', image: 'assets/images/maxx-beach.jpg' },
     { category: 'diving', type: 'Mergulho', name: 'Portinho Divers', description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.', features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes'], whatsapp: '12987046807', whatsappDisplay: '(12) 98704-6807', url: 'https://mergulhoilhabela.com.br', image: 'assets/images/portinho-divers.jpg' }
   ]
@@ -127,36 +141,3 @@ const localAccommodations = {
     { category: 'stay', type: 'Hospedagem recomendada', name: 'La Gloria House', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'], whatsapp: '11975199989', whatsappDisplay: '(11) 97519-9989', url: 'https://lagloriahouse.com.br', image: 'assets/images/la-gloria-house.jpg' }
   ]
 };
-
-function renderLocalRecommendationsFixed(spotId) {
-  const recs = localRecommendations[spotId] || [];
-  const stays = localAccommodations[spotId] || [];
-  if (!recs.length && !stays.length) return '';
-
-  const spot = touristSpots.find(item => item.id === spotId);
-  const spotTitle = spot ? (getSpotTranslation(spot).title || 'atração') : 'atração';
-  const renderTags = items => items?.length ? `<div class="flex flex-wrap gap-1.5 pt-1">${items.map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="material-symbols-outlined text-[12px] text-primary align-middle mr-0.5">check</span>${item}</span>`).join('')}</div>` : '';
-  const whatsappLink = item => item.whatsapp ? `<a href="https://wa.me/55${item.whatsapp}?text=${encodeURIComponent('Olá, vim pelo Ilhabela Guide!')}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">chat</span><span>${item.whatsappDisplay || 'WhatsApp'}</span></a>` : '';
-  const siteLink = item => item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">language</span><span>Acessar site</span></a>` : '';
-
-  let html = '';
-  if (recs.length) {
-    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Serviços e atividades na ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Conheça os serviços locais para aproveitar ainda mais sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
-    html += recs.map(rec => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${rec.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>${rec.tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${rec.tagline}</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${rec.description}</p>${rec.highlightTitle ? `<div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary"><span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${rec.highlightTitle}</span><span class="text-xs font-semibold text-on-surface-variant">${rec.highlightDesc}</span></div>` : ''}${renderTags(rec.features || rec.tags)}${rec.alsoOffers?.length ? `<p class="text-[11px] text-on-surface-variant"><strong>Também oferece:</strong> ${rec.alsoOffers.join('; ')}.</p>` : ''}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(rec)}${rec.instagram ? `<a href="https://instagram.com/${rec.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span>@</span><span>Instagram</span></a>` : ''}${siteLink(rec)}</div></div></article>`).join('');
-    html += '</div></section>';
-  }
-
-  if (stays.length) {
-    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Onde ficar perto da ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Hospedagem recomendada para a sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
-    html += stays.map(stay => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${stay.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4><p class="text-xs text-on-surface-variant leading-relaxed mt-1.5">${stay.description}</p></div>${renderTags(stay.features)}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(stay)}${siteLink(stay)}</div></div></article>`).join('');
-    html += '</div></section>';
-  }
-
-  return html;
-}
-
-// app.js ainda contém o renderer criado no primeiro commit. Sobrescrevemos a função
-// após o carregamento completo para manter o restante do app intacto e eliminar os textos corrompidos.
-window.addEventListener('load', () => {
-  window.renderLocalRecommendations = renderLocalRecommendationsFixed;
-}, { once: true });
