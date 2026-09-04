@@ -767,6 +767,8 @@ function openSpotModal(spotId) {
       </div>
     </div>
 
+    ${renderLocalRecommendations(spot.id)}
+
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
       <a href="https://www.google.com/maps/dir/?api=1&destination=${spot.coords[0]},${spot.coords[1]}" target="_blank" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
@@ -991,4 +993,143 @@ function submitBooking(event) {
   // Open WhatsApp in new tab
   window.open(encodedUrl, '_blank');
   closeBookingModal();
+}
+function renderLocalRecommendations(spotId) {
+  let html = '';
+  
+  // 1. Servi�os e Atividades
+  if (typeof localRecommendations !== 'undefined' && localRecommendations[spotId] && localRecommendations[spotId].length > 0) {
+    const recs = localRecommendations[spotId];
+    html += `
+    <div class="pt-6 border-t border-black/10 mt-6 space-y-4">
+      <div>
+        <h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Servi�os e Atividades na ${t('title')}</h3>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-1">Conhe�a os servi�os locais para aproveitar ainda mais sua visita.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-5">
+    `;
+    
+    recs.forEach(rec => {
+      html += `
+        <div class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group">
+          <div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">
+            <img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">
+              ${rec.type}
+            </div>
+          </div>
+          <div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3">
+            <div>
+              <h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>
+              ${rec.tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${rec.tagline}</p>` : ''}
+            </div>
+            
+            <p class="text-xs text-on-surface-variant leading-relaxed">${rec.description}</p>
+            
+            ${rec.highlightTitle ? `
+              <div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary">
+                <span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${rec.highlightTitle}</span>
+                <span class="text-xs font-semibold text-on-surface-variant">${rec.highlightDesc}</span>
+              </div>
+            ` : ''}
+
+            ${rec.features ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${rec.features.map(f => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="text-primary mr-1 opacity-70">�</span>${f}</span>`).join('')}
+              </div>
+            ` : ''}
+            
+            ${rec.alsoOffers ? `
+              <div class="text-[11px] text-on-surface-variant mt-1">
+                <span class="font-bold">Tamb�m oferece:</span> ${rec.alsoOffers.join('; ')}.
+              </div>
+            ` : ''}
+            
+            ${rec.tags ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${rec.tags.map(t => `<span class="px-2 py-1 rounded-md bg-secondary-container/30 text-[10px] font-bold text-secondary border border-secondary/20 whitespace-nowrap">#${t}</span>`).join('')}
+              </div>
+            ` : ''}
+
+            <div class="flex flex-wrap gap-2 pt-2 mt-auto">
+              ${rec.whatsapp ? `
+                <a href="https://wa.me/55${rec.whatsapp}?text=Ol�,%20vim%20pelo%20Ilhabela%20Guide!" target="_blank" class="flex-1 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors">
+                  <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>${rec.whatsappDisplay || 'WhatsApp'}</span>
+                </a>
+              ` : ''}
+              ${rec.instagram ? `
+                <a href="https://instagram.com/${rec.instagram.replace('@', '')}" target="_blank" class="py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-pink-600 text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors">
+                  <span class="text-base leading-none">@</span>
+                  <span>Instagram</span>
+                </a>
+              ` : ''}
+              ${rec.url ? `
+                <a href="${rec.url}" target="_blank" class="py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">language</span>
+                  <span>Acessar Site</span>
+                </a>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    html += `</div></div>`;
+  }
+
+  // 2. Hospedagem
+  if (typeof localAccommodations !== 'undefined' && localAccommodations[spotId] && localAccommodations[spotId].length > 0) {
+    const stays = localAccommodations[spotId];
+    html += `
+    <div class="pt-6 border-t border-black/10 mt-6 space-y-4">
+      <div>
+        <h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Onde ficar perto da ${t('title')}</h3>
+        <p class="text-xs md:text-sm text-on-surface-variant mt-1">Hospedagem recomendada para a sua visita.</p>
+      </div>
+      <div class="grid grid-cols-1 gap-5">
+    `;
+    
+    stays.forEach(stay => {
+      html += `
+        <div class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group">
+          <div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">
+            <img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy">
+            <div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">
+              ${stay.type}
+            </div>
+          </div>
+          <div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3">
+            <h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4>
+            
+            ${stay.features ? `
+              <div class="flex flex-wrap gap-1.5 pt-1">
+                ${stay.features.map(f => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="text-primary mr-1 opacity-70">�</span>${f}</span>`).join('')}
+              </div>
+            ` : ''}
+
+            <div class="flex flex-wrap gap-2 pt-2 mt-auto">
+              ${stay.url ? `
+                <a href="${stay.url}" target="_blank" class="flex-1 py-2.5 px-4 rounded-xl bg-primary hover:bg-primary-container text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors">
+                  <span class="material-symbols-outlined text-[16px]">hotel</span>
+                  <span>Ver hospedagem e Reservar</span>
+                </a>
+              ` : ''}
+              ${stay.whatsapp ? `
+                <a href="https://wa.me/55${stay.whatsapp}" target="_blank" class="py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-[#1EBE5D] text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors">
+                  <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/></svg>
+                  <span>D�vidas?</span>
+                </a>
+              ` : ''}
+            </div>
+          </div>
+        </div>
+      `;
+    });
+    
+    html += `</div></div>`;
+  }
+  
+  return html;
 }
