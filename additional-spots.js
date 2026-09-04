@@ -1,5 +1,5 @@
 // Pontos complementares selecionados para equilibrar natureza, cultura,
-// acessibilidade e experiÃªncias urbanas no guia.
+// acessibilidade e experiências urbanas no guia.
 const additionalTouristSpots = [
   {
     id: 'praia-do-jabaquara', category: 'praias', coords: [-23.7362563, -45.2929289], rating: null, reviews: 0,
@@ -7,62 +7,62 @@ const additionalTouristSpots = [
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-jabaquara',
     tags: ['Preservada', 'Mirante', 'Acesso por estrada'],
     attributes: { isDiving: true, isSunset: false, isKiosk: true, isWild: true, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '18 km da balsa', duration: '45 min de carro', elevation: 'NÃ­vel do mar', access: 'Estrada asfaltada e trecho final de terra', sea: 'Ãguas claras; atenÃ§Ã£o Ã s condiÃ§Ãµes do dia', structure: 'Quiosques, restaurantes e estacionamento limitado' },
-    translations: { pt: { title: 'Praia do Jabaquara', subtitle: 'A Ãºltima grande praia do norte acessÃ­vel por estrada', description: 'Uma das praias mais preservadas e fotogÃªnicas de Ilhabela, com areia clara, dois riachos e um mirante panorÃ¢mico antes da descida.', highlights: ['Mirante na estrada', 'Riachos junto Ã  praia', 'Boa opÃ§Ã£o para famÃ­lias', 'Paisagem preservada'], ecoTip: 'NÃ£o estacione sobre a vegetaÃ§Ã£o e leve seu lixo de volta.' } }
+    specs: { difficulty: 'easy', distance: '18 km da balsa', duration: '45 min de carro', elevation: 'Nível do mar', access: 'Estrada asfaltada e trecho final de terra', sea: 'Águas claras; atenção às condições do dia', structure: 'Quiosques, restaurantes e estacionamento limitado' },
+    translations: { pt: { title: 'Praia do Jabaquara', subtitle: 'A última grande praia do norte acessível por estrada', description: 'Uma das praias mais preservadas e fotogênicas de Ilhabela, com areia clara, dois riachos e um mirante panorâmico antes da descida.', highlights: ['Mirante na estrada', 'Riachos junto à praia', 'Boa opção para famílias', 'Paisagem preservada'], ecoTip: 'Não estacione sobre a vegetação e leve seu lixo de volta.' } }
   },
   {
     id: 'praia-da-feiticeira', category: 'praias', coords: [-23.8453728, -45.4088248], rating: null, reviews: 0,
     image: 'assets/images/praia-da-feiticeira_verified.jpg', images: ['assets/images/praia-da-feiticeira_verified.jpg'],
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-da-feiticeira',
-    tags: ['FamÃ­lia', 'Casario histÃ³rico', 'Sul da ilha'],
+    tags: ['Família', 'Casario histórico', 'Sul da ilha'],
     attributes: { isDiving: true, isSunset: true, isKiosk: false, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '6 km da balsa', duration: '15 min de carro', elevation: 'NÃ­vel do mar', access: 'Pequena trilha a partir da avenida', sea: 'Geralmente tranquilo, com profundidade gradual', structure: 'Sem quiosques fixos; serviÃ§os nas proximidades' },
-    translations: { pt: { title: 'Praia da Feiticeira', subtitle: 'Praia charmosa com casario colonial e lendas locais', description: 'Uma praia conhecida do sul da ilha, cercada por vegetaÃ§Ã£o e marcada pelo antigo casarÃ£o colonial em sua extremidade.', highlights: ['Casario colonial', 'Mar para banho', 'Acesso relativamente fÃ¡cil', 'Lendas de Ilhabela'], ecoTip: 'Use os acessos oficiais e respeite as propriedades vizinhas.' } }
+    specs: { difficulty: 'easy', distance: '6 km da balsa', duration: '15 min de carro', elevation: 'Nível do mar', access: 'Pequena trilha a partir da avenida', sea: 'Geralmente tranquilo, com profundidade gradual', structure: 'Sem quiosques fixos; serviços nas proximidades' },
+    translations: { pt: { title: 'Praia da Feiticeira', subtitle: 'Praia charmosa com casario colonial e lendas locais', description: 'Uma praia conhecida do sul da ilha, cercada por vegetação e marcada pelo antigo casarão colonial em sua extremidade.', highlights: ['Casario colonial', 'Mar para banho', 'Acesso relativamente fácil', 'Lendas de Ilhabela'], ecoTip: 'Use os acessos oficiais e respeite as propriedades vizinhas.' } }
   },
   {
     id: 'praia-do-sino', category: 'praias', coords: [-23.7480131, -45.3477460], rating: null, reviews: 0,
     image: 'assets/images/praia-do-sino_verified.jpg', images: ['assets/images/praia-do-sino_verified.jpg'],
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-sino-garapocaia',
-    tags: ['FamÃ­lia', 'Pedra do Sino', 'Caiaque'],
+    tags: ['Família', 'Pedra do Sino', 'Caiaque'],
     attributes: { isDiving: false, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '12 km da balsa', duration: '30 min de carro', elevation: 'NÃ­vel do mar', access: 'Avenida principal, Ã´nibus ou carro', sea: 'Raso e geralmente calmo', structure: 'Quiosques, aluguel de equipamentos e estacionamento' },
-    translations: { pt: { title: 'Praia do Sino â Garapocaia', subtitle: 'Pedras sonoras e mar tranquilo para toda a famÃ­lia', description: 'A famosa Pedra do Sino divide a atenÃ§Ã£o com uma praia rasa e calma, muito procurada por famÃ­lias, caiaques e stand up paddle.', highlights: ['Pedras que produzem som metÃ¡lico', 'Mar raso', 'Boa estrutura', 'Esportes nÃ¡uticos'], ecoTip: 'NÃ£o risque nem danifique as pedras; preserve a formaÃ§Ã£o natural.' } }
+    specs: { difficulty: 'easy', distance: '12 km da balsa', duration: '30 min de carro', elevation: 'Nível do mar', access: 'Avenida principal, ônibus ou carro', sea: 'Raso e geralmente calmo', structure: 'Quiosques, aluguel de equipamentos e estacionamento' },
+    translations: { pt: { title: 'Praia do Sino — Garapocaia', subtitle: 'Pedras sonoras e mar tranquilo para toda a família', description: 'A famosa Pedra do Sino divide a atenção com uma praia rasa e calma, muito procurada por famílias, caiaques e stand up paddle.', highlights: ['Pedras que produzem som metálico', 'Mar raso', 'Boa estrutura', 'Esportes náuticos'], ecoTip: 'Não risque nem danifique as pedras; preserve a formação natural.' } }
   },
   {
     id: 'centro-historico-vila', category: 'cultura', coords: [-23.7789503, -45.3589133], rating: null, reviews: 0,
     image: 'assets/images/centro-historico_verified.jpg', images: ['assets/images/centro-historico_verified.jpg'],
     photoCredit: 'Sectur Ilhabela', photoSource: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15433/centro-historico-de-ilhabela-cultura-gastronomia-e-paisagens-em-um-so-lugar',
-    tags: ['HistÃ³ria', 'Gastronomia', 'Vida noturna'],
+    tags: ['História', 'Gastronomia', 'Vida noturna'],
     attributes: { isDiving: false, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '6 km da balsa', duration: '2 h a meio dia', elevation: 'Trechos planos', access: 'Carro, Ã´nibus, bicicleta ou tÃ¡xi', sea: 'Orla protegida do canal', structure: 'Museus, igreja, pÃ­er, lojas, cafÃ©s e restaurantes' },
-    translations: { pt: { title: 'Centro HistÃ³rico â Vila', subtitle: 'O coraÃ§Ã£o cultural, gastronÃ´mico e noturno de Ilhabela', description: 'Um passeio que reÃºne a Rua do Meio, a Igreja Nossa Senhora DâAjuda, o Museu NÃ¡utico, o pÃ­er e construÃ§Ãµes que contam a histÃ³ria da antiga Vila Bela da Princesa.', highlights: ['Rua do Meio', 'Igreja Nossa Senhora DâAjuda', 'Museu NÃ¡utico', 'Restaurantes e vida noturna'], ecoTip: 'Priorize o deslocamento a pÃ© pela Vila e descarte resÃ­duos nos pontos adequados.' } }
+    specs: { difficulty: 'easy', distance: '6 km da balsa', duration: '2 h a meio dia', elevation: 'Trechos planos', access: 'Carro, ônibus, bicicleta ou táxi', sea: 'Orla protegida do canal', structure: 'Museus, igreja, píer, lojas, cafés e restaurantes' },
+    translations: { pt: { title: 'Centro Histórico — Vila', subtitle: 'O coração cultural, gastronômico e noturno de Ilhabela', description: 'Um passeio que reúne a Rua do Meio, a Igreja Nossa Senhora D’Ajuda, o Museu Náutico, o píer e construções que contam a história da antiga Vila Bela da Princesa.', highlights: ['Rua do Meio', 'Igreja Nossa Senhora D’Ajuda', 'Museu Náutico', 'Restaurantes e vida noturna'], ecoTip: 'Priorize o deslocamento a pé pela Vila e descarte resíduos nos pontos adequados.' } }
   },
   {
     id: 'fazenda-engenho-dagua', category: 'cultura', coords: [-23.7923142, -45.3640274], rating: null, reviews: 0,
     image: 'assets/images/fazenda-engenho-dagua_verified.jpg', images: ['assets/images/fazenda-engenho-dagua_verified.jpg'],
     photoCredit: 'Prefeitura de Ilhabela', photoSource: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/17580/fazenda-engenho-dagua-em-ilhabela-um-lugar-de-historia-cultura-e-memoria-preservadas/',
-    tags: ['PatrimÃ´nio', 'Museu', 'Arquitetura colonial'],
+    tags: ['Patrimônio', 'Museu', 'Arquitetura colonial'],
     attributes: { isDiving: false, isSunset: false, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a 2 h', elevation: 'Terreno quase plano', access: 'Avenida principal, carro, Ã´nibus ou bicicleta', sea: 'NÃ£o se aplica', structure: 'Museu, cafÃ© e programaÃ§Ã£o cultural variÃ¡vel' },
-    translations: { pt: { title: 'Fazenda Engenho DâÃgua', subtitle: 'PatrimÃ´nio colonial e memÃ³ria afro-brasileira', description: 'Antigo centro produtor de aÃ§Ãºcar e aguardente, hoje preservado como patrimÃ´nio histÃ³rico, espaÃ§o cultural e sede do Museu da Cultura Afro-Brasileira.', highlights: ['Arquitetura colonial', 'Museu da Cultura Afro-Brasileira', 'CafÃ© do Engenho', 'Eventos culturais'], ecoTip: 'Respeite as Ã¡reas sinalizadas e nÃ£o toque nas peÃ§as histÃ³ricas.' } }
+    specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a 2 h', elevation: 'Terreno quase plano', access: 'Avenida principal, carro, ônibus ou bicicleta', sea: 'Não se aplica', structure: 'Museu, café e programação cultural variável' },
+    translations: { pt: { title: 'Fazenda Engenho D’Água', subtitle: 'Patrimônio colonial e memória afro-brasileira', description: 'Antigo centro produtor de açúcar e aguardente, hoje preservado como patrimônio histórico, espaço cultural e sede do Museu da Cultura Afro-Brasileira.', highlights: ['Arquitetura colonial', 'Museu da Cultura Afro-Brasileira', 'Café do Engenho', 'Eventos culturais'], ecoTip: 'Respeite as áreas sinalizadas e não toque nas peças históricas.' } }
   },
   {
     id: 'mirante-do-piuva', category: 'mirantes', coords: [-23.8258167, -45.3840197], rating: null, reviews: 0,
     image: 'assets/images/mirante-do-piuva_verified.jpg', images: ['assets/images/mirante-do-piuva_verified.jpg'],
     photoCredit: 'Prefeitura de Ilhabela', photoSource: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15401/10-mirantes-de-ilhabela-para-apreciar-a-vista-do-arquipelago',
-    tags: ['PÃ´r do sol', 'Acesso fÃ¡cil', 'Fotografia'],
+    tags: ['Pôr do sol', 'Acesso fácil', 'Fotografia'],
     attributes: { isDiving: false, isSunset: true, isKiosk: false, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '2,5 km da balsa', duration: '20 a 40 min', elevation: 'Mirante rodoviÃ¡rio', access: 'Carro, bicicleta ou caminhada', sea: 'Vista para o Canal de SÃ£o SebastiÃ£o', structure: 'Parada breve com letreiro turÃ­stico' },
-    translations: { pt: { title: 'Mirante do PiÃºva', subtitle: 'PÃ´r do sol com vista para o canal e a Ilha das Cabras', description: 'Uma parada rÃ¡pida e acessÃ­vel logo ao sul da balsa, com vista ampla do canal, do continente e da Ilha das Cabras.', highlights: ['Letreiro de Ilhabela', 'PÃ´r do sol', 'Vista do canal', 'PrÃ³ximo Ã  balsa'], ecoTip: 'Pare somente em local permitido e nÃ£o caminhe pela pista.' } }
+    specs: { difficulty: 'easy', distance: '2,5 km da balsa', duration: '20 a 40 min', elevation: 'Mirante rodoviário', access: 'Carro, bicicleta ou caminhada', sea: 'Vista para o Canal de São Sebastião', structure: 'Parada breve com letreiro turístico' },
+    translations: { pt: { title: 'Mirante do Piúva', subtitle: 'Pôr do sol com vista para o canal e a Ilha das Cabras', description: 'Uma parada rápida e acessível logo ao sul da balsa, com vista ampla do canal, do continente e da Ilha das Cabras.', highlights: ['Letreiro de Ilhabela', 'Pôr do sol', 'Vista do canal', 'Próximo à balsa'], ecoTip: 'Pare somente em local permitido e não caminhe pela pista.' } }
   },
   {
     id: 'saco-do-eustaquio', category: 'praias', coords: [-23.8358333, -45.2386111], rating: null, reviews: 0,
     image: 'assets/images/saco-do-eustaquio_verified.jpg', images: ['assets/images/saco-do-eustaquio_verified.jpg'],
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-saco-do-eustaquio/',
-    tags: ['Barco', 'Snorkel', 'Comunidade caiÃ§ara'],
+    tags: ['Barco', 'Snorkel', 'Comunidade caiçara'],
     attributes: { isDiving: true, isSunset: false, isKiosk: true, isWild: true, isFamily: true, isSurf: false, is4x4: true },
-    specs: { difficulty: 'moderate', distance: 'Acesso marÃ­timo', duration: 'Passeio de meio dia ou dia inteiro', elevation: 'NÃ­vel do mar', access: 'Barco ou lancha', sea: 'Abrigado, calmo e transparente', structure: 'Pequena comunidade com alimentaÃ§Ã£o caiÃ§ara' },
-    translations: { pt: { title: 'Saco do EustÃ¡quio', subtitle: 'Ãguas cristalinas e parada clÃ¡ssica dos passeios de barco', description: 'Uma enseada protegida na costa leste, conhecida pela transparÃªncia da Ã¡gua, mergulho livre e acolhimento da pequena comunidade caiÃ§ara.', highlights: ['Ãgua cristalina', 'Snorkel', 'Passeio de barco', 'Cultura caiÃ§ara'], ecoTip: 'NÃ£o ancore sobre corais e mantenha distÃ¢ncia das redes de pesca.' } }
+    specs: { difficulty: 'moderate', distance: 'Acesso marítimo', duration: 'Passeio de meio dia ou dia inteiro', elevation: 'Nível do mar', access: 'Barco ou lancha', sea: 'Abrigado, calmo e transparente', structure: 'Pequena comunidade com alimentação caiçara' },
+    translations: { pt: { title: 'Saco do Eustáquio', subtitle: 'Águas cristalinas e parada clássica dos passeios de barco', description: 'Uma enseada protegida na costa leste, conhecida pela transparência da água, mergulho livre e acolhimento da pequena comunidade caiçara.', highlights: ['Água cristalina', 'Snorkel', 'Passeio de barco', 'Cultura caiçara'], ecoTip: 'Não ancore sobre corais e mantenha distância das redes de pesca.' } }
   },
   {
     id: 'praia-do-pereque', category: 'praias', coords: [-23.8096508, -45.3658706], rating: null, reviews: 0,
@@ -70,8 +70,8 @@ const additionalTouristSpots = [
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-pereque',
     tags: ['Urbana', 'Ciclovia', 'Gastronomia'],
     attributes: { isDiving: false, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '2 km da balsa', duration: '1 h a meio dia', elevation: 'Orla plana', access: 'Carro, Ã´nibus, bicicleta ou caminhada', sea: 'Canal geralmente calmo', structure: 'Restaurantes, comÃ©rcio, ciclovia e esportes nÃ¡uticos' },
-    translations: { pt: { title: 'Praia do PerequÃª', subtitle: 'A base urbana para comeÃ§ar a explorar Ilhabela', description: 'Uma praia central com ciclovia, comÃ©rcio, restaurantes e atividades nÃ¡uticas. Ã tambÃ©m onde fica a rÃ©plica da baleia Pipoca.', highlights: ['Ciclovia Ã  beira-mar', 'RÃ©plica da baleia Pipoca', 'Restaurantes', 'FÃ¡cil acesso'], ecoTip: 'Use a ciclovia e os pontos de coleta disponÃ­veis na orla.' } }
+    specs: { difficulty: 'easy', distance: '2 km da balsa', duration: '1 h a meio dia', elevation: 'Orla plana', access: 'Carro, ônibus, bicicleta ou caminhada', sea: 'Canal geralmente calmo', structure: 'Restaurantes, comércio, ciclovia e esportes náuticos' },
+    translations: { pt: { title: 'Praia do Perequê', subtitle: 'A base urbana para começar a explorar Ilhabela', description: 'Uma praia central com ciclovia, comércio, restaurantes e atividades náuticas. É também onde fica a réplica da baleia Pipoca.', highlights: ['Ciclovia à beira-mar', 'Réplica da baleia Pipoca', 'Restaurantes', 'Fácil acesso'], ecoTip: 'Use a ciclovia e os pontos de coleta disponíveis na orla.' } }
   },
   {
     id: 'praia-do-poco', category: 'praias', coords: [-23.7576167, -45.2560667], rating: null, reviews: 0,
@@ -79,8 +79,8 @@ const additionalTouristSpots = [
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-poco',
     tags: ['Remota', 'Cachoeira', 'Barco'],
     attributes: { isDiving: true, isSunset: false, isKiosk: false, isWild: true, isFamily: false, isSurf: false, is4x4: true },
-    specs: { difficulty: 'hard', distance: 'Trilha longa ou acesso marÃ­timo', duration: 'Dia inteiro', elevation: 'Trechos de trilha irregulares', access: 'Preferencialmente barco; trilha somente com guia', sea: 'Enseada abrigada em condiÃ§Ãµes favorÃ¡veis', structure: 'Sem estrutura comercial' },
-    translations: { pt: { title: 'Praia do PoÃ§o', subtitle: 'Onde a cachoeira encontra o mar em uma praia remota', description: 'Uma praia isolada do norte com rio, pequena cachoeira e lagoa de Ã¡gua doce, indicada para passeios marÃ­timos ou trilhas acompanhadas.', highlights: ['Lagoa de Ã¡gua doce', 'Cachoeira na praia', 'Mergulho livre', 'Paisagem remota'], ecoTip: 'FaÃ§a a trilha apenas com guia experiente e nunca deixe resÃ­duos no local.' } }
+    specs: { difficulty: 'hard', distance: 'Trilha longa ou acesso marítimo', duration: 'Dia inteiro', elevation: 'Trechos de trilha irregulares', access: 'Preferencialmente barco; trilha somente com guia', sea: 'Enseada abrigada em condições favoráveis', structure: 'Sem estrutura comercial' },
+    translations: { pt: { title: 'Praia do Poço', subtitle: 'Onde a cachoeira encontra o mar em uma praia remota', description: 'Uma praia isolada do norte com rio, pequena cachoeira e lagoa de água doce, indicada para passeios marítimos ou trilhas acompanhadas.', highlights: ['Lagoa de água doce', 'Cachoeira na praia', 'Mergulho livre', 'Paisagem remota'], ecoTip: 'Faça a trilha apenas com guia experiente e nunca deixe resíduos no local.' } }
   },
   {
     id: 'piscinas-naturais-do-sul', category: 'trilhas', coords: [-23.8929458, -45.4604399], rating: null, reviews: 0,
@@ -88,43 +88,75 @@ const additionalTouristSpots = [
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/trilhas/piscinas-naturais/',
     tags: ['Piscina natural', 'Costeira', 'Fotografia'],
     attributes: { isDiving: false, isSunset: true, isKiosk: false, isWild: true, isFamily: false, isSurf: false, is4x4: false },
-    specs: { difficulty: 'moderate', distance: 'Trilha curta sobre costeira', duration: '1 h a 2 h', elevation: 'Trechos sobre pedras', access: 'PortÃ£o sinalizado e caminhada pela costeira', sea: 'Visite somente com mar calmo e tempo firme', structure: 'Sem estrutura; propriedade particular no acesso' },
-    translations: { pt: { title: 'Piscinas Naturais do Sul', subtitle: 'PoÃ§o de Ã¡gua salgada entre as pedras da costeira', description: 'Uma formaÃ§Ã£o rochosa que cria uma piscina natural voltada para o sul. O acesso exige calÃ§ado adequado e avaliaÃ§Ã£o cuidadosa do mar.', highlights: ['FormaÃ§Ã£o rochosa singular', 'Vista para Alcatrazes', 'Ãgua transparente', 'Fotografia'], ecoTip: 'NÃ£o visite com mar agitado, chuva ou pedras molhadas; use tÃªnis e respeite os moradores.' } }
+    specs: { difficulty: 'moderate', distance: 'Trilha curta sobre costeira', duration: '1 h a 2 h', elevation: 'Trechos sobre pedras', access: 'Portão sinalizado e caminhada pela costeira', sea: 'Visite somente com mar calmo e tempo firme', structure: 'Sem estrutura; propriedade particular no acesso' },
+    translations: { pt: { title: 'Piscinas Naturais do Sul', subtitle: 'Poço de água salgada entre as pedras da costeira', description: 'Uma formação rochosa que cria uma piscina natural voltada para o sul. O acesso exige calçado adequado e avaliação cuidadosa do mar.', highlights: ['Formação rochosa singular', 'Vista para Alcatrazes', 'Água transparente', 'Fotografia'], ecoTip: 'Não visite com mar agitado, chuva ou pedras molhadas; use tênis e respeite os moradores.' } }
   },
   {
     id: 'praia-grande', category: 'praias', coords: [-23.8577515, -45.4163499], rating: null, reviews: 0,
     image: 'assets/images/praia-grande_verified.jpg', images: ['assets/images/praia-grande_verified.jpg'],
     photoCredit: 'Acervo Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-grande/',
-    tags: ['FamÃ­lia', 'Estrutura completa', 'Esportes'],
+    tags: ['Família', 'Estrutura completa', 'Esportes'],
     attributes: { isDiving: false, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '7 km da balsa', duration: '1 h a meio dia', elevation: 'Orla plana', access: 'Carro, Ã´nibus ou bicicleta pela avenida', sea: 'Praia de tombo; atenÃ§Ã£o com crianÃ§as', structure: 'CalÃ§adÃ£o, restaurantes, quadras, duchas e estacionamento' },
-    translations: { pt: { title: 'Praia Grande', subtitle: 'Uma das praias mais completas e acessÃ­veis do sul', description: 'Com cerca de 600 metros de faixa de areia, Ã© uma escolha prÃ¡tica para famÃ­lias e grupos que procuram mar, alimentaÃ§Ã£o e esportes no mesmo lugar.', highlights: ['Ampla faixa de areia', 'Quadras e calÃ§adÃ£o', 'Restaurantes', 'FÃ¡cil acesso'], ecoTip: 'Observe as condiÃ§Ãµes do mar e descarte resÃ­duos nos coletores da orla.' } }
+    specs: { difficulty: 'easy', distance: '7 km da balsa', duration: '1 h a meio dia', elevation: 'Orla plana', access: 'Carro, ônibus ou bicicleta pela avenida', sea: 'Praia de tombo; atenção com crianças', structure: 'Calçadão, restaurantes, quadras, duchas e estacionamento' },
+    translations: { pt: { title: 'Praia Grande', subtitle: 'Uma das praias mais completas e acessíveis do sul', description: 'Com cerca de 600 metros de faixa de areia, é uma escolha prática para famílias e grupos que procuram mar, alimentação e esportes no mesmo lugar.', highlights: ['Ampla faixa de areia', 'Quadras e calçadão', 'Restaurantes', 'Fácil acesso'], ecoTip: 'Observe as condições do mar e descarte resíduos nos coletores da orla.' } }
   },
   {
     id: 'praia-do-portinho', category: 'praias', coords: [-23.8437449, -45.4043884], rating: null, reviews: 0,
     image: 'assets/images/praia-do-portinho_verified.jpg', images: ['assets/images/praia-do-portinho_verified.jpg'],
-    photoCredit: 'Marcelo Carbono Â· Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-portinho',
-    tags: ['Snorkel', 'Tartarugas', 'Capela histÃ³rica'],
+    photoCredit: 'Marcelo Carbono · Ilhabela.com.br', photoSource: 'https://www.ilhabela.com.br/praias/praia-do-portinho',
+    tags: ['Snorkel', 'Tartarugas', 'Capela histórica'],
     attributes: { isDiving: true, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
-    specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a meio dia', elevation: 'NÃ­vel do mar', access: 'Carro, Ã´nibus ou bicicleta pela avenida', sea: 'Enseada pequena; boa visibilidade em dias favorÃ¡veis', structure: 'PÃ­er, rampa acessÃ­vel, quiosques e poucas vagas' },
-    translations: { pt: { title: 'Praia do Portinho', subtitle: 'Pequena enseada com pÃ­er, tartarugas e tradiÃ§Ã£o caiÃ§ara', description: 'Parte do SantuÃ¡rio EcolÃ³gico Submarino, combina mergulho livre, um pÃ­er agradÃ¡vel e a Capela de Santo AntÃ´nio, construÃ­da em 1938.', highlights: ['SantuÃ¡rio submarino', 'Capela de Santo AntÃ´nio', 'PÃ­er acessÃ­vel', 'PossÃ­vel avistamento de tartarugas'], ecoTip: 'NÃ£o toque nos animais e nÃ£o retire conchas ou organismos do santuÃ¡rio.' } }
+    specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a meio dia', elevation: 'Nível do mar', access: 'Carro, ônibus ou bicicleta pela avenida', sea: 'Enseada pequena; boa visibilidade em dias favoráveis', structure: 'Píer, rampa acessível, quiosques e poucas vagas' },
+    translations: { pt: { title: 'Praia do Portinho', subtitle: 'Pequena enseada com píer, tartarugas e tradição caiçara', description: 'Parte do Santuário Ecológico Submarino, combina mergulho livre, um píer agradável e a Capela de Santo Antônio, construída em 1938.', highlights: ['Santuário submarino', 'Capela de Santo Antônio', 'Píer acessível', 'Possível avistamento de tartarugas'], ecoTip: 'Não toque nos animais e não retire conchas ou organismos do santuário.' } }
   }
 ];
 
 touristSpots.push(...additionalTouristSpots);
 
-
-// Recomendações Locais por Praia
+// Recomendações locais por atração. A atração continua sendo o conteúdo principal.
 const localRecommendations = {
   'praia-do-portinho': [
     { category: 'tour', type: 'Passeios e atividades', name: 'Portinho Passeios', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'], whatsapp: '19991536623', whatsappDisplay: '(19) 99153-6623', instagram: '@portinhopasseios', url: 'http://www.portinhopasseios.com.br', image: 'assets/images/portinho-passeios.jpg' },
-    { category: 'food', type: 'Alimentação e bebidas', name: 'Quiosque Maxx Beach', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas', 'Ambiente à beira-mar'], highlightTitle: 'Destaque editorial:', highlightDesc: 'Caipirinha com folhas de mexerica', whatsapp: '11912586558', whatsappDisplay: '(11) 91258-6558', image: 'assets/images/maxx-beach.jpg' },
-    { category: 'diving', type: 'Mergulho', name: 'Portinho Divers', description: 'O Santuário Ecológico Submarino da Praia do Portinho é um dos melhores pontos de mergulho do litoral.', url: 'https://mergulhoilhabela.com.br', features: ['Mergulho de batismo', 'Mergulho guiado', 'Equipamentos', 'Fotos/vídeos', 'Experiência para iniciantes'], image: 'assets/images/portinho-divers.jpg' }
+    { category: 'food', type: 'Alimentação e bebidas', name: 'Quiosque Maxx Beach', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas'], highlightTitle: 'Destaque editorial', highlightDesc: 'Caipirinha com folhas de mexerica', whatsapp: '11912586558', whatsappDisplay: '(11) 91258-6558', image: 'assets/images/maxx-beach.jpg' },
+    { category: 'diving', type: 'Mergulho', name: 'Portinho Divers', description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.', features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes'], whatsapp: '12987046807', whatsappDisplay: '(12) 98704-6807', url: 'https://mergulhoilhabela.com.br', image: 'assets/images/portinho-divers.jpg' }
   ]
 };
 
 const localAccommodations = {
   'praia-do-portinho': [
-    { category: 'stay', type: 'Hospedagem recomendada', name: 'La Gloria House', url: 'https://lagloriahouse.com.br', features: ['A 30m da Praia do Portinho', 'Suítes', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'], image: 'assets/images/la-gloria-house.jpg' }
+    { category: 'stay', type: 'Hospedagem recomendada', name: 'La Gloria House', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'], whatsapp: '11975199989', whatsappDisplay: '(11) 97519-9989', url: 'https://lagloriahouse.com.br', image: 'assets/images/la-gloria-house.jpg' }
   ]
 };
+
+function renderLocalRecommendationsFixed(spotId) {
+  const recs = localRecommendations[spotId] || [];
+  const stays = localAccommodations[spotId] || [];
+  if (!recs.length && !stays.length) return '';
+
+  const spot = touristSpots.find(item => item.id === spotId);
+  const spotTitle = spot ? (getSpotTranslation(spot).title || 'atração') : 'atração';
+  const renderTags = items => items?.length ? `<div class="flex flex-wrap gap-1.5 pt-1">${items.map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="material-symbols-outlined text-[12px] text-primary align-middle mr-0.5">check</span>${item}</span>`).join('')}</div>` : '';
+  const whatsappLink = item => item.whatsapp ? `<a href="https://wa.me/55${item.whatsapp}?text=${encodeURIComponent('Olá, vim pelo Ilhabela Guide!')}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">chat</span><span>${item.whatsappDisplay || 'WhatsApp'}</span></a>` : '';
+  const siteLink = item => item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">language</span><span>Acessar site</span></a>` : '';
+
+  let html = '';
+  if (recs.length) {
+    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Serviços e atividades na ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Conheça os serviços locais para aproveitar ainda mais sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
+    html += recs.map(rec => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${rec.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>${rec.tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${rec.tagline}</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${rec.description}</p>${rec.highlightTitle ? `<div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary"><span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${rec.highlightTitle}</span><span class="text-xs font-semibold text-on-surface-variant">${rec.highlightDesc}</span></div>` : ''}${renderTags(rec.features || rec.tags)}${rec.alsoOffers?.length ? `<p class="text-[11px] text-on-surface-variant"><strong>Também oferece:</strong> ${rec.alsoOffers.join('; ')}.</p>` : ''}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(rec)}${rec.instagram ? `<a href="https://instagram.com/${rec.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span>@</span><span>Instagram</span></a>` : ''}${siteLink(rec)}</div></div></article>`).join('');
+    html += '</div></section>';
+  }
+
+  if (stays.length) {
+    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Onde ficar perto da ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Hospedagem recomendada para a sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
+    html += stays.map(stay => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${stay.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4><p class="text-xs text-on-surface-variant leading-relaxed mt-1.5">${stay.description}</p></div>${renderTags(stay.features)}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(stay)}${siteLink(stay)}</div></div></article>`).join('');
+    html += '</div></section>';
+  }
+
+  return html;
+}
+
+// app.js ainda contém o renderer criado no primeiro commit. Sobrescrevemos a função
+// após o carregamento completo para manter o restante do app intacto e eliminar os textos corrompidos.
+window.addEventListener('load', () => {
+  window.renderLocalRecommendations = renderLocalRecommendationsFixed;
+}, { once: true });
