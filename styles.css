@@ -513,6 +513,26 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   display: flex;
 }
 
+#language-menu[hidden] { display: none !important; }
+#language-menu { inset-inline-end: 0; right: auto; }
+[dir="rtl"] .filter-scroll-btn .material-symbols-outlined { transform: scaleX(-1); }
+.modal-language-select {
+  display: block;
+  position: relative;
+  z-index: 20;
+  margin-bottom: .75rem;
+  margin-inline-start: 0;
+  min-height: 40px;
+  padding: .35rem .75rem;
+  border: 1px solid rgba(0, 51, 69, .2);
+  border-radius: 1rem;
+  background: #fbf9f4;
+  color: #003345;
+  font-size: .75rem;
+  font-weight: 700;
+}
+[dir="rtl"] .modal-language-select { margin-inline-start: 3rem; }
+
 .modal-sheet {
   position: relative;
   width: 100%;

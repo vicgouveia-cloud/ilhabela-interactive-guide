@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ilhabela Interactive Guide • Guia Turístico Interativo</title>
+  <title data-i18n="pageTitle">Ilhabela Interactive Guide • Guia Turístico Interativo</title>
   <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23003345'/%3E%3Cpath d='M12 42c10-4 15-15 24-16 7-1 10 4 16 1-2 12-11 21-23 21-7 0-12-2-17-6Z' fill='%23b9eeab'/%3E%3Ccircle cx='44' cy='17' r='7' fill='%23ffcf70'/%3E%3C/svg%3E" />
   
   <!-- Tailwind CSS CDN -->
@@ -44,7 +44,7 @@
   </script>
   
   <!-- Custom Styles -->
-  <link rel="stylesheet" href="styles.css?v=3.0" />
+  <link rel="stylesheet" href="styles.css?v=4.0" />
 </head>
 <body class="bg-[#fbf9f4] text-[#1b1c19] min-h-screen antialiased selection:bg-[#004b63] selection:text-white">
 
@@ -74,15 +74,15 @@
       <div class="flex items-center gap-3">
         
         <!-- Language Selector -->
-        <div class="relative group">
-          <button id="lang-btn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container/80 border border-black/10 text-xs font-bold text-primary hover:bg-surface-container transition-colors">
+        <div id="language-selector" class="relative">
+          <button id="lang-btn" type="button" aria-expanded="false" aria-controls="language-menu" data-i18n-aria-label="chooseLanguage" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container/80 border border-black/10 text-xs font-bold text-primary hover:bg-surface-container transition-colors">
             <span class="material-symbols-outlined text-[16px]">language</span>
             <span id="current-lang-label">PT</span>
             <span class="material-symbols-outlined text-[14px]">expand_more</span>
           </button>
           
           <!-- Language Dropdown -->
-          <div class="absolute right-0 top-full mt-2 w-40 glass-panel rounded-2xl shadow-xl border border-black/10 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 py-1.5 z-50">
+          <div id="language-menu" hidden class="absolute right-0 top-full mt-2 w-40 glass-panel rounded-2xl shadow-xl border border-black/10 transition-all duration-200 py-1.5 z-50">
             <button onclick="setLanguage('pt')" class="w-full text-left px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/10 flex items-center gap-2">
               <span>🇧🇷</span> Português
             </button>
@@ -96,13 +96,13 @@
               <span>🇪🇸</span> Español
             </button>
             <button onclick="setLanguage('he')" class="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-primary/10 flex items-center gap-2">
-              <span>🇮🇱</span> עברית (Hebrew)
+              <span>🇮🇱</span> עברית
             </button>
           </div>
         </div>
 
         <!-- Saved Bookmarks Button -->
-        <button onclick="filterFavorites()" id="btn-saved-counter" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container/80 border border-black/10 text-xs font-semibold text-on-surface-variant hover:text-red-500 hover:border-red-200 transition-colors">
+        <button onclick="filterFavorites()" id="btn-saved-counter" data-i18n-aria-label="navSaved" class="flex items-center gap-1 px-3 py-1.5 rounded-full bg-surface-container/80 border border-black/10 text-xs font-semibold text-on-surface-variant hover:text-red-500 hover:border-red-200 transition-colors">
           <span class="material-symbols-outlined text-[18px] text-red-500">favorite</span>
           <span id="saved-count">0</span>
         </button>
@@ -121,16 +121,16 @@
   <section id="hero" class="relative pt-24 pb-12 md:pt-36 md:pb-24 overflow-hidden">
     <!-- Background Image & Gradient -->
     <div class="absolute inset-0 z-0">
-      <img src="assets/images/mirante-do-coracao_verified.jpg" alt="Vista real da Baía de Castelhanos, em Ilhabela" class="w-full h-full object-cover object-center filter brightness-[0.92]" />
+      <img src="assets/images/mirante-do-coracao_verified.jpg" alt="Vista real da Baía de Castelhanos, em Ilhabela" data-i18n-alt="heroImage" class="w-full h-full object-cover object-center filter brightness-[0.92]" />
       <div class="absolute inset-0 hero-overlay"></div>
     </div>
 
     <div class="relative z-10 max-w-7xl mx-auto px-4 md:px-8 text-center md:text-left">
       <div class="max-w-3xl space-y-4">
         
-        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/60 shadow-sm text-xs font-bold text-secondary uppercase tracking-widest" data-i18n="heroBadge">
+        <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/85 backdrop-blur-md border border-white/60 shadow-sm text-xs font-bold text-secondary uppercase tracking-widest">
           <span class="w-2 h-2 rounded-full bg-secondary animate-ping"></span>
-          PARQUE ESTADUAL DE ILHABELA • 85% MATA ATLÂNTICA PRESERVADA
+          <span data-i18n="heroBadge">PARQUE ESTADUAL DE ILHABELA • 85% MATA ATLÂNTICA PRESERVADA</span>
         </div>
 
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-primary tracking-tight font-heading leading-tight" data-i18n="heroTitle">
@@ -179,7 +179,7 @@
             class="w-full pl-10 pr-10 py-2.5 rounded-full bg-white/90 border border-black/10 focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent text-sm text-on-surface placeholder:text-on-surface-variant/60 shadow-inner"
             data-i18n-placeholder="searchPlaceholder"
           />
-          <button id="clear-search-btn" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700">
+          <button id="clear-search-btn" data-i18n-aria-label="clearSearch" onclick="clearSearch()" class="hidden absolute right-3 top-1/2 -translate-y-1/2 text-gray-400 hover:text-gray-700">
             <span class="material-symbols-outlined text-[18px]">close</span>
           </button>
         </div>
@@ -200,10 +200,10 @@
 
       <!-- Categories Filter Chips -->
       <div class="filter-carousel" data-filter-carousel>
-        <button type="button" class="filter-scroll-btn filter-scroll-left" data-filter-scroll="left" aria-label="Ver categorias anteriores">
+        <button type="button" class="filter-scroll-btn filter-scroll-left" data-filter-scroll="left" aria-label="Ver categorias anteriores" data-i18n-aria-label="previousCategories">
           <span class="material-symbols-outlined">chevron_left</span>
         </button>
-        <div id="category-filter-list" class="filter-scroll-track flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold" tabindex="0" aria-label="Categorias de pontos turísticos">
+        <div id="category-filter-list" class="filter-scroll-track flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold" tabindex="0" aria-label="Categorias de pontos turísticos" data-i18n-aria-label="categoriesLabel">
         <button onclick="filterCategory('all')" data-cat="all" class="cat-pill glass-pill active px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[16px]">explore</span>
           <span data-i18n="filterAll">Todos os Pontos</span>
@@ -258,7 +258,7 @@
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mirantes">1</span>
         </button>
         </div>
-        <button type="button" class="filter-scroll-btn filter-scroll-right" data-filter-scroll="right" aria-label="Ver mais categorias">
+        <button type="button" class="filter-scroll-btn filter-scroll-right" data-filter-scroll="right" aria-label="Ver mais categorias" data-i18n-aria-label="nextCategories">
           <span class="material-symbols-outlined">chevron_right</span>
         </button>
       </div>
@@ -314,7 +314,7 @@
           </p>
           <p class="mt-1 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
             <span class="material-symbols-outlined text-[13px]">lock</span>
-            Navegação limitada ao arquipélago de Ilhabela
+            <span data-i18n="mapBoundsHint">Navegação limitada ao arquipélago de Ilhabela</span>
           </p>
         </div>
 
@@ -330,9 +330,9 @@
       <div class="map-frame">
         <div id="map"></div>
 
-        <button onclick="resetMapView()" class="map-overlay-btn top-right" aria-label="Voltar para a visão completa de Ilhabela">
+        <button onclick="resetMapView()" class="map-overlay-btn top-right" aria-label="Voltar para a visão completa de Ilhabela" data-i18n-aria-label="resetMap">
           <span class="material-symbols-outlined text-[16px]">center_focus_strong</span>
-          <span class="hidden sm:inline">Ver toda Ilhabela</span>
+          <span class="hidden sm:inline" data-i18n="showIsland">Ver toda Ilhabela</span>
         </button>
 
         <!-- Map Quick Info Floating Box -->
@@ -349,7 +349,7 @@
           <h2 class="text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="navExplore">
             Explorar Destinos & Experiências
           </h2>
-          <p class="text-sm text-on-surface-variant">Passe o mouse ou toque nos cartões para ver especificações técnicas completas</p>
+          <p class="text-sm text-on-surface-variant" data-i18n="exploreHint">Passe o mouse ou toque nos cartões para ver especificações técnicas completas</p>
         </div>
       </div>
 
@@ -386,8 +386,11 @@
   <div id="spot-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="spot-modal-title">
     <div class="modal-sheet">
       <span class="modal-drag-handle" aria-hidden="true"></span>
+      <select data-language-select data-i18n-aria-label="chooseLanguage" onchange="setLanguage(this.value)" class="modal-language-select">
+        <option value="pt">PT</option><option value="en">EN</option><option value="fr">FR</option><option value="es">ES</option><option value="he">HE</option>
+      </select>
       <!-- Close Button -->
-      <button onclick="closeSpotModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar">
+      <button onclick="closeSpotModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar" data-i18n-aria-label="closeModal">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
 
@@ -400,15 +403,18 @@
   <div id="booking-modal" class="modal-overlay" role="dialog" aria-modal="true">
     <div class="modal-sheet" style="max-width: min(100%, 520px); margin-inline: auto;">
       <span class="modal-drag-handle" aria-hidden="true"></span>
+      <select data-language-select data-i18n-aria-label="chooseLanguage" onchange="setLanguage(this.value)" class="modal-language-select">
+        <option value="pt">PT</option><option value="en">EN</option><option value="fr">FR</option><option value="es">ES</option><option value="he">HE</option>
+      </select>
       <!-- Close Button -->
-      <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar">
+      <button onclick="closeBookingModal()" class="absolute top-4 right-4 w-10 h-10 rounded-full bg-black/8 hover:bg-black/12 flex items-center justify-center text-primary transition-colors z-10" aria-label="Fechar" data-i18n-aria-label="closeModal">
         <span class="material-symbols-outlined text-[20px]">close</span>
       </button>
 
       <div class="space-y-2">
         <div class="inline-flex items-center gap-1 text-xs font-bold text-secondary uppercase">
           <span class="material-symbols-outlined text-[16px]">calendar_month</span>
-          Agendamento Direto
+          <span data-i18n="directBooking">Agendamento Direto</span>
         </div>
         <h3 class="text-2xl font-bold text-primary font-heading" data-i18n="modalBookingTitle">Agende sua Experiência em Ilhabela</h3>
         <p class="text-xs text-on-surface-variant" data-i18n="modalBookingDesc">Selecione o guia, o roteiro desejado e receba o orçamento instantâneo para confirmação direta via WhatsApp.</p>
@@ -429,13 +435,13 @@
         <div>
           <label class="block mb-1.5" data-i18n="labelTour">Roteiro / Experiência</label>
           <select id="booking-tour" class="w-full px-4 py-2.5 rounded-xl bg-white border border-black/10 focus:ring-2 focus:ring-primary text-sm font-medium" onchange="updateBookingEstimate()">
-            <option value="Trilha do Pico do Baepi (1.048m)">Trilha do Pico do Baepi (1.048m)</option>
-            <option value="Travessia da Trilha do Bonete (12km)">Travessia da Trilha do Bonete (12km)</option>
-            <option value="Expedição 4x4 Baía de Castelhanos">Expedição 4x4 Baía de Castelhanos</option>
-            <option value="Circuito de Cachoeiras & Piscina Infinita (Paquetá)">Circuito de Cachoeiras & Piscina Infinita (Paquetá)</option>
-            <option value="Passeio de Barco: Avistamento de Baleias & Golfinhos">Passeio de Barco: Avistamento de Baleias & Golfinhos</option>
-            <option value="Mergulho no Santuário Ilha das Cabras & Naufrágio">Mergulho no Santuário Ilha das Cabras & Naufrágio</option>
-            <option value="Observação de Aves & Mata Atlântica (Birdwatching)">Observação de Aves & Mata Atlântica (Birdwatching)</option>
+            <option value="tour-0" data-i18n="tour0">Trilha do Pico do Baepi (1.048m)</option>
+            <option value="tour-1" data-i18n="tour1">Travessia da Trilha do Bonete (12km)</option>
+            <option value="tour-2" data-i18n="tour2">Expedição 4x4 Baía de Castelhanos</option>
+            <option value="tour-3" data-i18n="tour3">Circuito de Cachoeiras & Piscina Infinita (Paquetá)</option>
+            <option value="tour-4" data-i18n="tour4">Passeio de Barco: Avistamento de Baleias & Golfinhos</option>
+            <option value="tour-5" data-i18n="tour5">Mergulho no Santuário Ilha das Cabras & Naufrágio</option>
+            <option value="tour-6" data-i18n="tour6">Observação de Aves & Mata Atlântica (Birdwatching)</option>
           </select>
         </div>
 
@@ -498,20 +504,20 @@
   </div>
 
   <!-- MOBILE BOTTOM NAVIGATION -->
-  <nav class="md:hidden bottom-nav" id="bottom-nav" aria-label="Navegação principal">
-    <button onclick="setViewMode('map')" id="bn-map" class="bottom-nav-item active" aria-label="Mapa">
+  <nav class="md:hidden bottom-nav" id="bottom-nav" aria-label="Navegação principal" data-i18n-aria-label="mainNavigation">
+    <button onclick="setViewMode('map')" id="bn-map" class="bottom-nav-item active" aria-label="Mapa" data-i18n-aria-label="navMap">
       <span class="material-symbols-outlined nav-icon">map</span>
       <span data-i18n="navMap">Mapa</span>
     </button>
-    <button onclick="setViewMode('grid')" id="bn-grid" class="bottom-nav-item" aria-label="Destinos">
+    <button onclick="setViewMode('grid')" id="bn-grid" class="bottom-nav-item" aria-label="Destinos" data-i18n-aria-label="navExplore">
       <span class="material-symbols-outlined nav-icon">grid_view</span>
       <span data-i18n="navExplore">Destinos</span>
     </button>
-    <a href="#guides-section" class="bottom-nav-item" aria-label="Guias">
+    <a href="#guides-section" class="bottom-nav-item" aria-label="Guias" data-i18n-aria-label="navGuides">
       <span class="material-symbols-outlined nav-icon">person_pin</span>
       <span data-i18n="navGuides">Guias</span>
     </a>
-    <button onclick="filterFavorites()" class="bottom-nav-item" id="bn-saved" aria-label="Salvos">
+    <button onclick="filterFavorites()" class="bottom-nav-item" id="bn-saved" aria-label="Salvos" data-i18n-aria-label="navSaved">
       <span class="material-symbols-outlined nav-icon text-red-500">favorite</span>
       <span data-i18n="navSaved">Salvos</span>
     </button>
@@ -534,16 +540,16 @@
       </div>
 
       <div class="text-xs text-white/60 space-y-1">
-        <p>© 2026 Ilhabela Interactive Guide • Todos os direitos reservados</p>
-        <p class="text-[11px]">Coordenadas: 23° 46' 36" S, 45° 21' 36" W</p>
+        <p data-i18n="copyright">© 2026 Ilhabela Interactive Guide • Todos os direitos reservados</p>
+        <p class="text-[11px]"><span data-i18n="coordinates">Coordenadas</span>: 23° 46' 36" S, 45° 21' 36" W</p>
       </div>
     </div>
   </footer>
 
   <!-- Scripts with Cache Busting -->
-  <script src="translations.js?v=3.0"></script>
-  <script src="data.js?v=3.0"></script>
-  <script src="additional-spots.js?v=3.0"></script>
-  <script src="app.js?v=3.0"></script>
+  <script src="translations.js?v=4.0"></script>
+  <script src="data.js?v=4.0"></script>
+  <script src="additional-spots.js?v=4.0"></script>
+  <script src="app.js?v=4.0"></script>
 </body>
 </html>

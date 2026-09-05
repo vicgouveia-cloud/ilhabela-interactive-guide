@@ -2,11 +2,13 @@
 let map = null;
 let mapLayers = {};
 let mapMarkers = [];
-let currentLang = localStorage.getItem('ilhabela_lang') || 'pt';
+let currentLang = readStorage('ilhabela_lang', 'pt');
 let currentCategory = 'all';
 let activeAttributes = new Set();
 let searchQuery = '';
-let savedFavorites = new Set(JSON.parse(localStorage.getItem('ilhabela_saved') || '[]'));
+let savedFavorites = new Set(readFavorites());
+let favoritesOnly = false;
+let quickCardSpotId = null;
 let selectedSpotId = null;
 
 // Curated photo library. Every entry below was matched to the named attraction;
@@ -69,64 +71,94 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // --- I18N SYSTEM ---
+const supportedLanguages = ['pt', 'en', 'fr', 'es', 'he'];
+
+function readStorage(key, fallback) {
+  try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
+}
+function writeStorage(key, value) {
+  try { localStorage.setItem(key, value); } catch { /* Browsing still works when storage is disabled. */ }
+}
+function readFavorites() {
+  try {
+    const value = JSON.parse(readStorage('ilhabela_saved', '[]'));
+    return Array.isArray(value) ? value.filter(id => typeof id === 'string') : [];
+  } catch { return []; }
+}
+// Missing content is an explicit error, never a silent language substitution.
+function resolveTranslation(catalog, language, context) {
+  const value = catalog?.[language];
+  if (value === undefined || value === null || value === '') throw new Error(`Missing translation: ${context}.${language}`);
+  return value;
+}
+function t(key) { return resolveTranslation(translations[currentLang], key, `ui.${currentLang}`); }
+function getSpotTranslation(spot) { return resolveTranslation(spot.translations, currentLang, spot.id); }
+function getGuideTranslation(guide) { return resolveTranslation(guide.translations, currentLang, guide.id); }
+function getLocalRecommendationTranslation(item) {
+  return resolveTranslation(localRecommendationTranslations[item.name], currentLang, item.name);
+}
+function closeLanguageMenu(restoreFocus = false) {
+  const menu = document.getElementById('language-menu');
+  const button = document.getElementById('lang-btn');
+  if (menu) menu.hidden = true;
+  button?.setAttribute('aria-expanded', 'false');
+  if (restoreFocus) button?.focus();
+}
 function initI18n() {
+  const selector = document.getElementById('language-selector');
+  const button = document.getElementById('lang-btn');
+  const menu = document.getElementById('language-menu');
+  button?.addEventListener('click', () => {
+    menu.hidden = !menu.hidden;
+    button.setAttribute('aria-expanded', String(!menu.hidden));
+  });
+  document.addEventListener('click', event => {
+    if (!selector?.contains(event.target)) closeLanguageMenu();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') {
+      if (menu && !menu.hidden) { closeLanguageMenu(true); return; }
+      closeBookingModal(); closeSpotModal();
+    }
+  });
+  selector?.addEventListener('focusout', event => {
+    if (!selector.contains(event.relatedTarget)) closeLanguageMenu();
+  });
   setLanguage(currentLang, false);
 }
-
 function setLanguage(lang, rerender = true) {
-  if (!translations[lang]) lang = 'pt';
-  currentLang = lang;
-  localStorage.setItem('ilhabela_lang', lang);
-
-  // Update HTML tag dir & lang
-  document.documentElement.lang = lang;
-  document.documentElement.dir = (lang === 'he') ? 'rtl' : 'ltr';
-
-  // Update current language label
-  const labelEl = document.getElementById('current-lang-label');
-  if (labelEl) labelEl.innerText = lang.toUpperCase();
-
-  // Translate all DOM elements with data-i18n
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const key = el.getAttribute('data-i18n');
-    if (translations[lang] && translations[lang][key]) {
-      el.innerText = translations[lang][key];
-    }
+  currentLang = supportedLanguages.includes(lang) ? lang : 'pt';
+  writeStorage('ilhabela_lang', currentLang);
+  document.documentElement.lang = currentLang;
+  document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
+  document.getElementById('current-lang-label').textContent = currentLang.toUpperCase();
+  document.querySelectorAll('[data-language-select]').forEach(el => { el.value = currentLang; });
+  const menu = document.getElementById('language-menu');
+  const restoreFocus = menu && !menu.hidden;
+  closeLanguageMenu(restoreFocus);
+  translateMapControls();
+  document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
+  for (const attr of ['placeholder', 'aria-label', 'title', 'alt']) {
+    document.querySelectorAll(`[data-i18n-${attr}]`).forEach(el => {
+      el.setAttribute(attr, t(el.getAttribute(`data-i18n-${attr}`)));
+    });
+  }
+  document.querySelectorAll('[data-spot-id]').forEach(el => {
+    el.textContent = getSpotTranslation(touristSpots.find(s => s.id === el.dataset.spotId)).title;
   });
-
-  // Translate placeholders
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const key = el.getAttribute('data-i18n-placeholder');
-    if (translations[lang] && translations[lang][key]) {
-      el.placeholder = translations[lang][key];
-    }
-  });
-
   if (rerender) {
-    renderSpotsGrid();
-    renderGuides();
-    updateMapMarkers();
-    populateBookingGuides();
-    if (selectedSpotId) openSpotModal(selectedSpotId);
+    renderSpotsGrid(); renderGuides(); updateMapMarkers(); populateBookingGuides(); updateBookingEstimate();
+    window.dispatchEvent(new Event('resize'));
+    if (quickCardSpotId && !document.getElementById('map-quick-card')?.classList.contains('hidden')) {
+      showMapQuickCard(touristSpots.find(s => s.id === quickCardSpotId));
+    }
+    if (selectedSpotId) {
+      const index = currentModalImageIndex;
+      const sheet = document.querySelector('#spot-modal .modal-sheet');
+      const scroll = sheet.scrollTop;
+      openSpotModal(selectedSpotId); setModalImage(index); sheet.scrollTop = scroll;
+    }
   }
-}
-
-function t(key) {
-  return (translations[currentLang] && translations[currentLang][key]) || (translations['pt'] && translations['pt'][key]) || key;
-}
-
-function getSpotTranslation(spot) {
-  if (spot.translations && spot.translations[currentLang]) {
-    return spot.translations[currentLang];
-  }
-  return spot.translations ? (spot.translations['pt'] || spot.translations['en']) : {};
-}
-
-function getGuideTranslation(guide) {
-  if (guide.translations && guide.translations[currentLang]) {
-    return guide.translations[currentLang];
-  }
-  return guide.translations ? (guide.translations['pt'] || guide.translations['en']) : {};
 }
 
 // --- LEAFLET MAP INITIALIZATION ---
@@ -150,6 +182,7 @@ function initMap() {
 
   // Custom Zoom Control (bottom-right)
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  translateMapControls();
   L.control.scale({ position: 'bottomleft', imperial: false, maxWidth: 120 }).addTo(map);
 
   // Map Tile Layers (100% Free & Sem necessidade de API Key)
@@ -274,8 +307,9 @@ function updateMapMarkers() {
       icon: customIcon,
       keyboard: true,
       title: tr.title || '',
-      alt: `${tr.title || 'Atração'} — abrir detalhes`
+      alt: `${tr.title} — ${t('spotDetails')}`
     }).addTo(map);
+    marker.getElement()?.setAttribute('aria-label', `${tr.title} — ${t('spotDetails')}`);
 
     // Hover Tooltip
     marker.bindTooltip(`
@@ -305,6 +339,7 @@ function updateMapMarkers() {
 }
 
 function showMapQuickCard(spot) {
+  quickCardSpotId = spot.id;
   const card = document.getElementById('map-quick-card');
   if (!card) return;
 
@@ -342,11 +377,13 @@ function initFilterCarousel() {
   const right = document.querySelector('[data-filter-scroll="right"]');
   const update = () => {
     const max = Math.max(0, track.scrollWidth - track.clientWidth);
-    left.disabled = track.scrollLeft <= 4;
-    right.disabled = track.scrollLeft >= max - 4;
+    const position = Math.abs(track.scrollLeft);
+    if (left) left.disabled = position <= 4;
+    if (right) right.disabled = position >= max - 4;
   };
-  left?.addEventListener('click', () => track.scrollBy({ left: -Math.max(220, track.clientWidth * .72), behavior: 'smooth' }));
-  right?.addEventListener('click', () => track.scrollBy({ left: Math.max(220, track.clientWidth * .72), behavior: 'smooth' }));
+  const scroll = direction => track.scrollBy({ left: direction * (currentLang === 'he' ? -1 : 1) * Math.max(220, track.clientWidth * .72), behavior: 'smooth' });
+  left?.addEventListener('click', () => scroll(-1));
+  right?.addEventListener('click', () => scroll(1));
   track.addEventListener('scroll', update, { passive: true });
   window.addEventListener('resize', update);
   requestAnimationFrame(update);
@@ -355,6 +392,7 @@ function initFilterCarousel() {
 // --- FILTERING LOGIC ---
 function getFilteredSpots() {
   return touristSpots.filter(spot => {
+    if (favoritesOnly && !savedFavorites.has(spot.id)) return false;
     // Category filter
     if (currentCategory !== 'all' && spot.category !== currentCategory) {
       return false;
@@ -372,7 +410,7 @@ function getFilteredSpots() {
       const matchTitle = tr.title && tr.title.toLowerCase().includes(q);
       const matchSub = tr.subtitle && tr.subtitle.toLowerCase().includes(q);
       const matchDesc = tr.description && tr.description.toLowerCase().includes(q);
-      const matchTags = spot.tags.some(tag => tag.toLowerCase().includes(q));
+      const matchTags = [...tr.highlights, ...spot.tags].some(tag => tag.toLowerCase().includes(q));
       if (!matchTitle && !matchSub && !matchDesc && !matchTags) {
         return false;
       }
@@ -384,6 +422,7 @@ function getFilteredSpots() {
 
 function filterCategory(cat) {
   currentCategory = cat;
+  favoritesOnly = false;
   
   // Update category pill styles
   document.querySelectorAll('.cat-pill').forEach(btn => {
@@ -444,8 +483,10 @@ function filterFavorites() {
     return;
   }
   // Filter spots to saved only
-  const spots = touristSpots.filter(s => savedFavorites.has(s.id));
+  favoritesOnly = true;
+  const spots = getFilteredSpots();
   renderCustomSpotsList(spots);
+  updateMapMarkers();
   
   // Scroll to explore section
   const el = document.getElementById('explore-section');
@@ -459,9 +500,10 @@ function toggleFavorite(spotId, event) {
   } else {
     savedFavorites.add(spotId);
   }
-  localStorage.setItem('ilhabela_saved', JSON.stringify(Array.from(savedFavorites)));
+  writeStorage('ilhabela_saved', JSON.stringify(Array.from(savedFavorites)));
   updateSavedCountDisplay();
   renderSpotsGrid();
+  if (favoritesOnly) updateMapMarkers();
 }
 
 function updateSavedCountDisplay() {
@@ -532,7 +574,7 @@ function renderCustomSpotsList(spots) {
           </div>
 
           <!-- Favorite Button -->
-          <button onclick="toggleFavorite('${spot.id}', event)" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/85 backdrop-blur-md shadow-md flex items-center justify-center text-gray-500 hover:text-red-500 transition-colors z-10">
+          <button aria-label="${t(isFav ? 'removeFavorite' : 'saveFavorite')}" onclick="toggleFavorite('${spot.id}', event)" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/85 backdrop-blur-md shadow-md flex items-center justify-center text-gray-500 hover:text-red-500 transition-colors z-10">
             <span class="material-symbols-outlined text-[20px] ${isFav ? 'text-red-500 fill-current' : ''}">favorite</span>
           </button>
 
@@ -551,13 +593,13 @@ function renderCustomSpotsList(spots) {
 
           <!-- Quick Specs Breakdown -->
           <div class="pt-3 border-t border-black/5 flex items-center justify-between text-[11px] font-semibold text-on-surface-variant">
-            <span class="flex items-center gap-1" title="Distância">
+            <span class="flex items-center gap-1" title="${t('routeDistance')}">
               <span class="material-symbols-outlined text-[15px] text-primary">straighten</span>
-              ${(tr.specs?.distance || spot.specs.distance).split('(')[0]}
+              ${(tr.specs.distance).split('(')[0]}
             </span>
-            <span class="flex items-center gap-1" title="Tempo">
+            <span class="flex items-center gap-1" title="${t('routeDuration')}">
               <span class="material-symbols-outlined text-[15px] text-primary">timer</span>
-              ${(tr.specs?.duration || spot.specs.duration).split('(')[0]}
+              ${(tr.specs.duration).split('(')[0]}
             </span>
           </div>
 
@@ -643,42 +685,42 @@ function openSpotModal(spotId) {
 
         <!-- Prev / Next Slider Arrows -->
         ${currentModalImages.length > 1 ? `
-          <button onclick="prevModalImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
+          <button aria-label="${t('previousPhoto')}" onclick="prevModalImage(event)" class="absolute left-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
             <span class="material-symbols-outlined text-[24px]">chevron_left</span>
           </button>
-          <button onclick="nextModalImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
+          <button aria-label="${t('nextPhoto')}" onclick="nextModalImage(event)" class="absolute right-3 top-1/2 -translate-y-1/2 w-10 h-10 rounded-full bg-black/40 hover:bg-black/70 text-white flex items-center justify-center backdrop-blur-md shadow-lg transition-all z-20">
             <span class="material-symbols-outlined text-[24px]">chevron_right</span>
           </button>
           
           <!-- Image Index Indicator -->
           <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-bold z-20" id="modal-img-counter">
-            1 / ${currentModalImages.length} fotos
+            1 / ${currentModalImages.length} ${t('photos')}
           </div>
         ` : ''}
       </div>
 
       <!-- Floating Title & Badges -->
-      <div class="absolute bottom-4 left-4 right-4 text-white space-y-1.5 z-10 pointer-events-none">
+      <div class="absolute bottom-12 left-4 right-4 text-white space-y-1.5 z-10 pointer-events-none">
         <div class="flex items-center gap-2">
           <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${diffClass}">
             ${diffLabel}
           </span>
           <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold">
-            ${typeof spot.rating === 'number' ? `${getRatingLabel(spot, true)} avaliações` : getRatingLabel(spot)}
+            ${typeof spot.rating === 'number' ? `${getRatingLabel(spot, true)} ${t('reviews')}` : getRatingLabel(spot)}
           </span>
         </div>
-        <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white leading-tight">${tr.title}</h2>
+        <h2 id="spot-modal-title" class="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white leading-tight">${tr.title}</h2>
         <p class="text-xs text-white/80 line-clamp-1">${tr.subtitle}</p>
       </div>
 
       ${spot.photoSource ? `
         <a id="modal-photo-credit" href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="absolute bottom-3 right-3 z-20 px-2.5 py-1 rounded-full bg-black/55 backdrop-blur-md text-[10px] font-semibold text-white/90 hover:bg-black/75 transition-colors" onclick="event.stopPropagation()">
-          Foto: ${spot.photoCredit}
+          ${t('photoCredit')}: ${spot.photoCredit}
         </a>
       ` : ''}
 
       <!-- Favorite Button -->
-      <button onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors z-20">
+      <button aria-label="${t(isFav ? 'removeFavorite' : 'saveFavorite')}" onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors z-20">
         <span class="material-symbols-outlined text-[22px] ${isFav ? 'text-red-500 fill-current' : ''}">favorite</span>
       </button>
     </div>
@@ -700,7 +742,7 @@ function openSpotModal(spotId) {
       
       ${tr.highlights ? `
         <div class="space-y-2">
-          <h4 class="text-xs font-bold text-primary uppercase tracking-wider">Destaques da Experiência</h4>
+          <h4 class="text-xs font-bold text-primary uppercase tracking-wider">${t('experienceHighlights')}</h4>
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-2">
             ${tr.highlights.map(h => `
               <div class="flex items-center gap-2 p-2.5 rounded-xl bg-surface-container/60 text-xs font-semibold text-primary">
@@ -715,35 +757,35 @@ function openSpotModal(spotId) {
 
     <!-- TECHNICAL SPECS GRID -->
     <div class="p-5 rounded-2xl bg-surface-container/80 border border-black/5 space-y-3">
-      <h4 class="text-xs font-bold text-primary uppercase tracking-wider">Ficha Técnica & Infraestrutura</h4>
+      <h4 class="text-xs font-bold text-primary uppercase tracking-wider">${t('technicalSpecs')}</h4>
       
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDistance')}</span>
-          <strong class="text-primary font-bold">${tr.specs?.distance || spot.specs.distance}</strong>
+          <strong class="text-primary font-bold">${tr.specs.distance}</strong>
         </div>
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDuration')}</span>
-          <strong class="text-primary font-bold">${tr.specs?.duration || spot.specs.duration}</strong>
+          <strong class="text-primary font-bold">${tr.specs.duration}</strong>
         </div>
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeElevation')}</span>
-          <strong class="text-primary font-bold">${tr.specs?.elevation || spot.specs.elevation}</strong>
+          <strong class="text-primary font-bold">${tr.specs.elevation}</strong>
         </div>
       </div>
 
       <div class="pt-3 border-t border-black/5 space-y-2 text-xs">
         <div>
           <strong class="text-primary">${t('accessType')}:</strong>
-          <span class="text-on-surface-variant ml-1">${tr.specs?.access || spot.specs.access}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs.access}</span>
         </div>
         <div>
           <strong class="text-primary">${t('seaCondition')}:</strong>
-          <span class="text-on-surface-variant ml-1">${tr.specs?.sea || spot.specs.sea}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs.sea}</span>
         </div>
         <div>
           <strong class="text-primary">${t('infrastructure')}:</strong>
-          <span class="text-on-surface-variant ml-1">${tr.specs?.structure || spot.specs.structure}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs.structure}</span>
         </div>
       </div>
     </div>
@@ -755,7 +797,7 @@ function openSpotModal(spotId) {
           <span class="material-symbols-outlined text-[16px]">eco</span>
           ${t('ecoTipTitle')}
         </strong>
-        <p class="text-on-surface-variant">${tr.ecoTip || 'Preserve a natureza e leve seu lixo de volta.'}</p>
+        <p class="text-on-surface-variant">${tr.ecoTip}</p>
       </div>
 
       <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-1">
@@ -776,9 +818,9 @@ function openSpotModal(spotId) {
         <span>${t('openInGoogleMaps')}</span>
       </a>
 
-      <button onclick="closeSpotModal(); openBookingForSpot('${tr.title}')" class="flex-1 py-3.5 rounded-xl bg-primary text-white hover:bg-primary-container text-xs font-bold shadow-lg flex items-center justify-center gap-2 transition-colors">
+      <button onclick="closeSpotModal(); openBookingForSpot('${spot.id}')" class="flex-1 py-3.5 rounded-xl bg-primary text-white hover:bg-primary-container text-xs font-bold shadow-lg flex items-center justify-center gap-2 transition-colors">
         <span class="material-symbols-outlined text-[18px]">person_pin</span>
-        <span>Contratar Guia para este Roteiro</span>
+        <span>${t('bookThisTour')}</span>
       </button>
     </div>
   `;
@@ -798,7 +840,7 @@ function setModalImage(idx) {
 
   const counterEl = document.getElementById('modal-img-counter');
   if (counterEl) {
-    counterEl.innerText = `${currentModalImageIndex + 1} / ${currentModalImages.length} fotos`;
+    counterEl.innerText = `${currentModalImageIndex + 1} / ${currentModalImages.length} ${t('photos')}`;
   }
 
   const thumbBtns = document.querySelectorAll('.modal-thumb-btn');
@@ -822,6 +864,7 @@ function nextModalImage(e) {
 }
 
 function closeSpotModal() {
+  selectedSpotId = null;
   const modal = document.getElementById('spot-modal');
   if (modal) {
     modal.classList.add('hidden');
@@ -847,7 +890,7 @@ function renderGuides() {
             <div>
               <div class="flex items-center gap-1">
                 <h3 class="text-base font-bold text-primary font-heading">${guide.name}</h3>
-                <span class="material-symbols-outlined text-secondary text-[16px]" title="CADASTUR Verificado">verified</span>
+                <span class="material-symbols-outlined text-secondary text-[16px]" title="${t('verifiedBadge')}">verified</span>
               </div>
               <p class="text-xs font-bold text-secondary">${tr.role}</p>
               <div class="text-[11px] text-on-surface-variant/80 flex items-center gap-1 mt-0.5">
@@ -861,7 +904,7 @@ function renderGuides() {
 
           <!-- Specialties Badges -->
           <div class="flex flex-wrap gap-1.5">
-            ${guide.specialties.map(spec => `
+            ${tr.specialties.map(spec => `
               <span class="px-2 py-0.5 rounded-md bg-surface-container text-[10px] font-semibold text-primary">
                 ${spec}
               </span>
@@ -870,14 +913,14 @@ function renderGuides() {
 
           <!-- Languages Spoken -->
           <div class="text-[11px] text-on-surface-variant font-medium pt-1">
-            <strong class="text-primary">${t('languagesSpoken')}</strong> ${guide.languages.join(', ')}
+            <strong class="text-primary">${t('languagesSpoken')}</strong> ${guide.languagesList.map(code => new Intl.DisplayNames([currentLang], {type: 'language'}).of(code)).join(', ')}
           </div>
         </div>
 
         <!-- Footer: Price & Hire CTA -->
         <div class="pt-3 border-t border-black/5 space-y-2">
           <div class="flex items-center justify-between">
-            <span class="text-xs text-on-surface-variant">Diária a partir de:</span>
+            <span class="text-xs text-on-surface-variant">${t('dailyFrom')}</span>
             <strong class="text-base font-bold text-primary">R$ ${guide.pricePerDay}<span class="text-xs font-normal text-on-surface-variant">${t('guidePricePerDay')}</span></strong>
           </div>
 
@@ -897,11 +940,13 @@ function populateBookingGuides() {
   const select = document.getElementById('booking-guide');
   if (!select) return;
 
+  const selected = select.value;
   select.innerHTML = guidesData.map(g => `
     <option value="${g.id}">
-      ${g.name} • ${t(g.specialtyKey)} (R$ ${g.pricePerDay}/dia)
+      ${g.name} • ${t(g.specialtyKey)} (R$ ${g.pricePerDay}${t('guidePricePerDay')})
     </option>
   `).join('');
+  if (selected) select.value = selected;
 }
 
 function openBookingModal(guideId = null) {
@@ -918,11 +963,14 @@ function openBookingModal(guideId = null) {
   modal.classList.add('flex');
 }
 
-function openBookingForSpot(spotTitle) {
-  const tourSelect = document.getElementById('booking-tour');
-  if (tourSelect) {
-    // Attempt match or add option
-    tourSelect.value = spotTitle;
+function openBookingForSpot(spotId) {
+  const spot = touristSpots.find(item => item.id === spotId);
+  const select = document.getElementById('booking-tour');
+  if (spot && select) {
+    let option = Array.from(select.options).find(item => item.value === spotId);
+    if (!option) { option = new Option('', spotId); option.dataset.spotId = spotId; select.add(option); }
+    option.textContent = getSpotTranslation(spot).title;
+    select.value = spotId;
   }
   openBookingModal();
 }
@@ -969,24 +1017,19 @@ function submitBooking(event) {
 
   const guide = guidesData.find(g => g.id === guideSelect.value) || guidesData[0];
   const date = dateInput.value;
-  const tour = tourSelect.value;
-  const shift = shiftSelect.value;
+  const tour = tourSelect.selectedOptions[0]?.textContent.trim();
+  const shift = shiftSelect.selectedOptions[0]?.textContent.trim();
   const participants = participantsInput.value;
-  const level = levelSelect.value;
+  const level = levelSelect.selectedOptions[0]?.textContent.trim();
   const notes = notesInput.value;
   const price = priceDisplay.innerText;
 
   // Format WhatsApp text based on current language
-  let message = `🌿 *Solicitação de Agendamento - Ilhabela Interactive Guide*\n\n`;
-  message += `👤 *Guia:* ${guide.name} (CADASTUR ${guide.cadastur})\n`;
-  message += `🗺️ *Roteiro:* ${tour}\n`;
-  message += `📅 *Data:* ${date}\n`;
-  message += `⏰ *Período:* ${shift}\n`;
-  message += `👥 *Participantes:* ${participants} pessoas\n`;
-  message += `🏃 *Nível do Grupo:* ${level}\n`;
-  if (notes) message += `📝 *Observações:* ${notes}\n`;
-  message += `💰 *Orçamento Estimado:* ${price}\n\n`;
-  message += `Olá ${guide.name}! Gostaria de confirmar a disponibilidade para esta data.`;
+  let message = '🌿 *' + t('bookingRequest') + '*\n\n';
+  for (const [key, value] of [['labelGuide', guide.name + ' (CADASTUR ' + guide.cadastur + ')'], ['labelTour', tour], ['labelDate', date], ['labelShift', shift], ['labelParticipants', participants], ['labelPhysicalLevel', level], ['labelObservations', notes], ['estimatedTotal', price]]) {
+    if (value) message += '*' + t(key) + '*: ' + value + '\n';
+  }
+  message += '\n' + t('bookingAvailability');
 
   const encodedUrl = `https://wa.me/${guide.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(message)}`;
   
@@ -995,30 +1038,51 @@ function submitBooking(event) {
   closeBookingModal();
 }
 function renderLocalRecommendations(spotId) {
-  const recs = localRecommendations[spotId] || [];
-  const stays = localAccommodations[spotId] || [];
-  if (!recs.length && !stays.length) return '';
+    const recs = localRecommendations[spotId] || [];
+    const stays = localAccommodations[spotId] || [];
+    if (!recs.length && !stays.length) return '';
 
-  const spot = touristSpots.find(item => item.id === spotId);
-  const spotTitle = spot ? (getSpotTranslation(spot).title || 'atração') : 'atração';
-  const renderTags = items => items?.length ? `<div class="flex flex-wrap gap-1.5 pt-1">${items.map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="material-symbols-outlined text-[12px] text-primary align-middle mr-0.5">check</span>${item}</span>`).join('')}</div>` : '';
-  const whatsappLink = item => item.whatsapp ? `<a href="https://wa.me/55${item.whatsapp}?text=${encodeURIComponent('Olá, vim pelo Ilhabela Guide!')}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">chat</span><span>${item.whatsappDisplay || 'WhatsApp'}</span></a>` : '';
-  const siteLink = item => item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">language</span><span>Acessar site</span></a>` : '';
+    const spot = touristSpots.find(item => item.id === spotId);
+    const spotTitle = spot ? (getSpotTranslation(spot).title || 'Ilhabela') : 'Ilhabela';
+    const renderTags = items => items?.length ? `<div class="flex flex-wrap gap-1.5 pt-1">${items.map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="material-symbols-outlined text-[12px] text-primary align-middle mr-0.5">check</span>${item}</span>`).join('')}</div>` : '';
+    const whatsappLink = item => item.whatsapp ? `<a href="https://wa.me/55${item.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">chat</span><span>${item.whatsappDisplay || 'WhatsApp'}</span></a>` : '';
+    const siteLink = item => item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">language</span><span>${t('localWebsite')}</span></a>` : '';
 
-  let html = '';
-  if (recs.length) {
-    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Serviços e atividades na ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Conheça os serviços locais para aproveitar ainda mais sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
-    html += recs.map(rec => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">${rec.image ? `<img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">` : `<div class="w-full h-full bg-surface-container flex flex-col items-center justify-center text-on-surface-variant/50"><span class="material-symbols-outlined text-[32px] mb-2">image</span><span class="text-[10px] uppercase font-bold tracking-wider">Imagem pendente</span></div>`}<div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${rec.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>${rec.tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${rec.tagline}</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${rec.description}</p>${rec.highlightTitle ? `<div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary"><span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${rec.highlightTitle}</span><span class="text-xs font-semibold text-on-surface-variant">${rec.highlightDesc}</span></div>` : ''}${renderTags(rec.features || rec.tags)}${rec.alsoOffers?.length ? `<p class="text-[11px] text-on-surface-variant"><strong>Também oferece:</strong> ${rec.alsoOffers.join('; ')}.</p>` : ''}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(rec)}${rec.instagram ? `<a href="https://instagram.com/${rec.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span>@</span><span>Instagram</span></a>` : ''}${siteLink(rec)}</div></div></article>`).join('');
-    html += '</div></section>';
-  }
+    let html = '';
+    if (recs.length) {
+      html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localServicesTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localServicesSubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
+      html += recs.map(rec => {
+        const tr = getLocalRecommendationTranslation(rec);
+        const type = tr.type || '';
+        const tagline = tr.tagline || '';
+        const description = tr.description || '';
+        const features = tr.features || tr.tags;
+        const alsoOffers = tr.alsoOffers;
+        const highlightTitle = tr.highlightTitle;
+        const highlightDesc = tr.highlightDesc;
+        return `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">${rec.image ? `<img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">` : `<div class="w-full h-full bg-surface-container flex flex-col items-center justify-center text-on-surface-variant/50"><span class="material-symbols-outlined text-[32px] mb-2">image</span><span class="text-[10px] uppercase font-bold tracking-wider">${t('localImagePending')}</span></div>`}<div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>${tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${tagline}</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${description}</p>${highlightTitle ? `<div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary"><span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${highlightTitle}</span><span class="text-xs font-semibold text-on-surface-variant">${highlightDesc || ''}</span></div>` : ''}${renderTags(features)}${alsoOffers?.length ? `<p class="text-[11px] text-on-surface-variant"><strong>${t('localAlsoOffers')}</strong> ${alsoOffers.join('; ')}.</p>` : ''}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(rec)}${rec.instagram ? `<a href="https://instagram.com/${rec.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span>@</span><span>Instagram</span></a>` : ''}${siteLink(rec)}</div></div></article>`;
+      }).join('');
+      html += '</div></section>';
+    }
 
-  if (stays.length) {
-    html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">Onde ficar perto da ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">Hospedagem recomendada para a sua visita.</p></div><div class="grid grid-cols-1 gap-5">`;
-    html += stays.map(stay => `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${stay.type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4><p class="text-xs text-on-surface-variant leading-relaxed mt-1.5">${stay.description}</p></div>${renderTags(stay.features)}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(stay)}${siteLink(stay)}</div></div></article>`).join('');
-    html += '</div></section>';
-  }
+    if (stays.length) {
+      html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localStayTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localStaySubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
+      html += stays.map(stay => {
+        const tr = getLocalRecommendationTranslation(stay);
+        const type = tr.type || '';
+        const description = tr.description || '';
+        const features = tr.features;
+        return `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4><p class="text-xs text-on-surface-variant leading-relaxed mt-1.5">${description}</p></div>${renderTags(features)}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(stay)}${siteLink(stay)}</div></div></article>`;
+      }).join('');
+      html += '</div></section>';
+    }
 
-  return html;
+    return html;
 }
 
-
+function translateMapControls() {
+  for (const [selector, key] of [['.leaflet-control-zoom-in', 'zoomIn'], ['.leaflet-control-zoom-out', 'zoomOut']]) {
+    const el = document.querySelector(selector);
+    if (el) { el.title = t(key); el.setAttribute('aria-label', t(key)); }
+  }
+}
