@@ -325,3 +325,146 @@ const localAccommodations = {
     }
   ]
 };
+
+// Traduções dos conteúdos locais. Nomes comerciais, contatos e URLs permanecem invariáveis.
+const localRecommendationTranslations = {
+  'Chagas Passeios': {
+    pt: { type: 'Passeios e ecoturismo', tagline: 'Nascida na Praia do Veloso em 2009', description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.', tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'] },
+    en: { type: 'Tours and ecotourism', tagline: 'Founded at Praia do Veloso in 2009', description: 'Adventure and ecotourism company founded at Praia do Veloso, offering sea and land tours across different areas of Ilhabela.', tags: ['Boat tours', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'North Coast'] },
+    fr: { type: 'Excursions et écotourisme', tagline: 'Née à Praia do Veloso en 2009', description: 'Entreprise d’aventure et d’écotourisme née à Praia do Veloso, proposant des excursions maritimes et terrestres dans différentes régions d’Ilhabela.', tags: ['Excursions en bateau', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Côte Nord'] },
+    es: { type: 'Paseos y ecoturismo', tagline: 'Nacida en Praia do Veloso en 2009', description: 'Empresa de aventura y ecoturismo nacida en Praia do Veloso, con paseos marítimos y terrestres por distintas regiones de Ilhabela.', tags: ['Paseos en lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'] },
+    he: { type: 'סיורים ותיירות אקולוגית', tagline: 'נוסדה ב-Praia do Veloso בשנת 2009', description: 'חברת הרפתקאות ותיירות אקולוגית שנוסדה ב-Praia do Veloso ומציעה סיורים ימיים ויבשתיים באזורים שונים של Ilhabela.', tags: ['סיורי סירה', '4x4', 'Castelhanos', 'Bonete', 'שנירקול', 'החוף הצפוני'] }
+  },
+  'Portinho Passeios': {
+    pt: { type: 'Passeios e atividades', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho', 'Pet Friendly'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'] },
+    en: { type: 'Tours and activities', tagline: 'Paradise routes with a local caiçara touch', description: 'Boat tours departing from and serving Praia do Portinho, plus equipment rentals for enjoying the sea.', features: ['Boat tour', 'Kayak', 'Stand Up Paddle', 'Caiçara canoe', 'Bodyboard', 'Diving mask', 'Pet Friendly'], alsoOffers: ['insect repellent', 'waterproof phone pouch', 'beach accessories'] },
+    fr: { type: 'Excursions et activités', tagline: 'Des itinéraires paradisiaques à la façon caiçara', description: 'Excursions en bateau au départ de Praia do Portinho et location d’équipements pour profiter de la mer.', features: ['Excursion en bateau', 'Kayak', 'Stand Up Paddle', 'Canoë caiçara', 'Bodyboard', 'Masque de plongée', 'Pet Friendly'], alsoOffers: ['répulsif', 'pochette étanche pour téléphone', 'accessoires de plage'] },
+    es: { type: 'Paseos y actividades', tagline: 'Rutas paradisíacas al estilo caiçara', description: 'Paseos en barco con salida y atención en Praia do Portinho, además de alquiler de equipos para disfrutar del mar.', features: ['Paseo en barco', 'Kayak', 'Stand Up Paddle', 'Canoa caiçara', 'Bodyboard', 'Máscara de buceo', 'Pet Friendly'], alsoOffers: ['repelente', 'funda impermeable para celular', 'accesorios de playa'] },
+    he: { type: 'סיורים ופעילויות', tagline: 'מסלולים טרופיים בניחוח הקאיסארה המקומי', description: 'סיורי סירה היוצאים מ-Praia do Portinho, לצד השכרת ציוד לפעילויות בים.', features: ['סיור בסירה', 'קיאק', 'Stand Up Paddle', 'קאנו קאיסארה', 'Bodyboard', 'מסכת צלילה', 'Pet Friendly'], alsoOffers: ['דוחה חרקים', 'נרתיק אטום למים לטלפון', 'אביזרי חוף'] }
+  },
+  'Quiosque Maxx Beach': {
+    pt: { type: 'Alimentação e bebidas', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas'], highlightTitle: 'Destaque editorial', highlightDesc: 'Caipirinha com folhas de mexerica' },
+    en: { type: 'Food and drinks', description: 'Beach kiosk at Praia do Portinho serving drinks, shareable dishes and caipirinhas. One highlight is the caipirinha made with tangerine leaves.', tags: ['Beach bar', 'Shareable dishes', 'Caipirinhas'], highlightTitle: 'Editor’s highlight', highlightDesc: 'Caipirinha with tangerine leaves' },
+    fr: { type: 'Restauration et boissons', description: 'Kiosque à Praia do Portinho proposant un service de bar, des portions à partager et des caipirinhas. Parmi les spécialités figure la caipirinha aux feuilles de mandarine.', tags: ['Bar de plage', 'Portions à partager', 'Caipirinhas'], highlightTitle: 'Coup de cœur éditorial', highlightDesc: 'Caipirinha aux feuilles de mandarine' },
+    es: { type: 'Comida y bebidas', description: 'Quiosco en Praia do Portinho con servicio de bar, porciones y caipirinhas. Entre sus destacados está la caipirinha con hojas de mandarina.', tags: ['Bar de playa', 'Porciones', 'Caipirinhas'], highlightTitle: 'Destacado editorial', highlightDesc: 'Caipirinha con hojas de mandarina' },
+    he: { type: 'אוכל ומשקאות', description: 'קיוסק ב-Praia do Portinho המציע בר, מנות לחלוקה וקאיפיריניה. בין המנות הבולטות נמצאת קאיפיריניה עם עלי מנדרינה.', tags: ['בר על החוף', 'מנות לחלוקה', 'קאיפיריניה'], highlightTitle: 'בחירת המערכת', highlightDesc: 'קאיפיריניה עם עלי מנדרינה' }
+  },
+  'Portinho Divers': {
+    pt: { type: 'Mergulho', description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.', features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes'] },
+    en: { type: 'Diving', description: 'Dive center at Praia do Portinho offering introductory scuba dives accompanied by a professional, with equipment included.', features: ['Introductory scuba dive', 'Equipment included', 'Photos and videos', 'Beginner-friendly experience'] },
+    fr: { type: 'Plongée', description: 'Centre de plongée à Praia do Portinho proposant des baptêmes de plongée accompagnés par un professionnel, avec équipement inclus.', features: ['Baptême de plongée', 'Équipement inclus', 'Photos et vidéos', 'Expérience pour débutants'] },
+    es: { type: 'Buceo', description: 'Centro de buceo en Praia do Portinho con bautismo de buceo acompañado por un profesional y equipos incluidos.', features: ['Bautismo de buceo', 'Equipos incluidos', 'Fotos y videos', 'Experiencia para principiantes'] },
+    he: { type: 'צלילה', description: 'מרכז צלילה ב-Praia do Portinho המציע צלילת היכרות בליווי איש מקצוע, כולל ציוד.', features: ['צלילת היכרות', 'ציוד כלול', 'תמונות וסרטונים', 'מתאים למתחילים'] }
+  },
+  'La Gloria House': {
+    pt: { type: 'Hospedagem recomendada', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'] },
+    en: { type: 'Recommended accommodation', description: 'Guest house near Praia do Portinho, with private suites, a cabin and a pool overlooking the Atlantic Forest.', features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 guests', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar'] },
+    fr: { type: 'Hébergement recommandé', description: 'Guest house proche de Praia do Portinho, avec suites privées, cabane et piscine donnant sur la forêt atlantique.', features: ['À environ 5 min de Praia do Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar'] },
+    es: { type: 'Alojamiento recomendado', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
+    he: { type: 'לינה מומלצת', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
+  }
+};
+
+// Strings genéricas do renderer, integradas ao sistema i18n existente.
+Object.assign(translations.pt, {
+  localServicesTitle: 'Serviços e atividades na',
+  localServicesSubtitle: 'Conheça os serviços locais para aproveitar ainda mais sua visita.',
+  localStayTitle: 'Onde ficar perto da',
+  localStaySubtitle: 'Hospedagem recomendada para a sua visita.',
+  localAlsoOffers: 'Também oferece:',
+  localImagePending: 'Imagem pendente',
+  localWebsite: 'Acessar site',
+  localWhatsappMessage: 'Olá, vim pelo Ilhabela Guide!'
+});
+Object.assign(translations.en, {
+  localServicesTitle: 'Services and activities at',
+  localServicesSubtitle: 'Discover local services to make even more of your visit.',
+  localStayTitle: 'Where to stay near',
+  localStaySubtitle: 'Recommended accommodation for your visit.',
+  localAlsoOffers: 'Also offers:',
+  localImagePending: 'Image pending',
+  localWebsite: 'Visit website',
+  localWhatsappMessage: 'Hello, I found you through Ilhabela Guide!'
+});
+Object.assign(translations.fr, {
+  localServicesTitle: 'Services et activités à',
+  localServicesSubtitle: 'Découvrez les services locaux pour profiter encore davantage de votre visite.',
+  localStayTitle: 'Où séjourner près de',
+  localStaySubtitle: 'Hébergement recommandé pour votre visite.',
+  localAlsoOffers: 'Propose également :',
+  localImagePending: 'Image à venir',
+  localWebsite: 'Visiter le site',
+  localWhatsappMessage: 'Bonjour, je vous ai trouvé via Ilhabela Guide !'
+});
+Object.assign(translations.es, {
+  localServicesTitle: 'Servicios y actividades en',
+  localServicesSubtitle: 'Conoce los servicios locales para aprovechar aún más tu visita.',
+  localStayTitle: 'Dónde alojarse cerca de',
+  localStaySubtitle: 'Alojamiento recomendado para tu visita.',
+  localAlsoOffers: 'También ofrece:',
+  localImagePending: 'Imagen pendiente',
+  localWebsite: 'Visitar sitio web',
+  localWhatsappMessage: '¡Hola! Los encontré a través de Ilhabela Guide.'
+});
+Object.assign(translations.he, {
+  localServicesTitle: 'שירותים ופעילויות ב',
+  localServicesSubtitle: 'הכירו שירותים מקומיים שיעזרו לכם ליהנות עוד יותר מהביקור.',
+  localStayTitle: 'איפה ללון ליד',
+  localStaySubtitle: 'לינה מומלצת לביקור שלכם.',
+  localAlsoOffers: 'מוצעים גם:',
+  localImagePending: 'התמונה תתווסף בקרוב',
+  localWebsite: 'לאתר',
+  localWhatsappMessage: 'שלום, הגעתי אליכם דרך Ilhabela Guide!'
+});
+
+function getLocalRecommendationTranslation(item) {
+  const byName = localRecommendationTranslations[item?.name] || {};
+  return byName[currentLang] || byName.pt || item || {};
+}
+
+// app.js é carregado depois deste arquivo. No DOMContentLoaded, substituímos apenas o renderer
+// de recomendações pela versão i18n, preservando layout, contatos, imagens e ordem existentes.
+document.addEventListener('DOMContentLoaded', () => {
+  renderLocalRecommendations = function(spotId) {
+    const recs = localRecommendations[spotId] || [];
+    const stays = localAccommodations[spotId] || [];
+    if (!recs.length && !stays.length) return '';
+
+    const spot = touristSpots.find(item => item.id === spotId);
+    const spotTitle = spot ? (getSpotTranslation(spot).title || 'Ilhabela') : 'Ilhabela';
+    const renderTags = items => items?.length ? `<div class="flex flex-wrap gap-1.5 pt-1">${items.map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant border border-black/5 whitespace-nowrap"><span class="material-symbols-outlined text-[12px] text-primary align-middle mr-0.5">check</span>${item}</span>`).join('')}</div>` : '';
+    const whatsappLink = item => item.whatsapp ? `<a href="https://wa.me/55${item.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 py-2.5 px-4 rounded-xl bg-[#25D366] hover:bg-[#1EBE5D] text-white text-[11px] font-bold shadow-md flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">chat</span><span>${item.whatsappDisplay || 'WhatsApp'}</span></a>` : '';
+    const siteLink = item => item.url ? `<a href="${item.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span class="material-symbols-outlined text-[16px]">language</span><span>${t('localWebsite')}</span></a>` : '';
+
+    let html = '';
+    if (recs.length) {
+      html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localServicesTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localServicesSubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
+      html += recs.map(rec => {
+        const tr = getLocalRecommendationTranslation(rec);
+        const type = tr.type || rec.type || '';
+        const tagline = tr.tagline || rec.tagline || '';
+        const description = tr.description || rec.description || '';
+        const features = tr.features || tr.tags || rec.features || rec.tags;
+        const alsoOffers = tr.alsoOffers || rec.alsoOffers;
+        const highlightTitle = tr.highlightTitle || rec.highlightTitle;
+        const highlightDesc = tr.highlightDesc || rec.highlightDesc;
+        return `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0">${rec.image ? `<img src="${rec.image}" alt="${rec.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async">` : `<div class="w-full h-full bg-surface-container flex flex-col items-center justify-center text-on-surface-variant/50"><span class="material-symbols-outlined text-[32px] mb-2">image</span><span class="text-[10px] uppercase font-bold tracking-wider">${t('localImagePending')}</span></div>`}<div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${rec.name}</h4>${tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${tagline}</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${description}</p>${highlightTitle ? `<div class="bg-primary/5 rounded-lg p-2.5 border-l-2 border-primary"><span class="block text-[10px] font-bold text-primary uppercase mb-0.5">${highlightTitle}</span><span class="text-xs font-semibold text-on-surface-variant">${highlightDesc || ''}</span></div>` : ''}${renderTags(features)}${alsoOffers?.length ? `<p class="text-[11px] text-on-surface-variant"><strong>${t('localAlsoOffers')}</strong> ${alsoOffers.join('; ')}.</p>` : ''}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(rec)}${rec.instagram ? `<a href="https://instagram.com/${rec.instagram.replace('@','')}" target="_blank" rel="noopener noreferrer" class="min-h-11 py-2.5 px-4 rounded-xl glass-panel text-on-surface-variant hover:text-primary text-[11px] font-bold border border-black/10 flex items-center justify-center gap-1.5 transition-colors"><span>@</span><span>Instagram</span></a>` : ''}${siteLink(rec)}</div></div></article>`;
+      }).join('');
+      html += '</div></section>';
+    }
+
+    if (stays.length) {
+      html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localStayTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localStaySubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
+      html += stays.map(stay => {
+        const tr = getLocalRecommendationTranslation(stay);
+        const type = tr.type || stay.type || '';
+        const description = tr.description || stay.description || '';
+        const features = tr.features || stay.features;
+        return `<article class="glass-card rounded-2xl overflow-hidden flex flex-col md:flex-row border border-black/5 shadow-sm group"><div class="w-full md:w-2/5 h-48 md:h-auto relative shrink-0"><img src="${stay.image}" alt="${stay.name}" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" loading="lazy" decoding="async"><div class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${type}</div></div><div class="p-4 md:p-5 flex flex-col justify-center flex-1 space-y-3"><div><h4 class="text-lg font-bold text-primary font-heading leading-tight">${stay.name}</h4><p class="text-xs text-on-surface-variant leading-relaxed mt-1.5">${description}</p></div>${renderTags(features)}<div class="flex flex-wrap gap-2 pt-2 mt-auto">${whatsappLink(stay)}${siteLink(stay)}</div></div></article>`;
+      }).join('');
+      html += '</div></section>';
+    }
+
+    return html;
+  };
+});
