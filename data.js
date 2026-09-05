@@ -933,7 +933,7 @@ const touristSpots = [
           "duration": "Accès direct en voiture",
           "elevation": "Niveau de la mer",
           "access": "Fin de Av. José Pacheco do Nascimento (côté sud)",
-          "sea": "Eaux douces, limpides et abritées du vent",
+          "sea": "Eaux calmes, limpides et abritées du vent",
           "structure": "Kiosque rustique, arbres ombragés et proximité de Cachoeira do Veloso"
         }
       },
@@ -1073,7 +1073,7 @@ const touristSpots = [
           "duration": "Accès direct en voiture",
           "elevation": "Niveau de la mer",
           "access": "Av. Leonardo Reale (côté nord)",
-          "sea": "Eaux douces sans vagues, idéales pour les enfants, le paddle et le kayak",
+          "sea": "Eaux calmes sans vagues, idéales pour les enfants, le paddle et le kayak",
           "structure": "Kiosques charmants, ombre des amandiers et cocotiers"
         }
       },
