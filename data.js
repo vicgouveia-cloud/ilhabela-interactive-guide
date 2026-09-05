@@ -1,3 +1,4 @@
+// Attraction facts and localized content. Keep every supported language complete.
 const touristSpots = [
   {
     "id": "praia-do-bonete",
@@ -44,7 +45,15 @@ const touristSpots = [
           "Encontro do rio cristalino com o mar",
           "Pôr do sol cinematográfico"
         ],
-        "ecoTip": "Respeite a cultura caiçara local, recolha todo o seu lixo e apoie o artesanato nativo."
+        "ecoTip": "Respeite a cultura caiçara local, recolha todo o seu lixo e apoie o artesanato nativo.",
+        "specs": {
+          "distance": "12 km (trilha)",
+          "duration": "4h a 5h (a pé) ou 40min (barco)",
+          "elevation": "+350m",
+          "access": "Trilha a partir de Sepituba ou Barco / Boneteiro",
+          "sea": "Ondas tubulares de surf, mar esmeralda e areias claras",
+          "structure": "Comunidade tradicional caiçara, pousadas rústicas e quiosques com peixe fresco"
+        }
       },
       "en": {
         "title": "Bonete Beach",
@@ -56,7 +65,15 @@ const touristSpots = [
           "Freshwater river estuary",
           "Cinematic sunsets"
         ],
-        "ecoTip": "Respect the local community, pack all trash out, and support local native crafts."
+        "ecoTip": "Respect the local community, pack all trash out, and support local native crafts.",
+        "specs": {
+          "distance": "12 km (trail)",
+          "duration": "4–5 h on foot or 40 min by boat",
+          "elevation": "+350 m",
+          "access": "Trail from Sepituba or boat / Boneteiro",
+          "sea": "Barrelling surf, emerald sea and pale sand",
+          "structure": "Traditional caiçara community, rustic guesthouses and kiosks serving fresh fish"
+        }
       },
       "fr": {
         "title": "Plage do Bonete",
@@ -68,7 +85,15 @@ const touristSpots = [
           "Rivière d eau douce sur la plage",
           "Couchers de soleil magiques"
         ],
-        "ecoTip": "Respectez la culture locale et remportez tous vos déchets."
+        "ecoTip": "Respectez la culture locale et remportez tous vos déchets.",
+        "specs": {
+          "distance": "12 km (sentier)",
+          "duration": "4 à 5 h à pied ou 40 min en bateau",
+          "elevation": "+350 m",
+          "access": "Sentier depuis Sepituba ou bateau / Boneteiro",
+          "sea": "Vagues tubulaires, mer émeraude et sable clair",
+          "structure": "Communauté caiçara traditionnelle, auberges rustiques et kiosques de poisson frais"
+        }
       },
       "es": {
         "title": "Playa do Bonete",
@@ -80,7 +105,15 @@ const touristSpots = [
           "Río cristalino en la playa",
           "Atardecer inolvidable"
         ],
-        "ecoTip": "Respeta la cultura local, lleva tu basura de regreso y apoya el comercio nativo."
+        "ecoTip": "Respeta la cultura local, lleva tu basura de regreso y apoya el comercio nativo.",
+        "specs": {
+          "distance": "12 km (sendero)",
+          "duration": "4 a 5 h a pie o 40 min en barco",
+          "elevation": "+350 m",
+          "access": "Sendero desde Sepituba o barco / Boneteiro",
+          "sea": "Olas tubulares de surf, mar esmeralda y arena clara",
+          "structure": "Comunidad caiçara tradicional, posadas rústicas y quioscos con pescado fresco"
+        }
       },
       "he": {
         "title": "חוף בונטה (Praia do Bonete)",
@@ -92,7 +125,15 @@ const touristSpots = [
           "נהר מים מתוקים לרחצה",
           "שקיעות רומנטיות עוצרות נשימה"
         ],
-        "ecoTip": "כבדו את הקהילה המקומית, אל תשאירו אשפה ותמכו בתושבי המקום."
+        "ecoTip": "כבדו את הקהילה המקומית, אל תשאירו אשפה ותמכו בתושבי המקום.",
+        "specs": {
+          "distance": "12 ק״מ (שביל)",
+          "duration": "4–5 שעות ברגל או 40 דקות בסירה",
+          "elevation": "+350 מ׳",
+          "access": "שביל מ-Sepituba או סירה / Boneteiro",
+          "sea": "גלי גלישה צינוריים, ים בצבע אזמרגד וחול בהיר",
+          "structure": "קהילת קאיסארה מסורתית, בתי הארחה כפריים וקיוסקים עם דגים טריים"
+        }
       }
     },
     "images": [
@@ -145,7 +186,15 @@ const touristSpots = [
           "Trilha para Cachoeira do Gato",
           "Gastronomia caiçara de frutos do mar"
         ],
-        "ecoTip": "A entrada na estrada do Parque tem horários de fluxo controlado de ida e volta."
+        "ecoTip": "A entrada na estrada do Parque tem horários de fluxo controlado de ida e volta.",
+        "specs": {
+          "distance": "22 km de travessia off-road",
+          "duration": "1h20 (jipe 4x4) ou 1h (lancha)",
+          "elevation": "+680m (serra)",
+          "access": "Veículos 4x4 credenciados (Parque Estadual) ou Barco/Lancha pelo mar",
+          "sea": "Mar aberto com ondas no canto esquerdo e calmo no canto direito",
+          "structure": "Vários quiosques rústicos com peixe fresco caiçara e infraestrutura de praia"
+        }
       },
       "en": {
         "title": "Castelhanos Bay",
@@ -157,7 +206,15 @@ const touristSpots = [
           "Trail to Cat Waterfall",
           "Fresh local seafood shacks"
         ],
-        "ecoTip": "Park road hours are strictly regulated to protect native flora."
+        "ecoTip": "Park road hours are strictly regulated to protect native flora.",
+        "specs": {
+          "distance": "22 km off-road crossing",
+          "duration": "1 h 20 min by 4x4 or 1 h by speedboat",
+          "elevation": "+680 m (mountains)",
+          "access": "Accredited 4x4 vehicles through the State Park or boat / speedboat by sea",
+          "sea": "Open sea with waves on the left and calm water on the right",
+          "structure": "Several rustic kiosks serving fresh caiçara fish and beach facilities"
+        }
       },
       "fr": {
         "title": "Baie de Castelhanos",
@@ -169,7 +226,15 @@ const touristSpots = [
           "Sentier vers la cascade do Gato",
           "Kiosques de cuisine de la mer"
         ],
-        "ecoTip": "Les horaires de circulation sur la piste du parc sont strictement régulés."
+        "ecoTip": "Les horaires de circulation sur la piste du parc sont strictement régulés.",
+        "specs": {
+          "distance": "22 km de traversée tout-terrain",
+          "duration": "1 h 20 en 4x4 ou 1 h en bateau rapide",
+          "elevation": "+680 m (montagne)",
+          "access": "Véhicules 4x4 agréés par le parc d’État ou bateau par la mer",
+          "sea": "Mer ouverte avec vagues à gauche et eaux calmes à droite",
+          "structure": "Plusieurs kiosques rustiques de poisson frais caiçara et équipements de plage"
+        }
       },
       "es": {
         "title": "Bahía de Castelhanos",
@@ -181,7 +246,15 @@ const touristSpots = [
           "Sendero a la Cascada do Gato",
           "Gastronomía caiçara fresca"
         ],
-        "ecoTip": "Los horarios de subida y bajada en la carretera del parque están estrictamente controlados."
+        "ecoTip": "Los horarios de subida y bajada en la carretera del parque están estrictamente controlados.",
+        "specs": {
+          "distance": "22 km de travesía todoterreno",
+          "duration": "1 h 20 min en 4x4 o 1 h en lancha",
+          "elevation": "+680 m (sierra)",
+          "access": "Vehículos 4x4 acreditados por el Parque Estatal o barco / lancha por mar",
+          "sea": "Mar abierto con olas a la izquierda y calma a la derecha",
+          "structure": "Varios quioscos rústicos con pescado fresco caiçara e infraestructura de playa"
+        }
       },
       "he": {
         "title": "מפרץ קסטליאנוס (Baía de Castelhanos)",
@@ -193,7 +266,15 @@ const touristSpots = [
           "מסלול הליכה למפל החתול",
           "דגים טריים ומסעדות מקומיות"
         ],
-        "ecoTip": "הכניסה לשביל הפארק מוגבלת לשעות מוגדרות לשמירה על חיות הבר."
+        "ecoTip": "הכניסה לשביל הפארק מוגבלת לשעות מוגדרות לשמירה על חיות הבר.",
+        "specs": {
+          "distance": "22 ק״מ של דרך שטח",
+          "duration": "שעה ו-20 דקות ב-4x4 או שעה בסירת מנוע",
+          "elevation": "+680 מ׳ (הרים)",
+          "access": "רכבי 4x4 מורשים בפארק המדינה או סירה דרך הים",
+          "sea": "ים פתוח עם גלים משמאל ומים רגועים מימין",
+          "structure": "קיוסקים כפריים עם דגים טריים בסגנון קאיסארה ותשתיות חוף"
+        }
       }
     },
     "images": [
@@ -246,7 +327,15 @@ const touristSpots = [
           "Passeio clássico de escuna",
           "Sombra fresca de árvores centenárias"
         ],
-        "ecoTip": "Não pise nos corais e não alimente os peixes para preservar o ecossistema marinho."
+        "ecoTip": "Não pise nos corais e não alimente os peixes para preservar o ecossistema marinho.",
+        "specs": {
+          "distance": "Acesso por barco / lancha / escuna",
+          "duration": "35 min de navegação",
+          "elevation": "Nível do mar",
+          "access": "Passeios náuticos a partir da Vila ou trilha a partir do Jabaquara",
+          "sea": "Piscina natural de águas cristalinas em tons de turquesa e esmeralda",
+          "structure": "Casarão histórico preservado, sem quiosques fixos"
+        }
       },
       "en": {
         "title": "Fome Beach (Praia da Fome)",
@@ -258,7 +347,15 @@ const touristSpots = [
           "Classic boat tour stop",
           "Shaded by ancient coastal trees"
         ],
-        "ecoTip": "Do not step on reef corals and refrain from feeding marine life."
+        "ecoTip": "Do not step on reef corals and refrain from feeding marine life.",
+        "specs": {
+          "distance": "Access by boat / speedboat / schooner",
+          "duration": "35 min by boat",
+          "elevation": "Sea level",
+          "access": "Boat tours from Vila or trail from Jabaquara",
+          "sea": "Natural pool of crystal-clear turquoise and emerald water",
+          "structure": "Preserved historic mansion, no permanent kiosks"
+        }
       },
       "fr": {
         "title": "Plage da Fome",
@@ -270,7 +367,15 @@ const touristSpots = [
           "Escale classique en bateau",
           "Ombrage naturel des grands arbres"
         ],
-        "ecoTip": "Ne marchez pas sur les coraux et ne nourrissez pas les poissons."
+        "ecoTip": "Ne marchez pas sur les coraux et ne nourrissez pas les poissons.",
+        "specs": {
+          "distance": "Accès en bateau / bateau rapide / goélette",
+          "duration": "35 min de navigation",
+          "elevation": "Niveau de la mer",
+          "access": "Excursions nautiques depuis Vila ou sentier depuis Jabaquara",
+          "sea": "Piscine naturelle aux eaux cristallines turquoise et émeraude",
+          "structure": "Demeure historique préservée, sans kiosques permanents"
+        }
       },
       "es": {
         "title": "Playa da Fome",
@@ -282,7 +387,15 @@ const touristSpots = [
           "Parada clásica de paseos en barco",
           "Sombra fresca de árboles nativos"
         ],
-        "ecoTip": "No pises los corales y evita alimentar a los peces marinos."
+        "ecoTip": "No pises los corales y evita alimentar a los peces marinos.",
+        "specs": {
+          "distance": "Acceso en barco / lancha / goleta",
+          "duration": "35 min de navegación",
+          "elevation": "Nivel del mar",
+          "access": "Paseos náuticos desde Vila o sendero desde Jabaquara",
+          "sea": "Piscina natural de aguas cristalinas turquesa y esmeralda",
+          "structure": "Casona histórica conservada, sin quioscos fijos"
+        }
       },
       "he": {
         "title": "חוף פומי (Praia da Fome)",
@@ -294,7 +407,15 @@ const touristSpots = [
           "עצירה קלאסית בסיורי שייט",
           "צל נעים מעצי חוף עתיקים"
         ],
-        "ecoTip": "אין לדרוך על אלמוגים ואין להאכיל את הדגים."
+        "ecoTip": "אין לדרוך על אלמוגים ואין להאכיל את הדגים.",
+        "specs": {
+          "distance": "גישה בסירה / סירת מנוע / מפרשית",
+          "duration": "35 דקות שייט",
+          "elevation": "גובה פני הים",
+          "access": "סיורי שייט מ-Vila או שביל מ-Jabaquara",
+          "sea": "בריכה טבעית עם מים צלולים בגוני טורקיז ואזמרגד",
+          "structure": "אחוזה היסטורית משומרת, ללא קיוסקים קבועים"
+        }
       }
     },
     "images": [
@@ -346,7 +467,15 @@ const touristSpots = [
           "Gastronomia refinada nos quiosques",
           "Pôr do sol deslumbrante"
         ],
-        "ecoTip": "Respeite as áreas de pedras e não recolha conchas ou animais marinhos."
+        "ecoTip": "Respeite as áreas de pedras e não recolha conchas ou animais marinhos.",
+        "specs": {
+          "distance": "300m a pé da estrada",
+          "duration": "5 min de caminhada",
+          "elevation": "Plano",
+          "access": "Trilha calçada e sombreada a partir da Av. José Pacheco do Nascimento",
+          "sea": "Mar sereno com grandes formações rochosas que formam piscinas naturais",
+          "structure": "Quiosques de excelente gastronomia caiçara, aluguel de caiaques e stand up paddle"
+        }
       },
       "en": {
         "title": "Julião Beach (Praia do Julião)",
@@ -358,7 +487,15 @@ const touristSpots = [
           "Charming beachside dining",
           "Golden sunset views"
         ],
-        "ecoTip": "Respect the tide pools and leave shells and sea creatures in place."
+        "ecoTip": "Respect the tide pools and leave shells and sea creatures in place.",
+        "specs": {
+          "distance": "300 m walk from the road",
+          "duration": "5 min walk",
+          "elevation": "Flat",
+          "access": "Paved, shaded trail from Av. José Pacheco do Nascimento",
+          "sea": "Quiet sea with large rock formations forming natural pools",
+          "structure": "Excellent caiçara food kiosks, kayak and stand-up paddle rentals"
+        }
       },
       "fr": {
         "title": "Plage do Julião",
@@ -370,7 +507,15 @@ const touristSpots = [
           "Excellente cuisine de fruits de mer",
           "Superbe coucher de soleil"
         ],
-        "ecoTip": "Ne ramassez pas de coquillages pour préserver l écosystème."
+        "ecoTip": "Ne ramassez pas de coquillages pour préserver l écosystème.",
+        "specs": {
+          "distance": "300 m à pied depuis la route",
+          "duration": "5 min de marche",
+          "elevation": "Plat",
+          "access": "Sentier pavé et ombragé depuis Av. José Pacheco do Nascimento",
+          "sea": "Mer paisible avec de grands rochers formant des piscines naturelles",
+          "structure": "Excellents kiosques de cuisine caiçara, location de kayaks et de paddle"
+        }
       },
       "es": {
         "title": "Playa do Julião",
@@ -382,7 +527,15 @@ const touristSpots = [
           "Restaurantes de playa de primer nivel",
           "Atardecer dorado"
         ],
-        "ecoTip": "Cuida las pozas de marea y no te lleves caracolas ni estrellas."
+        "ecoTip": "Cuida las pozas de marea y no te lleves caracolas ni estrellas.",
+        "specs": {
+          "distance": "300 m a pie desde la carretera",
+          "duration": "5 min caminando",
+          "elevation": "Plano",
+          "access": "Sendero pavimentado y sombreado desde Av. José Pacheco do Nascimento",
+          "sea": "Mar sereno con grandes rocas que forman piscinas naturales",
+          "structure": "Quioscos de excelente gastronomía caiçara, alquiler de kayaks y paddle surf"
+        }
       },
       "he": {
         "title": "חוף ז׳וליאו (Praia do Julião)",
@@ -394,7 +547,15 @@ const touristSpots = [
           "מסעדות חוף עם דגים טריים",
           "נוף שקיעה זהוב"
         ],
-        "ecoTip": "כבדו את בריכות הסלעים ואל תיקחו צדפים או בעלי חיים מהחוף."
+        "ecoTip": "כבדו את בריכות הסלעים ואל תיקחו צדפים או בעלי חיים מהחוף.",
+        "specs": {
+          "distance": "300 מ׳ הליכה מהכביש",
+          "duration": "5 דקות הליכה",
+          "elevation": "מישורי",
+          "access": "שביל מרוצף ומוצל מ-Av. José Pacheco do Nascimento",
+          "sea": "ים שקט עם סלעים גדולים היוצרים בריכות טבעיות",
+          "structure": "קיוסקים עם אוכל קאיסארה משובח והשכרת קיאקים וסאפ"
+        }
       }
     },
     "images": [
@@ -446,7 +607,15 @@ const touristSpots = [
           "Águas ideais para stand up paddle e nado",
           "Capelinha histórica à beira-mar"
         ],
-        "ecoTip": "Utilize protetor solar amigo dos corais e descarte o lixo nos pontos de coleta."
+        "ecoTip": "Utilize protetor solar amigo dos corais e descarte o lixo nos pontos de coleta.",
+        "specs": {
+          "distance": "0 km (beira da estrada)",
+          "duration": "Acesso direto por carro / transporte",
+          "elevation": "Nível do mar",
+          "access": "Carro, ônibus urbano ou táxi pela Av. José Pacheco do Nascimento",
+          "sea": "Águas calmas e límpidas com tons esmeralda, ótimo para nado e caiaque",
+          "structure": "Quiosques premium com música ao vivo, banheiros, duchas e alta gastronomia"
+        }
       },
       "en": {
         "title": "Curral Beach",
@@ -458,7 +627,15 @@ const touristSpots = [
           "Calm waters for swimming & SUP",
           "Charming seaside chapel"
         ],
-        "ecoTip": "Dispose of waste in recycling bins and use reef-safe sunscreen."
+        "ecoTip": "Dispose of waste in recycling bins and use reef-safe sunscreen.",
+        "specs": {
+          "distance": "0 km (roadside)",
+          "duration": "Direct access by car / transport",
+          "elevation": "Sea level",
+          "access": "Car, city bus or taxi via Av. José Pacheco do Nascimento",
+          "sea": "Calm, clear emerald water, great for swimming and kayaking",
+          "structure": "Premium kiosks with live music, toilets, showers and fine dining"
+        }
       },
       "fr": {
         "title": "Plage do Curral",
@@ -470,7 +647,15 @@ const touristSpots = [
           "Eaux paisibles propices au paddle",
           "Petite chapelle historique"
         ],
-        "ecoTip": "Privilégiez les contenants réutilisables sur le sable."
+        "ecoTip": "Privilégiez les contenants réutilisables sur le sable.",
+        "specs": {
+          "distance": "0 km (bord de route)",
+          "duration": "Accès direct en voiture / transport",
+          "elevation": "Niveau de la mer",
+          "access": "Voiture, bus urbain ou taxi par Av. José Pacheco do Nascimento",
+          "sea": "Eaux calmes et limpides couleur émeraude, idéales pour nager et faire du kayak",
+          "structure": "Kiosques haut de gamme avec musique, toilettes, douches et gastronomie"
+        }
       },
       "es": {
         "title": "Playa do Curral",
@@ -482,7 +667,15 @@ const touristSpots = [
           "Aguas perfectas para nadar y SUP",
           "Capilla histórica frente al mar"
         ],
-        "ecoTip": "Usa los puntos de reciclaje y cuida la limpieza de la playa."
+        "ecoTip": "Usa los puntos de reciclaje y cuida la limpieza de la playa.",
+        "specs": {
+          "distance": "0 km (junto a la carretera)",
+          "duration": "Acceso directo en coche / transporte",
+          "elevation": "Nivel del mar",
+          "access": "Coche, autobús urbano o taxi por Av. José Pacheco do Nascimento",
+          "sea": "Aguas tranquilas y claras de color esmeralda, ideales para nadar y kayak",
+          "structure": "Quioscos de alta gama con música en vivo, baños, duchas y alta gastronomía"
+        }
       },
       "he": {
         "title": "חוף קוראל (Praia do Curral)",
@@ -494,7 +687,15 @@ const touristSpots = [
           "מים רגועים לשחייה וסאפ",
           "כנסייה היסטורית על קו החוף"
         ],
-        "ecoTip": "הקפידו לזרוק אשפה לפחים ומנעו שימוש בפלסטיק חד פעמי."
+        "ecoTip": "הקפידו לזרוק אשפה לפחים ומנעו שימוש בפלסטיק חד פעמי.",
+        "specs": {
+          "distance": "0 ק״מ (לצד הכביש)",
+          "duration": "גישה ישירה ברכב / תחבורה",
+          "elevation": "גובה פני הים",
+          "access": "רכב, אוטובוס עירוני או מונית דרך Av. José Pacheco do Nascimento",
+          "sea": "מים רגועים וצלולים בצבע אזמרגד, מתאימים לשחייה ולקיאקים",
+          "structure": "קיוסקים יוקרתיים עם מוזיקה חיה, שירותים, מקלחות ואוכל משובח"
+        }
       }
     },
     "images": [
@@ -546,7 +747,15 @@ const touristSpots = [
           "Capela histórica de São Pedro",
           "Sombra de coqueiros e árvores nativas"
         ],
-        "ecoTip": "Respeite as áreas de entrada e saída de embarcações e velejadores."
+        "ecoTip": "Respeite as áreas de entrada e saída de embarcações e velejadores.",
+        "specs": {
+          "distance": "À beira da estrada norte",
+          "duration": "Acesso direto por carro / ônibus",
+          "elevation": "Nível do mar",
+          "access": "Av. Pedro Paula de Moraes (norte da ilha)",
+          "sea": "Mar de canal com ventos constantes, ponto nobre de vela e windsurf",
+          "structure": "Quiosques, escolas de vela, aluguel de pranchas e a histórica Capela de São Pedro"
+        }
       },
       "en": {
         "title": "Armação Beach",
@@ -558,7 +767,15 @@ const touristSpots = [
           "Charming Saint Peter historic chapel",
           "Lush shady palm trees"
         ],
-        "ecoTip": "Keep clear of designated boat launching zones."
+        "ecoTip": "Keep clear of designated boat launching zones.",
+        "specs": {
+          "distance": "Beside the northern road",
+          "duration": "Direct access by car / bus",
+          "elevation": "Sea level",
+          "access": "Av. Pedro Paula de Moraes (north of the island)",
+          "sea": "Channel waters with steady winds, a prime sailing and windsurfing spot",
+          "structure": "Kiosks, sailing schools, board rentals and historic Capela de São Pedro"
+        }
       },
       "fr": {
         "title": "Plage da Armação",
@@ -570,7 +787,15 @@ const touristSpots = [
           "Chapelle historique de São Pedro",
           "Ombrage naturel des palmiers"
         ],
-        "ecoTip": "Respectez les couloirs de navigation des voiliers."
+        "ecoTip": "Respectez les couloirs de navigation des voiliers.",
+        "specs": {
+          "distance": "Au bord de la route du nord",
+          "duration": "Accès direct en voiture / bus",
+          "elevation": "Niveau de la mer",
+          "access": "Av. Pedro Paula de Moraes (nord de l’île)",
+          "sea": "Eaux du canal aux vents réguliers, site privilégié de voile et de planche à voile",
+          "structure": "Kiosques, écoles de voile, location de planches et chapelle historique Capela de São Pedro"
+        }
       },
       "es": {
         "title": "Playa da Armação",
@@ -582,7 +807,15 @@ const touristSpots = [
           "Capilla histórica de San Pedro",
           "Hermosos cocoteros"
         ],
-        "ecoTip": "Respeta las áreas reservadas para embarcaciones."
+        "ecoTip": "Respeta las áreas reservadas para embarcaciones.",
+        "specs": {
+          "distance": "Junto a la carretera del norte",
+          "duration": "Acceso directo en coche / autobús",
+          "elevation": "Nivel del mar",
+          "access": "Av. Pedro Paula de Moraes (norte de la isla)",
+          "sea": "Mar de canal con vientos constantes, lugar destacado para vela y windsurf",
+          "structure": "Quioscos, escuelas de vela, alquiler de tablas y la histórica Capela de São Pedro"
+        }
       },
       "he": {
         "title": "חוף ארמסאו (Praia da Armação)",
@@ -594,7 +827,15 @@ const touristSpots = [
           "כנסיית דייגים היסטורית",
           "עצי קוקוס וצל טבעי"
         ],
-        "ecoTip": "שמרו על בטיחות בקרבת אזורי הורדת סירות ומפרשיות."
+        "ecoTip": "שמרו על בטיחות בקרבת אזורי הורדת סירות ומפרשיות.",
+        "specs": {
+          "distance": "לצד הכביש הצפוני",
+          "duration": "גישה ישירה ברכב / אוטובוס",
+          "elevation": "גובה פני הים",
+          "access": "Av. Pedro Paula de Moraes (צפון האי)",
+          "sea": "מי תעלה עם רוחות קבועות, אתר מוביל לשייט ולגלישת רוח",
+          "structure": "קיוסקים, בתי ספר לשייט, השכרת גלשנים והקפלה ההיסטורית Capela de São Pedro"
+        }
       }
     },
     "images": [
@@ -646,7 +887,15 @@ const touristSpots = [
           "Próxima à trilha da Cachoeira do Veloso",
           "Pôr do sol deslumbrante"
         ],
-        "ecoTip": "Aproveite para conjugar a visita com a Cachoeira do Veloso a poucos metros de trilha."
+        "ecoTip": "Aproveite para conjugar a visita com a Cachoeira do Veloso a poucos metros de trilha.",
+        "specs": {
+          "distance": "Última praia com acesso asfaltado no sul",
+          "duration": "Acesso direto por carro",
+          "elevation": "Nível do mar",
+          "access": "Final da Av. José Pacheco do Nascimento (lado sul)",
+          "sea": "Águas mansas, límpidas e protegidas de vento",
+          "structure": "Quiosque rústico, sombra de árvores e proximidade com a Cachoeira do Veloso"
+        }
       },
       "en": {
         "title": "Veloso Beach",
@@ -658,7 +907,15 @@ const touristSpots = [
           "Close to Veloso Waterfall trail",
           "Golden hour sunsets"
         ],
-        "ecoTip": "Combine your visit with the short hike to nearby Veloso Waterfall."
+        "ecoTip": "Combine your visit with the short hike to nearby Veloso Waterfall.",
+        "specs": {
+          "distance": "Last southern beach with paved access",
+          "duration": "Direct access by car",
+          "elevation": "Sea level",
+          "access": "End of Av. José Pacheco do Nascimento (south side)",
+          "sea": "Gentle, clear waters sheltered from the wind",
+          "structure": "Rustic kiosk, tree shade and proximity to Cachoeira do Veloso"
+        }
       },
       "fr": {
         "title": "Plage do Veloso",
@@ -670,7 +927,15 @@ const touristSpots = [
           "Accès proche à la cascade do Veloso",
           "Magnifique coucher de soleil"
         ],
-        "ecoTip": "Combinez la plage avec la visite de la cascade voisine."
+        "ecoTip": "Combinez la plage avec la visite de la cascade voisine.",
+        "specs": {
+          "distance": "Dernière plage du sud avec accès goudronné",
+          "duration": "Accès direct en voiture",
+          "elevation": "Niveau de la mer",
+          "access": "Fin de Av. José Pacheco do Nascimento (côté sud)",
+          "sea": "Eaux douces, limpides et abritées du vent",
+          "structure": "Kiosque rustique, arbres ombragés et proximité de Cachoeira do Veloso"
+        }
       },
       "es": {
         "title": "Playa do Veloso",
@@ -682,7 +947,15 @@ const touristSpots = [
           "Cercana a la Cascada do Veloso",
           "Hermoso atardecer"
         ],
-        "ecoTip": "Combina tu visita con la caminata a la Cascada do Veloso."
+        "ecoTip": "Combina tu visita con la caminata a la Cascada do Veloso.",
+        "specs": {
+          "distance": "Última playa del sur con acceso asfaltado",
+          "duration": "Acceso directo en coche",
+          "elevation": "Nivel del mar",
+          "access": "Final de Av. José Pacheco do Nascimento (lado sur)",
+          "sea": "Aguas mansas, claras y protegidas del viento",
+          "structure": "Quiosco rústico, sombra de árboles y cercanía a Cachoeira do Veloso"
+        }
       },
       "he": {
         "title": "חוף ולוזו (Praia do Veloso)",
@@ -694,7 +967,15 @@ const touristSpots = [
           "סמוך לשביל המפל של ולוזו",
           "שקיעות רומנטיות"
         ],
-        "ecoTip": "מומלץ לשלב רחצה בחוף עם טיול קצר למפל ולוזו הסמוך."
+        "ecoTip": "מומלץ לשלב רחצה בחוף עם טיול קצר למפל ולוזו הסמוך.",
+        "specs": {
+          "distance": "החוף הדרומי האחרון עם גישה סלולה",
+          "duration": "גישה ישירה ברכב",
+          "elevation": "גובה פני הים",
+          "access": "סוף Av. José Pacheco do Nascimento (הצד הדרומי)",
+          "sea": "מים שקטים וצלולים המוגנים מהרוח",
+          "structure": "קיוסק כפרי, צל עצים וקרבה ל-Cachoeira do Veloso"
+        }
       }
     },
     "images": [
@@ -746,7 +1027,15 @@ const touristSpots = [
           "Sombra fresca de coqueirais",
           "Restaurantes charmosos"
         ],
-        "ecoTip": "Não recolha estrelas-do-mar ou corais encontrados na praia."
+        "ecoTip": "Não recolha estrelas-do-mar ou corais encontrados na praia.",
+        "specs": {
+          "distance": "À beira da estrada norte",
+          "duration": "Acesso direto por carro",
+          "elevation": "Nível do mar",
+          "access": "Av. Leonardo Reale (lado norte)",
+          "sea": "Águas mansas, sem ondas, ideal para crianças, stand up paddle e caiaque",
+          "structure": "Quiosques charmosos, sombra de amendoeiras e coqueiros"
+        }
       },
       "en": {
         "title": "Siriúba Beach",
@@ -758,7 +1047,15 @@ const touristSpots = [
           "Shady coconut palm groves",
           "Delightful beach dining"
         ],
-        "ecoTip": "Leave marine life and starfish undisturbed."
+        "ecoTip": "Leave marine life and starfish undisturbed.",
+        "specs": {
+          "distance": "Beside the northern road",
+          "duration": "Direct access by car",
+          "elevation": "Sea level",
+          "access": "Av. Leonardo Reale (north side)",
+          "sea": "Gentle, waveless waters, ideal for children, stand-up paddle and kayaking",
+          "structure": "Charming kiosks, shade from almond trees and coconut palms"
+        }
       },
       "fr": {
         "title": "Plage da Siriúba",
@@ -770,7 +1067,15 @@ const touristSpots = [
           "Ombre douce des cocotiers",
           "Restaurants de plage accueillants"
         ],
-        "ecoTip": "Respectez la faune marine et les étoiles de mer."
+        "ecoTip": "Respectez la faune marine et les étoiles de mer.",
+        "specs": {
+          "distance": "Au bord de la route du nord",
+          "duration": "Accès direct en voiture",
+          "elevation": "Niveau de la mer",
+          "access": "Av. Leonardo Reale (côté nord)",
+          "sea": "Eaux douces sans vagues, idéales pour les enfants, le paddle et le kayak",
+          "structure": "Kiosques charmants, ombre des amandiers et cocotiers"
+        }
       },
       "es": {
         "title": "Playa da Siriúba",
@@ -782,7 +1087,15 @@ const touristSpots = [
           "Sombra de cocoteros",
           "Gastronomía acogedora"
         ],
-        "ecoTip": "No molestes a las estrellas de mar ni recojas corales."
+        "ecoTip": "No molestes a las estrellas de mar ni recojas corales.",
+        "specs": {
+          "distance": "Junto a la carretera del norte",
+          "duration": "Acceso directo en coche",
+          "elevation": "Nivel del mar",
+          "access": "Av. Leonardo Reale (lado norte)",
+          "sea": "Aguas mansas sin olas, ideales para niños, paddle surf y kayak",
+          "structure": "Quioscos encantadores, sombra de almendros y cocoteros"
+        }
       },
       "he": {
         "title": "חוף סיריאובה (Praia da Siriúba)",
@@ -794,7 +1107,15 @@ const touristSpots = [
           "צל עצי קוקוס טרופיים",
           "מסעדות חוף מקסימות"
         ],
-        "ecoTip": "אל תפריעו לחיים הימיים ולכוכבי הים."
+        "ecoTip": "אל תפריעו לחיים הימיים ולכוכבי הים.",
+        "specs": {
+          "distance": "לצד הכביש הצפוני",
+          "duration": "גישה ישירה ברכב",
+          "elevation": "גובה פני הים",
+          "access": "Av. Leonardo Reale (הצד הצפוני)",
+          "sea": "מים שקטים ללא גלים, מתאימים לילדים, לסאפ ולקיאקים",
+          "structure": "קיוסקים נעימים וצל של עצי שקד ודקלי קוקוס"
+        }
       }
     },
     "images": [
@@ -846,7 +1167,15 @@ const touristSpots = [
           "Seixos e pedras polidas pelo oceano",
           "Ponto nobre de pesca e mergulho"
         ],
-        "ecoTip": "Local totalmente remoto. Leve todos os suprimentos necessários e traga 100% do seu lixo de volta."
+        "ecoTip": "Local totalmente remoto. Leve todos os suprimentos necessários e traga 100% do seu lixo de volta.",
+        "specs": {
+          "distance": "Trilha de 1h30 a partir do Bonete ou Barco",
+          "duration": "Acesso a pé pelo Bonete ou lancha",
+          "elevation": "+180m",
+          "access": "Trilha a partir da Praia do Bonete ou embarcação",
+          "sea": "Mar aberto vigoroso com rica vida marinha e pedras polidas",
+          "structure": "Praia 100% virgem e deserta, sem quiosques ou comércio"
+        }
       },
       "en": {
         "title": "Enchova Beach (Praia da Enchova)",
@@ -858,7 +1187,15 @@ const touristSpots = [
           "Ocean-polished pebble coastlines",
           "Premier fishing & dive spot"
         ],
-        "ecoTip": "Completely remote location. Pack all essentials and leave zero trace."
+        "ecoTip": "Completely remote location. Pack all essentials and leave zero trace.",
+        "specs": {
+          "distance": "1 h 30 min trail from Bonete or boat",
+          "duration": "On foot via Bonete or by speedboat",
+          "elevation": "+180 m",
+          "access": "Trail from Praia do Bonete or boat",
+          "sea": "Strong open sea with rich marine life and polished stones",
+          "structure": "Completely untouched, deserted beach, no kiosks or shops"
+        }
       },
       "fr": {
         "title": "Plage da Enchova",
@@ -870,7 +1207,15 @@ const touristSpots = [
           "Galets polis par les vagues",
           "Spot de pêche et plongée"
         ],
-        "ecoTip": "Zone très isolée. Emportez vos vivres et remportez tous vos déchets."
+        "ecoTip": "Zone très isolée. Emportez vos vivres et remportez tous vos déchets.",
+        "specs": {
+          "distance": "Sentier de 1 h 30 depuis Bonete ou bateau",
+          "duration": "À pied par Bonete ou en bateau rapide",
+          "elevation": "+180 m",
+          "access": "Sentier depuis Praia do Bonete ou embarcation",
+          "sea": "Mer ouverte puissante, riche vie marine et pierres polies",
+          "structure": "Plage entièrement vierge et déserte, sans kiosques ni commerces"
+        }
       },
       "es": {
         "title": "Playa da Enchova",
@@ -882,7 +1227,15 @@ const touristSpots = [
           "Piedras pulidas por el océano",
           "Pesca y buceo libre"
         ],
-        "ecoTip": "Zona remota. Lleva agua, provisiones y regresa toda tu basura."
+        "ecoTip": "Zona remota. Lleva agua, provisiones y regresa toda tu basura.",
+        "specs": {
+          "distance": "Sendero de 1 h 30 min desde Bonete o barco",
+          "duration": "A pie por Bonete o en lancha",
+          "elevation": "+180 m",
+          "access": "Sendero desde Praia do Bonete o embarcación",
+          "sea": "Mar abierto vigoroso con abundante vida marina y piedras pulidas",
+          "structure": "Playa totalmente virgen y desierta, sin quioscos ni comercios"
+        }
       },
       "he": {
         "title": "חוף אנשובה (Praia da Enchova)",
@@ -894,7 +1247,15 @@ const touristSpots = [
           "חלוקי נחל ענקיים מלוטשים",
           "אתר דיג ושנירקול נדיר"
         ],
-        "ecoTip": "אזור מבודד לחלוטין. קחו עמכם מים ואוכל ואל תשאירו עקבות."
+        "ecoTip": "אזור מבודד לחלוטין. קחו עמכם מים ואוכל ואל תשאירו עקבות.",
+        "specs": {
+          "distance": "שביל של שעה וחצי מ-Bonete או סירה",
+          "duration": "ברגל דרך Bonete או בסירת מנוע",
+          "elevation": "+180 מ׳",
+          "access": "שביל מ-Praia do Bonete או כלי שייט",
+          "sea": "ים פתוח עוצמתי עם חיים ימיים עשירים ואבנים מלוטשות",
+          "structure": "חוף בתולי ושומם לחלוטין, ללא קיוסקים או חנויות"
+        }
       }
     },
     "images": [
@@ -908,7 +1269,7 @@ const touristSpots = [
       -23.9183,
       -45.3056
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 98,
     "image": "assets/images/praia-de-indaiauba_1.jpg",
     "tags": [
@@ -946,7 +1307,15 @@ const touristSpots = [
           "Sensação de ilha deserta paradisíaca",
           "Mergulho livre com rica fauna"
         ],
-        "ecoTip": "Área de preservação intocada. Não deixe nenhum resíduo."
+        "ecoTip": "Área de preservação intocada. Não deixe nenhum resíduo.",
+        "specs": {
+          "distance": "Acesso por barco ou trilha avançada",
+          "duration": "45 min de barco ou trilha",
+          "elevation": "Costeira",
+          "access": "Passeios de lancha contratados ou trilha costeira sul",
+          "sea": "Águas caribenhas azul-turquesa claríssimas e areia branca finíssima",
+          "structure": "Isolada, natureza exuberante sem quiosques"
+        }
       },
       "en": {
         "title": "Indaiaúba Beach",
@@ -958,7 +1327,15 @@ const touristSpots = [
           "True deserted island paradise feel",
           "Snorkeling with rich marine fauna"
         ],
-        "ecoTip": "Pristine conservation zone. Leave nothing behind."
+        "ecoTip": "Pristine conservation zone. Leave nothing behind.",
+        "specs": {
+          "distance": "Access by boat or advanced trail",
+          "duration": "45 min by boat or trail",
+          "elevation": "Rocky coast",
+          "access": "Booked speedboat tours or southern coastal trail",
+          "sea": "Very clear Caribbean-like turquoise waters and fine white sand",
+          "structure": "Isolated, lush nature without kiosks"
+        }
       },
       "fr": {
         "title": "Plage de Indaiaúba",
@@ -970,7 +1347,15 @@ const touristSpots = [
           "Atmosphère d île déserte de rêve",
           "Snorkeling extraordinaire"
         ],
-        "ecoTip": "Sanctuaire naturel préservé. Respectez les lieux."
+        "ecoTip": "Sanctuaire naturel préservé. Respectez les lieux.",
+        "specs": {
+          "distance": "Accès en bateau ou sentier difficile",
+          "duration": "45 min en bateau ou sentier",
+          "elevation": "Côte rocheuse",
+          "access": "Excursions réservées en bateau rapide ou sentier côtier sud",
+          "sea": "Eaux turquoise très claires rappelant les Caraïbes et sable blanc très fin",
+          "structure": "Site isolé, nature luxuriante sans kiosques"
+        }
       },
       "es": {
         "title": "Playa de Indaiaúba",
@@ -982,7 +1367,15 @@ const touristSpots = [
           "Sensación de playa desierta de ensueño",
           "Excelente snorkel con peces"
         ],
-        "ecoTip": "Zona virgen protegida. No dejes ningún residuo."
+        "ecoTip": "Zona virgen protegida. No dejes ningún residuo.",
+        "specs": {
+          "distance": "Acceso en barco o sendero avanzado",
+          "duration": "45 min en barco o sendero",
+          "elevation": "Costa rocosa",
+          "access": "Paseos contratados en lancha o sendero costero sur",
+          "sea": "Aguas turquesa muy claras de aspecto caribeño y arena blanca muy fina",
+          "structure": "Aislada, naturaleza exuberante sin quioscos"
+        }
       },
       "he": {
         "title": "חוף אינדאיאובה (Praia de Indaiaúba)",
@@ -994,7 +1387,15 @@ const touristSpots = [
           "תחושה של אי בודד מגן עדן",
           "שנירקול מושלם עם שפע דגים"
         ],
-        "ecoTip": "שמורה בתולית מוגנת. קחו את כל הפסולת עמכם."
+        "ecoTip": "שמורה בתולית מוגנת. קחו את כל הפסולת עמכם.",
+        "specs": {
+          "distance": "גישה בסירה או בשביל למתקדמים",
+          "duration": "45 דקות בסירה או שביל",
+          "elevation": "חוף סלעי",
+          "access": "סיורי סירת מנוע מוזמנים או שביל החוף הדרומי",
+          "sea": "מים טורקיז צלולים מאוד בסגנון קריבי וחול לבן דק במיוחד",
+          "structure": "מבודד, טבע עשיר ללא קיוסקים"
+        }
       }
     },
     "images": [
@@ -1046,7 +1447,15 @@ const touristSpots = [
           "Ponte pênsil suspensa sobre o rio",
           "Parada obrigatória dos trilheiros"
         ],
-        "ecoTip": "Desça no tobogã apenas sentado e verifique a profundidade antes de mergulhar."
+        "ecoTip": "Desça no tobogã apenas sentado e verifique a profundidade antes de mergulhar.",
+        "specs": {
+          "distance": "3.5 km na Trilha do Bonete",
+          "duration": "1h de caminhada a partir de Sepituba",
+          "elevation": "+120m",
+          "access": "Pela Trilha do Bonete a partir da Ponta da Sepituba",
+          "sea": "Não se aplica (Água doce de rio cristalina e refrescante)",
+          "structure": "Ponte pênsil de madeira sobre o rio, área para piquenique natural"
+        }
       },
       "en": {
         "title": "Laje Waterfall (Cachoeira da Laje)",
@@ -1058,7 +1467,15 @@ const touristSpots = [
           "Scenic suspension bridge across the river",
           "Top hiker rest spot"
         ],
-        "ecoTip": "Slide only in a seated position and check pool depth first."
+        "ecoTip": "Slide only in a seated position and check pool depth first.",
+        "specs": {
+          "distance": "3.5 km along the Bonete trail",
+          "duration": "1 h walk from Sepituba",
+          "elevation": "+120 m",
+          "access": "Bonete trail from Ponta da Sepituba",
+          "sea": "Not applicable (clear, refreshing river water)",
+          "structure": "Wooden suspension bridge over the river and natural picnic area"
+        }
       },
       "fr": {
         "title": "Cascade da Laje",
@@ -1070,7 +1487,15 @@ const touristSpots = [
           "Pont suspendu au-dessus du torrent",
           "Halte favorite des randonneurs"
         ],
-        "ecoTip": "Glissez assis et vérifiez la profondeur avant de sauter."
+        "ecoTip": "Glissez assis et vérifiez la profondeur avant de sauter.",
+        "specs": {
+          "distance": "3,5 km sur le sentier du Bonete",
+          "duration": "1 h de marche depuis Sepituba",
+          "elevation": "+120 m",
+          "access": "Sentier du Bonete depuis Ponta da Sepituba",
+          "sea": "Sans objet (eau de rivière cristalline et rafraîchissante)",
+          "structure": "Pont suspendu en bois sur la rivière et aire naturelle de pique-nique"
+        }
       },
       "es": {
         "title": "Cascada da Laje",
@@ -1082,7 +1507,15 @@ const touristSpots = [
           "Puente colgante de madera",
           "Parada obligada de senderistas"
         ],
-        "ecoTip": "Deslízate sentado y revisa la profundidad del agua."
+        "ecoTip": "Deslízate sentado y revisa la profundidad del agua.",
+        "specs": {
+          "distance": "3,5 km por el sendero de Bonete",
+          "duration": "1 h caminando desde Sepituba",
+          "elevation": "+120 m",
+          "access": "Sendero de Bonete desde Ponta da Sepituba",
+          "sea": "No corresponde (agua de río cristalina y refrescante)",
+          "structure": "Puente colgante de madera sobre el río y zona natural de pícnic"
+        }
       },
       "he": {
         "title": "מפל לאז׳י (Cachoeira da Laje)",
@@ -1094,7 +1527,15 @@ const touristSpots = [
           "גשר תלוי מעל הנהר",
           "תחנת מנוחה מושלמת למטיילים"
         ],
-        "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה."
+        "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה.",
+        "specs": {
+          "distance": "3.5 ק״מ בשביל Bonete",
+          "duration": "שעת הליכה מ-Sepituba",
+          "elevation": "+120 מ׳",
+          "access": "שביל Bonete מ-Ponta da Sepituba",
+          "sea": "לא רלוונטי (מי נהר צלולים ומרעננים)",
+          "structure": "גשר תלוי מעץ מעל הנהר ואזור פיקניק טבעי"
+        }
       }
     },
     "images": [
@@ -1146,7 +1587,15 @@ const touristSpots = [
           "Degustação no alambique histórico",
           "Estrutura completa com restaurante e banheiros"
         ],
-        "ecoTip": "Propriedade privada preservada com taxa simbólica de manutenção."
+        "ecoTip": "Propriedade privada preservada com taxa simbólica de manutenção.",
+        "specs": {
+          "distance": "100m da entrada (estrada de Castelhanos)",
+          "duration": "5 min de caminhada",
+          "elevation": "Fácil",
+          "access": "Início da Estrada de Castelhanos (bairro Reino)",
+          "sea": "Não se aplica (Tobogã de pedra e duchas naturais)",
+          "structure": "Alambique histórico, restaurante, banheiros, estacionamento e duchas"
+        }
       },
       "en": {
         "title": "Toca Waterfall (Cachoeira da Toca)",
@@ -1158,7 +1607,15 @@ const touristSpots = [
           "Artisanal cachaça tasting",
           "Full family amenities & restaurant"
         ],
-        "ecoTip": "Preserved private reserve with a nominal maintenance entrance fee."
+        "ecoTip": "Preserved private reserve with a nominal maintenance entrance fee.",
+        "specs": {
+          "distance": "100 m from the entrance (Castelhanos road)",
+          "duration": "5 min walk",
+          "elevation": "Easy",
+          "access": "Start of Estrada de Castelhanos (Reino neighborhood)",
+          "sea": "Not applicable (rock slide and natural showers)",
+          "structure": "Historic distillery, restaurant, toilets, parking and showers"
+        }
       },
       "fr": {
         "title": "Cascade da Toca",
@@ -1170,7 +1627,15 @@ const touristSpots = [
           "Dégustation à la distillerie historique",
           "Infrastructures complètes et restaurant"
         ],
-        "ecoTip": "Réserve privée avec petit droit d entrée pour l entretien du site."
+        "ecoTip": "Réserve privée avec petit droit d entrée pour l entretien du site.",
+        "specs": {
+          "distance": "100 m de l’entrée (route de Castelhanos)",
+          "duration": "5 min de marche",
+          "elevation": "Facile",
+          "access": "Début de Estrada de Castelhanos (quartier Reino)",
+          "sea": "Sans objet (toboggan rocheux et douches naturelles)",
+          "structure": "Distillerie historique, restaurant, toilettes, parking et douches"
+        }
       },
       "es": {
         "title": "Cascada da Toca",
@@ -1182,7 +1647,15 @@ const touristSpots = [
           "Degustación en el alambique tradicional",
           "Restaurante y servicios completos"
         ],
-        "ecoTip": "Propiedad privada con tarifa simbólica para conservación."
+        "ecoTip": "Propiedad privada con tarifa simbólica para conservación.",
+        "specs": {
+          "distance": "100 m de la entrada (carretera de Castelhanos)",
+          "duration": "5 min caminando",
+          "elevation": "Fácil",
+          "access": "Inicio de Estrada de Castelhanos (barrio Reino)",
+          "sea": "No corresponde (tobogán de piedra y duchas naturales)",
+          "structure": "Destilería histórica, restaurante, baños, estacionamiento y duchas"
+        }
       },
       "he": {
         "title": "מפל טוקה (Cachoeira da Toca)",
@@ -1194,7 +1667,15 @@ const touristSpots = [
           "טעימות במזקקה היסטורית",
           "מסעדה ושירותים מסודרים לכל המשפחה"
         ],
-        "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה."
+        "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה.",
+        "specs": {
+          "distance": "100 מ׳ מהכניסה (כביש Castelhanos)",
+          "duration": "5 דקות הליכה",
+          "elevation": "קל",
+          "access": "תחילת Estrada de Castelhanos (שכונת Reino)",
+          "sea": "לא רלוונטי (מגלשת סלע ומקלחות טבעיות)",
+          "structure": "מזקקה היסטורית, מסעדה, שירותים, חניה ומקלחות"
+        }
       }
     },
     "images": [
@@ -1246,7 +1727,15 @@ const touristSpots = [
           "Ambiente tranquilo e sombreado",
           "Poço de água límpida para banho"
         ],
-        "ecoTip": "Use calçado com boa aderência nas pedras."
+        "ecoTip": "Use calçado com boa aderência nas pedras.",
+        "specs": {
+          "distance": "1 km a partir do bairro do Veloso",
+          "duration": "25 min de caminhada",
+          "elevation": "+110m",
+          "access": "Trilha sombreada a partir do bairro do Veloso (lado sul)",
+          "sea": "Não se aplica (Queda d água de 30m cercada por mata virgem)",
+          "structure": "Trilha nativa sinalizada, sem comércio no topo"
+        }
       },
       "en": {
         "title": "Veloso Waterfall",
@@ -1258,7 +1747,15 @@ const touristSpots = [
           "Quiet and shaded rainforest setting",
           "Refreshing clear dip pool"
         ],
-        "ecoTip": "Wear shoes with good traction on slippery stones."
+        "ecoTip": "Wear shoes with good traction on slippery stones.",
+        "specs": {
+          "distance": "1 km from the Veloso neighborhood",
+          "duration": "25 min walk",
+          "elevation": "+110 m",
+          "access": "Shaded trail from Veloso (south side)",
+          "sea": "Not applicable (30 m waterfall surrounded by untouched forest)",
+          "structure": "Signposted native trail, no shops at the top"
+        }
       },
       "fr": {
         "title": "Cascade do Veloso",
@@ -1270,7 +1767,15 @@ const touristSpots = [
           "Ambiance calme et ombragée",
           "Bassin de baignade rafraîchissant"
         ],
-        "ecoTip": "Portez des chaussures adhérentes pour marcher sur les roches."
+        "ecoTip": "Portez des chaussures adhérentes pour marcher sur les roches.",
+        "specs": {
+          "distance": "1 km depuis le quartier Veloso",
+          "duration": "25 min de marche",
+          "elevation": "+110 m",
+          "access": "Sentier ombragé depuis Veloso (côté sud)",
+          "sea": "Sans objet (cascade de 30 m entourée de forêt vierge)",
+          "structure": "Sentier naturel balisé, aucun commerce au sommet"
+        }
       },
       "es": {
         "title": "Cascada do Veloso",
@@ -1282,7 +1787,15 @@ const touristSpots = [
           "Ambiente sereno y con sombra",
           "Poza cristalina para refrescarse"
         ],
-        "ecoTip": "Usa calzado adecuado para no resbalar en las piedras."
+        "ecoTip": "Usa calzado adecuado para no resbalar en las piedras.",
+        "specs": {
+          "distance": "1 km desde el barrio Veloso",
+          "duration": "25 min caminando",
+          "elevation": "+110 m",
+          "access": "Sendero sombreado desde Veloso (lado sur)",
+          "sea": "No corresponde (cascada de 30 m rodeada de bosque virgen)",
+          "structure": "Sendero natural señalizado, sin comercios arriba"
+        }
       },
       "he": {
         "title": "מפל ולוזו (Cachoeira do Veloso)",
@@ -1294,7 +1807,15 @@ const touristSpots = [
           "אווירה שקטה ומוצלת",
           "בריכת מים קרירה וצלולה"
         ],
-        "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים."
+        "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים.",
+        "specs": {
+          "distance": "1 ק״מ משכונת Veloso",
+          "duration": "25 דקות הליכה",
+          "elevation": "+110 מ׳",
+          "access": "שביל מוצל משכונת Veloso (דרום)",
+          "sea": "לא רלוונטי (מפל בגובה 30 מ׳ מוקף יער בתולי)",
+          "structure": "שביל טבעי מסומן, ללא מסחר למעלה"
+        }
       }
     },
     "images": [
@@ -1346,7 +1867,15 @@ const touristSpots = [
           "Hidromassagem natural na queda intermediária",
           "Águas cristalinas da serra"
         ],
-        "ecoTip": "Cuidado nas pedras molhadas pois são escorregadias."
+        "ecoTip": "Cuidado nas pedras molhadas pois são escorregadias.",
+        "specs": {
+          "distance": "1.2 km (trilha)",
+          "duration": "30 min de caminhada",
+          "elevation": "+150m",
+          "access": "Início no bairro do Bexiga (lado sul), subida em trilha",
+          "sea": "Não se aplica (Água doce de nascente gelada e revigorante)",
+          "structure": "Sem estrutura comercial no topo; natureza 100% nativa"
+        }
       },
       "en": {
         "title": "Paquetá Waterfall",
@@ -1358,7 +1887,15 @@ const touristSpots = [
           "Natural hydromassage plunge pools",
           "Pristine rainforest mountain water"
         ],
-        "ecoTip": "Rocks can be slippery. Tread carefully."
+        "ecoTip": "Rocks can be slippery. Tread carefully.",
+        "specs": {
+          "distance": "1.2 km (trail)",
+          "duration": "30 min walk",
+          "elevation": "+150 m",
+          "access": "Starts in Bexiga (south side), uphill trail",
+          "sea": "Not applicable (cold, invigorating spring water)",
+          "structure": "No commercial facilities at the top; entirely native nature"
+        }
       },
       "fr": {
         "title": "Cascade do Paquetá",
@@ -1370,7 +1907,15 @@ const touristSpots = [
           "Bassin d hydromassage naturel",
           "Eaux pures des montagnes"
         ],
-        "ecoTip": "Attention aux roches glissantes."
+        "ecoTip": "Attention aux roches glissantes.",
+        "specs": {
+          "distance": "1,2 km (sentier)",
+          "duration": "30 min de marche",
+          "elevation": "+150 m",
+          "access": "Départ du quartier Bexiga (sud), montée par sentier",
+          "sea": "Sans objet (eau de source froide et revigorante)",
+          "structure": "Aucun équipement commercial au sommet ; nature entièrement indigène"
+        }
       },
       "es": {
         "title": "Cascada do Paquetá",
@@ -1382,7 +1927,15 @@ const touristSpots = [
           "Hidromasaje natural entre rocas",
           "Agua de vertiente cristalina"
         ],
-        "ecoTip": "Camina con cuidado sobre las rocas húmedas."
+        "ecoTip": "Camina con cuidado sobre las rocas húmedas.",
+        "specs": {
+          "distance": "1,2 km (sendero)",
+          "duration": "30 min caminando",
+          "elevation": "+150 m",
+          "access": "Inicio en Bexiga (lado sur), subida por sendero",
+          "sea": "No corresponde (agua de manantial fría y revitalizante)",
+          "structure": "Sin infraestructura comercial arriba; naturaleza totalmente nativa"
+        }
       },
       "he": {
         "title": "מפל פאקטה (Cachoeira do Paquetá)",
@@ -1394,7 +1947,15 @@ const touristSpots = [
           "זרמי מים לג׳קוזי טבעי",
           "מים צלולים ממעיינות ההר"
         ],
-        "ecoTip": "הסלעים חלקים, יש ללכת בזהירות."
+        "ecoTip": "הסלעים חלקים, יש ללכת בזהירות.",
+        "specs": {
+          "distance": "1.2 ק״מ (שביל)",
+          "duration": "30 דקות הליכה",
+          "elevation": "+150 מ׳",
+          "access": "תחילה בשכונת Bexiga (דרום), עלייה בשביל",
+          "sea": "לא רלוונטי (מי מעיין קרים ומרעננים)",
+          "structure": "ללא תשתיות מסחריות למעלה; טבע מקומי לחלוטין"
+        }
       }
     },
     "images": [
@@ -1447,7 +2008,15 @@ const touristSpots = [
           "Trilha com pontes suspensas",
           "Observação de aves raras"
         ],
-        "ecoTip": "Trilha dentro do Parque Estadual. Mantenha-se na rota demarcada."
+        "ecoTip": "Trilha dentro do Parque Estadual. Mantenha-se na rota demarcada.",
+        "specs": {
+          "distance": "2 km a partir de Castelhanos",
+          "duration": "45 min de caminhada",
+          "elevation": "+90m",
+          "access": "Início no canto esquerdo da Baía de Castelhanos",
+          "sea": "Não se aplica (Queda de 40 metros em meio à floresta)",
+          "structure": "Sem estrutura; trilha sinalizada com passarelas e pontes de madeira suspensas"
+        }
       },
       "en": {
         "title": "Cat Waterfall (Cachoeira do Gato)",
@@ -1459,7 +2028,15 @@ const touristSpots = [
           "Scenic suspension bridge paths",
           "Rare tropical birdwatching"
         ],
-        "ecoTip": "State Park protected zone. Stay on marked trails."
+        "ecoTip": "State Park protected zone. Stay on marked trails.",
+        "specs": {
+          "distance": "2 km from Castelhanos",
+          "duration": "45 min walk",
+          "elevation": "+90 m",
+          "access": "Starts at the left end of Baía de Castelhanos",
+          "sea": "Not applicable (40 m waterfall in the forest)",
+          "structure": "No facilities; marked trail with walkways and suspended wooden bridges"
+        }
       },
       "fr": {
         "title": "Cascade du Chat (Cachoeira do Gato)",
@@ -1471,7 +2048,15 @@ const touristSpots = [
           "Passerelles en bois suspendues",
           "Observation d oiseaux tropicaux"
         ],
-        "ecoTip": "Zone protégée du Parc d État. Restez sur le sentier balisé."
+        "ecoTip": "Zone protégée du Parc d État. Restez sur le sentier balisé.",
+        "specs": {
+          "distance": "2 km depuis Castelhanos",
+          "duration": "45 min de marche",
+          "elevation": "+90 m",
+          "access": "Départ à l’extrémité gauche de Baía de Castelhanos",
+          "sea": "Sans objet (cascade de 40 m au cœur de la forêt)",
+          "structure": "Sans équipements ; sentier balisé avec passerelles et ponts suspendus en bois"
+        }
       },
       "es": {
         "title": "Cascada do Gato",
@@ -1483,7 +2068,15 @@ const touristSpots = [
           "Sendero con puentes de madera",
           "Avistamiento de aves silvestres"
         ],
-        "ecoTip": "Zona del Parque Estatal. Respeta el sendero marcado y no dejes basura."
+        "ecoTip": "Zona del Parque Estatal. Respeta el sendero marcado y no dejes basura.",
+        "specs": {
+          "distance": "2 km desde Castelhanos",
+          "duration": "45 min caminando",
+          "elevation": "+90 m",
+          "access": "Inicio en el extremo izquierdo de Baía de Castelhanos",
+          "sea": "No corresponde (cascada de 40 m en el bosque)",
+          "structure": "Sin infraestructura; sendero señalizado con pasarelas y puentes colgantes de madera"
+        }
       },
       "he": {
         "title": "מפל החתול (Cachoeira do Gato)",
@@ -1495,7 +2088,15 @@ const touristSpots = [
           "גשרים תלויים וצמחייה טרופית",
           "תצפיות על ציפורים נדירות"
         ],
-        "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים."
+        "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים.",
+        "specs": {
+          "distance": "2 ק״מ מ-Castelhanos",
+          "duration": "45 דקות הליכה",
+          "elevation": "+90 מ׳",
+          "access": "תחילה בקצה השמאלי של Baía de Castelhanos",
+          "sea": "לא רלוונטי (מפל בגובה 40 מ׳ בתוך היער)",
+          "structure": "ללא תשתיות; שביל מסומן עם מעברים וגשרי עץ תלויים"
+        }
       }
     },
     "images": [
@@ -1547,7 +2148,15 @@ const touristSpots = [
           "Ducha natural sob a queda d água",
           "Poço raso e seguro"
         ],
-        "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira."
+        "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira.",
+        "specs": {
+          "distance": "400m de caminhada leve",
+          "duration": "10 min",
+          "elevation": "+30m",
+          "access": "Acesso asfaltado próximo à Praia da Feiticeira",
+          "sea": "Não se aplica (Três quedas e duchas naturais)",
+          "structure": "Estacionamento próximo e passarela inicial de madeira"
+        }
       },
       "en": {
         "title": "Três Tombos Waterfall",
@@ -1559,7 +2168,15 @@ const touristSpots = [
           "Natural invigorating shower cascade",
           "Calm and shallow pool"
         ],
-        "ecoTip": "Great refreshing stop right next to Feiticeira beach."
+        "ecoTip": "Great refreshing stop right next to Feiticeira beach.",
+        "specs": {
+          "distance": "400 m easy walk",
+          "duration": "10 min",
+          "elevation": "+30 m",
+          "access": "Paved access near Praia da Feiticeira",
+          "sea": "Not applicable (three waterfalls and natural showers)",
+          "structure": "Nearby parking and an initial wooden walkway"
+        }
       },
       "fr": {
         "title": "Cascade des Trois Tombos",
@@ -1571,7 +2188,15 @@ const touristSpots = [
           "Massage naturel sous la cascade",
           "Bassin calme et peu profond"
         ],
-        "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira."
+        "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira.",
+        "specs": {
+          "distance": "400 m de marche facile",
+          "duration": "10 min",
+          "elevation": "+30 m",
+          "access": "Accès goudronné près de Praia da Feiticeira",
+          "sea": "Sans objet (trois cascades et douches naturelles)",
+          "structure": "Parking à proximité et passerelle initiale en bois"
+        }
       },
       "es": {
         "title": "Cascada de los Tres Tombos",
@@ -1583,7 +2208,15 @@ const touristSpots = [
           "Ducha natural relajante",
           "Poza segura y tranquila"
         ],
-        "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira."
+        "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira.",
+        "specs": {
+          "distance": "400 m de caminata fácil",
+          "duration": "10 min",
+          "elevation": "+30 m",
+          "access": "Acceso asfaltado cerca de Praia da Feiticeira",
+          "sea": "No corresponde (tres cascadas y duchas naturales)",
+          "structure": "Estacionamiento cercano y pasarela inicial de madera"
+        }
       },
       "he": {
         "title": "מפל שלושת השלבים (Cachoeira dos Três Tombos)",
@@ -1595,7 +2228,15 @@ const touristSpots = [
           "מקלחת מים טבעית",
           "בריכה רדודה ובטוחה"
         ],
-        "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה."
+        "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה.",
+        "specs": {
+          "distance": "400 מ׳ של הליכה קלה",
+          "duration": "10 דקות",
+          "elevation": "+30 מ׳",
+          "access": "גישה סלולה ליד Praia da Feiticeira",
+          "sea": "לא רלוונטי (שלושה מפלים ומקלחות טבעיות)",
+          "structure": "חניה סמוכה ומעבר עץ בתחילת הדרך"
+        }
       }
     },
     "images": [
@@ -1647,7 +2288,15 @@ const touristSpots = [
           "Trilha sombreada e fresca",
           "Pouco movimentada e privativa"
         ],
-        "ecoTip": "Traga água potável e use repelente."
+        "ecoTip": "Traga água potável e use repelente.",
+        "specs": {
+          "distance": "1.5 km (trilha)",
+          "duration": "35 min",
+          "elevation": "+140m",
+          "access": "Início no bairro da Praia da Siriúba (norte)",
+          "sea": "Não se aplica (Ducha natural sobre rochas com vista do canal)",
+          "structure": "Trilha nativa entre bambuzais e mata atlântica"
+        }
       },
       "en": {
         "title": "Friagem Waterfall (Cachoeira da Friagem)",
@@ -1659,7 +2308,15 @@ const touristSpots = [
           "Shaded cool bamboo trail",
           "Quiet and private atmosphere"
         ],
-        "ecoTip": "Bring drinking water and insect repellent."
+        "ecoTip": "Bring drinking water and insect repellent.",
+        "specs": {
+          "distance": "1.5 km (trail)",
+          "duration": "35 min",
+          "elevation": "+140 m",
+          "access": "Starts in the Praia da Siriúba neighborhood (north)",
+          "sea": "Not applicable (natural shower over rocks overlooking the channel)",
+          "structure": "Native trail through bamboo groves and Atlantic Forest"
+        }
       },
       "fr": {
         "title": "Cascade da Friagem",
@@ -1671,7 +2328,15 @@ const touristSpots = [
           "Sentier ombragé agréable",
           "Site calme et peu fréquenté"
         ],
-        "ecoTip": "Prévoyez de l eau et un répulsif."
+        "ecoTip": "Prévoyez de l eau et un répulsif.",
+        "specs": {
+          "distance": "1,5 km (sentier)",
+          "duration": "35 min",
+          "elevation": "+140 m",
+          "access": "Départ du quartier Praia da Siriúba (nord)",
+          "sea": "Sans objet (douche naturelle sur les rochers avec vue sur le canal)",
+          "structure": "Sentier naturel entre bambouseraies et forêt atlantique"
+        }
       },
       "es": {
         "title": "Cascada da Friagem",
@@ -1683,7 +2348,15 @@ const touristSpots = [
           "Sendero fresco con sombra",
           "Ambiente tranquilo y privado"
         ],
-        "ecoTip": "Lleva agua y repelente."
+        "ecoTip": "Lleva agua y repelente.",
+        "specs": {
+          "distance": "1,5 km (sendero)",
+          "duration": "35 min",
+          "elevation": "+140 m",
+          "access": "Inicio en el barrio Praia da Siriúba (norte)",
+          "sea": "No corresponde (ducha natural sobre rocas con vista al canal)",
+          "structure": "Sendero natural entre bambúes y Mata Atlántica"
+        }
       },
       "he": {
         "title": "מפל פריאז׳ם (Cachoeira da Friagem)",
@@ -1695,7 +2368,15 @@ const touristSpots = [
           "שביל מוצל וקריר",
           "אתר שקט ואינטימי"
         ],
-        "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים."
+        "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים.",
+        "specs": {
+          "distance": "1.5 ק״מ (שביל)",
+          "duration": "35 דקות",
+          "elevation": "+140 מ׳",
+          "access": "תחילה בשכונת Praia da Siriúba (צפון)",
+          "sea": "לא רלוונטי (מקלחת טבעית על סלעים עם נוף לתעלה)",
+          "structure": "שביל טבעי בין חורשות במבוק והיער האטלנטי"
+        }
       }
     },
     "images": [
@@ -1747,7 +2428,15 @@ const touristSpots = [
           "Excelente para crianças e famílias",
           "Centro de visitantes do Parque Estadual"
         ],
-        "ecoTip": "Excelente opção para dias nublados ou para caminhadas leves com crianças."
+        "ecoTip": "Excelente opção para dias nublados ou para caminhadas leves com crianças.",
+        "specs": {
+          "distance": "2.2 km (circuito estruturado)",
+          "duration": "1h30 a 2h",
+          "elevation": "+80m",
+          "access": "Guarita do Parque Estadual de Ilhabela (Estrada de Castelhanos)",
+          "sea": "Não se aplica (5 poços naturais e cachoeiras de água cristalina)",
+          "structure": "Centro de visitantes, banheiros, torres de observação de aves e passarelas"
+        }
       },
       "en": {
         "title": "Água Branca State Park Trail",
@@ -1759,7 +2448,15 @@ const touristSpots = [
           "Perfect for children and families",
           "State Park visitor center amenities"
         ],
-        "ecoTip": "Ideal for cloudy days or gentle family rainforest walks."
+        "ecoTip": "Ideal for cloudy days or gentle family rainforest walks.",
+        "specs": {
+          "distance": "2.2 km (developed circuit)",
+          "duration": "1 h 30 min–2 h",
+          "elevation": "+80 m",
+          "access": "Ilhabela State Park checkpoint (Estrada de Castelhanos)",
+          "sea": "Not applicable (5 natural pools and clear-water waterfalls)",
+          "structure": "Visitor center, toilets, birdwatching towers and walkways"
+        }
       },
       "fr": {
         "title": "Sentier d Água Branca",
@@ -1771,7 +2468,15 @@ const touristSpots = [
           "Parfait pour les familles et enfants",
           "Centre d accueil du Parc d État"
         ],
-        "ecoTip": "Idéal pour une sortie nature facile en famille."
+        "ecoTip": "Idéal pour une sortie nature facile en famille.",
+        "specs": {
+          "distance": "2,2 km (circuit aménagé)",
+          "duration": "1 h 30 à 2 h",
+          "elevation": "+80 m",
+          "access": "Poste du parc d’État d’Ilhabela (Estrada de Castelhanos)",
+          "sea": "Sans objet (5 bassins naturels et cascades cristallines)",
+          "structure": "Centre d’accueil, toilettes, tours d’observation des oiseaux et passerelles"
+        }
       },
       "es": {
         "title": "Sendero de Água Branca",
@@ -1783,7 +2488,15 @@ const touristSpots = [
           "Ideal para familias y niños",
           "Centro de visitantes del Parque"
         ],
-        "ecoTip": "Opción perfecta para caminatas familiares relajadas."
+        "ecoTip": "Opción perfecta para caminatas familiares relajadas.",
+        "specs": {
+          "distance": "2,2 km (circuito acondicionado)",
+          "duration": "1 h 30 min a 2 h",
+          "elevation": "+80 m",
+          "access": "Puesto del Parque Estatal de Ilhabela (Estrada de Castelhanos)",
+          "sea": "No corresponde (5 pozas naturales y cascadas de agua cristalina)",
+          "structure": "Centro de visitantes, baños, torres de observación de aves y pasarelas"
+        }
       },
       "he": {
         "title": "שביל אגואה ברנקה (Trilha da Água Branca)",
@@ -1795,7 +2508,15 @@ const touristSpots = [
           "מושלם למשפחות עם ילדים",
           "מרכז מבקרים של הפארק הלאומי"
         ],
-        "ecoTip": "אפשרות מצוינת לטיול משפחתי קליל ומהנה בטבע."
+        "ecoTip": "אפשרות מצוינת לטיול משפחתי קליל ומהנה בטבע.",
+        "specs": {
+          "distance": "2.2 ק״מ (מסלול מוסדר)",
+          "duration": "שעה וחצי עד שעתיים",
+          "elevation": "+80 מ׳",
+          "access": "עמדת פארק המדינה של Ilhabela (Estrada de Castelhanos)",
+          "sea": "לא רלוונטי (5 בריכות טבעיות ומפלים צלולים)",
+          "structure": "מרכז מבקרים, שירותים, מגדלי צפרות ומעברים"
+        }
       }
     },
     "images": [
@@ -1847,7 +2568,15 @@ const touristSpots = [
           "Vista do mirante costeiro",
           "Chegada triunfal ao Bonete"
         ],
-        "ecoTip": "Contrate um guia local credenciado para apoio, segurança e relatos da história caiçara."
+        "ecoTip": "Contrate um guia local credenciado para apoio, segurança e relatos da história caiçara.",
+        "specs": {
+          "distance": "12 km (só ida)",
+          "duration": "4h30 a 5h30",
+          "elevation": "+380m acumulados",
+          "access": "Início na Ponta da Sepituba (extremo sul da ilha)",
+          "sea": "Deságua na fantástica Praia do Bonete",
+          "structure": "Trilha rústica com pontes e paradas na Cachoeira da Laje e Areado"
+        }
       },
       "en": {
         "title": "Bonete Classic Rainforest Trail",
@@ -1859,7 +2588,15 @@ const touristSpots = [
           "Dramatic coastal ocean viewpoints",
           "Triumphant arrival at Bonete Beach"
         ],
-        "ecoTip": "Hiring a certified local guide ensures safety and enriches your trip with native caiçara lore."
+        "ecoTip": "Hiring a certified local guide ensures safety and enriches your trip with native caiçara lore.",
+        "specs": {
+          "distance": "12 km (one way)",
+          "duration": "4 h 30 min–5 h 30 min",
+          "elevation": "+380 m cumulative ascent",
+          "access": "Starts at Ponta da Sepituba (far south of the island)",
+          "sea": "Ends at spectacular Praia do Bonete",
+          "structure": "Rustic trail with bridges and stops at Cachoeira da Laje and Areado"
+        }
       },
       "fr": {
         "title": "Sentier Traditionnel do Bonete",
@@ -1871,7 +2608,15 @@ const touristSpots = [
           "Vues spectaculaires sur l océan",
           "Arrivée magique au village caiçara"
         ],
-        "ecoTip": "L accompagnement par un guide certifié est vivement recommandé pour votre sécurité."
+        "ecoTip": "L accompagnement par un guide certifié est vivement recommandé pour votre sécurité.",
+        "specs": {
+          "distance": "12 km (aller simple)",
+          "duration": "4 h 30 à 5 h 30",
+          "elevation": "+380 m de dénivelé cumulé",
+          "access": "Départ à Ponta da Sepituba (extrême sud de l’île)",
+          "sea": "Débouche sur la superbe Praia do Bonete",
+          "structure": "Sentier rustique avec ponts et arrêts à Cachoeira da Laje et Areado"
+        }
       },
       "es": {
         "title": "Sendero Tradicional do Bonete",
@@ -1883,7 +2628,15 @@ const touristSpots = [
           "Miradores sobre el océano",
           "Llegada triunfal a Bonete"
         ],
-        "ecoTip": "Se aconseja contratar un guía local certificado para una experiencia segura y enriquecedora."
+        "ecoTip": "Se aconseja contratar un guía local certificado para una experiencia segura y enriquecedora.",
+        "specs": {
+          "distance": "12 km (solo ida)",
+          "duration": "4 h 30 min a 5 h 30 min",
+          "elevation": "+380 m de ascenso acumulado",
+          "access": "Inicio en Ponta da Sepituba (extremo sur de la isla)",
+          "sea": "Desemboca en la fantástica Praia do Bonete",
+          "structure": "Sendero rústico con puentes y paradas en Cachoeira da Laje y Areado"
+        }
       },
       "he": {
         "title": "טרק בונטה הקלאסי (Trilha do Bonete)",
@@ -1895,7 +2648,15 @@ const touristSpots = [
           "תצפיות מרהיבות על האוקיינוס",
           "הגעה מרגשת לכפר הדייגים בונטה"
         ],
-        "ecoTip": "מומלץ בחום לשכור מדריך מקומי מוסמך לבטיחות ולהכרת סיפורי המקום."
+        "ecoTip": "מומלץ בחום לשכור מדריך מקומי מוסמך לבטיחות ולהכרת סיפורי המקום.",
+        "specs": {
+          "distance": "12 ק״מ (לכיוון אחד)",
+          "duration": "4.5–5.5 שעות",
+          "elevation": "+380 מ׳ עלייה מצטברת",
+          "access": "תחילה ב-Ponta da Sepituba (הקצה הדרומי של האי)",
+          "sea": "מסתיים ב-Praia do Bonete המרהיב",
+          "structure": "שביל כפרי עם גשרים ועצירות ב-Cachoeira da Laje וב-Areado"
+        }
       }
     },
     "images": [
@@ -1947,7 +2708,15 @@ const touristSpots = [
           "Avistamento de aves oceânicas e tartarugas",
           "Sensação incrível de isolamento e imensidão"
         ],
-        "ecoTip": "Leve chapéu e protetor solar pois a caminhada costeira tem trechos expostos ao sol."
+        "ecoTip": "Leve chapéu e protetor solar pois a caminhada costeira tem trechos expostos ao sol.",
+        "specs": {
+          "distance": "3.8 km a partir do canto leste de Castelhanos",
+          "duration": "1h20 de caminhada",
+          "elevation": "+130m",
+          "access": "A partir da Praia de Castelhanos",
+          "sea": "Mar aberto do Atlântico batendo nas imensas falésias rochosas",
+          "structure": "Farol centenário da Marinha do Brasil e mirante natural"
+        }
       },
       "en": {
         "title": "Cabeçuda Lighthouse Coastal Trail",
@@ -1959,7 +2728,15 @@ const touristSpots = [
           "Pelagic seabird and turtle spotting",
           "Unforgettable sense of wild frontier"
         ],
-        "ecoTip": "Wear sun protection and a hat for sun-exposed coastal segments."
+        "ecoTip": "Wear sun protection and a hat for sun-exposed coastal segments.",
+        "specs": {
+          "distance": "3.8 km from the east end of Castelhanos",
+          "duration": "1 h 20 min walk",
+          "elevation": "+130 m",
+          "access": "From Praia de Castelhanos",
+          "sea": "Open Atlantic waters striking immense rocky cliffs",
+          "structure": "Century-old Brazilian Navy lighthouse and natural viewpoint"
+        }
       },
       "fr": {
         "title": "Sentier du Phare de Ponta da Cabeçuda",
@@ -1971,7 +2748,15 @@ const touristSpots = [
           "Oiseaux marins et tortues",
           "Atmosphère sauvage unique"
         ],
-        "ecoTip": "Prévoyez protection solaire et eau en abondance."
+        "ecoTip": "Prévoyez protection solaire et eau en abondance.",
+        "specs": {
+          "distance": "3,8 km depuis l’extrémité est de Castelhanos",
+          "duration": "1 h 20 de marche",
+          "elevation": "+130 m",
+          "access": "Depuis Praia de Castelhanos",
+          "sea": "Mer ouverte de l’Atlantique frappant d’immenses falaises rocheuses",
+          "structure": "Phare centenaire de la marine brésilienne et belvédère naturel"
+        }
       },
       "es": {
         "title": "Sendero del Faro de Ponta da Cabeçuda",
@@ -1983,7 +2768,15 @@ const touristSpots = [
           "Avistamiento de aves marinas",
           "Aventura costera inolvidable"
         ],
-        "ecoTip": "Lleva protección solar para tramos despejados."
+        "ecoTip": "Lleva protección solar para tramos despejados.",
+        "specs": {
+          "distance": "3,8 km desde el extremo este de Castelhanos",
+          "duration": "1 h 20 min caminando",
+          "elevation": "+130 m",
+          "access": "Desde Praia de Castelhanos",
+          "sea": "Mar abierto del Atlántico golpeando inmensos acantilados rocosos",
+          "structure": "Faro centenario de la Marina de Brasil y mirador natural"
+        }
       },
       "he": {
         "title": "טרק המגדלור ההיסטורי של פונטה דה קבסודה",
@@ -1995,7 +2788,15 @@ const touristSpots = [
           "צפייה בעופות ים וצבי ים",
           "תחושת מרחב ופראיות אמיתית"
         ],
-        "ecoTip": "הצטיידו בכובע ובקרם הגנה לשטחים החשופים לשמש."
+        "ecoTip": "הצטיידו בכובע ובקרם הגנה לשטחים החשופים לשמש.",
+        "specs": {
+          "distance": "3.8 ק״מ מהקצה המזרחי של Castelhanos",
+          "duration": "שעה ו-20 דקות הליכה",
+          "elevation": "+130 מ׳",
+          "access": "מ-Praia de Castelhanos",
+          "sea": "מי האוקיינוס האטלנטי הפתוח פוגעים במצוקי סלע עצומים",
+          "structure": "מגדלור בן מאה שנה של הצי הברזילאי ותצפית טבעית"
+        }
       }
     },
     "images": [
@@ -2009,7 +2810,7 @@ const touristSpots = [
       -23.8755592,
       -45.3787239
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 112,
     "image": "assets/images/pico-de-sao-sebastiao_1.jpg",
     "tags": [
@@ -2047,7 +2848,15 @@ const touristSpots = [
           "Vista sem limites para o oceano e continente",
           "A maior conquista de montanha da ilha"
         ],
-        "ecoTip": "Expedição extrema de preservação integral. Obrigatório contratar guia credenciado."
+        "ecoTip": "Expedição extrema de preservação integral. Obrigatório contratar guia credenciado.",
+        "specs": {
+          "distance": "14 km (ida e volta)",
+          "duration": "8h a 10h de expedição",
+          "elevation": "+1.378m (cume mais alto da ilha)",
+          "access": "Obrigatório acompanhamento de guia credenciado do Parque Estadual",
+          "sea": "Não se aplica (Cume supremo acima das nuvens)",
+          "structure": "Área 100% selvagem e protegida"
+        }
       },
       "en": {
         "title": "São Sebastião Peak (Pico de São Sebastião)",
@@ -2059,7 +2868,15 @@ const touristSpots = [
           "Boundless views over the Atlantic ocean",
           "The ultimate mountaineering achievement"
         ],
-        "ecoTip": "Strict conservation zone. Certified mountain guide required."
+        "ecoTip": "Strict conservation zone. Certified mountain guide required.",
+        "specs": {
+          "distance": "14 km (round trip)",
+          "duration": "8–10 h expedition",
+          "elevation": "+1,378 m (island’s highest summit)",
+          "access": "An accredited State Park guide is mandatory",
+          "sea": "Not applicable (highest summit above the clouds)",
+          "structure": "Entirely wild, protected area"
+        }
       },
       "fr": {
         "title": "Pic de São Sebastião",
@@ -2071,7 +2888,15 @@ const touristSpots = [
           "Vue infinie sur l océan et la côte",
           "Le défi suprême de randonnée"
         ],
-        "ecoTip": "Zone de réserve intégrale. Guide certifié obligatoire."
+        "ecoTip": "Zone de réserve intégrale. Guide certifié obligatoire.",
+        "specs": {
+          "distance": "14 km (aller-retour)",
+          "duration": "8 à 10 h d’expédition",
+          "elevation": "+1 378 m (plus haut sommet de l’île)",
+          "access": "Accompagnement obligatoire par un guide agréé du parc d’État",
+          "sea": "Sans objet (sommet le plus élevé au-dessus des nuages)",
+          "structure": "Zone entièrement sauvage et protégée"
+        }
       },
       "es": {
         "title": "Pico de São Sebastião",
@@ -2083,7 +2908,15 @@ const touristSpots = [
           "Vistas espectaculares sobre el océano",
           "La mayor conquista de montaña"
         ],
-        "ecoTip": "Zona de máxima protección. Guía certificado obligatorio."
+        "ecoTip": "Zona de máxima protección. Guía certificado obligatorio.",
+        "specs": {
+          "distance": "14 km (ida y vuelta)",
+          "duration": "8 a 10 h de expedición",
+          "elevation": "+1.378 m (cumbre más alta de la isla)",
+          "access": "Acompañamiento obligatorio de guía acreditado del Parque Estatal",
+          "sea": "No corresponde (cumbre más alta sobre las nubes)",
+          "structure": "Zona totalmente salvaje y protegida"
+        }
       },
       "he": {
         "title": "פסגת סאו סבסטיאו (Pico de São Sebastião)",
@@ -2095,7 +2928,15 @@ const touristSpots = [
           "נוף אינסופי של האוקיינוס והיבשת",
           "ההישג האולטימטיבי לחובבי טיפוס הרים"
         ],
-        "ecoTip": "שמורה מוגנת ברמה הגבוהה ביותר. חובה לצאת בליווי מדריך מוסמך."
+        "ecoTip": "שמורה מוגנת ברמה הגבוהה ביותר. חובה לצאת בליווי מדריך מוסמך.",
+        "specs": {
+          "distance": "14 ק״מ (הלוך וחזור)",
+          "duration": "מסע של 8–10 שעות",
+          "elevation": "+1,378 מ׳ (הפסגה הגבוהה באי)",
+          "access": "חובה בליווי מדריך מורשה של פארק המדינה",
+          "sea": "לא רלוונטי (הפסגה הגבוהה מעל העננים)",
+          "structure": "אזור פראי ומוגן לחלוטין"
+        }
       }
     },
     "images": [
@@ -2109,7 +2950,7 @@ const touristSpots = [
       -23.8601,
       -45.2956
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 320,
     "image": "assets/images/mirante-do-coracao_1.jpg",
     "tags": [
@@ -2147,7 +2988,15 @@ const touristSpots = [
           "Encontro da serra com o oceano aberto",
           "Parada clássica dos passeios 4x4"
         ],
-        "ecoTip": "Tenha cuidado na beirada da encosta e utilize o deck de observação."
+        "ecoTip": "Tenha cuidado na beirada da encosta e utilize o deck de observação.",
+        "specs": {
+          "distance": "Mirante na beira da descida de Castelhanos",
+          "duration": "10 min de parada fotográfica",
+          "elevation": "+220m de altitude",
+          "access": "Estrada do Parque Estadual de Castelhanos (jipe 4x4 ou caminhada)",
+          "sea": "Vista espetacular da baía oceânica",
+          "structure": "Deck de madeira com vista panorâmica"
+        }
       },
       "en": {
         "title": "Heart Overlook (Mirante do Coração)",
@@ -2159,7 +3008,15 @@ const touristSpots = [
           "Where mountain peaks meet open ocean",
           "Signature stop on 4x4 tours"
         ],
-        "ecoTip": "Stay on designated observation decks."
+        "ecoTip": "Stay on designated observation decks.",
+        "specs": {
+          "distance": "Roadside viewpoint on the descent to Castelhanos",
+          "duration": "10 min photo stop",
+          "elevation": "+220 m altitude",
+          "access": "Castelhanos State Park road (4x4 or on foot)",
+          "sea": "Spectacular view of the ocean bay",
+          "structure": "Wooden deck with panoramic views"
+        }
       },
       "fr": {
         "title": "Belvédère du Cœur de Castelhanos",
@@ -2171,7 +3028,15 @@ const touristSpots = [
           "Rencontre de la montagne et de l océan",
           "Arrêt incontournable des 4x4"
         ],
-        "ecoTip": "Restez sur les plateformes aménagées."
+        "ecoTip": "Restez sur les plateformes aménagées.",
+        "specs": {
+          "distance": "Belvédère au bord de la descente de Castelhanos",
+          "duration": "Arrêt photo de 10 min",
+          "elevation": "+220 m d’altitude",
+          "access": "Route du parc d’État de Castelhanos (4x4 ou marche)",
+          "sea": "Vue spectaculaire sur la baie océanique",
+          "structure": "Terrasse en bois avec vue panoramique"
+        }
       },
       "es": {
         "title": "Mirador del Corazón de Castelhanos",
@@ -2183,7 +3048,15 @@ const touristSpots = [
           "Encuentro de la selva y el mar",
           "Parada clásica en 4x4"
         ],
-        "ecoTip": "Permanece en los miradores designados."
+        "ecoTip": "Permanece en los miradores designados.",
+        "specs": {
+          "distance": "Mirador junto al descenso a Castelhanos",
+          "duration": "Parada fotográfica de 10 min",
+          "elevation": "+220 m de altitud",
+          "access": "Carretera del Parque Estatal de Castelhanos (4x4 o caminata)",
+          "sea": "Vista espectacular de la bahía oceánica",
+          "structure": "Plataforma de madera con vista panorámica"
+        }
       },
       "he": {
         "title": "תצפית הלב של קסטליאנוס (Mirante do Coração)",
@@ -2195,7 +3068,15 @@ const touristSpots = [
           "חיבור הרים טרופיים עם אוקיינוס פתוח",
           "עצירה קלאסית בסיורי 4x4"
         ],
-        "ecoTip": "הישארו על מרפסות התצפית המוסדרות."
+        "ecoTip": "הישארו על מרפסות התצפית המוסדרות.",
+        "specs": {
+          "distance": "תצפית לצד הירידה ל-Castelhanos",
+          "duration": "עצירת צילום של 10 דקות",
+          "elevation": "גובה +220 מ׳",
+          "access": "כביש פארק המדינה של Castelhanos (4x4 או הליכה)",
+          "sea": "נוף מרהיב של המפרץ האוקייני",
+          "structure": "מרפסת עץ עם נוף פנורמי"
+        }
       }
     },
     "images": [
@@ -2209,7 +3090,7 @@ const touristSpots = [
       -23.7936,
       -45.3358
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 298,
     "image": "assets/images/pico-do-baepi_1.jpg",
     "tags": [
@@ -2247,7 +3128,15 @@ const touristSpots = [
           "Fauna e flora ricas da Mata Atlântica",
           "Contemplação do pôr do sol e nuvens"
         ],
-        "ecoTip": "Leve no mínimo 2 litros de água, lanches calóricos e agasalho para o topo (vento frio)."
+        "ecoTip": "Leve no mínimo 2 litros de água, lanches calóricos e agasalho para o topo (vento frio).",
+        "specs": {
+          "distance": "7.4 km (ida e volta)",
+          "duration": "4h30 a 6h",
+          "elevation": "+1.048m de altitude",
+          "access": "Início no bairro do Itaguaçu (Parque Estadual de Ilhabela)",
+          "sea": "Não se aplica (Cume com vista 360° do canal, oceano e Serra do Mar)",
+          "structure": "Sem estrutura no percurso; ponto de apoio e cadastro na base do Parque"
+        }
       },
       "en": {
         "title": "Baepi Peak",
@@ -2259,7 +3148,15 @@ const touristSpots = [
           "Rich Atlantic rainforest biodiversity",
           "Cloudscapes and golden light"
         ],
-        "ecoTip": "Carry at least 2 liters of water, energy snacks, and a windbreaker for the breezy summit."
+        "ecoTip": "Carry at least 2 liters of water, energy snacks, and a windbreaker for the breezy summit.",
+        "specs": {
+          "distance": "7.4 km (round trip)",
+          "duration": "4 h 30 min–6 h",
+          "elevation": "+1,048 m altitude",
+          "access": "Starts in Itaguaçu (Ilhabela State Park)",
+          "sea": "Not applicable (summit with 360° views of the channel, ocean and Serra do Mar)",
+          "structure": "No facilities on the route; support and registration point at the park base"
+        }
       },
       "fr": {
         "title": "Pic du Baepi",
@@ -2271,7 +3168,15 @@ const touristSpots = [
           "Immersion en forêt tropicale primaire",
           "Mer de nuages au lever du jour"
         ],
-        "ecoTip": "Prévoyez au moins 2 litres d eau, des collations énergétiques et un coupe-vent."
+        "ecoTip": "Prévoyez au moins 2 litres d eau, des collations énergétiques et un coupe-vent.",
+        "specs": {
+          "distance": "7,4 km (aller-retour)",
+          "duration": "4 h 30 à 6 h",
+          "elevation": "+1 048 m d’altitude",
+          "access": "Départ du quartier Itaguaçu (parc d’État d’Ilhabela)",
+          "sea": "Sans objet (sommet avec vue à 360° sur le canal, l’océan et Serra do Mar)",
+          "structure": "Aucun équipement sur le parcours ; point d’assistance et d’inscription à la base du parc"
+        }
       },
       "es": {
         "title": "Pico do Baepi",
@@ -2283,7 +3188,15 @@ const touristSpots = [
           "Flora y fauna endémica de la Mata Atlántica",
           "Cielos y nubes sobre el mar"
         ],
-        "ecoTip": "Lleva mínimo 2 litros de agua por persona, comida energética y abrigo para la cumbre."
+        "ecoTip": "Lleva mínimo 2 litros de agua por persona, comida energética y abrigo para la cumbre.",
+        "specs": {
+          "distance": "7,4 km (ida y vuelta)",
+          "duration": "4 h 30 min a 6 h",
+          "elevation": "+1.048 m de altitud",
+          "access": "Inicio en Itaguaçu (Parque Estatal de Ilhabela)",
+          "sea": "No corresponde (cumbre con vista de 360° al canal, océano y Serra do Mar)",
+          "structure": "Sin infraestructura en la ruta; punto de apoyo y registro en la base del parque"
+        }
       },
       "he": {
         "title": "פסגת באפי (Pico do Baepi)",
@@ -2295,7 +3208,15 @@ const touristSpots = [
           "מגוון ביולוגי עשיר של יער הגשם",
           "עננים ונופי שקיעה מעל המים"
         ],
-        "ecoTip": "קחו לפחות 2 ליטר מים לאדם, חטיפי אנרגיה וביגוד חם לפסגה."
+        "ecoTip": "קחו לפחות 2 ליטר מים לאדם, חטיפי אנרגיה וביגוד חם לפסגה.",
+        "specs": {
+          "distance": "7.4 ק״מ (הלוך וחזור)",
+          "duration": "4.5–6 שעות",
+          "elevation": "גובה +1,048 מ׳",
+          "access": "תחילה בשכונת Itaguaçu (פארק המדינה של Ilhabela)",
+          "sea": "לא רלוונטי (פסגה עם נוף של 360° לתעלה, לאוקיינוס ול-Serra do Mar)",
+          "structure": "ללא תשתיות במסלול; נקודת סיוע ורישום בבסיס הפארק"
+        }
       }
     },
     "images": [
@@ -2309,7 +3230,7 @@ const touristSpots = [
       -23.8889,
       -45.4389
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 215,
     "image": "assets/images/ponto-baleias-sul-sepituba_1.jpg",
     "tags": [
@@ -2347,7 +3268,15 @@ const touristSpots = [
           "Escuta de cantos de baleia com hidrofones",
           "Passeios guiados por biólogos"
         ],
-        "ecoTip": "Mantenha distância regulamentada de navegação (mínimo 100m) e nunca persiga os cetáceos."
+        "ecoTip": "Mantenha distância regulamentada de navegação (mínimo 100m) e nunca persiga os cetáceos.",
+        "specs": {
+          "distance": "Acesso costeiro ou passeios embarcados",
+          "duration": "Passeios de barco: 3h a 4h",
+          "elevation": "Costeira",
+          "access": "Pela estrada sul até Sepituba ou passeios de lancha autorizados pelo Projeto Viva Baleias",
+          "sea": "Mar aberto com rica passagem de correntes marinhas e krill",
+          "structure": "Embarcações credenciadas com biólogos e sonares para escuta de cantos"
+        }
       },
       "en": {
         "title": "Whale Watching Sanctuary - Sepituba Point",
@@ -2359,7 +3288,15 @@ const touristSpots = [
           "Live hydrophone whale song listening",
           "Marine biologist guided expeditions"
         ],
-        "ecoTip": "Maintain certified safe boat distances (100m minimum) and practice ethical wildlife observation."
+        "ecoTip": "Maintain certified safe boat distances (100m minimum) and practice ethical wildlife observation.",
+        "specs": {
+          "distance": "Coastal access or boat tours",
+          "duration": "Boat tours: 3–4 h",
+          "elevation": "Rocky coast",
+          "access": "Southern road to Sepituba or speedboat tours authorized by Projeto Viva Baleias",
+          "sea": "Open sea with abundant currents and krill",
+          "structure": "Accredited boats with biologists and sonar for listening to whale songs"
+        }
       },
       "fr": {
         "title": "Sanctuaire des Baleines - Pointe de Sepituba",
@@ -2371,7 +3308,15 @@ const touristSpots = [
           "Écoute sous-marine des chants de baleines",
           "Excursions guidées par des biologistes"
         ],
-        "ecoTip": "Respectez les distances de sécurité de navigation (100 m minimum)."
+        "ecoTip": "Respectez les distances de sécurité de navigation (100 m minimum).",
+        "specs": {
+          "distance": "Accès côtier ou excursions en bateau",
+          "duration": "Sorties en bateau : 3 à 4 h",
+          "elevation": "Côte rocheuse",
+          "access": "Route du sud jusqu’à Sepituba ou sorties autorisées par Projeto Viva Baleias",
+          "sea": "Mer ouverte riche en courants marins et en krill",
+          "structure": "Bateaux agréés avec biologistes et sonars pour écouter les chants"
+        }
       },
       "es": {
         "title": "Santuario de Ballenas - Punta da Sepituba",
@@ -2383,7 +3328,15 @@ const touristSpots = [
           "Escucha de cantos con hidrófonos",
           "Expediciones con biólogos marinos"
         ],
-        "ecoTip": "Respeta la distancia mínima reglamentaria de navegación (100 m)."
+        "ecoTip": "Respeta la distancia mínima reglamentaria de navegación (100 m).",
+        "specs": {
+          "distance": "Acceso costero o paseos en barco",
+          "duration": "Paseos en barco: 3 a 4 h",
+          "elevation": "Costa rocosa",
+          "access": "Carretera sur hasta Sepituba o paseos autorizados por Projeto Viva Baleias",
+          "sea": "Mar abierto con abundantes corrientes marinas y krill",
+          "structure": "Embarcaciones acreditadas con biólogos y sonares para escuchar cantos"
+        }
       },
       "he": {
         "title": "שמורת הלווייתנים - פונטה דה ספיטובה (Sepituba)",
@@ -2395,7 +3348,15 @@ const touristSpots = [
           "האזנה לשירת הלווייתנים באמצעות הידרופון",
           "סיורים מודרכים עם ביולוגים ימיים"
         ],
-        "ecoTip": "שמרו על מרחק שייט בטוח כחוק (לפחות 100 מטר) ולעולם אל תרדפו אחרי היונקים."
+        "ecoTip": "שמרו על מרחק שייט בטוח כחוק (לפחות 100 מטר) ולעולם אל תרדפו אחרי היונקים.",
+        "specs": {
+          "distance": "גישה מהחוף או בסיורי שייט",
+          "duration": "סיורי שייט: 3–4 שעות",
+          "elevation": "חוף סלעי",
+          "access": "הכביש הדרומי עד Sepituba או סיורים מורשים של Projeto Viva Baleias",
+          "sea": "ים פתוח עם זרמים ימיים עשירים וקריל",
+          "structure": "כלי שייט מורשים עם ביולוגים וסונאר להאזנה לשירת לווייתנים"
+        }
       }
     },
     "images": [
@@ -2447,7 +3408,15 @@ const touristSpots = [
           "Pôr do sol dourado no canal",
           "Fotografia de fauna marinha"
         ],
-        "ecoTip": "Não jogue alimentos e mantenha os motores em baixa rotação próximo aos animais."
+        "ecoTip": "Não jogue alimentos e mantenha os motores em baixa rotação próximo aos animais.",
+        "specs": {
+          "distance": "Embarcações a partir da Vila ou Perequê",
+          "duration": "2h de navegação",
+          "elevation": "Nível do mar",
+          "access": "Passeios náuticos de lancha, veleiro ou escuna",
+          "sea": "Canal abrigado entre a ilha e o continente",
+          "structure": "Marinas estruturadas, aluguel de veleiros e passeios guiados"
+        }
       },
       "en": {
         "title": "Channel Dolphin & Porpoise Route",
@@ -2459,7 +3428,15 @@ const touristSpots = [
           "Golden hour sunset over the channel",
           "Marine photography"
         ],
-        "ecoTip": "Never feed wildlife and maintain idle boat speeds near dolphins."
+        "ecoTip": "Never feed wildlife and maintain idle boat speeds near dolphins.",
+        "specs": {
+          "distance": "Boats from Vila or Perequê",
+          "duration": "2 h by boat",
+          "elevation": "Sea level",
+          "access": "Speedboat, sailboat or schooner tours",
+          "sea": "Sheltered channel between island and mainland",
+          "structure": "Equipped marinas, sailboat rentals and guided tours"
+        }
       },
       "fr": {
         "title": "Route des Dauphins du Canal",
@@ -2471,7 +3448,15 @@ const touristSpots = [
           "Coucher de soleil doré sur l eau",
           "Superbes photos marines"
         ],
-        "ecoTip": "Ne nourrissez pas les animaux sauvages."
+        "ecoTip": "Ne nourrissez pas les animaux sauvages.",
+        "specs": {
+          "distance": "Embarcations depuis Vila ou Perequê",
+          "duration": "2 h de navigation",
+          "elevation": "Niveau de la mer",
+          "access": "Excursions en bateau rapide, voilier ou goélette",
+          "sea": "Canal abrité entre l’île et le continent",
+          "structure": "Marinas équipées, location de voiliers et excursions guidées"
+        }
       },
       "es": {
         "title": "Ruta de los Delfines del Canal",
@@ -2483,7 +3468,15 @@ const touristSpots = [
           "Puesta de sol dorada en el canal",
           "Fotografía marina de cerca"
         ],
-        "ecoTip": "No arrojes comida y mantén velocidad lenta cerca de ellos."
+        "ecoTip": "No arrojes comida y mantén velocidad lenta cerca de ellos.",
+        "specs": {
+          "distance": "Embarcaciones desde Vila o Perequê",
+          "duration": "2 h de navegación",
+          "elevation": "Nivel del mar",
+          "access": "Paseos en lancha, velero o goleta",
+          "sea": "Canal protegido entre la isla y el continente",
+          "structure": "Marinas equipadas, alquiler de veleros y paseos guiados"
+        }
       },
       "he": {
         "title": "נתיב הדולפינים של תעלת סאו סבסטיאו",
@@ -2495,7 +3488,15 @@ const touristSpots = [
           "שקיעות זהובות מעל המים",
           "צילום ימי מרהיב"
         ],
-        "ecoTip": "אין להאכיל את חיות הבר ויש לשוט במהירות איטית בסמוך אליהן."
+        "ecoTip": "אין להאכיל את חיות הבר ויש לשוט במהירות איטית בסמוך אליהן.",
+        "specs": {
+          "distance": "סירות מ-Vila או Perequê",
+          "duration": "שעתיים שייט",
+          "elevation": "גובה פני הים",
+          "access": "סיורי סירת מנוע, מפרשית או סקונר",
+          "sea": "תעלה מוגנת בין האי ליבשת",
+          "structure": "מרינות מצוידות, השכרת מפרשיות וסיורים מודרכים"
+        }
       }
     },
     "images": [
@@ -2547,7 +3548,15 @@ const touristSpots = [
           "Avistamento frequente de tartarugas e raias",
           "Acesso fácil próximo à costa"
         ],
-        "ecoTip": "Não toque nos animais marinhos e preserve as peças históricas."
+        "ecoTip": "Não toque nos animais marinhos e preserve as peças históricas.",
+        "specs": {
+          "distance": "A 100m da costeira da Praia do Curral / Veloso",
+          "duration": "1h de mergulho",
+          "elevation": "Profundidade de 4m a 18m",
+          "access": "Mergulho a partir da praia ou barco de operadora",
+          "sea": "Águas calmas com excelente visibilidade no inverno e outono",
+          "structure": "Próximo a operadoras de mergulho credenciadas"
+        }
       },
       "en": {
         "title": "Aymoré Steamship Wreck",
@@ -2559,7 +3568,15 @@ const touristSpots = [
           "Frequent sea turtle and ray encounters",
           "Close and easy coastal access"
         ],
-        "ecoTip": "Do not touch marine wildlife and leave historic artifacts undisturbed."
+        "ecoTip": "Do not touch marine wildlife and leave historic artifacts undisturbed.",
+        "specs": {
+          "distance": "100 m from the Praia do Curral / Veloso coast",
+          "duration": "1 h diving",
+          "elevation": "4–18 m deep",
+          "access": "Dive from the beach or an operator’s boat",
+          "sea": "Calm waters with excellent visibility in winter and autumn",
+          "structure": "Near accredited diving operators"
+        }
       },
       "fr": {
         "title": "Épave du Vapeur Aymoré",
@@ -2571,7 +3588,15 @@ const touristSpots = [
           "Tortues et raies marines",
           "Accès facile depuis la côte"
         ],
-        "ecoTip": "Ne touchez pas aux animaux marins et respectez le site."
+        "ecoTip": "Ne touchez pas aux animaux marins et respectez le site.",
+        "specs": {
+          "distance": "À 100 m de la côte de Praia do Curral / Veloso",
+          "duration": "1 h de plongée",
+          "elevation": "Profondeur de 4 à 18 m",
+          "access": "Plongée depuis la plage ou le bateau d’un opérateur",
+          "sea": "Eaux calmes avec excellente visibilité en hiver et en automne",
+          "structure": "À proximité d’opérateurs de plongée agréés"
+        }
       },
       "es": {
         "title": "Naufragio del Vapor Aymoré",
@@ -2583,7 +3608,15 @@ const touristSpots = [
           "Encuentros con tortugas y rayas",
           "Fácil acceso cercano a la costa"
         ],
-        "ecoTip": "No toques la fauna marina y respeta las piezas históricas."
+        "ecoTip": "No toques la fauna marina y respeta las piezas históricas.",
+        "specs": {
+          "distance": "A 100 m de la costa de Praia do Curral / Veloso",
+          "duration": "1 h de buceo",
+          "elevation": "Profundidad de 4 a 18 m",
+          "access": "Buceo desde la playa o barco de operador",
+          "sea": "Aguas tranquilas con excelente visibilidad en invierno y otoño",
+          "structure": "Cerca de operadores de buceo acreditados"
+        }
       },
       "he": {
         "title": "ספינת הקיטור הטבועה איימור (Vapor Aymoré)",
@@ -2595,7 +3628,15 @@ const touristSpots = [
           "מפגשים תכופים עם צבי ים וחתולי ים",
           "גישה נוחה וקרובה לקו החוף"
         ],
-        "ecoTip": "אל תיגעו בבעלי החיים הימיים ושמרו על שרידי הספינה ההיסטורית."
+        "ecoTip": "אל תיגעו בבעלי החיים הימיים ושמרו על שרידי הספינה ההיסטורית.",
+        "specs": {
+          "distance": "100 מ׳ מחוף Praia do Curral / Veloso",
+          "duration": "שעת צלילה",
+          "elevation": "עומק 4–18 מ׳",
+          "access": "צלילה מהחוף או מסירת מפעיל",
+          "sea": "מים רגועים עם ראות מצוינת בחורף ובסתיו",
+          "structure": "בסמוך למפעילי צלילה מורשים"
+        }
       }
     },
     "images": [
@@ -2647,7 +3688,15 @@ const touristSpots = [
           "Cardumes multicoloridos e corais",
           "Excelente para batismo de mergulho"
         ],
-        "ecoTip": "Área de preservação permanente. É expressamente proibida a caça submarina e a pesca."
+        "ecoTip": "Área de preservação permanente. É expressamente proibida a caça submarina e a pesca.",
+        "specs": {
+          "distance": "A 50 metros da costa (Praia das Pedras Miúdas)",
+          "duration": "1h a 2h de mergulho",
+          "elevation": "Profundidade de 3m a 12m",
+          "access": "Entrada direta pela Praia das Pedras Miúdas ou barco de mergulho",
+          "sea": "Águas abrigadas e transparentes, protegidas por lei desde 1992",
+          "structure": "Escolas de mergulho PADI, aluguel de snorkel, caiaques e quiosques"
+        }
       },
       "en": {
         "title": "Ilha das Cabras Marine Sanctuary",
@@ -2659,7 +3708,15 @@ const touristSpots = [
           "Rich coral reefs and tropical marine life",
           "Ideal for first-time scuba discovery dives"
         ],
-        "ecoTip": "Strict marine sanctuary. Fishing and underwater hunting are strictly prohibited."
+        "ecoTip": "Strict marine sanctuary. Fishing and underwater hunting are strictly prohibited.",
+        "specs": {
+          "distance": "50 m offshore (Praia das Pedras Miúdas)",
+          "duration": "1–2 h diving",
+          "elevation": "3–12 m deep",
+          "access": "Direct entry from Praia das Pedras Miúdas or dive boat",
+          "sea": "Sheltered, clear waters protected by law since 1992",
+          "structure": "PADI diving schools, snorkel and kayak rentals, and kiosks"
+        }
       },
       "fr": {
         "title": "Sanctuaire Marin d Ilha das Cabras",
@@ -2671,7 +3728,15 @@ const touristSpots = [
           "Poissons tropicaux multicolores",
           "Idéal pour baptême de plongée"
         ],
-        "ecoTip": "Réserve protégée. Pêche et chasse sous-marine strictement interdites."
+        "ecoTip": "Réserve protégée. Pêche et chasse sous-marine strictement interdites.",
+        "specs": {
+          "distance": "À 50 m de la côte (Praia das Pedras Miúdas)",
+          "duration": "1 à 2 h de plongée",
+          "elevation": "Profondeur de 3 à 12 m",
+          "access": "Entrée directe depuis Praia das Pedras Miúdas ou bateau de plongée",
+          "sea": "Eaux abritées et transparentes, protégées par la loi depuis 1992",
+          "structure": "Écoles de plongée PADI, location de matériel de snorkeling, kayaks et kiosques"
+        }
       },
       "es": {
         "title": "Santuario Marino Ilha das Cabras",
@@ -2683,7 +3748,15 @@ const touristSpots = [
           "Corales y rica vida marina",
           "Ideal para bautismos de buceo"
         ],
-        "ecoTip": "Reserva marina protegida. La pesca y caza submarina están terminantemente prohibidas."
+        "ecoTip": "Reserva marina protegida. La pesca y caza submarina están terminantemente prohibidas.",
+        "specs": {
+          "distance": "A 50 m de la costa (Praia das Pedras Miúdas)",
+          "duration": "1 a 2 h de buceo",
+          "elevation": "Profundidad de 3 a 12 m",
+          "access": "Entrada directa desde Praia das Pedras Miúdas o barco de buceo",
+          "sea": "Aguas protegidas y transparentes, amparadas por ley desde 1992",
+          "structure": "Escuelas de buceo PADI, alquiler de esnórquel, kayaks y quioscos"
+        }
       },
       "he": {
         "title": "שמורת הטבע הימית איליה דאס קברס (Ilha das Cabras)",
@@ -2695,7 +3768,15 @@ const touristSpots = [
           "שוניות אלמוגים ודגים צבעוניים",
           "אידיאלי לצלילות היכרות ושנירקול"
         ],
-        "ecoTip": "שמורה מוגנת בחוק. חל איסור מוחלט על דיג או פגיעה בחי הימי."
+        "ecoTip": "שמורה מוגנת בחוק. חל איסור מוחלט על דיג או פגיעה בחי הימי.",
+        "specs": {
+          "distance": "50 מ׳ מהחוף (Praia das Pedras Miúdas)",
+          "duration": "שעה עד שעתיים צלילה",
+          "elevation": "עומק 3–12 מ׳",
+          "access": "כניסה ישירה מ-Praia das Pedras Miúdas או מסירת צלילה",
+          "sea": "מים מוגנים וצלולים, מוגנים בחוק מאז 1992",
+          "structure": "בתי ספר לצלילה PADI, השכרת שנורקלים, קיאקים וקיוסקים"
+        }
       }
     },
     "images": [
@@ -2709,7 +3790,7 @@ const touristSpots = [
       -23.9167,
       -45.2833
     ],
-    "rating": 5.0,
+    "rating": 5,
     "reviews": 180,
     "image": "assets/images/naufragio-principe-de-asturias_1.jpg",
     "tags": [
@@ -2747,7 +3828,15 @@ const touristSpots = [
           "Biodiversidade marinha exuberante",
           "Mergulho de naufrágio lendário"
         ],
-        "ecoTip": "Sítio arqueológico subaquático protegido. É proibido recolher qualquer artefato do navio."
+        "ecoTip": "Sítio arqueológico subaquático protegido. É proibido recolher qualquer artefato do navio.",
+        "specs": {
+          "distance": "Acesso exclusivo por embarcação especializada",
+          "duration": "Mergulho técnico / avançado",
+          "elevation": "Profundidade de 18m a 45m",
+          "access": "Lanchas de operadoras de mergulho credenciadas",
+          "sea": "Mar aberto com correntes e vida marinha exuberante ao redor do casco",
+          "structure": "Apenas acompanhado por guias de mergulho técnico e instrutores"
+        }
       },
       "en": {
         "title": "Príncipe de Asturias Shipwreck",
@@ -2759,7 +3848,15 @@ const touristSpots = [
           "Thriving artificial reef ecosystem",
           "Legendary world-class wreck dive"
         ],
-        "ecoTip": "Protected underwater heritage site. Taking artifacts is strictly forbidden."
+        "ecoTip": "Protected underwater heritage site. Taking artifacts is strictly forbidden.",
+        "specs": {
+          "distance": "Access only by specialist boat",
+          "duration": "Technical / advanced diving",
+          "elevation": "18–45 m deep",
+          "access": "Speedboats from accredited diving operators",
+          "sea": "Open sea with currents and abundant marine life around the hull",
+          "structure": "Only with technical dive guides and instructors"
+        }
       },
       "fr": {
         "title": "Épave du Príncipe de Asturias",
@@ -2771,7 +3868,15 @@ const touristSpots = [
           "Écosystème récifal exceptionnel",
           "Plongée d épave mythique"
         ],
-        "ecoTip": "Site archéologique protégé. Il est interdit de prélever des objets."
+        "ecoTip": "Site archéologique protégé. Il est interdit de prélever des objets.",
+        "specs": {
+          "distance": "Accès exclusivement en embarcation spécialisée",
+          "duration": "Plongée technique / avancée",
+          "elevation": "Profondeur de 18 à 45 m",
+          "access": "Bateaux rapides d’opérateurs de plongée agréés",
+          "sea": "Mer ouverte avec courants et vie marine abondante autour de la coque",
+          "structure": "Uniquement avec guides de plongée technique et instructeurs"
+        }
       },
       "es": {
         "title": "Naufragio Príncipe de Asturias",
@@ -2783,7 +3888,15 @@ const touristSpots = [
           "Gran biodiversidad marina",
           "Inmersión de pecio inolvidable"
         ],
-        "ecoTip": "Sitio histórico protegido. Prohibido extraer cualquier elemento del pecio."
+        "ecoTip": "Sitio histórico protegido. Prohibido extraer cualquier elemento del pecio.",
+        "specs": {
+          "distance": "Acceso exclusivo en embarcación especializada",
+          "duration": "Buceo técnico / avanzado",
+          "elevation": "Profundidad de 18 a 45 m",
+          "access": "Lanchas de operadores de buceo acreditados",
+          "sea": "Mar abierto con corrientes y abundante vida marina alrededor del casco",
+          "structure": "Solo con guías de buceo técnico e instructores"
+        }
       },
       "he": {
         "title": "ספינת הענק הטבועה פרינסיפה דה אסטוריאס",
@@ -2795,7 +3908,15 @@ const touristSpots = [
           "עולם חי ימי שופע ומרשים",
           "צלילת ספינה טבועה אגדית"
         ],
-        "ecoTip": "אתר מורשת מוגן. חל איסור מוחלט על לקיחת פריטים מהספינה."
+        "ecoTip": "אתר מורשת מוגן. חל איסור מוחלט על לקיחת פריטים מהספינה.",
+        "specs": {
+          "distance": "גישה רק בכלי שייט ייעודי",
+          "duration": "צלילה טכנית / מתקדמת",
+          "elevation": "עומק 18–45 מ׳",
+          "access": "סירות מנוע של מפעילי צלילה מורשים",
+          "sea": "ים פתוח עם זרמים וחיים ימיים עשירים סביב גוף הספינה",
+          "structure": "רק בליווי מדריכי צלילה טכנית ומדריכים מוסמכים"
+        }
       }
     },
     "images": [
@@ -2835,23 +3956,53 @@ const guidesData = [
     "translations": {
       "pt": {
         "role": "Guia de Montanha & Travessias",
-        "bio": "Nascido e criado em Ilhabela, com mais de 12 anos de experiência conduzindo grupos no Pico do Baepi, Trilha do Bonete e expedições 4x4 em Castelhanos. Especialista em primeiros socorros em áreas remotas."
+        "bio": "Nascido e criado em Ilhabela, com mais de 12 anos de experiência conduzindo grupos no Pico do Baepi, Trilha do Bonete e expedições 4x4 em Castelhanos. Especialista em primeiros socorros em áreas remotas.",
+        "specialties": [
+          "Trilhas Avançadas",
+          "Off-road 4x4",
+          "Pico do Baepi",
+          "Bonete"
+        ]
       },
       "en": {
         "role": "Mountain Guide & Trail Specialist",
-        "bio": "Born and raised on the island, with 12+ years leading treks to Baepi Peak, the Bonete Trail, and 4x4 Castelhanos crossings. Certified in remote wilderness first aid."
+        "bio": "Born and raised on the island, with 12+ years leading treks to Baepi Peak, the Bonete Trail, and 4x4 Castelhanos crossings. Certified in remote wilderness first aid.",
+        "specialties": [
+          "Advanced trails",
+          "Off-road 4x4",
+          "Pico do Baepi",
+          "Bonete"
+        ]
       },
       "fr": {
         "role": "Guide de Montagne & Randonnée",
-        "bio": "Natif d Ilhabela avec plus de 12 ans d expérience sur les sommets du Baepi et sentiers du Bonete. Spécialiste des premiers secours en milieu sauvage."
+        "bio": "Natif d Ilhabela avec plus de 12 ans d expérience sur les sommets du Baepi et sentiers du Bonete. Spécialiste des premiers secours en milieu sauvage.",
+        "specialties": [
+          "Randonnées avancées",
+          "Tout-terrain 4x4",
+          "Pico do Baepi",
+          "Bonete"
+        ]
       },
       "es": {
         "role": "Guía de Montaña & Senderismo",
-        "bio": "Nacido en Ilhabela, con más de 12 años guiando en el Pico do Baepi y la travesía de Bonete. Certificado en primeros auxilios en áreas remotas."
+        "bio": "Nacido en Ilhabela, con más de 12 años guiando en el Pico do Baepi y la travesía de Bonete. Certificado en primeros auxilios en áreas remotas.",
+        "specialties": [
+          "Senderos avanzados",
+          "Todoterreno 4x4",
+          "Pico do Baepi",
+          "Bonete"
+        ]
       },
       "he": {
         "role": "מדריך הרים וטרקים מוסמך",
-        "bio": "יליד איליאבלה עם מעל 12 שנות ניסיון בהובלת משלחות לפסגת באפי, טרק בונטה וסיורי 4x4 בקסטליאנוס. מוסמך בעזרה ראשונה בשטח."
+        "bio": "יליד איליאבלה עם מעל 12 שנות ניסיון בהובלת משלחות לפסגת באפי, טרק בונטה וסיורי 4x4 בקסטליאנוס. מוסמך בעזרה ראשונה בשטח.",
+        "specialties": [
+          "מסלולים למתקדמים",
+          "שטח 4x4",
+          "Pico do Baepi",
+          "Bonete"
+        ]
       }
     }
   },
@@ -2860,7 +4011,7 @@ const guidesData = [
     "name": "Marina Silva",
     "cadastur": "26.098765/0001-42",
     "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 164,
     "pricePerDay": 240,
     "specialtyKey": "guideSpecBirdwatching",
@@ -2885,23 +4036,53 @@ const guidesData = [
     "translations": {
       "pt": {
         "role": "Bióloga & Guia de Ecoturismo",
-        "bio": "Bióloga marinha apaixonada pela biodiversidade insular. Especialista em birdwatching (mais de 300 espécies registradas na ilha) e observação responsável de cetáceos no canal."
+        "bio": "Bióloga marinha apaixonada pela biodiversidade insular. Especialista em birdwatching (mais de 300 espécies registradas na ilha) e observação responsável de cetáceos no canal.",
+        "specialties": [
+          "Observação de Aves",
+          "Botânica da Mata Atlântica",
+          "Baleias & Golfinhos",
+          "Passeios de Barco"
+        ]
       },
       "en": {
         "role": "Biologist & Birdwatching Expert",
-        "bio": "Marine biologist passionate about island ecosystems. Leading birdwatching expeditions (over 300 bird species) and responsible cetacean observation tours."
+        "bio": "Marine biologist passionate about island ecosystems. Leading birdwatching expeditions (over 300 bird species) and responsible cetacean observation tours.",
+        "specialties": [
+          "Birdwatching",
+          "Atlantic Forest botany",
+          "Whales & dolphins",
+          "Boat tours"
+        ]
       },
       "fr": {
         "role": "Biologiste & Guide Écotourisme",
-        "bio": "Biologiste marine experte de la biodiversité d Ilhabela. Spécialiste de l ornithologie (plus de 300 espèces d oiseaux) et de l observation respectueuse des baleines."
+        "bio": "Biologiste marine experte de la biodiversité d Ilhabela. Spécialiste de l ornithologie (plus de 300 espèces d oiseaux) et de l observation respectueuse des baleines.",
+        "specialties": [
+          "Observation des oiseaux",
+          "Botanique de la forêt atlantique",
+          "Baleines et dauphins",
+          "Excursions en bateau"
+        ]
       },
       "es": {
         "role": "Bióloga & Guía de Ecoturismo",
-        "bio": "Bióloga marina especializada en aves (más de 300 especies catalogadas) y avistamiento responsable de ballenas y delfines en el canal de São Sebastião."
+        "bio": "Bióloga marina especializada en aves (más de 300 especies catalogadas) y avistamiento responsable de ballenas y delfines en el canal de São Sebastião.",
+        "specialties": [
+          "Observación de aves",
+          "Botánica de la Mata Atlántica",
+          "Ballenas y delfines",
+          "Paseos en barco"
+        ]
       },
       "he": {
         "role": "ביולוגית ימית ומדריכת צפרות",
-        "bio": "ביולוגית ימית מומחית במערכת האקולוגית של האי. מובילה סיורי צפרות (מעל 300 מיני ציפורים) וצפייה מודרכת בלווייתנים ודולפינים."
+        "bio": "ביולוגית ימית מומחית במערכת האקולוגית של האי. מובילה סיורי צפרות (מעל 300 מיני ציפורים) וצפייה מודרכת בלווייתנים ודולפינים.",
+        "specialties": [
+          "צפרות",
+          "בוטניקה של היער האטלנטי",
+          "לווייתנים ודולפינים",
+          "סיורי שייט"
+        ]
       }
     }
   },
@@ -2937,23 +4118,53 @@ const guidesData = [
     "translations": {
       "pt": {
         "role": "Guia de Cachoeiras & Caiaque",
-        "bio": "Instrutor experiente em passeios aquáticos, travessias de caiaque e cachoeiras secretas. Roteiros divertidos e seguros desenhados para casais e famílias com crianças."
+        "bio": "Instrutor experiente em passeios aquáticos, travessias de caiaque e cachoeiras secretas. Roteiros divertidos e seguros desenhados para casais e famílias com crianças.",
+        "specialties": [
+          "Cachoeiras Secretas",
+          "Caiaque & SUP",
+          "Roteiros Familiares",
+          "Fotografia"
+        ]
       },
       "en": {
         "role": "Waterfalls & Kayak Guide",
-        "bio": "Expert instructor in ocean kayaking, secret waterfalls, and coastal paddle routes. Crafting fun, safe adventures customized for couples and families with kids."
+        "bio": "Expert instructor in ocean kayaking, secret waterfalls, and coastal paddle routes. Crafting fun, safe adventures customized for couples and families with kids.",
+        "specialties": [
+          "Secret waterfalls",
+          "Kayak & SUP",
+          "Family routes",
+          "Photography"
+        ]
       },
       "fr": {
         "role": "Guide Cascades & Kayak",
-        "bio": "Instructeur certifié de kayak et cascades secrètes. Conçoit des aventures sécurisées et mémorables pour couples et familles avec enfants."
+        "bio": "Instructeur certifié de kayak et cascades secrètes. Conçoit des aventures sécurisées et mémorables pour couples et familles avec enfants.",
+        "specialties": [
+          "Cascades secrètes",
+          "Kayak et paddle",
+          "Itinéraires familiaux",
+          "Photographie"
+        ]
       },
       "es": {
         "role": "Guía de Cascadas & Kayak",
-        "bio": "Instructor de deportes acuáticos y explorador de cascadas ocultas. Itinerarios seguros y dinámicos para parejas y familias."
+        "bio": "Instructor de deportes acuáticos y explorador de cascadas ocultas. Itinerarios seguros y dinámicos para parejas y familias.",
+        "specialties": [
+          "Cascadas secretas",
+          "Kayak y SUP",
+          "Rutas familiares",
+          "Fotografía"
+        ]
       },
       "he": {
         "role": "מדריך מפלים, קיאקים ומשפחות",
-        "bio": "מדריך מנוסה בקיאקים ימיים, סאפ ומפלים נסתרים. מתמחה בסיורים חווייתיים ובטוחים המותאמים למשפחות עם ילדים, זוגות ותרמילאים (דובר עברית)."
+        "bio": "מדריך מנוסה בקיאקים ימיים, סאפ ומפלים נסתרים. מתמחה בסיורים חווייתיים ובטוחים המותאמים למשפחות עם ילדים, זוגות ותרמילאים (דובר עברית).",
+        "specialties": [
+          "מפלים סודיים",
+          "קיאק וסאפ",
+          "מסלולים למשפחות",
+          "צילום"
+        ]
       }
     }
   },
@@ -2962,7 +4173,7 @@ const guidesData = [
     "name": "Carlos Caiçara",
     "cadastur": "26.078901/0001-33",
     "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    "rating": 5.0,
+    "rating": 5,
     "reviewsCount": 142,
     "pricePerDay": 280,
     "specialtyKey": "guideSpecHistory",
@@ -2987,23 +4198,53 @@ const guidesData = [
     "translations": {
       "pt": {
         "role": "Guia Nativo & Especialista 4x4",
-        "bio": "Herdeiro da rica cultura caiçara de Ilhabela. Motorista credenciado de jipe 4x4 no Parque Estadual, contador de causos históricos e mestre na pesca tradicional."
+        "bio": "Herdeiro da rica cultura caiçara de Ilhabela. Motorista credenciado de jipe 4x4 no Parque Estadual, contador de causos históricos e mestre na pesca tradicional.",
+        "specialties": [
+          "Expedição 4x4",
+          "Cultura Tradicional",
+          "Castelhanos",
+          "Gastronomia"
+        ]
       },
       "en": {
         "role": "Native Caiçara & 4x4 Specialist",
-        "bio": "Deeply rooted in traditional island culture. Certified 4x4 driver in the State Park, sharing historic pirate and caiçara legends along with authentic cuisine."
+        "bio": "Deeply rooted in traditional island culture. Certified 4x4 driver in the State Park, sharing historic pirate and caiçara legends along with authentic cuisine.",
+        "specialties": [
+          "4x4 expedition",
+          "Traditional culture",
+          "Castelhanos",
+          "Gastronomy"
+        ]
       },
       "fr": {
         "role": "Guide Autochtone & Expert 4x4",
-        "bio": "Issu de la tradition maritime caiçara. Chauffeur agréé 4x4 dans le parc d État, conteur d histoires de pirates et spécialiste de la cuisine locale."
+        "bio": "Issu de la tradition maritime caiçara. Chauffeur agréé 4x4 dans le parc d État, conteur d histoires de pirates et spécialiste de la cuisine locale.",
+        "specialties": [
+          "Expédition 4x4",
+          "Culture traditionnelle",
+          "Castelhanos",
+          "Gastronomie"
+        ]
       },
       "es": {
         "role": "Guía Nativo & Especialista 4x4",
-        "bio": "Guía local tradicional y conductor 4x4 habilitado. Comparte leyendas históricas de piratas, cultura caiçara y los mejores rincones de Castelhanos."
+        "bio": "Guía local tradicional y conductor 4x4 habilitado. Comparte leyendas históricas de piratas, cultura caiçara y los mejores rincones de Castelhanos.",
+        "specialties": [
+          "Expedición 4x4",
+          "Cultura tradicional",
+          "Castelhanos",
+          "Gastronomía"
+        ]
       },
       "he": {
         "role": "מדריך מקומי מומחה שטח 4x4",
-        "bio": "יליד קהילת הדייגים המסורתית (קאיסארה). נהג שטח מוסמך בפארק הלאומי, מספר סיפורי שודדי ים והיסטוריה מרתקת ומומחה באוכל מקומי."
+        "bio": "יליד קהילת הדייגים המסורתית (קאיסארה). נהג שטח מוסמך בפארק הלאומי, מספר סיפורי שודדי ים והיסטוריה מרתקת ומומחה באוכל מקומי.",
+        "specialties": [
+          "מסע 4x4",
+          "תרבות מסורתית",
+          "Castelhanos",
+          "קולינריה"
+        ]
       }
     }
   }
