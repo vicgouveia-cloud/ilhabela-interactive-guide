@@ -118,26 +118,210 @@ const localRecommendations = {
   'praia-do-veloso': [
     {
       category: 'tour',
-      type: 'Passeios e ecoturismo',
       name: 'Chagas Passeios',
-      tagline: 'Nascida na Praia do Veloso em 2009',
-      description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.',
-      tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'],
       whatsapp: '12974017333',
       whatsappDisplay: '+55 (12) 97401-7333',
-      image: 'assets/images/chagas-passeios.jpg'
+      image: 'assets/images/chagas-passeios.jpg',
+      translations: {
+        pt: {
+          type: 'Passeios e ecoturismo',
+          tagline: 'Nascida na Praia do Veloso em 2009',
+          description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.',
+          tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte']
+        },
+        en: {
+          type: 'Tours and ecotourism',
+          tagline: 'Born at Praia do Veloso in 2009',
+          description: 'Adventure and ecotourism company founded at Praia do Veloso, offering boat and off-road tours across Ilhabela.',
+          tags: ['Boat tours', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'North Coast']
+        },
+        es: {
+          type: 'Paseos y ecoturismo',
+          tagline: 'Nacida en la Playa del Veloso en 2009',
+          description: 'Empresa de aventura y ecoturismo nacida en la Playa del Veloso, con paseos marítimos y terrestres por diferentes regiones de Ilhabela.',
+          tags: ['Paseos en lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte']
+        },
+        fr: {
+          type: 'Excursions et écotourisme',
+          tagline: 'Née sur la plage de Veloso en 2009',
+          description: 'Entreprise d\'aventure et d\'écotourisme née sur la plage de Veloso, proposant des excursions en bateau et hors route dans tout Ilhabela.',
+          tags: ['Tours en bateau', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Côte Nord']
+        },
+        he: {
+          type: 'סיורים ותיירות אקולוגית',
+          tagline: 'נוסד בחוף ולוסו בשנת 2009',
+          description: 'חברת הרפתקאות ותיירות אקולוגית שנוסדה בחוף ולוסו, המציעה סיורי סירה וג\'יפים ברחבי אילהבלה.',
+          tags: ['סיורי סירה', '4x4', 'Castelhanos', 'Bonete', 'שנורקלינג', 'החוף הצפוני']
+        }
+      }
     }
   ],
 
   'praia-do-portinho': [
-    { category: 'tour', type: 'Passeios e atividades', name: 'Portinho Passeios', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho', 'Pet Friendly'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'], whatsapp: '19991536623', whatsappDisplay: '(19) 99153-6623', instagram: '@portinhopasseios', url: 'http://www.portinhopasseios.com.br', image: 'assets/images/portinho-passeios.jpg' },
-    { category: 'food', type: 'Alimentação e bebidas', name: 'Quiosque Maxx Beach', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas'], highlightTitle: 'Destaque editorial', highlightDesc: 'Caipirinha com folhas de mexerica', whatsapp: '11912586558', whatsappDisplay: '(11) 91258-6558', image: 'assets/images/maxx-beach.jpg' },
-    { category: 'diving', type: 'Mergulho', name: 'Portinho Divers', description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.', features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes'], whatsapp: '12987046807', whatsappDisplay: '(12) 98704-6807', url: 'https://mergulhoilhabela.com.br', image: 'assets/images/portinho-divers.jpg' }
+    { 
+      category: 'tour', 
+      name: 'Portinho Passeios', 
+      whatsapp: '19991536623', 
+      whatsappDisplay: '(19) 99153-6623', 
+      instagram: '@portinhopasseios', 
+      url: 'http://www.portinhopasseios.com.br', 
+      image: 'assets/images/portinho-passeios.jpg',
+      translations: {
+        pt: {
+          type: 'Passeios e atividades',
+          tagline: 'Roteiros paradisíacos do jeitinho caiçara',
+          description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.',
+          features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho', 'Pet Friendly'],
+          alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia']
+        },
+        en: {
+          type: 'Tours and activities',
+          tagline: 'Paradisiacal itineraries with local charm',
+          description: 'Boat tours departing from Praia do Portinho, plus equipment rental to enjoy the sea.',
+          features: ['Boat tour', 'Kayak', 'Stand Up Paddle', 'Local canoe', 'Bodyboard', 'Snorkel mask', 'Pet Friendly'],
+          alsoOffers: ['bug repellent', 'waterproof phone pouch', 'beach accessories']
+        },
+        es: {
+          type: 'Paseos y actividades',
+          tagline: 'Rutas paradisíacas con encanto local',
+          description: 'Paseos en barco con salida desde la Playa del Portinho, además de alquiler de equipos para disfrutar del mar.',
+          features: ['Paseo en barco', 'Kayak', 'Stand Up Paddle', 'Canoa local', 'Bodyboard', 'Máscara de snorkel', 'Pet Friendly'],
+          alsoOffers: ['repelente', 'funda impermeable para celular', 'accesorios de playa']
+        },
+        fr: {
+          type: 'Excursions et activités',
+          tagline: 'Itinéraires paradisiaques au charme local',
+          description: 'Excursions en bateau au départ de la plage de Portinho et location d\'équipement pour profiter de la mer.',
+          features: ['Tour en bateau', 'Kayak', 'Stand Up Paddle', 'Canoë local', 'Bodyboard', 'Masque de plongée', 'Pet Friendly'],
+          alsoOffers: ['anti-moustique', 'pochette étanche pour téléphone', 'accessoires de plage']
+        },
+        he: {
+          type: 'סיורים ופעילויות',
+          tagline: 'מסלולים מדהימים בסגנון מקומי',
+          description: 'סיורי סירה היוצאים מחוף פורטיניו, בנוסף להשכרת ציוד כדי ליהנות מהים.',
+          features: ['סיור סירה', 'קיאק', 'סאפ', 'סירת קאנו מקומית', 'בוגי', 'מסכת צלילה', 'Pet Friendly'],
+          alsoOffers: ['דוחה יתושים', 'כיסוי מים לטלפון', 'אביזרי חוף']
+        }
+      }
+    },
+    { 
+      category: 'food', 
+      name: 'Quiosque Maxx Beach', 
+      whatsapp: '11912586558', 
+      whatsappDisplay: '(11) 91258-6558', 
+      image: 'assets/images/maxx-beach.jpg',
+      translations: {
+        pt: {
+          type: 'Alimentação e bebidas',
+          description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.',
+          tags: ['Bar na praia', 'Porções', 'Caipirinhas'],
+          highlightTitle: 'Destaque editorial',
+          highlightDesc: 'Caipirinha com folhas de mexerica'
+        },
+        en: {
+          type: 'Food and drinks',
+          description: 'Beachfront kiosk at Praia do Portinho with bar service, snacks, and caipirinhas. A highlight is the tangerine leaf caipirinha.',
+          tags: ['Beach bar', 'Snacks', 'Caipirinhas'],
+          highlightTitle: 'Editor\'s Pick',
+          highlightDesc: 'Tangerine leaf caipirinha'
+        },
+        es: {
+          type: 'Alimentos y bebidas',
+          description: 'Quiosco en la Playa del Portinho con servicio de bar, porciones y caipirinhas. Destaca la caipirinha con hojas de mandarina.',
+          tags: ['Bar en la playa', 'Porciones', 'Caipirinhas'],
+          highlightTitle: 'Recomendación del editor',
+          highlightDesc: 'Caipirinha con hojas de mandarina'
+        },
+        fr: {
+          type: 'Alimentation et boissons',
+          description: 'Kiosque sur la plage de Portinho avec service de bar, en-cas et caipirinhas. Ne manquez pas la caipirinha aux feuilles de mandarine.',
+          tags: ['Bar de plage', 'En-cas', 'Caipirinhas'],
+          highlightTitle: 'Recommandation',
+          highlightDesc: 'Caipirinha aux feuilles de mandarine'
+        },
+        he: {
+          type: 'אוכל ומשקאות',
+          description: 'קיוסק בחוף פורטיניו המציע שירותי בר, נשנושים וקאיפיריניות. כדאי לנסות את הקאיפיריניה עם עלי קלמנטינה.',
+          tags: ['בר חוף', 'נשנושים', 'קאיפיריניות'],
+          highlightTitle: 'בחירת העורך',
+          highlightDesc: 'קאיפיריניה עם עלי קלמנטינה'
+        }
+      }
+    },
+    { 
+      category: 'diving', 
+      name: 'Portinho Divers', 
+      whatsapp: '12987046807', 
+      whatsappDisplay: '(12) 98704-6807', 
+      url: 'https://mergulhoilhabela.com.br', 
+      image: 'assets/images/portinho-divers.jpg',
+      translations: {
+        pt: {
+          type: 'Mergulho',
+          description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.',
+          features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes']
+        },
+        en: {
+          type: 'Diving',
+          description: 'Dive center at Praia do Portinho offering discovery scuba diving accompanied by a professional, with equipment included.',
+          features: ['Discovery dive', 'Equipment', 'Photos and videos', 'Beginner friendly']
+        },
+        es: {
+          type: 'Buceo',
+          description: 'Centro de buceo en la Playa del Portinho con buceo de bautismo acompañado por un profesional y equipos incluidos.',
+          features: ['Buceo de bautismo', 'Equipos', 'Fotos y videos', 'Ideal para principiantes']
+        },
+        fr: {
+          type: 'Plongée',
+          description: 'Centre de plongée sur la plage de Portinho proposant des baptêmes de plongée avec un professionnel, équipement inclus.',
+          features: ['Baptême de plongée', 'Équipement', 'Photos et vidéos', 'Idéal pour débutants']
+        },
+        he: {
+          type: 'צלילה',
+          description: 'מרכז צלילה בחוף פורטיניו המציע צלילת היכרות מלווה במדריך מקצועי, כולל ציוד.',
+          features: ['צלילת היכרות', 'ציוד כלול', 'תמונות ווידאו', 'מתאים למתחילים']
+        }
+      }
+    }
   ]
 };
 
 const localAccommodations = {
   'praia-do-portinho': [
-    { category: 'stay', type: 'Hospedagem recomendada', name: 'La Gloria House', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'], whatsapp: '11975199989', whatsappDisplay: '(11) 97519-9989', url: 'https://lagloriahouse.com.br', image: 'assets/images/la-gloria-house.jpg' }
+    { 
+      category: 'stay', 
+      name: 'La Gloria House', 
+      whatsapp: '11975199989', 
+      whatsappDisplay: '(11) 97519-9989', 
+      url: 'https://lagloriahouse.com.br', 
+      image: 'assets/images/la-gloria-house.jpg',
+      translations: {
+        pt: {
+          type: 'Hospedagem recomendada',
+          description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.',
+          features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar']
+        },
+        en: {
+          type: 'Recommended stay',
+          description: 'Guest House near Praia do Portinho, featuring private suites, a cabin, and a pool overlooking the Atlantic Forest.',
+          features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 people', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar']
+        },
+        es: {
+          type: 'Alojamiento recomendado',
+          description: 'Guest House cerca de la Playa del Portinho, con suites privadas, cabaña y piscina con vistas a la Mata Atlántica.',
+          features: ['A unos 5 min de la Playa del Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar']
+        },
+        fr: {
+          type: 'Hébergement recommandé',
+          description: 'Maison d\'hôtes près de la plage de Portinho, avec suites privées, cabane et piscine vue sur la forêt atlantique.',
+          features: ['À environ 5 min de la plage de Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar']
+        },
+        he: {
+          type: 'לינה מומלצת',
+          description: 'בית הארחה קרוב לחוף פורטיניו, המציע סוויטות פרטיות, בקתה ובריכה המשקיפה ליער האטלנטי.',
+          features: ['כ-5 דקות מחוף פורטיניו', 'סוויטות ל-2 עד 4 אנשים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני-בר']
+        }
+      }
+    }
   ]
 };
