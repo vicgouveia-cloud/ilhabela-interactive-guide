@@ -1,13 +1,5 @@
 const translations = {
   "pt": {
-    "servicesTitle": "Serviços e atividades na {spot}",
-    "servicesSubtitle": "Conheça os serviços locais para aproveitar ainda mais sua visita.",
-    "staysTitle": "Onde ficar perto da {spot}",
-    "staysSubtitle": "Hospedagem recomendada para a sua visita.",
-    "alsoOffers": "Também oferece:",
-    "pendingImage": "Imagem pendente",
-    "accessSite": "Acessar site",
-    "whatsappMsg": "Olá, vim pelo Ilhabela Guide!",
     "brandTitle": "Ilhabela",
     "brandSubtitle": "Guia Interativo",
     "navExplore": "Explorar",
@@ -107,14 +99,6 @@ const translations = {
     "footerDisclaimer": "Respeite a natureza, não deixe lixo nas praias e trilhas e contrate apenas guias credenciados."
   },
   "en": {
-    "servicesTitle": "Services and activities at {spot}",
-    "servicesSubtitle": "Discover local services to make the most of your visit.",
-    "staysTitle": "Where to stay near {spot}",
-    "staysSubtitle": "Recommended accommodation for your stay.",
-    "alsoOffers": "Also offers:",
-    "pendingImage": "Image pending",
-    "accessSite": "Visit website",
-    "whatsappMsg": "Hello, I found you on Ilhabela Guide!",
     "brandTitle": "Ilhabela",
     "brandSubtitle": "Interactive Guide",
     "navExplore": "Explore",
@@ -211,14 +195,6 @@ const translations = {
     "footerDisclaimer": "Please respect local wildlife, carry your trash out, and hire certified guides."
   },
   "fr": {
-    "servicesTitle": "Services et activités à {spot}",
-    "servicesSubtitle": "Découvrez les services locaux pour profiter au maximum de votre visite.",
-    "staysTitle": "Où loger près de {spot}",
-    "staysSubtitle": "Hébergement recommandé pour votre séjour.",
-    "alsoOffers": "Propose également :",
-    "pendingImage": "Image en attente",
-    "accessSite": "Visiter le site",
-    "whatsappMsg": "Bonjour, je viens de la part d'Ilhabela Guide !",
     "brandTitle": "Ilhabela",
     "brandSubtitle": "Guide Interactif",
     "navExplore": "Explorer",
@@ -315,14 +291,6 @@ const translations = {
     "footerDisclaimer": "Respectez la nature, remportez vos déchets et faites confiance aux guides certifiés."
   },
   "es": {
-    "servicesTitle": "Servicios y actividades en {spot}",
-    "servicesSubtitle": "Descubre los servicios locales para aprovechar al máximo tu visita.",
-    "staysTitle": "Dónde alojarse cerca de {spot}",
-    "staysSubtitle": "Alojamiento recomendado para tu visita.",
-    "alsoOffers": "También ofrece:",
-    "pendingImage": "Imagen pendiente",
-    "accessSite": "Visitar sitio web",
-    "whatsappMsg": "¡Hola, vengo por Ilhabela Guide!",
     "brandTitle": "Ilhabela",
     "brandSubtitle": "Guía Interactiva",
     "navExplore": "Explorar",
@@ -419,14 +387,6 @@ const translations = {
     "footerDisclaimer": "Respeta la fauna y flora local, regresa tu basura y contrata guías certificados."
   },
   "he": {
-    "servicesTitle": "שירותים ופעילויות ב{spot}",
-    "servicesSubtitle": "גלו שירותים מקומיים כדי להפיק את המרב מהביקור שלכם.",
-    "staysTitle": "איפה לישון קרוב ל{spot}",
-    "staysSubtitle": "מקומות לינה מומלצים לביקור שלכם.",
-    "alsoOffers": "מציע גם:",
-    "pendingImage": "תמונה ממתינה",
-    "accessSite": "בקר באתר",
-    "whatsappMsg": "שלום, הגעתי דרך Ilhabela Guide!",
     "brandTitle": "איליאבלה",
     "brandSubtitle": "מדריך אינטראקטיבי",
     "navExplore": "סיור",
