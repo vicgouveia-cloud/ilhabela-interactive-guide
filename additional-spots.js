@@ -107,7 +107,83 @@ const additionalTouristSpots = [
     tags: ['Snorkel', 'Tartarugas', 'Capela histórica'],
     attributes: { isDiving: true, isSunset: true, isKiosk: true, isWild: false, isFamily: true, isSurf: false, is4x4: false },
     specs: { difficulty: 'easy', distance: '4 km da balsa', duration: '1 h a meio dia', elevation: 'Nível do mar', access: 'Carro, ônibus ou bicicleta pela avenida', sea: 'Enseada pequena; boa visibilidade em dias favoráveis', structure: 'Píer, rampa acessível, quiosques e poucas vagas' },
-    translations: { pt: { title: 'Praia do Portinho', subtitle: 'Pequena enseada com píer, tartarugas e tradição caiçara', description: 'Parte do Santuário Ecológico Submarino, combina mergulho livre, um píer agradável e a Capela de Santo Antônio, construída em 1938.', highlights: ['Santuário submarino', 'Capela de Santo Antônio', 'Píer acessível', 'Possível avistamento de tartarugas'], ecoTip: 'Não toque nos animais e não retire conchas ou organismos do santuário.' } }
+    translations: {
+  pt: { 
+    title: 'Praia do Portinho', 
+    subtitle: 'Pequena enseada com píer, tartarugas e tradição caiçara', 
+    description: 'Parte do Santuário Ecológico Submarino, combina mergulho livre, um píer agradável e a Capela de Santo Antônio, construída em 1938.', 
+    highlights: ['Santuário submarino', 'Capela de Santo Antônio', 'Píer acessível', 'Possível avistamento de tartarugas'], 
+    ecoTip: 'Não toque nos animais e não retire conchas ou organismos do santuário.',
+    specs: {
+      distance: '4 km da balsa',
+      duration: '1 h a meio dia',
+      elevation: 'Nível do mar',
+      access: 'Carro, ônibus ou bicicleta pela avenida',
+      sea: 'Enseada pequena; boa visibilidade em dias favoráveis',
+      structure: 'Píer, rampa acessível, quiosques e poucas vagas'
+    }
+  },
+  en: { 
+    title: 'Praia do Portinho', 
+    subtitle: 'Small cove with a pier, turtles, and caiçara tradition', 
+    description: 'Part of the Underwater Ecological Sanctuary, it combines free diving, a pleasant pier, and the Santo Antônio Chapel, built in 1938.', 
+    highlights: ['Underwater sanctuary', 'Santo Antônio Chapel', 'Accessible pier', 'Possible turtle sightings'], 
+    ecoTip: 'Do not touch the animals and do not remove shells or organisms from the sanctuary.',
+    specs: {
+      distance: '4 km from the ferry',
+      duration: '1 h to half day',
+      elevation: 'Sea level',
+      access: 'Car, bus or bike via avenue',
+      sea: 'Small cove; good visibility on favorable days',
+      structure: 'Pier, accessible ramp, kiosks and limited parking'
+    }
+  },
+  fr: { 
+    title: 'Praia do Portinho', 
+    subtitle: 'Petite anse avec jetée, tortues et tradition caiçara', 
+    description: 'Faisant partie du sanctuaire écologique sous-marin, elle combine la plongée libre, une jetée agréable et la chapelle Santo Antônio, construite en 1938.', 
+    highlights: ['Sanctuaire sous-marin', 'Chapelle Santo Antônio', 'Jetée accessible', 'Observation possible de tortues'], 
+    ecoTip: 'Ne touchez pas aux animaux et ne retirez ni coquillages ni organismes du sanctuaire.',
+    specs: {
+      distance: 'À 4 km du ferry',
+      duration: '1 h à une demi-journée',
+      elevation: 'Niveau de la mer',
+      access: 'Voiture, bus ou vélo par l\'avenue',
+      sea: 'Petite anse ; bonne visibilité les jours favorables',
+      structure: 'Jetée, rampe accessible, kiosques et peu de places de stationnement'
+    }
+  },
+  es: { 
+    title: 'Praia do Portinho', 
+    subtitle: 'Pequeña ensenada con muelle, tortugas y tradición caiçara', 
+    description: 'Parte del Santuario Ecológico Submarino, combina buceo libre, un muelle agradable y la Capilla de Santo Antônio, construida en 1938.', 
+    highlights: ['Santuario submarino', 'Capilla de Santo Antônio', 'Muelle accesible', 'Posible avistamiento de tortugas'], 
+    ecoTip: 'No toques a los animales y no retires conchas ni organismos del santuario.',
+    specs: {
+      distance: '4 km del ferry',
+      duration: '1 h a medio día',
+      elevation: 'Nivel del mar',
+      access: 'Coche, autobús o bicicleta por la avenida',
+      sea: 'Ensenada pequeña; buena visibilidad en días favorables',
+      structure: 'Muelle, rampa accesible, quioscos y poco estacionamiento'
+    }
+  },
+  he: { 
+    title: 'Praia do Portinho', 
+    subtitle: 'מפרצון קטן עם מזח, צבים ומסורת קאיסרה', 
+    description: 'חלק מהשמורה האקולוגית התת-ימית, משלב צלילה חופשית, מזח נעים וקפלת סנטו אנטוניו שנבנתה ב-1938.', 
+    highlights: ['שמורה תת-ימית', 'קפלת סנטו אנטוניו', 'מזח נגיש', 'אפשרות לתצפית צבים'], 
+    ecoTip: 'אל תגעו בבעלי החיים ואל תוציאו צדפות או אורגניזמים מהשמורה.',
+    specs: {
+      distance: '4 ק"מ מהמעבורת',
+      duration: 'שעה עד חצי יום',
+      elevation: 'גובה פני הים',
+      access: 'רכב, אוטובוס או אופניים דרך השדרה',
+      sea: 'מפרצון קטן; ראות טובה בימים נוחים',
+      structure: 'מזח, רמפה נגישה, קיוסקים וחניה מוגבלת'
+    }
+  }
+}
   }
 ];
 

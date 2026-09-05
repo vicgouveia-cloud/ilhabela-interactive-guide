@@ -553,11 +553,11 @@ function renderCustomSpotsList(spots) {
           <div class="pt-3 border-t border-black/5 flex items-center justify-between text-[11px] font-semibold text-on-surface-variant">
             <span class="flex items-center gap-1" title="Distância">
               <span class="material-symbols-outlined text-[15px] text-primary">straighten</span>
-              ${spot.specs.distance.split('(')[0]}
+              ${(tr.specs?.distance || spot.specs.distance).split('(')[0]}
             </span>
             <span class="flex items-center gap-1" title="Tempo">
               <span class="material-symbols-outlined text-[15px] text-primary">timer</span>
-              ${spot.specs.duration.split('(')[0]}
+              ${(tr.specs?.duration || spot.specs.duration).split('(')[0]}
             </span>
           </div>
 
@@ -720,30 +720,30 @@ function openSpotModal(spotId) {
       <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDistance')}</span>
-          <strong class="text-primary font-bold">${spot.specs.distance}</strong>
+          <strong class="text-primary font-bold">${tr.specs?.distance || spot.specs.distance}</strong>
         </div>
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDuration')}</span>
-          <strong class="text-primary font-bold">${spot.specs.duration}</strong>
+          <strong class="text-primary font-bold">${tr.specs?.duration || spot.specs.duration}</strong>
         </div>
         <div>
           <span class="text-on-surface-variant/70 block text-[11px]">${t('routeElevation')}</span>
-          <strong class="text-primary font-bold">${spot.specs.elevation}</strong>
+          <strong class="text-primary font-bold">${tr.specs?.elevation || spot.specs.elevation}</strong>
         </div>
       </div>
 
       <div class="pt-3 border-t border-black/5 space-y-2 text-xs">
         <div>
           <strong class="text-primary">${t('accessType')}:</strong>
-          <span class="text-on-surface-variant ml-1">${spot.specs.access}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs?.access || spot.specs.access}</span>
         </div>
         <div>
           <strong class="text-primary">${t('seaCondition')}:</strong>
-          <span class="text-on-surface-variant ml-1">${spot.specs.sea}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs?.sea || spot.specs.sea}</span>
         </div>
         <div>
           <strong class="text-primary">${t('infrastructure')}:</strong>
-          <span class="text-on-surface-variant ml-1">${spot.specs.structure}</span>
+          <span class="text-on-surface-variant ml-1">${tr.specs?.structure || spot.specs.structure}</span>
         </div>
       </div>
     </div>
