@@ -7,12 +7,12 @@
 ## ✨ Principais Recursos
 
 - 🗺️ **Mapa Interativo (Leaflet.js):**
-  - Camadas alternáveis: Mapa Turístico (*CartoDB Voyager*), Satélite HD (*Esri World Imagery*) e Topográfico (*OpenTopoMap*).
+  - Camadas alternáveis: Mapa Turístico (*OpenStreetMap HOT*), Satélite HD (*Esri World Imagery*) e Topográfico (*Esri World Topo Map*).
   - Navegação limitada ao arquipélago de Ilhabela, com botão de recentralização e escala métrica.
   - Marcadores compactos com ícones temáticos por categoria e halo exibido somente na interação.
   - Hover no desktop e toque no celular com prévia rápida em card translúcido (*Glassmorphism*).
-- 📍 **Catálogo com 38 Atrações Detalhadas:**
-  - **10 Praias:** Bonete, Castelhanos, Fome, Julião, Curral, Feiticeira, Jabaquara, Armação, Veloso, Siriúba, Enchova, Indaiaúba.
+- 📍 **Catálogo com 40 Atrações Detalhadas:**
+  - **18 Praias:** Bonete, Castelhanos, Fome, Julião, Curral, Feiticeira, Jabaquara, Armação, Veloso, Siriúba, Enchova, Indaiaúba, Sino, Saco do Eustáquio, Perequê, Poço, Praia Grande e Portinho.
   - **7 Cachoeiras:** Paquetá (piscina de borda infinita natural), Gato (40m), Três Tombos, Laje (tobogã de 30m), Toca (tobogã de 50m e alambique), Veloso e Friagem.
   - **3 Grandes Trilhas:** Trilha Tradicional do Bonete (12km), Trilha da Água Branca (auto-guiada com 5 poços) e Trilha do Farol da Ponta da Cabeçuda.
   - **3 Picos & Mirantes:** Pico do Baepi (1.048m, vista 360°), Pico de São Sebastião (1.378m, ponto mais alto da ilha) e Mirante do Coração de Castelhanos.
@@ -63,11 +63,52 @@ ilhabela-interactive-guide/
 ├── index.html        # Estrutura principal da aplicação SPA
 ├── styles.css        # Estilização personalizada, Glassmorphism, pins animados e RTL
 ├── data.js           # Banco de dados com os 28 pontos turísticos e guias CADASTUR
+├── additional-spots.js # 12 atrações complementares e serviços locais traduzidos
 ├── translations.js   # Dicionário de tradução nos 5 idiomas (PT, EN, FR, ES, HE)
 ├── app.js            # Lógica do mapa Leaflet, filtros combinados, modais e WhatsApp
 ├── .gitignore        # Arquivos ignorados pelo controle de versão
 └── README.md         # Documentação completa do projeto
 ```
+
+## Internacionalização e testes
+
+O catálogo contém 40 atrações, quatro guias e cinco serviços locais. `translations.js`
+concentra as strings da interface. Cada atração tem título, subtítulo, descrição,
+destaques, dica ambiental e seis campos técnicos em PT/EN/FR/ES/HE. As especialidades
+dos guias e os conteúdos dos serviços locais também são resolvidos no idioma ativo.
+Nomes próprios, créditos fotográficos, contatos e dados geográficos são invariantes.
+
+`resolveTranslation` em `app.js` é o ponto único de resolução: conteúdo ausente gera
+erro explícito, sem fallback silencioso para português. Ao acrescentar conteúdo,
+complete os cinco idiomas e execute a auditoria antes de publicar.
+
+O seletor principal abre por clique e fecha após seleção, clique externo, saída de
+foco ou Escape. Os modais possuem um seletor compacto para mudar o idioma sem perder
+a foto atual, o guia, o roteiro ou as observações da reserva. Favoritos e idioma
+persistem no armazenamento local; armazenamento bloqueado ou inválido não impede
+a navegação.
+
+```bash
+npm ci
+npx playwright install chromium
+npm run test:audit
+npm run test:e2e
+```
+
+`npm test` executa ambas as verificações. A auditoria verifica chaves e campos,
+texto HTML sem tradução e preservação dos dados da base aprovada
+`06c26650f0c247931a07bc83318230d6c73ad0b5` (o commit deve estar no clone).
+Os testes de navegador percorrem todas as atrações nos cinco idiomas em 390 e
+1440 pixels, além de verificar 320/768/1024 pixels, RTL, dropdown, console,
+mapa, favoritos, armazenamento e reservas. O teste da mensagem de WhatsApp
+intercepta a abertura da URL, sem enviar mensagens.
+
+Para usar o servidor local: `npm run dev` e abra `http://127.0.0.1:4173`.
+Os testes iniciam esse servidor automaticamente quando necessário. É possível
+verificar um Preview público definindo `PREVIEW_URL` antes de executar os testes.
+O relatório de navegador fica em `playwright-report/` e as capturas em `test-results/`.
+As verificações de navegador precisam de internet para os CDNs e mapas já usados
+pelo site; a auditoria de catálogo roda sem rede.
 
 ---
 

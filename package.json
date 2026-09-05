@@ -1,0 +1,15 @@
+{
+  "name": "ilhabela-interactive-guide",
+  "private": true,
+  "scripts": {
+    "test": "node tests/audit-i18n.cjs && playwright test",
+    "test:audit": "node tests/audit-i18n.cjs",
+    "test:e2e": "playwright test",
+    "dev": "node tests/server.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.58.2",
+    "acorn": "8.15.0",
+    "parse5": "7.3.0"
+  }
+}
