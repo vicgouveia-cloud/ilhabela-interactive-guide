@@ -21,9 +21,16 @@
   const categoryKeys={all:'servicesAll',tour:'servicesTours',diving:'servicesDiving',food:'servicesFood',stay:'servicesStay'};
   const trKey=(key)=>translations?.[lang]?.[key]||translations?.pt?.[key]||key;
   const serviceTr=(service)=>service.translations?.[lang]||service.translations?.pt||{};
+  const getSpotCoords=(spot)=>{
+    if (!spot) return null;
+    if (Array.isArray(spot.coords)) return spot.coords;
+    if (Number.isFinite(spot.lat) && Number.isFinite(spot.lng)) return [spot.lat, spot.lng];
+    if (Number.isFinite(spot.latitude) && Number.isFinite(spot.longitude)) return [spot.latitude, spot.longitude];
+    return null;
+  };
   const referenceCoords=(service)=>{
     const ref=service.baseLocation?.spotId||service.baseLocation?.nearSpotId||service.contextSpotIds?.[0];
-    return touristSpots.find(s=>s.id===ref)?.coords||null;
+    return getSpotCoords(touristSpots.find(s=>s.id===ref));
   };
   const distanceKm=(a,b)=>{
     const R=6371,toRad=d=>d*Math.PI/180,dLat=toRad(b[0]-a[0]),dLon=toRad(b[1]-a[1]);
@@ -65,5 +72,12 @@
     },()=>alert(c.locationError),{enableHighAccuracy:true,timeout:10000,maximumAge:60000});
   };
   document.getElementById('services-distance').onchange=render;
-  renderFilters(); render();
+  try {
+    renderFilters();
+    render();
+  } catch (error) {
+    console.error('Services directory render failed', error);
+    const status=document.getElementById('services-page-status');
+    if(status) status.textContent=c.locationError;
+  }
 })();
