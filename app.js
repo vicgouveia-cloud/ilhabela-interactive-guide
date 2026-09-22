@@ -996,6 +996,9 @@ function renderServicesDirectory() {
     const whatsapp = service.whatsapp
       ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 px-3 py-2.5 rounded-xl bg-[#25D366] text-white text-[11px] font-bold flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a>`
       : '';
+    const phone = service.phone
+      ? `<a href="tel:+55${service.phone}" class="flex-1 min-h-11 px-3 py-2.5 rounded-xl glass-panel border border-black/10 text-[11px] font-bold text-primary flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">call</span><span>${service.phoneDisplay || service.phone}</span></a>`
+      : '';
     const website = service.url
       ? `<a href="${service.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 py-2.5 rounded-xl glass-panel border border-black/10 text-[11px] font-bold text-on-surface-variant hover:text-primary flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">language</span><span>${t('localWebsite')}</span></a>`
       : '';
@@ -1012,7 +1015,7 @@ function renderServicesDirectory() {
         </div>
         <p class="text-xs text-on-surface-variant leading-relaxed">${tr.description || ''}</p>
         ${details.length ? `<div class="flex flex-wrap gap-1.5">${details.slice(0,4).map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant">${item}</span>`).join('')}</div>` : ''}
-        <div class="flex flex-wrap gap-2 pt-1 mt-auto">${whatsapp}${website}</div>
+        <div class="flex flex-wrap gap-2 pt-1 mt-auto">${whatsapp}${phone}${website}</div>
       </div>
     </article>`;
   }).join('');
