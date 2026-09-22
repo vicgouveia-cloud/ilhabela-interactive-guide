@@ -80,6 +80,61 @@ Object.assign(translations.he, {
   btnBackToDeck: "חזור לגלות"
 });
 
+// Route-planner translations. Kept separate so the existing planner copy remains untouched.
+Object.assign(translations.pt, {
+  plannerRoadSection: "Trecho por estrada",
+  plannerSpecialSection: "Acessos especiais",
+  plannerUseLocation: "Usar minha localização",
+  plannerLocationReady: "Localização definida",
+  plannerLocationDenied: "Não foi possível acessar sua localização.",
+  plannerOpenGoogleMaps: "Abrir no Google Maps",
+  plannerNoRoadStops: "Nenhuma atração selecionada pode ser enviada como destino rodoviário com segurança.",
+  plannerSpecialHint: "Estes lugares continuam no roteiro, mas exigem acesso especial e não entram na rota de carro.",
+  plannerGoogleLimit: "Para compatibilidade com o Google Maps no celular, abra no máximo 4 atrações rodoviárias por vez.",
+  plannerRoutingUnknown: "Acesso a confirmar",
+  plannerModeRoad: "Estrada", plannerModeTrail: "Trilha", plannerModeBoat: "Barco", plannerMode4x4: "4x4", plannerModeDiving: "Mergulho"
+});
+Object.assign(translations.en, {
+  plannerRoadSection: "Road segment", plannerSpecialSection: "Special access",
+  plannerUseLocation: "Use my location", plannerLocationReady: "Location set",
+  plannerLocationDenied: "We couldn't access your location.", plannerOpenGoogleMaps: "Open in Google Maps",
+  plannerNoRoadStops: "None of the selected attractions can safely be sent as a road destination.",
+  plannerSpecialHint: "These places stay in your trip, but require special access and are not included in the driving route.",
+  plannerGoogleLimit: "For mobile Google Maps compatibility, open no more than 4 road attractions at a time.",
+  plannerRoutingUnknown: "Access to confirm",
+  plannerModeRoad: "Road", plannerModeTrail: "Trail", plannerModeBoat: "Boat", plannerMode4x4: "4x4", plannerModeDiving: "Diving"
+});
+Object.assign(translations.fr, {
+  plannerRoadSection: "Trajet routier", plannerSpecialSection: "Accès spéciaux",
+  plannerUseLocation: "Utiliser ma position", plannerLocationReady: "Position définie",
+  plannerLocationDenied: "Impossible d'accéder à votre position.", plannerOpenGoogleMaps: "Ouvrir dans Google Maps",
+  plannerNoRoadStops: "Aucune attraction sélectionnée ne peut être envoyée en toute sécurité comme destination routière.",
+  plannerSpecialHint: "Ces lieux restent dans votre itinéraire, mais nécessitent un accès spécial et ne sont pas inclus dans le trajet en voiture.",
+  plannerGoogleLimit: "Pour la compatibilité avec Google Maps sur mobile, ouvrez au maximum 4 attractions routières à la fois.",
+  plannerRoutingUnknown: "Accès à confirmer",
+  plannerModeRoad: "Route", plannerModeTrail: "Sentier", plannerModeBoat: "Bateau", plannerMode4x4: "4x4", plannerModeDiving: "Plongée"
+});
+Object.assign(translations.es, {
+  plannerRoadSection: "Tramo por carretera", plannerSpecialSection: "Accesos especiales",
+  plannerUseLocation: "Usar mi ubicación", plannerLocationReady: "Ubicación definida",
+  plannerLocationDenied: "No se pudo acceder a tu ubicación.", plannerOpenGoogleMaps: "Abrir en Google Maps",
+  plannerNoRoadStops: "Ninguna atracción seleccionada puede enviarse con seguridad como destino por carretera.",
+  plannerSpecialHint: "Estos lugares siguen en tu itinerario, pero requieren acceso especial y no se incluyen en la ruta en coche.",
+  plannerGoogleLimit: "Para compatibilidad con Google Maps en móvil, abre como máximo 4 atracciones por carretera a la vez.",
+  plannerRoutingUnknown: "Acceso por confirmar",
+  plannerModeRoad: "Carretera", plannerModeTrail: "Sendero", plannerModeBoat: "Barco", plannerMode4x4: "4x4", plannerModeDiving: "Buceo"
+});
+Object.assign(translations.he, {
+  plannerRoadSection: "קטע כביש", plannerSpecialSection: "גישה מיוחדת",
+  plannerUseLocation: "השתמש במיקום שלי", plannerLocationReady: "המיקום הוגדר",
+  plannerLocationDenied: "לא ניתן לגשת למיקום שלך.", plannerOpenGoogleMaps: "פתח ב-Google Maps",
+  plannerNoRoadStops: "אין אטרקציות שנבחרו שניתן לשלוח בבטחה כיעד כביש.",
+  plannerSpecialHint: "המקומות האלה נשארים במסלול, אך דורשים גישה מיוחדת ואינם נכללים במסלול הנהיגה.",
+  plannerGoogleLimit: "לתאימות עם Google Maps בנייד, פתח עד 4 אטרקציות כביש בכל פעם.",
+  plannerRoutingUnknown: "גישה לאישור",
+  plannerModeRoad: "כביש", plannerModeTrail: "שביל", plannerModeBoat: "סירה", plannerMode4x4: "4x4", plannerModeDiving: "צלילה"
+});
+
 // State
 let tripSelection = [];
 let dismissedInSession = new Set();
@@ -88,6 +143,7 @@ let plannerDeckQueue = [];
 let currentPlannerView = 'deck'; // 'deck' or 'summary'
 let plannerMap = null;
 let plannerMapMarkers = [];
+let plannerOrigin = null;
 
 // Initialize
 function initPlanner() {
@@ -284,10 +340,13 @@ function renderSummary() {
     return;
   }
 
-  let html = '';
-  tripSelection.forEach(id => {
-    const spot = touristSpots.find(s => s.id === id);
-    if (!spot) return;
+  const selectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
+  const roadSpots = selectedSpots.filter(spot => spot.routing?.roadRoutable === true);
+  const specialSpots = selectedSpots.filter(spot => spot.routing?.roadRoutable !== true);
+
+  let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
+  selectedSpots.forEach(spot => {
+    const id = spot.id;
     const tr = getSpotTranslation(spot);
     html += `
       <div class="flex items-center gap-3 p-2 border border-black/5 rounded-xl bg-surface-container/30">
@@ -304,6 +363,90 @@ function renderSummary() {
   });
   listContainer.innerHTML = html;
   initPlannerMap();
+}
+
+function getPlannerModeLabel(mode) {
+  const keys = { road: 'plannerModeRoad', trail: 'plannerModeTrail', boat: 'plannerModeBoat', '4x4': 'plannerMode4x4', diving: 'plannerModeDiving' };
+  return keys[mode] ? t(keys[mode]) : t('plannerRoutingUnknown');
+}
+
+function renderPlannerRoutingPanel(roadSpots, specialSpots) {
+  const roadNames = roadSpots.map(spot => getSpotTranslation(spot).title);
+  const specialRows = specialSpots.map(spot => {
+    const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');
+    return `<li class="flex items-center justify-between gap-3 py-1.5"><span class="font-semibold">${getSpotTranslation(spot).title}</span><span class="text-[11px] text-on-surface-variant">${modes}</span></li>`;
+  }).join('');
+  const canOpenMaps = roadSpots.length > 0 && roadSpots.length <= 4;
+
+  return `
+    <div class="space-y-3 mb-4">
+      <div class="rounded-2xl border border-black/10 bg-white p-4 space-y-3">
+        <div class="flex items-center justify-between gap-3">
+          <div>
+            <h3 class="text-sm font-extrabold text-primary">${t('plannerRoadSection')}</h3>
+            <p class="text-xs text-on-surface-variant">${roadNames.length ? roadNames.join(' · ') : t('plannerNoRoadStops')}</p>
+          </div>
+          <span class="material-symbols-outlined text-secondary">route</span>
+        </div>
+        <div class="flex flex-wrap gap-2">
+          <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
+            <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
+            <span id="planner-location-label">${plannerOrigin ? t('plannerLocationReady') : t('plannerUseLocation')}</span>
+          </button>
+          <button type="button" onclick="plannerOpenGoogleMaps()" ${canOpenMaps ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-primary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
+            ${t('plannerOpenGoogleMaps')}
+          </button>
+        </div>
+        ${roadSpots.length > 4 ? `<p class="text-[11px] text-tertiary">${t('plannerGoogleLimit')}</p>` : ''}
+      </div>
+      ${specialSpots.length ? `
+        <div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4">
+          <h3 class="text-sm font-extrabold text-primary mb-1">${t('plannerSpecialSection')}</h3>
+          <p class="text-[11px] text-on-surface-variant mb-2">${t('plannerSpecialHint')}</p>
+          <ul class="text-xs text-primary divide-y divide-black/5">${specialRows}</ul>
+        </div>` : ''}
+    </div>`;
+}
+
+function plannerUseMyLocation() {
+  if (typeof lastUserLocation !== 'undefined' && lastUserLocation) {
+    plannerOrigin = [lastUserLocation.lat, lastUserLocation.lng];
+    renderSummary();
+    return;
+  }
+  if (!navigator.geolocation) {
+    alert(t('plannerLocationDenied'));
+    return;
+  }
+  navigator.geolocation.getCurrentPosition(position => {
+    plannerOrigin = [position.coords.latitude, position.coords.longitude];
+    renderSummary();
+  }, () => alert(t('plannerLocationDenied')), {
+    enableHighAccuracy: true,
+    timeout: 10000,
+    maximumAge: 60000
+  });
+}
+
+function plannerOpenGoogleMaps() {
+  const roadSpots = tripSelection
+    .map(id => touristSpots.find(spot => spot.id === id))
+    .filter(spot => spot?.routing?.roadRoutable === true);
+  if (!roadSpots.length) {
+    alert(t('plannerNoRoadStops'));
+    return;
+  }
+  if (roadSpots.length > 4) {
+    alert(t('plannerGoogleLimit'));
+    return;
+  }
+
+  const params = new URLSearchParams({ api: '1', travelmode: 'driving' });
+  if (plannerOrigin) params.set('origin', plannerOrigin.join(','));
+  const points = roadSpots.map(spot => spot.coords.join(','));
+  params.set('destination', points[points.length - 1]);
+  if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
+  window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
 }
 
 function removeFromPlanner(id) {
