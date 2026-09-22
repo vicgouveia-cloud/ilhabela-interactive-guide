@@ -1696,37 +1696,77 @@ const additionalTouristSpots = [
 
 touristSpots.push(...additionalTouristSpots);
 
-// Recomendações locais por atração. A atração continua sendo o conteúdo principal.
-const localRecommendations = {
-  'praia-do-veloso': [
-    {
-      category: 'tour',
-      type: 'Passeios e ecoturismo',
-      name: 'Chagas Passeios',
-      tagline: 'Nascida na Praia do Veloso em 2009',
-      description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.',
-      tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'],
-      whatsapp: '12974017333',
-      whatsappDisplay: '+55 (12) 97401-7333',
-      image: 'assets/images/chagas-passeios.jpg'
-    }
-  ],
+// Catálogo canônico de serviços. Serviços são entidades independentes das atrações:
+// contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
+const servicesData = [
+  {
+    id: 'chagas-passeios',
+    category: 'tour',
+    name: 'Chagas Passeios',
+    baseLocation: { spotId: 'praia-do-veloso' },
+    contextSpotIds: ['praia-do-veloso'],
+    serviceArea: { scope: 'island', modes: ['boat', '4x4'] },
+    activities: ['boat-tour', '4x4-tour', 'snorkeling'],
+    whatsapp: '12974017333',
+    whatsappDisplay: '+55 (12) 97401-7333',
+    image: 'assets/images/chagas-passeios.jpg'
+  },
+  {
+    id: 'portinho-passeios',
+    category: 'tour',
+    name: 'Portinho Passeios',
+    baseLocation: { spotId: 'praia-do-portinho' },
+    contextSpotIds: ['praia-do-portinho'],
+    serviceArea: { scope: 'island', modes: ['boat'] },
+    activities: ['boat-tour', 'kayak', 'stand-up-paddle', 'caicara-canoe', 'bodyboard', 'equipment-rental'],
+    whatsapp: '19991536623',
+    whatsappDisplay: '(19) 99153-6623',
+    instagram: '@portinhopasseios',
+    url: 'http://www.portinhopasseios.com.br',
+    image: 'assets/images/portinho-passeios.jpg'
+  },
+  {
+    id: 'quiosque-maxx-beach',
+    category: 'food',
+    name: 'Quiosque Maxx Beach',
+    baseLocation: { spotId: 'praia-do-portinho' },
+    contextSpotIds: ['praia-do-portinho'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] },
+    activities: ['food', 'drinks'],
+    whatsapp: '11912586558',
+    whatsappDisplay: '(11) 91258-6558',
+    image: 'assets/images/maxx-beach.jpg'
+  },
+  {
+    id: 'portinho-divers',
+    category: 'diving',
+    name: 'Portinho Divers',
+    baseLocation: { spotId: 'praia-do-portinho' },
+    contextSpotIds: ['praia-do-portinho'],
+    serviceArea: { scope: 'island', modes: ['diving'] },
+    activities: ['introductory-dive', 'diving'],
+    whatsapp: '12987046807',
+    whatsappDisplay: '(12) 98704-6807',
+    url: 'https://mergulhoilhabela.com.br',
+    image: 'assets/images/portinho-divers.jpg'
+  },
+  {
+    id: 'la-gloria-house',
+    category: 'stay',
+    name: 'La Gloria House',
+    baseLocation: { nearSpotId: 'praia-do-portinho' },
+    contextSpotIds: ['praia-do-portinho'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] },
+    activities: ['accommodation'],
+    whatsapp: '11975199989',
+    whatsappDisplay: '(11) 97519-9989',
+    url: 'https://lagloriahouse.com.br',
+    image: 'assets/images/la-gloria-house.jpg'
+  }
+];
 
-  'praia-do-portinho': [
-    { category: 'tour', type: 'Passeios e atividades', name: 'Portinho Passeios', tagline: 'Roteiros paradisíacos do jeitinho caiçara', description: 'Passeios de barco com saída e atendimento na Praia do Portinho, além de locação de equipamentos para aproveitar o mar.', features: ['Passeio de barco', 'Caiaque', 'Stand Up Paddle', 'Canoa Caiçara', 'Bodyboard', 'Máscara de mergulho', 'Pet Friendly'], alsoOffers: ['repelente', 'porta-celular para água', 'acessórios de praia'], whatsapp: '19991536623', whatsappDisplay: '(19) 99153-6623', instagram: '@portinhopasseios', url: 'http://www.portinhopasseios.com.br', image: 'assets/images/portinho-passeios.jpg' },
-    { category: 'food', type: 'Alimentação e bebidas', name: 'Quiosque Maxx Beach', description: 'Quiosque na Praia do Portinho com serviço de bar, porções e caipirinhas. Entre os destaques está a caipirinha com folhas de mexerica.', tags: ['Bar na praia', 'Porções', 'Caipirinhas'], highlightTitle: 'Destaque editorial', highlightDesc: 'Caipirinha com folhas de mexerica', whatsapp: '11912586558', whatsappDisplay: '(11) 91258-6558', image: 'assets/images/maxx-beach.jpg' },
-    { category: 'diving', type: 'Mergulho', name: 'Portinho Divers', description: 'Centro de mergulho na Praia do Portinho com mergulho de batismo acompanhado por profissional e equipamentos inclusos.', features: ['Mergulho de batismo', 'Equipamentos', 'Fotos e vídeos', 'Experiência para iniciantes'], whatsapp: '12987046807', whatsappDisplay: '(12) 98704-6807', url: 'https://mergulhoilhabela.com.br', image: 'assets/images/portinho-divers.jpg' }
-  ]
-};
-
-const localAccommodations = {
-  'praia-do-portinho': [
-    { category: 'stay', type: 'Hospedagem recomendada', name: 'La Gloria House', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'], whatsapp: '11975199989', whatsappDisplay: '(11) 97519-9989', url: 'https://lagloriahouse.com.br', image: 'assets/images/la-gloria-house.jpg' }
-  ]
-};
-
-// Traduções dos conteúdos locais. Nomes comerciais, contatos e URLs permanecem invariáveis.
-const localRecommendationTranslations = {
+// Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
+const serviceTranslations = {
   'Chagas Passeios': {
     pt: { type: 'Passeios e ecoturismo', tagline: 'Nascida na Praia do Veloso em 2009', description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.', tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'] },
     en: { type: 'Tours and ecotourism', tagline: 'Founded at Praia do Veloso in 2009', description: 'Adventure and ecotourism company founded at Praia do Veloso, offering sea and land tours across different areas of Ilhabela.', tags: ['Boat tours', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'North Coast'] },
@@ -1763,3 +1803,8 @@ const localRecommendationTranslations = {
     he: { type: 'לינה מומלצת', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
   }
 };
+
+servicesData.forEach(service => {
+  service.translations = serviceTranslations[service.name];
+});
+
