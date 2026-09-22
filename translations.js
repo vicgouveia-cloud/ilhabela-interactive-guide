@@ -2,6 +2,7 @@
 const translations = {
   "pt": {
     "navServices": "Serviços",
+    "servicesViewAll": "Ver todos os serviços",
     "servicesBadge": "Serviços úteis",
     "servicesTitle": "Serviços em Ilhabela",
     "servicesSubtitle": "Encontre serviços para complementar sua visita, sem tirar o foco das atrações da ilha.",
@@ -161,6 +162,7 @@ const translations = {
   },
   "en": {
     "navServices": "Services",
+    "servicesViewAll": "View all services",
     "servicesBadge": "Useful services",
     "servicesTitle": "Services in Ilhabela",
     "servicesSubtitle": "Find useful services to complement your visit while keeping the island’s attractions at the center.",
@@ -320,6 +322,7 @@ const translations = {
   },
   "fr": {
     "navServices": "Services",
+    "servicesViewAll": "Voir tous les services",
     "servicesBadge": "Services utiles",
     "servicesTitle": "Services à Ilhabela",
     "servicesSubtitle": "Trouvez des services utiles pour compléter votre visite tout en gardant les attractions de l’île au premier plan.",
@@ -479,6 +482,7 @@ const translations = {
   },
   "es": {
     "navServices": "Servicios",
+    "servicesViewAll": "Ver todos los servicios",
     "servicesBadge": "Servicios útiles",
     "servicesTitle": "Servicios en Ilhabela",
     "servicesSubtitle": "Encuentra servicios útiles para complementar tu visita manteniendo las atracciones de la isla como protagonistas.",
@@ -638,6 +642,7 @@ const translations = {
   },
   "he": {
     "navServices": "שירותים",
+    "servicesViewAll": "הצג את כל השירותים",
     "servicesBadge": "שירותים שימושיים",
     "servicesTitle": "שירותים באיליאבלה",
     "servicesSubtitle": "מצאו שירותים שימושיים להשלמת הביקור, תוך שמירה על אטרקציות האי במרכז.",
