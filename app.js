@@ -10,6 +10,9 @@ let savedFavorites = new Set(readFavorites());
 let favoritesOnly = false;
 let quickCardSpotId = null;
 let selectedSpotId = null;
+let userLocationMarker = null;
+let userLocationControl = null;
+let lastUserLocation = null;
 
 // Curated photo library. Every entry below was matched to the named attraction;
 // the source remains visible in the gallery so visitors can verify provenance.
@@ -137,6 +140,11 @@ function setLanguage(lang, rerender = true) {
   const restoreFocus = menu && !menu.hidden;
   closeLanguageMenu(restoreFocus);
   translateMapControls();
+  updateUserLocationControl();
+  if (userLocationMarker && lastUserLocation) {
+    userLocationMarker.setPopupContent(t('youAreHere'));
+    userLocationMarker.getElement()?.setAttribute('aria-label', t('youAreHere'));
+  }
   document.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
   for (const attr of ['placeholder', 'aria-label', 'title', 'alt']) {
     document.querySelectorAll(`[data-i18n-${attr}]`).forEach(el => {
@@ -182,6 +190,7 @@ function initMap() {
 
   // Custom Zoom Control (bottom-right)
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  initUserLocationControl();
   translateMapControls();
   L.control.scale({ position: 'bottomleft', imperial: false, maxWidth: 120 }).addTo(map);
 
@@ -224,6 +233,80 @@ function initMap() {
 
   // Render Markers
   updateMapMarkers();
+}
+
+function initUserLocationControl() {
+  const LocationControl = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd() {
+      const container = L.DomUtil.create('div', 'leaflet-bar');
+      const button = L.DomUtil.create('button', '', container);
+      button.type = 'button';
+      button.id = 'map-user-location-btn';
+      button.style.width = '34px';
+      button.style.height = '34px';
+      button.style.display = 'flex';
+      button.style.alignItems = 'center';
+      button.style.justifyContent = 'center';
+      button.style.background = '#fff';
+      button.style.border = '0';
+      button.style.cursor = 'pointer';
+      button.innerHTML = '<span class="material-symbols-outlined" style="font-size:20px">my_location</span>';
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.on(button, 'click', locateUserOnMap);
+      return container;
+    }
+  });
+  userLocationControl = new LocationControl();
+  userLocationControl.addTo(map);
+  updateUserLocationControl();
+}
+
+function updateUserLocationControl(state = 'idle') {
+  const button = document.getElementById('map-user-location-btn');
+  if (!button) return;
+  const locating = state === 'loading';
+  button.disabled = locating;
+  button.setAttribute('aria-label', t(locating ? 'locatingUser' : 'locateMe'));
+  button.title = t(locating ? 'locatingUser' : 'locateMe');
+  const icon = button.querySelector('.material-symbols-outlined');
+  if (icon) icon.textContent = locating ? 'progress_activity' : 'my_location';
+}
+
+function locateUserOnMap() {
+  if (!map || !navigator.geolocation) {
+    updateUserLocationControl();
+    window.alert(t('locationUnavailable'));
+    return;
+  }
+  updateUserLocationControl('loading');
+  navigator.geolocation.getCurrentPosition(
+    position => {
+      const latlng = [position.coords.latitude, position.coords.longitude];
+      lastUserLocation = latlng;
+      if (userLocationMarker) {
+        userLocationMarker.setLatLng(latlng);
+      } else {
+        userLocationMarker = L.circleMarker(latlng, {
+          radius: 9,
+          color: '#ffffff',
+          weight: 3,
+          fillColor: '#2563eb',
+          fillOpacity: 1
+        }).addTo(map);
+        userLocationMarker.bindPopup('');
+      }
+      userLocationMarker.setPopupContent(t('youAreHere'));
+      userLocationMarker.getElement()?.setAttribute('aria-label', t('youAreHere'));
+      map.flyTo(latlng, Math.max(map.getZoom(), 15), { duration: 0.8 });
+      updateUserLocationControl();
+    },
+    error => {
+      updateUserLocationControl();
+      window.alert(t(error.code === 1 ? 'locationDenied' : 'locationUnavailable'));
+    },
+    { enableHighAccuracy: true, timeout: 10000, maximumAge: 60000 }
+  );
 }
 
 function resetMapView() {
