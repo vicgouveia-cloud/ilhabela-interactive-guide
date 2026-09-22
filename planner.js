@@ -166,6 +166,12 @@ Object.assign(translations.he, {
   plannerRouteDistance: "מרחק", plannerRouteDriveTime: "זמן נסיעה"
 });
 
+Object.assign(translations.pt, { plannerTravelMode: "Deslocamento", plannerTravelAuto: "Carro", plannerTravelBicycle: "Bicicleta", plannerTravelPedestrian: "A pé", plannerRouteSection: "Rota", plannerModeHint: "A rota considera apenas lugares compatíveis com o modo escolhido." });
+Object.assign(translations.en, { plannerTravelMode: "Travel mode", plannerTravelAuto: "Car", plannerTravelBicycle: "Bicycle", plannerTravelPedestrian: "Walking", plannerRouteSection: "Route", plannerModeHint: "The route includes only places compatible with the selected mode." });
+Object.assign(translations.fr, { plannerTravelMode: "Déplacement", plannerTravelAuto: "Voiture", plannerTravelBicycle: "Vélo", plannerTravelPedestrian: "À pied", plannerRouteSection: "Itinéraire", plannerModeHint: "L’itinéraire inclut uniquement les lieux compatibles avec le mode choisi." });
+Object.assign(translations.es, { plannerTravelMode: "Desplazamiento", plannerTravelAuto: "Coche", plannerTravelBicycle: "Bicicleta", plannerTravelPedestrian: "A pie", plannerRouteSection: "Ruta", plannerModeHint: "La ruta incluye solo lugares compatibles con el modo elegido." });
+Object.assign(translations.he, { plannerTravelMode: "אופן הגעה", plannerTravelAuto: "רכב", plannerTravelBicycle: "אופניים", plannerTravelPedestrian: "ברגל", plannerRouteSection: "מסלול", plannerModeHint: "המסלול כולל רק מקומות המתאימים לאופן ההגעה שנבחר." });
+
 Object.assign(translations.pt, { plannerVisitTime: "Tempo nas atrações", plannerTotalEstimate: "Duração estimada", plannerPartialEstimate: "Estimativa parcial", plannerPartialEstimateHint: "Alguns lugares ainda não têm tempo de permanência estimado." });
 Object.assign(translations.en, { plannerVisitTime: "Time at attractions", plannerTotalEstimate: "Estimated duration", plannerPartialEstimate: "Partial estimate", plannerPartialEstimateHint: "Some places do not yet have an estimated visit time." });
 Object.assign(translations.fr, { plannerVisitTime: "Temps aux attractions", plannerTotalEstimate: "Durée estimée", plannerPartialEstimate: "Estimation partielle", plannerPartialEstimateHint: "Certains lieux n'ont pas encore de durée de visite estimée." });
@@ -181,6 +187,7 @@ let currentPlannerView = 'deck'; // 'deck' or 'summary'
 let plannerMap = null;
 let plannerMapMarkers = [];
 let plannerOrigin = null;
+let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteLine = null;
 const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
@@ -381,8 +388,8 @@ function renderSummary() {
   }
 
   const selectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
-  const roadSpots = selectedSpots.filter(spot => spot.routing?.roadRoutable === true);
-  const specialSpots = selectedSpots.filter(spot => spot.routing?.roadRoutable !== true);
+  const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+  const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
   let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
   selectedSpots.forEach(spot => {
@@ -405,6 +412,26 @@ function renderSummary() {
   initPlannerMap();
 }
 
+function getPlannerTravelModeLabel(mode) {
+  const keys = { auto: 'plannerTravelAuto', bicycle: 'plannerTravelBicycle', pedestrian: 'plannerTravelPedestrian' };
+  return t(keys[mode] || keys.auto);
+}
+
+function isSpotRoutableForMode(spot, mode = plannerTravelMode) {
+  const modes = spot?.routing?.modes || [];
+  if (mode === 'pedestrian') return modes.includes('road') || modes.includes('trail');
+  if (mode === 'bicycle') return modes.includes('road');
+  return spot?.routing?.roadRoutable === true;
+}
+
+function plannerSetTravelMode(mode) {
+  if (!['auto', 'bicycle', 'pedestrian'].includes(mode) || mode === plannerTravelMode) return;
+  plannerTravelMode = mode;
+  localStorage.setItem('ilhabela_travel_mode', mode);
+  plannerOptimizedRoute = null;
+  renderSummary();
+}
+
 function getPlannerModeLabel(mode) {
   const keys = { road: 'plannerModeRoad', trail: 'plannerModeTrail', boat: 'plannerModeBoat', '4x4': 'plannerMode4x4', diving: 'plannerModeDiving' };
   return keys[mode] ? t(keys[mode]) : t('plannerRoutingUnknown');
@@ -418,7 +445,7 @@ function formatPlannerDuration(seconds) {
   return rest ? `${hours}h ${rest}min` : `${hours}h`;
 }
 
-function getOptimizedRoadSpots(roadSpots) {
+function getOptimizedRouteSpots(roadSpots) {
   if (!plannerOptimizedRoute?.spotIds?.length) return roadSpots;
   const byId = new Map(roadSpots.map(spot => [spot.id, spot]));
   const ordered = plannerOptimizedRoute.spotIds.map(id => byId.get(id)).filter(Boolean);
@@ -448,7 +475,13 @@ function formatPlannerRange(min, max) {
 }
 
 function renderPlannerRoutingPanel(roadSpots, specialSpots) {
-  const orderedRoadSpots = getOptimizedRoadSpots(roadSpots);
+  const orderedRoadSpots = getOptimizedRouteSpots(roadSpots);
+  const travelModes = [
+    ['auto', 'directions_car', 'plannerTravelAuto'],
+    ['bicycle', 'directions_bike', 'plannerTravelBicycle'],
+    ['pedestrian', 'directions_walk', 'plannerTravelPedestrian']
+  ];
+  const modeSelector = `<div><div class="text-[11px] font-bold text-on-surface-variant mb-1.5">${t('plannerTravelMode')}</div><div class="flex gap-2 overflow-x-auto">${travelModes.map(([mode, icon, key]) => `<button type="button" onclick="plannerSetTravelMode('${mode}')" class="shrink-0 px-3 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 ${plannerTravelMode === mode ? 'bg-primary text-white border-primary' : 'bg-surface-container text-primary border-black/10'}"><span class="material-symbols-outlined text-[16px]">${icon}</span>${t(key)}</button>`).join('')}</div><p class="text-[10px] text-on-surface-variant mt-1.5">${t('plannerModeHint')}</p></div>`;
   const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
   const visit = getPlannerVisitEstimate();
   const travelMinutes = plannerOptimizedRoute ? Math.round((plannerOptimizedRoute.timeSeconds || 0) / 60) : 0;
@@ -469,9 +502,10 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   return `
     <div class="space-y-3 mb-4">
       <div class="rounded-2xl border border-black/10 bg-white p-4 space-y-3">
+        ${modeSelector}
         <div class="flex items-center justify-between gap-3">
           <div>
-            <h3 class="text-sm font-extrabold text-primary">${t('plannerRoadSection')}</h3>
+            <h3 class="text-sm font-extrabold text-primary">${t('plannerRouteSection')} · ${getPlannerTravelModeLabel(plannerTravelMode)}</h3>
             <p class="text-xs text-on-surface-variant">${roadNames.length ? roadNames.join(' · ') : t('plannerNoRoadStops')}</p>
           </div>
           <span class="material-symbols-outlined text-secondary">route</span>
@@ -537,7 +571,7 @@ function plannerDecodePolyline6(encoded) {
 }
 
 async function plannerOptimizeRoute() {
-  const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => spot?.routing?.roadRoutable === true);
+  const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
 
   const locations = [];
@@ -547,7 +581,7 @@ async function plannerOptimizeRoute() {
   try {
     const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
     if (button) { button.disabled = true; button.textContent = t('plannerOptimizing'); }
-    const payload = { locations, costing: 'auto', units: 'kilometers' };
+    const payload = { locations, costing: plannerTravelMode, units: 'kilometers' };
     const response = await fetch(VALHALLA_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Client-Id': 'ilhabela-guide' },
@@ -587,8 +621,8 @@ async function plannerOptimizeRoute() {
 function plannerOpenGoogleMaps() {
   let roadSpots = tripSelection
     .map(id => touristSpots.find(spot => spot.id === id))
-    .filter(spot => spot?.routing?.roadRoutable === true);
-  roadSpots = getOptimizedRoadSpots(roadSpots);
+    .filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+  roadSpots = getOptimizedRouteSpots(roadSpots);
   if (!roadSpots.length) {
     alert(t('plannerNoRoadStops'));
     return;
@@ -598,7 +632,8 @@ function plannerOpenGoogleMaps() {
     return;
   }
 
-  const params = new URLSearchParams({ api: '1', travelmode: 'driving' });
+  const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking' }[plannerTravelMode] || 'driving';
+  const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
   if (plannerOrigin) params.set('origin', plannerOrigin.join(','));
   const points = roadSpots.map(spot => spot.coords.join(','));
   params.set('destination', points[points.length - 1]);
