@@ -55,7 +55,7 @@ touristSpots.forEach(spot => {
 // Initialize on DOM Loaded
 document.addEventListener('DOMContentLoaded', () => {
   initI18n();
-  initMap();
+  if (document.getElementById('map')) initMap();
   renderCategoryCounts();
   renderSpotsGrid();
   renderGuides();
@@ -136,7 +136,8 @@ function setLanguage(lang, rerender = true) {
   writeStorage('ilhabela_lang', currentLang);
   document.documentElement.lang = currentLang;
   document.documentElement.dir = currentLang === 'he' ? 'rtl' : 'ltr';
-  document.getElementById('current-lang-label').textContent = currentLang.toUpperCase();
+  const currentLangLabel = document.getElementById('current-lang-label');
+  if (currentLangLabel) currentLangLabel.textContent = currentLang.toUpperCase();
   document.querySelectorAll('[data-language-select]').forEach(el => { el.value = currentLang; });
   const menu = document.getElementById('language-menu');
   const restoreFocus = menu && !menu.hidden;
