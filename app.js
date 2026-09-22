@@ -97,8 +97,8 @@ function resolveTranslation(catalog, language, context) {
 function t(key) { return resolveTranslation(translations[currentLang], key, `ui.${currentLang}`); }
 function getSpotTranslation(spot) { return resolveTranslation(spot.translations, currentLang, spot.id); }
 function getGuideTranslation(guide) { return resolveTranslation(guide.translations, currentLang, guide.id); }
-function getLocalRecommendationTranslation(item) {
-  return resolveTranslation(localRecommendationTranslations[item.name], currentLang, item.name);
+function getServiceTranslation(service) {
+  return resolveTranslation(service.translations, currentLang, service.id);
 }
 function closeLanguageMenu(restoreFocus = false) {
   const menu = document.getElementById('language-menu');
@@ -1121,8 +1121,9 @@ function submitBooking(event) {
   closeBookingModal();
 }
 function renderLocalRecommendations(spotId) {
-    const recs = localRecommendations[spotId] || [];
-    const stays = localAccommodations[spotId] || [];
+    const contextualServices = servicesData.filter(service => service.contextSpotIds?.includes(spotId));
+    const recs = contextualServices.filter(service => service.category !== 'stay');
+    const stays = contextualServices.filter(service => service.category === 'stay');
     if (!recs.length && !stays.length) return '';
 
     const spot = touristSpots.find(item => item.id === spotId);
@@ -1135,7 +1136,7 @@ function renderLocalRecommendations(spotId) {
     if (recs.length) {
       html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localServicesTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localServicesSubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
       html += recs.map(rec => {
-        const tr = getLocalRecommendationTranslation(rec);
+        const tr = getServiceTranslation(rec);
         const type = tr.type || '';
         const tagline = tr.tagline || '';
         const description = tr.description || '';
@@ -1151,7 +1152,7 @@ function renderLocalRecommendations(spotId) {
     if (stays.length) {
       html += `<section class="pt-6 border-t border-black/10 mt-6 space-y-4"><div><h3 class="text-lg md:text-xl font-extrabold text-primary font-heading uppercase tracking-wide">${t('localStayTitle')} ${spotTitle}</h3><p class="text-xs md:text-sm text-on-surface-variant mt-1">${t('localStaySubtitle')}</p></div><div class="grid grid-cols-1 gap-5">`;
       html += stays.map(stay => {
-        const tr = getLocalRecommendationTranslation(stay);
+        const tr = getServiceTranslation(stay);
         const type = tr.type || '';
         const description = tr.description || '';
         const features = tr.features;
