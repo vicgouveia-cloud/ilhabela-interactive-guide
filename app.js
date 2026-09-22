@@ -59,6 +59,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderCategoryCounts();
   renderSpotsGrid();
   renderGuides();
+  renderServicesDirectory();
   updateSavedCountDisplay();
   populateBookingGuides();
   initFilterCarousel();
@@ -155,7 +156,7 @@ function setLanguage(lang, rerender = true) {
     el.textContent = getSpotTranslation(touristSpots.find(s => s.id === el.dataset.spotId)).title;
   });
   if (rerender) {
-    renderSpotsGrid(); renderGuides(); updateMapMarkers(); populateBookingGuides(); updateBookingEstimate();
+    renderSpotsGrid(); renderGuides(); renderServicesDirectory(); updateMapMarkers(); populateBookingGuides(); updateBookingEstimate();
     window.dispatchEvent(new Event('resize'));
     if (quickCardSpotId && !document.getElementById('map-quick-card')?.classList.contains('hidden')) {
       showMapQuickCard(touristSpots.find(s => s.id === quickCardSpotId));
@@ -953,6 +954,68 @@ function closeSpotModal() {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
   }
+}
+
+// --- GLOBAL SERVICES DIRECTORY ---
+let currentServiceCategory = 'all';
+
+function getServiceCategoryLabel(category) {
+  const keys = {
+    all: 'servicesAll',
+    tour: 'servicesTours',
+    diving: 'servicesDiving',
+    food: 'servicesFood',
+    stay: 'servicesStay'
+  };
+  return t(keys[category] || 'servicesAll');
+}
+
+function setServiceCategory(category) {
+  currentServiceCategory = category;
+  renderServicesDirectory();
+}
+
+function renderServicesDirectory() {
+  const grid = document.getElementById('services-grid');
+  const filters = document.getElementById('services-filters');
+  if (!grid || !filters) return;
+
+  const categories = ['all', ...new Set(servicesData.map(service => service.category))];
+  filters.innerHTML = categories.map(category => {
+    const active = category === currentServiceCategory;
+    return `<button type="button" onclick="setServiceCategory('${category}')" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold transition-colors ${active ? 'bg-primary text-white border-primary' : 'bg-white/70 text-on-surface-variant border-black/10 hover:text-primary'}">${getServiceCategoryLabel(category)}</button>`;
+  }).join('');
+
+  const visible = currentServiceCategory === 'all'
+    ? servicesData
+    : servicesData.filter(service => service.category === currentServiceCategory);
+
+  grid.innerHTML = visible.map(service => {
+    const tr = getServiceTranslation(service);
+    const details = tr.features || tr.tags || [];
+    const whatsapp = service.whatsapp
+      ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="flex-1 min-h-11 px-3 py-2.5 rounded-xl bg-[#25D366] text-white text-[11px] font-bold flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>WhatsApp</span></a>`
+      : '';
+    const website = service.url
+      ? `<a href="${service.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 py-2.5 rounded-xl glass-panel border border-black/10 text-[11px] font-bold text-on-surface-variant hover:text-primary flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">language</span><span>${t('localWebsite')}</span></a>`
+      : '';
+
+    return `<article class="glass-card rounded-2xl overflow-hidden border border-black/5 shadow-sm flex flex-col">
+      <div class="h-40 relative overflow-hidden bg-surface-container">
+        ${service.image ? `<img src="${service.image}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : ''}
+        <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${tr.type || getServiceCategoryLabel(service.category)}</span>
+      </div>
+      <div class="p-4 flex flex-col flex-1 gap-3">
+        <div>
+          <h3 class="text-lg font-bold text-primary font-heading">${service.name}</h3>
+          ${tr.tagline ? `<p class="text-xs font-semibold text-secondary mt-0.5">${tr.tagline}</p>` : ''}
+        </div>
+        <p class="text-xs text-on-surface-variant leading-relaxed">${tr.description || ''}</p>
+        ${details.length ? `<div class="flex flex-wrap gap-1.5">${details.slice(0,4).map(item => `<span class="px-2 py-1 rounded-md bg-surface-container/80 text-[10px] font-semibold text-on-surface-variant">${item}</span>`).join('')}</div>` : ''}
+        <div class="flex flex-wrap gap-2 pt-1 mt-auto">${whatsapp}${website}</div>
+      </div>
+    </article>`;
+  }).join('');
 }
 
 // --- CERTIFIED LOCAL GUIDES RENDERER ---
