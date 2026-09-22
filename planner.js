@@ -166,6 +166,12 @@ Object.assign(translations.he, {
   plannerRouteDistance: "מרחק", plannerRouteDriveTime: "זמן נסיעה"
 });
 
+Object.assign(translations.pt, { plannerVisitTime: "Tempo nas atrações", plannerTotalEstimate: "Duração estimada", plannerPartialEstimate: "Estimativa parcial", plannerPartialEstimateHint: "Alguns lugares ainda não têm tempo de permanência estimado." });
+Object.assign(translations.en, { plannerVisitTime: "Time at attractions", plannerTotalEstimate: "Estimated duration", plannerPartialEstimate: "Partial estimate", plannerPartialEstimateHint: "Some places do not yet have an estimated visit time." });
+Object.assign(translations.fr, { plannerVisitTime: "Temps aux attractions", plannerTotalEstimate: "Durée estimée", plannerPartialEstimate: "Estimation partielle", plannerPartialEstimateHint: "Certains lieux n'ont pas encore de durée de visite estimée." });
+Object.assign(translations.es, { plannerVisitTime: "Tiempo en las atracciones", plannerTotalEstimate: "Duración estimada", plannerPartialEstimate: "Estimación parcial", plannerPartialEstimateHint: "Algunos lugares aún no tienen tiempo de visita estimado." });
+Object.assign(translations.he, { plannerVisitTime: "זמן באטרקציות", plannerTotalEstimate: "משך זמן משוער", plannerPartialEstimate: "הערכה חלקית", plannerPartialEstimateHint: "לחלק מהמקומות עדיין אין זמן ביקור משוער." });
+
 // State
 let tripSelection = [];
 let dismissedInSession = new Set();
@@ -419,9 +425,36 @@ function getOptimizedRoadSpots(roadSpots) {
   return ordered.length === roadSpots.length ? ordered : roadSpots;
 }
 
+function formatPlannerMinutes(minutes) {
+  const mins = Math.max(0, Math.round(minutes || 0));
+  if (mins < 60) return `${mins} min`;
+  const hours = Math.floor(mins / 60), rest = mins % 60;
+  return rest ? `${hours}h ${rest}min` : `${hours}h`;
+}
+
+function getPlannerVisitEstimate() {
+  const selected = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(Boolean);
+  let min = 0, max = 0, covered = 0;
+  selected.forEach(spot => {
+    const range = spot.planning?.visitDurationMinutes;
+    if (!range || !Number.isFinite(range.min) || !Number.isFinite(range.max)) return;
+    min += range.min; max += range.max; covered++;
+  });
+  return { min, max, covered, total: selected.length, partial: covered < selected.length };
+}
+
+function formatPlannerRange(min, max) {
+  return min === max ? formatPlannerMinutes(min) : `${formatPlannerMinutes(min)}–${formatPlannerMinutes(max)}`;
+}
+
 function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const orderedRoadSpots = getOptimizedRoadSpots(roadSpots);
   const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
+  const visit = getPlannerVisitEstimate();
+  const travelMinutes = plannerOptimizedRoute ? Math.round((plannerOptimizedRoute.timeSeconds || 0) / 60) : 0;
+  const visitStats = visit.covered
+    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${t('plannerTotalEstimate')}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
+    : '';
   const routeStats = plannerOptimizedRoute
     ? `<div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>`
     : '';
@@ -442,6 +475,7 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
           <span class="material-symbols-outlined text-secondary">route</span>
         </div>
         ${routeStats}
+        ${visitStats}
         <div class="flex flex-wrap gap-2">
           <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
