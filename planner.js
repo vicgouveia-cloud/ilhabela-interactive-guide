@@ -135,6 +135,37 @@ Object.assign(translations.he, {
   plannerModeRoad: "כביש", plannerModeTrail: "שביל", plannerModeBoat: "סירה", plannerMode4x4: "4x4", plannerModeDiving: "צלילה"
 });
 
+Object.assign(translations.pt, {
+  plannerOptimize: "Otimizar roteiro", plannerOptimizing: "Otimizando…", plannerOptimized: "Roteiro otimizado",
+  plannerRouteUnavailable: "Não foi possível otimizar a rota agora. Seu roteiro continua disponível.",
+  plannerRouteNeedsStops: "Escolha pelo menos 2 atrações rodoviárias para otimizar.",
+  plannerRouteDistance: "Distância", plannerRouteDriveTime: "Tempo em deslocamento"
+});
+Object.assign(translations.en, {
+  plannerOptimize: "Optimize route", plannerOptimizing: "Optimizing…", plannerOptimized: "Optimized route",
+  plannerRouteUnavailable: "The route could not be optimized right now. Your trip is still available.",
+  plannerRouteNeedsStops: "Choose at least 2 road attractions to optimize.",
+  plannerRouteDistance: "Distance", plannerRouteDriveTime: "Travel time"
+});
+Object.assign(translations.fr, {
+  plannerOptimize: "Optimiser l’itinéraire", plannerOptimizing: "Optimisation…", plannerOptimized: "Itinéraire optimisé",
+  plannerRouteUnavailable: "Impossible d’optimiser l’itinéraire pour le moment. Votre sélection reste disponible.",
+  plannerRouteNeedsStops: "Choisissez au moins 2 attractions routières à optimiser.",
+  plannerRouteDistance: "Distance", plannerRouteDriveTime: "Temps de trajet"
+});
+Object.assign(translations.es, {
+  plannerOptimize: "Optimizar ruta", plannerOptimizing: "Optimizando…", plannerOptimized: "Ruta optimizada",
+  plannerRouteUnavailable: "No se pudo optimizar la ruta ahora. Tu itinerario sigue disponible.",
+  plannerRouteNeedsStops: "Elige al menos 2 atracciones por carretera para optimizar.",
+  plannerRouteDistance: "Distancia", plannerRouteDriveTime: "Tiempo de viaje"
+});
+Object.assign(translations.he, {
+  plannerOptimize: "מטב מסלול", plannerOptimizing: "מבצע אופטימיזציה…", plannerOptimized: "מסלול ממוטב",
+  plannerRouteUnavailable: "לא ניתן למטב את המסלול כרגע. המסלול שבחרת עדיין זמין.",
+  plannerRouteNeedsStops: "בחר לפחות 2 אטרקציות כביש לאופטימיזציה.",
+  plannerRouteDistance: "מרחק", plannerRouteDriveTime: "זמן נסיעה"
+});
+
 // State
 let tripSelection = [];
 let dismissedInSession = new Set();
@@ -144,6 +175,9 @@ let currentPlannerView = 'deck'; // 'deck' or 'summary'
 let plannerMap = null;
 let plannerMapMarkers = [];
 let plannerOrigin = null;
+let plannerOptimizedRoute = null;
+let plannerRouteLine = null;
+const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
 
 // Initialize
 function initPlanner() {
@@ -370,8 +404,27 @@ function getPlannerModeLabel(mode) {
   return keys[mode] ? t(keys[mode]) : t('plannerRoutingUnknown');
 }
 
+function formatPlannerDuration(seconds) {
+  const mins = Math.max(1, Math.round((seconds || 0) / 60));
+  if (mins < 60) return `${mins} min`;
+  const hours = Math.floor(mins / 60);
+  const rest = mins % 60;
+  return rest ? `${hours}h ${rest}min` : `${hours}h`;
+}
+
+function getOptimizedRoadSpots(roadSpots) {
+  if (!plannerOptimizedRoute?.spotIds?.length) return roadSpots;
+  const byId = new Map(roadSpots.map(spot => [spot.id, spot]));
+  const ordered = plannerOptimizedRoute.spotIds.map(id => byId.get(id)).filter(Boolean);
+  return ordered.length === roadSpots.length ? ordered : roadSpots;
+}
+
 function renderPlannerRoutingPanel(roadSpots, specialSpots) {
-  const roadNames = roadSpots.map(spot => getSpotTranslation(spot).title);
+  const orderedRoadSpots = getOptimizedRoadSpots(roadSpots);
+  const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
+  const routeStats = plannerOptimizedRoute
+    ? `<div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>`
+    : '';
   const specialRows = specialSpots.map(spot => {
     const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');
     return `<li class="flex items-center justify-between gap-3 py-1.5"><span class="font-semibold">${getSpotTranslation(spot).title}</span><span class="text-[11px] text-on-surface-variant">${modes}</span></li>`;
@@ -388,10 +441,14 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
           </div>
           <span class="material-symbols-outlined text-secondary">route</span>
         </div>
+        ${routeStats}
         <div class="flex flex-wrap gap-2">
           <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
             <span id="planner-location-label">${plannerOrigin ? t('plannerLocationReady') : t('plannerUseLocation')}</span>
+          </button>
+          <button type="button" onclick="plannerOptimizeRoute()" ${roadSpots.length >= 2 ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-secondary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
+            ${plannerOptimizedRoute ? t('plannerOptimized') : t('plannerOptimize')}
           </button>
           <button type="button" onclick="plannerOpenGoogleMaps()" ${canOpenMaps ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-primary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
             ${t('plannerOpenGoogleMaps')}
@@ -428,10 +485,74 @@ function plannerUseMyLocation() {
   });
 }
 
+function plannerDecodePolyline6(encoded) {
+  const coordinates = [];
+  let index = 0, lat = 0, lon = 0;
+  while (index < encoded.length) {
+    let shift = 0, result = 0, byte;
+    do { byte = encoded.charCodeAt(index++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    lat += (result & 1) ? ~(result >> 1) : (result >> 1);
+    shift = 0; result = 0;
+    do { byte = encoded.charCodeAt(index++) - 63; result |= (byte & 0x1f) << shift; shift += 5; } while (byte >= 0x20);
+    lon += (result & 1) ? ~(result >> 1) : (result >> 1);
+    coordinates.push([lat / 1e6, lon / 1e6]);
+  }
+  return coordinates;
+}
+
+async function plannerOptimizeRoute() {
+  const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => spot?.routing?.roadRoutable === true);
+  if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
+
+  const locations = [];
+  if (plannerOrigin) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
+  roadSpots.forEach(spot => locations.push({ lat: spot.coords[0], lon: spot.coords[1], type: 'break' }));
+
+  try {
+    const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
+    if (button) { button.disabled = true; button.textContent = t('plannerOptimizing'); }
+    const payload = { locations, costing: 'auto', units: 'kilometers' };
+    const response = await fetch(VALHALLA_ENDPOINT, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-Client-Id': 'ilhabela-guide' },
+      body: JSON.stringify(payload)
+    });
+    if (!response.ok) throw new Error(`Valhalla ${response.status}`);
+    const data = await response.json();
+    const trip = data.trip;
+    if (!trip?.legs?.length || !trip.summary) throw new Error('Invalid Valhalla response');
+
+    const orderedOriginalIndexes = (trip.locations || [])
+      .map(location => Number(location.original_index))
+      .filter(Number.isFinite);
+    const originOffset = plannerOrigin ? 1 : 0;
+    const orderedIds = orderedOriginalIndexes
+      .filter(index => index >= originOffset)
+      .map(index => roadSpots[index - originOffset]?.id)
+      .filter(Boolean);
+    if (orderedIds.length !== roadSpots.length) throw new Error('Incomplete optimized order');
+
+    const shape = trip.legs.map(leg => plannerDecodePolyline6(leg.shape)).flat();
+    plannerOptimizedRoute = {
+      spotIds: orderedIds,
+      distanceKm: Number(trip.summary.length) || 0,
+      timeSeconds: Number(trip.summary.time) || 0,
+      shape
+    };
+    renderSummary();
+  } catch (error) {
+    console.warn('[planner] route optimization unavailable', error);
+    plannerOptimizedRoute = null;
+    renderSummary();
+    alert(t('plannerRouteUnavailable'));
+  }
+}
+
 function plannerOpenGoogleMaps() {
-  const roadSpots = tripSelection
+  let roadSpots = tripSelection
     .map(id => touristSpots.find(spot => spot.id === id))
     .filter(spot => spot?.routing?.roadRoutable === true);
+  roadSpots = getOptimizedRoadSpots(roadSpots);
   if (!roadSpots.length) {
     alert(t('plannerNoRoadStops'));
     return;
@@ -450,6 +571,7 @@ function plannerOpenGoogleMaps() {
 }
 
 function removeFromPlanner(id) {
+  plannerOptimizedRoute = null;
   tripSelection = tripSelection.filter(sid => sid !== id);
   saveTripSelection();
   generateDeckQueue(); // In case we want to show it again in the deck
@@ -457,6 +579,7 @@ function removeFromPlanner(id) {
 }
 
 function initPlannerMap() {
+  plannerRouteLine = null;
   if (plannerMap) {
     plannerMap.remove();
     plannerMap = null;
@@ -486,7 +609,15 @@ function initPlannerMap() {
     plannerMapMarkers.push(marker);
   });
 
-  if (plannerMapMarkers.length > 0) {
+  if (plannerOptimizedRoute?.shape?.length) {
+    plannerRouteLine = L.polyline(plannerOptimizedRoute.shape, { weight: 5, opacity: 0.8 }).addTo(plannerMap);
+    plannerOptimizedRoute.shape.forEach(coord => bounds.extend(coord));
+  }
+  if (plannerOrigin) {
+    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerLocationReady'));
+    bounds.extend(plannerOrigin);
+  }
+  if (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length) {
     plannerMap.fitBounds(bounds, { padding: [30, 30] });
   }
 }
