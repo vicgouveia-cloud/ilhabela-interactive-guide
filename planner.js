@@ -454,7 +454,9 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const travelMinutes = plannerOptimizedRoute ? Math.round((plannerOptimizedRoute.timeSeconds || 0) / 60) : 0;
   const visitStats = visit.covered
     ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${t('plannerTotalEstimate')}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
-    : '';
+    : visit.total
+      ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
+      : '';
   const routeStats = plannerOptimizedRoute
     ? `<div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>`
     : '';
