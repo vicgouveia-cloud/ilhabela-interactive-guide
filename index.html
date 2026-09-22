@@ -67,6 +67,7 @@
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-on-surface-variant">
         <a href="#map-section" class="hover:text-primary transition-colors" data-i18n="navMap">Mapa Interativo</a>
         <a href="#explore-section" class="hover:text-primary transition-colors" data-i18n="navExplore">Pontos Turísticos</a>
+        <a href="#services-section" class="hover:text-primary transition-colors" data-i18n="navServices">Serviços</a>
         <a href="#guides-section" class="hover:text-primary transition-colors" data-i18n="navGuides">Guias Credenciados</a>
       </nav>
 
@@ -357,6 +358,22 @@
       <div id="spots-grid" class="spots-grid">
         <!-- Rendered dynamically by app.js -->
       </div>
+    </section>
+
+    <!-- TOURIST SERVICES DIRECTORY -->
+    <section id="services-section" class="pt-10 md:pt-12 pb-12 border-t border-black/10 space-y-6">
+      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
+        <div class="max-w-2xl">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-bold uppercase tracking-wider mb-3">
+            <span class="material-symbols-outlined text-[16px]">concierge</span>
+            <span data-i18n="servicesBadge">Serviços úteis</span>
+          </div>
+          <h2 class="text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="servicesTitle">Serviços em Ilhabela</h2>
+          <p class="text-sm text-on-surface-variant mt-1" data-i18n="servicesSubtitle">Encontre serviços para complementar sua visita, sem tirar o foco das atrações da ilha.</p>
+        </div>
+      </div>
+      <div id="services-filters" class="flex gap-2 overflow-x-auto pb-1" aria-label="Categorias de serviços" data-i18n-aria-label="servicesCategoriesLabel"></div>
+      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
     </section>
 
     <!-- CERTIFIED LOCAL GUIDES SECTION -->
