@@ -1867,6 +1867,48 @@ const servicesData = [
     whatsappDisplay: '(11) 97519-9989',
     url: 'https://lagloriahouse.com.br',
     image: 'assets/images/la-gloria-house.jpg'
+  },
+  {
+    id: 'acaraje-tio-toinho', category: 'food', name: 'Acarajé do Tio Toinho',
+    baseLocation: { spotId: 'praia-grande' }, contextSpotIds: ['praia-grande'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['bahian-food', 'acaraje'],
+    whatsapp: '12996206084', whatsappDisplay: '(12) 99620-6084'
+  },
+  {
+    id: 'ilha-sul-restaurante', category: 'food', name: 'Restaurante Ilha Sul',
+    baseLocation: { nearSpotId: 'praia-da-feiticeira' }, contextSpotIds: ['praia-da-feiticeira', 'praia-do-portinho'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food'],
+    whatsapp: '1238949426', whatsappDisplay: '(12) 3894-9426', url: 'https://www.restauranteilhasul.com.br'
+  },
+  {
+    id: 'rei-da-praia', category: 'food', name: 'Rei da Praia',
+    baseLocation: { spotId: 'praia-do-curral' }, contextSpotIds: ['praia-do-curral'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
+    whatsapp: '12992301282', whatsappDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
+  },
+  {
+    id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
+    baseLocation: { nearSpotId: 'praia-do-veloso' }, contextSpotIds: ['praia-do-veloso'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['cafe', 'burgers', 'vegetarian'],
+    whatsapp: '12996552213', whatsappDisplay: '(12) 99655-2213', url: 'https://lupecaminho.com.br'
+  },
+  {
+    id: 'restaurante-do-cura', category: 'food', name: 'Restaurante do Cura',
+    baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'buffet'],
+    whatsapp: '12981644977', whatsappDisplay: '(12) 98164-4977'
+  },
+  {
+    id: 'ikigai-ilhabela', category: 'food', name: 'Ikigai',
+    baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['oriental-food', 'caicara-food'],
+    whatsapp: '12996460164', whatsappDisplay: '(12) 99646-0164', url: 'https://linktr.ee/ikigaiilhabela'
+  },
+  {
+    id: 'manjericao-ilhabela', category: 'food', name: 'Manjericão',
+    baseLocation: { nearSpotId: 'centro-historico-vila' }, contextSpotIds: ['centro-historico-vila'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'seafood'],
+    whatsapp: '12997441753', whatsappDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
   }
 ];
 
@@ -1907,7 +1949,56 @@ const serviceTranslations = {
     es: { type: 'Alojamiento recomendado', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
     he: { type: 'לינה מומלצת', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
   }
-};
+,
+  'Acarajé do Tio Toinho': {
+    pt: { type: 'Alimentação', description: 'Opção na Praia Grande dedicada à culinária baiana, com acarajé e abará entre os destaques.', tags: ['Culinária baiana', 'Acarajé', 'Abará'] },
+    en: { type: 'Food', description: 'Bahian food option at Praia Grande, with acarajé and abará among the highlights.', tags: ['Bahian food', 'Acarajé', 'Abará'] },
+    fr: { type: 'Restauration', description: 'Cuisine bahianaise à Praia Grande, avec acarajé et abará parmi les spécialités.', tags: ['Cuisine bahianaise', 'Acarajé', 'Abará'] },
+    es: { type: 'Alimentación', description: 'Opción de cocina bahiana en Praia Grande, con acarajé y abará entre sus especialidades.', tags: ['Cocina bahiana', 'Acarajé', 'Abará'] },
+    he: { type: 'אוכל', description: 'מטבח בהיאני ב-Praia Grande, עם acarajé ו-abará בין המנות הבולטות.', tags: ['מטבח בהיאני', 'Acarajé', 'Abará'] }
+  },
+  'Restaurante Ilha Sul': {
+    pt: { type: 'Restaurante', description: 'Restaurante tradicional na região da Feiticeira, com foco em frutos do mar.', tags: ['Frutos do mar', 'Camarões', 'Lagosta', 'Polvo'] },
+    en: { type: 'Restaurant', description: 'Traditional restaurant in the Feiticeira area focused on seafood.', tags: ['Seafood', 'Shrimp', 'Lobster', 'Octopus'] },
+    fr: { type: 'Restaurant', description: 'Restaurant traditionnel dans le secteur de Feiticeira, spécialisé en fruits de mer.', tags: ['Fruits de mer', 'Crevettes', 'Homard', 'Poulpe'] },
+    es: { type: 'Restaurante', description: 'Restaurante tradicional en la zona de Feiticeira, especializado en mariscos.', tags: ['Mariscos', 'Camarones', 'Langosta', 'Pulpo'] },
+    he: { type: 'מסעדה', description: 'מסעדה ותיקה באזור Feiticeira המתמחה במאכלי ים.', tags: ['מאכלי ים', 'שרימפס', 'לובסטר', 'תמנון'] }
+  },
+  'Rei da Praia': {
+    pt: { type: 'Restaurante e bar de praia', description: 'Restaurante pé na areia na Praia do Curral, com frutos do mar, cozinha brasileira e bebidas.', tags: ['Pé na areia', 'Frutos do mar', 'Bar', 'Almoço'] },
+    en: { type: 'Beach restaurant and bar', description: 'Beachfront restaurant at Praia do Curral with seafood, Brazilian food and drinks.', tags: ['Beachfront', 'Seafood', 'Bar', 'Lunch'] },
+    fr: { type: 'Restaurant et bar de plage', description: 'Restaurant les pieds dans le sable à Praia do Curral, avec fruits de mer, cuisine brésilienne et boissons.', tags: ['Bord de plage', 'Fruits de mer', 'Bar', 'Déjeuner'] },
+    es: { type: 'Restaurante y bar de playa', description: 'Restaurante a pie de playa en Praia do Curral, con mariscos, cocina brasileña y bebidas.', tags: ['Playa', 'Mariscos', 'Bar', 'Almuerzo'] },
+    he: { type: 'מסעדה ובר חוף', description: 'מסעדה על החול ב-Praia do Curral עם מאכלי ים, אוכל ברזילאי ומשקאות.', tags: ['על החוף', 'מאכלי ים', 'בר', 'ארוחת צהריים'] }
+  },
+  'Lupe Tropical': {
+    pt: { type: 'Café e restaurante', description: 'Gastronomia próxima ao Veloso com ingredientes frescos, hambúrgueres artesanais, bebidas naturais e opções vegetarianas e veganas.', tags: ['Hambúrguer artesanal', 'Café', 'Vegetariano', 'Vegano'] },
+    en: { type: 'Cafe and restaurant', description: 'Food near Veloso with fresh ingredients, artisan burgers, natural drinks, and vegetarian and vegan options.', tags: ['Artisan burgers', 'Cafe', 'Vegetarian', 'Vegan'] },
+    fr: { type: 'Café et restaurant', description: 'Cuisine près de Veloso avec ingrédients frais, burgers artisanaux, boissons naturelles et options végétariennes et véganes.', tags: ['Burgers artisanaux', 'Café', 'Végétarien', 'Végane'] },
+    es: { type: 'Café y restaurante', description: 'Gastronomía cerca de Veloso con ingredientes frescos, hamburguesas artesanales, bebidas naturales y opciones vegetarianas y veganas.', tags: ['Hamburguesas', 'Café', 'Vegetariano', 'Vegano'] },
+    he: { type: 'בית קפה ומסעדה', description: 'אוכל ליד Veloso עם חומרי גלם טריים, המבורגרים, משקאות טבעיים ואפשרויות צמחוניות וטבעוניות.', tags: ['המבורגר', 'קפה', 'צמחוני', 'טבעוני'] }
+  },
+  'Restaurante do Cura': {
+    pt: { type: 'Restaurante', description: 'Restaurante no Perequê com comida brasileira em estilo caseiro e serviço de buffet.', tags: ['Comida brasileira', 'Caseira', 'Buffet', 'Perequê'] },
+    en: { type: 'Restaurant', description: 'Restaurant in Perequê serving home-style Brazilian food and buffet service.', tags: ['Brazilian food', 'Home-style', 'Buffet', 'Perequê'] },
+    fr: { type: 'Restaurant', description: 'Restaurant à Perequê proposant une cuisine brésilienne familiale et un buffet.', tags: ['Cuisine brésilienne', 'Familiale', 'Buffet', 'Perequê'] },
+    es: { type: 'Restaurante', description: 'Restaurante en Perequê con comida brasileña casera y servicio de buffet.', tags: ['Comida brasileña', 'Casera', 'Buffet', 'Perequê'] },
+    he: { type: 'מסעדה', description: 'מסעדה ב-Perequê עם אוכל ברזילאי ביתי ושירות מזנון.', tags: ['אוכל ברזילאי', 'ביתי', 'מזנון', 'Perequê'] }
+  },
+  'Ikigai': {
+    pt: { type: 'Restaurante', description: 'Restaurante no Perequê que combina culinária oriental e caiçara.', tags: ['Oriental', 'Caiçara', 'Temaki', 'Yakissoba'] },
+    en: { type: 'Restaurant', description: 'Restaurant in Perequê combining Oriental and caiçara cuisine.', tags: ['Oriental', 'Caiçara', 'Temaki', 'Yakissoba'] },
+    fr: { type: 'Restaurant', description: 'Restaurant à Perequê mêlant cuisines orientale et caiçara.', tags: ['Oriental', 'Caiçara', 'Temaki', 'Yakissoba'] },
+    es: { type: 'Restaurante', description: 'Restaurante en Perequê que combina cocina oriental y caiçara.', tags: ['Oriental', 'Caiçara', 'Temaki', 'Yakissoba'] },
+    he: { type: 'מסעדה', description: 'מסעדה ב-Perequê המשלבת מטבח מזרחי וקאיסארה.', tags: ['מזרחי', 'Caiçara', 'Temaki', 'Yakissoba'] }
+  },
+  'Manjericão': {
+    pt: { type: 'Restaurante', description: 'Restaurante na região da Vila com cozinha brasileira e opções de peixes e frutos do mar.', tags: ['Cozinha brasileira', 'Peixes', 'Frutos do mar', 'Vila'] },
+    en: { type: 'Restaurant', description: 'Restaurant in the Vila area with Brazilian cuisine, fish and seafood options.', tags: ['Brazilian cuisine', 'Fish', 'Seafood', 'Vila'] },
+    fr: { type: 'Restaurant', description: 'Restaurant dans le secteur de Vila proposant cuisine brésilienne, poissons et fruits de mer.', tags: ['Cuisine brésilienne', 'Poissons', 'Fruits de mer', 'Vila'] },
+    es: { type: 'Restaurante', description: 'Restaurante en la zona de Vila con cocina brasileña, pescados y mariscos.', tags: ['Cocina brasileña', 'Pescados', 'Mariscos', 'Vila'] },
+    he: { type: 'מסעדה', description: 'מסעדה באזור Vila עם מטבח ברזילאי, דגים ומאכלי ים.', tags: ['מטבח ברזילאי', 'דגים', 'מאכלי ים', 'Vila'] }
+  }};
 
 servicesData.forEach(service => {
   service.translations = serviceTranslations[service.name];
