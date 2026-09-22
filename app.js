@@ -1002,7 +1002,7 @@ function renderServicesDirectory() {
 
     return `<article class="glass-card rounded-2xl overflow-hidden border border-black/5 shadow-sm flex flex-col">
       <div class="h-40 relative overflow-hidden bg-surface-container">
-        ${service.image ? `<img src="${service.image}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : ''}
+        ${service.image ? `<img src="${service.image}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : `<div class="w-full h-full flex items-center justify-center bg-surface-container/70"><span class="material-symbols-outlined text-primary/35 text-5xl">${service.category === 'food' ? 'restaurant' : 'storefront'}</span></div>`}
         <span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[10px] font-extrabold text-primary uppercase shadow-sm">${tr.type || getServiceCategoryLabel(service.category)}</span>
       </div>
       <div class="p-4 flex flex-col flex-1 gap-3">
