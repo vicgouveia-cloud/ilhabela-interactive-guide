@@ -156,6 +156,10 @@
             <span class="material-symbols-outlined text-secondary">verified_user</span>
             <span data-i18n="btnBookGuide">Contratar Guia Local</span>
           </a>
+          <a href="#" onclick="openPlanner(event)" class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary">checklist</span>
+            <span data-i18n="btnPlanner">Monte seu roteiro</span>
+          </a>
         </div>
 
       </div>
@@ -397,7 +401,66 @@
       </div>
     </section>
 
-  </main>
+  <!-- PLANNER MODAL -->
+<div id="planner-modal" class="fixed inset-0 z-[90] hidden bg-[#fbf9f4] flex-col overflow-hidden" role="dialog" aria-modal="true">
+  <!-- Header -->
+  <header class="flex items-center justify-between px-4 py-3 bg-white border-b border-black/5 shadow-sm flex-shrink-0">
+    <div class="flex items-center gap-2">
+      <button onclick="closePlanner()" class="p-2 rounded-full hover:bg-surface-container transition-colors" aria-label="Fechar">
+        <span class="material-symbols-outlined">arrow_back</span>
+      </button>
+      <h2 class="text-lg font-bold text-primary font-heading" data-i18n="btnPlanner">Monte seu roteiro</h2>
+    </div>
+    <button onclick="togglePlannerView()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs hover:bg-primary/20 transition-colors">
+      <span class="material-symbols-outlined text-[16px]">checklist</span>
+      <span id="planner-count-badge">0</span>&nbsp;<span data-i18n="plannerSelected">escolhidos</span>
+    </button>
+  </header>
+
+  <!-- Deck View -->
+  <div id="planner-deck-view" class="flex flex-col flex-1 overflow-hidden relative">
+    <!-- Filters -->
+    <div class="px-4 py-3 overflow-x-auto bg-white border-b border-black/5 flex-shrink-0">
+      <div class="flex items-center gap-2 min-w-max" id="planner-filters"></div>
+    </div>
+
+    <!-- Deck Card Area -->
+    <div class="flex-1 relative flex items-center justify-center p-4 overflow-hidden" id="planner-cards-container">
+      <!-- card injected by JS -->
+    </div>
+
+    <!-- Actions Bar -->
+    <div class="h-24 px-4 pb-4 flex items-center justify-center gap-4 flex-shrink-0 bg-white border-t border-black/5" id="planner-actions">
+      <button onclick="plannerSwipe('left')" class="w-14 h-14 rounded-full bg-white shadow-md border border-black/10 text-red-500 flex items-center justify-center hover:scale-110 transition-transform" title="Pular">
+        <span class="material-symbols-outlined text-3xl">close</span>
+      </button>
+      <button onclick="plannerShowDetails()" class="px-5 h-11 rounded-full bg-white shadow-md border border-black/10 text-primary font-bold text-sm flex items-center gap-1.5 hover:scale-105 transition-transform">
+        <span class="material-symbols-outlined text-[18px]">info</span>
+        <span data-i18n="plannerDetails">Ver detalhes</span>
+      </button>
+      <button onclick="plannerSwipe('right')" class="w-14 h-14 rounded-full bg-white shadow-md border border-black/10 text-green-500 flex items-center justify-center hover:scale-110 transition-transform" title="Gostei">
+        <span class="material-symbols-outlined text-3xl">favorite</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Summary View (hidden by default) -->
+  <div id="planner-summary-view" class="hidden flex-col flex-1 overflow-hidden">
+    <!-- Map -->
+    <div id="planner-map" class="w-full flex-shrink-0" style="height:240px; min-height:180px;"></div>
+    <!-- Back to deck button -->
+    <div class="px-4 pt-3 flex-shrink-0">
+      <button onclick="togglePlannerView()" class="flex items-center gap-1.5 text-primary font-bold text-xs">
+        <span class="material-symbols-outlined text-[16px]">arrow_back</span>
+        <span data-i18n="btnBackToDeck">Voltar para Explorar</span>
+      </button>
+    </div>
+    <!-- List -->
+    <div class="flex-1 overflow-y-auto p-4 space-y-3" id="planner-summary-list"></div>
+  </div>
+</div>
+
+</main>
 
   <!-- MODAL 1: SPOT DETAIL MODAL / DRAWER -->
   <div id="spot-modal" class="modal-overlay" role="dialog" aria-modal="true" aria-labelledby="spot-modal-title">
@@ -538,6 +601,10 @@
       <span class="material-symbols-outlined nav-icon text-red-500">favorite</span>
       <span data-i18n="navSaved">Salvos</span>
     </button>
+      <button onclick="openPlanner(event)" class="bottom-nav-item" id="bn-planner">
+        <span class="material-symbols-outlined nav-icon">checklist</span>
+        <span data-i18n="btnPlanner">Roteiro</span>
+      </button>
   </nav>
 
   <!-- FOOTER -->
@@ -568,5 +635,6 @@
   <script src="data.js?v=4.0"></script>
   <script src="additional-spots.js?v=4.0"></script>
   <script src="app.js?v=4.0"></script>
+<script src="planner.js"></script>
 </body>
 </html>
