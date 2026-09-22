@@ -1872,19 +1872,19 @@ const servicesData = [
     id: 'acaraje-tio-toinho', category: 'food', name: 'Acarajé do Tio Toinho',
     baseLocation: { spotId: 'praia-grande' }, contextSpotIds: ['praia-grande'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['bahian-food', 'acaraje'],
-    whatsapp: '12996206084', whatsappDisplay: '(12) 99620-6084'
+    phone: '12996206084', phoneDisplay: '(12) 99620-6084'
   },
   {
     id: 'ilha-sul-restaurante', category: 'food', name: 'Restaurante Ilha Sul',
     baseLocation: { nearSpotId: 'praia-da-feiticeira' }, contextSpotIds: ['praia-da-feiticeira', 'praia-do-portinho'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food'],
-    whatsapp: '1238949426', whatsappDisplay: '(12) 3894-9426', url: 'https://www.restauranteilhasul.com.br'
+    phone: '1238949426', phoneDisplay: '(12) 3894-9426', url: 'https://www.restauranteilhasul.com.br'
   },
   {
     id: 'rei-da-praia', category: 'food', name: 'Rei da Praia',
     baseLocation: { spotId: 'praia-do-curral' }, contextSpotIds: ['praia-do-curral'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
-    whatsapp: '12992301282', whatsappDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
+    phone: '12992301282', phoneDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
   },
   {
     id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
@@ -1896,7 +1896,7 @@ const servicesData = [
     id: 'restaurante-do-cura', category: 'food', name: 'Restaurante do Cura',
     baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'buffet'],
-    whatsapp: '12981644977', whatsappDisplay: '(12) 98164-4977'
+    phone: '12981644977', phoneDisplay: '(12) 98164-4977'
   },
   {
     id: 'ikigai-ilhabela', category: 'food', name: 'Ikigai',
@@ -1908,7 +1908,7 @@ const servicesData = [
     id: 'manjericao-ilhabela', category: 'food', name: 'Manjericão',
     baseLocation: { nearSpotId: 'centro-historico-vila' }, contextSpotIds: ['centro-historico-vila'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'seafood'],
-    whatsapp: '12997441753', whatsappDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
+    phone: '12997441753', phoneDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
   }
 ];
 
