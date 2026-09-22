@@ -1,4 +1,8 @@
 (() => {
+  const directoryData = window.servicesDirectoryData || {};
+  const translations = directoryData.translations || {};
+  const touristSpots = directoryData.touristSpots || [];
+  const servicesData = directoryData.servicesData || [];
   const lang = (() => { try { return localStorage.getItem('ilhabela_lang') || 'pt'; } catch (_) { return 'pt'; } })();
   const copy = {
     pt:{back:'Atrações',badge:'Serviços úteis',title:'Serviços em Ilhabela',subtitle:'Alimentação, passeios, hospedagem e outros serviços para complementar sua visita.',near:'Usar minha localização',ready:'Mais próximos de você',distance:'Distância:',all:'Todos',map:'Google Maps',site:'Site',call:'Ligar',approx:'aprox.',note:'As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.',none:'Nenhum serviço encontrado com estes filtros.',locationError:'Não foi possível acessar sua localização.'},
