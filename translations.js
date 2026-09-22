@@ -142,7 +142,12 @@ const translations = {
     "zoomIn": "Aproximar mapa",
     "zoomOut": "Afastar mapa",
     "mapBoundsHint": "Navegação limitada ao arquipélago de Ilhabela",
-    "showIsland": "Ver toda Ilhabela"
+    "showIsland": "Ver toda Ilhabela",
+    "locateMe": "Minha localização",
+    "locatingUser": "Localizando…",
+    "youAreHere": "Você está aqui",
+    "locationDenied": "Acesso à localização negado. Você pode continuar usando o mapa normalmente.",
+    "locationUnavailable": "Não foi possível obter sua localização. Você pode continuar usando o mapa normalmente."
   },
   "en": {
     "brandTitle": "Ilhabela",
@@ -286,7 +291,12 @@ const translations = {
     "zoomIn": "Zoom in",
     "zoomOut": "Zoom out",
     "mapBoundsHint": "Navigation limited to the Ilhabela archipelago",
-    "showIsland": "Show all Ilhabela"
+    "showIsland": "Show all Ilhabela",
+    "locateMe": "My location",
+    "locatingUser": "Locating…",
+    "youAreHere": "You are here",
+    "locationDenied": "Location access was denied. You can continue using the map normally.",
+    "locationUnavailable": "We couldn't get your location. You can continue using the map normally."
   },
   "fr": {
     "brandTitle": "Ilhabela",
@@ -430,7 +440,12 @@ const translations = {
     "zoomIn": "Zoom avant",
     "zoomOut": "Zoom arrière",
     "mapBoundsHint": "Navigation limitée à l’archipel d’Ilhabela",
-    "showIsland": "Voir toute Ilhabela"
+    "showIsland": "Voir toute Ilhabela",
+    "locateMe": "Ma position",
+    "locatingUser": "Localisation…",
+    "youAreHere": "Vous êtes ici",
+    "locationDenied": "L’accès à votre position a été refusé. Vous pouvez continuer à utiliser la carte normalement.",
+    "locationUnavailable": "Impossible d’obtenir votre position. Vous pouvez continuer à utiliser la carte normalement."
   },
   "es": {
     "brandTitle": "Ilhabela",
@@ -574,7 +589,12 @@ const translations = {
     "zoomIn": "Acercar mapa",
     "zoomOut": "Alejar mapa",
     "mapBoundsHint": "Navegación limitada al archipiélago de Ilhabela",
-    "showIsland": "Ver toda Ilhabela"
+    "showIsland": "Ver toda Ilhabela",
+    "locateMe": "Mi ubicación",
+    "locatingUser": "Localizando…",
+    "youAreHere": "Estás aquí",
+    "locationDenied": "Se denegó el acceso a tu ubicación. Puedes seguir usando el mapa normalmente.",
+    "locationUnavailable": "No pudimos obtener tu ubicación. Puedes seguir usando el mapa normalmente."
   },
   "he": {
     "brandTitle": "איליאבלה",
@@ -718,6 +738,11 @@ const translations = {
     "zoomIn": "הגדלת המפה",
     "zoomOut": "הקטנת המפה",
     "mapBoundsHint": "הניווט מוגבל לארכיפלג Ilhabela",
-    "showIsland": "הצגת כל Ilhabela"
+    "showIsland": "הצגת כל Ilhabela",
+    "locateMe": "המיקום שלי",
+    "locatingUser": "מאתר מיקום…",
+    "youAreHere": "אתם כאן",
+    "locationDenied": "הגישה למיקום נדחתה. אפשר להמשיך להשתמש במפה כרגיל.",
+    "locationUnavailable": "לא ניתן לקבל את המיקום שלכם. אפשר להמשיך להשתמש במפה כרגיל."
   }
 };
