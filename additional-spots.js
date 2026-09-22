@@ -1696,6 +1696,61 @@ const additionalTouristSpots = [
 
 touristSpots.push(...additionalTouristSpots);
 
+// Structured routing metadata for the trip planner.
+// This is deliberately independent from localized specs.access text: routing logic must never parse prose.
+// roadRoutable is true only when the attraction coordinates themselves are a safe road destination.
+// unknown means the current editorial data does not establish an access mode precisely enough.
+const attractionRoutingMetadata = {
+  'praia-do-bonete': { modes: ['trail', 'boat'], roadRoutable: false, specialAccess: true },
+  'baia-de-castelhanos': { modes: ['4x4', 'boat'], roadRoutable: false, specialAccess: true },
+  'praia-da-fome': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
+  'praia-do-juliao': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'praia-do-curral': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-da-armacao': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-do-veloso': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-da-siriuba': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-da-enchova': { modes: ['trail', 'boat'], roadRoutable: false, specialAccess: true },
+  'praia-de-indaiauba': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-da-laje': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-da-toca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-do-veloso': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-do-gato': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-dos-tres-tombos': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'trilha-da-agua-branca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'trilha-do-bonete': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'trilha-da-cabecuda-farol': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'pico-de-sao-sebastiao': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
+  'mirante-do-coracao': { modes: ['4x4', 'trail'], roadRoutable: false, specialAccess: true },
+  'pico-do-baepi': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
+  'ponto-baleias-sul-sepituba': { modes: ['road', 'boat'], roadRoutable: false, specialAccess: true },
+  'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
+  'naufragio-aymore': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
+  'santuario-ilha-das-cabras': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
+  'naufragio-principe-de-asturias': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
+  'praia-do-jabaquara': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-da-feiticeira': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'praia-do-sino': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'centro-historico-vila': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'fazenda-engenho-dagua': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'mirante-do-piuva': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'saco-do-eustaquio': { modes: ['boat'], roadRoutable: false, specialAccess: true },
+  'praia-do-pereque': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-do-poco': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
+  'piscinas-naturais-do-sul': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'praia-grande': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-do-portinho': { modes: ['road'], roadRoutable: true, specialAccess: false }
+};
+
+touristSpots.forEach(spot => {
+  spot.routing = attractionRoutingMetadata[spot.id] || {
+    modes: ['unknown'],
+    roadRoutable: false,
+    specialAccess: true
+  };
+});
+
 // Catálogo canônico de serviços. Serviços são entidades independentes das atrações:
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
