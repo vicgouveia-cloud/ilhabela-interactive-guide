@@ -67,7 +67,7 @@
       <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-on-surface-variant">
         <a href="#map-section" class="hover:text-primary transition-colors" data-i18n="navMap">Mapa Interativo</a>
         <a href="#explore-section" class="hover:text-primary transition-colors" data-i18n="navExplore">Pontos Turísticos</a>
-        <a href="#services-section" class="hover:text-primary transition-colors" data-i18n="navServices">Serviços</a>
+        <a href="services.html" class="hover:text-primary transition-colors" data-i18n="navServices">Serviços</a>
         <a href="#guides-section" class="hover:text-primary transition-colors" data-i18n="navGuides">Guias Credenciados</a>
       </nav>
 
@@ -364,20 +364,25 @@
       </div>
     </section>
 
-    <!-- TOURIST SERVICES DIRECTORY -->
-    <section id="services-section" class="pt-10 md:pt-12 pb-12 border-t border-black/10 space-y-6">
-      <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4">
-        <div class="max-w-2xl">
-          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-surface-container text-primary text-xs font-bold uppercase tracking-wider mb-3">
+    <!-- SERVICES DIRECTORY CTA -->
+    <section id="services-section" class="pt-10 md:pt-12 pb-10 border-t border-black/10">
+      <a href="services.html" class="group block rounded-3xl bg-primary text-white p-6 md:p-8 overflow-hidden relative shadow-lg">
+        <div class="relative z-10 max-w-2xl">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-white/10 text-secondary-container text-xs font-bold uppercase tracking-wider mb-3">
             <span class="material-symbols-outlined text-[16px]">concierge</span>
             <span data-i18n="servicesBadge">Serviços úteis</span>
           </div>
-          <h2 class="text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="servicesTitle">Serviços em Ilhabela</h2>
-          <p class="text-sm text-on-surface-variant mt-1" data-i18n="servicesSubtitle">Encontre serviços para complementar sua visita, sem tirar o foco das atrações da ilha.</p>
+          <h2 class="text-2xl md:text-3xl font-extrabold font-heading" data-i18n="servicesTitle">Serviços em Ilhabela</h2>
+          <p class="text-sm text-white/75 mt-2 max-w-xl" data-i18n="servicesSubtitle">Encontre alimentação, passeios, hospedagem e outros serviços em uma área dedicada do guia.</p>
+          <div class="flex flex-wrap gap-2 mt-5 text-[11px] font-bold">
+            <span class="px-3 py-1.5 rounded-full bg-white/10"><span class="material-symbols-outlined text-[14px] align-middle">restaurant</span> <span data-i18n="servicesFood">Alimentação</span></span>
+            <span class="px-3 py-1.5 rounded-full bg-white/10"><span class="material-symbols-outlined text-[14px] align-middle">sailing</span> <span data-i18n="servicesTours">Passeios</span></span>
+            <span class="px-3 py-1.5 rounded-full bg-white/10"><span class="material-symbols-outlined text-[14px] align-middle">hotel</span> <span data-i18n="servicesStay">Hospedagem</span></span>
+          </div>
+          <div class="mt-6 inline-flex items-center gap-2 font-bold text-sm text-secondary-container">Ver todos os serviços <span class="material-symbols-outlined text-[18px] group-hover:translate-x-1 transition-transform">arrow_forward</span></div>
         </div>
-      </div>
-      <div id="services-filters" class="flex gap-2 overflow-x-auto pb-1" aria-label="Categorias de serviços" data-i18n-aria-label="servicesCategoriesLabel"></div>
-      <div id="services-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></div>
+        <span class="material-symbols-outlined absolute -right-5 -bottom-8 text-[150px] text-white/5">storefront</span>
+      </a>
     </section>
 
     <!-- CERTIFIED LOCAL GUIDES SECTION -->
@@ -593,9 +598,9 @@
       <span class="material-symbols-outlined nav-icon">grid_view</span>
       <span data-i18n="navExplore">Destinos</span>
     </button>
-    <a href="#guides-section" class="bottom-nav-item" aria-label="Guias" data-i18n-aria-label="navGuides">
-      <span class="material-symbols-outlined nav-icon">person_pin</span>
-      <span data-i18n="navGuides">Guias</span>
+    <a href="services.html" class="bottom-nav-item" aria-label="Serviços" data-i18n-aria-label="navServices">
+      <span class="material-symbols-outlined nav-icon">concierge</span>
+      <span data-i18n="navServices">Serviços</span>
     </a>
     <button onclick="filterFavorites()" class="bottom-nav-item" id="bn-saved" aria-label="Salvos" data-i18n-aria-label="navSaved">
       <span class="material-symbols-outlined nav-icon text-red-500">favorite</span>
