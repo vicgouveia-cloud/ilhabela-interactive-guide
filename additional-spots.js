@@ -1751,6 +1751,56 @@ touristSpots.forEach(spot => {
   };
 });
 
+// Structured visit-duration metadata for itinerary estimates.
+// Values represent time spent at the attraction/experience, never access or travel time.
+// null is intentional when the current editorial data only describes access or is too ambiguous.
+const attractionPlanningMetadata = {
+  'praia-do-bonete': null,
+  'baia-de-castelhanos': null,
+  'praia-da-fome': null,
+  'praia-do-juliao': null,
+  'praia-do-curral': null,
+  'praia-da-armacao': null,
+  'praia-do-veloso': null,
+  'praia-da-siriuba': null,
+  'praia-da-enchova': null,
+  'praia-de-indaiauba': null,
+  'cachoeira-da-laje': null,
+  'cachoeira-da-toca': null,
+  'cachoeira-do-veloso': null,
+  'cachoeira-do-paqueta': null,
+  'cachoeira-do-gato': null,
+  'cachoeira-dos-tres-tombos': null,
+  'cachoeira-da-friagem': null,
+  'trilha-da-agua-branca': { visitDurationMinutes: { min: 90, max: 120 }, confidence: 'editorial' },
+  'trilha-do-bonete': { visitDurationMinutes: { min: 270, max: 330 }, confidence: 'editorial' },
+  'trilha-da-cabecuda-farol': { visitDurationMinutes: { min: 80, max: 80 }, confidence: 'editorial' },
+  'pico-de-sao-sebastiao': { visitDurationMinutes: { min: 480, max: 600 }, confidence: 'editorial' },
+  'mirante-do-coracao': { visitDurationMinutes: { min: 10, max: 10 }, confidence: 'editorial' },
+  'pico-do-baepi': { visitDurationMinutes: { min: 270, max: 360 }, confidence: 'editorial' },
+  'ponto-baleias-sul-sepituba': { visitDurationMinutes: { min: 180, max: 240 }, confidence: 'editorial' },
+  'ponto-baleias-canal': { visitDurationMinutes: { min: 120, max: 120 }, confidence: 'editorial' },
+  'naufragio-aymore': { visitDurationMinutes: { min: 60, max: 60 }, confidence: 'editorial' },
+  'santuario-ilha-das-cabras': { visitDurationMinutes: { min: 60, max: 120 }, confidence: 'editorial' },
+  'naufragio-principe-de-asturias': null,
+  'praia-do-jabaquara': null,
+  'praia-da-feiticeira': null,
+  'praia-do-sino': null,
+  'centro-historico-vila': { visitDurationMinutes: { min: 120, max: 240 }, confidence: 'editorial' },
+  'fazenda-engenho-dagua': { visitDurationMinutes: { min: 60, max: 120 }, confidence: 'editorial' },
+  'mirante-do-piuva': { visitDurationMinutes: { min: 20, max: 40 }, confidence: 'editorial' },
+  'saco-do-eustaquio': { visitDurationMinutes: { min: 240, max: 480 }, confidence: 'editorial' },
+  'praia-do-pereque': { visitDurationMinutes: { min: 60, max: 240 }, confidence: 'editorial' },
+  'praia-do-poco': { visitDurationMinutes: { min: 480, max: 480 }, confidence: 'editorial' },
+  'piscinas-naturais-do-sul': { visitDurationMinutes: { min: 60, max: 120 }, confidence: 'editorial' },
+  'praia-grande': { visitDurationMinutes: { min: 60, max: 240 }, confidence: 'editorial' },
+  'praia-do-portinho': { visitDurationMinutes: { min: 60, max: 240 }, confidence: 'editorial' }
+};
+
+touristSpots.forEach(spot => {
+  spot.planning = attractionPlanningMetadata[spot.id] || null;
+});
+
 // Catálogo canônico de serviços. Serviços são entidades independentes das atrações:
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
