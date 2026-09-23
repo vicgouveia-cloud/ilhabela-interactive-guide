@@ -8,6 +8,9 @@ const serviceTaxonomy = {
     occasion: {pt:'Momento',en:'Occasion',fr:'Moment',es:'Momento',he:'מועד'}
   },
   type: {
+    laundry: {pt:'Lavanderia',en:'Laundry',fr:'Blanchisserie',es:'Lavandería',he:'מכבסה'},
+    supermarket: {pt:'Supermercado',en:'Supermarket',fr:'Supermarché',es:'Supermercado',he:'סופרמרקט'},
+    equipmentRental: {pt:'Aluguel de equipamentos',en:'Equipment rental',fr:'Location d’équipement',es:'Alquiler de equipos',he:'השכרת ציוד'},
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
     kiosk: {pt:'Quiosque',en:'Kiosk',fr:'Kiosque',es:'Quiosco',he:'קיוסק'},

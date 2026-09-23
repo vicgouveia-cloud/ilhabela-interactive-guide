@@ -2126,6 +2126,28 @@ const servicesData = [
     presentation:'compact', serviceType:['deliveryKitchen'], serviceFormats:['delivery'],
     serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner'],
     phone:'12996048438', phoneDisplay:'(12) 99604-8438', instagram:'@manaayo.ilhabela'
+  },
+  {
+    id:'bubble-box-pereque', category:'essentials', name:'Bubble Box Lavanderia Self Service',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['laundry','self-service'],
+    presentation:'compact', serviceType:['laundry'],
+    url:'https://bubblebox.com.br/unidade/ilhabela-pereque-sp/'
+  },
+  {
+    id:'supermercado-do-frade-pereque', category:'essentials', name:'Supermercado do Frade — Perequê',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['groceries','supermarket','online-shopping'],
+    presentation:'compact', serviceType:['supermarket'],
+    phone:'1238961134', phoneDisplay:'(12) 3896-1134', url:'https://linktr.ee/fradeilha'
+  },
+  {
+    id:'bl3-armacao-rental', category:'essentials', name:'BL3 Armação — Aluguel de Equipamentos',
+    baseLocation:{nearSpotId:'praia-da-armacao'}, contextSpotIds:['praia-da-armacao'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['equipment-rental','water-sports','beach-equipment'],
+    presentation:'compact', serviceType:['equipmentRental'],
+    phone:'1238961271', phoneDisplay:'(12) 3896-1271', whatsapp:'12991267649', whatsappDisplay:'(12) 99126-7649',
+    url:'https://www.bl3.com.br/product-page/loca%C3%A7%C3%B5es-de-equipamentos-praia-da-armacao-ilhabela'
   }
 ];
 
@@ -2325,6 +2347,27 @@ const serviceTranslations = {
     fr:{type:"Cuisine en livraison",description:"Service de livraison à Barra Velha. La Croqueta Imperial aux crevettes figure parmi les plats présentés au Festival de la crevette d’Ilhabela.",tags:["Livraison","Barra Velha","Crevettes"]},
     es:{type:"Cocina de delivery",description:"Servicio de entrega en Barra Velha. La Croqueta Imperial de camarón figura entre los platos presentados en el Festival del Camarón de Ilhabela.",tags:["Delivery","Barra Velha","Camarón"]},
     he:{type:"מטבח משלוחים",description:"שירות משלוחים ב-Barra Velha. קרוקטת שרימפס Imperial הוצגה בין המנות בפסטיבל השרימפס של Ilhabela.",tags:["משלוחים","Barra Velha","שרימפס"]}
+  },
+  "Bubble Box Lavanderia Self Service": {
+    pt:{type:"Lavanderia self-service",description:"Lavanderia self-service no Perequê, com máquinas de lavar e secar. Unidade na Rua Dois Coqueiros, 45, loja 6.",tags:["Perequê","Autoatendimento","Lavagem e secagem"]},
+    en:{type:"Self-service laundry",description:"Self-service laundry in Perequê with washing and drying machines. Located at Rua Dois Coqueiros, 45, store 6.",tags:["Perequê","Self-service","Washing and drying"]},
+    fr:{type:"Laverie libre-service",description:"Laverie libre-service à Perequê avec machines à laver et sèche-linge. Située Rua Dois Coqueiros, 45, boutique 6.",tags:["Perequê","Libre-service","Lavage et séchage"]},
+    es:{type:"Lavandería de autoservicio",description:"Lavandería de autoservicio en Perequê, con máquinas de lavado y secado. Está en Rua Dois Coqueiros, 45, local 6.",tags:["Perequê","Autoservicio","Lavado y secado"]},
+    he:{type:"מכבסת שירות עצמי",description:"מכבסת שירות עצמי ב-Perequê עם מכונות כביסה וייבוש. נמצאת ב-Rua Dois Coqueiros, 45, חנות 6.",tags:["Perequê","שירות עצמי","כביסה וייבוש"]}
+  },
+  "Supermercado do Frade — Perequê": {
+    pt:{type:"Supermercado",description:"Unidade Perequê do Supermercado do Frade, na Avenida Princesa Isabel, 1126. A rede também oferece compras online.",tags:["Perequê","Mercado","Compras online"]},
+    en:{type:"Supermarket",description:"Perequê branch of Supermercado do Frade, at Avenida Princesa Isabel, 1126. The chain also offers online shopping.",tags:["Perequê","Groceries","Online shopping"]},
+    fr:{type:"Supermarché",description:"Magasin de Perequê du Supermercado do Frade, situé Avenida Princesa Isabel, 1126. L’enseigne propose aussi des achats en ligne.",tags:["Perequê","Courses","Achats en ligne"]},
+    es:{type:"Supermercado",description:"Sucursal de Perequê de Supermercado do Frade, en Avenida Princesa Isabel, 1126. La cadena también ofrece compras en línea.",tags:["Perequê","Compras","Compras en línea"]},
+    he:{type:"סופרמרקט",description:"סניף Perequê של Supermercado do Frade, ב-Avenida Princesa Isabel, 1126. הרשת מציעה גם קניות מקוונות.",tags:["Perequê","מכולת","קניות מקוונות"]}
+  },
+  "BL3 Armação — Aluguel de Equipamentos": {
+    pt:{type:"Aluguel de equipamentos",description:"Na BL3 Armação é possível alugar caiaques, pranchas de stand up paddle, veleiros, windsurf, cadeiras de praia e guarda-sóis. Coletes salva-vidas estão incluídos no aluguel dos equipamentos náuticos.",tags:["Praia da Armação","Caiaque e stand up paddle","Cadeiras e guarda-sóis"]},
+    en:{type:"Equipment rental",description:"BL3 Armação rents kayaks, stand up paddle boards, sailboats, windsurf gear, beach chairs and umbrellas. Life jackets are included with nautical equipment rentals.",tags:["Praia da Armação","Kayak and stand up paddle","Chairs and umbrellas"]},
+    fr:{type:"Location d’équipement",description:"BL3 Armação loue des kayaks, des planches de stand up paddle, des voiliers, du matériel de planche à voile, des chaises de plage et des parasols. Les gilets de sauvetage sont inclus avec la location nautique.",tags:["Praia da Armação","Kayak et stand up paddle","Chaises et parasols"]},
+    es:{type:"Alquiler de equipos",description:"BL3 Armação alquila kayaks, tablas de stand up paddle, veleros, equipo de windsurf, sillas de playa y sombrillas. Los chalecos salvavidas están incluidos en el alquiler náutico.",tags:["Praia da Armação","Kayak y stand up paddle","Sillas y sombrillas"]},
+    he:{type:"השכרת ציוד",description:"ב-BL3 Armação ניתן לשכור קיאקים, גלשני stand up paddle, מפרשיות, ציוד גלישת רוח, כיסאות חוף ושמשיות. חליפות הצלה כלולות בהשכרת ציוד ימי.",tags:["Praia da Armação","קיאק ו-stand up paddle","כיסאות ושמשיות"]}
   }
 };
 

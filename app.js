@@ -972,7 +972,8 @@ function getServiceCategoryLabel(category) {
     tour: 'servicesTours',
     diving: 'servicesDiving',
     food: 'servicesFood',
-    stay: 'servicesStay'
+    stay: 'servicesStay',
+    essentials: 'servicesPractical'
   };
   return t(keys[category] || 'servicesAll');
 }
