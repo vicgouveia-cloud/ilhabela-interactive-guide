@@ -1946,6 +1946,83 @@ const servicesData = [
   },
   {
     id:'da-pa-virada',category:'food',name:'Da Pá Virada Gelateria',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['gelato','desserts'],presentation:'compact',serviceType:['gelateria'],serviceFormats:['takeaway'],serviceSpecialties:['desserts'],serviceOccasions:['afternoon','night'],phone:'12991640163',phoneDisplay:'(12) 99164-0163',url:'https://www.pavirada.com.br'
+  },
+  {
+    id:'canal-burguer-ilhabela', category:'food', name:'Canal Burguer Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['burgers','snacks'],
+    presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','takeaway','delivery'],
+    serviceSpecialties:['burger'], serviceOccasions:['lunch','dinner','night'], phone:'12991341365', phoneDisplay:'(12) 99134-1365'
+  },
+  {
+    id:'hamburgueria-hamz', category:'food', name:'Hamburgueria Hamz Artesanal',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['burgers','snacks'],
+    presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','takeaway'],
+    serviceSpecialties:['burger'], serviceOccasions:['dinner','night']
+  },
+  {
+    id:'burgerilha-delivery', category:'food', name:'Burgerilha Delivery',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['delivery']}, activities:['burgers','delivery'],
+    presentation:'compact', serviceType:['burger','deliveryKitchen'], serviceFormats:['snacks','delivery'],
+    serviceSpecialties:['burger'], serviceOccasions:['dinner','night']
+  },
+  {
+    id:'le-ble-dor', category:'food', name:'Le Ble Dor Doces Franceses',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['desserts','pastry'],
+    presentation:'compact', serviceType:['dessert'], serviceFormats:['takeaway'],
+    serviceSpecialties:['desserts','coffeeBrunch'], serviceOccasions:['breakfast','afternoon']
+  },
+  {
+    id:'apple-cake-padaria-artesanal', category:'food', name:'Apple Cake Padaria Artesanal',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['bakery','breakfast'],
+    presentation:'compact', serviceType:['bakery'], serviceFormats:['takeaway'],
+    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
+  },
+  {
+    id:'acai-da-ilha', category:'food', name:'Açaí da Ilha',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['acai','desserts'],
+    presentation:'compact', serviceType:['dessert'], serviceFormats:['takeaway'],
+    serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
+  },
+  {
+    id:'d-aqui-doces-sorvetes', category:'food', name:'D’aqui Doces e Sorvetes',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['ice-cream','desserts'],
+    presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway'],
+    serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
+  },
+  {
+    id:'gelateria-tradizionale', category:'food', name:'Gelateria Tradizionale',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['gelato','desserts'],
+    presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway'],
+    serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
+  },
+  {
+    id:'quiosque-do-camarao', category:'food', name:'Quiosque do Camarão',
+    baseLocation:{nearSpotId:'praia-do-portinho'}, contextSpotIds:['praia-do-portinho'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['seafood','beach-food'],
+    presentation:'compact', serviceType:['kiosk'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','dinner']
+  },
+  {
+    id:'d-peru-cevicheria', category:'food', name:'D’ Perú Cevicheria Peruana',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['ceviche','seafood'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner','night']
+  },
+  {
+    id:'bellabar', category:'food', name:'Bellabar',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['bar','drinks','snacks'],
+    presentation:'compact', serviceType:['bar'], serviceFormats:['snacks'],
+    serviceSpecialties:['brazilian'], serviceOccasions:['afternoon','dinner','night']
   }
 ];
 
@@ -2043,7 +2120,18 @@ const serviceTranslations = {
   "Pimenta de Cheiro": { pt: { type:"Restaurante", description:"Restaurante no Perequê com destaque para frutos do mar e cozinha brasileira.", tags:["Frutos do mar","Brasileira","Perequê"] }, en: { type:"Restaurant", description:"Restaurant in Perequê highlighting seafood and Brazilian cuisine.", tags:["Seafood","Brazilian","Perequê"] }, fr: { type:"Restaurant", description:"Restaurant à Perequê mettant en avant les fruits de mer et la cuisine brésilienne.", tags:["Fruits de mer","Brésilienne","Perequê"] }, es: { type:"Restaurante", description:"Restaurante en Perequê con protagonismo de mariscos y cocina brasileña.", tags:["Mariscos","Brasileña","Perequê"] }, he: { type:"מסעדה", description:"מסעדה ב-Perequê עם דגש על מאכלי ים ומטבח ברזילאי.", tags:["מאכלי ים","ברזילאית","Perequê"] } },
   "Vila Sushi Temakeria e Pokeria": { pt: { type:"Restaurante japonês", description:"Temakeria e pokeria na região central de Ilhabela, com culinária japonesa à la carte.", tags:["Japonesa","Temaki","Vila"] }, en: { type:"Japanese restaurant", description:"Temakeria and poke restaurant in central Ilhabela with Japanese à la carte options.", tags:["Japanese","Temaki","Vila"] }, fr: { type:"Restaurant japonais", description:"Temakeria et poke dans le centre d’Ilhabela, avec cuisine japonaise à la carte.", tags:["Japonaise","Temaki","Vila"] }, es: { type:"Restaurante japonés", description:"Temakeria y poke en el centro de Ilhabela, con opciones japonesas a la carta.", tags:["Japonesa","Temaki","Vila"] }, he: { type:"מסעדה יפנית", description:"טמאקיה ופוקי במרכז Ilhabela, עם אפשרויות יפניות א-לה-קארט.", tags:["יפנית","טמאקי","Vila"] } },
   "Pizzaria Elite": { pt: { type:"Pizzaria", description:"Pizzaria na região do Perequê/Barra Velha, com pizzas e opções para viagem.", tags:["Pizza","Para viagem","Noite"] }, en: { type:"Pizzeria", description:"Pizzeria in the Perequê/Barra Velha area with pizza and takeaway options.", tags:["Pizza","Takeaway","Night"] }, fr: { type:"Pizzeria", description:"Pizzeria dans le secteur Perequê/Barra Velha, avec pizzas et options à emporter.", tags:["Pizza","À emporter","Soir"] }, es: { type:"Pizzería", description:"Pizzería en la zona de Perequê/Barra Velha, con pizzas y opciones para llevar.", tags:["Pizza","Para llevar","Noche"] }, he: { type:"פיצרייה", description:"פיצרייה באזור Perequê/Barra Velha, עם פיצות ואפשרויות לקחת.", tags:["פיצה","טייק-אוויי","לילה"] } },
-  "Da Pá Virada Gelateria": { pt: { type:"Sorveteria / gelateria", description:"Gelateria no centro de Ilhabela, opção para sorvetes e sobremesas durante a tarde e a noite.", tags:["Gelato","Sobremesas","Centro"] }, en: { type:"Ice cream / gelato", description:"Gelateria in central Ilhabela with gelato and desserts in the afternoon and evening.", tags:["Gelato","Desserts","Central area"] }, fr: { type:"Glacier / gelateria", description:"Gelateria au centre d’Ilhabela, avec glaces et desserts l’après-midi et le soir.", tags:["Glaces","Desserts","Centre"] }, es: { type:"Heladería / gelateria", description:"Gelateria en el centro de Ilhabela, con helados y postres por la tarde y noche.", tags:["Helados","Postres","Centro"] }, he: { type:"גלידריה", description:"גלידריה במרכז Ilhabela עם גלידות וקינוחים אחר הצהריים ובערב.", tags:["גלידה","קינוחים","מרכז"] } }
+  "Da Pá Virada Gelateria": { pt: { type:"Sorveteria / gelateria", description:"Gelateria no centro de Ilhabela, opção para sorvetes e sobremesas durante a tarde e a noite.", tags:["Gelato","Sobremesas","Centro"] }, en: { type:"Ice cream / gelato", description:"Gelateria in central Ilhabela with gelato and desserts in the afternoon and evening.", tags:["Gelato","Desserts","Central area"] }, fr: { type:"Glacier / gelateria", description:"Gelateria au centre d’Ilhabela, avec glaces et desserts l’après-midi et le soir.", tags:["Glaces","Desserts","Centre"] }, es: { type:"Heladería / gelateria", description:"Gelateria en el centro de Ilhabela, con helados y postres por la tarde y noche.", tags:["Helados","Postres","Centro"] }, he: { type:"גלידריה", description:"גלידריה במרכז Ilhabela עם גלידות וקינוחים אחר הצהריים ובערב.", tags:["גלידה","קינוחים","מרכז"] } },
+  "Canal Burguer Ilhabela": { pt:{type:"Hamburgueria",description:"Hambúrgueres feitos na chapa, com opções para retirada e delivery no Perequê.",tags:["Alimentação","Ilhabela"]}, en:{type:"Burger restaurant",description:"Hambúrgueres feitos na chapa, com opções para retirada e delivery no Perequê.",tags:["Food","Ilhabela"]}, fr:{type:"Burger restaurant",description:"Hambúrgueres feitos na chapa, com opções para retirada e delivery no Perequê.",tags:["Restauration","Ilhabela"]}, es:{type:"Hamburguesería",description:"Hambúrgueres feitos na chapa, com opções para retirada e delivery no Perequê.",tags:["Alimentación","Ilhabela"]}, he:{type:"המבורגריה",description:"Hambúrgueres feitos na chapa, com opções para retirada e delivery no Perequê.",tags:["אוכל","Ilhabela"]} },
+  "Hamburgueria Hamz Artesanal": { pt:{type:"Hamburgueria artesanal",description:"Hambúrgueres artesanais na região do Perequê.",tags:["Alimentação","Ilhabela"]}, en:{type:"Artisanal burger restaurant",description:"Hambúrgueres artesanais na região do Perequê.",tags:["Food","Ilhabela"]}, fr:{type:"Burger artisanal",description:"Hambúrgueres artesanais na região do Perequê.",tags:["Restauration","Ilhabela"]}, es:{type:"Hamburguesería artesanal",description:"Hambúrgueres artesanais na região do Perequê.",tags:["Alimentación","Ilhabela"]}, he:{type:"המבורגריה ארטיזנלית",description:"Hambúrgueres artesanais na região do Perequê.",tags:["אוכל","Ilhabela"]} },
+  "Burgerilha Delivery": { pt:{type:"Hamburgueria / delivery",description:"Hambúrgueres com atendimento focado em delivery na região de Água Branca.",tags:["Alimentação","Ilhabela"]}, en:{type:"Burger restaurant / delivery",description:"Hambúrgueres com atendimento focado em delivery na região de Água Branca.",tags:["Food","Ilhabela"]}, fr:{type:"Burger / livraison",description:"Hambúrgueres com atendimento focado em delivery na região de Água Branca.",tags:["Restauration","Ilhabela"]}, es:{type:"Hamburguesería / delivery",description:"Hambúrgueres com atendimento focado em delivery na região de Água Branca.",tags:["Alimentación","Ilhabela"]}, he:{type:"המבורגריה / משלוחים",description:"Hambúrgueres com atendimento focado em delivery na região de Água Branca.",tags:["אוכל","Ilhabela"]} },
+  "Le Ble Dor Doces Franceses": { pt:{type:"Doces e confeitaria",description:"Doces e confeitaria francesa na região de Itaquanduba.",tags:["Alimentação","Ilhabela"]}, en:{type:"French desserts and pastry",description:"Doces e confeitaria francesa na região de Itaquanduba.",tags:["Food","Ilhabela"]}, fr:{type:"Pâtisserie française",description:"Doces e confeitaria francesa na região de Itaquanduba.",tags:["Restauration","Ilhabela"]}, es:{type:"Dulces y pastelería francesa",description:"Doces e confeitaria francesa na região de Itaquanduba.",tags:["Alimentación","Ilhabela"]}, he:{type:"קינוחים וקונדיטוריה צרפתית",description:"Doces e confeitaria francesa na região de Itaquanduba.",tags:["אוכל","Ilhabela"]} },
+  "Apple Cake Padaria Artesanal": { pt:{type:"Padaria artesanal",description:"Padaria artesanal no Perequê, com pães, doces e opções para o café da manhã.",tags:["Alimentação","Ilhabela"]}, en:{type:"Artisanal bakery",description:"Padaria artesanal no Perequê, com pães, doces e opções para o café da manhã.",tags:["Food","Ilhabela"]}, fr:{type:"Boulangerie artisanale",description:"Padaria artesanal no Perequê, com pães, doces e opções para o café da manhã.",tags:["Restauration","Ilhabela"]}, es:{type:"Panadería artesanal",description:"Padaria artesanal no Perequê, com pães, doces e opções para o café da manhã.",tags:["Alimentación","Ilhabela"]}, he:{type:"מאפייה ארטיזנלית",description:"Padaria artesanal no Perequê, com pães, doces e opções para o café da manhã.",tags:["אוכל","Ilhabela"]} },
+  "Açaí da Ilha": { pt:{type:"Açaí e sobremesas",description:"Açaí e sobremesas na região central de Ilhabela.",tags:["Alimentação","Ilhabela"]}, en:{type:"Açaí and desserts",description:"Açaí e sobremesas na região central de Ilhabela.",tags:["Food","Ilhabela"]}, fr:{type:"Açaí et desserts",description:"Açaí e sobremesas na região central de Ilhabela.",tags:["Restauration","Ilhabela"]}, es:{type:"Açaí y postres",description:"Açaí e sobremesas na região central de Ilhabela.",tags:["Alimentación","Ilhabela"]}, he:{type:"אסאי וקינוחים",description:"Açaí e sobremesas na região central de Ilhabela.",tags:["אוכל","Ilhabela"]} },
+  "D’aqui Doces e Sorvetes": { pt:{type:"Sorveteria e doces",description:"Sorvetes e doces na Vila, uma opção para a tarde ou a noite.",tags:["Alimentação","Ilhabela"]}, en:{type:"Ice cream and desserts",description:"Sorvetes e doces na Vila, uma opção para a tarde ou a noite.",tags:["Food","Ilhabela"]}, fr:{type:"Glaces et desserts",description:"Sorvetes e doces na Vila, uma opção para a tarde ou a noite.",tags:["Restauration","Ilhabela"]}, es:{type:"Helados y postres",description:"Sorvetes e doces na Vila, uma opção para a tarde ou a noite.",tags:["Alimentación","Ilhabela"]}, he:{type:"גלידות וקינוחים",description:"Sorvetes e doces na Vila, uma opção para a tarde ou a noite.",tags:["אוכל","Ilhabela"]} },
+  "Gelateria Tradizionale": { pt:{type:"Gelateria",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["Alimentação","Ilhabela"]}, en:{type:"Gelateria",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["Food","Ilhabela"]}, fr:{type:"Gelateria",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["Restauration","Ilhabela"]}, es:{type:"Gelateria",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["Alimentación","Ilhabela"]}, he:{type:"גלידריה",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["אוכל","Ilhabela"]} },
+  "Quiosque do Camarão": { pt:{type:"Quiosque",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["Alimentação","Ilhabela"]}, en:{type:"Beach kiosk",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["Food","Ilhabela"]}, fr:{type:"Kiosque de plage",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["Restauration","Ilhabela"]}, es:{type:"Quiosco de playa",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["Alimentación","Ilhabela"]}, he:{type:"קיוסק חוף",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["אוכל","Ilhabela"]} },
+  "D’ Perú Cevicheria Peruana": { pt:{type:"Cevicheria peruana",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Alimentação","Ilhabela"]}, en:{type:"Peruvian cevicheria",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Food","Ilhabela"]}, fr:{type:"Cevicheria péruvienne",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Restauration","Ilhabela"]}, es:{type:"Cevichería peruana",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Alimentación","Ilhabela"]}, he:{type:"סביצ׳ריה פרואנית",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["אוכל","Ilhabela"]} },
+  "Bellabar": { pt:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Alimentação","Ilhabela"]}, en:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Food","Ilhabela"]}, fr:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Restauration","Ilhabela"]}, es:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Alimentación","Ilhabela"]}, he:{type:"בר / גסטרובר",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["אוכל","Ilhabela"]} }
 };
 
 servicesData.forEach(service => {
