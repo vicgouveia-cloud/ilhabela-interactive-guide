@@ -7,6 +7,9 @@
   let category = 'all';
   let directoryLocation = null;
   const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
+  const resetCategoryFilters = () => {
+    Object.keys(foodFilterState).forEach(key => { foodFilterState[key] = 'all'; });
+  };
 
   const getSpotCoords = spot => {
     if (!spot) return null;
@@ -77,7 +80,9 @@
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
     filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
     filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => {
-      category = button.dataset.servicePageCategory;
+      const nextCategory = button.dataset.servicePageCategory;
+      if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
+      category = nextCategory;
       window.renderServicesPage();
     }));
 
