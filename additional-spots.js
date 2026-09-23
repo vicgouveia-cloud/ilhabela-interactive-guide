@@ -2111,6 +2111,21 @@ const servicesData = [
     presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
     serviceOccasions:['lunch','afternoon','dinner'],
     phone:'1238962528', phoneDisplay:'(12) 3896-2528', instagram:'@balenaclub'
+  },
+  {
+    id:'mabe-empanadas', category:'food', name:'Mabe Empanadas',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['empanadas','snacks'],
+    presentation:'compact', serviceType:['streetFood'], serviceFormats:['snacks','takeaway'],
+    phone:'11952892000', phoneDisplay:'(11) 95289-2000', instagram:'@empanadasmabe'
+  },
+  {
+    id:'mana-ayo', category:'food', name:'Maná Ayo',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['delivery']}, activities:['delivery','croquettes','seafood'],
+    presentation:'compact', serviceType:['deliveryKitchen'], serviceFormats:['delivery'],
+    serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner'],
+    phone:'12996048438', phoneDisplay:'(12) 99604-8438', instagram:'@manaayo.ilhabela'
   }
 ];
 
@@ -2296,6 +2311,20 @@ const serviceTranslations = {
     fr:{type:"Bar et restaurant de plage",description:"Bar et restaurant dans le secteur de Praia da Siriúba, à Ilhabela.",tags:["Praia da Siriúba","Bar et restaurant","Ilhabela"]},
     es:{type:"Bar y restaurante de playa",description:"Bar y restaurante en la zona de Praia da Siriúba, en Ilhabela.",tags:["Praia da Siriúba","Bar y restaurante","Ilhabela"]},
     he:{type:"בר ומסעדת חוף",description:"בר ומסעדה באזור Praia da Siriúba שב-Ilhabela.",tags:["Praia da Siriúba","בר ומסעדה","Ilhabela"]}
+  },
+  "Mabe Empanadas": {
+    pt:{type:"Empanadas",description:"Empanadas no bairro do Zabumba, em Ilhabela.",tags:["Zabumba","Empanadas","Para viagem"]},
+    en:{type:"Empanadas",description:"Empanadas in the Zabumba neighborhood of Ilhabela.",tags:["Zabumba","Empanadas","Takeaway"]},
+    fr:{type:"Empanadas",description:"Empanadas dans le quartier de Zabumba, à Ilhabela.",tags:["Zabumba","Empanadas","À emporter"]},
+    es:{type:"Empanadas",description:"Empanadas en el barrio de Zabumba, en Ilhabela.",tags:["Zabumba","Empanadas","Para llevar"]},
+    he:{type:"אמפנדס",description:"אמפנדס בשכונת Zabumba שב-Ilhabela.",tags:["Zabumba","אמפנדס","לקחת"]}
+  },
+  "Maná Ayo": {
+    pt:{type:"Cozinha de delivery",description:"Delivery em Barra Velha. Entre os preparos apresentados no Festival do Camarão está a Croqueta Imperial de camarão.",tags:["Delivery","Barra Velha","Camarão"]},
+    en:{type:"Delivery kitchen",description:"Delivery service in Barra Velha. A shrimp Croqueta Imperial is among the dishes presented at the Ilhabela Shrimp Festival.",tags:["Delivery","Barra Velha","Shrimp"]},
+    fr:{type:"Cuisine en livraison",description:"Service de livraison à Barra Velha. La Croqueta Imperial aux crevettes figure parmi les plats présentés au Festival de la crevette d’Ilhabela.",tags:["Livraison","Barra Velha","Crevettes"]},
+    es:{type:"Cocina de delivery",description:"Servicio de entrega en Barra Velha. La Croqueta Imperial de camarón figura entre los platos presentados en el Festival del Camarón de Ilhabela.",tags:["Delivery","Barra Velha","Camarón"]},
+    he:{type:"מטבח משלוחים",description:"שירות משלוחים ב-Barra Velha. קרוקטת שרימפס Imperial הוצגה בין המנות בפסטיבל השרימפס של Ilhabela.",tags:["משלוחים","Barra Velha","שרימפס"]}
   }
 };
 
