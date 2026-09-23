@@ -2148,6 +2148,21 @@ const servicesData = [
     presentation:'compact', serviceType:['equipmentRental'],
     phone:'1238961271', phoneDisplay:'(12) 3896-1271', whatsapp:'12991267649', whatsappDisplay:'(12) 99126-7649',
     url:'https://www.bl3.com.br/product-page/loca%C3%A7%C3%B5es-de-equipamentos-praia-da-armacao-ilhabela'
+  },
+  {
+    id:'hospital-municipal-mario-covas', category:'essentials', name:'Hospital Municipal Governador Mário Covas Jr.',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['hospital','emergency-care','public-health'],
+    presentation:'compact', serviceType:['hospital'],
+    phone:'1238953520', phoneDisplay:'(12) 3895-3520',
+    url:'https://www.ilhabela.sp.gov.br/portal/carta-servicos/40/'
+  },
+  {
+    id:'drogaria-sao-paulo-pereque', category:'essentials', name:'Drogaria São Paulo — Perequê',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['pharmacy','health-products'],
+    presentation:'compact', serviceType:['pharmacy'],
+    url:'https://www.drogariasaopaulo.com.br/'
   }
 ];
 
@@ -2368,6 +2383,20 @@ const serviceTranslations = {
     fr:{type:"Location d’équipement",description:"BL3 Armação loue des kayaks, des planches de stand up paddle, des voiliers, du matériel de planche à voile, des chaises de plage et des parasols. Les gilets de sauvetage sont inclus avec la location nautique.",tags:["Praia da Armação","Kayak et stand up paddle","Chaises et parasols"]},
     es:{type:"Alquiler de equipos",description:"BL3 Armação alquila kayaks, tablas de stand up paddle, veleros, equipo de windsurf, sillas de playa y sombrillas. Los chalecos salvavidas están incluidos en el alquiler náutico.",tags:["Praia da Armação","Kayak y stand up paddle","Sillas y sombrillas"]},
     he:{type:"השכרת ציוד",description:"ב-BL3 Armação ניתן לשכור קיאקים, גלשני stand up paddle, מפרשיות, ציוד גלישת רוח, כיסאות חוף ושמשיות. חליפות הצלה כלולות בהשכרת ציוד ימי.",tags:["Praia da Armação","קיאק ו-stand up paddle","כיסאות ושמשיות"]}
+  },
+  "Hospital Municipal Governador Mário Covas Jr.": {
+    pt:{type:"Hospital e pronto-socorro 24 horas",description:"Hospital municipal em Barra Velha com atendimento de urgência e emergência. Av. Prof. Malaquias de Oliveira Freitas, 154. Telefone: (12) 3895-3520.",tags:["Barra Velha","Urgência e emergência","Atendimento 24 horas"]},
+    en:{type:"24-hour hospital and emergency department",description:"Municipal hospital in Barra Velha with urgent and emergency care. Av. Prof. Malaquias de Oliveira Freitas, 154. Phone: (12) 3895-3520.",tags:["Barra Velha","Urgent and emergency care","Open 24 hours"]},
+    fr:{type:"Hôpital et urgences 24 h/24",description:"Hôpital municipal à Barra Velha assurant les soins urgents et d’urgence. Av. Prof. Malaquias de Oliveira Freitas, 154. Tél. : (12) 3895-3520.",tags:["Barra Velha","Soins urgents et d’urgence","Ouvert 24 h/24"]},
+    es:{type:"Hospital y urgencias 24 horas",description:"Hospital municipal en Barra Velha con atención de urgencias y emergencias. Av. Prof. Malaquias de Oliveira Freitas, 154. Teléfono: (12) 3895-3520.",tags:["Barra Velha","Urgencias y emergencias","Atención 24 horas"]},
+    he:{type:"בית חולים וחדר מיון 24 שעות",description:"בית חולים עירוני ב-Barra Velha עם טיפול דחוף ובמקרי חירום. Av. Prof. Malaquias de Oliveira Freitas, 154. טלפון: (12) 3895-3520.",tags:["Barra Velha","טיפול דחוף וחירום","פתוח 24 שעות"]}
+  },
+  "Drogaria São Paulo — Perequê": {
+    pt:{type:"Farmácia",description:"Farmácia comercial na Avenida Princesa Isabel, 1418, no Perequê.",tags:["Perequê","Medicamentos","Higiene e cuidados pessoais"]},
+    en:{type:"Pharmacy",description:"Retail pharmacy at Avenida Princesa Isabel, 1418, in Perequê.",tags:["Perequê","Medicines","Personal care"]},
+    fr:{type:"Pharmacie",description:"Pharmacie commerciale située Avenida Princesa Isabel, 1418, à Perequê.",tags:["Perequê","Médicaments","Hygiène et soins personnels"]},
+    es:{type:"Farmacia",description:"Farmacia comercial en Avenida Princesa Isabel, 1418, en Perequê.",tags:["Perequê","Medicamentos","Higiene y cuidado personal"]},
+    he:{type:"בית מרקחת",description:"בית מרקחת מסחרי ב-Avenida Princesa Isabel, 1418, באזור Perequê.",tags:["Perequê","תרופות","היגיינה וטיפוח אישי"]}
   }
 };
 

@@ -11,6 +11,8 @@ const serviceTaxonomy = {
     laundry: {pt:'Lavanderia',en:'Laundry',fr:'Blanchisserie',es:'Lavandería',he:'מכבסה'},
     supermarket: {pt:'Supermercado',en:'Supermarket',fr:'Supermarché',es:'Supermercado',he:'סופרמרקט'},
     equipmentRental: {pt:'Aluguel de equipamentos',en:'Equipment rental',fr:'Location d’équipement',es:'Alquiler de equipos',he:'השכרת ציוד'},
+    pharmacy: {pt:'Farmácia',en:'Pharmacy',fr:'Pharmacie',es:'Farmacia',he:'בית מרקחת'},
+    hospital: {pt:'Hospital e pronto-socorro',en:'Hospital and emergency care',fr:'Hôpital et urgences',es:'Hospital y urgencias',he:'בית חולים ומיון'},
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
     kiosk: {pt:'Quiosque',en:'Kiosk',fr:'Kiosque',es:'Quiosco',he:'קיוסק'},
