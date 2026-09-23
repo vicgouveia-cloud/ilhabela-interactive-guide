@@ -1,5 +1,12 @@
 // Canonical service taxonomy. Stable IDs with localized labels.
 const serviceTaxonomy = {
+  labels: {
+    all: {pt:'Todos',en:'All',fr:'Tous',es:'Todos',he:'הכול'},
+    type: {pt:'Tipo',en:'Type',fr:'Type',es:'Tipo',he:'סוג'},
+    format: {pt:'Formato',en:'Format',fr:'Format',es:'Formato',he:'פורמט'},
+    specialty: {pt:'Especialidade',en:'Specialty',fr:'Spécialité',es:'Especialidad',he:'התמחות'},
+    occasion: {pt:'Momento',en:'Occasion',fr:'Moment',es:'Momento',he:'מועד'}
+  },
   type: {
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
