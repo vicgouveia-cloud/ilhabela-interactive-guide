@@ -2087,6 +2087,30 @@ const servicesData = [
     presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['coffeeBrunch'], serviceOccasions:['breakfast','afternoon'],
     phone:'12974104132', phoneDisplay:'(12) 97410-4132', instagram:'@cocobongocafe'
+  },
+  {
+    id:'atemoya-gastronomia', category:'food', name:'Atemoya Gastronomia',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','seafood'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte'],
+    serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner'],
+    phone:'12991802031', phoneDisplay:'(12) 99180-2031', instagram:'@atemoyagastronomia'
+  },
+  {
+    id:'ilhabela-republic-garden', category:'food', name:'Ilhabela Republic Garden',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['cafe','brunch','pizza'],
+    presentation:'compact', serviceType:['cafe','pizzeria'], serviceFormats:['aLaCarte','takeaway'],
+    serviceSpecialties:['coffeeBrunch','pizza'], serviceOccasions:['breakfast','brunch','afternoon','dinner'],
+    phone:'12991434949', phoneDisplay:'(12) 99143-4949', instagram:'@ilhabelarepublic', url:'https://linktr.ee/ilhabelarepublic'
+  },
+  {
+    id:'balena-club', category:'food', name:'Balena Club',
+    baseLocation:{nearSpotId:'praia-da-siriuba'}, contextSpotIds:['praia-da-siriuba'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','bar','beach-club'],
+    presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
+    serviceOccasions:['lunch','afternoon','dinner'],
+    phone:'1238962528', phoneDisplay:'(12) 3896-2528', instagram:'@balenaclub'
   }
 ];
 
@@ -2251,6 +2275,27 @@ const serviceTranslations = {
     fr:{type:"Café",description:"Café dans le quartier de Pequeá, à Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
     es:{type:"Café",description:"Café en el barrio de Pequeá, en Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
     he:{type:"בית קפה",description:"בית קפה בשכונת Pequeá שב-Ilhabela.",tags:["Pequeá","בית קפה","Ilhabela"]}
+  },
+  "Atemoya Gastronomia": {
+    pt:{type:"Restaurante",description:"Restaurante no Perequê com opções de frutos do mar.",tags:["Perequê","Frutos do mar","Ilhabela"]},
+    en:{type:"Restaurant",description:"Restaurant in Perequê with seafood options.",tags:["Perequê","Seafood","Ilhabela"]},
+    fr:{type:"Restaurant",description:"Restaurant à Perequê proposant des fruits de mer.",tags:["Perequê","Fruits de mer","Ilhabela"]},
+    es:{type:"Restaurante",description:"Restaurante en Perequê con opciones de mariscos.",tags:["Perequê","Mariscos","Ilhabela"]},
+    he:{type:"מסעדה",description:"מסעדה ב-Perequê עם מבחר מאכלי ים.",tags:["Perequê","מאכלי ים","Ilhabela"]}
+  },
+  "Ilhabela Republic Garden": {
+    pt:{type:"Café, brunch e pizzaria",description:"Unidade Garden na Vila com café e brunch durante o dia e pizzas artesanais à noite.",tags:["Vila","Café e brunch","Pizza artesanal"]},
+    en:{type:"Café, brunch and pizzeria",description:"Garden location in Vila serving coffee and brunch during the day and artisan pizzas in the evening.",tags:["Vila","Coffee and brunch","Artisan pizza"]},
+    fr:{type:"Café, brunch et pizzeria",description:"Adresse Garden dans la Vila, avec café et brunch en journée et pizzas artisanales le soir.",tags:["Vila","Café et brunch","Pizza artisanale"]},
+    es:{type:"Café, brunch y pizzería",description:"Local Garden en la Vila, con café y brunch durante el día y pizzas artesanales por la noche.",tags:["Vila","Café y brunch","Pizza artesanal"]},
+    he:{type:"בית קפה, בראנץ׳ ופיצרייה",description:"סניף Garden באזור Vila, עם קפה ובראנץ׳ ביום ופיצות בעבודת יד בערב.",tags:["Vila","קפה ובראנץ׳","פיצה בעבודת יד"]}
+  },
+  "Balena Club": {
+    pt:{type:"Bar e restaurante de praia",description:"Bar e restaurante na região da Praia da Siriúba, em Ilhabela.",tags:["Praia da Siriúba","Bar e restaurante","Ilhabela"]},
+    en:{type:"Beach bar and restaurant",description:"Bar and restaurant in the Praia da Siriúba area of Ilhabela.",tags:["Praia da Siriúba","Bar and restaurant","Ilhabela"]},
+    fr:{type:"Bar et restaurant de plage",description:"Bar et restaurant dans le secteur de Praia da Siriúba, à Ilhabela.",tags:["Praia da Siriúba","Bar et restaurant","Ilhabela"]},
+    es:{type:"Bar y restaurante de playa",description:"Bar y restaurante en la zona de Praia da Siriúba, en Ilhabela.",tags:["Praia da Siriúba","Bar y restaurante","Ilhabela"]},
+    he:{type:"בר ומסעדת חוף",description:"בר ומסעדה באזור Praia da Siriúba שב-Ilhabela.",tags:["Praia da Siriúba","בר ומסעדה","Ilhabela"]}
   }
 };
 
