@@ -2023,6 +2023,38 @@ const servicesData = [
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['bar','drinks','snacks'],
     presentation:'compact', serviceType:['bar'], serviceFormats:['snacks'],
     serviceSpecialties:['brazilian'], serviceOccasions:['afternoon','dinner','night']
+  },
+  {
+    id:'padoca-da-ilha', category:'food', name:'Padoca da Ilha',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','bread','pastry','breakfast','coffee'],
+    presentation:'compact', serviceType:['bakery'], serviceFormats:['takeaway','snacks'],
+    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon'],
+    whatsapp:'12996609785', whatsappDisplay:'(12) 99660-9785', instagram:'@padocailhaoficial'
+  },
+  {
+    id:'ponto-das-letras', category:'food', name:'Ponto das Letras',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['cafe','coffee','light-meals','books','culture'],
+    presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','lunch','afternoon'],
+    whatsapp:'12991273331', whatsappDisplay:'(12) 99127-3331', url:'https://pontodasletras.com.br/'
+  },
+  {
+    id:'sandara-comida-libanesa', category:'food', name:'Sandara Comida Libanesa',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway','delivery']}, activities:['restaurant','lebanese-food','meze','delivery'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','takeaway','delivery'],
+    serviceSpecialties:['arabicLebanese'], serviceOccasions:['lunch','dinner','night'],
+    whatsapp:'12982569497', whatsappDisplay:'(12) 98256-9497', url:'https://www.sandara.com.br/'
+  },
+  {
+    id:'madalena-pasta-pizza', category:'food', name:'Madalena Pasta & Pizza',
+    baseLocation:{nearSpotId:'fazenda-engenho-dagua'}, contextSpotIds:['fazenda-engenho-dagua'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','italian-food','pasta','pizza'],
+    presentation:'compact', serviceType:['restaurant','pizzeria'], serviceFormats:['aLaCarte'],
+    serviceSpecialties:['italian','pasta','pizza'], serviceOccasions:['dinner','night'],
+    phone:'12991044237', phoneDisplay:'(12) 99104-4237', url:'https://velasdoengenho.com.br/madalena-pizza-bar/'
   }
 ];
 
@@ -2131,7 +2163,35 @@ const serviceTranslations = {
   "Gelateria Tradizionale": { pt:{type:"Gelateria",description:"Gelateria na Vila com sorvetes e sobremesas.",tags:["Alimentação","Ilhabela"]}, en:{type:"Gelateria",description:"Gelateria in Vila with ice cream and desserts.",tags:["Food","Ilhabela"]}, fr:{type:"Gelateria",description:"Gelateria à Vila avec glaces et desserts.",tags:["Restauration","Ilhabela"]}, es:{type:"Gelateria",description:"Gelateria en Vila con helados y postres.",tags:["Alimentación","Ilhabela"]}, he:{type:"גלידריה",description:"גלידריה ב-Vila עם גלידות וקינוחים.",tags:["אוכל","Ilhabela"]} },
   "Quiosque do Camarão": { pt:{type:"Quiosque",description:"Quiosque na Praia Grande com destaque para frutos do mar.",tags:["Alimentação","Ilhabela"]}, en:{type:"Beach kiosk",description:"Beach kiosk in Praia Grande, highlighting seafood.",tags:["Food","Ilhabela"]}, fr:{type:"Kiosque de plage",description:"Kiosque de plage à Praia Grande, spécialisé dans les fruits de mer.",tags:["Restauration","Ilhabela"]}, es:{type:"Quiosco de playa",description:"Quiosco de playa en Praia Grande, con especialidad en mariscos.",tags:["Alimentación","Ilhabela"]}, he:{type:"קיוסק חוף",description:"קיוסק חוף ב-Praia Grande עם דגש על מאכלי ים.",tags:["אוכל","Ilhabela"]} },
   "D’ Perú Cevicheria Peruana": { pt:{type:"Cevicheria peruana",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Alimentação","Ilhabela"]}, en:{type:"Peruvian cevicheria",description:"Peruvian cevicheria in Perequê, with seafood-based preparations.",tags:["Food","Ilhabela"]}, fr:{type:"Cevicheria péruvienne",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Restauration","Ilhabela"]}, es:{type:"Cevichería peruana",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["Alimentación","Ilhabela"]}, he:{type:"סביצ׳ריה פרואנית",description:"Cevicheria peruana no Perequê, com preparos à base de frutos do mar.",tags:["אוכל","Ilhabela"]} },
-  "Bellabar": { pt:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Alimentação","Ilhabela"]}, en:{type:"Bar / gastrobar",description:"Bar in Vila, with drinks and snacks.",tags:["Food","Ilhabela"]}, fr:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Restauration","Ilhabela"]}, es:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Alimentación","Ilhabela"]}, he:{type:"בר / גסטרובר",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["אוכל","Ilhabela"]} }
+  "Bellabar": { pt:{type:"Bar / gastrobar",description:"Bar na Vila, opção para bebidas e petiscos.",tags:["Alimentação","Ilhabela"]}, en:{type:"Bar / gastrobar",description:"Bar in Vila, with drinks and snacks.",tags:["Food","Ilhabela"]}, fr:{type:"Bar / gastrobar",description:"Bar à Vila, avec boissons et petites assiettes.",tags:["Restauration","Ilhabela"]}, es:{type:"Bar / gastrobar",description:"Bar en Vila, con bebidas y aperitivos.",tags:["Alimentación","Ilhabela"]}, he:{type:"בר / גסטרובר",description:"בר ב-Vila עם משקאות ונשנושים.",tags:["אוכל","Ilhabela"]} },
+  "Padoca da Ilha": {
+    pt:{type:"Padaria artesanal",description:"Padaria no Perequê com pães de fermentação natural, confeitaria e opções para acompanhar o café.",tags:["Pães artesanais","Confeitaria","Perequê"]},
+    en:{type:"Artisan bakery",description:"Bakery in Perequê with naturally fermented breads, pastries and treats to enjoy with coffee.",tags:["Artisan bread","Pastries","Perequê"]},
+    fr:{type:"Boulangerie artisanale",description:"Boulangerie à Perequê proposant des pains au levain, des viennoiseries et des douceurs à déguster avec un café.",tags:["Pains artisanaux","Viennoiseries","Perequê"]},
+    es:{type:"Panadería artesanal",description:"Panadería en Perequê con panes de fermentación natural, bollería y dulces para acompañar el café.",tags:["Panes artesanales","Bollería","Perequê"]},
+    he:{type:"מאפייה אומנותית",description:"מאפייה ב-Perequê עם לחמי מחמצת, מאפים ומתוקים לצד הקפה.",tags:["לחמים אומנותיים","מאפים","Perequê"]}
+  },
+  "Ponto das Letras": {
+    pt:{type:"Café, livraria e espaço cultural",description:"Café no centro de Ilhabela com bebidas, sanduíches e doces, integrado a um espaço de livros, arte e música.",tags:["Café","Livraria","Cultura"]},
+    en:{type:"Café, bookshop and cultural space",description:"Café in central Ilhabela serving drinks, sandwiches and sweets in a space for books, art and music.",tags:["Coffee","Bookshop","Culture"]},
+    fr:{type:"Café, librairie et espace culturel",description:"Café au centre d’Ilhabela proposant boissons, sandwichs et douceurs dans un espace dédié aux livres, à l’art et à la musique.",tags:["Café","Librairie","Culture"]},
+    es:{type:"Café, librería y espacio cultural",description:"Café en el centro de Ilhabela con bebidas, sándwiches y dulces, en un espacio de libros, arte y música.",tags:["Café","Librería","Cultura"]},
+    he:{type:"בית קפה, חנות ספרים ומרכז תרבות",description:"בית קפה במרכז Ilhabela עם משקאות, כריכים ומתוקים, לצד ספרים, אמנות ומוזיקה.",tags:["קפה","ספרים","תרבות"]}
+  },
+  "Sandara Comida Libanesa": {
+    pt:{type:"Restaurante de cozinha libanesa",description:"Restaurante em Itaquanduba com cozinha libanesa artesanal, pratos para compartilhar, atendimento no local, retirada e delivery.",tags:["Culinária libanesa","Mezze","Itaquanduba"]},
+    en:{type:"Lebanese restaurant",description:"Restaurant in Itaquanduba serving handmade Lebanese cuisine and sharing plates, with dine-in, takeaway and delivery.",tags:["Lebanese cuisine","Mezze","Itaquanduba"]},
+    fr:{type:"Restaurant libanais",description:"Restaurant à Itaquanduba proposant une cuisine libanaise artisanale et des mezzés à partager, sur place, à emporter ou en livraison.",tags:["Cuisine libanaise","Mezzés","Itaquanduba"]},
+    es:{type:"Restaurante libanés",description:"Restaurante en Itaquanduba con cocina libanesa artesanal y platos para compartir, con servicio en el local, para llevar y a domicilio.",tags:["Cocina libanesa","Mezze","Itaquanduba"]},
+    he:{type:"מסעדה לבנונית",description:"מסעדה ב-Itaquanduba עם מטבח לבנוני בעבודת יד ומנות לחלוקה, לאכילה במקום, לאיסוף או למשלוח.",tags:["מטבח לבנוני","מזה","Itaquanduba"]}
+  },
+  "Madalena Pasta & Pizza": {
+    pt:{type:"Restaurante italiano e pizzaria",description:"Restaurante italiano no Engenho d’Água com massas e pizzas.",tags:["Italiana","Massas","Pizza"]},
+    en:{type:"Italian restaurant and pizzeria",description:"Italian restaurant in Engenho d’Água serving pasta and pizza.",tags:["Italian","Pasta","Pizza"]},
+    fr:{type:"Restaurant italien et pizzeria",description:"Restaurant italien à Engenho d’Água proposant des pâtes et des pizzas.",tags:["Cuisine italienne","Pâtes","Pizza"]},
+    es:{type:"Restaurante italiano y pizzería",description:"Restaurante italiano en Engenho d’Água con pastas y pizzas.",tags:["Italiana","Pastas","Pizza"]},
+    he:{type:"מסעדה איטלקית ופיצרייה",description:"מסעדה איטלקית ב-Engenho d’Água עם פסטות ופיצות.",tags:["איטלקי","פסטה","פיצה"]}
+  }
 };
 
 servicesData.forEach(service => {
