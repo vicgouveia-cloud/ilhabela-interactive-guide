@@ -13,6 +13,8 @@ const serviceTaxonomy = {
     equipmentRental: {pt:'Aluguel de equipamentos',en:'Equipment rental',fr:'Location d’équipement',es:'Alquiler de equipos',he:'השכרת ציוד'},
     pharmacy: {pt:'Farmácia',en:'Pharmacy',fr:'Pharmacie',es:'Farmacia',he:'בית מרקחת'},
     hospital: {pt:'Hospital e pronto-socorro',en:'Hospital and emergency care',fr:'Hôpital et urgences',es:'Hospital y urgencias',he:'בית חולים ומיון'},
+    transport: {pt:'Transporte público',en:'Public transport',fr:'Transport public',es:'Transporte público',he:'תחבורה ציבורית'},
+    ferry: {pt:'Travessia de balsa',en:'Ferry crossing',fr:'Traversée en ferry',es:'Travesía en ferry',he:'מעבורת'},
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
     kiosk: {pt:'Quiosque',en:'Kiosk',fr:'Kiosque',es:'Quiosco',he:'קיוסק'},

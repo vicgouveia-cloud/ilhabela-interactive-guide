@@ -2163,6 +2163,29 @@ const servicesData = [
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['pharmacy','health-products'],
     presentation:'compact', serviceType:['pharmacy'],
     url:'https://www.drogariasaopaulo.com.br/'
+  },
+  {
+    id:'aquabus-ilhabela', category:'essentials', name:'Aquabus Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-da-armacao','praia-do-pereque','centro-historico-vila'],
+    serviceArea:{scope:'island-route',modes:['water-transport']}, activities:['public-transport','water-transport'],
+    presentation:'compact', serviceType:['transport'],
+    phone:'12988444164', phoneDisplay:'(12) 98844-4164',
+    url:'https://www.ilhabela.sp.gov.br/portal/servicos/1122/horario-do-aquabus'
+  },
+  {
+    id:'onibus-municipal-expresso-fenix', category:'essentials', name:'Ônibus Municipal Expresso Fênix',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'island-route',modes:['road-transport']}, activities:['public-transport','bus'],
+    presentation:'compact', serviceType:['transport'],
+    whatsapp:'11964979861', whatsappDisplay:'(11) 96497-9861',
+    url:'https://www.ilhabela.sp.gov.br/portal/servicos/1004/horario-onibus-municipal'
+  },
+  {
+    id:'travessia-balsa-ilhabela', category:'essentials', name:'Travessia de Balsa São Sebastião–Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'intercity-route',modes:['ferry']}, activities:['ferry','island-access'],
+    presentation:'compact', serviceType:['ferry'],
+    url:'https://semil.sp.gov.br/dh/'
   }
 ];
 
@@ -2397,6 +2420,27 @@ const serviceTranslations = {
     fr:{type:"Pharmacie",description:"Pharmacie commerciale située Avenida Princesa Isabel, 1418, à Perequê.",tags:["Perequê","Médicaments","Hygiène et soins personnels"]},
     es:{type:"Farmacia",description:"Farmacia comercial en Avenida Princesa Isabel, 1418, en Perequê.",tags:["Perequê","Medicamentos","Higiene y cuidado personal"]},
     he:{type:"בית מרקחת",description:"בית מרקחת מסחרי ב-Avenida Princesa Isabel, 1418, באזור Perequê.",tags:["Perequê","תרופות","היגיינה וטיפוח אישי"]}
+  },
+  "Aquabus Ilhabela": {
+    pt:{type:"Transporte público aquaviário",description:"Transporte municipal por barco entre os píeres da Praia Grande, Balsa, Perequê, Engenho D’Água, Vila e Ponta Azeda. Consulte horários atualizados e condições de navegação no site da Prefeitura.",tags:["Píeres municipais","Horários oficiais","Sujeito às condições climáticas"]},
+    en:{type:"Public water transport",description:"Municipal boat service between the piers at Praia Grande, Balsa, Perequê, Engenho D’Água, Vila and Ponta Azeda. Check current schedules and navigation conditions on the city website.",tags:["Municipal piers","Official schedules","Weather dependent"]},
+    fr:{type:"Transport public par voie maritime",description:"Service municipal par bateau entre les embarcadères de Praia Grande, Balsa, Perequê, Engenho D’Água, Vila et Ponta Azeda. Consultez les horaires et conditions de navigation actualisés sur le site de la mairie.",tags:["Embarcadères municipaux","Horaires officiels","Selon les conditions météo"]},
+    es:{type:"Transporte público acuático",description:"Servicio municipal en barco entre los muelles de Praia Grande, Balsa, Perequê, Engenho D’Água, Vila y Ponta Azeda. Consulta los horarios y las condiciones de navegación actualizados en el sitio municipal.",tags:["Muelles municipales","Horarios oficiales","Sujeto al clima"]},
+    he:{type:"תחבורה ציבורית ימית",description:"שירות סירות עירוני בין המזחים ב-Praia Grande, Balsa, Perequê, Engenho D’Água, Vila ו-Ponta Azeda. יש לבדוק את לוחות הזמנים ואת תנאי ההפלגה המעודכנים באתר העירייה.",tags:["מזחים עירוניים","לוחות זמנים רשמיים","בהתאם לתנאי מזג האוויר"]}
+  },
+  "Ônibus Municipal Expresso Fênix": {
+    pt:{type:"Ônibus municipal",description:"A Expresso Fênix opera o transporte público rodoviário entre as regiões de Ilhabela. Consulte no portal municipal as linhas e tabelas de horários atualizadas.",tags:["Linhas municipais","Tabela de horários","Contato via WhatsApp"]},
+    en:{type:"Municipal bus",description:"Expresso Fênix operates public bus services between areas of Ilhabela. Check current routes and timetables on the municipal portal.",tags:["Municipal routes","Timetables","WhatsApp contact"]},
+    fr:{type:"Bus municipal",description:"Expresso Fênix assure le transport public par bus entre les différents secteurs d’Ilhabela. Consultez les lignes et horaires actualisés sur le portail municipal.",tags:["Lignes municipales","Horaires","Contact WhatsApp"]},
+    es:{type:"Autobús municipal",description:"Expresso Fênix opera el transporte público en autobús entre distintas zonas de Ilhabela. Consulta las rutas y los horarios actualizados en el portal municipal.",tags:["Rutas municipales","Horarios","Contacto por WhatsApp"]},
+    he:{type:"אוטובוס עירוני",description:"Expresso Fênix מפעילה תחבורה ציבורית באוטובוס בין אזורים שונים ב-Ilhabela. יש לבדוק קווים ולוחות זמנים מעודכנים בפורטל העירוני.",tags:["קווים עירוניים","לוחות זמנים","יצירת קשר ב-WhatsApp"]}
+  },
+  "Travessia de Balsa São Sebastião–Ilhabela": {
+    pt:{type:"Travessia estadual de balsa",description:"Travessia de pedestres, bicicletas e veículos entre São Sebastião e Ilhabela, operada pelo sistema estadual. Consulte na SEMIL as condições da travessia, filas, horários e agendamento.",tags:["São Sebastião ↔ Ilhabela","Consulta de filas","Informações oficiais"]},
+    en:{type:"State ferry crossing",description:"Ferry crossing for pedestrians, bicycles and vehicles between São Sebastião and Ilhabela, operated by the state system. Check conditions, queues, schedules and booking with SEMIL.",tags:["São Sebastião ↔ Ilhabela","Queue information","Official service"]},
+    fr:{type:"Traversée en ferry de l’État",description:"Traversée en ferry pour piétons, vélos et véhicules entre São Sebastião et Ilhabela, opérée par le système de l’État. Consultez la SEMIL pour les conditions, files d’attente, horaires et réservations.",tags:["São Sebastião ↔ Ilhabela","État des files","Service officiel"]},
+    es:{type:"Travesía estatal en ferry",description:"Travesía en ferry para peatones, bicicletas y vehículos entre São Sebastião e Ilhabela, operada por el sistema estatal. Consulta en SEMIL las condiciones, filas, horarios y reservas.",tags:["São Sebastião ↔ Ilhabela","Estado de las filas","Servicio oficial"]},
+    he:{type:"מעבורת של מדינת סאו פאולו",description:"מעבורת להולכי רגל, אופניים וכלי רכב בין São Sebastião ל-Ilhabela, המופעלת על ידי המדינה. יש לבדוק באתר SEMIL תנאי מעבר, תורים, לוחות זמנים והזמנות.",tags:["São Sebastião ↔ Ilhabela","מידע על התורים","שירות רשמי"]}
   }
 };
 
