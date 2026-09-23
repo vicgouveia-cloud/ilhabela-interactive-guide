@@ -1,10 +1,12 @@
 (() => {
   const grid = document.getElementById('services-page-grid');
   const filters = document.getElementById('services-page-filters');
+  const foodFilters = document.getElementById('services-food-filters');
   if (!grid || !filters) return;
 
   let category = 'all';
   let directoryLocation = null;
+  const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
 
   const getSpotCoords = spot => {
     if (!spot) return null;
@@ -25,10 +27,68 @@
   };
   const mapUrl = service => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.name + ' Ilhabela SP');
 
+  const labelFor = (dimension, id) => {
+    const entry = serviceTaxonomy?.[dimension]?.[id];
+    return entry?.[currentLang] || id;
+  };
+  const dimensionLabel = {
+    type: { pt: 'Tipo', en: 'Type', fr: 'Type', es: 'Tipo', he: 'סוג' },
+    format: { pt: 'Formato', en: 'Format', fr: 'Format', es: 'Formato', he: 'פורמט' },
+    specialty: { pt: 'Especialidade', en: 'Specialty', fr: 'Spécialité', es: 'Especialidad', he: 'התמחות' },
+    occasion: { pt: 'Momento', en: 'Occasion', fr: 'Moment', es: 'Momento', he: 'מועד' }
+  };
+
+  const renderFoodFilters = () => {
+    if (!foodFilters) return;
+    if (category !== 'food') {
+      foodFilters.classList.add('hidden');
+      foodFilters.innerHTML = '';
+      return;
+    }
+
+    foodFilters.classList.remove('hidden');
+    const fields = [
+      ['type', 'serviceType'],
+      ['format', 'serviceFormats'],
+      ['specialty', 'serviceSpecialties'],
+      ['occasion', 'serviceOccasions']
+    ];
+    foodFilters.innerHTML = fields.map(([dimension, field]) => {
+      const values = [...new Set(servicesData.filter(s => s.category === 'food').flatMap(s => s[field] || []))];
+      const options = ['all', ...values].map(id => {
+        const selected = id === foodFilterState[dimension] ? ' selected' : '';
+        const text = id === 'all' ? (currentLang === 'pt' ? 'Todos' : currentLang === 'en' ? 'All' : currentLang === 'fr' ? 'Tous' : currentLang === 'es' ? 'Todos' : 'הכול') : labelFor(dimension, id);
+        return `<option value="${id}"${selected}>${text}</option>`;
+      }).join('');
+      return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dimensionLabel[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary"><${'select'.slice(0,0)}>\${options}</select></label>`.replace('<select>', '<select>').replace('<select>', '<select>');
+    }).join('').replace(/<select([^>]*)><\/select>/g, '');
+    foodFilters.querySelectorAll('[data-service-food-filter]').forEach(select => {
+      select.addEventListener('change', () => {
+        foodFilterState[select.dataset.serviceFoodFilter] = select.value;
+        window.renderServicesPage();
+      });
+    });
+  };
+
+  const matchesFoodFilters = service => {
+    if (service.category !== 'food') return true;
+    return (
+      (foodFilterState.type === 'all' || (service.serviceType || []).includes(foodFilterState.type)) &&
+      (foodFilterState.format === 'all' || (service.serviceFormats || []).includes(foodFilterState.format)) &&
+      (foodFilterState.specialty === 'all' || (service.serviceSpecialties || []).includes(foodFilterState.specialty)) &&
+      (foodFilterState.occasion === 'all' || (service.serviceOccasions || []).includes(foodFilterState.occasion))
+    );
+  };
+
   window.renderServicesPage = function renderServicesPage() {
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
     filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
-    filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => { category = button.dataset.servicePageCategory; window.renderServicesPage(); }));
+    filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => {
+      category = button.dataset.servicePageCategory;
+      window.renderServicesPage();
+    }));
+
+    renderFoodFilters();
 
     const limit = document.getElementById('services-distance')?.value || 'all';
     let rows = servicesData.map(service => {
@@ -36,6 +96,7 @@
       return { service, distance: directoryLocation && coords ? distanceKm(directoryLocation, coords) : null };
     });
     if (category !== 'all') rows = rows.filter(row => row.service.category === category);
+    rows = rows.filter(row => matchesFoodFilters(row.service));
     if (directoryLocation) {
       if (limit !== 'all') rows = rows.filter(row => row.distance !== null && row.distance <= Number(limit));
       rows.sort((a, b) => (a.distance ?? 999) - (b.distance ?? 999));
@@ -43,6 +104,7 @@
 
     const status = document.getElementById('services-page-status');
     if (status) status.textContent = `${rows.length} ${t('navServices').toLowerCase()}`;
+
     grid.innerHTML = rows.map(({ service, distance }) => {
       const tr = getServiceTranslation(service);
       const details = tr.features || tr.tags || [];
@@ -50,7 +112,10 @@
       const whatsapp = service.whatsapp ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 rounded-xl bg-[#25D366] text-white text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">chat</span>WhatsApp</a>` : '';
       const phone = service.phone ? `<a href="tel:+55${service.phone}" class="min-h-11 px-3 rounded-xl border border-black/10 text-primary text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">call</span>${service.phoneDisplay || service.phone}</a>` : '';
       const website = service.url ? `<a href="${service.url}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 rounded-xl border border-black/10 text-primary text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">language</span>${t('localWebsite')}</a>` : '';
-      return `<article class="glass-card rounded-2xl overflow-hidden border border-black/5 shadow-sm flex flex-col"><div class="h-40 relative overflow-hidden bg-surface-container">${image}<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 text-[10px] font-extrabold text-primary uppercase">${tr.type || getServiceCategoryLabel(service.category)}</span></div><div class="p-4 flex flex-col flex-1 gap-3"><div><h2 class="text-lg font-bold text-primary font-heading">${service.name}</h2>${distance !== null ? `<p class="text-xs font-bold text-secondary mt-1"><span class="material-symbols-outlined text-[14px] align-middle">near_me</span> ${distance.toFixed(1)} km</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${tr.description}</p>${details.length ? `<div class="flex flex-wrap gap-1.5">${details.slice(0,4).map(item => `<span class="px-2 py-1 rounded-md bg-surface-container text-[10px] font-semibold text-on-surface-variant">${item}</span>`).join('')}</div>` : ''}<div class="grid grid-cols-2 gap-2 mt-auto pt-1"><a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="col-span-2 min-h-11 px-3 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[17px]">map</span>Google Maps</a>${whatsapp}${phone}${website}</div></div></article>`;
+      const featured = service.presentation === 'featured';
+      const imageHeight = featured ? 'h-56' : 'h-28';
+      const cardTitle = featured ? 'text-xl' : 'text-base';
+      return `<article class="glass-card rounded-2xl overflow-hidden border border-black/5 shadow-sm flex flex-col ${featured ? 'md:col-span-2' : ''}"><div class="${imageHeight} relative overflow-hidden bg-surface-container">${image}<span class="absolute top-3 left-3 px-2.5 py-1 rounded-full bg-white/90 text-[10px] font-extrabold text-primary uppercase">${tr.type || getServiceCategoryLabel(service.category)}</span></div><div class="${featured ? 'p-5' : 'p-4'} flex flex-col flex-1 gap-2.5"><div><h2 class="${cardTitle} font-bold text-primary font-heading">${service.name}</h2>${distance !== null ? `<p class="text-xs font-bold text-secondary mt-1"><span class="material-symbols-outlined text-[14px] align-middle">near_me</span> ${distance.toFixed(1)} km</p>` : ''}</div><p class="text-xs text-on-surface-variant leading-relaxed">${tr.description}</p>${details.length ? `<div class="flex flex-wrap gap-1.5">${details.slice(0,4).map(item => `<span class="px-2 py-1 rounded-md bg-surface-container text-[10px] font-semibold text-on-surface-variant">${item}</span>`).join('')}</div>` : ''}<div class="grid grid-cols-2 gap-2 mt-auto pt-1"><a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="col-span-2 min-h-11 px-3 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[17px]">map</span>Google Maps</a>${whatsapp}${phone}${website}</div></div></article>`;
     }).join('');
   };
 
