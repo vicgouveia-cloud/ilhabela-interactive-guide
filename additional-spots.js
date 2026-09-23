@@ -2202,8 +2202,48 @@ const servicesData = [
     presentation:'compact', serviceType:['touristInformation'],
     phone:'1238963777', phoneDisplay:'(12) 3896-3777',
     url:'https://www.ilhabela.sp.gov.br/central-de-informacoes-turisticas'
-  }
-];
+  },
+  {
+    id:'cheiro-verde', category:'food', name:'Restaurante Cheiro Verde',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['pratoFeito','takeaway'],
+    serviceSpecialties:['brazilian','seafood'], serviceOccasions:['lunch','dinner'],
+    phone:'1238963245', phoneDisplay:'(12) 3896-3245', instagram:'@cheiroverdeilha',
+    url:'https://www.facebook.com/cheiroverdeilha'
+  },
+  {
+    id:'vila-moema-churrascaria', category:'food', name:'Vila Moema Churrascaria',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['food','delivery'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','delivery'],
+    serviceSpecialties:['barbecue'], serviceOccasions:['lunch','dinner'],
+    whatsapp:'12988794625', whatsappDisplay:'(12) 98879-4625'
+  },
+  {
+    id:'tullum-gastrobar', category:'food', name:'Tullum Gastrobar',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks'],
+    presentation:'compact', serviceType:['bar'], serviceFormats:['aLaCarte'],
+    serviceSpecialties:['brazilian','seafood','pizza'], serviceOccasions:['lunch','dinner','night'],
+    phone:'12988438779', phoneDisplay:'(12) 98843-8779'
+  },
+  {
+    id:'panedomo-padaria-artesanal', category:'food', name:'Panedomo – Padaria artesanal',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
+    presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
+    serviceSpecialties:['desserts','pizza'], serviceOccasions:['breakfast','brunch','afternoon'],
+    whatsapp:'11955921333', whatsappDisplay:'(11) 95592-1333', instagram:'@panedomo'
+  },
+
+  {
+    id:'padaria-itaquanduba', category:'food', name:'Padaria Itaquanduba',
+    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','food'],
+    presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
+    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
+  },];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
@@ -2471,8 +2511,46 @@ const serviceTranslations = {
     fr:{type:"Informations touristiques",description:"Centre municipal d’information aux visiteurs, Rua Doutor Carvalho, nº 80, à Vila. Tél. : +55 12 3896-3777. Consultez le portail officiel pour les informations de service.",tags:["Vila","Centre historique","Accueil des visiteurs"]},
     es:{type:"Información turística",description:"Centro municipal de información al visitante en Rua Doutor Carvalho, nº 80, en Vila. Teléfono: +55 12 3896-3777. Consulta los detalles de atención en el portal oficial.",tags:["Vila","Centro Histórico","Atención al visitante"]},
     he:{type:"מידע לתיירים",description:"מרכז עירוני למידע למבקרים בכתובת Rua Doutor Carvalho, nº 80, באזור Vila. טלפון: ‎+55 12 3896-3777. מומלץ לבדוק פרטי שירות בפורטל העירוני הרשמי.",tags:["Vila","המרכז ההיסטורי","סיוע למבקרים"]}
-  }
+  },
+  'Restaurante Cheiro Verde': {
+    pt:{type:"Restaurante",description:"Restaurante tradicional na Vila, com comida brasileira, frutos do mar e pratos executivos para almoço e jantar.",tags:["Vila","Comida brasileira","Frutos do mar"]},
+    en:{type:"Restaurant",description:"Traditional restaurant in Vila serving Brazilian food, seafood and executive-style meals for lunch and dinner.",tags:["Vila","Brazilian food","Seafood"]},
+    fr:{type:"Restaurant",description:"Restaurant traditionnel dans la Vila, avec cuisine brésilienne, fruits de mer et plats du jour pour le déjeuner et le dîner.",tags:["Vila","Cuisine brésilienne","Fruits de mer"]},
+    es:{type:"Restaurante",description:"Restaurante tradicional en la Vila, con comida brasileña, mariscos y platos ejecutivos para el almuerzo y la cena.",tags:["Vila","Comida brasileña","Mariscos"]},
+    he:{type:"מסעדה",description:"מסעדה מסורתית באזור Vila עם אוכל ברזילאי, מאכלי ים ומנות עסקיות לארוחת צהריים וערב.",tags:["Vila","אוכל ברזילאי","מאכלי ים"]}
+  },
+  'Vila Moema Churrascaria': {
+    pt:{type:"Churrascaria",description:"Churrascaria na Vila com cortes na brasa, preparo no espeto, acompanhamentos e opções para almoço e jantar.",tags:["Vila","Churrasco","Cortes na brasa"]},
+    en:{type:"Steakhouse",description:"Steakhouse in Vila serving grilled cuts, skewers, classic barbecue sides and lunch or dinner.",tags:["Vila","Barbecue","Grilled cuts"]},
+    fr:{type:"Churrascaria",description:"Churrascaria dans la Vila avec viandes grillées, préparations à la broche et accompagnements pour le déjeuner et le dîner.",tags:["Vila","Barbecue","Viandes grillées"]},
+    es:{type:"Churrasquería",description:"Churrasquería en la Vila con cortes a la parrilla, preparaciones al espeto y acompañamientos para el almuerzo y la cena.",tags:["Vila","Parrilla","Carnes a la brasa"]},
+    he:{type:"מסעדת בשרים",description:"מסעדת בשרים באזור Vila עם נתחי בשר על האש, הכנה על שיפודים ותוספות לארוחת צהריים וערב.",tags:["Vila","בשר על האש","נתחים צלויים"]}
+  },
+  'Tullum Gastrobar': {
+    pt:{type:"Gastrobar",description:"Gastrobar no Perequê com cozinha brasileira e peruana, opções de frutos do mar, pizza, almoço, jantar e bebidas.",tags:["Perequê","Gastrobar","Frutos do mar"]},
+    en:{type:"Gastrobar",description:"Gastrobar in Perequê with Brazilian and Peruvian cuisine, seafood, pizza, lunch, dinner and drinks.",tags:["Perequê","Gastrobar","Seafood"]},
+    fr:{type:"Gastrobar",description:"Gastrobar à Perequê proposant une cuisine brésilienne et péruvienne, des fruits de mer, des pizzas, le déjeuner, le dîner et des boissons.",tags:["Perequê","Gastrobar","Fruits de mer"]},
+    es:{type:"Gastrobar",description:"Gastrobar en Perequê con cocina brasileña y peruana, mariscos, pizza, almuerzo, cena y bebidas.",tags:["Perequê","Gastrobar","Mariscos"]},
+    he:{type:"גסטרובר",description:"גסטרובר באזור Perequê עם מטבח ברזילאי ופרואני, מאכלי ים, פיצה, ארוחות צהריים וערב ומשקאות.",tags:["Perequê","גסטרובר","מאכלי ים"]}
+  },
+  'Panedomo – Padaria artesanal': {
+    pt:{type:"Padaria artesanal",description:"Padaria artesanal no Perequê com pães rústicos de fermentação natural, folhados, bolos e pizza de longa fermentação.",tags:["Perequê","Fermentação natural","Pães e folhados"]},
+    en:{type:"Artisan bakery",description:"Artisan bakery in Perequê with rustic naturally fermented breads, pastries, cakes and long-fermentation pizza.",tags:["Perequê","Natural fermentation","Breads and pastries"]},
+    fr:{type:"Boulangerie artisanale",description:"Boulangerie artisanale à Perequê avec pains rustiques au levain naturel, viennoiseries, gâteaux et pizza à fermentation longue.",tags:["Perequê","Fermentation naturelle","Pains et viennoiseries"]},
+    es:{type:"Panadería artesanal",description:"Panadería artesanal en Perequê con panes rústicos de fermentación natural, bollería, pasteles y pizza de larga fermentación.",tags:["Perequê","Fermentación natural","Panes y bollería"]},
+    he:{type:"מאפייה בוטיק",description:"מאפייה בוטיק באזור Perequê עם לחמים כפריים במחמצת טבעית, מאפים, עוגות ופיצה בהתפחה ארוכה.",tags:["Perequê","התססה טבעית","לחמים ומאפים"]}
+  },
+
+  'Padaria Itaquanduba': {
+    pt:{type:"Padaria",description:"Padaria localizada no bairro Itaquanduba, na Avenida dos Bandeirantes.",tags:["Itaquanduba","Padaria","Café e lanches"]},
+    en:{type:"Bakery",description:"Bakery in the Itaquanduba neighborhood on Avenida dos Bandeirantes.",tags:["Itaquanduba","Bakery","Coffee and snacks"]},
+    fr:{type:"Boulangerie",description:"Boulangerie située dans le quartier d’Itaquanduba, sur l’Avenida dos Bandeirantes.",tags:["Itaquanduba","Boulangerie","Café et encas"]},
+    es:{type:"Panadería",description:"Panadería ubicada en el barrio de Itaquanduba, en la Avenida dos Bandeirantes.",tags:["Itaquanduba","Panadería","Café y aperitivos"]},
+    he:{type:"מאפייה",description:"מאפייה בשכונת Itaquanduba, ב-Avenida dos Bandeirantes.",tags:["Itaquanduba","מאפייה","קפה ונשנושים"]}
+  },
+
 };
+
 
 servicesData.forEach(service => {
   service.translations = serviceTranslations[service.name];
