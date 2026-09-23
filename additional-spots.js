@@ -1922,7 +1922,7 @@ const servicesData = [
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'seafood'],
     presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['brazilian', 'seafood'], serviceOccasions: ['lunch', 'dinner'],
     phone: '12997441753', phoneDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
-  }
+  },
   {
     id:'cafe-ete',category:'food',name:'Café Eté',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['coffee','breakfast'],presentation:'compact',serviceType:['cafe'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['coffeeBrunch','desserts'],serviceOccasions:['breakfast','brunch','afternoon'],phone:'12997611200',phoneDisplay:'(12) 99761-1200',url:'https://www.cafeete.com.br'
   },
