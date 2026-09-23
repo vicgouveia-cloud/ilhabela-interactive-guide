@@ -2055,6 +2055,38 @@ const servicesData = [
     presentation:'compact', serviceType:['restaurant','pizzeria'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['italian','pasta','pizza'], serviceOccasions:['dinner','night'],
     phone:'12991044237', phoneDisplay:'(12) 99104-4237', url:'https://velasdoengenho.com.br/madalena-pizza-bar/'
+  },
+  {
+    id:'vila-salga-restaurante', category:'food', name:'Vila Salga',
+    baseLocation:{nearSpotId:'praia-da-armacao'}, contextSpotIds:['praia-da-armacao'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','caicara-food','seafood'],
+    presentation:'compact', serviceType:['restaurant','kiosk'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['caicara','seafood'], serviceOccasions:['lunch','afternoon','dinner'],
+    url:'https://vilasalga.com.br/restaurante/'
+  },
+  {
+    id:'manapani', category:'food', name:'Manapani',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','beach-restaurant'],
+    presentation:'compact', serviceType:['restaurant','kiosk'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['brazilian','seafood'], serviceOccasions:['lunch','afternoon'],
+    phone:'1238966701', phoneDisplay:'(12) 3896-6701'
+  },
+  {
+    id:'creperia-nareia-pereque', category:'food', name:'Creperia N’Areia',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['crepes','desserts','restaurant'],
+    presentation:'compact', serviceType:['creperia'], serviceFormats:['aLaCarte','takeaway'],
+    serviceSpecialties:['desserts','vegetarian'], serviceOccasions:['lunch','afternoon','dinner'],
+    phone:'12981802646', phoneDisplay:'(12) 98180-2646', url:'https://creperianareia.com.br/unidade-pereque-ilhabela/'
+  },
+  {
+    id:'coco-bongo-cafe', category:'food', name:'Coco Bongo Café',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['cafe','coffee'],
+    presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','takeaway'],
+    serviceSpecialties:['coffeeBrunch'], serviceOccasions:['breakfast','afternoon'],
+    phone:'12974104132', phoneDisplay:'(12) 97410-4132', instagram:'@cocobongocafe'
   }
 ];
 
@@ -2191,6 +2223,34 @@ const serviceTranslations = {
     fr:{type:"Restaurant italien et pizzeria",description:"Restaurant italien à Engenho d’Água proposant des pâtes et des pizzas.",tags:["Cuisine italienne","Pâtes","Pizza"]},
     es:{type:"Restaurante italiano y pizzería",description:"Restaurante italiano en Engenho d’Água con pastas y pizzas.",tags:["Italiana","Pastas","Pizza"]},
     he:{type:"מסעדה איטלקית ופיצרייה",description:"מסעדה איטלקית ב-Engenho d’Água עם פסטות ופיצות.",tags:["איטלקי","פסטה","פיצה"]}
+  },
+  "Vila Salga": {
+    pt:{type:"Restaurante caiçara à beira-mar",description:"Restaurante pé na areia na Praia da Armação, com cardápio sazonal e cozinha caiçara.",tags:["Praia da Armação","Cozinha caiçara","Frutos do mar"]},
+    en:{type:"Seafront caiçara restaurant",description:"Beachfront restaurant at Praia da Armação serving seasonal caiçara cuisine.",tags:["Praia da Armação","Caiçara cuisine","Seafood"]},
+    fr:{type:"Restaurant caiçara en bord de mer",description:"Restaurant les pieds dans le sable à Praia da Armação, proposant une cuisine caiçara de saison.",tags:["Praia da Armação","Cuisine caiçara","Fruits de mer"]},
+    es:{type:"Restaurante caiçara frente al mar",description:"Restaurante a pie de playa en Praia da Armação, con cocina caiçara de temporada.",tags:["Praia da Armação","Cocina caiçara","Mariscos"]},
+    he:{type:"מסעדת קאיסארה על שפת הים",description:"מסעדה על החוף ב-Praia da Armação המגישה מטבח קאיסארה עונתי.",tags:["Praia da Armação","מטבח קאיסארה","מאכלי ים"]}
+  },
+  "Manapani": {
+    pt:{type:"Restaurante e quiosque de praia",description:"Restaurante e quiosque na região da Praia do Saco da Capela, com mesas junto ao mar.",tags:["Saco da Capela","Restaurante de praia","Ilhabela"]},
+    en:{type:"Beach restaurant and kiosk",description:"Restaurant and kiosk in the Praia do Saco da Capela area, with tables by the sea.",tags:["Saco da Capela","Beach restaurant","Ilhabela"]},
+    fr:{type:"Restaurant et kiosque de plage",description:"Restaurant et kiosque dans le secteur de Praia do Saco da Capela, avec des tables près de la mer.",tags:["Saco da Capela","Restaurant de plage","Ilhabela"]},
+    es:{type:"Restaurante y quiosco de playa",description:"Restaurante y quiosco en la zona de Praia do Saco da Capela, con mesas junto al mar.",tags:["Saco da Capela","Restaurante de playa","Ilhabela"]},
+    he:{type:"מסעדת חוף וקיוסק",description:"מסעדה וקיוסק באזור Praia do Saco da Capela, עם שולחנות ליד הים.",tags:["Saco da Capela","מסעדת חוף","Ilhabela"]}
+  },
+  "Creperia N’Areia": {
+    pt:{type:"Creperia",description:"Creperia no Perequê que combina a tradição do crepe francês com sabores adaptados ao paladar brasileiro.",tags:["Perequê","Crepes doces e salgados","Para viagem"]},
+    en:{type:"Crêperie",description:"Crêperie in Perequê combining French crêpe traditions with flavors adapted to Brazilian tastes.",tags:["Perequê","Sweet and savory crêpes","Takeaway"]},
+    fr:{type:"Crêperie",description:"Crêperie à Perequê qui associe la tradition française des crêpes à des saveurs adaptées au goût brésilien.",tags:["Perequê","Crêpes sucrées et salées","À emporter"]},
+    es:{type:"Crepería",description:"Crepería en Perequê que combina la tradición francesa de los crepes con sabores adaptados al paladar brasileño.",tags:["Perequê","Crepes dulces y salados","Para llevar"]},
+    he:{type:"קרפריה",description:"קרפריה ב-Perequê המשלבת מסורת צרפתית של קרפים עם טעמים המותאמים לחך הברזילאי.",tags:["Perequê","קרפים מתוקים ומלוחים","לקחת"]}
+  },
+  "Coco Bongo Café": {
+    pt:{type:"Café",description:"Café no bairro do Pequeá, em Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
+    en:{type:"Café",description:"Café in the Pequeá neighborhood of Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
+    fr:{type:"Café",description:"Café dans le quartier de Pequeá, à Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
+    es:{type:"Café",description:"Café en el barrio de Pequeá, en Ilhabela.",tags:["Pequeá","Café","Ilhabela"]},
+    he:{type:"בית קפה",description:"בית קפה בשכונת Pequeá שב-Ilhabela.",tags:["Pequeá","בית קפה","Ilhabela"]}
   }
 };
 
