@@ -2183,7 +2183,7 @@ const serviceTranslations = {
     en:{type:"Lebanese restaurant",description:"Restaurant in Itaquanduba serving handmade Lebanese cuisine and sharing plates, with dine-in, takeaway and delivery.",tags:["Lebanese cuisine","Mezze","Itaquanduba"]},
     fr:{type:"Restaurant libanais",description:"Restaurant à Itaquanduba proposant une cuisine libanaise artisanale et des mezzés à partager, sur place, à emporter ou en livraison.",tags:["Cuisine libanaise","Mezzés","Itaquanduba"]},
     es:{type:"Restaurante libanés",description:"Restaurante en Itaquanduba con cocina libanesa artesanal y platos para compartir, con servicio en el local, para llevar y a domicilio.",tags:["Cocina libanesa","Mezze","Itaquanduba"]},
-    he:{type:"מסעדה לבנונית",description:"מסעדה ב-Itaquanduba עם מטבח לבנוני בעבודת יד ומנות לחלוקה, לאכילה במקום, לאיסוף או למשלוח.",tags:["מטבח לבנוני","מזה","Itaquanduba"]}
+    he:{type:"מסעדה לבנונית",description:"מסעדה ב-Itaquanduba עם מטבח לבנוני בעבודת יד ומנות לחלוקה, לאכילה במקום, לאיסוף או למשלוח.",tags:["מטבח לבנוני","מזטים","Itaquanduba"]}
   },
   "Madalena Pasta & Pizza": {
     pt:{type:"Restaurante italiano e pizzaria",description:"Restaurante italiano no Engenho d’Água com massas e pizzas.",tags:["Italiana","Massas","Pizza"]},
