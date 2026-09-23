@@ -218,7 +218,13 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   left: 12px;
   right: 12px;
   max-width: 100%;
+  /* Keep the transient preview from intercepting map interactions underneath. */
+  pointer-events: none;
   /* On desktop, constrain width */
+}
+
+#map-quick-card .map-quick-card-action {
+  pointer-events: auto;
 }
 
 @media (min-width: 768px) {

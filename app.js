@@ -122,7 +122,7 @@ function initI18n() {
   document.addEventListener('keydown', event => {
     if (event.key === 'Escape') {
       if (menu && !menu.hidden) { closeLanguageMenu(true); return; }
-      closeBookingModal(); closeSpotModal();
+      closeBookingModal(); closeSpotModal(); hideMapQuickCard();
     }
   });
   selector?.addEventListener('focusout', event => {
@@ -195,6 +195,11 @@ function initMap() {
     maxBoundsViscosity: 1.0,
     worldCopyJump: false
   });
+
+  // A map preview is transient: map gestures, background clicks and leaving
+  // the map dismiss it so it never lingers over the user's next action.
+  map.on('click movestart zoomstart', hideMapQuickCard);
+  document.querySelector('.map-frame')?.addEventListener('pointerleave', hideMapQuickCard);
 
   // Custom Zoom Control (bottom-right)
   L.control.zoom({ position: 'bottomright' }).addTo(map);
@@ -320,7 +325,7 @@ function locateUserOnMap() {
 function resetMapView() {
   if (!map) return;
   map.closePopup();
-  document.getElementById('map-quick-card')?.classList.add('hidden');
+  hideMapQuickCard();
   map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18], animate: true });
 }
 
@@ -414,13 +419,15 @@ function updateMapMarkers() {
       offset: [0, -17]
     });
 
-    // Hover preview card
-    marker.on('mouseover', () => {
-      showMapQuickCard(spot);
-    });
+    // Hover previews are for mouse/trackpad only; touch selection goes straight
+    // to the full detail modal instead of leaving a floating card behind.
+    if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+      marker.on('mouseover', () => showMapQuickCard(spot));
+    }
 
     // Click to Open Modal
     marker.on('click', () => {
+      hideMapQuickCard();
       map.flyTo(spot.coords, 14, { duration: 1.2 });
       openSpotModal(spot.id);
     });
@@ -430,6 +437,7 @@ function updateMapMarkers() {
 }
 
 function showMapQuickCard(spot) {
+  if (!spot) return;
   quickCardSpotId = spot.id;
   const card = document.getElementById('map-quick-card');
   if (!card) return;
@@ -451,14 +459,27 @@ function showMapQuickCard(spot) {
         </div>
         <h4 class="text-sm font-bold text-primary leading-tight font-heading">${tr.title}</h4>
         <p class="text-xs text-on-surface-variant line-clamp-2">${tr.subtitle}</p>
-        <button onclick="openSpotModal('${spot.id}')" class="text-xs font-bold text-primary hover:underline flex items-center gap-1 pt-0.5">
+        <button onclick="openSpotModal('${spot.id}')" class="map-quick-card-action text-xs font-bold text-primary hover:underline flex items-center gap-1 pt-0.5">
           <span>${t('spotDetails')}</span>
           <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
         </button>
       </div>
     </div>
+    <button type="button" onclick="hideMapQuickCard()" aria-label="${t('closeModal')}" class="map-quick-card-action absolute top-2 right-2 w-8 h-8 rounded-full bg-white/90 text-primary shadow flex items-center justify-center">
+      <span class="material-symbols-outlined text-[18px]" aria-hidden="true">close</span>
+    </button>
   `;
+  card.setAttribute('aria-hidden', 'false');
   card.classList.remove('hidden');
+}
+
+function hideMapQuickCard() {
+  quickCardSpotId = null;
+  const card = document.getElementById('map-quick-card');
+  if (!card) return;
+  card.classList.add('hidden');
+  card.setAttribute('aria-hidden', 'true');
+  card.replaceChildren();
 }
 
 function initFilterCarousel() {
@@ -750,6 +771,7 @@ let currentModalImageIndex = 0;
 function openSpotModal(spotId) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
+  hideMapQuickCard();
   selectedSpotId = spotId;
 
   // Setup Gallery

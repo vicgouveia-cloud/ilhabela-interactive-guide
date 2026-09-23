@@ -18,6 +18,47 @@ async function language(page, lang) {
   await expect(page.locator('html')).toHaveAttribute('lang',lang);
   await expect(page.locator('html')).toHaveAttribute('dir',lang==='he'?'rtl':'ltr');
 }
+test('map quick preview dismisses on map actions and touch opens details directly',async({page})=>{
+  await page.addInitScript(()=>{
+    const nativeMatchMedia=window.matchMedia.bind(window);
+    window.matchMedia=query=>query.includes('(hover: hover)')&&query.includes('(pointer: fine)')
+      ? {matches:false,media:query,onchange:null,addListener(){},removeListener(){},addEventListener(){},removeEventListener(){},dispatchEvent(){return false;}}
+      : nativeMatchMedia(query);
+  });
+  await page.setViewportSize({width:390,height:844});
+  await ready(page);
+  const card=page.locator('#map-quick-card');
+  await page.locator('.leaflet-marker-icon').first().dispatchEvent('mouseover');
+  await expect(card).toBeHidden();
+  await page.evaluate(()=>mapMarkers[0].fire('click'));
+  await expect(page.locator('#spot-modal')).toBeVisible();
+  await expect(card).toBeHidden();
+  await page.evaluate(()=>closeSpotModal());
+
+  await page.evaluate(()=>showMapQuickCard(touristSpots[0]));
+  await expect(card).toBeVisible();
+  expect(await card.evaluate(el=>getComputedStyle(el).pointerEvents)).toBe('none');
+  await page.evaluate(()=>map.fire('click'));
+  await expect(card).toBeHidden();
+  await page.evaluate(()=>showMapQuickCard(touristSpots[0]));
+  await page.locator('#map-quick-card button[aria-label]').click();
+  await expect(card).toBeHidden();
+  await page.evaluate(()=>showMapQuickCard(touristSpots[0]));
+  await page.locator('.map-frame').dispatchEvent('pointerleave');
+  await expect(card).toBeHidden();
+  await page.evaluate(()=>showMapQuickCard(touristSpots[0]));
+  await page.keyboard.press('Escape');
+  await expect(card).toBeHidden();
+});
+test('desktop map preview closes when the pointer leaves the map',async({page})=>{
+  await page.setViewportSize({width:1440,height:900});
+  await ready(page);
+  const card=page.locator('#map-quick-card');
+  await page.locator('.leaflet-marker-icon').first().hover();
+  await expect(card).toBeVisible();
+  await page.locator('#explore-section').hover();
+  await expect(card).toBeHidden();
+});
 for (const width of [390,1440]) for (const lang of locales) {
   test(`${lang} at ${width}px: every attraction, services, map and locale persistence`, async ({page}, info) => {
     await page.setViewportSize({width,height:900});
