@@ -2243,7 +2243,48 @@ const servicesData = [
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','food'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
-  },];
+  },
+  {
+    id:'enfim-ostras', category:'food', name:'Enfim Ostras',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','seafood'],
+    presentation:'compact', serviceType:['bar'], serviceFormats:['aLaCarte'],
+    serviceSpecialties:['seafood'], serviceOccasions:['dinner','night'],
+    phone:'12982793671', phoneDisplay:'(12) 98279-3671', url:'https://www.enfimostras.com.br'
+  },
+  {
+    id:'borrachudo-sanduicheria', category:'food', name:'Borrachudo Sanduicheria',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['food','delivery'],
+    presentation:'compact', serviceType:['burger','streetFood'], serviceFormats:['snacks','pratoFeito','delivery','takeaway'],
+    serviceSpecialties:['burger','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
+    phone:'1238961499', phoneDisplay:'(12) 3896-1499'
+  },
+  {
+    id:'beach-sushi', category:'food', name:'Beach Sushi',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','takeaway'],
+    serviceSpecialties:['japanese','oriental'], serviceOccasions:['dinner','night'],
+    phone:'12997145965', phoneDisplay:'(12) 99714-5965', email:'beachsushi@hotmail.com'
+  },
+  {
+    id:'restaurante-capitano', category:'food', name:'Restaurante Capitano',
+    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks'],
+    presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte'],
+    serviceSpecialties:['italian','pasta','seafood'], serviceOccasions:['dinner','night'],
+    phone:'12996351959', phoneDisplay:'(12) 99635-1959'
+  },
+  {
+    id:'orla-45', category:'food', name:'Orla 45',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['food','delivery'],
+    presentation:'compact', serviceType:['pizzeria'], serviceFormats:['aLaCarte','delivery','takeaway'],
+    serviceSpecialties:['pizza'], serviceOccasions:['dinner','night'],
+    phone:'12974067441', phoneDisplay:'(12) 97406-7441'
+  }
+];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
@@ -2549,6 +2590,41 @@ const serviceTranslations = {
     he:{type:"מאפייה",description:"מאפייה בשכונת Itaquanduba, ב-Avenida dos Bandeirantes.",tags:["Itaquanduba","מאפייה","קפה ונשנושים"]}
   },
 
+  'Enfim Ostras': {
+    pt:{type:"Bar de ostras",description:"Bar intimista na Vila especializado em ostras frescas.",tags:["Vila","Ostras","Frutos do mar"]},
+    en:{type:"Oyster bar",description:"Intimate oyster bar in Vila specializing in fresh oysters.",tags:["Vila","Oysters","Seafood"]},
+    fr:{type:"Bar a huitres",description:"Bar intime dans la Vila specialise dans les huitres fraiches.",tags:["Vila","Huitres","Fruits de mer"]},
+    es:{type:"Bar de ostras",description:"Bar intimo en Vila especializado en ostras frescas.",tags:["Vila","Ostras","Mariscos"]},
+    he:{type:"בר צדפות",description:"בר אינטימי באזור Vila המתמחה בצדפות טריות.",tags:["Vila","צדפות","מאכלי ים"]}
+  },
+  'Borrachudo Sanduicheria': {
+    pt:{type:"Sanduicheria e hamburgueria",description:"Casa tradicional da Vila com hamburgueres artesanais, lanches, cervejas e drinks, com delivery e retirada.",tags:["Vila","Hamburguer","Lanches"]},
+    en:{type:"Burger and sandwich shop",description:"Traditional Vila spot with handmade burgers, sandwiches, beer and drinks, plus delivery and takeaway.",tags:["Vila","Burgers","Sandwiches"]},
+    fr:{type:"Sandwicherie et burgers",description:"Adresse traditionnelle de la Vila avec burgers artisanaux, sandwiches, bieres et cocktails, avec livraison et a emporter.",tags:["Vila","Burgers","Sandwichs"]},
+    es:{type:"Sandwicheria y hamburgueseria",description:"Casa tradicional de Vila con hamburguesas artesanales, sandwiches, cervezas y cocteles, ademas de delivery y para llevar.",tags:["Vila","Hamburguesas","Sandwiches"]},
+    he:{type:"סנדוויצ'ייה והמבורגרים",description:"מקום ותיק באזור Vila עם המבורגרים, כריכים, בירה ומשקאות, כולל משלוחים ואיסוף.",tags:["Vila","המבורגרים","כריכים"]}
+  },
+  'Beach Sushi': {
+    pt:{type:"Restaurante japones",description:"Restaurante japones no Pereque com pratos contemporaneos, porcoes e combinados em ambiente casual.",tags:["Pereque","Japonesa","Sushi"]},
+    en:{type:"Japanese restaurant",description:"Japanese restaurant in Pereque serving contemporary dishes and sushi combinations in a casual setting.",tags:["Pereque","Japanese","Sushi"]},
+    fr:{type:"Restaurant japonais",description:"Restaurant japonais a Pereque proposant une cuisine contemporaine et des assortiments de sushi.",tags:["Pereque","Cuisine japonaise","Sushi"]},
+    es:{type:"Restaurante japones",description:"Restaurante japones en Pereque con platos contemporaneos y combinaciones de sushi.",tags:["Pereque","Cocina japonesa","Sushi"]},
+    he:{type:"מסעדה יפנית",description:"מסעדה יפנית באזור Pereque עם מנות עכשוויות ושילובי סושי.",tags:["Pereque","יפנית","סושי"]}
+  },
+  'Restaurante Capitano': {
+    pt:{type:"Restaurante",description:"Restaurante no Saco da Capela com culinaria italiana e mediterranea, massas, risotos e frutos do mar.",tags:["Saco da Capela","Italiana","Frutos do mar"]},
+    en:{type:"Restaurant",description:"Restaurant in Saco da Capela offering Italian and Mediterranean cuisine, pasta, risotto and seafood.",tags:["Saco da Capela","Italian","Seafood"]},
+    fr:{type:"Restaurant",description:"Restaurant a Saco da Capela proposant une cuisine italienne et mediterraneenne, des pates, risottos et fruits de mer.",tags:["Saco da Capela","Italienne","Fruits de mer"]},
+    es:{type:"Restaurante",description:"Restaurante en Saco da Capela con cocina italiana y mediterranea, pastas, risottos y mariscos.",tags:["Saco da Capela","Italiana","Mariscos"]},
+    he:{type:"מסעדה",description:"מסעדה באזור Saco da Capela עם מטבח איטלקי וים תיכוני, פסטות, ריזוטו ומאכלי ים.",tags:["Saco da Capela","איטלקית","מאכלי ים"]}
+  },
+  'Orla 45': {
+    pt:{type:"Pizzaria",description:"Pizzaria no Pereque com pizzas artesanais e opcoes para delivery e retirada.",tags:["Pereque","Pizza","Delivery"]},
+    en:{type:"Pizzeria",description:"Pizzeria in Pereque serving artisan pizzas with delivery and takeaway options.",tags:["Pereque","Pizza","Delivery"]},
+    fr:{type:"Pizzeria",description:"Pizzeria a Pereque proposant des pizzas artisanales avec livraison et a emporter.",tags:["Pereque","Pizza","Livraison"]},
+    es:{type:"Pizzeria",description:"Pizzeria en Pereque con pizzas artesanales y opciones de delivery y para llevar.",tags:["Pereque","Pizza","Delivery"]},
+    he:{type:"פיצרייה",description:"פיצרייה באזור Pereque עם פיצות בעבודת יד, משלוחים ואיסוף.",tags:["Pereque","פיצה","משלוחים"]}
+  },
 };
 
 
