@@ -60,8 +60,8 @@
         const text = id === 'all' ? (currentLang === 'pt' ? 'Todos' : currentLang === 'en' ? 'All' : currentLang === 'fr' ? 'Tous' : currentLang === 'es' ? 'Todos' : 'הכול') : labelFor(dimension, id);
         return `<option value="${id}"${selected}>${text}</option>`;
       }).join('');
-      return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dimensionLabel[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary"><${'select'.slice(0,0)}>\${options}</select></label>`.replace('<select>', '<select>').replace('<select>', '<select>');
-    }).join('').replace(/<select([^>]*)><\/select>/g, '');
+      return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dimensionLabel[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${options}</select></label>`;
+    }).join('');
     foodFilters.querySelectorAll('[data-service-food-filter]').forEach(select => {
       select.addEventListener('change', () => {
         foodFilterState[select.dataset.serviceFoodFilter] = select.value;
