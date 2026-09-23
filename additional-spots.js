@@ -1812,6 +1812,7 @@ const servicesData = [
     contextSpotIds: ['praia-do-veloso'],
     serviceArea: { scope: 'island', modes: ['boat', '4x4'] },
     activities: ['boat-tour', '4x4-tour', 'snorkeling'],
+    presentation: 'compact',
     whatsapp: '12974017333',
     whatsappDisplay: '+55 (12) 97401-7333',
     image: 'assets/images/chagas-passeios.jpg'
@@ -1824,6 +1825,7 @@ const servicesData = [
     contextSpotIds: ['praia-do-portinho'],
     serviceArea: { scope: 'island', modes: ['boat'] },
     activities: ['boat-tour', 'kayak', 'stand-up-paddle', 'caicara-canoe', 'bodyboard', 'equipment-rental'],
+    presentation: 'compact',
     whatsapp: '19991536623',
     whatsappDisplay: '(19) 99153-6623',
     instagram: '@portinhopasseios',
@@ -1838,6 +1840,8 @@ const servicesData = [
     contextSpotIds: ['praia-do-portinho'],
     serviceArea: { scope: 'venue', modes: ['on-site'] },
     activities: ['food', 'drinks'],
+    presentation: 'compact',
+    serviceType: ['kiosk'], serviceFormats: ['snacks'], serviceSpecialties: ['brazilian'],
     whatsapp: '11912586558',
     whatsappDisplay: '(11) 91258-6558',
     image: 'assets/images/maxx-beach.jpg'
@@ -1850,6 +1854,7 @@ const servicesData = [
     contextSpotIds: ['praia-do-portinho'],
     serviceArea: { scope: 'island', modes: ['diving'] },
     activities: ['introductory-dive', 'diving'],
+    presentation: 'compact',
     whatsapp: '12987046807',
     whatsappDisplay: '(12) 98704-6807',
     url: 'https://mergulhoilhabela.com.br',
@@ -1863,6 +1868,7 @@ const servicesData = [
     contextSpotIds: ['praia-do-portinho'],
     serviceArea: { scope: 'venue', modes: ['on-site'] },
     activities: ['accommodation'],
+    presentation: 'compact',
     whatsapp: '11975199989',
     whatsappDisplay: '(11) 97519-9989',
     url: 'https://lagloriahouse.com.br',
@@ -1872,42 +1878,49 @@ const servicesData = [
     id: 'acaraje-tio-toinho', category: 'food', name: 'Acarajé do Tio Toinho',
     baseLocation: { spotId: 'praia-grande' }, contextSpotIds: ['praia-grande'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['bahian-food', 'acaraje'],
+    presentation: 'compact', serviceType: ['streetFood'], serviceFormats: ['snacks', 'takeaway'], serviceSpecialties: ['bahian'],
     phone: '12996206084', phoneDisplay: '(12) 99620-6084'
   },
   {
     id: 'ilha-sul-restaurante', category: 'food', name: 'Restaurante Ilha Sul',
     baseLocation: { nearSpotId: 'praia-da-feiticeira' }, contextSpotIds: ['praia-da-feiticeira', 'praia-do-portinho'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food'],
+    presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'dinner'],
     phone: '1238949426', phoneDisplay: '(12) 3894-9426', url: 'https://www.restauranteilhasul.com.br'
   },
   {
     id: 'rei-da-praia', category: 'food', name: 'Rei da Praia',
     baseLocation: { spotId: 'praia-do-curral' }, contextSpotIds: ['praia-do-curral'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
+    presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
     phone: '12992301282', phoneDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
   },
   {
     id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
     baseLocation: { nearSpotId: 'praia-do-veloso' }, contextSpotIds: ['praia-do-veloso'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['cafe', 'burgers', 'vegetarian'],
+    presentation: 'compact', serviceType: ['cafe'], serviceFormats: ['snacks'], serviceSpecialties: ['burger', 'vegetarian', 'vegan', 'coffeeBrunch'], serviceOccasions: ['breakfast', 'afternoon'],
     whatsapp: '12996552213', whatsappDisplay: '(12) 99655-2213', url: 'https://lupecaminho.com.br'
   },
   {
     id: 'restaurante-do-cura', category: 'food', name: 'Restaurante do Cura',
     baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'buffet'],
+    presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['buffet'], serviceSpecialties: ['brazilian'], serviceOccasions: ['lunch'],
     phone: '12981644977', phoneDisplay: '(12) 98164-4977'
   },
   {
     id: 'ikigai-ilhabela', category: 'food', name: 'Ikigai',
     baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['oriental-food', 'caicara-food'],
+    presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['oriental', 'caicara'], serviceOccasions: ['lunch', 'dinner'],
     whatsapp: '12996460164', whatsappDisplay: '(12) 99646-0164', url: 'https://linktr.ee/ikigaiilhabela'
   },
   {
     id: 'manjericao-ilhabela', category: 'food', name: 'Manjericão',
     baseLocation: { nearSpotId: 'centro-historico-vila' }, contextSpotIds: ['centro-historico-vila'],
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'seafood'],
+    presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['brazilian', 'seafood'], serviceOccasions: ['lunch', 'dinner'],
     phone: '12997441753', phoneDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
   }
 ];
