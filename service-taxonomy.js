@@ -15,6 +15,7 @@ const serviceTaxonomy = {
     hospital: {pt:'Hospital e pronto-socorro',en:'Hospital and emergency care',fr:'Hôpital et urgences',es:'Hospital y urgencias',he:'בית חולים ומיון'},
     transport: {pt:'Transporte público',en:'Public transport',fr:'Transport public',es:'Transporte público',he:'תחבורה ציבורית'},
     ferry: {pt:'Travessia de balsa',en:'Ferry crossing',fr:'Traversée en ferry',es:'Travesía en ferry',he:'מעבורת'},
+    touristInformation: {pt:'Informações turísticas',en:'Tourist information',fr:'Informations touristiques',es:'Información turística',he:'מידע לתיירים'},
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
     kiosk: {pt:'Quiosque',en:'Kiosk',fr:'Kiosque',es:'Quiosco',he:'קיוסק'},

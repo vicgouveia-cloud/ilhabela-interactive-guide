@@ -2186,6 +2186,22 @@ const servicesData = [
     serviceArea:{scope:'intercity-route',modes:['ferry']}, activities:['ferry','island-access'],
     presentation:'compact', serviceType:['ferry'],
     url:'https://semil.sp.gov.br/dh/'
+  },
+  {
+    id:'cit-barra-velha', category:'essentials', name:'Centro de Informações Turísticas — Barra Velha',
+    baseLocation:{nearSpotId:'mirante-do-piuva'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['visitor-information']}, activities:['tourist-information','visitor-support'],
+    presentation:'compact', serviceType:['touristInformation'],
+    phone:'1238957220', phoneDisplay:'(12) 3895-7220',
+    url:'https://www.ilhabela.sp.gov.br/central-de-informacoes-turisticas'
+  },
+  {
+    id:'cit-vila', category:'essentials', name:'Centro de Informações Turísticas — Vila',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['visitor-information']}, activities:['tourist-information','visitor-support'],
+    presentation:'compact', serviceType:['touristInformation'],
+    phone:'1238963777', phoneDisplay:'(12) 3896-3777',
+    url:'https://www.ilhabela.sp.gov.br/central-de-informacoes-turisticas'
   }
 ];
 
@@ -2441,6 +2457,20 @@ const serviceTranslations = {
     fr:{type:"Traversée en ferry de l’État",description:"Traversée en ferry pour piétons, vélos et véhicules entre São Sebastião et Ilhabela, opérée par le système de l’État. Consultez la SEMIL pour les conditions, files d’attente, horaires et réservations.",tags:["São Sebastião ↔ Ilhabela","État des files","Service officiel"]},
     es:{type:"Travesía estatal en ferry",description:"Travesía en ferry para peatones, bicicletas y vehículos entre São Sebastião e Ilhabela, operada por el sistema estatal. Consulta en SEMIL las condiciones, filas, horarios y reservas.",tags:["São Sebastião ↔ Ilhabela","Estado de las filas","Servicio oficial"]},
     he:{type:"מעבורת של מדינת סאו פאולו",description:"מעבורת להולכי רגל, אופניים וכלי רכב בין São Sebastião ל-Ilhabela, המופעלת על ידי המדינה. יש לבדוק באתר SEMIL תנאי מעבר, תורים, לוחות זמנים והזמנות.",tags:["São Sebastião ↔ Ilhabela","מידע על התורים","שירות רשמי"]}
+  },
+  "Centro de Informações Turísticas — Barra Velha": {
+    pt:{type:"Informações turísticas",description:"Centro municipal de atendimento ao visitante na Praça Vereador José Leite dos Passos, nº 14, em Barra Velha. Telefone: (12) 3895-7220. Confirme atendimento e informações no portal oficial.",tags:["Barra Velha","Atendimento ao visitante","Prefeitura de Ilhabela"]},
+    en:{type:"Tourist information",description:"Municipal visitor information center at Praça Vereador José Leite dos Passos, no. 14, in Barra Velha. Phone: +55 12 3895-7220. Check service details on the official city portal.",tags:["Barra Velha","Visitor support","Ilhabela City Hall"]},
+    fr:{type:"Informations touristiques",description:"Centre municipal d’information aux visiteurs, Praça Vereador José Leite dos Passos, nº 14, à Barra Velha. Tél. : +55 12 3895-7220. Consultez le portail officiel pour les informations de service.",tags:["Barra Velha","Accueil des visiteurs","Mairie d’Ilhabela"]},
+    es:{type:"Información turística",description:"Centro municipal de información al visitante en Praça Vereador José Leite dos Passos, nº 14, en Barra Velha. Teléfono: +55 12 3895-7220. Consulta los detalles de atención en el portal oficial.",tags:["Barra Velha","Atención al visitante","Ayuntamiento de Ilhabela"]},
+    he:{type:"מידע לתיירים",description:"מרכז עירוני למידע למבקרים בכתובת Praça Vereador José Leite dos Passos, nº 14, בשכונת Barra Velha. טלפון: ‎+55 12 3895-7220. מומלץ לבדוק פרטי שירות בפורטל העירוני הרשמי.",tags:["Barra Velha","סיוע למבקרים","עיריית Ilhabela"]}
+  },
+  "Centro de Informações Turísticas — Vila": {
+    pt:{type:"Informações turísticas",description:"Centro municipal de atendimento ao visitante na Rua Doutor Carvalho, nº 80, na Vila. Telefone: (12) 3896-3777. Confirme atendimento e informações no portal oficial.",tags:["Vila","Centro Histórico","Atendimento ao visitante"]},
+    en:{type:"Tourist information",description:"Municipal visitor information center at Rua Doutor Carvalho, no. 80, in Vila. Phone: +55 12 3896-3777. Check service details on the official city portal.",tags:["Vila","Historic Center","Visitor support"]},
+    fr:{type:"Informations touristiques",description:"Centre municipal d’information aux visiteurs, Rua Doutor Carvalho, nº 80, à Vila. Tél. : +55 12 3896-3777. Consultez le portail officiel pour les informations de service.",tags:["Vila","Centre historique","Accueil des visiteurs"]},
+    es:{type:"Información turística",description:"Centro municipal de información al visitante en Rua Doutor Carvalho, nº 80, en Vila. Teléfono: +55 12 3896-3777. Consulta los detalles de atención en el portal oficial.",tags:["Vila","Centro Histórico","Atención al visitante"]},
+    he:{type:"מידע לתיירים",description:"מרכז עירוני למידע למבקרים בכתובת Rua Doutor Carvalho, nº 80, באזור Vila. טלפון: ‎+55 12 3896-3777. מומלץ לבדוק פרטי שירות בפורטל העירוני הרשמי.",tags:["Vila","המרכז ההיסטורי","סיוע למבקרים"]}
   }
 };
 
