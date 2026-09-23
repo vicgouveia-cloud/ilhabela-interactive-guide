@@ -31,13 +31,6 @@
     const entry = serviceTaxonomy?.[dimension]?.[id];
     return entry?.[currentLang] || id;
   };
-  const dimensionLabel = {
-    type: { pt: 'Tipo', en: 'Type', fr: 'Type', es: 'Tipo', he: 'סוג' },
-    format: { pt: 'Formato', en: 'Format', fr: 'Format', es: 'Formato', he: 'פורמט' },
-    specialty: { pt: 'Especialidade', en: 'Specialty', fr: 'Spécialité', es: 'Especialidad', he: 'התמחות' },
-    occasion: { pt: 'Momento', en: 'Occasion', fr: 'Moment', es: 'Momento', he: 'מועד' }
-  };
-
   const renderFoodFilters = () => {
     if (!foodFilters) return;
     if (category !== 'food') {
@@ -57,10 +50,10 @@
       const values = [...new Set(servicesData.filter(s => s.category === 'food').flatMap(s => s[field] || []))];
       const options = ['all', ...values].map(id => {
         const selected = id === foodFilterState[dimension] ? ' selected' : '';
-        const text = id === 'all' ? (currentLang === 'pt' ? 'Todos' : currentLang === 'en' ? 'All' : currentLang === 'fr' ? 'Tous' : currentLang === 'es' ? 'Todos' : 'הכול') : labelFor(dimension, id);
+        const text = id === 'all' ? serviceTaxonomy.labels.all[currentLang] : labelFor(dimension, id);
         return `<option value="${id}"${selected}>${text}</option>`;
       }).join('');
-      return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dimensionLabel[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${options}</select></label>`;
+      return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${serviceTaxonomy.labels[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${options}</select></label>`;
     }).join('');
     foodFilters.querySelectorAll('[data-service-food-filter]').forEach(select => {
       select.addEventListener('change', () => {
