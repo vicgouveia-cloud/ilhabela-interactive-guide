@@ -393,6 +393,7 @@ function renderSummary() {
 
   let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
+  html += renderPlannerNauticalExperiences(selectedSpots);
   selectedSpots.forEach(spot => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
