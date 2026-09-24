@@ -172,6 +172,52 @@ function getMaritimeOptionsForSpots(spots) {
     .filter(Boolean);
 }
 
+function getNauticalExperienceOptionsForSpots(spots) {
+  const selectedIds = new Set((spots || []).map(spot => spot.id));
+  return Object.entries(nauticalExperienceProfiles)
+    .map(([id, profile]) => {
+      const matchingSpotIds = profile.spotIds.filter(spotId => selectedIds.has(spotId));
+      if (!matchingSpotIds.length) return null;
+      const sample = getNauticalExperienceOptionsForSpot(matchingSpotIds[0])[0];
+      return { id, ...profile, matchingSpotIds, providers: sample?.providers || [] };
+    })
+    .filter(Boolean);
+}
+
+function renderPlannerNauticalExperiences(spots) {
+  const options = getNauticalExperienceOptionsForSpots(spots);
+  if (!options.length) return '';
+
+  const labels = {
+    'whale-watching': 'Observação de baleias',
+    'diving': 'Mergulho'
+  };
+  const cards = options.map(option => {
+    const destinationNames = option.matchingSpotIds
+      .map(id => touristSpots.find(spot => spot.id === id))
+      .filter(Boolean)
+      .map(spot => getSpotTranslation(spot).title)
+      .join(' · ');
+    const providers = option.providers.map(provider =>
+      `<span class="inline-flex px-2 py-1 rounded-full bg-white border border-black/10 text-[11px] font-bold text-primary">${provider.name}</span>`
+    ).join('');
+    return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
+      <div class="text-xs font-extrabold text-primary">${labels[option.id] || option.id}</div>
+      <div class="text-xs font-semibold text-on-surface-variant">${destinationNames}</div>
+      <div class="flex flex-wrap gap-1.5">${providers}</div>
+      <p class="text-[10px] text-on-surface-variant">Prestador com atividade compatível confirmada. Consulte disponibilidade, condições, requisitos e detalhes diretamente com o prestador.</p>
+    </div>`;
+  }).join('');
+
+  return `<div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
+    <div>
+      <h3 class="text-sm font-extrabold text-primary">Experiências náuticas</h3>
+      <p class="text-xs text-on-surface-variant">Atividades selecionadas que dependem de operação especializada e não são simples trechos de transporte.</p>
+    </div>
+    ${cards}
+  </div>`;
+}
+
 function renderPlannerMaritimeOptions(spots) {
   const options = getMaritimeOptionsForSpots(spots);
   if (!options.length) return '';
