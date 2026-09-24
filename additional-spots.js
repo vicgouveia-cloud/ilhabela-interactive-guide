@@ -1805,6 +1805,42 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'pousada-armacao-dos-ventos',
+    category: 'stay',
+    name: 'Pousada Armação dos Ventos',
+    baseLocation: { nearSpotId: 'praia-da-armacao', address: 'Avenida Perimetral Norte, 4260, Praia da Armação' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    whatsapp: '12997279683',
+    whatsappDisplay: '(12) 99727-9683',
+    url: 'https://www.armacaodosventos.com.br/'
+  },
+  {
+    id: 'pousada-canto-bravo',
+    category: 'stay',
+    name: 'Pousada Canto Bravo',
+    baseLocation: { spotId: 'praia-do-bonete', address: 'Praia do Bonete, 1' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    whatsapp: '12996834002',
+    whatsappDisplay: '(12) 99683-4002',
+    url: 'https://pousadacantobravobonete.com.br/'
+  },
+  {
+    id: 'pousada-iguana-azul',
+    category: 'stay',
+    name: 'Pousada Iguana Azul',
+    baseLocation: { address: "Rua Conde D'eu, 102, Bexiga" },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    phone: '1238941034',
+    phoneDisplay: '(12) 3894-1034',
+    url: 'https://www.pousadaiguanaazul.com.br/'
+  },
+  {
     id: 'pato-guia-ilhabela',
     category: 'tour',
     name: 'Pato Guia Ilhabela',
