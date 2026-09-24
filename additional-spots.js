@@ -1805,6 +1805,18 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'castelhanos-turismo',
+    category: 'tour',
+    name: 'Castelhanos Turismo',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 809, Shopping Ardhentia, loja 16' },
+    serviceArea: { scope: 'island', modes: ['4x4', 'boat'], verifiedModes: ['4x4', 'boat'] },
+    activities: ['4x4-tour', 'boat-tour', 'whale-watching'],
+    presentation: 'compact',
+    whatsapp: '12997676558',
+    whatsappDisplay: '(12) 99767-6558',
+    url: 'https://castelhanostur.com.br/'
+  },
+  {
     id: 'vivaventura-ecoturismo',
     category: 'tour',
     name: 'Vivaventura Ecoturismo',
