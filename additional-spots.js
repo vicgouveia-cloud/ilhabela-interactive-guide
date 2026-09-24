@@ -1805,6 +1805,18 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'ruda-destinos',
+    category: 'tour',
+    name: 'Rudá Destinos',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 1295, Loja 2, Perequê' },
+    serviceArea: { scope: 'regional', modes: ['transfer', '4x4'], verifiedModes: ['transfer', '4x4'] },
+    activities: ['airport-transfer', 'private-transfer', '4x4-tour'],
+    presentation: 'compact',
+    whatsapp: '12974418182',
+    whatsappDisplay: '(12) 97441-8182',
+    url: 'https://loja-rudadestinos.paytour.com.br/'
+  },
+  {
     id: 'nova-aluguel-de-carros',
     category: 'essentials',
     name: 'NOVA Aluguel de Carros',
@@ -1928,8 +1940,8 @@ const servicesData = [
     category: 'tour',
     name: 'Maremar Turismo',
     baseLocation: { nearSpotId: 'praia-do-pereque' },
-    serviceArea: { scope: 'island', modes: ['boat', '4x4', 'diving'], verifiedModes: ['boat', '4x4', 'diving'] },
-    activities: ['boat-tour', '4x4-tour', 'whale-watching', 'diving', 'city-tour', 'waterfall-tour'],
+    serviceArea: { scope: 'island', modes: ['boat', '4x4', 'diving', 'transfer'], verifiedModes: ['boat', '4x4', 'diving', 'transfer'] },
+    activities: ['private-transfer', 'boat-tour', '4x4-tour', 'whale-watching', 'diving', 'city-tour', 'waterfall-tour'],
     presentation: 'compact',
     phone: '1238963679',
     phoneDisplay: '(12) 3896-3679',
