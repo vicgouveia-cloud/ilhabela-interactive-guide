@@ -1805,6 +1805,18 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'localiza-sao-sebastiao',
+    category: 'essentials',
+    name: 'Localiza — São Sebastião',
+    baseLocation: { address: 'Av. Guarda Mor Lobo Viana, 1052, Porto Grande, São Sebastião' },
+    serviceArea: { scope: 'regional', modes: [], verifiedModes: [] },
+    activities: ['car-rental'],
+    presentation: 'compact',
+    phone: '1238923838',
+    phoneDisplay: '(12) 3892-3838',
+    url: 'https://www.localiza.com/brasil/pt-br/rede-de-agencias/sao-sebastiao'
+  },
+  {
     id: 'ruda-destinos',
     category: 'tour',
     name: 'Rudá Destinos',
