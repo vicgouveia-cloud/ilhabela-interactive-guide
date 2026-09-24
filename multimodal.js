@@ -95,7 +95,11 @@ function getMaritimeProvidersForProfile(profile) {
   return servicesData.filter(service => {
     const modes = service.serviceArea?.modes || [];
     const activities = service.activities || [];
-    return modes.includes(profile.requiredMode) && activities.includes(profile.requiredActivity);
+    const verifiedModes = service.serviceArea?.verifiedModes || [];
+    return service.serviceArea?.scope === 'island' &&
+      modes.includes(profile.requiredMode) &&
+      verifiedModes.includes(profile.requiredMode) &&
+      activities.includes(profile.requiredActivity);
   });
 }
 
@@ -139,7 +143,7 @@ function renderPlannerMaritimeOptions(spots) {
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-bold text-primary">${destinationNames}</div>
       <div class="flex flex-wrap gap-1.5">${providers}</div>
-      <p class="text-[10px] text-on-surface-variant">Prestadores com capacidade náutica compatível no catálogo. Confirme destino, saída e disponibilidade diretamente com o prestador.</p>
+      <p class="text-[10px] text-on-surface-variant">Prestadores com cobertura marítima confirmada para Ilhabela. Confirme saída, horário, disponibilidade e condições diretamente com o prestador.</p>
     </div>`;
   }).join('');
 
