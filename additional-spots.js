@@ -1805,6 +1805,19 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'trilhabela-turismo',
+    category: 'tour',
+    name: 'Trilhabela Turismo',
+    baseLocation: { address: 'Rua Carlos Andrade Rizzini, 27, Barra Velha' },
+    serviceArea: { scope: 'island', modes: ['trail', 'boat', '4x4', 'diving'], verifiedModes: ['trail', 'boat', '4x4', 'diving'] },
+    activities: ['guided-hiking', 'trekking', 'waterfall-tour', 'boat-tour', '4x4-tour', 'snorkeling', 'diving', 'whale-watching'],
+    presentation: 'compact',
+    whatsapp: '12991226986',
+    whatsappDisplay: '(12) 99122-6986',
+    instagram: '@trilhabela',
+    url: 'https://trilhabela.com.br/'
+  },
+  {
     id: 'maremar-turismo',
     category: 'tour',
     name: 'Maremar Turismo',
