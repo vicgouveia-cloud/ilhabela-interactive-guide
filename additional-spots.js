@@ -1805,6 +1805,54 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'maremar-turismo',
+    category: 'tour',
+    name: 'Maremar Turismo',
+    baseLocation: { nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'island', modes: ['boat', '4x4', 'diving'], verifiedModes: ['boat', '4x4', 'diving'] },
+    activities: ['boat-tour', '4x4-tour', 'whale-watching', 'diving', 'city-tour', 'waterfall-tour'],
+    presentation: 'compact',
+    phone: '1238963679',
+    phoneDisplay: '(12) 3896-3679',
+    url: 'https://maremar.tur.br'
+  },
+  {
+    id: 'ilhaeco',
+    category: 'tour',
+    name: 'IlhaEco',
+    baseLocation: { nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'island', modes: ['boat', '4x4', 'diving'], verifiedModes: ['boat', '4x4', 'diving'] },
+    activities: ['boat-tour', '4x4-tour', 'diving'],
+    presentation: 'compact',
+    whatsapp: '12997630416',
+    whatsappDisplay: '+55 (12) 99763-0416',
+    url: 'https://ilhaeco.com.br/home/'
+  },
+  {
+    id: 'ilhabela-atalaia',
+    category: 'tour',
+    name: 'Ilhabela Atalaia',
+    baseLocation: { nearSpotId: 'centro-historico-vila' },
+    serviceArea: { scope: 'island', modes: ['boat'], verifiedModes: ['boat'] },
+    activities: ['boat-tour'],
+    presentation: 'compact',
+    whatsapp: '12992388809',
+    whatsappDisplay: '+55 (12) 99238-8809',
+    url: 'https://ilhabelaatalaia.com.br'
+  },
+  {
+    id: 'wahoo-ilhabela',
+    category: 'tour',
+    name: 'Wahoo Ilhabela',
+    baseLocation: { nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'island', modes: ['boat', 'diving'], verifiedModes: ['boat', 'diving'] },
+    activities: ['boat-tour', 'whale-watching', 'diving'],
+    presentation: 'compact',
+    whatsapp: '12988452835',
+    whatsappDisplay: '+55 (12) 98845-2835',
+    url: 'https://wahooilhabela.com.br'
+  },
+  {
     id: 'chagas-passeios',
     category: 'tour',
     name: 'Chagas Passeios',
