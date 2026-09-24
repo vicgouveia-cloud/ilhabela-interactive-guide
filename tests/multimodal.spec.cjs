@@ -87,3 +87,21 @@ test('maritime profiles match providers by capability without context links', as
   expect(data.eustaquio[0].id).toBe('east-coast');
   expect(data.castelhanos[0].id).toBe('east-coast');
 });
+
+
+test('planner renders maritime candidates without claiming verified coverage', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerMaritimeOptions === 'function');
+  const result = await page.evaluate(() => {
+    const ids = ['praia-do-bonete', 'praia-da-fome', 'saco-do-eustaquio', 'baia-de-castelhanos'];
+    const spots = ids.map(id => touristSpots.find(spot => spot.id === id)).filter(Boolean);
+    const html = renderPlannerMaritimeOptions(spots);
+    return { html, options: getMaritimeOptionsForSpots(spots) };
+  });
+  expect(result.options.map(option => option.id).sort()).toEqual(['bonete', 'east-coast']);
+  expect(result.html).toContain('Opções de barco');
+  expect(result.html).toContain('Chagas Passeios');
+  expect(result.html).toContain('Portinho Passeios');
+  expect(result.html).toContain('Confirme destino, saída e disponibilidade');
+  expect(result.html).not.toContain('embarque em Perequê');
+});
