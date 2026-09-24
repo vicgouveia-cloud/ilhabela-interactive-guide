@@ -33,7 +33,6 @@ touristSpots.forEach(spot => {
 
 function resolvePlannerAccess(spot, mode) {
   if (!spot) return null;
-  if (mode === '4x4' && spot.id === 'baia-de-castelhanos') return { coords: spot.coords, destination: spot.coords, finalMode: null };
   const option = spot.routing?.accessOptions?.find(option => option.approachModes.includes(mode) && option.gateway?.verified);
   if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode };
   const modes = spot.routing?.modes || [];
