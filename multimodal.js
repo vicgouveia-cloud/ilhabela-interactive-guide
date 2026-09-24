@@ -69,6 +69,69 @@ function plannerConfirmAccess(spots) {
 
 // Maritime compatibility is intentionally independent from editorial contextSpotIds.
 // A route declares destinations; providers are matched only by explicit service capability.
+
+// Maritime and nautical planner copy.
+Object.assign(translations.pt, {
+  plannerBoatOptions: "Opções de barco",
+  plannerBoatOptionsHint: "Alternativas marítimas para destinos selecionados. O ponto de embarque depende do roteiro e do prestador.",
+  plannerBoatProviderHint: "${t('plannerBoatProviderHint')}",
+  plannerNauticalExperiences: "Experiências náuticas",
+  plannerNauticalExperiencesHint: "Atividades selecionadas que dependem de operação especializada e não são simples trechos de transporte.",
+  plannerWhaleWatching: "Observação de baleias", plannerDivingExperience: "Mergulho",
+  plannerExperienceLocationHint: "${t('plannerExperienceLocationHint')}",
+  plannerMeetingPointConfirmed: "Use o ponto de encontro confirmado pelo prestador para iniciar o deslocamento.",
+  plannerMeetingPointUnknown: "Ponto de encontro/embarque ainda não definido no guia. Confirme com o prestador antes de se deslocar.",
+  plannerProviderDetailsHint: "${t('plannerProviderDetailsHint')}"
+});
+Object.assign(translations.en, {
+  plannerBoatOptions: "Boat options",
+  plannerBoatOptionsHint: "Maritime alternatives for selected destinations. The boarding point depends on the route and provider.",
+  plannerBoatProviderHint: "Providers with confirmed maritime coverage in Ilhabela. Confirm departure point, time, availability and conditions directly with the provider.",
+  plannerNauticalExperiences: "Nautical experiences",
+  plannerNauticalExperiencesHint: "Selected activities that depend on specialized operation and are not simply transport legs.",
+  plannerWhaleWatching: "Whale watching", plannerDivingExperience: "Diving",
+  plannerExperienceLocationHint: "The point on the map represents the experience location, not a terrestrial access destination.",
+  plannerMeetingPointConfirmed: "Use the meeting point confirmed by the provider to begin your journey.",
+  plannerMeetingPointUnknown: "The meeting/boarding point is not yet defined in the guide. Confirm it with the provider before traveling.",
+  plannerProviderDetailsHint: "Also confirm time, availability, conditions and requirements directly with the provider."
+});
+Object.assign(translations.fr, {
+  plannerBoatOptions: "Options en bateau",
+  plannerBoatOptionsHint: "Alternatives maritimes pour les destinations sélectionnées. Le point d'embarquement dépend de l'itinéraire et du prestataire.",
+  plannerBoatProviderHint: "Prestataires avec couverture maritime confirmée à Ilhabela. Confirmez le départ, l'heure, la disponibilité et les conditions directement avec le prestataire.",
+  plannerNauticalExperiences: "Expériences nautiques",
+  plannerNauticalExperiencesHint: "Activités sélectionnées nécessitant une opération spécialisée et qui ne sont pas de simples trajets de transport.",
+  plannerWhaleWatching: "Observation des baleines", plannerDivingExperience: "Plongée",
+  plannerExperienceLocationHint: "Le point sur la carte représente le lieu de l'expérience, pas une destination d'accès terrestre.",
+  plannerMeetingPointConfirmed: "Utilisez le point de rendez-vous confirmé par le prestataire pour commencer votre déplacement.",
+  plannerMeetingPointUnknown: "Le point de rendez-vous/d'embarquement n'est pas encore défini dans le guide. Confirmez-le avec le prestataire avant de vous déplacer.",
+  plannerProviderDetailsHint: "Confirmez également l'heure, la disponibilité, les conditions et les exigences directement avec le prestataire."
+});
+Object.assign(translations.es, {
+  plannerBoatOptions: "Opciones en barco",
+  plannerBoatOptionsHint: "Alternativas marítimas para los destinos seleccionados. El punto de embarque depende de la ruta y del prestador.",
+  plannerBoatProviderHint: "Prestadores con cobertura marítima confirmada en Ilhabela. Confirma salida, horario, disponibilidad y condiciones directamente con el prestador.",
+  plannerNauticalExperiences: "Experiencias náuticas",
+  plannerNauticalExperiencesHint: "Actividades seleccionadas que dependen de una operación especializada y no son simples tramos de transporte.",
+  plannerWhaleWatching: "Avistamiento de ballenas", plannerDivingExperience: "Buceo",
+  plannerExperienceLocationHint: "El punto del mapa representa el lugar de la experiencia, no un destino de acceso terrestre.",
+  plannerMeetingPointConfirmed: "Usa el punto de encuentro confirmado por el prestador para iniciar el desplazamiento.",
+  plannerMeetingPointUnknown: "El punto de encuentro/embarque aún no está definido en la guía. Confírmalo con el prestador antes de desplazarte.",
+  plannerProviderDetailsHint: "Confirma también horario, disponibilidad, condiciones y requisitos directamente con el prestador."
+});
+Object.assign(translations.he, {
+  plannerBoatOptions: "אפשרויות שיט",
+  plannerBoatOptionsHint: "חלופות ימיות ליעדים שנבחרו. נקודת העלייה לסירה תלויה במסלול ובספק השירות.",
+  plannerBoatProviderHint: "ספקים עם כיסוי ימי מאומת באיליאבלה. יש לאשר ישירות עם הספק את נקודת היציאה, השעה, הזמינות והתנאים.",
+  plannerNauticalExperiences: "חוויות ימיות",
+  plannerNauticalExperiencesHint: "פעילויות נבחרות הדורשות הפעלה מקצועית ואינן רק מקטעי תחבורה.",
+  plannerWhaleWatching: "צפייה בלווייתנים", plannerDivingExperience: "צלילה",
+  plannerExperienceLocationHint: "הנקודה במפה מייצגת את מקום החוויה ולא יעד לגישה יבשתית.",
+  plannerMeetingPointConfirmed: "השתמשו בנקודת המפגש שאושרה על ידי הספק כדי להתחיל את הדרך.",
+  plannerMeetingPointUnknown: "נקודת המפגש/העלייה לסירה עדיין אינה מוגדרת במדריך. יש לאשר אותה עם הספק לפני היציאה.",
+  plannerProviderDetailsHint: "יש לאשר ישירות עם הספק גם שעה, זמינות, תנאים ודרישות."
+});
+
 const maritimeRouteProfiles = {
   'bonete': {
     spotIds: ['praia-do-bonete'],
@@ -191,8 +254,8 @@ function renderPlannerNauticalExperiences(spots) {
   if (!options.length) return '';
 
   const labels = {
-    'whale-watching': 'Observação de baleias',
-    'diving': 'Mergulho'
+    'whale-watching': t('plannerWhaleWatching'),
+    'diving': t('plannerDivingExperience')
   };
   const cards = options.map(option => {
     const destinationNames = option.matchingSpotIds
@@ -209,16 +272,16 @@ function renderPlannerNauticalExperiences(spots) {
       <div class="flex flex-wrap gap-1.5">${providers}</div>
       <p class="text-[10px] text-on-surface-variant">O ponto no mapa representa o local da experiência, não um destino de acesso terrestre.</p>
       <p class="text-[10px] font-semibold text-on-surface-variant">${option.meetingPoint
-        ? 'Use o ponto de encontro confirmado pelo prestador para iniciar o deslocamento.'
-        : 'Ponto de encontro/embarque ainda não definido no guia. Confirme com o prestador antes de se deslocar.'}</p>
+        ? t('plannerMeetingPointConfirmed')
+        : t('plannerMeetingPointUnknown')}</p>
       <p class="text-[10px] text-on-surface-variant">Consulte também horário, disponibilidade, condições e requisitos diretamente com o prestador.</p>
     </div>`;
   }).join('');
 
   return `<div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
     <div>
-      <h3 class="text-sm font-extrabold text-primary">Experiências náuticas</h3>
-      <p class="text-xs text-on-surface-variant">Atividades selecionadas que dependem de operação especializada e não são simples trechos de transporte.</p>
+      <h3 class="text-sm font-extrabold text-primary">${t('plannerNauticalExperiences')}</h3>
+      <p class="text-xs text-on-surface-variant">${t('plannerNauticalExperiencesHint')}</p>
     </div>
     ${cards}
   </div>`;
@@ -246,8 +309,8 @@ function renderPlannerMaritimeOptions(spots) {
 
   return `<div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
     <div>
-      <h3 class="text-sm font-extrabold text-primary">Opções de barco</h3>
-      <p class="text-xs text-on-surface-variant">Alternativas marítimas para destinos selecionados. O ponto de embarque depende do roteiro e do prestador.</p>
+      <h3 class="text-sm font-extrabold text-primary">${t('plannerBoatOptions')}</h3>
+      <p class="text-xs text-on-surface-variant">${t('plannerBoatOptionsHint')}</p>
     </div>
     ${cards}
   </div>`;
