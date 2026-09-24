@@ -93,7 +93,8 @@ Object.assign(translations.en, {
   plannerExperienceLocationHint: "The point on the map represents the experience location, not a terrestrial access destination.",
   plannerMeetingPointConfirmed: "Use the meeting point confirmed by the provider to begin your journey.",
   plannerMeetingPointUnknown: "The meeting/boarding point is not yet defined in the guide. Confirm it with the provider before traveling.",
-  plannerProviderDetailsHint: "Also confirm time, availability, conditions and requirements directly with the provider."
+  plannerProviderDetailsHint: "Also confirm time, availability, conditions and requirements directly with the provider.",
+  plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
   plannerBoatOptions: "Options en bateau",
@@ -105,7 +106,8 @@ Object.assign(translations.fr, {
   plannerExperienceLocationHint: "Le point sur la carte représente le lieu de l'expérience, pas une destination d'accès terrestre.",
   plannerMeetingPointConfirmed: "Utilisez le point de rendez-vous confirmé par le prestataire pour commencer votre déplacement.",
   plannerMeetingPointUnknown: "Le point de rendez-vous/d'embarquement n'est pas encore défini dans le guide. Confirmez-le avec le prestataire avant de vous déplacer.",
-  plannerProviderDetailsHint: "Confirmez également l'heure, la disponibilité, les conditions et les exigences directement avec le prestataire."
+  plannerProviderDetailsHint: "Confirmez également l'heure, la disponibilité, les conditions et les exigences directement avec le prestataire.",
+  plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
   plannerBoatOptions: "Opciones en barco",
@@ -117,7 +119,8 @@ Object.assign(translations.es, {
   plannerExperienceLocationHint: "El punto del mapa representa el lugar de la experiencia, no un destino de acceso terrestre.",
   plannerMeetingPointConfirmed: "Usa el punto de encuentro confirmado por el prestador para iniciar el desplazamiento.",
   plannerMeetingPointUnknown: "El punto de encuentro/embarque aún no está definido en la guía. Confírmalo con el prestador antes de desplazarte.",
-  plannerProviderDetailsHint: "Confirma también horario, disponibilidad, condiciones y requisitos directamente con el prestador."
+  plannerProviderDetailsHint: "Confirma también horario, disponibilidad, condiciones y requisitos directamente con el prestador.",
+  plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
   plannerBoatOptions: "אפשרויות שיט",
@@ -129,7 +132,8 @@ Object.assign(translations.he, {
   plannerExperienceLocationHint: "הנקודה במפה מייצגת את מקום החוויה ולא יעד לגישה יבשתית.",
   plannerMeetingPointConfirmed: "השתמשו בנקודת המפגש שאושרה על ידי הספק כדי להתחיל את הדרך.",
   plannerMeetingPointUnknown: "נקודת המפגש/העלייה לסירה עדיין אינה מוגדרת במדריך. יש לאשר אותה עם הספק לפני היציאה.",
-  plannerProviderDetailsHint: "יש לאשר ישירות עם הספק גם שעה, זמינות, תנאים ודרישות."
+  plannerProviderDetailsHint: "יש לאשר ישירות עם הספק גם שעה, זמינות, תנאים ודרישות.",
+  plannerContactProvider: "פנייה ב-WhatsApp", plannerProviderWebsite: "אתר הספק"
 });
 
 const maritimeRouteProfiles = {
@@ -249,6 +253,18 @@ function getNauticalExperienceOptionsForSpots(spots) {
     .filter(Boolean);
 }
 
+function renderPlannerProviderActions(provider) {
+  if (!provider) return '';
+  const whatsapp = provider.whatsapp
+    ? `<a href="https://wa.me/55${provider.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl bg-[#25D366] px-3 py-2 text-[11px] font-bold text-white"><span class="material-symbols-outlined text-[15px]">chat</span><span>${t('plannerContactProvider')}</span></a>`
+    : '';
+  const website = provider.url
+    ? `<a href="${provider.url}" target="_blank" rel="noopener noreferrer" class="inline-flex min-h-10 items-center justify-center gap-1.5 rounded-xl border border-black/10 bg-white px-3 py-2 text-[11px] font-bold text-primary"><span class="material-symbols-outlined text-[15px]">language</span><span>${t('plannerProviderWebsite')}</span></a>`
+    : '';
+  if (!whatsapp && !website) return '';
+  return `<div class="flex flex-wrap gap-2 pt-1">${whatsapp}${website}</div>`;
+}
+
 function renderPlannerNauticalExperiences(spots) {
   const options = getNauticalExperienceOptionsForSpots(spots);
   if (!options.length) return '';
@@ -264,12 +280,12 @@ function renderPlannerNauticalExperiences(spots) {
       .map(spot => getSpotTranslation(spot).title)
       .join(' · ');
     const providers = option.providers.map(provider =>
-      `<span class="inline-flex px-2 py-1 rounded-full bg-white border border-black/10 text-[11px] font-bold text-primary">${provider.name}</span>`
+      `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
     ).join('');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-extrabold text-primary">${labels[option.id] || option.id}</div>
       <div class="text-xs font-semibold text-on-surface-variant">${destinationNames}</div>
-      <div class="flex flex-wrap gap-1.5">${providers}</div>
+      <div class="grid gap-2">${providers}</div>
       <p class="text-[10px] text-on-surface-variant">${t('plannerExperienceLocationHint')}</p>
       <p class="text-[10px] font-semibold text-on-surface-variant">${option.meetingPoint
         ? t('plannerMeetingPointConfirmed')
@@ -298,11 +314,11 @@ function renderPlannerMaritimeOptions(spots) {
       .map(spot => getSpotTranslation(spot).title)
       .join(' · ');
     const providers = option.providers.map(provider =>
-      `<span class="inline-flex px-2 py-1 rounded-full bg-white border border-black/10 text-[11px] font-bold text-primary">${provider.name}</span>`
+      `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
     ).join('');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-bold text-primary">${destinationNames}</div>
-      <div class="flex flex-wrap gap-1.5">${providers}</div>
+      <div class="grid gap-2">${providers}</div>
       <p class="text-[10px] text-on-surface-variant">${t('plannerBoatProviderHint')}</p>
     </div>`;
   }).join('');
