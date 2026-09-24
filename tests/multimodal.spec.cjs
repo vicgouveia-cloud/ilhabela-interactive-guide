@@ -128,3 +128,26 @@ test('remote coastal beaches use maritime transport profiles without activity-on
   expect(result.whales).toEqual([]);
   expect(result.wreck).toEqual([]);
 });
+
+
+test('nautical experiences keep whale watching and diving providers separate', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getNauticalExperienceOptionsForSpot === 'function');
+  const result = await page.evaluate(() => ({
+    whaleSouth: getNauticalExperienceOptionsForSpot('ponto-baleias-sul-sepituba'),
+    whaleCanal: getNauticalExperienceOptionsForSpot('ponto-baleias-canal'),
+    aymore: getNauticalExperienceOptionsForSpot('naufragio-aymore'),
+    cabras: getNauticalExperienceOptionsForSpot('santuario-ilha-das-cabras'),
+    asturias: getNauticalExperienceOptionsForSpot('naufragio-principe-de-asturias'),
+    beach: getNauticalExperienceOptionsForSpot('praia-do-bonete')
+  }));
+  for (const options of [result.whaleSouth, result.whaleCanal]) {
+    expect(options[0].id).toBe('whale-watching');
+    expect(options[0].providers.map(provider => provider.id)).toEqual(['portinho-passeios']);
+  }
+  for (const options of [result.aymore, result.cabras, result.asturias]) {
+    expect(options[0].id).toBe('diving');
+    expect(options[0].providers.map(provider => provider.id)).toEqual(['portinho-divers']);
+  }
+  expect(result.beach).toEqual([]);
+});
