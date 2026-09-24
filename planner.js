@@ -418,10 +418,7 @@ function getPlannerTravelModeLabel(mode) {
 }
 
 function isSpotRoutableForMode(spot, mode = plannerTravelMode) {
-  const modes = spot?.routing?.modes || [];
-  if (mode === 'pedestrian') return modes.includes('road') || modes.includes('trail');
-  if (mode === 'bicycle') return modes.includes('road');
-  return spot?.routing?.roadRoutable === true;
+  return !!resolvePlannerAccess(spot, mode);
 }
 
 function plannerSetTravelMode(mode) {
@@ -503,6 +500,9 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
     <div class="space-y-3 mb-4">
       <div class="rounded-2xl border border-black/10 bg-white p-4 space-y-3">
         ${modeSelector}
+        ${[...roadSpots, ...specialSpots].map(spot => plannerAccessNotice(spot) ? `<p class="text-xs text-primary"><strong>${getSpotTranslation(spot).title}:</strong> ${plannerAccessNotice(spot)}</p>` : '').join('')}
+        <button type="button" onclick="plannerDownloadOffline()" class="px-3 py-2 rounded-xl border text-xs font-bold">${t('plannerOfflineDownload')}</button>
+        <p class="text-xs text-on-surface-variant">${t('plannerOfflineHint')}</p>
         <div class="flex items-center justify-between gap-3">
           <div>
             <h3 class="text-sm font-extrabold text-primary">${t('plannerRouteSection')} · ${getPlannerTravelModeLabel(plannerTravelMode)}</h3>
@@ -573,10 +573,11 @@ function plannerDecodePolyline6(encoded) {
 async function plannerOptimizeRoute() {
   const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
+  if (!plannerConfirmAccess(roadSpots)) return;
 
   const locations = [];
   if (plannerOrigin) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
-  roadSpots.forEach(spot => locations.push({ lat: spot.coords[0], lon: spot.coords[1], type: 'break' }));
+  roadSpots.forEach(spot => { const coords = resolvePlannerAccess(spot, plannerTravelMode).coords; locations.push({ lat: coords[0], lon: coords[1], type: 'break' }); });
 
   try {
     const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
@@ -635,7 +636,8 @@ function plannerOpenGoogleMaps() {
   const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking' }[plannerTravelMode] || 'driving';
   const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
   if (plannerOrigin) params.set('origin', plannerOrigin.join(','));
-  const points = roadSpots.map(spot => spot.coords.join(','));
+  if (!plannerConfirmAccess(roadSpots)) return;
+  const points = roadSpots.map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords.join(','));
   params.set('destination', points[points.length - 1]);
   if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
