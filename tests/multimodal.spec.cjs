@@ -106,3 +106,25 @@ test('planner renders maritime candidates without claiming verified coverage', a
   expect(result.html).toContain('Confirme saída, horário, disponibilidade e condições');
   expect(result.html).not.toContain('embarque em Perequê');
 });
+
+
+test('remote coastal beaches use maritime transport profiles without activity-only spots', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getMaritimeOptionsForSpot === 'function');
+  const result = await page.evaluate(() => ({
+    enchova: getMaritimeOptionsForSpot('praia-da-enchova'),
+    indaiauba: getMaritimeOptionsForSpot('praia-de-indaiauba'),
+    poco: getMaritimeOptionsForSpot('praia-do-poco'),
+    whales: getMaritimeOptionsForSpot('ponto-baleias-canal'),
+    wreck: getMaritimeOptionsForSpot('naufragio-aymore')
+  }));
+  expect(result.enchova[0].id).toBe('south-remote-coast');
+  expect(result.indaiauba[0].id).toBe('south-remote-coast');
+  expect(result.poco[0].id).toBe('north-remote-coast');
+  for (const options of [result.enchova, result.indaiauba, result.poco]) {
+    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['chagas-passeios', 'portinho-passeios']);
+    expect(options[0].embarkation).toBeNull();
+  }
+  expect(result.whales).toEqual([]);
+  expect(result.wreck).toEqual([]);
+});
