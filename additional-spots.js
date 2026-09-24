@@ -1805,6 +1805,18 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'pato-guia-ilhabela',
+    category: 'tour',
+    name: 'Pato Guia Ilhabela',
+    serviceArea: { scope: 'island', modes: ['trail', '4x4', 'boat'], verifiedModes: ['trail', '4x4', 'boat'] },
+    activities: ['guided-hiking', 'waterfall-tour', '4x4-tour', 'boat-tour', 'whale-watching'],
+    presentation: 'compact',
+    whatsapp: '12991675467',
+    whatsappDisplay: '(12) 99167-5467',
+    instagram: '@patooguia',
+    url: 'https://www.patopasseioilhabela.com/'
+  },
+  {
     id: 'castelhanos-turismo',
     category: 'tour',
     name: 'Castelhanos Turismo',
