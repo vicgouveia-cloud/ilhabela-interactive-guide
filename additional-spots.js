@@ -2284,6 +2284,45 @@ const servicesData = [
     serviceSpecialties:['pizza'], serviceOccasions:['dinner','night'],
     phone:'12974067441', phoneDisplay:'(12) 97406-7441'
   }
+
+  {
+    id:'tea-connection-ilhabela', category:'food', name:'Tea Connection Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food','coffee','healthy-food'],
+    presentation:'compact', serviceType:['restaurant','cafe'], serviceFormats:['aLaCarte','takeaway'],
+    serviceSpecialties:['coffeeBrunch','vegetarian'], serviceOccasions:['breakfast','brunch','lunch','afternoon'],
+    phone:'12991680122', phoneDisplay:'(12) 99168-0122', url:'https://www.teaconnection.com.br'
+  },
+  {
+    id:'miatto-gelateria-ilhabela', category:'food', name:'Miatto Gelateria Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['gelato','desserts','delivery'],
+    presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway','delivery'],
+    serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
+  },
+  {
+    id:'nathans-famous-ilhabela', category:'food', name:'Nathan’s Famous Ilhabela',
+    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['hot-dog','fast-food','delivery'],
+    presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','delivery','takeaway'],
+    serviceSpecialties:['burger'], serviceOccasions:['lunch','afternoon','dinner','night']
+  },
+  {
+    id:'pitanga-restaurante-praia-bar', category:'food', name:'Pitanga Restaurante e Praia Bar',
+    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks','live-music'],
+    presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
+    serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
+    phone:'12991251628', phoneDisplay:'(12) 99125-1628'
+  },
+  {
+    id:'ponto-das-letras', category:'food', name:'Ponto das Letras',
+    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['coffee','books','desserts'],
+    presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','delivery','takeaway'],
+    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','brunch','afternoon'],
+    phone:'12991273331', phoneDisplay:'(12) 99127-3331', url:'https://www.pontodasletras.com.br'
+  },
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
@@ -2590,6 +2629,42 @@ const serviceTranslations = {
     he:{type:"מאפייה",description:"מאפייה בשכונת Itaquanduba, ב-Avenida dos Bandeirantes.",tags:["Itaquanduba","מאפייה","קפה ונשנושים"]}
   },
 
+
+  'Tea Connection Ilhabela': {
+    pt:{type:'Restaurante e café',description:'Restaurante no Perequê, no Mares Ilha Mall, com chás especiais, sucos, saladas e pratos voltados a uma alimentação equilibrada.',tags:['Perequê','Chás','Alimentação saudável']},
+    en:{type:'Restaurant and café',description:'Restaurant in Perequê at Mares Ilha Mall, offering specialty teas, fresh juices, salads and health-focused dishes.',tags:['Perequê','Tea','Healthy food']},
+    fr:{type:'Restaurant et café',description:'Restaurant à Perequê au Mares Ilha Mall, proposant des thés spéciaux, des jus frais, des salades et des plats axés sur une alimentation équilibrée.',tags:['Perequê','Thés','Cuisine saine']},
+    es:{type:'Restaurante y café',description:'Restaurante en Perequê, en Mares Ilha Mall, con tés especiales, jugos naturales, ensaladas y platos orientados a una alimentación equilibrada.',tags:['Perequê','Tés','Comida saludable']},
+    he:{type:'מסעדה ובית קפה',description:'מסעדה באזור Perequê במרכז Mares Ilha Mall עם תה מיוחד, מיצים טבעיים, סלטים ומנות המתמקדות בתזונה מאוזנת.',tags:['Perequê','תה','אוכל בריא']}
+  },
+  'Miatto Gelateria Ilhabela': {
+    pt:{type:'Gelateria',description:'Gelateria no Shopping Ardhentia, no Perequê, com gelatos artesanais preparados com ingredientes selecionados.',tags:['Perequê','Gelato','Sobremesas']},
+    en:{type:'Gelateria',description:'Gelateria at Shopping Ardhentia in Perequê, serving artisan gelato made with selected ingredients.',tags:['Perequê','Gelato','Desserts']},
+    fr:{type:'Glacier',description:'Glacier au Shopping Ardhentia à Perequê, proposant des glaces artisanales préparées avec des ingrédients sélectionnés.',tags:['Perequê','Glaces','Desserts']},
+    es:{type:'Heladería',description:'Heladería en Shopping Ardhentia, en Perequê, con gelatos artesanales preparados con ingredientes seleccionados.',tags:['Perequê','Gelato','Postres']},
+    he:{type:'גלידריה',description:'גלידריה ב-Shopping Ardhentia באזור Perequê עם ג׳לטו בעבודת יד מחומרי גלם נבחרים.',tags:['Perequê','ג׳לטו','קינוחים']}
+  },
+  'Nathan’s Famous Ilhabela': {
+    pt:{type:'Hamburgueria e lanches',description:'Unidade no Mares Ilha Mall, no Perequê, especializada nos tradicionais hot dogs e acompanhamentos da marca americana.',tags:['Perequê','Hot dog','Lanches']},
+    en:{type:'Burger and fast food',description:'Mares Ilha Mall location in Perequê specializing in the American brand’s classic hot dogs and sides.',tags:['Perequê','Hot dogs','Fast food']},
+    fr:{type:'Burgers et restauration rapide',description:'Adresse au Mares Ilha Mall à Perequê, spécialisée dans les hot-dogs classiques et accompagnements de la marque américaine.',tags:['Perequê','Hot-dogs','Restauration rapide']},
+    es:{type:'Hamburguesería y comida rápida',description:'Local en Mares Ilha Mall, en Perequê, especializado en los clásicos hot dogs y acompañamientos de la marca estadounidense.',tags:['Perequê','Hot dogs','Comida rápida']},
+    he:{type:'המבורגרים ואוכל מהיר',description:'סניף ב-Mares Ilha Mall באזור Perequê המתמחה בהוט דוגים ובתוספות הקלאסיות של המותג האמריקאי.',tags:['Perequê','הוט דוג','אוכל מהיר']}
+  },
+  'Pitanga Restaurante e Praia Bar': {
+    pt:{type:'Restaurante e bar de praia',description:'Espaço à beira-mar no Saco da Capela com pratos, frutos do mar, porções, drinks e programação de música ao vivo.',tags:['Saco da Capela','Frutos do mar','Música ao vivo']},
+    en:{type:'Restaurant and beach bar',description:'Seafront venue in Saco da Capela with seafood, shareable dishes, drinks and live music programming.',tags:['Saco da Capela','Seafood','Live music']},
+    fr:{type:'Restaurant et bar de plage',description:'Établissement en bord de mer à Saco da Capela avec fruits de mer, portions à partager, cocktails et musique live.',tags:['Saco da Capela','Fruits de mer','Musique live']},
+    es:{type:'Restaurante y bar de playa',description:'Espacio frente al mar en Saco da Capela con mariscos, porciones para compartir, bebidas y música en vivo.',tags:['Saco da Capela','Mariscos','Música en vivo']},
+    he:{type:'מסעדה ובר חוף',description:'מקום על שפת הים באזור Saco da Capela עם מאכלי ים, מנות לחלוקה, משקאות ומוזיקה חיה.',tags:['Saco da Capela','מאכלי ים','מוזיקה חיה']}
+  },
+  'Ponto das Letras': {
+    pt:{type:'Café e livraria',description:'Café e livraria tradicional na Vila, com cafés especiais, chás, bolos e outras opções para acompanhar momentos de leitura e encontros.',tags:['Vila','Café','Livraria']},
+    en:{type:'Café and bookstore',description:'Longstanding café and bookstore in Vila, offering specialty coffee, teas, homemade cakes and a relaxed setting for reading and meeting.',tags:['Vila','Coffee','Bookstore']},
+    fr:{type:'Café et librairie',description:'Café-librairie traditionnel dans la Vila, avec cafés spéciaux, thés, gâteaux maison et une ambiance agréable pour lire ou se retrouver.',tags:['Vila','Café','Librairie']},
+    es:{type:'Café y librería',description:'Café y librería tradicional en Vila, con cafés especiales, tés, pasteles caseros y un ambiente agradable para leer o encontrarse.',tags:['Vila','Café','Librería']},
+    he:{type:'בית קפה וחנות ספרים',description:'בית קפה וחנות ספרים ותיקים באזור Vila עם קפה מיוחד, תה, עוגות בית ואווירה נעימה לקריאה ולמפגשים.',tags:['Vila','קפה','חנות ספרים']}
+  },
   'Enfim Ostras': {
     pt:{type:"Bar de ostras",description:"Bar intimista na Vila especializado em ostras frescas.",tags:["Vila","Ostras","Frutos do mar"]},
     en:{type:"Oyster bar",description:"Intimate oyster bar in Vila specializing in fresh oysters.",tags:["Vila","Oysters","Seafood"]},
