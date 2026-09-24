@@ -1065,16 +1065,14 @@ function renderGuides() {
         <!-- Profile Header -->
         <div class="space-y-3">
           <div class="flex items-center gap-3">
-            <img src="${guide.photo}" alt="${guide.name}" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white flex-shrink-0" />
+            ${guide.photo ? `<img src="${guide.photo}" alt="${guide.name}" class="w-16 h-16 rounded-2xl object-cover shadow-md border-2 border-white flex-shrink-0" />` : `<div class="w-16 h-16 rounded-2xl bg-secondary-container text-secondary flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-3xl">hiking</span></div>`}
             <div>
               <div class="flex items-center gap-1">
                 <h3 class="text-base font-bold text-primary font-heading">${guide.name}</h3>
                 <span class="material-symbols-outlined text-secondary text-[16px]" title="${t('verifiedBadge')}">verified</span>
               </div>
               <p class="text-xs font-bold text-secondary">${tr.role}</p>
-              <div class="text-[11px] text-on-surface-variant/80 flex items-center gap-1 mt-0.5">
-                <span class="text-amber-500">★</span> ${guide.rating} (${guide.reviewsCount})
-              </div>
+              ${guide.rating != null && guide.reviewsCount != null ? `<div class="text-[11px] text-on-surface-variant/80 flex items-center gap-1 mt-0.5"><span class="text-amber-500">★</span> ${guide.rating} (${guide.reviewsCount})</div>` : ''}
             </div>
           </div>
 
@@ -1098,15 +1096,8 @@ function renderGuides() {
 
         <!-- Footer: Price & Hire CTA -->
         <div class="pt-3 border-t border-black/5 space-y-2">
-          <div class="flex items-center justify-between">
-            <span class="text-xs text-on-surface-variant">${t('dailyFrom')}</span>
-            <strong class="text-base font-bold text-primary">R$ ${guide.pricePerDay}<span class="text-xs font-normal text-on-surface-variant">${t('guidePricePerDay')}</span></strong>
-          </div>
-
-          <button onclick="openBookingModal('${guide.id}')" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold shadow-md transition-colors flex items-center justify-center gap-1.5">
-            <span class="material-symbols-outlined text-[16px]">calendar_add_on</span>
-            <span>${t('bookNow')}</span>
-          </button>
+          ${guide.pricePerDay ? `<div class="flex items-center justify-between"><span class="text-xs text-on-surface-variant">${t('dailyFrom')}</span><strong class="text-base font-bold text-primary">R$ ${guide.pricePerDay}<span class="text-xs font-normal text-on-surface-variant">${t('guidePricePerDay')}</span></strong></div>` : ''}
+          ${guide.pricePerDay ? `<button onclick="openBookingModal('${guide.id}')" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold shadow-md transition-colors flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">calendar_add_on</span><span>${t('bookNow')}</span></button>` : `<a href="https://wa.me/${guide.phone.replace(/[^0-9]/g, '')}?text=${encodeURIComponent(guide.whatsappText || '')}" target="_blank" rel="noopener noreferrer" class="w-full py-2.5 rounded-xl bg-primary hover:bg-primary-container text-white text-xs font-bold shadow-md transition-colors flex items-center justify-center gap-1.5"><span class="material-symbols-outlined text-[16px]">chat</span><span>${t('bookNow')}</span></a>`}
         </div>
 
       </div>
@@ -1120,7 +1111,7 @@ function populateBookingGuides() {
   if (!select) return;
 
   const selected = select.value;
-  select.innerHTML = guidesData.map(g => `
+  select.innerHTML = guidesData.filter(g => g.pricePerDay).map(g => `
     <option value="${g.id}">
       ${g.name} • ${t(g.specialtyKey)} (R$ ${g.pricePerDay}${t('guidePricePerDay')})
     </option>
