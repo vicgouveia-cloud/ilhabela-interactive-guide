@@ -96,6 +96,39 @@ const maritimeRouteProfiles = {
   }
 };
 
+const nauticalExperienceProfiles = {
+  'whale-watching': {
+    spotIds: ['ponto-baleias-sul-sepituba', 'ponto-baleias-canal'],
+    requiredMode: 'boat',
+    requiredActivity: 'whale-watching',
+    providerIds: ['portinho-passeios']
+  },
+  'diving': {
+    spotIds: ['naufragio-aymore', 'santuario-ilha-das-cabras', 'naufragio-principe-de-asturias'],
+    requiredMode: 'diving',
+    requiredActivity: 'diving',
+    providerIds: ['portinho-divers']
+  }
+};
+
+function getNauticalExperienceOptionsForSpot(spotId) {
+  return Object.entries(nauticalExperienceProfiles)
+    .filter(([, profile]) => profile.spotIds.includes(spotId))
+    .map(([id, profile]) => ({
+      id,
+      ...profile,
+      providers: servicesData.filter(service => {
+        const modes = service.serviceArea?.modes || [];
+        const verifiedModes = service.serviceArea?.verifiedModes || [];
+        const activities = service.activities || [];
+        return profile.providerIds.includes(service.id) &&
+          modes.includes(profile.requiredMode) &&
+          verifiedModes.includes(profile.requiredMode) &&
+          activities.includes(profile.requiredActivity);
+      })
+    }));
+}
+
 function getMaritimeRouteProfilesForSpot(spotId) {
   return Object.entries(maritimeRouteProfiles)
     .filter(([, profile]) => profile.spotIds.includes(spotId))
