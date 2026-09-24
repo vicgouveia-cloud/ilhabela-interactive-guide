@@ -81,6 +81,18 @@ const maritimeRouteProfiles = {
     requiredMode: 'boat',
     requiredActivity: 'boat-tour',
     embarkation: null
+  },
+  'south-remote-coast': {
+    spotIds: ['praia-da-enchova', 'praia-de-indaiauba'],
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'north-remote-coast': {
+    spotIds: ['praia-do-poco'],
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
   }
 };
 
