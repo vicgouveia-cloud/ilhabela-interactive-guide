@@ -9,9 +9,9 @@ para carro/bicicleta; as coordenadas das praias continuam como destinos finais
 e marcadores. O resumo e a confirmação avisam que a caminhada final não entra
 no tempo calculado. A pé, permanece o roteamento original.
 
-Bonete mantém alternativas independentes: trilha pela Ponta da Sepituba
-(coordenada exata do gateway pendente) e barco (embarque a confirmar com o
-operador). Nenhum desses pontos é inferido ou enviado à rota de carro.
+Bonete mantém alternativas independentes: carro até o gateway verificado em
+Sepituba e, dali, trilha até o Bonete; barco continua com embarque a confirmar
+com o operador e nunca reutiliza o gateway da trilha.
 
 “Baixar roteiro offline” gera um HTML autossuficiente: dados traduzidos,
 coordenadas, avisos de acesso e uma foto local por atração selecionada.
@@ -30,3 +30,8 @@ a disponibilidade e o trajeto calculado pelo serviço externo não são garantid
 
 A auditoria histórica test:audit já falha na base bec1708 porque referencia
 localRecommendations, ausente nos arquivos originais que ela carrega.
+
+
+Castelhanos diferencia capacidade do veículo: carro comum termina no gateway
+verificado da entrada do Parque; o modo 4x4 usa Castelhanos como destino rodoviário.
+Barco permanece alternativa independente.
