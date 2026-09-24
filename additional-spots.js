@@ -2283,7 +2283,7 @@ const servicesData = [
     presentation:'compact', serviceType:['pizzeria'], serviceFormats:['aLaCarte','delivery','takeaway'],
     serviceSpecialties:['pizza'], serviceOccasions:['dinner','night'],
     phone:'12974067441', phoneDisplay:'(12) 97406-7441'
-  }
+  },
 
   {
     id:'tea-connection-ilhabela', category:'food', name:'Tea Connection Ilhabela',
