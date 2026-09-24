@@ -10,7 +10,10 @@ test('gateway routing, confirmation, separate Bonete alternatives and offline fi
       normal: resolvePlannerAccess(find('praia-do-curral'), 'auto'),
       curral: find('praia-do-curral').coords,
       bonete: find('praia-do-bonete').routing.accessOptions,
-      boneteCar: resolvePlannerAccess(find('praia-do-bonete'), 'auto')
+      boneteCar: resolvePlannerAccess(find('praia-do-bonete'), 'auto'),
+      castelhanosCar: resolvePlannerAccess(find('baia-de-castelhanos'), 'auto'),
+      castelhanos4x4: resolvePlannerAccess(find('baia-de-castelhanos'), '4x4'),
+      castelhanos: find('baia-de-castelhanos').coords
     };
   });
   expect(result.juliao.coords).toEqual([-23.853583875006763, -45.41239561211879]);
@@ -18,9 +21,14 @@ test('gateway routing, confirmation, separate Bonete alternatives and offline fi
   expect(result.feiticeira.coords).toEqual([-23.84660565107699, -45.410130644310605]);
   expect(result.normal.coords).toEqual(result.curral);
   expect(result.bonete.map(o => o.mode)).toEqual(['trail','boat']);
-  expect(result.bonete[0].gateway.coords).toBeNull();
+  expect(result.bonete[0].gateway.coords).toEqual([-23.936275064037446, -45.42730164154816]);
   expect(result.bonete[1].gateway).toBeNull();
-  expect(result.boneteCar).toBeNull();
+  expect(result.boneteCar.coords).toEqual([-23.936275064037446, -45.42730164154816]);
+  expect(result.boneteCar.finalMode).toBe('trail');
+  expect(result.castelhanosCar.coords).toEqual([-23.839249751545807, -45.36002116037754]);
+  expect(result.castelhanosCar.finalMode).toBe('4x4');
+  expect(result.castelhanos4x4.coords).toEqual(result.castelhanos);
+  expect(result.castelhanos4x4.finalMode).toBeNull();
   await page.evaluate(() => {
     tripSelection = ['praia-do-curral', 'praia-do-juliao'];
     openPlanner(); togglePlannerView();
