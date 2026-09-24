@@ -35,3 +35,5 @@ localRecommendations, ausente nos arquivos originais que ela carrega.
 Castelhanos diferencia capacidade do veículo: carro comum termina no gateway
 verificado da entrada do Parque; o modo 4x4 usa Castelhanos como destino rodoviário.
 Barco permanece alternativa independente.
+
+Estado do lote: gateways verificados e prontos para validação visual do usuário.
