@@ -1805,6 +1805,40 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'nova-aluguel-de-carros',
+    category: 'essentials',
+    name: 'NOVA Aluguel de Carros',
+    baseLocation: { address: 'Av. Princesa Isabel, 2808, Barra Velha' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['car-rental'],
+    presentation: 'compact',
+    phone: '1233077077',
+    phoneDisplay: '(12) 3307-7077'
+  },
+  {
+    id: 'easy-aluguel-de-bike',
+    category: 'essentials',
+    name: 'Easy Aluguel de Bike',
+    baseLocation: { address: 'Av. Pedro de Paula Moraes, 713, Saco da Capela' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['bike-rental'],
+    presentation: 'compact',
+    phone: '12997467700',
+    phoneDisplay: '(12) 99746-7700'
+  },
+  {
+    id: 'centro-nautico-ilhabela',
+    category: 'essentials',
+    name: 'Centro Náutico Ilhabela',
+    baseLocation: { address: 'Rua Pref. Geraldo da Cunha Junqueira, 351, Perequê' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['nautical-support', 'marina'],
+    presentation: 'compact',
+    phone: '1238962049',
+    phoneDisplay: '(12) 3896-2049',
+    url: 'https://www.centronauticoilhabela.com.br/'
+  },
+  {
     id: 'pousada-armacao-dos-ventos',
     category: 'stay',
     name: 'Pousada Armação dos Ventos',
