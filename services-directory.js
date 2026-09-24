@@ -28,7 +28,7 @@
     const value = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a[0])) * Math.cos(toRad(b[0])) * Math.sin(dLon / 2) ** 2;
     return 2 * R * Math.asin(Math.sqrt(value));
   };
-  const mapUrl = service => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.name + ' Ilhabela SP');
+  const mapUrl = service => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.name + (service.serviceArea?.scope === 'regional' ? ' São Sebastião SP' : ' Ilhabela SP'));
 
   const labelFor = (dimension, id) => {
     const entry = serviceTaxonomy?.[dimension]?.[id];
@@ -105,7 +105,18 @@
 
     grid.innerHTML = rows.map(({ service, distance }) => {
       const tr = getServiceTranslation(service);
-      const details = tr.features || tr.tags || [];
+      const activityLabels = {
+        'car-rental': 'Aluguel de carro',
+        'bike-rental': 'Aluguel de bicicleta',
+        'airport-transfer': 'Transfer aeroporto',
+        'private-transfer': 'Transfer privativo',
+        'nautical-support': 'Apoio náutico',
+        'marina': 'Marina',
+        'lodging': 'Hospedagem'
+      };
+      const details = (tr.features || tr.tags || []).length
+        ? (tr.features || tr.tags || [])
+        : (service.activities || []).map(activity => activityLabels[activity]).filter(Boolean);
       const image = service.image ? `<img src="/${service.image.replace(/^\//, '')}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : `<div class="w-full h-full flex items-center justify-center bg-surface-container/70"><span class="material-symbols-outlined text-primary/35 text-5xl">${service.category === 'food' ? 'restaurant' : 'storefront'}</span></div>`;
       const whatsapp = service.whatsapp ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 rounded-xl bg-[#25D366] text-white text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">chat</span>WhatsApp</a>` : '';
       const phone = service.phone ? `<a href="tel:+55${service.phone}" class="min-h-11 px-3 rounded-xl border border-black/10 text-primary text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">call</span>${service.phoneDisplay || service.phone}</a>` : '';
