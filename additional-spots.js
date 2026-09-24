@@ -1805,6 +1805,18 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'vivaventura-ecoturismo',
+    category: 'tour',
+    name: 'Vivaventura Ecoturismo',
+    baseLocation: { address: 'Rua Vereador Antonio Lourenço de Freitas, 69, Cocaia' },
+    serviceArea: { scope: 'island', modes: ['trail', 'boat', '4x4'], verifiedModes: ['trail', 'boat', '4x4'] },
+    activities: ['guided-hiking', 'trekking', 'waterfall-tour', 'boat-tour', '4x4-tour', 'whale-watching'],
+    presentation: 'compact',
+    whatsapp: '12982934171',
+    whatsappDisplay: '(12) 98293-4171',
+    url: 'https://www.vivaventurailhabela.com/'
+  },
+  {
     id: 'trilhabela-turismo',
     category: 'tour',
     name: 'Trilhabela Turismo',
