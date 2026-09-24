@@ -53,13 +53,15 @@ Object.entries(multimodalCopy).forEach(([lang, copy]) => {
 });
 
 function plannerAccessNotice(spot) {
-  if (resolvePlannerAccess(spot, plannerTravelMode)?.finalMode) return t('plannerFinalWalk');
+  const resolved = resolvePlannerAccess(spot, plannerTravelMode);
+  if (resolved?.finalMode === '4x4') return `${getPlannerModeLabel('4x4')}: a navegação de carro comum termina na entrada do Parque.`;
+  if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') return t('plannerFinalWalk');
   if (spot.id === 'praia-do-bonete') return `${getPlannerModeLabel('trail')}: Ponta da Sepituba. ${getPlannerModeLabel('boat')}: ${t('plannerBoatPending')}.`;
   if (spot.id === 'baia-de-castelhanos' && plannerTravelMode === 'auto') return `Carro comum: a navegação termina na entrada do Parque. Para seguir de veículo até Castelhanos, use 4x4.`;
   return '';
 }
 
 function plannerConfirmAccess(spots) {
-  const walking = spots.filter(spot => resolvePlannerAccess(spot, plannerTravelMode)?.finalMode);
+  const walking = spots.filter(spot => ['pedestrian', 'trail'].includes(resolvePlannerAccess(spot, plannerTravelMode)?.finalMode));
   return !walking.length || window.confirm(walking.map(spot => getSpotTranslation(spot).title).join(', ') + '\n' + t('plannerFinalWalk') + '\n' + t('plannerConfirmWalk'));
 }
