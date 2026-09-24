@@ -259,7 +259,7 @@ function togglePlannerView() {
 
 function renderPlannerFilters() {
   const container = document.getElementById('planner-filters');
-  const cats = ['all', 'praias', 'cachoeiras', 'trilhas', 'cultura', 'mirantes'];
+  const cats = ['all', 'praias', 'cachoeiras', 'trilhas', 'cultura', 'mirantes', 'picos', 'baleias', 'mergulho'];
   
   let html = '';
   cats.forEach(c => {
