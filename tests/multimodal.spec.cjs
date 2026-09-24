@@ -151,3 +151,23 @@ test('nautical experiences keep whale watching and diving providers separate', a
   }
   expect(result.beach).toEqual([]);
 });
+
+
+test('planner renders nautical experiences separately from boat transport', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerNauticalExperiences === 'function');
+  const result = await page.evaluate(() => {
+    const ids = ['ponto-baleias-canal', 'naufragio-aymore'];
+    const spots = ids.map(id => touristSpots.find(spot => spot.id === id)).filter(Boolean);
+    return {
+      experiences: renderPlannerNauticalExperiences(spots),
+      maritime: renderPlannerMaritimeOptions(spots)
+    };
+  });
+  expect(result.experiences).toContain('Experiências náuticas');
+  expect(result.experiences).toContain('Observação de baleias');
+  expect(result.experiences).toContain('Portinho Passeios');
+  expect(result.experiences).toContain('Mergulho');
+  expect(result.experiences).toContain('Portinho Divers');
+  expect(result.maritime).toBe('');
+});
