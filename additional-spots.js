@@ -2511,6 +2511,119 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Localiza — São Sebastião": {
+    pt: { type: "Locadora de veículos", description: "Aluguel de carros em São Sebastião, no continente, como alternativa regional para quem visita Ilhabela." },
+    en: { type: "Car rental", description: "Car rental in São Sebastião on the mainland, a regional option for visitors to Ilhabela." },
+    fr: { type: "Location de voitures", description: "Location de voitures à São Sebastião, sur le continent, comme option régionale pour les visiteurs d’Ilhabela." },
+    es: { type: "Alquiler de autos", description: "Alquiler de autos en São Sebastião, en el continente, como opción regional para visitantes de Ilhabela." },
+    he: { type: "השכרת רכב", description: "השכרת רכב בסאו סבסטיאו, ביבשת, כאפשרות אזורית למבקרים באיליאבלה." }
+  },
+  "Rudá Destinos": {
+    pt: { type: "Receptivo e transfer", description: "Operadora regional com transfer privativo, traslado de aeroporto e passeio 4x4." },
+    en: { type: "Receptive & transfers", description: "Regional operator offering private transfers, airport transfers and 4x4 tours." },
+    fr: { type: "Réceptif et transferts", description: "Opérateur régional proposant transferts privés, transferts aéroport et excursions en 4x4." },
+    es: { type: "Receptivo y traslados", description: "Operador regional con traslados privados, traslados de aeropuerto y paseos 4x4." },
+    he: { type: "שירותי תיירות והסעות", description: "מפעיל אזורי המציע הסעות פרטיות, הסעות משדה התעופה וטיולי 4x4." }
+  },
+  "NOVA Aluguel de Carros": {
+    pt: { type: "Locadora de veículos", description: "Aluguel de carros com base em Barra Velha, Ilhabela." },
+    en: { type: "Car rental", description: "Car rental based in Barra Velha, Ilhabela." },
+    fr: { type: "Location de voitures", description: "Location de voitures basée à Barra Velha, Ilhabela." },
+    es: { type: "Alquiler de autos", description: "Alquiler de autos con base en Barra Velha, Ilhabela." },
+    he: { type: "השכרת רכב", description: "השכרת רכב מבארה וליה, איליאבלה." }
+  },
+  "Easy Aluguel de Bike": {
+    pt: { type: "Aluguel de bicicletas", description: "Aluguel de bicicletas com base no Saco da Capela, Ilhabela." },
+    en: { type: "Bike rental", description: "Bike rental based in Saco da Capela, Ilhabela." },
+    fr: { type: "Location de vélos", description: "Location de vélos basée à Saco da Capela, Ilhabela." },
+    es: { type: "Alquiler de bicicletas", description: "Alquiler de bicicletas con base en Saco da Capela, Ilhabela." },
+    he: { type: "השכרת אופניים", description: "השכרת אופניים בסאקו דה קפלה, איליאבלה." }
+  },
+  "Centro Náutico Ilhabela": {
+    pt: { type: "Apoio náutico e marina", description: "Serviço náutico e marina com base no Perequê, Ilhabela." },
+    en: { type: "Nautical support & marina", description: "Nautical support and marina based in Perequê, Ilhabela." },
+    fr: { type: "Services nautiques et marina", description: "Services nautiques et marina basés à Perequê, Ilhabela." },
+    es: { type: "Apoyo náutico y marina", description: "Servicios náuticos y marina con base en Perequê, Ilhabela." },
+    he: { type: "שירותים ימיים ומרינה", description: "שירותים ימיים ומרינה בפרקה, איליאבלה." }
+  },
+  "Pousada Armação dos Ventos": {
+    pt: { type: "Pousada", description: "Hospedagem na Praia da Armação, no norte de Ilhabela." },
+    en: { type: "Guesthouse", description: "Accommodation at Praia da Armação in northern Ilhabela." },
+    fr: { type: "Pousada", description: "Hébergement à Praia da Armação, dans le nord d’Ilhabela." },
+    es: { type: "Posada", description: "Alojamiento en Praia da Armação, en el norte de Ilhabela." },
+    he: { type: "פוסאדה", description: "אירוח בפראיה דה ארמסאו, בצפון איליאבלה." }
+  },
+  "Pousada Canto Bravo": {
+    pt: { type: "Pousada", description: "Hospedagem na Praia do Bonete, Ilhabela." },
+    en: { type: "Guesthouse", description: "Accommodation at Praia do Bonete, Ilhabela." },
+    fr: { type: "Pousada", description: "Hébergement à Praia do Bonete, Ilhabela." },
+    es: { type: "Posada", description: "Alojamiento en Praia do Bonete, Ilhabela." },
+    he: { type: "פוסאדה", description: "אירוח בפראיה דו בונטה, איליאבלה." }
+  },
+  "Pousada Iguana Azul": {
+    pt: { type: "Pousada", description: "Hospedagem no Bexiga, região sul de Ilhabela." },
+    en: { type: "Guesthouse", description: "Accommodation in Bexiga, southern Ilhabela." },
+    fr: { type: "Pousada", description: "Hébergement à Bexiga, dans le sud d’Ilhabela." },
+    es: { type: "Posada", description: "Alojamiento en Bexiga, zona sur de Ilhabela." },
+    he: { type: "פוסאדה", description: "אירוח בבשיגה, בדרום איליאבלה." }
+  },
+  "Pato Guia Ilhabela": {
+    pt: { type: "Passeios e guia local", description: "Operador local com trilhas, cachoeiras, passeios 4x4, barco e observação de baleias." },
+    en: { type: "Tours & local guide", description: "Local operator offering trails, waterfalls, 4x4 tours, boat trips and whale watching." },
+    fr: { type: "Excursions et guide local", description: "Opérateur local proposant sentiers, cascades, excursions en 4x4, bateau et observation des baleines." },
+    es: { type: "Paseos y guía local", description: "Operador local con senderos, cascadas, paseos 4x4, barco y avistamiento de ballenas." },
+    he: { type: "סיורים ומדריך מקומי", description: "מפעיל מקומי המציע מסלולים, מפלים, טיולי 4x4, שיט וצפייה בלווייתנים." }
+  },
+  "Castelhanos Turismo": {
+    pt: { type: "Passeios locais", description: "Operador de passeios 4x4 e de barco, incluindo experiências de observação de baleias." },
+    en: { type: "Local tours", description: "Operator offering 4x4 and boat tours, including whale-watching experiences." },
+    fr: { type: "Excursions locales", description: "Opérateur proposant excursions en 4x4 et en bateau, dont l’observation des baleines." },
+    es: { type: "Paseos locales", description: "Operador de paseos 4x4 y en barco, incluido avistamiento de ballenas." },
+    he: { type: "סיורים מקומיים", description: "מפעיל טיולי 4x4 ושיט, כולל חוויות צפייה בלווייתנים." }
+  },
+  "Vivaventura Ecoturismo": {
+    pt: { type: "Ecoturismo e aventuras", description: "Operador local com trilhas, trekking, cachoeiras, barco, 4x4 e observação de baleias." },
+    en: { type: "Ecotourism & adventures", description: "Local operator offering hiking, trekking, waterfalls, boat and 4x4 tours, and whale watching." },
+    fr: { type: "Écotourisme et aventures", description: "Opérateur local proposant randonnée, trekking, cascades, bateau, 4x4 et observation des baleines." },
+    es: { type: "Ecoturismo y aventuras", description: "Operador local con senderismo, trekking, cascadas, barco, 4x4 y avistamiento de ballenas." },
+    he: { type: "תיירות אקולוגית והרפתקאות", description: "מפעיל מקומי המציע טיולים רגליים, טרקים, מפלים, שיט, 4x4 וצפייה בלווייתנים." }
+  },
+  "Trilhabela Turismo": {
+    pt: { type: "Ecoturismo e passeios", description: "Operador local com trilhas, trekking, cachoeiras, barco, 4x4, snorkeling, mergulho e observação de baleias." },
+    en: { type: "Ecotourism & tours", description: "Local operator offering hiking, trekking, waterfalls, boat and 4x4 tours, snorkeling, diving and whale watching." },
+    fr: { type: "Écotourisme et excursions", description: "Opérateur local proposant randonnée, trekking, cascades, bateau, 4x4, snorkeling, plongée et observation des baleines." },
+    es: { type: "Ecoturismo y paseos", description: "Operador local con senderismo, trekking, cascadas, barco, 4x4, snorkel, buceo y avistamiento de ballenas." },
+    he: { type: "תיירות אקולוגית וסיורים", description: "מפעיל מקומי המציע טיולים, טרקים, מפלים, שיט, 4x4, שנורקלינג, צלילה וצפייה בלווייתנים." }
+  },
+  "Maremar Turismo": {
+    pt: { type: "Passeios e receptivo", description: "Operadora com passeios de barco, 4x4, mergulho, transfer, city tour, cachoeiras e observação de baleias." },
+    en: { type: "Tours & receptive services", description: "Operator offering boat and 4x4 tours, diving, transfers, city tours, waterfalls and whale watching." },
+    fr: { type: "Excursions et réceptif", description: "Opérateur proposant bateau, 4x4, plongée, transferts, city tours, cascades et observation des baleines." },
+    es: { type: "Paseos y receptivo", description: "Operador con paseos en barco, 4x4, buceo, traslados, city tours, cascadas y avistamiento de ballenas." },
+    he: { type: "סיורים ושירותי תיירות", description: "מפעיל המציע שיט, 4x4, צלילה, הסעות, סיורי עיר, מפלים וצפייה בלווייתנים." }
+  },
+  "IlhaEco": {
+    pt: { type: "Passeios e ecoturismo", description: "Operadora com passeios de barco, 4x4 e mergulho em Ilhabela." },
+    en: { type: "Tours & ecotourism", description: "Operator offering boat tours, 4x4 tours and diving in Ilhabela." },
+    fr: { type: "Excursions et écotourisme", description: "Opérateur proposant bateau, 4x4 et plongée à Ilhabela." },
+    es: { type: "Paseos y ecoturismo", description: "Operador con paseos en barco, 4x4 y buceo en Ilhabela." },
+    he: { type: "סיורים ותיירות אקולוגית", description: "מפעיל המציע שיט, 4x4 וצלילה באיליאבלה." }
+  },
+  "Ilhabela Atalaia": {
+    pt: { type: "Passeios de barco", description: "Operadora de passeios de barco em Ilhabela." },
+    en: { type: "Boat tours", description: "Boat-tour operator in Ilhabela." },
+    fr: { type: "Excursions en bateau", description: "Opérateur d’excursions en bateau à Ilhabela." },
+    es: { type: "Paseos en barco", description: "Operador de paseos en barco en Ilhabela." },
+    he: { type: "סיורי שיט", description: "מפעיל סיורי שיט באיליאבלה." }
+  },
+  "Wahoo Ilhabela": {
+    pt: { type: "Passeios náuticos e mergulho", description: "Operadora com passeios de barco, mergulho e observação de baleias em Ilhabela." },
+    en: { type: "Boat tours & diving", description: "Operator offering boat tours, diving and whale watching in Ilhabela." },
+    fr: { type: "Excursions nautiques et plongée", description: "Opérateur proposant bateau, plongée et observation des baleines à Ilhabela." },
+    es: { type: "Paseos náuticos y buceo", description: "Operador con paseos en barco, buceo y avistamiento de ballenas en Ilhabela." },
+    he: { type: "שיט וצלילה", description: "מפעיל המציע סיורי שיט, צלילה וצפייה בלווייתנים באיליאבלה." }
+  },
+
   'Chagas Passeios': {
     pt: { type: 'Passeios e ecoturismo', tagline: 'Nascida na Praia do Veloso em 2009', description: 'Empresa de aventura e ecoturismo nascida na Praia do Veloso, com passeios marítimos e terrestres por diferentes regiões de Ilhabela.', tags: ['Passeios de lancha', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'Costa Norte'] },
     en: { type: 'Tours and ecotourism', tagline: 'Founded at Praia do Veloso in 2009', description: 'Adventure and ecotourism company founded at Praia do Veloso, offering sea and land tours across different areas of Ilhabela.', tags: ['Boat tours', '4x4', 'Castelhanos', 'Bonete', 'Snorkeling', 'North Coast'] },
