@@ -1069,7 +1069,7 @@ function renderGuides() {
             <div>
               <div class="flex items-center gap-1">
                 <h3 class="text-base font-bold text-primary font-heading">${guide.name}</h3>
-                <span class="material-symbols-outlined text-secondary text-[16px]" title="${t('verifiedBadge')}">verified</span>
+                ${guide.verification ? `<span class="material-symbols-outlined text-secondary text-[16px]" title="${guide.verification.label}">verified</span>` : ''}
               </div>
               <p class="text-xs font-bold text-secondary">${tr.role}</p>
               ${guide.rating != null && guide.reviewsCount != null ? `<div class="text-[11px] text-on-surface-variant/80 flex items-center gap-1 mt-0.5"><span class="text-amber-500">★</span> ${guide.rating} (${guide.reviewsCount})</div>` : ''}
