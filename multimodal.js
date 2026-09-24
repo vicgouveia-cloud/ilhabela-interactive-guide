@@ -65,3 +65,43 @@ function plannerConfirmAccess(spots) {
   const walking = spots.filter(spot => ['pedestrian', 'trail'].includes(resolvePlannerAccess(spot, plannerTravelMode)?.finalMode));
   return !walking.length || window.confirm(walking.map(spot => getSpotTranslation(spot).title).join(', ') + '\n' + t('plannerFinalWalk') + '\n' + t('plannerConfirmWalk'));
 }
+
+
+// Maritime compatibility is intentionally independent from editorial contextSpotIds.
+// A route declares destinations; providers are matched only by explicit service capability.
+const maritimeRouteProfiles = {
+  'bonete': {
+    spotIds: ['praia-do-bonete'],
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'east-coast': {
+    spotIds: ['praia-da-fome', 'saco-do-eustaquio', 'baia-de-castelhanos'],
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  }
+};
+
+function getMaritimeRouteProfilesForSpot(spotId) {
+  return Object.entries(maritimeRouteProfiles)
+    .filter(([, profile]) => profile.spotIds.includes(spotId))
+    .map(([id, profile]) => ({ id, ...profile }));
+}
+
+function getMaritimeProvidersForProfile(profile) {
+  if (!profile) return [];
+  return servicesData.filter(service => {
+    const modes = service.serviceArea?.modes || [];
+    const activities = service.activities || [];
+    return modes.includes(profile.requiredMode) && activities.includes(profile.requiredActivity);
+  });
+}
+
+function getMaritimeOptionsForSpot(spotId) {
+  return getMaritimeRouteProfilesForSpot(spotId).map(profile => ({
+    ...profile,
+    providers: getMaritimeProvidersForProfile(profile)
+  }));
+}
