@@ -101,13 +101,15 @@ const nauticalExperienceProfiles = {
     spotIds: ['ponto-baleias-sul-sepituba', 'ponto-baleias-canal'],
     requiredMode: 'boat',
     requiredActivity: 'whale-watching',
-    providerIds: ['portinho-passeios']
+    providerIds: ['portinho-passeios'],
+    meetingPoint: null
   },
   'diving': {
     spotIds: ['naufragio-aymore', 'santuario-ilha-das-cabras', 'naufragio-principe-de-asturias'],
     requiredMode: 'diving',
     requiredActivity: 'diving',
-    providerIds: ['portinho-divers']
+    providerIds: ['portinho-divers'],
+    meetingPoint: null
   }
 };
 
@@ -205,7 +207,11 @@ function renderPlannerNauticalExperiences(spots) {
       <div class="text-xs font-extrabold text-primary">${labels[option.id] || option.id}</div>
       <div class="text-xs font-semibold text-on-surface-variant">${destinationNames}</div>
       <div class="flex flex-wrap gap-1.5">${providers}</div>
-      <p class="text-[10px] text-on-surface-variant">Prestador com atividade compatível confirmada. Consulte disponibilidade, condições, requisitos e detalhes diretamente com o prestador.</p>
+      <p class="text-[10px] text-on-surface-variant">O ponto no mapa representa o local da experiência, não um destino de acesso terrestre.</p>
+      <p class="text-[10px] font-semibold text-on-surface-variant">${option.meetingPoint
+        ? 'Use o ponto de encontro confirmado pelo prestador para iniciar o deslocamento.'
+        : 'Ponto de encontro/embarque ainda não definido no guia. Confirme com o prestador antes de se deslocar.'}</p>
+      <p class="text-[10px] text-on-surface-variant">Consulte também horário, disponibilidade, condições e requisitos diretamente com o prestador.</p>
     </div>`;
   }).join('');
 
