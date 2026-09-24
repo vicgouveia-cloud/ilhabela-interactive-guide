@@ -392,6 +392,7 @@ function renderSummary() {
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
   let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
+  html += renderPlannerMaritimeOptions(selectedSpots);
   selectedSpots.forEach(spot => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
