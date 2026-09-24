@@ -2315,14 +2315,7 @@ const servicesData = [
     serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
     phone:'12991251628', phoneDisplay:'(12) 99125-1628'
   },
-  {
-    id:'ponto-das-letras', category:'food', name:'Ponto das Letras',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
-    serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['coffee','books','desserts'],
-    presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','delivery','takeaway'],
-    serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','brunch','afternoon'],
-    phone:'12991273331', phoneDisplay:'(12) 99127-3331', url:'https://www.pontodasletras.com.br'
-  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
