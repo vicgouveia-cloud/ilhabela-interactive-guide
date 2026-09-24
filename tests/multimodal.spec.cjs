@@ -67,3 +67,23 @@ test('offline export rejects missing photos and excess selection', async ({page}
     try { await buildOfflineTrip([touristSpots[0]]); return false; } catch { return true; }
   })).toBe(true);
 });
+
+
+test('maritime profiles match providers by capability without context links', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getMaritimeOptionsForSpot === 'function');
+  const data = await page.evaluate(() => ({
+    bonete: getMaritimeOptionsForSpot('praia-do-bonete'),
+    fome: getMaritimeOptionsForSpot('praia-da-fome'),
+    eustaquio: getMaritimeOptionsForSpot('saco-do-eustaquio'),
+    castelhanos: getMaritimeOptionsForSpot('baia-de-castelhanos')
+  }));
+  for (const options of [data.bonete, data.fome, data.eustaquio, data.castelhanos]) {
+    expect(options).toHaveLength(1);
+    expect(options[0].embarkation).toBeNull();
+    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['chagas-passeios', 'portinho-passeios']);
+  }
+  expect(data.fome[0].id).toBe('east-coast');
+  expect(data.eustaquio[0].id).toBe('east-coast');
+  expect(data.castelhanos[0].id).toBe('east-coast');
+});
