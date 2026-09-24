@@ -3981,7 +3981,7 @@ const guidesData = [
       "es": {"role":"Ecoturismo y aventuras locales","bio":"Operador local de Ilhabela con senderos guiados, cascadas, paseos en jeep 4x4, barco y experiencias de avistamiento de cetáceos.","specialties":["Senderos guiados","Cascadas","Castelhanos 4x4","Paseos en barco"]},
       "he": {"role":"תיירות אקולוגית והרפתקאות מקומיות","bio":"מפעיל מקומי באיליאבלה המציע מסלולים מודרכים, מפלים, טיולי 4x4, שיט וחוויות צפייה בלווייתנים.","specialties":["מסלולים מודרכים","מפלים","Castelhanos 4x4","סיורי שיט"]}
     }
-  }
+  },
   {
     "id": "guide-castelhanos-turismo",
     "name": "Castelhanos Turismo",
