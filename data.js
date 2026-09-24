@@ -3946,85 +3946,24 @@ const guidesData = [
     }
   },
   {
-    "id": "guide-marina-silva",
-    "name": "Marina Silva",
-    "cadastur": "26.098765/0001-42",
-    "photo": "https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=600&q=80",
-    "rating": 5,
-    "reviewsCount": 164,
-    "pricePerDay": 240,
+    "id": "guide-pato-ilhabela",
+    "name": "Pato Guia Ilhabela",
     "specialtyKey": "guideSpecBirdwatching",
-    "specialties": [
-      "Observação de Aves",
-      "Botânica da Mata Atlântica",
-      "Baleias & Golfinhos",
-      "Passeios de Barco"
-    ],
-    "languages": [
-      "Português",
-      "English",
-      "Français"
-    ],
-    "languagesList": [
-      "pt",
-      "en",
-      "fr"
-    ],
-    "phone": "+5512998765432",
-    "whatsappText": "Olá Marina! Encontrei seu perfil no Ilhabela Interactive Guide e tenho interesse em um roteiro de ecoturismo.",
+    "specialties": ["Guia Nativo", "Castelhanos 4x4", "Bonete", "Avistamento de Baleias"],
+    "languages": ["Português"],
+    "languagesList": ["pt"],
+    "phone": "+5512991675467",
+    "url": "https://www.patopasseioilhabela.com/",
+    "whatsappText": "Olá! Vi o Pato Guia no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
     "translations": {
-      "pt": {
-        "role": "Bióloga & Guia de Ecoturismo",
-        "bio": "Bióloga marinha apaixonada pela biodiversidade insular. Especialista em birdwatching (mais de 300 espécies registradas na ilha) e observação responsável de cetáceos no canal.",
-        "specialties": [
-          "Observação de Aves",
-          "Botânica da Mata Atlântica",
-          "Baleias & Golfinhos",
-          "Passeios de Barco"
-        ]
-      },
-      "en": {
-        "role": "Biologist & Birdwatching Expert",
-        "bio": "Marine biologist passionate about island ecosystems. Leading birdwatching expeditions (over 300 bird species) and responsible cetacean observation tours.",
-        "specialties": [
-          "Birdwatching",
-          "Atlantic Forest botany",
-          "Whales & dolphins",
-          "Boat tours"
-        ]
-      },
-      "fr": {
-        "role": "Biologiste & Guide Écotourisme",
-        "bio": "Biologiste marine experte de la biodiversité d Ilhabela. Spécialiste de l ornithologie (plus de 300 espèces d oiseaux) et de l observation respectueuse des baleines.",
-        "specialties": [
-          "Observation des oiseaux",
-          "Botanique de la forêt atlantique",
-          "Baleines et dauphins",
-          "Excursions en bateau"
-        ]
-      },
-      "es": {
-        "role": "Bióloga & Guía de Ecoturismo",
-        "bio": "Bióloga marina especializada en aves (más de 300 especies catalogadas) y avistamiento responsable de ballenas y delfines en el canal de São Sebastião.",
-        "specialties": [
-          "Observación de aves",
-          "Botánica de la Mata Atlántica",
-          "Ballenas y delfines",
-          "Paseos en barco"
-        ]
-      },
-      "he": {
-        "role": "ביולוגית ימית ומדריכת צפרות",
-        "bio": "ביולוגית ימית מומחית במערכת האקולוגית של האי. מובילה סיורי צפרות (מעל 300 מיני ציפורים) וצפייה מודרכת בלווייתנים ודולפינים.",
-        "specialties": [
-          "צפרות",
-          "בוטניקה של היער האטלנטי",
-          "לווייתנים ודולפינים",
-          "סיורי שייט"
-        ]
-      }
+      "pt": {"role":"Guia nativo & experiências locais","bio":"Guia nativo de Ilhabela com mais de 11 anos de experiência, fundador da Rosa Norte e especializado em praias, trilhas, cachoeiras, Castelhanos, Bonete e avistamento de baleias.","specialties":["Guia Nativo","Castelhanos 4x4","Bonete","Avistamento de Baleias"]},
+      "en": {"role":"Native guide & local experiences","bio":"Ilhabela-born guide with over 11 years of experience, founder of Rosa Norte and specialized in beaches, trails, waterfalls, Castelhanos, Bonete and whale watching.","specialties":["Native guide","Castelhanos 4x4","Bonete","Whale watching"]},
+      "fr": {"role":"Guide natif & expériences locales","bio":"Guide natif d'Ilhabela avec plus de 11 ans d'expérience, fondateur de Rosa Norte et spécialiste des plages, sentiers, cascades, Castelhanos, Bonete et observation des baleines.","specialties":["Guide natif","Castelhanos 4x4","Bonete","Observation des baleines"]},
+      "es": {"role":"Guía nativo y experiencias locales","bio":"Guía nativo de Ilhabela con más de 11 años de experiencia, fundador de Rosa Norte y especializado en playas, senderos, cascadas, Castelhanos, Bonete y avistamiento de ballenas.","specialties":["Guía nativo","Castelhanos 4x4","Bonete","Avistamiento de ballenas"]},
+      "he": {"role":"מדריך יליד וחוויות מקומיות","bio":"מדריך יליד איליאבלה עם יותר מ-11 שנות ניסיון, מייסד Rosa Norte ומתמחה בחופים, מסלולים, מפלים, Castelhanos, Bonete וצפייה בלווייתנים.","specialties":["מדריך מקומי","Castelhanos 4x4","Bonete","צפייה בלווייתנים"]}
     }
   },
+
   {
     "id": "guide-vivaventura",
     "name": "Vivaventura Ecoturismo",
