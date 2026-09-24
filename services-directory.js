@@ -6,6 +6,7 @@
 
   let category = 'all';
   let directoryLocation = null;
+  let practicalFilter = 'all';
   const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
   const resetCategoryFilters = () => {
     Object.keys(foodFilterState).forEach(key => { foodFilterState[key] = 'all'; });
@@ -36,6 +37,21 @@
   };
   const renderFoodFilters = () => {
     if (!foodFilters) return;
+    if (category === 'essentials') {
+      foodFilters.classList.remove('hidden');
+      const practicalOptions = [
+        ['all', 'Todos'],
+        ['car-rental', 'Aluguel de carro'],
+        ['bike-rental', 'Aluguel de bicicleta'],
+        ['nautical-support', 'Apoio náutico']
+      ];
+      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>Tipo de serviço</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      document.getElementById('services-practical-filter')?.addEventListener('change', event => {
+        practicalFilter = event.target.value;
+        window.renderServicesPage();
+      });
+      return;
+    }
     if (category !== 'food') {
       foodFilters.classList.add('hidden');
       foodFilters.innerHTML = '';
@@ -83,6 +99,7 @@
       const nextCategory = button.dataset.servicePageCategory;
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
       category = nextCategory;
+      if (category !== 'essentials') practicalFilter = 'all';
       window.renderServicesPage();
     }));
 
@@ -95,6 +112,9 @@
     });
     if (category !== 'all') rows = rows.filter(row => row.service.category === category);
     rows = rows.filter(row => matchesFoodFilters(row.service));
+    if (category === 'essentials' && practicalFilter !== 'all') {
+      rows = rows.filter(row => (row.service.activities || []).includes(practicalFilter));
+    }
     if (directoryLocation) {
       if (limit !== 'all') rows = rows.filter(row => row.distance !== null && row.distance <= Number(limit));
       rows.sort((a, b) => (a.distance ?? 999) - (b.distance ?? 999));
