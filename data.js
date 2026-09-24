@@ -4044,83 +4044,21 @@ const guidesData = [
     }
   }
   {
-    "id": "guide-carlos-caicara",
-    "name": "Carlos Caiçara",
-    "cadastur": "26.078901/0001-33",
-    "photo": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=600&q=80",
-    "rating": 5,
-    "reviewsCount": 142,
-    "pricePerDay": 280,
+    "id": "guide-castelhanos-turismo",
+    "name": "Castelhanos Turismo",
     "specialtyKey": "guideSpecHistory",
-    "specialties": [
-      "Expedição 4x4",
-      "Cultura Tradicional",
-      "Castelhanos",
-      "Gastronomia"
-    ],
-    "languages": [
-      "Português",
-      "Español",
-      "English"
-    ],
-    "languagesList": [
-      "pt",
-      "es",
-      "en"
-    ],
-    "phone": "+5512996543210",
-    "whatsappText": "Olá Carlos! Gostaria de agendar um passeio 4x4 em Castelhanos pelo Ilhabela Interactive Guide.",
+    "specialties": ["Castelhanos 4x4", "Cultura Caiçara", "Passeios de Barco", "Bonete"],
+    "languages": ["Português"],
+    "languagesList": ["pt"],
+    "phone": "+5512997676558",
+    "url": "https://castelhanostur.com.br/",
+    "whatsappText": "Olá! Vi a Castelhanos Turismo no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
     "translations": {
-      "pt": {
-        "role": "Guia Nativo & Especialista 4x4",
-        "bio": "Herdeiro da rica cultura caiçara de Ilhabela. Motorista credenciado de jipe 4x4 no Parque Estadual, contador de causos históricos e mestre na pesca tradicional.",
-        "specialties": [
-          "Expedição 4x4",
-          "Cultura Tradicional",
-          "Castelhanos",
-          "Gastronomia"
-        ]
-      },
-      "en": {
-        "role": "Native Caiçara & 4x4 Specialist",
-        "bio": "Deeply rooted in traditional island culture. Certified 4x4 driver in the State Park, sharing historic pirate and caiçara legends along with authentic cuisine.",
-        "specialties": [
-          "4x4 expedition",
-          "Traditional culture",
-          "Castelhanos",
-          "Gastronomy"
-        ]
-      },
-      "fr": {
-        "role": "Guide Autochtone & Expert 4x4",
-        "bio": "Issu de la tradition maritime caiçara. Chauffeur agréé 4x4 dans le parc d État, conteur d histoires de pirates et spécialiste de la cuisine locale.",
-        "specialties": [
-          "Expédition 4x4",
-          "Culture traditionnelle",
-          "Castelhanos",
-          "Gastronomie"
-        ]
-      },
-      "es": {
-        "role": "Guía Nativo & Especialista 4x4",
-        "bio": "Guía local tradicional y conductor 4x4 habilitado. Comparte leyendas históricas de piratas, cultura caiçara y los mejores rincones de Castelhanos.",
-        "specialties": [
-          "Expedición 4x4",
-          "Cultura tradicional",
-          "Castelhanos",
-          "Gastronomía"
-        ]
-      },
-      "he": {
-        "role": "מדריך מקומי מומחה שטח 4x4",
-        "bio": "יליד קהילת הדייגים המסורתית (קאיסארה). נהג שטח מוסמך בפארק הלאומי, מספר סיפורי שודדי ים והיסטוריה מרתקת ומומחה באוכל מקומי.",
-        "specialties": [
-          "מסע 4x4",
-          "תרבות מסורתית",
-          "Castelhanos",
-          "קולינריה"
-        ]
-      }
+      "pt": {"role":"Guia caiçara & ecoturismo 4x4","bio":"Operação local conduzida por Rodrigo, caiçara nativo de Ilhabela, com 25 anos de experiência em passeios pela ilha, incluindo Castelhanos, barco, Bonete e temporada de baleias.","specialties":["Castelhanos 4x4","Cultura Caiçara","Passeios de Barco","Bonete"]},
+      "en": {"role":"Caiçara guide & 4x4 ecotourism","bio":"Local operation led by Rodrigo, an Ilhabela-born caiçara guide with 25 years of experience on island tours, including Castelhanos, boat trips, Bonete and whale season.","specialties":["Castelhanos 4x4","Caiçara culture","Boat tours","Bonete"]},
+      "fr": {"role":"Guide caiçara & écotourisme 4x4","bio":"Opération locale menée par Rodrigo, guide caiçara natif d'Ilhabela avec 25 ans d'expérience, notamment à Castelhanos, en bateau, à Bonete et pendant la saison des baleines.","specialties":["Castelhanos 4x4","Culture caiçara","Excursions en bateau","Bonete"]},
+      "es": {"role":"Guía caiçara y ecoturismo 4x4","bio":"Operación local dirigida por Rodrigo, guía caiçara nativo de Ilhabela con 25 años de experiencia en paseos por la isla, incluyendo Castelhanos, barco, Bonete y temporada de ballenas.","specialties":["Castelhanos 4x4","Cultura caiçara","Paseos en barco","Bonete"]},
+      "he": {"role":"מדריך קאיסרה ותיירות אקולוגית 4x4","bio":"פעילות מקומית בהובלת Rodrigo, מדריך קאיסרה יליד איליאבלה עם 25 שנות ניסיון בסיורים באי, כולל Castelhanos, שיט, Bonete ועונת הלווייתנים.","specialties":["Castelhanos 4x4","תרבות קאיסרה","סיורי שיט","Bonete"]}
     }
   }
 ];
