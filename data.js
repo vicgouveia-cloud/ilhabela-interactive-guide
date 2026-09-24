@@ -3929,6 +3929,7 @@ const guidesData = [
   {
     "id": "guide-trilhabela",
     "name": "Trilhabela Turismo",
+    "verification": { "type": "peib", "label": "PEIB", "source": "https://trilhabela.com.br/sobre-trilhabela/" },
     "specialtyKey": "guideSpecTrails",
     "specialties": ["Trilhas Guiadas", "Travessias", "Pico do Baepi", "Bonete"],
     "languages": ["Português"],
