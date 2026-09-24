@@ -1,3 +1,11 @@
+
+// Planner map semantics: distinguish experience coordinates from access/navigation points.
+Object.assign(translations.pt, { plannerMapExperienceLocation: "Local da experiência — não é ponto de acesso terrestre", plannerMapFinalDestination: "Destino final — a navegação pode terminar antes, no ponto de acesso" });
+Object.assign(translations.en, { plannerMapExperienceLocation: "Experience location — not a terrestrial access point", plannerMapFinalDestination: "Final destination — navigation may end earlier at the access point" });
+Object.assign(translations.fr, { plannerMapExperienceLocation: "Lieu de l'expérience — ce n'est pas un point d'accès terrestre", plannerMapFinalDestination: "Destination finale — la navigation peut se terminer plus tôt au point d'accès" });
+Object.assign(translations.es, { plannerMapExperienceLocation: "Lugar de la experiencia — no es un punto de acceso terrestre", plannerMapFinalDestination: "Destino final — la navegación puede terminar antes en el punto de acceso" });
+Object.assign(translations.he, { plannerMapExperienceLocation: "מיקום החוויה — אינו נקודת גישה יבשתית", plannerMapFinalDestination: "היעד הסופי — הניווט עשוי להסתיים קודם בנקודת הגישה" });
+
 ﻿// Translations
 Object.assign(translations.pt, {
   btnPlanner: "Monte seu roteiro",
@@ -678,8 +686,9 @@ function initPlannerMap() {
       iconSize: [30, 30], iconAnchor: [15, 15]
     });
 
+    const markerContext = getPlannerMapMarkerContext(spot);
     const marker = L.marker(spot.coords, { icon }).addTo(plannerMap)
-      .bindPopup(`<strong class="text-xs">${index+1}. ${tr.title}</strong>`);
+      .bindPopup(`<strong class="text-xs">${index+1}. ${tr.title}</strong>${markerContext.label ? `<br><span class="text-[10px] text-on-surface-variant">${markerContext.label}</span>` : ''}`);
     
     bounds.extend(spot.coords);
     plannerMapMarkers.push(marker);
@@ -696,6 +705,18 @@ function initPlannerMap() {
   if (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length) {
     plannerMap.fitBounds(bounds, { padding: [30, 30] });
   }
+}
+
+function getPlannerMapMarkerContext(spot) {
+  const nautical = typeof getNauticalExperienceOptionsForSpot === 'function'
+    ? getNauticalExperienceOptionsForSpot(spot.id)
+    : [];
+  if (nautical.length) return { kind: 'experience', label: t('plannerMapExperienceLocation') };
+  const access = resolvePlannerAccess(spot, plannerTravelMode);
+  if (access && (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1])) {
+    return { kind: 'destination', label: t('plannerMapFinalDestination') };
+  }
+  return { kind: 'standard', label: '' };
 }
 
 // Hook into app load
