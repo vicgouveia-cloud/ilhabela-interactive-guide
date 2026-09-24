@@ -1876,157 +1876,157 @@ const servicesData = [
   },
   {
     id: 'acaraje-tio-toinho', category: 'food', name: 'Acarajé do Tio Toinho',
-    baseLocation: { spotId: 'praia-grande' }, contextSpotIds: ['praia-grande'],
+    baseLocation: { spotId: 'praia-grande' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['bahian-food', 'acaraje'],
     presentation: 'compact', serviceType: ['streetFood'], serviceFormats: ['snacks', 'takeaway'], serviceSpecialties: ['bahian'],
     phone: '12996206084', phoneDisplay: '(12) 99620-6084'
   },
   {
     id: 'ilha-sul-restaurante', category: 'food', name: 'Restaurante Ilha Sul',
-    baseLocation: { nearSpotId: 'praia-da-feiticeira' }, contextSpotIds: ['praia-da-feiticeira', 'praia-do-portinho'],
+    baseLocation: { nearSpotId: 'praia-da-feiticeira' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food'],
     presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'dinner'],
     phone: '1238949426', phoneDisplay: '(12) 3894-9426', url: 'https://www.restauranteilhasul.com.br'
   },
   {
     id: 'rei-da-praia', category: 'food', name: 'Rei da Praia',
-    baseLocation: { spotId: 'praia-do-curral' }, contextSpotIds: ['praia-do-curral'],
+    baseLocation: { spotId: 'praia-do-curral' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
     presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
     phone: '12992301282', phoneDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
   },
   {
     id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
-    baseLocation: { nearSpotId: 'praia-do-veloso' }, contextSpotIds: ['praia-do-veloso'],
+    baseLocation: { nearSpotId: 'praia-do-veloso' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['cafe', 'burgers', 'vegetarian'],
     presentation: 'compact', serviceType: ['cafe'], serviceFormats: ['snacks'], serviceSpecialties: ['burger', 'vegetarian', 'vegan', 'coffeeBrunch'], serviceOccasions: ['breakfast', 'afternoon'],
     whatsapp: '12996552213', whatsappDisplay: '(12) 99655-2213', url: 'https://lupecaminho.com.br'
   },
   {
     id: 'restaurante-do-cura', category: 'food', name: 'Restaurante do Cura',
-    baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
+    baseLocation: { nearSpotId: 'praia-do-pereque' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'buffet'],
     presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['buffet'], serviceSpecialties: ['brazilian'], serviceOccasions: ['lunch'],
     phone: '12981644977', phoneDisplay: '(12) 98164-4977'
   },
   {
     id: 'ikigai-ilhabela', category: 'food', name: 'Ikigai',
-    baseLocation: { nearSpotId: 'praia-do-pereque' }, contextSpotIds: ['praia-do-pereque'],
+    baseLocation: { nearSpotId: 'praia-do-pereque' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['oriental-food', 'caicara-food'],
     presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['oriental', 'caicara'], serviceOccasions: ['lunch', 'dinner'],
     whatsapp: '12996460164', whatsappDisplay: '(12) 99646-0164', url: 'https://linktr.ee/ikigaiilhabela'
   },
   {
     id: 'manjericao-ilhabela', category: 'food', name: 'Manjericão',
-    baseLocation: { nearSpotId: 'centro-historico-vila' }, contextSpotIds: ['centro-historico-vila'],
+    baseLocation: { nearSpotId: 'centro-historico-vila' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['brazilian-food', 'seafood'],
     presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['brazilian', 'seafood'], serviceOccasions: ['lunch', 'dinner'],
     phone: '12997441753', phoneDisplay: '(12) 99744-1753', url: 'https://www.manjericaoilhabela.com.br'
   },
   {
-    id:'cafe-ete',category:'food',name:'Café Eté',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['coffee','breakfast'],presentation:'compact',serviceType:['cafe'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['coffeeBrunch','desserts'],serviceOccasions:['breakfast','brunch','afternoon'],phone:'12997611200',phoneDisplay:'(12) 99761-1200',url:'https://www.cafeete.com.br'
+    id:'cafe-ete',category:'food',name:'Café Eté',baseLocation:{nearSpotId:'centro-historico-vila'},serviceArea:{scope:'venue',modes:['on-site']},activities:['coffee','breakfast'],presentation:'compact',serviceType:['cafe'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['coffeeBrunch','desserts'],serviceOccasions:['breakfast','brunch','afternoon'],phone:'12997611200',phoneDisplay:'(12) 99761-1200',url:'https://www.cafeete.com.br'
   },
   {
-    id:'free-port-cafe',category:'food',name:'Free Port Café',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['coffee','breakfast'],presentation:'compact',serviceType:['cafe'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['coffeeBrunch','desserts'],serviceOccasions:['breakfast','afternoon'],phone:'12992196127',phoneDisplay:'(12) 99219-6127'
+    id:'free-port-cafe',category:'food',name:'Free Port Café',baseLocation:{nearSpotId:'centro-historico-vila'},serviceArea:{scope:'venue',modes:['on-site']},activities:['coffee','breakfast'],presentation:'compact',serviceType:['cafe'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['coffeeBrunch','desserts'],serviceOccasions:['breakfast','afternoon'],phone:'12992196127',phoneDisplay:'(12) 99219-6127'
   },
   {
-    id:'alecrim-ilhabela',category:'food',name:'Alecrim Ilhabela',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['restaurant','brazilian-food'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['brazilian'],serviceOccasions:['lunch','dinner'],phone:'1238964116',phoneDisplay:'(12) 3896-4116',url:'https://www.alecrimilhabnela.com.br'
+    id:'alecrim-ilhabela',category:'food',name:'Alecrim Ilhabela',baseLocation:{nearSpotId:'centro-historico-vila'},serviceArea:{scope:'venue',modes:['on-site']},activities:['restaurant','brazilian-food'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['brazilian'],serviceOccasions:['lunch','dinner'],phone:'1238964116',phoneDisplay:'(12) 3896-4116',url:'https://www.alecrimilhabnela.com.br'
   },
   {
-    id:'manzoli',category:'food',name:'Manzoli',baseLocation:{nearSpotId:'praia-do-pereque'},contextSpotIds:['praia-do-pereque'],serviceArea:{scope:'venue',modes:['on-site']},activities:['italian-food','pasta'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['italian','pasta'],serviceOccasions:['lunch','dinner'],whatsapp:'12982078214',whatsappDisplay:'(12) 98207-8214',url:'https://www.famigliamanzoli.com.br'
+    id:'manzoli',category:'food',name:'Manzoli',baseLocation:{nearSpotId:'praia-do-pereque'},serviceArea:{scope:'venue',modes:['on-site']},activities:['italian-food','pasta'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['italian','pasta'],serviceOccasions:['lunch','dinner'],whatsapp:'12982078214',whatsappDisplay:'(12) 98207-8214',url:'https://www.famigliamanzoli.com.br'
   },
   {
-    id:'pimenta-de-cheiro',category:'food',name:'Pimenta de Cheiro',baseLocation:{nearSpotId:'praia-do-pereque'},contextSpotIds:['praia-do-pereque'],serviceArea:{scope:'venue',modes:['on-site']},activities:['seafood','brazilian-food'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['seafood','brazilian'],serviceOccasions:['lunch','dinner'],phone:'1238963783',phoneDisplay:'(12) 3896-3783',url:'https://www.pimentadecheiroilhabela.com.br'
+    id:'pimenta-de-cheiro',category:'food',name:'Pimenta de Cheiro',baseLocation:{nearSpotId:'praia-do-pereque'},serviceArea:{scope:'venue',modes:['on-site']},activities:['seafood','brazilian-food'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte'],serviceSpecialties:['seafood','brazilian'],serviceOccasions:['lunch','dinner'],phone:'1238963783',phoneDisplay:'(12) 3896-3783',url:'https://www.pimentadecheiroilhabela.com.br'
   },
   {
-    id:'vila-sushi',category:'food',name:'Vila Sushi Temakeria e Pokeria',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['sushi','temaki'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['japanese'],serviceOccasions:['dinner','night'],phone:'12997313678',phoneDisplay:'(12) 99731-3678'
+    id:'vila-sushi',category:'food',name:'Vila Sushi Temakeria e Pokeria',baseLocation:{nearSpotId:'centro-historico-vila'},serviceArea:{scope:'venue',modes:['on-site']},activities:['sushi','temaki'],presentation:'compact',serviceType:['restaurant'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['japanese'],serviceOccasions:['dinner','night'],phone:'12997313678',phoneDisplay:'(12) 99731-3678'
   },
   {
-    id:'pizzaria-elite',category:'food',name:'Pizzaria Elite',baseLocation:{nearSpotId:'praia-do-pereque'},contextSpotIds:['praia-do-pereque'],serviceArea:{scope:'venue',modes:['on-site']},activities:['pizza'],presentation:'compact',serviceType:['pizzeria'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['pizza'],serviceOccasions:['dinner','night'],phone:'12981570590',phoneDisplay:'(12) 98157-0590'
+    id:'pizzaria-elite',category:'food',name:'Pizzaria Elite',baseLocation:{nearSpotId:'praia-do-pereque'},serviceArea:{scope:'venue',modes:['on-site']},activities:['pizza'],presentation:'compact',serviceType:['pizzeria'],serviceFormats:['aLaCarte','takeaway'],serviceSpecialties:['pizza'],serviceOccasions:['dinner','night'],phone:'12981570590',phoneDisplay:'(12) 98157-0590'
   },
   {
-    id:'da-pa-virada',category:'food',name:'Da Pá Virada Gelateria',baseLocation:{nearSpotId:'centro-historico-vila'},contextSpotIds:['centro-historico-vila'],serviceArea:{scope:'venue',modes:['on-site']},activities:['gelato','desserts'],presentation:'compact',serviceType:['gelateria'],serviceFormats:['takeaway'],serviceSpecialties:['desserts'],serviceOccasions:['afternoon','night'],phone:'12991640163',phoneDisplay:'(12) 99164-0163',url:'https://www.pavirada.com.br'
+    id:'da-pa-virada',category:'food',name:'Da Pá Virada Gelateria',baseLocation:{nearSpotId:'centro-historico-vila'},serviceArea:{scope:'venue',modes:['on-site']},activities:['gelato','desserts'],presentation:'compact',serviceType:['gelateria'],serviceFormats:['takeaway'],serviceSpecialties:['desserts'],serviceOccasions:['afternoon','night'],phone:'12991640163',phoneDisplay:'(12) 99164-0163',url:'https://www.pavirada.com.br'
   },
   {
     id:'canal-burguer-ilhabela', category:'food', name:'Canal Burguer Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['burgers','snacks'],
     presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','takeaway','delivery'],
     serviceSpecialties:['burger'], serviceOccasions:['lunch','dinner','night'], phone:'12991341365', phoneDisplay:'(12) 99134-1365'
   },
   {
     id:'hamburgueria-hamz', category:'food', name:'Hamburgueria Hamz Artesanal',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['burgers','snacks'],
     presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','takeaway'],
     serviceSpecialties:['burger'], serviceOccasions:['dinner','night']
   },
   {
     id:'burgerilha-delivery', category:'food', name:'Burgerilha Delivery',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['delivery']}, activities:['burgers','delivery'],
     presentation:'compact', serviceType:['burger','deliveryKitchen'], serviceFormats:['snacks','delivery'],
     serviceSpecialties:['burger'], serviceOccasions:['dinner','night']
   },
   {
     id:'le-ble-dor', category:'food', name:'Le Ble Dor Doces Franceses',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['desserts','pastry'],
     presentation:'compact', serviceType:['dessert'], serviceFormats:['takeaway'],
     serviceSpecialties:['desserts','coffeeBrunch'], serviceOccasions:['breakfast','afternoon']
   },
   {
     id:'apple-cake-padaria-artesanal', category:'food', name:'Apple Cake Padaria Artesanal',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['bakery','breakfast'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['takeaway'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
   },
   {
     id:'acai-da-ilha', category:'food', name:'Açaí da Ilha',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['acai','desserts'],
     presentation:'compact', serviceType:['dessert'], serviceFormats:['takeaway'],
     serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
   },
   {
     id:'d-aqui-doces-sorvetes', category:'food', name:'D’aqui Doces e Sorvetes',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['ice-cream','desserts'],
     presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway'],
     serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
   },
   {
     id:'gelateria-tradizionale', category:'food', name:'Gelateria Tradizionale',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['gelato','desserts'],
     presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway'],
     serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
   },
   {
     id:'quiosque-do-camarao', category:'food', name:'Quiosque do Camarão',
-    baseLocation:{nearSpotId:'praia-do-portinho'}, contextSpotIds:['praia-do-portinho'],
+    baseLocation:{nearSpotId:'praia-do-portinho'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['seafood','beach-food'],
     presentation:'compact', serviceType:['kiosk'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','dinner']
   },
   {
     id:'d-peru-cevicheria', category:'food', name:'D’ Perú Cevicheria Peruana',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['ceviche','seafood'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner','night']
   },
   {
     id:'bellabar', category:'food', name:'Bellabar',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['bar','drinks','snacks'],
     presentation:'compact', serviceType:['bar'], serviceFormats:['snacks'],
     serviceSpecialties:['brazilian'], serviceOccasions:['afternoon','dinner','night']
   },
   {
     id:'padoca-da-ilha', category:'food', name:'Padoca da Ilha',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','bread','pastry','breakfast','coffee'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['takeaway','snacks'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon'],
@@ -2034,7 +2034,7 @@ const servicesData = [
   },
   {
     id:'ponto-das-letras', category:'food', name:'Ponto das Letras',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['cafe','coffee','light-meals','books','culture'],
     presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','lunch','afternoon'],
@@ -2042,7 +2042,7 @@ const servicesData = [
   },
   {
     id:'sandara-comida-libanesa', category:'food', name:'Sandara Comida Libanesa',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway','delivery']}, activities:['restaurant','lebanese-food','meze','delivery'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','takeaway','delivery'],
     serviceSpecialties:['arabicLebanese'], serviceOccasions:['lunch','dinner','night'],
@@ -2050,7 +2050,7 @@ const servicesData = [
   },
   {
     id:'madalena-pasta-pizza', category:'food', name:'Madalena Pasta & Pizza',
-    baseLocation:{nearSpotId:'fazenda-engenho-dagua'}, contextSpotIds:['fazenda-engenho-dagua'],
+    baseLocation:{nearSpotId:'fazenda-engenho-dagua'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','italian-food','pasta','pizza'],
     presentation:'compact', serviceType:['restaurant','pizzeria'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['italian','pasta','pizza'], serviceOccasions:['dinner','night'],
@@ -2058,7 +2058,7 @@ const servicesData = [
   },
   {
     id:'vila-salga-restaurante', category:'food', name:'Vila Salga',
-    baseLocation:{nearSpotId:'praia-da-armacao'}, contextSpotIds:['praia-da-armacao'],
+    baseLocation:{nearSpotId:'praia-da-armacao'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','caicara-food','seafood'],
     presentation:'compact', serviceType:['restaurant','kiosk'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['caicara','seafood'], serviceOccasions:['lunch','afternoon','dinner'],
@@ -2066,7 +2066,7 @@ const servicesData = [
   },
   {
     id:'manapani', category:'food', name:'Manapani',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','beach-restaurant'],
     presentation:'compact', serviceType:['restaurant','kiosk'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['brazilian','seafood'], serviceOccasions:['lunch','afternoon'],
@@ -2074,7 +2074,7 @@ const servicesData = [
   },
   {
     id:'creperia-nareia-pereque', category:'food', name:'Creperia N’Areia',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['crepes','desserts','restaurant'],
     presentation:'compact', serviceType:['creperia'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['desserts','vegetarian'], serviceOccasions:['lunch','afternoon','dinner'],
@@ -2082,7 +2082,7 @@ const servicesData = [
   },
   {
     id:'coco-bongo-cafe', category:'food', name:'Coco Bongo Café',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['cafe','coffee'],
     presentation:'compact', serviceType:['cafe'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['coffeeBrunch'], serviceOccasions:['breakfast','afternoon'],
@@ -2090,7 +2090,7 @@ const servicesData = [
   },
   {
     id:'atemoya-gastronomia', category:'food', name:'Atemoya Gastronomia',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','seafood'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner'],
@@ -2098,7 +2098,7 @@ const servicesData = [
   },
   {
     id:'ilhabela-republic-garden', category:'food', name:'Ilhabela Republic Garden',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['cafe','brunch','pizza'],
     presentation:'compact', serviceType:['cafe','pizzeria'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['coffeeBrunch','pizza'], serviceOccasions:['breakfast','brunch','afternoon','dinner'],
@@ -2106,7 +2106,7 @@ const servicesData = [
   },
   {
     id:'balena-club', category:'food', name:'Balena Club',
-    baseLocation:{nearSpotId:'praia-da-siriuba'}, contextSpotIds:['praia-da-siriuba'],
+    baseLocation:{nearSpotId:'praia-da-siriuba'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['restaurant','bar','beach-club'],
     presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
     serviceOccasions:['lunch','afternoon','dinner'],
@@ -2114,14 +2114,14 @@ const servicesData = [
   },
   {
     id:'mabe-empanadas', category:'food', name:'Mabe Empanadas',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['empanadas','snacks'],
     presentation:'compact', serviceType:['streetFood'], serviceFormats:['snacks','takeaway'],
     phone:'11952892000', phoneDisplay:'(11) 95289-2000', instagram:'@empanadasmabe'
   },
   {
     id:'mana-ayo', category:'food', name:'Maná Ayo',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['delivery']}, activities:['delivery','croquettes','seafood'],
     presentation:'compact', serviceType:['deliveryKitchen'], serviceFormats:['delivery'],
     serviceSpecialties:['seafood'], serviceOccasions:['lunch','dinner'],
@@ -2129,21 +2129,21 @@ const servicesData = [
   },
   {
     id:'bubble-box-pereque', category:'essentials', name:'Bubble Box Lavanderia Self Service',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['laundry','self-service'],
     presentation:'compact', serviceType:['laundry'],
     url:'https://bubblebox.com.br/unidade/ilhabela-pereque-sp/'
   },
   {
     id:'supermercado-do-frade-pereque', category:'essentials', name:'Supermercado do Frade — Perequê',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['groceries','supermarket','online-shopping'],
     presentation:'compact', serviceType:['supermarket'],
     phone:'1238961134', phoneDisplay:'(12) 3896-1134', url:'https://linktr.ee/fradeilha'
   },
   {
     id:'bl3-armacao-rental', category:'essentials', name:'BL3 Armação — Aluguel de Equipamentos',
-    baseLocation:{nearSpotId:'praia-da-armacao'}, contextSpotIds:['praia-da-armacao'],
+    baseLocation:{nearSpotId:'praia-da-armacao'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['equipment-rental','water-sports','beach-equipment'],
     presentation:'compact', serviceType:['equipmentRental'],
     phone:'1238961271', phoneDisplay:'(12) 3896-1271', whatsapp:'12991267649', whatsappDisplay:'(12) 99126-7649',
@@ -2151,7 +2151,7 @@ const servicesData = [
   },
   {
     id:'hospital-municipal-mario-covas', category:'essentials', name:'Hospital Municipal Governador Mário Covas Jr.',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['hospital','emergency-care','public-health'],
     presentation:'compact', serviceType:['hospital'],
     phone:'1238953520', phoneDisplay:'(12) 3895-3520',
@@ -2159,14 +2159,14 @@ const servicesData = [
   },
   {
     id:'drogaria-sao-paulo-pereque', category:'essentials', name:'Drogaria São Paulo — Perequê',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['pharmacy','health-products'],
     presentation:'compact', serviceType:['pharmacy'],
     url:'https://www.drogariasaopaulo.com.br/'
   },
   {
     id:'aquabus-ilhabela', category:'essentials', name:'Aquabus Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-da-armacao','praia-do-pereque','centro-historico-vila'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'island-route',modes:['water-transport']}, activities:['public-transport','water-transport'],
     presentation:'compact', serviceType:['transport'],
     phone:'12988444164', phoneDisplay:'(12) 98844-4164',
@@ -2174,7 +2174,7 @@ const servicesData = [
   },
   {
     id:'onibus-municipal-expresso-fenix', category:'essentials', name:'Ônibus Municipal Expresso Fênix',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'island-route',modes:['road-transport']}, activities:['public-transport','bus'],
     presentation:'compact', serviceType:['transport'],
     whatsapp:'11964979861', whatsappDisplay:'(11) 96497-9861',
@@ -2182,14 +2182,14 @@ const servicesData = [
   },
   {
     id:'travessia-balsa-ilhabela', category:'essentials', name:'Travessia de Balsa São Sebastião–Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'intercity-route',modes:['ferry']}, activities:['ferry','island-access'],
     presentation:'compact', serviceType:['ferry'],
     url:'https://semil.sp.gov.br/dh/'
   },
   {
     id:'cit-barra-velha', category:'essentials', name:'Centro de Informações Turísticas — Barra Velha',
-    baseLocation:{nearSpotId:'mirante-do-piuva'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'mirante-do-piuva'},
     serviceArea:{scope:'venue',modes:['visitor-information']}, activities:['tourist-information','visitor-support'],
     presentation:'compact', serviceType:['touristInformation'],
     phone:'1238957220', phoneDisplay:'(12) 3895-7220',
@@ -2197,7 +2197,7 @@ const servicesData = [
   },
   {
     id:'cit-vila', category:'essentials', name:'Centro de Informações Turísticas — Vila',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['visitor-information']}, activities:['tourist-information','visitor-support'],
     presentation:'compact', serviceType:['touristInformation'],
     phone:'1238963777', phoneDisplay:'(12) 3896-3777',
@@ -2205,7 +2205,7 @@ const servicesData = [
   },
   {
     id:'cheiro-verde', category:'food', name:'Restaurante Cheiro Verde',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['pratoFeito','takeaway'],
     serviceSpecialties:['brazilian','seafood'], serviceOccasions:['lunch','dinner'],
@@ -2214,7 +2214,7 @@ const servicesData = [
   },
   {
     id:'vila-moema-churrascaria', category:'food', name:'Vila Moema Churrascaria',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site','delivery']}, activities:['food','delivery'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','delivery'],
     serviceSpecialties:['barbecue'], serviceOccasions:['lunch','dinner'],
@@ -2222,7 +2222,7 @@ const servicesData = [
   },
   {
     id:'tullum-gastrobar', category:'food', name:'Tullum Gastrobar',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks'],
     presentation:'compact', serviceType:['bar'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['brazilian','seafood','pizza'], serviceOccasions:['lunch','dinner','night'],
@@ -2230,7 +2230,7 @@ const servicesData = [
   },
   {
     id:'panedomo-padaria-artesanal', category:'food', name:'Panedomo – Padaria artesanal',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
     serviceSpecialties:['desserts','pizza'], serviceOccasions:['breakfast','brunch','afternoon'],
@@ -2239,14 +2239,14 @@ const servicesData = [
 
   {
     id:'padaria-itaquanduba', category:'food', name:'Padaria Itaquanduba',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    baseLocation:{nearSpotId:'praia-do-itaguacu'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','food'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
   },
   {
     id:'enfim-ostras', category:'food', name:'Enfim Ostras',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','seafood'],
     presentation:'compact', serviceType:['bar'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['seafood'], serviceOccasions:['dinner','night'],
@@ -2254,7 +2254,7 @@ const servicesData = [
   },
   {
     id:'borrachudo-sanduicheria', category:'food', name:'Borrachudo Sanduicheria',
-    baseLocation:{nearSpotId:'centro-historico-vila'}, contextSpotIds:['centro-historico-vila'],
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['food','delivery'],
     presentation:'compact', serviceType:['burger','streetFood'], serviceFormats:['snacks','pratoFeito','delivery','takeaway'],
     serviceSpecialties:['burger','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
@@ -2262,7 +2262,7 @@ const servicesData = [
   },
   {
     id:'beach-sushi', category:'food', name:'Beach Sushi',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['japanese','oriental'], serviceOccasions:['dinner','night'],
@@ -2270,7 +2270,7 @@ const servicesData = [
   },
   {
     id:'restaurante-capitano', category:'food', name:'Restaurante Capitano',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    baseLocation:{nearSpotId:'praia-do-itaguacu'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['italian','pasta','seafood'], serviceOccasions:['dinner','night'],
@@ -2278,7 +2278,7 @@ const servicesData = [
   },
   {
     id:'orla-45', category:'food', name:'Orla 45',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['food','delivery'],
     presentation:'compact', serviceType:['pizzeria'], serviceFormats:['aLaCarte','delivery','takeaway'],
     serviceSpecialties:['pizza'], serviceOccasions:['dinner','night'],
@@ -2287,7 +2287,7 @@ const servicesData = [
 
   {
     id:'tea-connection-ilhabela', category:'food', name:'Tea Connection Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['food','coffee','healthy-food'],
     presentation:'compact', serviceType:['restaurant','cafe'], serviceFormats:['aLaCarte','takeaway'],
     serviceSpecialties:['coffeeBrunch','vegetarian'], serviceOccasions:['breakfast','brunch','lunch','afternoon'],
@@ -2295,21 +2295,21 @@ const servicesData = [
   },
   {
     id:'miatto-gelateria-ilhabela', category:'food', name:'Miatto Gelateria Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['gelato','desserts','delivery'],
     presentation:'compact', serviceType:['gelateria'], serviceFormats:['takeaway','delivery'],
     serviceSpecialties:['desserts'], serviceOccasions:['afternoon','night']
   },
   {
     id:'nathans-famous-ilhabela', category:'food', name:'Nathan’s Famous Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'}, contextSpotIds:['praia-do-pereque'],
+    baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site','delivery','takeaway']}, activities:['hot-dog','fast-food','delivery'],
     presentation:'compact', serviceType:['burger'], serviceFormats:['snacks','delivery','takeaway'],
     serviceSpecialties:['burger'], serviceOccasions:['lunch','afternoon','dinner','night']
   },
   {
     id:'pitanga-restaurante-praia-bar', category:'food', name:'Pitanga Restaurante e Praia Bar',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'}, contextSpotIds:['praia-do-itaguacu'],
+    baseLocation:{nearSpotId:'praia-do-itaguacu'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks','live-music'],
     presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
