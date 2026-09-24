@@ -168,14 +168,12 @@ const nauticalExperienceProfiles = {
     spotIds: ['ponto-baleias-sul-sepituba', 'ponto-baleias-canal'],
     requiredMode: 'boat',
     requiredActivity: 'whale-watching',
-    providerIds: ['portinho-passeios'],
     meetingPoint: null
   },
   'diving': {
     spotIds: ['naufragio-aymore', 'santuario-ilha-das-cabras', 'naufragio-principe-de-asturias'],
     requiredMode: 'diving',
     requiredActivity: 'diving',
-    providerIds: ['portinho-divers'],
     meetingPoint: null
   }
 };
@@ -190,7 +188,7 @@ function getNauticalExperienceOptionsForSpot(spotId) {
         const modes = service.serviceArea?.modes || [];
         const verifiedModes = service.serviceArea?.verifiedModes || [];
         const activities = service.activities || [];
-        return profile.providerIds.includes(service.id) &&
+        return service.serviceArea?.scope === 'island' &&
           modes.includes(profile.requiredMode) &&
           verifiedModes.includes(profile.requiredMode) &&
           activities.includes(profile.requiredActivity);
