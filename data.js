@@ -4026,87 +4026,23 @@ const guidesData = [
     }
   },
   {
-    "id": "guide-thiago-mendes",
-    "name": "Thiago Mendes",
-    "cadastur": "26.045678/0001-15",
-    "photo": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=600&q=80",
-    "rating": 4.8,
-    "reviewsCount": 95,
-    "pricePerDay": 210,
+    "id": "guide-vivaventura",
+    "name": "Vivaventura Ecoturismo",
     "specialtyKey": "guideSpecWaterfalls",
-    "specialties": [
-      "Cachoeiras Secretas",
-      "Caiaque & SUP",
-      "Roteiros Familiares",
-      "Fotografia"
-    ],
-    "languages": [
-      "Português",
-      "English",
-      "Español",
-      "עברית"
-    ],
-    "languagesList": [
-      "pt",
-      "en",
-      "es",
-      "he"
-    ],
-    "phone": "+5512991234567",
-    "whatsappText": "Olá Thiago! Vi seu perfil no guia de Ilhabela e gostaria de agendar um passeio de cachoeiras.",
+    "specialties": ["Trilhas Guiadas", "Cachoeiras", "Castelhanos 4x4", "Passeios de Barco"],
+    "languages": ["Português"],
+    "languagesList": ["pt"],
+    "phone": "+5512982934171",
+    "url": "https://www.vivaventurailhabela.com/",
+    "whatsappText": "Olá! Vi a Vivaventura no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
     "translations": {
-      "pt": {
-        "role": "Guia de Cachoeiras & Caiaque",
-        "bio": "Instrutor experiente em passeios aquáticos, travessias de caiaque e cachoeiras secretas. Roteiros divertidos e seguros desenhados para casais e famílias com crianças.",
-        "specialties": [
-          "Cachoeiras Secretas",
-          "Caiaque & SUP",
-          "Roteiros Familiares",
-          "Fotografia"
-        ]
-      },
-      "en": {
-        "role": "Waterfalls & Kayak Guide",
-        "bio": "Expert instructor in ocean kayaking, secret waterfalls, and coastal paddle routes. Crafting fun, safe adventures customized for couples and families with kids.",
-        "specialties": [
-          "Secret waterfalls",
-          "Kayak & SUP",
-          "Family routes",
-          "Photography"
-        ]
-      },
-      "fr": {
-        "role": "Guide Cascades & Kayak",
-        "bio": "Instructeur certifié de kayak et cascades secrètes. Conçoit des aventures sécurisées et mémorables pour couples et familles avec enfants.",
-        "specialties": [
-          "Cascades secrètes",
-          "Kayak et paddle",
-          "Itinéraires familiaux",
-          "Photographie"
-        ]
-      },
-      "es": {
-        "role": "Guía de Cascadas & Kayak",
-        "bio": "Instructor de deportes acuáticos y explorador de cascadas ocultas. Itinerarios seguros y dinámicos para parejas y familias.",
-        "specialties": [
-          "Cascadas secretas",
-          "Kayak y SUP",
-          "Rutas familiares",
-          "Fotografía"
-        ]
-      },
-      "he": {
-        "role": "מדריך מפלים, קיאקים ומשפחות",
-        "bio": "מדריך מנוסה בקיאקים ימיים, סאפ ומפלים נסתרים. מתמחה בסיורים חווייתיים ובטוחים המותאמים למשפחות עם ילדים, זוגות ותרמילאים (דובר עברית).",
-        "specialties": [
-          "מפלים סודיים",
-          "קיאק וסאפ",
-          "מסלולים למשפחות",
-          "צילום"
-        ]
-      }
+      "pt": {"role":"Ecoturismo & aventuras locais","bio":"Operação local em Ilhabela com trilhas guiadas, cachoeiras, passeios de jipe 4x4, barco e experiências de observação de cetáceos.","specialties":["Trilhas Guiadas","Cachoeiras","Castelhanos 4x4","Passeios de Barco"]},
+      "en": {"role":"Ecotourism & local adventures","bio":"Local Ilhabela operator offering guided trails, waterfalls, 4x4 jeep tours, boat trips and whale-watching experiences.","specialties":["Guided trails","Waterfalls","Castelhanos 4x4","Boat tours"]},
+      "fr": {"role":"Écotourisme & aventures locales","bio":"Opérateur local d'Ilhabela proposant randonnées guidées, cascades, excursions en 4x4, sorties en bateau et observation des cétacés.","specialties":["Randonnées guidées","Cascades","Castelhanos en 4x4","Excursions en bateau"]},
+      "es": {"role":"Ecoturismo y aventuras locales","bio":"Operador local de Ilhabela con senderos guiados, cascadas, paseos en jeep 4x4, barco y experiencias de avistamiento de cetáceos.","specialties":["Senderos guiados","Cascadas","Castelhanos 4x4","Paseos en barco"]},
+      "he": {"role":"תיירות אקולוגית והרפתקאות מקומיות","bio":"מפעיל מקומי באיליאבלה המציע מסלולים מודרכים, מפלים, טיולי 4x4, שיט וחוויות צפייה בלווייתנים.","specialties":["מסלולים מודרכים","מפלים","Castelhanos 4x4","סיורי שיט"]}
     }
-  },
+  }
   {
     "id": "guide-carlos-caicara",
     "name": "Carlos Caiçara",
