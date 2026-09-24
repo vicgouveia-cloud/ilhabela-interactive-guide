@@ -3,6 +3,8 @@ const roadWalkingGateways = {
   'praia-do-juliao': [-23.853583875006763, -45.41239561211879],
   'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605]
 };
+const boneteTrailGateway = [-23.936275064037446, -45.42730164154816];
+const castelhanosParkGateway = [-23.839249751545807, -45.36002116037754];
 touristSpots.forEach(spot => {
   const coords = roadWalkingGateways[spot.id];
   spot.routing.accessOptions = coords ? [{
@@ -13,10 +15,17 @@ touristSpots.forEach(spot => {
     id: mode, mode, gateway: null, approachModes: [], finalMode: mode
   }));
   if (spot.id === 'praia-do-bonete') {
-    // Editorial data establishes Sepituba for the trail, but no exact road gateway.
-    // Boat embarkation must be confirmed with the operator; it is not the trail gateway.
+    // Sepituba is the verified road gateway for the trail. Boat embarkation stays independent.
     spot.routing.accessOptions = [
-      { id: 'trail', mode: 'trail', approachModes: [], gateway: { name: 'Ponta da Sepituba', coords: null, verified: false }, finalMode: 'trail' },
+      { id: 'road-trail', mode: 'trail', approachModes: ['auto', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'user:2026-09-24' }, finalMode: 'trail' },
+      { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
+    ];
+  }
+  if (spot.id === 'baia-de-castelhanos') {
+    // Common cars stop at the verified park gate. A 4x4 may continue to the attraction.
+    spot.routing.accessOptions = [
+      { id: 'common-car', mode: 'road', approachModes: ['auto'], gateway: { name: 'Entrada do Parque', coords: castelhanosParkGateway, verified: true, source: 'user:2026-09-24' }, finalMode: '4x4', vehicleRequirement: '4x4-after-gateway' },
+      { id: 'own-4x4', mode: '4x4', approachModes: ['4x4'], gateway: { coords: spot.coords, verified: true, source: 'destination' }, finalMode: null, vehicleRequirement: '4x4' },
       { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
     ];
   }
@@ -24,6 +33,7 @@ touristSpots.forEach(spot => {
 
 function resolvePlannerAccess(spot, mode) {
   if (!spot) return null;
+  if (mode === '4x4' && spot.id === 'baia-de-castelhanos') return { coords: spot.coords, destination: spot.coords, finalMode: null };
   const option = spot.routing?.accessOptions?.find(option => option.approachModes.includes(mode) && option.gateway?.verified);
   if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode };
   const modes = spot.routing?.modes || [];
@@ -45,7 +55,8 @@ Object.entries(multimodalCopy).forEach(([lang, copy]) => {
 
 function plannerAccessNotice(spot) {
   if (resolvePlannerAccess(spot, plannerTravelMode)?.finalMode) return t('plannerFinalWalk');
-  if (spot.id === 'praia-do-bonete') return `${getPlannerModeLabel('trail')}: Ponta da Sepituba — ${t('plannerGatewayPending')}. ${getPlannerModeLabel('boat')}: ${t('plannerBoatPending')}.`;
+  if (spot.id === 'praia-do-bonete') return `${getPlannerModeLabel('trail')}: Ponta da Sepituba. ${getPlannerModeLabel('boat')}: ${t('plannerBoatPending')}.`;
+  if (spot.id === 'baia-de-castelhanos' && plannerTravelMode === 'auto') return `Carro comum: a navegação termina na entrada do Parque. Para seguir de veículo até Castelhanos, use 4x4.`;
   return '';
 }
 
