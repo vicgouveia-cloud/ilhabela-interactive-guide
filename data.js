@@ -3927,83 +3927,21 @@ const touristSpots = [
 
 const guidesData = [
   {
-    "id": "guide-rafael-costa",
-    "name": "Rafael Costa",
-    "cadastur": "26.012345/0001-89",
-    "photo": "https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=600&q=80",
-    "rating": 4.9,
-    "reviewsCount": 128,
-    "pricePerDay": 260,
+    "id": "guide-trilhabela",
+    "name": "Trilhabela Turismo",
     "specialtyKey": "guideSpecTrails",
-    "specialties": [
-      "Trilhas Avançadas",
-      "Off-road 4x4",
-      "Pico do Baepi",
-      "Bonete"
-    ],
-    "languages": [
-      "Português",
-      "English",
-      "Español"
-    ],
-    "languagesList": [
-      "pt",
-      "en",
-      "es"
-    ],
-    "phone": "+5512997654321",
-    "whatsappText": "Olá Rafael! Vi seu perfil no Ilhabela Interactive Guide e gostaria de agendar uma expedição.",
+    "specialties": ["Trilhas Guiadas", "Travessias", "Pico do Baepi", "Bonete"],
+    "languages": ["Português"],
+    "languagesList": ["pt"],
+    "phone": "+5512991226986",
+    "url": "https://trilhabela.com.br/",
+    "whatsappText": "Olá! Vi a Trilhabela no Ilhabela Interactive Guide e gostaria de informações sobre um passeio guiado.",
     "translations": {
-      "pt": {
-        "role": "Guia de Montanha & Travessias",
-        "bio": "Nascido e criado em Ilhabela, com mais de 12 anos de experiência conduzindo grupos no Pico do Baepi, Trilha do Bonete e expedições 4x4 em Castelhanos. Especialista em primeiros socorros em áreas remotas.",
-        "specialties": [
-          "Trilhas Avançadas",
-          "Off-road 4x4",
-          "Pico do Baepi",
-          "Bonete"
-        ]
-      },
-      "en": {
-        "role": "Mountain Guide & Trail Specialist",
-        "bio": "Born and raised on the island, with 12+ years leading treks to Baepi Peak, the Bonete Trail, and 4x4 Castelhanos crossings. Certified in remote wilderness first aid.",
-        "specialties": [
-          "Advanced trails",
-          "Off-road 4x4",
-          "Pico do Baepi",
-          "Bonete"
-        ]
-      },
-      "fr": {
-        "role": "Guide de Montagne & Randonnée",
-        "bio": "Natif d Ilhabela avec plus de 12 ans d expérience sur les sommets du Baepi et sentiers du Bonete. Spécialiste des premiers secours en milieu sauvage.",
-        "specialties": [
-          "Randonnées avancées",
-          "Tout-terrain 4x4",
-          "Pico do Baepi",
-          "Bonete"
-        ]
-      },
-      "es": {
-        "role": "Guía de Montaña & Senderismo",
-        "bio": "Nacido en Ilhabela, con más de 12 años guiando en el Pico do Baepi y la travesía de Bonete. Certificado en primeros auxilios en áreas remotas.",
-        "specialties": [
-          "Senderos avanzados",
-          "Todoterreno 4x4",
-          "Pico do Baepi",
-          "Bonete"
-        ]
-      },
-      "he": {
-        "role": "מדריך הרים וטרקים מוסמך",
-        "bio": "יליד איליאבלה עם מעל 12 שנות ניסיון בהובלת משלחות לפסגת באפי, טרק בונטה וסיורי 4x4 בקסטליאנוס. מוסמך בעזרה ראשונה בשטח.",
-        "specialties": [
-          "מסלולים למתקדמים",
-          "שטח 4x4",
-          "Pico do Baepi",
-          "Bonete"
-        ]
-      }
+      "pt": {"role":"Guias locais & ecoturismo","bio":"Trilhabela Turismo, fundada pelo guia Ernani Sousa, atua há mais de 20 anos com trilhas, picos, travessias e passeios em Ilhabela, com guiamento credenciado pelo Parque Estadual.","specialties":["Trilhas Guiadas","Travessias","Pico do Baepi","Bonete"]},
+      "en": {"role":"Local guides & ecotourism","bio":"Trilhabela Turismo, founded by guide Ernani Sousa, has over 20 years of experience with trails, peaks, crossings and tours in Ilhabela, with guiding accredited by the State Park.","specialties":["Guided trails","Crossings","Baepi Peak","Bonete"]},
+      "fr": {"role":"Guides locaux & écotourisme","bio":"Trilhabela Turismo, fondée par le guide Ernani Sousa, propose depuis plus de 20 ans des sentiers, sommets, traversées et excursions à Ilhabela, avec un guidage accrédité par le parc d'État.","specialties":["Randonnées guidées","Traversées","Pico do Baepi","Bonete"]},
+      "es": {"role":"Guías locales y ecoturismo","bio":"Trilhabela Turismo, fundada por el guía Ernani Sousa, cuenta con más de 20 años de experiencia en senderos, picos, travesías y paseos en Ilhabela, con guiado acreditado por el Parque Estatal.","specialties":["Senderos guiados","Travesías","Pico do Baepi","Bonete"]},
+      "he": {"role":"מדריכים מקומיים ותיירות אקולוגית","bio":"Trilhabela Turismo, שנוסדה על ידי המדריך Ernani Sousa, פועלת יותר מ-20 שנה במסלולים, פסגות, חציות וסיורים באיליאבלה, עם הדרכה המוסמכת על ידי הפארק המדינתי.","specialties":["מסלולים מודרכים","חציות","Pico do Baepi","Bonete"]}
     }
   },
   {
