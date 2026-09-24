@@ -171,3 +171,21 @@ test('planner renders nautical experiences separately from boat transport', asyn
   expect(result.experiences).toContain('Portinho Divers');
   expect(result.maritime).toBe('');
 });
+
+
+test('nautical experience guidance does not treat experience coordinates as terrestrial destination', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerNauticalExperiences === 'function');
+  const result = await page.evaluate(() => {
+    const spot = touristSpots.find(item => item.id === 'naufragio-aymore');
+    const option = getNauticalExperienceOptionsForSpot('naufragio-aymore')[0];
+    return {
+      meetingPoint: option.meetingPoint,
+      html: renderPlannerNauticalExperiences([spot])
+    };
+  });
+  expect(result.meetingPoint).toBeNull();
+  expect(result.html).toContain('não um destino de acesso terrestre');
+  expect(result.html).toContain('Ponto de encontro/embarque ainda não definido no guia');
+  expect(result.html).toContain('Confirme com o prestador antes de se deslocar');
+});
