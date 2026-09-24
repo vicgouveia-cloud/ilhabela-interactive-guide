@@ -422,7 +422,7 @@ function isSpotRoutableForMode(spot, mode = plannerTravelMode) {
 }
 
 function plannerSetTravelMode(mode) {
-  if (!['auto', 'bicycle', 'pedestrian'].includes(mode) || mode === plannerTravelMode) return;
+  if (!['auto', 'bicycle', 'pedestrian', '4x4'].includes(mode) || mode === plannerTravelMode) return;
   plannerTravelMode = mode;
   localStorage.setItem('ilhabela_travel_mode', mode);
   plannerOptimizedRoute = null;
@@ -476,7 +476,8 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const travelModes = [
     ['auto', 'directions_car', 'plannerTravelAuto'],
     ['bicycle', 'directions_bike', 'plannerTravelBicycle'],
-    ['pedestrian', 'directions_walk', 'plannerTravelPedestrian']
+    ['pedestrian', 'directions_walk', 'plannerTravelPedestrian'],
+    ['4x4', 'directions_car', 'plannerMode4x4']
   ];
   const modeSelector = `<div><div class="text-[11px] font-bold text-on-surface-variant mb-1.5">${t('plannerTravelMode')}</div><div class="flex gap-2 overflow-x-auto">${travelModes.map(([mode, icon, key]) => `<button type="button" onclick="plannerSetTravelMode('${mode}')" class="shrink-0 px-3 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 ${plannerTravelMode === mode ? 'bg-primary text-white border-primary' : 'bg-surface-container text-primary border-black/10'}"><span class="material-symbols-outlined text-[16px]">${icon}</span>${t(key)}</button>`).join('')}</div><p class="text-[10px] text-on-surface-variant mt-1.5">${t('plannerModeHint')}</p></div>`;
   const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
@@ -582,7 +583,7 @@ async function plannerOptimizeRoute() {
   try {
     const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
     if (button) { button.disabled = true; button.textContent = t('plannerOptimizing'); }
-    const payload = { locations, costing: plannerTravelMode, units: 'kilometers' };
+    const payload = { locations, costing: plannerTravelMode === '4x4' ? 'auto' : plannerTravelMode, units: 'kilometers' };
     const response = await fetch(VALHALLA_ENDPOINT, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'X-Client-Id': 'ilhabela-guide' },
@@ -633,7 +634,7 @@ function plannerOpenGoogleMaps() {
     return;
   }
 
-  const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking' }[plannerTravelMode] || 'driving';
+  const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
   const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
   if (plannerOrigin) params.set('origin', plannerOrigin.join(','));
   if (!plannerConfirmAccess(roadSpots)) return;
