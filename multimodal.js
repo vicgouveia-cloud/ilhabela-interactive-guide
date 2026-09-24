@@ -270,11 +270,11 @@ function renderPlannerNauticalExperiences(spots) {
       <div class="text-xs font-extrabold text-primary">${labels[option.id] || option.id}</div>
       <div class="text-xs font-semibold text-on-surface-variant">${destinationNames}</div>
       <div class="flex flex-wrap gap-1.5">${providers}</div>
-      <p class="text-[10px] text-on-surface-variant">O ponto no mapa representa o local da experiência, não um destino de acesso terrestre.</p>
+      <p class="text-[10px] text-on-surface-variant">${t('plannerExperienceLocationHint')}</p>
       <p class="text-[10px] font-semibold text-on-surface-variant">${option.meetingPoint
         ? t('plannerMeetingPointConfirmed')
         : t('plannerMeetingPointUnknown')}</p>
-      <p class="text-[10px] text-on-surface-variant">Consulte também horário, disponibilidade, condições e requisitos diretamente com o prestador.</p>
+      <p class="text-[10px] text-on-surface-variant">${t('plannerProviderDetailsHint')}</p>
     </div>`;
   }).join('');
 
@@ -303,7 +303,7 @@ function renderPlannerMaritimeOptions(spots) {
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-bold text-primary">${destinationNames}</div>
       <div class="flex flex-wrap gap-1.5">${providers}</div>
-      <p class="text-[10px] text-on-surface-variant">Prestadores com cobertura marítima confirmada para Ilhabela. Confirme saída, horário, disponibilidade e condições diretamente com o prestador.</p>
+      <p class="text-[10px] text-on-surface-variant">${t('plannerBoatProviderHint')}</p>
     </div>`;
   }).join('');
 
