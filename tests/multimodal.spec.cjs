@@ -102,6 +102,7 @@ test('planner renders maritime candidates without claiming verified coverage', a
   expect(result.html).toContain('Opções de barco');
   expect(result.html).toContain('Chagas Passeios');
   expect(result.html).toContain('Portinho Passeios');
-  expect(result.html).toContain('Confirme destino, saída e disponibilidade');
+  expect(result.html).toContain('cobertura marítima confirmada');
+  expect(result.html).toContain('Confirme saída, horário, disponibilidade e condições');
   expect(result.html).not.toContain('embarque em Perequê');
 });
