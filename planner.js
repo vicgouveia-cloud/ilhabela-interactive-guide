@@ -658,8 +658,14 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
 
   const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
   const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
-  if (segmentIndex === 0 && plannerOrigin) params.set('origin', plannerOrigin.join(','));
   if (!plannerConfirmAccess(segmentSpots)) return;
+  if (segmentIndex === 0 && plannerOrigin) {
+    params.set('origin', plannerOrigin.join(','));
+  } else if (segmentIndex > 0) {
+    const previousSpot = roadSpots[segmentIndex * 4 - 1];
+    const previousAccess = previousSpot && resolvePlannerAccess(previousSpot, plannerTravelMode);
+    if (previousAccess) params.set('origin', previousAccess.coords.join(','));
+  }
   const points = segmentSpots.map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords.join(','));
   params.set('destination', points[points.length - 1]);
   if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
