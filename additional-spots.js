@@ -1694,7 +1694,7 @@ const additionalTouristSpots = [
   },
   {
     "id": "poco-do-furado", "category": "cachoeiras", "coords": [-23.8325, -45.3604], "rating": null, "reviews": 0,
-    "image": null, "images": [], "tags": ["Piscina natural","Trilha curta","Mata Atlântica"],
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Piscina natural","Trilha curta","Mata Atlântica"],
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"},
     "translations": {
@@ -1707,7 +1707,7 @@ const additionalTouristSpots = [
   },
   {
     "id": "mirante-do-baepi", "category": "mirantes", "coords": [-23.800064060321567, -45.35240056256745], "rating": null, "reviews": 0,
-    "image": null, "images": [], "tags": ["Vista panorâmica","Trilha curta","Baepi"],
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Vista panorâmica","Trilha curta","Baepi"],
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"},
     "translations": {
@@ -1720,7 +1720,7 @@ const additionalTouristSpots = [
   },
   {
     "id": "mirante-do-morro-da-cruz", "category": "mirantes", "coords": [-23.80401, -45.36487], "rating": null, "reviews": 0,
-    "image": null, "images": [], "tags": ["Pôr do sol","Canal","Fotografia"],
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Pôr do sol","Canal","Fotografia"],
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"},
     "translations": {
@@ -1733,7 +1733,7 @@ const additionalTouristSpots = [
   },
   {
     "id": "mirante-dos-barreiros", "category": "mirantes", "coords": [-23.768321, -45.35172], "rating": null, "reviews": 0,
-    "image": null, "images": [], "tags": ["Canal","Rota norte","Fotografia"],
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Canal","Rota norte","Fotografia"],
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"},
     "translations": {
@@ -1746,7 +1746,7 @@ const additionalTouristSpots = [
   },
   {
     "id": "cachoeira-do-poco-fundo", "category": "cachoeiras", "coords": [-23.910209781923758, -45.343693232441986], "rating": null, "reviews": 0,
-    "image": null, "images": [], "tags": ["Bonete","Mata Atlântica","Água doce"],
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Bonete","Mata Atlântica","Água doce"],
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"},
     "translations": {
