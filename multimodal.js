@@ -74,14 +74,15 @@ function plannerConfirmAccess(spots) {
 Object.assign(translations.pt, {
   plannerBoatOptions: "Opções de barco",
   plannerBoatOptionsHint: "Alternativas marítimas para destinos selecionados. O ponto de embarque depende do roteiro e do prestador.",
-  plannerBoatProviderHint: "${t('plannerBoatProviderHint')}",
+  plannerBoatProviderHint: "Prestadores com cobertura marítima confirmada em Ilhabela. Confirme saída, horário, disponibilidade e condições diretamente com o prestador.",
   plannerNauticalExperiences: "Experiências náuticas",
   plannerNauticalExperiencesHint: "Atividades selecionadas que dependem de operação especializada e não são simples trechos de transporte.",
   plannerWhaleWatching: "Observação de baleias", plannerDivingExperience: "Mergulho",
-  plannerExperienceLocationHint: "${t('plannerExperienceLocationHint')}",
+  plannerExperienceLocationHint: "O ponto no mapa representa o local da experiência, não um destino de acesso terrestre.",
   plannerMeetingPointConfirmed: "Use o ponto de encontro confirmado pelo prestador para iniciar o deslocamento.",
   plannerMeetingPointUnknown: "Ponto de encontro/embarque ainda não definido no guia. Confirme com o prestador antes de se deslocar.",
-  plannerProviderDetailsHint: "${t('plannerProviderDetailsHint')}"
+  plannerProviderDetailsHint: "Confirme também horário, disponibilidade, condições e requisitos diretamente com o prestador.",
+  plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
   plannerBoatOptions: "Boat options",
