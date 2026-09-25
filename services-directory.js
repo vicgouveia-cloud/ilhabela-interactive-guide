@@ -153,17 +153,17 @@
     grid.innerHTML = rows.map(({ service, distance }) => {
       const tr = getServiceTranslation(service);
       const activityLabels = {
-        'car-rental': 'Aluguel de carro',
-        'bike-rental': 'Aluguel de bicicleta',
-        'airport-transfer': 'Transfer aeroporto',
-        'private-transfer': 'Transfer privativo',
-        'nautical-support': 'Apoio náutico',
-        'marina': 'Marina',
-        'lodging': 'Hospedagem'
+        'car-rental': { pt: 'Aluguel de carro', en: 'Car rental', fr: 'Location de voiture', es: 'Alquiler de auto', he: 'השכרת רכב' },
+        'bike-rental': { pt: 'Aluguel de bicicleta', en: 'Bike rental', fr: 'Location de vélo', es: 'Alquiler de bicicleta', he: 'השכרת אופניים' },
+        'airport-transfer': { pt: 'Transfer aeroporto', en: 'Airport transfer', fr: 'Transfert aéroport', es: 'Traslado al aeropuerto', he: 'הסעה משדה התעופה' },
+        'private-transfer': { pt: 'Transfer privativo', en: 'Private transfer', fr: 'Transfert privé', es: 'Traslado privado', he: 'הסעה פרטית' },
+        'nautical-support': { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
+        'marina': { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' },
+        'lodging': { pt: 'Hospedagem', en: 'Accommodation', fr: 'Hébergement', es: 'Alojamiento', he: 'אירוח' }
       };
       const details = (tr.features || tr.tags || []).length
         ? (tr.features || tr.tags || [])
-        : (service.activities || []).map(activity => activityLabels[activity]).filter(Boolean);
+        : (service.activities || []).map(activity => activityLabels[activity]?.[currentLang]).filter(Boolean);
       const image = service.image ? `<img src="/${service.image.replace(/^\//, '')}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : `<div class="w-full h-full flex items-center justify-center bg-surface-container/70"><span class="material-symbols-outlined text-primary/35 text-5xl">${service.category === 'food' ? 'restaurant' : 'storefront'}</span></div>`;
       const whatsapp = service.whatsapp ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="min-h-11 px-3 rounded-xl bg-[#25D366] text-white text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">chat</span>WhatsApp</a>` : '';
       const phone = service.phone ? `<a href="tel:+55${service.phone}" class="min-h-11 px-3 rounded-xl border border-black/10 text-primary text-xs font-bold flex items-center justify-center gap-1"><span class="material-symbols-outlined text-[16px]">call</span>${service.phoneDisplay || service.phone}</a>` : '';
