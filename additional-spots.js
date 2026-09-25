@@ -1805,6 +1805,34 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'oceano-sub', category: 'diving', name: 'Oceano Sub',
+    baseLocation: { address: 'Alameda Baepi 1, 123, Itaquanduba' },
+    serviceArea: { scope: 'island', modes: ['diving'], verifiedModes: ['diving'] },
+    activities: ['introductory-dive', 'diving', 'diving-course'], presentation: 'compact',
+    whatsapp: '11949093335', whatsappDisplay: '(11) 94909-3335', url: 'https://oceanosub.com/'
+  },
+  {
+    id: 'aquaticos-ilhabela', category: 'diving', name: 'Aquáticos Ilhabela',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Avenida São João, 492, Perequê' },
+    serviceArea: { scope: 'island', modes: ['diving'], verifiedModes: ['diving'] },
+    activities: ['introductory-dive', 'diving', 'diving-course'], presentation: 'compact',
+    whatsapp: '12992409191', whatsappDisplay: '(12) 99240-9191', url: 'https://aquaticosilhabela.com.br/'
+  },
+  {
+    id: 'narwhal-ilhabela', category: 'diving', name: 'Narwhal Ilhabela',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 171, Perequê' },
+    serviceArea: { scope: 'island', modes: ['diving'], verifiedModes: ['diving'] },
+    activities: ['introductory-dive', 'diving', 'diving-course', 'equipment-rental'], presentation: 'compact',
+    whatsapp: '12988867268', whatsappDisplay: '(12) 98886-7268', url: 'https://narwhalilhabela.com.br/'
+  },
+  {
+    id: 'prados-dive', category: 'diving', name: "Prado's Dive",
+    baseLocation: { address: 'Av. Brasil, 1715, Piúva' },
+    serviceArea: { scope: 'island', modes: ['diving', 'boat'], verifiedModes: ['diving', 'boat'] },
+    activities: ['introductory-dive', 'diving', 'diving-course', 'boat-tour'], presentation: 'compact',
+    whatsapp: '19981659193', whatsappDisplay: '(19) 98165-9193', url: 'https://www.pradosdive.com.br/'
+  },
+  {
     id: 'viana-praia-restaurante', category: 'food', name: 'Viana Praia & Restaurante',
     baseLocation: { address: 'Praia do Viana, Ilhabela' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'], presentation: 'compact',
@@ -2568,6 +2596,34 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Oceano Sub": {
+    pt: { type: "Centro de mergulho", description: "Escola e centro de mergulho em Itaquanduba, com batismo, cursos e saídas para mergulhadores certificados." },
+    en: { type: "Dive center", description: "Dive school and center in Itaquanduba offering discovery dives, courses and trips for certified divers." },
+    fr: { type: "Centre de plongée", description: "École et centre de plongée à Itaquanduba proposant baptêmes, cours et sorties pour plongeurs certifiés." },
+    es: { type: "Centro de buceo", description: "Escuela y centro de buceo en Itaquanduba con bautismos, cursos y salidas para buceadores certificados." },
+    he: { type: "מרכז צלילה", description: "בית ספר ומרכז צלילה באיטקוואנדובה עם צלילות היכרות, קורסים ויציאות לצוללים מוסמכים." }
+  },
+  "Aquáticos Ilhabela": {
+    pt: { type: "Centro de mergulho", description: "Centro de mergulho no Perequê com experiências para iniciantes, mergulho certificado e formação de mergulhadores." },
+    en: { type: "Dive center", description: "Dive center in Perequê offering beginner experiences, certified diving and diver training." },
+    fr: { type: "Centre de plongée", description: "Centre de plongée à Perequê proposant expériences débutants, plongée certifiée et formation." },
+    es: { type: "Centro de buceo", description: "Centro de buceo en Perequê con experiencias para principiantes, buceo certificado y formación." },
+    he: { type: "מרכז צלילה", description: "מרכז צלילה בפרקה עם חוויות למתחילים, צלילה מוסמכת והכשרת צוללים." }
+  },
+  "Narwhal Ilhabela": {
+    pt: { type: "Centro de mergulho", description: "Dive center no Perequê com batismo, cursos, saídas para credenciados e serviços de equipamentos." },
+    en: { type: "Dive center", description: "Dive center in Perequê offering discovery dives, courses, certified-diver trips and equipment services." },
+    fr: { type: "Centre de plongée", description: "Centre à Perequê proposant baptêmes, cours, sorties pour plongeurs certifiés et services d’équipement." },
+    es: { type: "Centro de buceo", description: "Centro en Perequê con bautismos, cursos, salidas para buceadores certificados y servicios de equipos." },
+    he: { type: "מרכז צלילה", description: "מרכז צלילה בפרקה עם צלילות היכרות, קורסים, יציאות לצוללים מוסמכים ושירותי ציוד." }
+  },
+  "Prado's Dive": {
+    pt: { type: "Centro de mergulho", description: "Escola e operadora de mergulho na Piúva com discovery, cursos, mergulhos e passeios de lancha." },
+    en: { type: "Dive center", description: "Dive school and operator in Piúva offering discovery dives, courses, diving and boat trips." },
+    fr: { type: "Centre de plongée", description: "École et opérateur à Piúva proposant baptêmes, cours, plongées et sorties en bateau." },
+    es: { type: "Centro de buceo", description: "Escuela y operador en Piúva con bautismos, cursos, buceo y paseos en lancha." },
+    he: { type: "מרכז צלילה", description: "בית ספר ומפעיל צלילה בפיובה עם צלילות היכרות, קורסים, צלילות וטיולי סירה." }
+  },
   "Viana Praia & Restaurante": {
     pt: { type: "Restaurante à beira-mar", description: "Restaurante na Praia do Viana com gastronomia brasileira e caiçara, peixes e frutos do mar." },
     en: { type: "Beachfront restaurant", description: "Restaurant at Praia do Viana serving Brazilian and caiçara cuisine, fish and seafood." },
