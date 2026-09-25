@@ -1,7 +1,11 @@
-// Gateway coordinates supplied by the user on 2026-09-24; never replace beach coordinates.
+// Gateway coordinates supplied by the user; never replace attraction coordinates.
 const roadWalkingGateways = {
   'praia-do-juliao': [-23.853583875006763, -45.41239561211879],
-  'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605]
+  'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605],
+  'cachoeira-da-toca': [-23.826654676666603, -45.341884430628895],
+  'cachoeira-do-veloso': [-23.876020628872798, -45.43576108900807],
+  'cachoeira-do-paqueta': [-23.869517499616304, -45.423931160172216],
+  'cachoeira-dos-tres-tombos': [-23.854116510544785, -45.405701165557744]
 };
 const boneteTrailGateway = [-23.936275064037446, -45.42730164154816];
 const castelhanosParkGateway = [-23.839249751545807, -45.36002116037754];
