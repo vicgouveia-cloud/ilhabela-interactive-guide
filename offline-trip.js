@@ -9,7 +9,14 @@ async function buildOfflineTrip(spots) {
   const mode = plannerTravelMode;
   const specKeys = {distance: 'routeDistance', duration: 'routeDuration', elevation: 'routeElevation', access: 'accessType', sea: 'seaCondition', structure: 'infrastructure'};
   const specLabels = Object.fromEntries(Object.entries(specKeys).map(([key, label]) => [key, t(label)]));
-  const title = t('plannerOfflineTitle'), hint = t('plannerOfflineHint');
+  const title = t('plannerOfflineTitle');
+  const offlineIntro = {
+    pt: ['Seu roteiro de Ilhabela está disponível sem internet.', 'Modo de deslocamento', 'Mapas e navegação precisam de conexão com a internet.'],
+    en: ['Your Ilhabela trip is available offline.', 'Travel mode', 'Maps and navigation require an internet connection.'],
+    fr: ['Votre itinéraire à Ilhabela est disponible hors ligne.', 'Mode de déplacement', 'Les cartes et la navigation nécessitent une connexion Internet.'],
+    es: ['Tu itinerario de Ilhabela está disponible sin conexión.', 'Modo de desplazamiento', 'Los mapas y la navegación requieren conexión a Internet.'],
+    he: ['המסלול שלכם באיליאבלה זמין ללא חיבור לאינטרנט.', 'אופן ההתניידות', 'מפות וניווט דורשים חיבור לאינטרנט.']
+  }[language] || ['Your Ilhabela trip is available offline.', 'Travel mode', 'Maps and navigation require an internet connection.'];
   const snapshots = spots.map(spot => ({
     spot, tr: getSpotTranslation(spot), notice: plannerAccessNotice(spot),
     access: resolvePlannerAccess(spot, mode)
@@ -42,7 +49,7 @@ async function buildOfflineTrip(spots) {
     const esc = offlineEscape;
     sections.push(`<article><h2>${esc(tr.title)}</h2><p>${esc(tr.subtitle)}</p><img alt="${esc(tr.title)}" src="${image}"><p>${esc(tr.description)}</p><p>${esc(notice)}</p><p>${esc(spot.coords.join(', '))}${access?.finalMode ? ' ← ' + esc(access.coords.join(', ')) : ''}</p><dl>${Object.entries(tr.specs).map(([key,value]) => `<dt>${esc(specLabels[key] || key)}</dt><dd>${esc(value)}</dd>`).join('')}</dl><p>${esc(tr.ecoTip)}</p></article>`);
   }
-  const html = `<!doctype html><html lang="${language}" dir="${language === 'he' ? 'rtl' : 'ltr'}"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'"><title>${offlineEscape(title)}</title><style>body{font:17px system-ui;max-width:760px;margin:auto;padding:24px;color:#003345;background:#faf7f0}article{border-top:1px solid;padding:20px 0}img{max-width:100%;max-height:400px}dt{font-weight:bold}dd{margin:0 0 12px}</style><h1>${offlineEscape(title)}</h1><p>${offlineEscape(hint)}</p><p>${new Date().toISOString()} · ${offlineEscape(getPlannerTravelModeLabel(mode))}</p>${sections.join('')}</html>`;
+  const html = `<!doctype html><html lang="${language}" dir="${language === 'he' ? 'rtl' : 'ltr'}"><meta charset="utf-8"><meta name="viewport" content="width=device-width"><meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src data:; style-src 'unsafe-inline'"><title>${offlineEscape(title)}</title><style>body{font:17px system-ui;max-width:760px;margin:auto;padding:24px;color:#003345;background:#faf7f0}article{border-top:1px solid;padding:20px 0}img{max-width:100%;max-height:400px}dt{font-weight:bold}dd{margin:0 0 12px}</style><h1>${offlineEscape(title)}</h1><p>${offlineEscape(offlineIntro[0])}</p><p><strong>${offlineEscape(offlineIntro[1])}:</strong> ${offlineEscape(getPlannerTravelModeLabel(mode))}</p><p>${offlineEscape(offlineIntro[2])}</p>${sections.join('')}</html>`;
   const result = new Blob([html], {type:'text/html;charset=utf-8'});
   if (result.size > 20 * 1024 * 1024) throw new Error('File budget exceeded');
   return result;
