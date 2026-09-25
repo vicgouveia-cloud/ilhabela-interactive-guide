@@ -102,7 +102,7 @@ Object.assign(translations.pt, {
   plannerLocationDenied: "Não foi possível acessar sua localização.",
   plannerOpenGoogleMaps: "Abrir no Google Maps",
   plannerNoRoadStops: "Nenhuma atração selecionada pode ser enviada como destino rodoviário com segurança.",
-  plannerSpecialHint: "Estes lugares continuam no roteiro, mas exigem acesso especial e não entram na rota de carro.",
+  plannerSpecialHint: "Estes lugares continuam no roteiro, mas exigem acesso especial e não entram na rota do modo selecionado.",
   plannerGoogleLimit: "Para compatibilidade com o Google Maps no celular, abra no máximo 4 atrações rodoviárias por vez.",
   plannerRoutingUnknown: "Acesso a confirmar",
   plannerModeRoad: "Estrada", plannerModeTrail: "Trilha", plannerModeBoat: "Barco", plannerMode4x4: "4x4", plannerModeDiving: "Mergulho"
@@ -112,7 +112,7 @@ Object.assign(translations.en, {
   plannerUseLocation: "Use my location", plannerLocationReady: "Location set",
   plannerLocationDenied: "We couldn't access your location.", plannerOpenGoogleMaps: "Open in Google Maps",
   plannerNoRoadStops: "None of the selected attractions can safely be sent as a road destination.",
-  plannerSpecialHint: "These places stay in your trip, but require special access and are not included in the driving route.",
+  plannerSpecialHint: "These places stay in your trip, but require special access and are not included in the selected travel mode route.",
   plannerGoogleLimit: "For mobile Google Maps compatibility, open no more than 4 road attractions at a time.",
   plannerRoutingUnknown: "Access to confirm",
   plannerModeRoad: "Road", plannerModeTrail: "Trail", plannerModeBoat: "Boat", plannerMode4x4: "4x4", plannerModeDiving: "Diving"
@@ -122,7 +122,7 @@ Object.assign(translations.fr, {
   plannerUseLocation: "Utiliser ma position", plannerLocationReady: "Position définie",
   plannerLocationDenied: "Impossible d'accéder à votre position.", plannerOpenGoogleMaps: "Ouvrir dans Google Maps",
   plannerNoRoadStops: "Aucune attraction sélectionnée ne peut être envoyée en toute sécurité comme destination routière.",
-  plannerSpecialHint: "Ces lieux restent dans votre itinéraire, mais nécessitent un accès spécial et ne sont pas inclus dans le trajet en voiture.",
+  plannerSpecialHint: "Ces lieux restent dans votre itinéraire, mais nécessitent un accès spécial et ne sont pas inclus dans l’itinéraire du mode de déplacement sélectionné.",
   plannerGoogleLimit: "Pour la compatibilité avec Google Maps sur mobile, ouvrez au maximum 4 attractions routières à la fois.",
   plannerRoutingUnknown: "Accès à confirmer",
   plannerModeRoad: "Route", plannerModeTrail: "Sentier", plannerModeBoat: "Bateau", plannerMode4x4: "4x4", plannerModeDiving: "Plongée"
@@ -132,7 +132,7 @@ Object.assign(translations.es, {
   plannerUseLocation: "Usar mi ubicación", plannerLocationReady: "Ubicación definida",
   plannerLocationDenied: "No se pudo acceder a tu ubicación.", plannerOpenGoogleMaps: "Abrir en Google Maps",
   plannerNoRoadStops: "Ninguna atracción seleccionada puede enviarse con seguridad como destino por carretera.",
-  plannerSpecialHint: "Estos lugares siguen en tu itinerario, pero requieren acceso especial y no se incluyen en la ruta en coche.",
+  plannerSpecialHint: "Estos lugares siguen en tu itinerario, pero requieren acceso especial y no se incluyen en la ruta del modo de desplazamiento seleccionado.",
   plannerGoogleLimit: "Para compatibilidad con Google Maps en móvil, abre como máximo 4 atracciones por carretera a la vez.",
   plannerRoutingUnknown: "Acceso por confirmar",
   plannerModeRoad: "Carretera", plannerModeTrail: "Sendero", plannerModeBoat: "Barco", plannerMode4x4: "4x4", plannerModeDiving: "Buceo"
@@ -142,7 +142,7 @@ Object.assign(translations.he, {
   plannerUseLocation: "השתמש במיקום שלי", plannerLocationReady: "המיקום הוגדר",
   plannerLocationDenied: "לא ניתן לגשת למיקום שלך.", plannerOpenGoogleMaps: "פתח ב-Google Maps",
   plannerNoRoadStops: "אין אטרקציות שנבחרו שניתן לשלוח בבטחה כיעד כביש.",
-  plannerSpecialHint: "המקומות האלה נשארים במסלול, אך דורשים גישה מיוחדת ואינם נכללים במסלול הנהיגה.",
+  plannerSpecialHint: "המקומות האלה נשארים במסלול, אך דורשים גישה מיוחדת ואינם נכללים במסלול של אמצעי הנסיעה שנבחר.",
   plannerGoogleLimit: "לתאימות עם Google Maps בנייד, פתח עד 4 אטרקציות כביש בכל פעם.",
   plannerRoutingUnknown: "גישה לאישור",
   plannerModeRoad: "כביש", plannerModeTrail: "שביל", plannerModeBoat: "סירה", plannerMode4x4: "4x4", plannerModeDiving: "צלילה"
