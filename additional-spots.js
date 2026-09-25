@@ -1805,6 +1805,21 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'damata-ecoturismo', category: 'tour', name: 'Da.Ma.Ta Ecoturismo',
+    serviceArea: { scope: 'island', modes: ['trail', 'boat', '4x4'], verifiedModes: ['trail', 'boat', '4x4'] },
+    activities: ['guided-hiking', 'trekking', 'waterfall-tour', 'birdwatching', 'boat-tour', '4x4-tour', 'whale-watching', 'caicara-canoe'],
+    presentation: 'compact', whatsapp: '12991183030', whatsappDisplay: '(12) 99118-3030',
+    url: 'https://damataecoturismo.com.br/'
+  },
+  {
+    id: 'o-seu-guia-ilhabela', category: 'tour', name: 'O Seu Guia Ilhabela',
+    baseLocation: { address: 'Rua José Lucas da Silva, 49, Itaquanduba' },
+    serviceArea: { scope: 'island', modes: ['trail'], verifiedModes: ['trail'] },
+    activities: ['guided-hiking', 'waterfall-tour'], presentation: 'compact',
+    phone: '12992586573', phoneDisplay: '(12) 99258-6573',
+    instagram: '@oseuguiailhabela', url: 'https://oseuguiailhabela.com.br/'
+  },
+  {
     id: 'oceano-sub', category: 'diving', name: 'Oceano Sub',
     baseLocation: { address: 'Alameda Baepi 1, 123, Itaquanduba' },
     serviceArea: { scope: 'island', modes: ['diving'], verifiedModes: ['diving'] },
@@ -2596,6 +2611,20 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Da.Ma.Ta Ecoturismo": {
+    pt: { type: "Ecoturismo e aventura", description: "Operadora de ecoturismo com trilhas guiadas, travessias, observação de aves e baleias, canoa havaiana e passeios por Ilhabela." },
+    en: { type: "Ecotourism and adventure", description: "Ecotourism operator offering guided hikes, crossings, bird and whale watching, outrigger canoeing and tours around Ilhabela." },
+    fr: { type: "Écotourisme et aventure", description: "Opérateur proposant randonnées guidées, traversées, observation des oiseaux et baleines, pirogue hawaïenne et excursions à Ilhabela." },
+    es: { type: "Ecoturismo y aventura", description: "Operadora con senderismo guiado, travesías, observación de aves y ballenas, canoa hawaiana y paseos por Ilhabela." },
+    he: { type: "תיירות אקולוגית והרפתקאות", description: "מפעיל תיירות אקולוגית עם טיולים מודרכים, מסלולי חצייה, צפייה בציפורים ובלווייתנים, קאנו הוואי וסיורים באיליאבלה." }
+  },
+  "O Seu Guia Ilhabela": {
+    pt: { type: "Guia de turismo", description: "Guia local para conhecer praias, cachoeiras e trilhas de Ilhabela, com acompanhamento em roteiros de natureza." },
+    en: { type: "Tour guide", description: "Local guide for exploring Ilhabela beaches, waterfalls and trails, including guided nature itineraries." },
+    fr: { type: "Guide touristique", description: "Guide local pour découvrir plages, cascades et sentiers d’Ilhabela avec accompagnement en pleine nature." },
+    es: { type: "Guía turístico", description: "Guía local para conocer playas, cascadas y senderos de Ilhabela con acompañamiento en rutas de naturaleza." },
+    he: { type: "מדריך תיירים", description: "מדריך מקומי לחופי איליאבלה, מפלים ושבילים, כולל ליווי במסלולי טבע." }
+  },
   "Oceano Sub": {
     pt: { type: "Centro de mergulho", description: "Escola e centro de mergulho em Itaquanduba, com batismo, cursos e saídas para mergulhadores certificados." },
     en: { type: "Dive center", description: "Dive school and center in Itaquanduba offering discovery dives, courses and trips for certified divers." },
