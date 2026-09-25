@@ -1805,6 +1805,26 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'caicara-beach-bike', category: 'essentials', name: 'Caiçara Beach',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 658, Perequê' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['bike-rental', 'kayak', 'stand-up-paddle', 'equipment-rental'], presentation: 'compact',
+    whatsapp: '12991470443', whatsappDisplay: '(12) 99147-0443', url: 'https://caicarabeach.com.br/'
+  },
+  {
+    id: 'webtur-ilhabela', category: 'essentials', name: 'Webtur',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Vila, Ilhabela' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['bike-rental'], presentation: 'compact', url: 'https://webtur.com/'
+  },
+  {
+    id: 'marina-porto-ilhabela', category: 'essentials', name: 'Marina Porto Ilhabela',
+    baseLocation: { address: 'Av. Alm. Tamandaré, 376, Itaquanduba' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['nautical-support', 'marina'], presentation: 'compact',
+    phone: '1238961243', phoneDisplay: '(12) 3896-1243'
+  },
+  {
     id: 'damata-ecoturismo', category: 'tour', name: 'Da.Ma.Ta Ecoturismo',
     serviceArea: { scope: 'island', modes: ['trail', 'boat', '4x4'], verifiedModes: ['trail', 'boat', '4x4'] },
     activities: ['guided-hiking', 'trekking', 'waterfall-tour', 'birdwatching', 'boat-tour', '4x4-tour', 'whale-watching', 'caicara-canoe'],
@@ -2611,6 +2631,27 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Caiçara Beach": {
+    pt: { type: "Mobilidade e equipamentos", description: "Base no Perequê com aluguel de bicicletas e equipamentos para atividades na água, incluindo caiaque e stand up paddle." },
+    en: { type: "Mobility and equipment", description: "Perequê base offering bicycle and water-equipment rentals, including kayaks and stand-up paddleboards." },
+    fr: { type: "Mobilité et équipement", description: "Base à Perequê proposant location de vélos et d’équipements nautiques, dont kayaks et stand up paddle." },
+    es: { type: "Movilidad y equipos", description: "Base en Perequê con alquiler de bicicletas y equipos acuáticos, incluidos kayak y stand up paddle." },
+    he: { type: "ניידות וציוד", description: "בסיס בפרקה המציע השכרת אופניים וציוד לפעילויות מים, כולל קיאקים וגלשני סאפ." }
+  },
+  "Webtur": {
+    pt: { type: "Aluguel de bicicletas", description: "Agência na Vila que também oferece aluguel de bicicletas para percorrer a orla de Ilhabela." },
+    en: { type: "Bicycle rental", description: "Agency in Vila that also rents bicycles for exploring Ilhabela's waterfront." },
+    fr: { type: "Location de vélos", description: "Agence dans la Vila proposant aussi la location de vélos pour parcourir le front de mer d’Ilhabela." },
+    es: { type: "Alquiler de bicicletas", description: "Agencia en Vila que también alquila bicicletas para recorrer la costa de Ilhabela." },
+    he: { type: "השכרת אופניים", description: "סוכנות בוילה המציעה גם השכרת אופניים לטיול לאורך קו החוף של איליאבלה." }
+  },
+  "Marina Porto Ilhabela": {
+    pt: { type: "Marina e apoio náutico", description: "Marina em Itaquanduba para apoio a embarcações e atividades náuticas." },
+    en: { type: "Marina and nautical support", description: "Marina in Itaquanduba providing support for boats and nautical activities." },
+    fr: { type: "Marina et soutien nautique", description: "Marina à Itaquanduba offrant un soutien aux embarcations et activités nautiques." },
+    es: { type: "Marina y apoyo náutico", description: "Marina en Itaquanduba con apoyo para embarcaciones y actividades náuticas." },
+    he: { type: "מרינה ותמיכה ימית", description: "מרינה באיטקוואנדובה המספקת תמיכה לכלי שיט ולפעילויות ימיות." }
+  },
   "Da.Ma.Ta Ecoturismo": {
     pt: { type: "Ecoturismo e aventura", description: "Operadora de ecoturismo com trilhas guiadas, travessias, observação de aves e baleias, canoa havaiana e passeios por Ilhabela." },
     en: { type: "Ecotourism and adventure", description: "Ecotourism operator offering guided hikes, crossings, bird and whale watching, outrigger canoeing and tours around Ilhabela." },
