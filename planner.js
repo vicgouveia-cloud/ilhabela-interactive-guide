@@ -687,7 +687,10 @@ function initPlannerMap() {
     plannerMap = null;
   }
   plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false }).setView([-23.820, -45.365], 11);
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', { maxZoom: 19 }).addTo(plannerMap);
+  L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>',
+    maxZoom: 19
+  }).addTo(plannerMap);
 
   plannerMapMarkers = [];
   const bounds = L.latLngBounds();
