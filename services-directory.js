@@ -38,16 +38,30 @@
   };
   const renderFoodFilters = () => {
     if (!foodFilters) return;
+    const directoryLabels = {
+      tourType: { pt: 'Tipo de passeio', en: 'Tour type', fr: 'Type d’excursion', es: 'Tipo de paseo', he: 'סוג סיור' },
+      practicalType: { pt: 'Tipo de serviço', en: 'Service type', fr: 'Type de service', es: 'Tipo de servicio', he: 'סוג שירות' },
+      all: { pt: 'Todos', en: 'All', fr: 'Tous', es: 'Todos', he: 'הכול' },
+      transfer: { pt: 'Transfer / receptivo', en: 'Transfer / reception', fr: 'Transfert / accueil', es: 'Traslado / receptivo', he: 'הסעות / קבלה' },
+      boatTour: { pt: 'Passeios de barco', en: 'Boat tours', fr: 'Excursions en bateau', es: 'Paseos en barco', he: 'סיורי סירה' },
+      fourByFour: { pt: 'Passeios 4x4', en: '4x4 tours', fr: 'Excursions 4x4', es: 'Paseos 4x4', he: 'סיורי 4x4' },
+      guidedHiking: { pt: 'Trilhas guiadas', en: 'Guided hikes', fr: 'Randonnées guidées', es: 'Senderismo guiado', he: 'טיולים רגליים מודרכים' },
+      carRental: { pt: 'Aluguel de carro', en: 'Car rental', fr: 'Location de voiture', es: 'Alquiler de auto', he: 'השכרת רכב' },
+      bikeRental: { pt: 'Aluguel de bicicleta', en: 'Bike rental', fr: 'Location de vélo', es: 'Alquiler de bicicleta', he: 'השכרת אופניים' },
+      nauticalSupport: { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
+      marina: { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' }
+    };
+    const dl = key => directoryLabels[key]?.[currentLang] || directoryLabels[key]?.pt || key;
     if (category === 'tour') {
       foodFilters.classList.remove('hidden');
       const tourOptions = [
-        ['all', 'Todos'],
-        ['transfer', 'Transfer / receptivo'],
-        ['boat-tour', 'Passeios de barco'],
-        ['4x4-tour', 'Passeios 4x4'],
-        ['guided-hiking', 'Trilhas guiadas']
+        ['all', dl('all')],
+        ['transfer', dl('transfer')],
+        ['boat-tour', dl('boatTour')],
+        ['4x4-tour', dl('fourByFour')],
+        ['guided-hiking', dl('guidedHiking')]
       ];
-      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>Tipo de passeio</span><select id="services-tour-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${tourOptions.map(([id, label]) => `<option value="${id}"${id === tourFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('tourType')}</span><select id="services-tour-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${tourOptions.map(([id, label]) => `<option value="${id}"${id === tourFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
       document.getElementById('services-tour-filter')?.addEventListener('change', event => {
         tourFilter = event.target.value;
         window.renderServicesPage();
@@ -57,12 +71,13 @@
     if (category === 'essentials') {
       foodFilters.classList.remove('hidden');
       const practicalOptions = [
-        ['all', 'Todos'],
-        ['car-rental', 'Aluguel de carro'],
-        ['bike-rental', 'Aluguel de bicicleta'],
-        ['nautical-support', 'Apoio náutico']
+        ['all', dl('all')],
+        ['car-rental', dl('carRental')],
+        ['bike-rental', dl('bikeRental')],
+        ['nautical-support', dl('nauticalSupport')],
+        ['marina', dl('marina')]
       ];
-      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>Tipo de serviço</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
       document.getElementById('services-practical-filter')?.addEventListener('change', event => {
         practicalFilter = event.target.value;
         window.renderServicesPage();
