@@ -1,10 +1,15 @@
 
 // Planner map semantics: distinguish experience coordinates from access/navigation points.
-Object.assign(translations.pt, { plannerMapExperienceLocation: "Local da experiência — não é ponto de acesso terrestre", plannerMapFinalDestination: "Destino final — a navegação pode terminar antes, no ponto de acesso" });
-Object.assign(translations.en, { plannerMapExperienceLocation: "Experience location — not a terrestrial access point", plannerMapFinalDestination: "Final destination — navigation may end earlier at the access point" });
-Object.assign(translations.fr, { plannerMapExperienceLocation: "Lieu de l'expérience — ce n'est pas un point d'accès terrestre", plannerMapFinalDestination: "Destination finale — la navigation peut se terminer plus tôt au point d'accès" });
-Object.assign(translations.es, { plannerMapExperienceLocation: "Lugar de la experiencia — no es un punto de acceso terrestre", plannerMapFinalDestination: "Destino final — la navegación puede terminar antes en el punto de acceso" });
-Object.assign(translations.he, { plannerMapExperienceLocation: "מיקום החוויה — אינו נקודת גישה יבשתית", plannerMapFinalDestination: "היעד הסופי — הניווט עשוי להסתיים קודם בנקודת הגישה" });
+Object.assign(translations.pt, {
+  plannerTravel4x4: "4x4", plannerMapExperienceLocation: "Local da experiência — não é ponto de acesso terrestre", plannerMapFinalDestination: "Destino final — a navegação pode terminar antes, no ponto de acesso" });
+Object.assign(translations.en, {
+  plannerTravel4x4: "4x4", plannerMapExperienceLocation: "Experience location — not a terrestrial access point", plannerMapFinalDestination: "Final destination — navigation may end earlier at the access point" });
+Object.assign(translations.fr, {
+  plannerTravel4x4: "4x4", plannerMapExperienceLocation: "Lieu de l'expérience — ce n'est pas un point d'accès terrestre", plannerMapFinalDestination: "Destination finale — la navigation peut se terminer plus tôt au point d'accès" });
+Object.assign(translations.es, {
+  plannerTravel4x4: "4x4", plannerMapExperienceLocation: "Lugar de la experiencia — no es un punto de acceso terrestre", plannerMapFinalDestination: "Destino final — la navegación puede terminar antes en el punto de acceso" });
+Object.assign(translations.he, {
+  plannerTravel4x4: "4x4", plannerMapExperienceLocation: "מיקום החוויה — אינו נקודת גישה יבשתית", plannerMapFinalDestination: "היעד הסופי — הניווט עשוי להסתיים קודם בנקודת הגישה" });
 
 ﻿// Translations
 Object.assign(translations.pt, {
@@ -423,7 +428,7 @@ function renderSummary() {
 }
 
 function getPlannerTravelModeLabel(mode) {
-  const keys = { auto: 'plannerTravelAuto', bicycle: 'plannerTravelBicycle', pedestrian: 'plannerTravelPedestrian' };
+  const keys = { auto: 'plannerTravelAuto', bicycle: 'plannerTravelBicycle', pedestrian: 'plannerTravelPedestrian', '4x4': 'plannerTravel4x4' };
   return t(keys[mode] || keys.auto);
 }
 
