@@ -1805,6 +1805,42 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'dpny-beach-hotel',
+    category: 'stay',
+    name: 'DPNY Beach Hotel & SPA',
+    baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7668, Praia do Curral' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    whatsapp: '1238943000',
+    whatsappDisplay: '(12) 3894-3000',
+    url: 'https://dpny.com.br/'
+  },
+  {
+    id: 'vila-kebaya',
+    category: 'stay',
+    name: 'Hotel Boutique Vila Kebaya',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua Antônio Lisboa Alves, 167, Vila' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    whatsapp: '12991100151',
+    whatsappDisplay: '(12) 99110-0151',
+    url: 'https://vilakebaya.com.br/'
+  },
+  {
+    id: 'porto-pacuiba-hotel',
+    category: 'stay',
+    name: 'Porto Pacuíba Hotel',
+    baseLocation: { address: 'Av. Leonardo Reale, 2392, Viana' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    phone: '12991759159',
+    phoneDisplay: '(12) 99175-9159',
+    url: 'https://portopacuiba.com.br/'
+  },
+  {
     id: 'localiza-sao-sebastiao',
     category: 'essentials',
     name: 'Localiza — São Sebastião',
@@ -2511,6 +2547,27 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "DPNY Beach Hotel & SPA": {
+    pt: { type: "Hotel", description: "Hospedagem à beira-mar na Praia do Curral, no sul de Ilhabela." },
+    en: { type: "Hotel", description: "Beachfront accommodation at Praia do Curral in southern Ilhabela." },
+    fr: { type: "Hôtel", description: "Hébergement en bord de mer à Praia do Curral, dans le sud d’Ilhabela." },
+    es: { type: "Hotel", description: "Alojamiento frente al mar en Praia do Curral, al sur de Ilhabela." },
+    he: { type: "מלון", description: "אירוח על חוף פראיה דו קוראל, בדרום איליאבלה." }
+  },
+  "Hotel Boutique Vila Kebaya": {
+    pt: { type: "Hotel boutique", description: "Hospedagem no Centro Histórico (Vila), próxima à praia, bares e restaurantes." },
+    en: { type: "Boutique hotel", description: "Accommodation in the Historic Center (Vila), near the beach, bars and restaurants." },
+    fr: { type: "Hôtel boutique", description: "Hébergement dans le centre historique (Vila), près de la plage, des bars et restaurants." },
+    es: { type: "Hotel boutique", description: "Alojamiento en el Centro Histórico (Vila), cerca de la playa, bares y restaurantes." },
+    he: { type: "מלון בוטיק", description: "אירוח במרכז ההיסטורי (וילה), ליד החוף, ברים ומסעדות." }
+  },
+  "Porto Pacuíba Hotel": {
+    pt: { type: "Hotel", description: "Hospedagem em frente à Praia do Viana, no norte de Ilhabela." },
+    en: { type: "Hotel", description: "Accommodation facing Praia do Viana in northern Ilhabela." },
+    fr: { type: "Hôtel", description: "Hébergement face à Praia do Viana, dans le nord d’Ilhabela." },
+    es: { type: "Hotel", description: "Alojamiento frente a Praia do Viana, al norte de Ilhabela." },
+    he: { type: "מלון", description: "אירוח מול פראיה דו ויאנה, בצפון איליאבלה." }
+  },
   "Localiza — São Sebastião": {
     pt: { type: "Locadora de veículos", description: "Aluguel de carros em São Sebastião, no continente, como alternativa regional para quem visita Ilhabela." },
     en: { type: "Car rental", description: "Car rental in São Sebastião on the mainland, a regional option for visitors to Ilhabela." },
