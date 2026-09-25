@@ -1712,11 +1712,23 @@ const attractionRoutingMetadata = {
   'praia-da-enchova': { modes: ['trail', 'boat'], roadRoutable: false, specialAccess: true },
   'praia-de-indaiauba': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-da-laje': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-da-toca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-do-veloso': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-da-toca': {
+    modes: ['road', 'trail'], roadRoutable: false, specialAccess: true,
+    accessOptions: [{ approachModes: ['auto', 'bicycle'], gateway: { coords: [-23.826654676666603, -45.341884430628895], verified: true }, finalMode: 'trail' }]
+  },
+  'cachoeira-do-veloso': {
+    modes: ['road', 'trail'], roadRoutable: false, specialAccess: true,
+    accessOptions: [{ approachModes: ['auto', 'bicycle'], gateway: { coords: [-23.876020628872798, -45.43576108900807], verified: true }, finalMode: 'trail' }]
+  },
+  'cachoeira-do-paqueta': {
+    modes: ['road', 'trail'], roadRoutable: false, specialAccess: true,
+    accessOptions: [{ approachModes: ['auto', 'bicycle'], gateway: { coords: [-23.869517499616304, -45.423931160172216], verified: true }, finalMode: 'trail' }]
+  },
   'cachoeira-do-gato': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-dos-tres-tombos': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'cachoeira-dos-tres-tombos': {
+    modes: ['road', 'trail'], roadRoutable: false, specialAccess: true,
+    accessOptions: [{ approachModes: ['auto', 'bicycle'], gateway: { coords: [-23.854116510544785, -45.405701165557744], verified: true }, finalMode: 'trail' }]
+  },
   'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-da-agua-branca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-do-bonete': { modes: ['trail'], roadRoutable: false, specialAccess: true },
