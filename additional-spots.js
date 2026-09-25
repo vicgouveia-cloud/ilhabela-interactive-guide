@@ -1805,6 +1805,27 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'viana-praia-restaurante', category: 'food', name: 'Viana Praia & Restaurante',
+    baseLocation: { address: 'Praia do Viana, Ilhabela' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'], presentation: 'compact',
+    serviceType: ['restaurant'], serviceFormats: ['table-service'], serviceSpecialties: ['brazilian', 'seafood'],
+    whatsapp: '12991211862', whatsappDisplay: '(12) 99121-1862', url: 'https://www.viana.com.br/'
+  },
+  {
+    id: 'all-mirante', category: 'food', name: 'All Mirante',
+    baseLocation: { address: 'Av. Governador Mário Covas Júnior, 16600, Borrifos' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'], presentation: 'compact',
+    serviceType: ['restaurant'], serviceFormats: ['table-service'], serviceSpecialties: ['brazilian', 'seafood'],
+    url: 'https://www.allmirante.com.br/'
+  },
+  {
+    id: 'rei-da-praia-ilhabela', category: 'food', name: 'Rei da Praia Ilhabela',
+    baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7746, Curral' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'], presentation: 'compact',
+    serviceType: ['restaurant', 'kiosk'], serviceFormats: ['table-service'], serviceSpecialties: ['brazilian', 'seafood'],
+    instagram: '@reidapraiailhabela'
+  },
+  {
     id: 'dpny-beach-hotel',
     category: 'stay',
     name: 'DPNY Beach Hotel & SPA',
@@ -2547,6 +2568,27 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Viana Praia & Restaurante": {
+    pt: { type: "Restaurante à beira-mar", description: "Restaurante na Praia do Viana com gastronomia brasileira e caiçara, peixes e frutos do mar." },
+    en: { type: "Beachfront restaurant", description: "Restaurant at Praia do Viana serving Brazilian and caiçara cuisine, fish and seafood." },
+    fr: { type: "Restaurant en bord de mer", description: "Restaurant à Praia do Viana proposant cuisine brésilienne et caiçara, poissons et fruits de mer." },
+    es: { type: "Restaurante frente al mar", description: "Restaurante en Praia do Viana con cocina brasileña y caiçara, pescados y mariscos." },
+    he: { type: "מסעדה על החוף", description: "מסעדה בפראיה דו ויאנה עם מטבח ברזילאי וקאיסרה, דגים ופירות ים." }
+  },
+  "All Mirante": {
+    pt: { type: "Restaurante", description: "Restaurante em Borrifos, no extremo sul de Ilhabela, com vista para o mar." },
+    en: { type: "Restaurant", description: "Restaurant in Borrifos, at the far south of Ilhabela, with ocean views." },
+    fr: { type: "Restaurant", description: "Restaurant à Borrifos, à l’extrême sud d’Ilhabela, avec vue sur la mer." },
+    es: { type: "Restaurante", description: "Restaurante en Borrifos, en el extremo sur de Ilhabela, con vista al mar." },
+    he: { type: "מסעדה", description: "מסעדה בבוריפוס, בדרום הרחוק של איליאבלה, עם נוף לים." }
+  },
+  "Rei da Praia Ilhabela": {
+    pt: { type: "Restaurante de praia", description: "Bar e restaurante pé na areia na Praia do Curral, com culinária brasileira e frutos do mar." },
+    en: { type: "Beach restaurant", description: "Beachfront bar and restaurant at Praia do Curral serving Brazilian cuisine and seafood." },
+    fr: { type: "Restaurant de plage", description: "Bar et restaurant les pieds dans le sable à Praia do Curral, cuisine brésilienne et fruits de mer." },
+    es: { type: "Restaurante de playa", description: "Bar y restaurante a pie de playa en Praia do Curral, con cocina brasileña y mariscos." },
+    he: { type: "מסעדת חוף", description: "בר ומסעדה על החוף בפראיה דו קוראל עם מטבח ברזילאי ופירות ים." }
+  },
   "DPNY Beach Hotel & SPA": {
     pt: { type: "Hotel", description: "Hospedagem à beira-mar na Praia do Curral, no sul de Ilhabela." },
     en: { type: "Hotel", description: "Beachfront accommodation at Praia do Curral in southern Ilhabela." },
