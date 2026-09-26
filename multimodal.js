@@ -1,5 +1,6 @@
 // Gateway coordinates supplied by the user; never replace attraction coordinates.
 const roadWalkingGateways = {
+  'pico-do-baepi': [-23.802132860104887, -45.35514446231041],
   'praia-do-juliao': [-23.853583875006763, -45.41239561211879],
   'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605],
   'cachoeira-da-toca': [-23.826654676666603, -45.341884430628895],

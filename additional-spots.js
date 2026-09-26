@@ -1794,7 +1794,7 @@ const attractionRoutingMetadata = {
   'trilha-da-cabecuda-farol': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'pico-de-sao-sebastiao': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
   'mirante-do-coracao': { modes: ['4x4', 'trail'], roadRoutable: false, specialAccess: true },
-  'pico-do-baepi': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
+  'pico-do-baepi': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-sul-sepituba': { modes: ['road', 'boat'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'naufragio-aymore': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
