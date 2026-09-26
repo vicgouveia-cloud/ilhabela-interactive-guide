@@ -381,6 +381,7 @@ function plannerSwipe(direction) {
   if (direction === 'left') {
     dismissedInSession.add(spot.id);
   } else {
+    plannerOptimizedRoute = null;
     tripSelection.push(spot.id);
     saveTripSelection();
   }
