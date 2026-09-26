@@ -222,6 +222,12 @@ function initPlanner() {
   } catch(e) {
     tripSelection = [];
   }
+  const validSpotIds = new Set(touristSpots.map(spot => spot.id));
+  const validSelection = tripSelection.filter(id => validSpotIds.has(id));
+  if (validSelection.length !== tripSelection.length) {
+    tripSelection = validSelection;
+    localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
+  }
   updatePlannerBadge();
 }
 
@@ -647,6 +653,7 @@ async function plannerOptimizeRoute() {
     };
     renderSummary();
   } catch (error) {
+    if (routeRevision !== plannerRouteRevision) return;
     console.warn('[planner] route optimization unavailable', error);
     plannerOptimizedRoute = null;
     renderSummary();
