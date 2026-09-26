@@ -2271,11 +2271,18 @@ const servicesData = [
     phone: '12992301282', phoneDisplay: '(12) 99230-1282', instagram: '@reidapraiailhabela', url: 'https://www.reidapraiailhabela.com.br'
   },
   {
+    id: 'antonietta-curral', category: 'food', name: 'Antonietta Bar e Restaurante',
+    baseLocation: { nearSpotId: 'praia-do-curral' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks', 'beach-bar'],
+    presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['table-service'], serviceSpecialties: ['brazilian'], serviceOccasions: ['lunch'],
+    whatsapp: '12983484704', whatsappDisplay: '(12) 98348-4704', instagram: '@antonietta.barerestaurante'
+  },
+  {
     id: 'comandante-adriano', category: 'food', name: 'Comandante Adriano',
     baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 8086, Curral' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food', 'beach-bar'],
     presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte', 'table-service'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
-    phone: '1238941978', phoneDisplay: '(12) 3894-1978', instagram: '@comandante_adriano'
+    whatsapp: '12974022992', whatsappDisplay: '(12) 97402-2992', instagram: '@comandante_adriano'
   },
   {
     id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
@@ -3011,6 +3018,13 @@ const serviceTranslations = {
     fr: { type: 'Restaurant et bar de plage', description: 'Restaurant les pieds dans le sable à Praia do Curral, avec fruits de mer, cuisine brésilienne et boissons.', tags: ['Bord de plage', 'Fruits de mer', 'Bar', 'Déjeuner'] },
     es: { type: 'Restaurante y bar de playa', description: 'Restaurante a pie de playa en Praia do Curral, con mariscos, cocina brasileña y bebidas.', tags: ['Playa', 'Mariscos', 'Bar', 'Almuerzo'] },
     he: { type: 'מסעדה ובר חוף', description: 'מסעדה על החול ב-Praia do Curral עם מאכלי ים, אוכל ברזילאי ומשקאות.', tags: ['על החוף', 'מאכלי ים', 'בר', 'ארוחת צהריים'] }
+  },
+  'Antonietta Bar e Restaurante': {
+    pt: { type: 'Bar e restaurante de praia', description: 'Bar e restaurante na Praia do Curral, entre os estabelecimentos da faixa de praia.', tags: ['Praia do Curral', 'Bar', 'Restaurante', 'Almoço'] },
+    en: { type: 'Beach bar and restaurant', description: 'Bar and restaurant at Praia do Curral, along the beachfront strip.', tags: ['Praia do Curral', 'Bar', 'Restaurant', 'Lunch'] },
+    fr: { type: 'Bar et restaurant de plage', description: 'Bar et restaurant à Praia do Curral, le long de la plage.', tags: ['Praia do Curral', 'Bar', 'Restaurant', 'Déjeuner'] },
+    es: { type: 'Bar y restaurante de playa', description: 'Bar y restaurante en Praia do Curral, en la franja de playa.', tags: ['Praia do Curral', 'Bar', 'Restaurante', 'Almuerzo'] },
+    he: { type: 'בר ומסעדת חוף', description: 'בר ומסעדה בפראיה דו קוראל, לאורך רצועת החוף.', tags: ['Praia do Curral', 'בר', 'מסעדה', 'ארוחת צהריים'] }
   },
   'Comandante Adriano': {
     pt: { type: 'Restaurante e bar de praia', description: 'Restaurante e bar na Praia do Curral, com cozinha brasileira, frutos do mar e serviço de almoço.', tags: ['Praia do Curral', 'Frutos do mar', 'Brasileira', 'Almoço'] },
