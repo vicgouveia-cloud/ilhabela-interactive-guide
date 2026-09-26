@@ -2524,6 +2524,48 @@ const servicesData = [
     phone:'1238961134', phoneDisplay:'(12) 3896-1134', url:'https://linktr.ee/fradeilha'
   },
   {
+    id:'lavaki-barra-velha', category:'essentials', name:'Lavanderia Lavaki Ilhabela 24h',
+    baseLocation:{nearSpotId:'praia-do-pereque'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['laundry','self-service'],
+    presentation:'compact', serviceType:['laundry']
+  },
+  {
+    id:'lavo-ilhabela-sul', category:'essentials', name:'Lavanderia Lavô Ilhabela Sul',
+    baseLocation:{nearSpotId:'praia-do-veloso'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['laundry','self-service'],
+    presentation:'compact', serviceType:['laundry'],
+    phone:'12997611554', phoneDisplay:'(12) 99761-1554', whatsapp:'12997611554', whatsappDisplay:'(12) 99761-1554',
+    url:'https://lavoilhabelasul.shop/'
+  },
+  {
+    id:'supermercados-minimaxx', category:'essentials', name:'Supermercados Minimaxx',
+    baseLocation:{nearSpotId:'centro-historico-vila'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['groceries','supermarket'],
+    presentation:'compact', serviceType:['supermarket'],
+    phone:'1238961868', phoneDisplay:'(12) 3896-1868'
+  },
+  {
+    id:'supermercado-colina-barra-velha', category:'essentials', name:'Supermercado Colina — Barra Velha',
+    baseLocation:{nearSpotId:'praia-do-pereque'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['groceries','supermarket'],
+    presentation:'compact', serviceType:['supermarket'],
+    phone:'1238958420', phoneDisplay:'(12) 3895-8420'
+  },
+  {
+    id:'farma-ponte-vila', category:'essentials', name:'Farma Ponte — Vila',
+    baseLocation:{nearSpotId:'centro-historico-vila'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['pharmacy','health-products'],
+    presentation:'compact', serviceType:['pharmacy'],
+    phone:'15996051512', phoneDisplay:'(15) 99605-1512'
+  },
+  {
+    id:'farma-ponte-barra-velha', category:'essentials', name:'Farma Ponte — Barra Velha',
+    baseLocation:{nearSpotId:'praia-do-pereque'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['pharmacy','health-products'],
+    presentation:'compact', serviceType:['pharmacy'],
+    phone:'15998086440', phoneDisplay:'(15) 99808-6440'
+  },
+  {
     id:'bl3-armacao-rental', category:'essentials', name:'BL3 Armação — Aluguel de Equipamentos',
     baseLocation:{nearSpotId:'praia-da-armacao'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['equipment-rental','water-sports','beach-equipment'],
@@ -3128,6 +3170,48 @@ const serviceTranslations = {
     fr:{type:"Supermarché",description:"Magasin de Perequê du Supermercado do Frade, situé Avenida Princesa Isabel, 1126. L’enseigne propose aussi des achats en ligne.",tags:["Perequê","Courses","Achats en ligne"]},
     es:{type:"Supermercado",description:"Sucursal de Perequê de Supermercado do Frade, en Avenida Princesa Isabel, 1126. La cadena también ofrece compras en línea.",tags:["Perequê","Compras","Compras en línea"]},
     he:{type:"סופרמרקט",description:"סניף Perequê של Supermercado do Frade, ב-Avenida Princesa Isabel, 1126. הרשת מציעה גם קניות מקוונות.",tags:["Perequê","מכולת","קניות מקוונות"]}
+  },
+  "Lavanderia Lavaki Ilhabela 24h": {
+    pt:{type:"Lavanderia self-service",description:"Lavanderia self-service 24 horas na Avenida Ernesto de Oliveira, 1159, em Barra Velha.",tags:["Barra Velha","24 horas","Autoatendimento"]},
+    en:{type:"Self-service laundry",description:"24-hour self-service laundry at Avenida Ernesto de Oliveira, 1159, in Barra Velha.",tags:["Barra Velha","24 hours","Self-service"]},
+    fr:{type:"Laverie libre-service",description:"Laverie libre-service ouverte 24 h/24 à Avenida Ernesto de Oliveira, 1159, à Barra Velha.",tags:["Barra Velha","24 h/24","Libre-service"]},
+    es:{type:"Lavandería de autoservicio",description:"Lavandería de autoservicio 24 horas en Avenida Ernesto de Oliveira, 1159, Barra Velha.",tags:["Barra Velha","24 horas","Autoservicio"]},
+    he:{type:"מכבסת שירות עצמי",description:"מכבסת שירות עצמי הפועלת 24 שעות ב-Avenida Ernesto de Oliveira, 1159, Barra Velha.",tags:["Barra Velha","24 שעות","שירות עצמי"]}
+  },
+  "Lavanderia Lavô Ilhabela Sul": {
+    pt:{type:"Lavanderia self-service",description:"Lavanderia self-service no Veloso, na Avenida José Pacheco do Nascimento, 1493, loja 3.",tags:["Veloso","Autoatendimento","Zona sul"]},
+    en:{type:"Self-service laundry",description:"Self-service laundry in Veloso at Avenida José Pacheco do Nascimento, 1493, store 3.",tags:["Veloso","Self-service","South coast"]},
+    fr:{type:"Laverie libre-service",description:"Laverie libre-service à Veloso, Avenida José Pacheco do Nascimento, 1493, boutique 3.",tags:["Veloso","Libre-service","Sud de l’île"]},
+    es:{type:"Lavandería de autoservicio",description:"Lavandería de autoservicio en Veloso, Avenida José Pacheco do Nascimento, 1493, local 3.",tags:["Veloso","Autoservicio","Zona sur"]},
+    he:{type:"מכבסת שירות עצמי",description:"מכבסת שירות עצמי ב-Veloso, Avenida José Pacheco do Nascimento, 1493, חנות 3.",tags:["Veloso","שירות עצמי","דרום האי"]}
+  },
+  "Supermercados Minimaxx": {
+    pt:{type:"Supermercado",description:"Supermercado na Avenida Pedro de Paula Moraes, 663, no Saco da Capela.",tags:["Saco da Capela","Mercado","Compras"]},
+    en:{type:"Supermarket",description:"Supermarket at Avenida Pedro de Paula Moraes, 663, in Saco da Capela.",tags:["Saco da Capela","Groceries","Shopping"]},
+    fr:{type:"Supermarché",description:"Supermarché situé Avenida Pedro de Paula Moraes, 663, à Saco da Capela.",tags:["Saco da Capela","Courses","Achats"]},
+    es:{type:"Supermercado",description:"Supermercado en Avenida Pedro de Paula Moraes, 663, Saco da Capela.",tags:["Saco da Capela","Mercado","Compras"]},
+    he:{type:"סופרמרקט",description:"סופרמרקט ב-Avenida Pedro de Paula Moraes, 663, Saco da Capela.",tags:["Saco da Capela","מצרכים","קניות"]}
+  },
+  "Supermercado Colina — Barra Velha": {
+    pt:{type:"Supermercado",description:"Supermercado na Rua dos Carijós, 125, em Barra Velha.",tags:["Barra Velha","Mercado","Compras"]},
+    en:{type:"Supermarket",description:"Supermarket at Rua dos Carijós, 125, in Barra Velha.",tags:["Barra Velha","Groceries","Shopping"]},
+    fr:{type:"Supermarché",description:"Supermarché situé Rua dos Carijós, 125, à Barra Velha.",tags:["Barra Velha","Courses","Achats"]},
+    es:{type:"Supermercado",description:"Supermercado en Rua dos Carijós, 125, Barra Velha.",tags:["Barra Velha","Mercado","Compras"]},
+    he:{type:"סופרמרקט",description:"סופרמרקט ב-Rua dos Carijós, 125, Barra Velha.",tags:["Barra Velha","מצרכים","קניות"]}
+  },
+  "Farma Ponte — Vila": {
+    pt:{type:"Farmácia",description:"Farmácia na Praça Cel. Julião, 145, na Vila.",tags:["Vila","Medicamentos","Cuidados pessoais"]},
+    en:{type:"Pharmacy",description:"Pharmacy at Praça Cel. Julião, 145, in Vila.",tags:["Vila","Medicines","Personal care"]},
+    fr:{type:"Pharmacie",description:"Pharmacie située Praça Cel. Julião, 145, dans la Vila.",tags:["Vila","Médicaments","Soins personnels"]},
+    es:{type:"Farmacia",description:"Farmacia en Praça Cel. Julião, 145, en la Vila.",tags:["Vila","Medicamentos","Cuidado personal"]},
+    he:{type:"בית מרקחת",description:"בית מרקחת ב-Praça Cel. Julião, 145, Vila.",tags:["Vila","תרופות","טיפוח אישי"]}
+  },
+  "Farma Ponte — Barra Velha": {
+    pt:{type:"Farmácia",description:"Farmácia na Rua Pernambuco, 12, em Barra Velha.",tags:["Barra Velha","Medicamentos","Cuidados pessoais"]},
+    en:{type:"Pharmacy",description:"Pharmacy at Rua Pernambuco, 12, in Barra Velha.",tags:["Barra Velha","Medicines","Personal care"]},
+    fr:{type:"Pharmacie",description:"Pharmacie située Rua Pernambuco, 12, à Barra Velha.",tags:["Barra Velha","Médicaments","Soins personnels"]},
+    es:{type:"Farmacia",description:"Farmacia en Rua Pernambuco, 12, Barra Velha.",tags:["Barra Velha","Medicamentos","Cuidado personal"]},
+    he:{type:"בית מרקחת",description:"בית מרקחת ב-Rua Pernambuco, 12, Barra Velha.",tags:["Barra Velha","תרופות","טיפוח אישי"]}
   },
   "BL3 Armação — Aluguel de Equipamentos": {
     pt:{type:"Aluguel de equipamentos",description:"Na BL3 Armação é possível alugar caiaques, pranchas de stand up paddle, veleiros, windsurf, cadeiras de praia e guarda-sóis. Coletes salva-vidas estão incluídos no aluguel dos equipamentos náuticos.",tags:["Praia da Armação","Caiaque e stand up paddle","Cadeiras e guarda-sóis"]},
