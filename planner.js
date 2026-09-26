@@ -207,6 +207,7 @@ let plannerMapMarkers = [];
 let plannerOrigin = null;
 let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
+let plannerRouteRevision = 0;
 let plannerRouteLine = null;
 const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
 
@@ -222,6 +223,11 @@ function initPlanner() {
     tripSelection = [];
   }
   updatePlannerBadge();
+}
+
+function invalidatePlannerRoute() {
+  plannerOptimizedRoute = null;
+  plannerRouteRevision++;
 }
 
 function saveTripSelection() {
@@ -381,7 +387,7 @@ function plannerSwipe(direction) {
   if (direction === 'left') {
     dismissedInSession.add(spot.id);
   } else {
-    plannerOptimizedRoute = null;
+    invalidatePlannerRoute();
     tripSelection.push(spot.id);
     saveTripSelection();
   }
@@ -446,7 +452,7 @@ function plannerSetTravelMode(mode) {
   if (!['auto', 'bicycle', 'pedestrian', '4x4'].includes(mode) || mode === plannerTravelMode) return;
   plannerTravelMode = mode;
   localStorage.setItem('ilhabela_travel_mode', mode);
-  plannerOptimizedRoute = null;
+  invalidatePlannerRoute();
   renderSummary();
 }
 
@@ -563,6 +569,7 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
 function plannerUseMyLocation() {
   if (typeof lastUserLocation !== 'undefined' && lastUserLocation) {
     plannerOrigin = [lastUserLocation.lat, lastUserLocation.lng];
+    invalidatePlannerRoute();
     renderSummary();
     return;
   }
@@ -572,6 +579,7 @@ function plannerUseMyLocation() {
   }
   navigator.geolocation.getCurrentPosition(position => {
     plannerOrigin = [position.coords.latitude, position.coords.longitude];
+    invalidatePlannerRoute();
     renderSummary();
   }, () => alert(t('plannerLocationDenied')), {
     enableHighAccuracy: true,
@@ -596,6 +604,7 @@ function plannerDecodePolyline6(encoded) {
 }
 
 async function plannerOptimizeRoute() {
+  const routeRevision = plannerRouteRevision;
   const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
   if (!plannerConfirmAccess(roadSpots)) return;
@@ -615,6 +624,7 @@ async function plannerOptimizeRoute() {
     });
     if (!response.ok) throw new Error(`Valhalla ${response.status}`);
     const data = await response.json();
+    if (routeRevision !== plannerRouteRevision) return;
     const trip = data.trip;
     if (!trip?.legs?.length || !trip.summary) throw new Error('Invalid Valhalla response');
 
@@ -674,7 +684,7 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
 }
 
 function removeFromPlanner(id) {
-  plannerOptimizedRoute = null;
+  invalidatePlannerRoute();
   tripSelection = tripSelection.filter(sid => sid !== id);
   saveTripSelection();
   generateDeckQueue(); // In case we want to show it again in the deck
