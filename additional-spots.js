@@ -1953,13 +1953,6 @@ const servicesData = [
     url: 'https://www.allmirante.com.br/'
   },
   {
-    id: 'rei-da-praia-ilhabela', category: 'food', name: 'Rei da Praia Ilhabela',
-    baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7746, Curral' },
-    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'], presentation: 'compact',
-    serviceType: ['restaurant', 'kiosk'], serviceFormats: ['table-service'], serviceSpecialties: ['brazilian', 'seafood'],
-    instagram: '@reidapraiailhabela'
-  },
-  {
     id: 'dpny-beach-hotel',
     category: 'stay',
     name: 'DPNY Beach Hotel & SPA',
@@ -2272,10 +2265,17 @@ const servicesData = [
   },
   {
     id: 'rei-da-praia', category: 'food', name: 'Rei da Praia',
-    baseLocation: { spotId: 'praia-do-curral' },
+    baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7746, Curral' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
-    presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
-    phone: '12992301282', phoneDisplay: '(12) 99230-1282', url: 'https://www.reidapraiailhabela.com.br'
+    presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte', 'table-service'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
+    phone: '12992301282', phoneDisplay: '(12) 99230-1282', instagram: '@reidapraiailhabela', url: 'https://www.reidapraiailhabela.com.br'
+  },
+  {
+    id: 'comandante-adriano', category: 'food', name: 'Comandante Adriano',
+    baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 8086, Curral' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'brazilian-food', 'beach-bar'],
+    presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte', 'table-service'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
+    phone: '1238941978', phoneDisplay: '(12) 3894-1978', instagram: '@comandante_adriano'
   },
   {
     id: 'lupe-tropical', category: 'food', name: 'Lupe Tropical',
@@ -2821,13 +2821,6 @@ const serviceTranslations = {
     es: { type: "Restaurante", description: "Restaurante en Borrifos, en el extremo sur de Ilhabela, con vista al mar." },
     he: { type: "מסעדה", description: "מסעדה בבוריפוס, בדרום הרחוק של איליאבלה, עם נוף לים." }
   },
-  "Rei da Praia Ilhabela": {
-    pt: { type: "Restaurante de praia", description: "Bar e restaurante pé na areia na Praia do Curral, com culinária brasileira e frutos do mar." },
-    en: { type: "Beach restaurant", description: "Beachfront bar and restaurant at Praia do Curral serving Brazilian cuisine and seafood." },
-    fr: { type: "Restaurant de plage", description: "Bar et restaurant les pieds dans le sable à Praia do Curral, cuisine brésilienne et fruits de mer." },
-    es: { type: "Restaurante de playa", description: "Bar y restaurante a pie de playa en Praia do Curral, con cocina brasileña y mariscos." },
-    he: { type: "מסעדת חוף", description: "בר ומסעדה על החוף בפראיה דו קוראל עם מטבח ברזילאי ופירות ים." }
-  },
   "DPNY Beach Hotel & SPA": {
     pt: { type: "Hotel", description: "Hospedagem à beira-mar na Praia do Curral, no sul de Ilhabela." },
     en: { type: "Hotel", description: "Beachfront accommodation at Praia do Curral in southern Ilhabela." },
@@ -3018,6 +3011,13 @@ const serviceTranslations = {
     fr: { type: 'Restaurant et bar de plage', description: 'Restaurant les pieds dans le sable à Praia do Curral, avec fruits de mer, cuisine brésilienne et boissons.', tags: ['Bord de plage', 'Fruits de mer', 'Bar', 'Déjeuner'] },
     es: { type: 'Restaurante y bar de playa', description: 'Restaurante a pie de playa en Praia do Curral, con mariscos, cocina brasileña y bebidas.', tags: ['Playa', 'Mariscos', 'Bar', 'Almuerzo'] },
     he: { type: 'מסעדה ובר חוף', description: 'מסעדה על החול ב-Praia do Curral עם מאכלי ים, אוכל ברזילאי ומשקאות.', tags: ['על החוף', 'מאכלי ים', 'בר', 'ארוחת צהריים'] }
+  },
+  'Comandante Adriano': {
+    pt: { type: 'Restaurante e bar de praia', description: 'Restaurante e bar na Praia do Curral, com cozinha brasileira, frutos do mar e serviço de almoço.', tags: ['Praia do Curral', 'Frutos do mar', 'Brasileira', 'Almoço'] },
+    en: { type: 'Beach restaurant and bar', description: 'Restaurant and bar at Praia do Curral serving Brazilian cuisine, seafood and lunch.', tags: ['Praia do Curral', 'Seafood', 'Brazilian', 'Lunch'] },
+    fr: { type: 'Restaurant et bar de plage', description: 'Restaurant et bar à Praia do Curral proposant cuisine brésilienne, fruits de mer et déjeuner.', tags: ['Praia do Curral', 'Fruits de mer', 'Brésilienne', 'Déjeuner'] },
+    es: { type: 'Restaurante y bar de playa', description: 'Restaurante y bar en Praia do Curral con cocina brasileña, mariscos y servicio de almuerzo.', tags: ['Praia do Curral', 'Mariscos', 'Brasileña', 'Almuerzo'] },
+    he: { type: 'מסעדה ובר חוף', description: 'מסעדה ובר בפראיה דו קוראל עם מטבח ברזילאי, מאכלי ים וארוחת צהריים.', tags: ['Praia do Curral', 'מאכלי ים', 'ברזילאי', 'ארוחת צהריים'] }
   },
   'Lupe Tropical': {
     pt: { type: 'Café e restaurante', description: 'Gastronomia próxima ao Veloso com ingredientes frescos, hambúrgueres artesanais, bebidas naturais e opções vegetarianas e veganas.', tags: ['Hambúrguer artesanal', 'Café', 'Vegetariano', 'Vegano'] },
