@@ -161,7 +161,7 @@
 
   window.renderServicesPage = function renderServicesPage() {
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
-    filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
+    filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" aria-pressed="${item === category}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
     filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => {
       const nextCategory = button.dataset.servicePageCategory;
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
