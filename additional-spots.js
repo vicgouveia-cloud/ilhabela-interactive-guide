@@ -2670,7 +2670,7 @@ const servicesData = [
 
   {
     id:'padaria-itaquanduba', category:'food', name:'Padaria Itaquanduba',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'},
+    baseLocation:{nearSpotId:'fazenda-engenho-dagua'},
     serviceArea:{scope:'venue',modes:['on-site','takeaway']}, activities:['bakery','food'],
     presentation:'compact', serviceType:['bakery'], serviceFormats:['snacks','takeaway'],
     serviceSpecialties:['coffeeBrunch','desserts'], serviceOccasions:['breakfast','afternoon']
@@ -2701,7 +2701,7 @@ const servicesData = [
   },
   {
     id:'restaurante-capitano', category:'food', name:'Restaurante Capitano',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'},
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks'],
     presentation:'compact', serviceType:['restaurant'], serviceFormats:['aLaCarte'],
     serviceSpecialties:['italian','pasta','seafood'], serviceOccasions:['dinner','night'],
@@ -2740,7 +2740,7 @@ const servicesData = [
   },
   {
     id:'pitanga-restaurante-praia-bar', category:'food', name:'Pitanga Restaurante e Praia Bar',
-    baseLocation:{nearSpotId:'praia-do-itaguacu'},
+    baseLocation:{nearSpotId:'centro-historico-vila'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['food','drinks','live-music'],
     presentation:'compact', serviceType:['restaurant','bar'], serviceFormats:['aLaCarte','snacks'],
     serviceSpecialties:['seafood','brazilian'], serviceOccasions:['lunch','afternoon','dinner','night'],
