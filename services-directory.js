@@ -30,7 +30,7 @@
     const value = Math.sin(dLat / 2) ** 2 + Math.cos(toRad(a[0])) * Math.cos(toRad(b[0])) * Math.sin(dLon / 2) ** 2;
     return 2 * R * Math.asin(Math.sqrt(value));
   };
-  const mapUrl = service => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.name + (service.serviceArea?.scope === 'regional' ? ' São Sebastião SP' : ' Ilhabela SP'));
+  const mapUrl = service => 'https://www.google.com/maps/search/?api=1&query=' + encodeURIComponent(service.baseLocation?.address ? `${service.name}, ${service.baseLocation.address}` : `${service.name} Ilhabela SP`);
 
   const labelFor = (dimension, id) => {
     const entry = serviceTaxonomy?.[dimension]?.[id];
