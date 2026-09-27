@@ -1904,7 +1904,7 @@ const servicesData = [
   },
   {
     id: 'o-seu-guia-ilhabela', category: 'tour', name: 'O Seu Guia Ilhabela',
-    baseLocation: { address: 'Rua José Lucas da Silva, 49, Itaquanduba' },
+    baseLocation: { nearSpotId: 'fazenda-engenho-dagua', address: 'Rua José Lucas da Silva, 49, Itaquanduba' },
     serviceArea: { scope: 'island', modes: ['trail'], verifiedModes: ['trail'] },
     activities: ['guided-hiking', 'waterfall-tour'], presentation: 'compact',
     phone: '12992586573', phoneDisplay: '(12) 99258-6573',
@@ -2122,7 +2122,7 @@ const servicesData = [
     id: 'trilhabela-turismo',
     category: 'tour',
     name: 'Trilhabela Turismo',
-    baseLocation: { address: 'Rua Carlos Andrade Rizzini, 27, Barra Velha' },
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Rua Carlos Andrade Rizzini, 27, Barra Velha' },
     serviceArea: { scope: 'island', modes: ['trail', 'boat', '4x4', 'diving'], verifiedModes: ['trail', 'boat', '4x4', 'diving'] },
     activities: ['guided-hiking', 'trekking', 'waterfall-tour', 'boat-tour', '4x4-tour', 'snorkeling', 'diving', 'whale-watching'],
     presentation: 'compact',
