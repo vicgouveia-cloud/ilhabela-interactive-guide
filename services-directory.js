@@ -183,6 +183,18 @@
     const status = document.getElementById('services-page-status');
     if (status) status.textContent = `${rows.length} ${t('navServices').toLowerCase()}`;
 
+    if (!rows.length) {
+      const emptyMessages = {
+        pt: 'Nenhum serviço encontrado com os filtros selecionados.',
+        en: 'No services found with the selected filters.',
+        fr: 'Aucun service trouvé avec les filtres sélectionnés.',
+        es: 'No se encontraron servicios con los filtros seleccionados.',
+        he: 'לא נמצאו שירותים התואמים למסננים שנבחרו.'
+      };
+      grid.innerHTML = `<div class="md:col-span-2 lg:col-span-3 rounded-2xl border border-black/5 bg-white p-6 text-sm text-on-surface-variant text-center">${emptyMessages[currentLang] || emptyMessages.pt}</div>`;
+      return;
+    }
+
     grid.innerHTML = rows.map(({ service, distance }) => {
       const tr = getServiceTranslation(service);
       const activityLabels = {
