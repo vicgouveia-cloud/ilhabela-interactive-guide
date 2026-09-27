@@ -22,16 +22,16 @@
 
   <main class="max-w-7xl mx-auto px-4 md:px-8 py-8 md:py-12">
     <section class="max-w-3xl mb-7">
-      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/60 text-secondary text-xs font-bold uppercase tracking-wider mb-3"><span class="material-symbols-outlined text-[16px]">concierge</span><span id="services-badge">Serviços úteis</span></div>
-      <h1 id="services-title" class="text-3xl md:text-5xl font-extrabold text-primary font-heading">Serviços em Ilhabela</h1>
-      <p id="services-subtitle" class="text-sm md:text-base text-on-surface-variant mt-2">Alimentação, passeios, hospedagem e outros serviços para complementar sua visita.</p>
+      <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-secondary-container/60 text-secondary text-xs font-bold uppercase tracking-wider mb-3"><span class="material-symbols-outlined text-[16px]">concierge</span><span id="services-badge" data-i18n="servicesBadge">Serviços úteis</span></div>
+      <h1 id="services-title" data-i18n="servicesTitle" class="text-3xl md:text-5xl font-extrabold text-primary font-heading">Serviços em Ilhabela</h1>
+      <p id="services-subtitle" data-i18n="servicesSubtitle" class="text-sm md:text-base text-on-surface-variant mt-2">Encontre serviços para complementar sua visita, sem tirar o foco das atrações da ilha.</p>
     </section>
 
     <section class="rounded-2xl bg-white border border-black/5 shadow-sm p-4 mb-6 space-y-4">
       <div id="services-page-filters" class="flex gap-2 overflow-x-auto pb-1"></div>
       <div id="services-food-filters" class="hidden grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2"></div>
       <div class="flex flex-col sm:flex-row gap-2 sm:items-center">
-        <button id="services-nearby" type="button" class="min-h-11 px-4 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">my_location</span><span>Usar minha localização</span></button>
+        <button id="services-nearby" type="button" class="min-h-11 px-4 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">my_location</span><span data-i18n="locateMe">Minha localização</span></button>
         <div id="services-distance-wrap" class="hidden flex items-center gap-2 overflow-x-auto">
           <span id="services-distance-label" class="text-xs font-bold text-on-surface-variant shrink-0">Distância:</span>
           <select id="services-distance" class="min-h-11 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">
