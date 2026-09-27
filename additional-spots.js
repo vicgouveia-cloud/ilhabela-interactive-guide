@@ -1890,7 +1890,7 @@ const servicesData = [
   },
   {
     id: 'marina-porto-ilhabela', category: 'essentials', name: 'Marina Porto Ilhabela',
-    baseLocation: { address: 'Av. Alm. Tamandaré, 376, Itaquanduba' },
+    baseLocation: { nearSpotId: 'fazenda-engenho-dagua', address: 'Av. Alm. Tamandaré, 376, Itaquanduba' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['nautical-support', 'marina'], presentation: 'compact',
     phone: '1238961243', phoneDisplay: '(12) 3896-1243'
@@ -1912,7 +1912,7 @@ const servicesData = [
   },
   {
     id: 'oceano-sub', category: 'diving', name: 'Oceano Sub',
-    baseLocation: { address: 'Alameda Baepi 1, 123, Itaquanduba' },
+    baseLocation: { nearSpotId: 'fazenda-engenho-dagua', address: 'Alameda Baepi 1, 123, Itaquanduba' },
     serviceArea: { scope: 'island', modes: ['diving'], verifiedModes: ['diving'] },
     activities: ['introductory-dive', 'diving', 'diving-course'], presentation: 'compact',
     whatsapp: '11949093335', whatsappDisplay: '(11) 94909-3335', url: 'https://oceanosub.com/'
@@ -1933,7 +1933,7 @@ const servicesData = [
   },
   {
     id: 'prados-dive', category: 'diving', name: "Prado's Dive",
-    baseLocation: { address: 'Av. Brasil, 1715, Piúva' },
+    baseLocation: { nearSpotId: 'mirante-do-piuva', address: 'Av. Brasil, 1715, Piúva' },
     serviceArea: { scope: 'island', modes: ['diving', 'boat'], verifiedModes: ['diving', 'boat'] },
     activities: ['introductory-dive', 'diving', 'diving-course', 'boat-tour'], presentation: 'compact',
     whatsapp: '19981659193', whatsappDisplay: '(19) 98165-9193', url: 'https://www.pradosdive.com.br/'
@@ -2016,7 +2016,7 @@ const servicesData = [
     id: 'nova-aluguel-de-carros',
     category: 'essentials',
     name: 'NOVA Aluguel de Carros',
-    baseLocation: { address: 'Av. Princesa Isabel, 2808, Barra Velha' },
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 2808, Barra Velha' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['car-rental'],
     presentation: 'compact',
@@ -2027,7 +2027,7 @@ const servicesData = [
     id: 'easy-aluguel-de-bike',
     category: 'essentials',
     name: 'Easy Aluguel de Bike',
-    baseLocation: { address: 'Av. Pedro de Paula Moraes, 713, Saco da Capela' },
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Av. Pedro de Paula Moraes, 713, Saco da Capela' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['bike-rental'],
     presentation: 'compact',
@@ -2038,7 +2038,7 @@ const servicesData = [
     id: 'centro-nautico-ilhabela',
     category: 'essentials',
     name: 'Centro Náutico Ilhabela',
-    baseLocation: { address: 'Rua Pref. Geraldo da Cunha Junqueira, 351, Perequê' },
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Rua Pref. Geraldo da Cunha Junqueira, 351, Perequê' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['nautical-support', 'marina'],
     presentation: 'compact',
