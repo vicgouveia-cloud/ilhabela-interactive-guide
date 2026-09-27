@@ -768,6 +768,15 @@ function setViewMode(mode) {
 let currentModalImages = [];
 let currentModalImageIndex = 0;
 
+function getSpotRoadNavigationCoords(spot) {
+  if (!spot) return null;
+  if (typeof resolvePlannerAccess === 'function') {
+    const access = resolvePlannerAccess(spot, 'auto');
+    if (access?.coords) return access.coords;
+  }
+  return spot.routing?.roadRoutable === true ? spot.coords : null;
+}
+
 function openSpotModal(spotId) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
@@ -926,10 +935,13 @@ function openSpotModal(spotId) {
 
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
-      <a href="https://www.google.com/maps/dir/?api=1&destination=${spot.coords[0]},${spot.coords[1]}" target="_blank" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-        <span class="material-symbols-outlined text-[18px]">directions</span>
-        <span>${t('openInGoogleMaps')}</span>
-      </a>
+      ${(() => {
+        const navigationCoords = getSpotRoadNavigationCoords(spot);
+        return navigationCoords ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${navigationCoords[0]},${navigationCoords[1]}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">directions</span>
+          <span>${t('openInGoogleMaps')}</span>
+        </a>` : '';
+      })()}
 
       <button onclick="closeSpotModal(); openBookingForSpot('${spot.id}')" class="flex-1 py-3.5 rounded-xl bg-primary text-white hover:bg-primary-container text-xs font-bold shadow-lg flex items-center justify-center gap-2 transition-colors">
         <span class="material-symbols-outlined text-[18px]">person_pin</span>
