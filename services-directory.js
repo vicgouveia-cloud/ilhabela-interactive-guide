@@ -174,7 +174,22 @@
         'private-transfer': { pt: 'Transfer privativo', en: 'Private transfer', fr: 'Transfert privé', es: 'Traslado privado', he: 'הסעה פרטית' },
         'nautical-support': { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
         'marina': { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' },
-        'lodging': { pt: 'Hospedagem', en: 'Accommodation', fr: 'Hébergement', es: 'Alojamiento', he: 'אירוח' }
+        'lodging': { pt: 'Hospedagem', en: 'Accommodation', fr: 'Hébergement', es: 'Alojamiento', he: 'אירוח' },
+        'guided-hiking': { pt: 'Trilhas guiadas', en: 'Guided hikes', fr: 'Randonnées guidées', es: 'Senderismo guiado', he: 'טיולים רגליים מודרכים' },
+        'trekking': { pt: 'Trekking', en: 'Trekking', fr: 'Trekking', es: 'Trekking', he: 'טרקים' },
+        'waterfall-tour': { pt: 'Passeios a cachoeiras', en: 'Waterfall tours', fr: 'Excursions aux cascades', es: 'Paseos a cascadas', he: 'סיורי מפלים' },
+        'birdwatching': { pt: 'Observação de aves', en: 'Birdwatching', fr: 'Observation des oiseaux', es: 'Observación de aves', he: 'צפרות' },
+        'boat-tour': { pt: 'Passeios de barco', en: 'Boat tours', fr: 'Excursions en bateau', es: 'Paseos en barco', he: 'סיורי סירה' },
+        '4x4-tour': { pt: 'Passeios 4x4', en: '4x4 tours', fr: 'Excursions 4x4', es: 'Paseos 4x4', he: 'סיורי 4x4' },
+        'whale-watching': { pt: 'Observação de baleias', en: 'Whale watching', fr: 'Observation des baleines', es: 'Avistamiento de ballenas', he: 'צפייה בלווייתנים' },
+        'caicara-canoe': { pt: 'Canoa caiçara', en: 'Caiçara canoe', fr: 'Canoë caiçara', es: 'Canoa caiçara', he: 'קאנו קאיסרה' },
+        'introductory-dive': { pt: 'Batismo de mergulho', en: 'Introductory dive', fr: 'Baptême de plongée', es: 'Bautismo de buceo', he: 'צלילת היכרות' },
+        'diving': { pt: 'Mergulho', en: 'Diving', fr: 'Plongée', es: 'Buceo', he: 'צלילה' },
+        'diving-course': { pt: 'Curso de mergulho', en: 'Diving course', fr: 'Cours de plongée', es: 'Curso de buceo', he: 'קורס צלילה' },
+        'equipment-rental': { pt: 'Aluguel de equipamentos', en: 'Equipment rental', fr: 'Location de matériel', es: 'Alquiler de equipos', he: 'השכרת ציוד' },
+        'food': { pt: 'Comida', en: 'Food', fr: 'Cuisine', es: 'Comida', he: 'אוכל' },
+        'drinks': { pt: 'Bebidas', en: 'Drinks', fr: 'Boissons', es: 'Bebidas', he: 'משקאות' },
+        'snorkeling': { pt: 'Snorkeling', en: 'Snorkeling', fr: 'Snorkeling', es: 'Snorkel', he: 'שנורקלינג' }
       };
       const details = (tr.features || tr.tags || []).length
         ? (tr.features || tr.tags || [])
