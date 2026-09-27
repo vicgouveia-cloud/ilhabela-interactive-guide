@@ -3087,13 +3087,7 @@ const serviceTranslations = {
     es:{type:"Panadería artesanal",description:"Panadería en Perequê con panes de fermentación natural, bollería y dulces para acompañar el café.",tags:["Panes artesanales","Bollería","Perequê"]},
     he:{type:"מאפייה אומנותית",description:"מאפייה ב-Perequê עם לחמי מחמצת, מאפים ומתוקים לצד הקפה.",tags:["לחמים אומנותיים","מאפים","Perequê"]}
   },
-  "Ponto das Letras": {
-    pt:{type:"Café, livraria e espaço cultural",description:"Café no centro de Ilhabela com bebidas, sanduíches e doces, integrado a um espaço de livros, arte e música.",tags:["Café","Livraria","Cultura"]},
-    en:{type:"Café, bookshop and cultural space",description:"Café in central Ilhabela serving drinks, sandwiches and sweets in a space for books, art and music.",tags:["Coffee","Bookshop","Culture"]},
-    fr:{type:"Café, librairie et espace culturel",description:"Café au centre d’Ilhabela proposant boissons, sandwichs et douceurs dans un espace dédié aux livres, à l’art et à la musique.",tags:["Café","Librairie","Culture"]},
-    es:{type:"Café, librería y espacio cultural",description:"Café en el centro de Ilhabela con bebidas, sándwiches y dulces, en un espacio de libros, arte y música.",tags:["Café","Librería","Cultura"]},
-    he:{type:"בית קפה, חנות ספרים ומרכז תרבות",description:"בית קפה במרכז Ilhabela עם משקאות, כריכים ומתוקים, לצד ספרים, אמנות ומוזיקה.",tags:["קפה","ספרים","תרבות"]}
-  },
+
   "Sandara Comida Libanesa": {
     pt:{type:"Restaurante de cozinha libanesa",description:"Restaurante em Itaquanduba com cozinha libanesa artesanal, pratos para compartilhar, atendimento no local, retirada e delivery.",tags:["Culinária libanesa","Mezze","Itaquanduba"]},
     en:{type:"Lebanese restaurant",description:"Restaurant in Itaquanduba serving handmade Lebanese cuisine and sharing plates, with dine-in, takeaway and delivery.",tags:["Lebanese cuisine","Mezze","Itaquanduba"]},
