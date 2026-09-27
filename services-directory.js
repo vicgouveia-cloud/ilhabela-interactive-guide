@@ -124,6 +124,23 @@
     );
   };
 
+  const distanceLabels = {
+    label: { pt: 'Distância:', en: 'Distance:', fr: 'Distance :', es: 'Distancia:', he: 'מרחק:' },
+    all: { pt: 'Todos', en: 'All', fr: 'Tous', es: 'Todos', he: 'הכול' },
+    upTo: { pt: 'Até', en: 'Up to', fr: 'Jusqu’à', es: 'Hasta', he: 'עד' }
+  };
+  const renderDistanceLabels = () => {
+    const label = document.getElementById('services-distance-label');
+    if (label) label.textContent = distanceLabels.label[currentLang] || distanceLabels.label.pt;
+    const select = document.getElementById('services-distance');
+    if (!select) return;
+    [...select.options].forEach(option => {
+      option.textContent = option.value === 'all'
+        ? (distanceLabels.all[currentLang] || distanceLabels.all.pt)
+        : `${distanceLabels.upTo[currentLang] || distanceLabels.upTo.pt} ${option.value} km`;
+    });
+  };
+
   window.renderServicesPage = function renderServicesPage() {
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
     filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
@@ -137,6 +154,7 @@
     }));
 
     renderFoodFilters();
+    renderDistanceLabels();
 
     const limit = document.getElementById('services-distance')?.value || 'all';
     let rows = servicesData.map(service => {
