@@ -207,13 +207,45 @@
   };
 
   document.getElementById('services-nearby')?.addEventListener('click', () => {
-    if (!navigator.geolocation) return;
+    const note = document.getElementById('services-location-note');
+    const messages = {
+      success: {
+        pt: 'As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.',
+        en: 'Distances are approximate, calculated from each service’s editorial reference location.',
+        fr: 'Les distances sont approximatives et calculées à partir du lieu de référence éditorial de chaque service.',
+        es: 'Las distancias son aproximadas y se calculan desde la ubicación editorial de referencia de cada servicio.',
+        he: 'המרחקים משוערים ומחושבים לפי מיקום הייחוס העריכתי של כל שירות.'
+      },
+      error: {
+        pt: 'Não foi possível acessar sua localização. Verifique a permissão do navegador e tente novamente.',
+        en: 'Your location could not be accessed. Check your browser permission and try again.',
+        fr: 'Impossible d’accéder à votre position. Vérifiez l’autorisation du navigateur et réessayez.',
+        es: 'No fue posible acceder a tu ubicación. Verifica el permiso del navegador e inténtalo de nuevo.',
+        he: 'לא ניתן לגשת למיקום שלך. יש לבדוק את הרשאת הדפדפן ולנסות שוב.'
+      }
+    };
+    const showLocationError = () => {
+      directoryLocation = null;
+      document.getElementById('services-distance-wrap')?.classList.add('hidden');
+      if (note) {
+        note.textContent = messages.error[currentLang] || messages.error.pt;
+        note.classList.remove('hidden');
+      }
+      window.renderServicesPage();
+    };
+    if (!navigator.geolocation) {
+      showLocationError();
+      return;
+    }
     navigator.geolocation.getCurrentPosition(position => {
       directoryLocation = [position.coords.latitude, position.coords.longitude];
       document.getElementById('services-distance-wrap')?.classList.remove('hidden');
-      document.getElementById('services-location-note')?.classList.remove('hidden');
+      if (note) {
+        note.textContent = messages.success[currentLang] || messages.success.pt;
+        note.classList.remove('hidden');
+      }
       window.renderServicesPage();
-    });
+    }, showLocationError);
   });
   document.getElementById('services-distance')?.addEventListener('change', () => window.renderServicesPage());
   window.renderServicesPage();
