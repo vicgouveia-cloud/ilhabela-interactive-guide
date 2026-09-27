@@ -40,7 +40,8 @@ const serviceTaxonomy = {
     snacks: {pt:'Lanches / porções',en:'Snacks / shareable dishes',fr:'Snacks / portions à partager',es:'Snacks / porciones',he:'נשנושים / מנות לחלוקה'},
     rodizio: {pt:'Rodízio',en:'Rodízio',fr:'Rodízio',es:'Rodizio',he:'רודיזיו'},
     delivery: {pt:'Delivery',en:'Delivery',fr:'Livraison',es:'Delivery',he:'משלוחים'},
-    takeaway: {pt:'Para viagem',en:'Takeaway',fr:'À emporter',es:'Para llevar',he:'טייק-אוויי'}
+    takeaway: {pt:'Para viagem',en:'Takeaway',fr:'À emporter',es:'Para llevar',he:'טייק-אוויי'},
+    'table-service': {pt:'Serviço à mesa',en:'Table service',fr:'Service à table',es:'Servicio a la mesa',he:'שירות לשולחן'}
   },
   specialty: {
     seafood:{pt:'Frutos do mar',en:'Seafood',fr:'Fruits de mer',es:'Mariscos',he:'מאכלי ים'},
