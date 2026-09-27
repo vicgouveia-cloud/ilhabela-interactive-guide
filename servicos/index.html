@@ -34,15 +34,15 @@
         <button id="services-nearby" type="button" class="min-h-11 px-4 rounded-xl bg-primary text-white text-xs font-bold flex items-center justify-center gap-2"><span class="material-symbols-outlined text-[18px]">my_location</span><span data-i18n="locateMe">Minha localização</span></button>
         <div id="services-distance-wrap" class="hidden flex items-center gap-2 overflow-x-auto">
           <span id="services-distance-label" class="text-xs font-bold text-on-surface-variant shrink-0">Distância:</span>
-          <select id="services-distance" class="min-h-11 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">
+          <select id="services-distance" aria-labelledby="services-distance-label" class="min-h-11 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">
             <option value="all">Todos</option><option value="1">Até 1 km</option><option value="3">Até 3 km</option><option value="5">Até 5 km</option><option value="10">Até 10 km</option>
           </select>
         </div>
       </div>
-      <p id="services-location-note" class="hidden text-[11px] text-on-surface-variant">As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.</p>
+      <p id="services-location-note" role="status" aria-live="polite" class="hidden text-[11px] text-on-surface-variant">As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.</p>
     </section>
 
-    <div id="services-page-status" class="text-xs text-on-surface-variant mb-4"></div>
+    <div id="services-page-status" role="status" aria-live="polite" class="text-xs text-on-surface-variant mb-4"></div>
     <section id="services-page-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5"></section>
   </main>
 
