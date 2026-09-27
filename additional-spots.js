@@ -2268,7 +2268,7 @@ const servicesData = [
     baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7746, Curral' },
     serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['seafood', 'beach-bar'],
     presentation: 'compact', serviceType: ['restaurant', 'kiosk'], serviceFormats: ['aLaCarte', 'table-service'], serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch'],
-    phone: '12992301282', phoneDisplay: '(12) 99230-1282', instagram: '@reidapraiailhabela', url: 'https://www.reidapraiailhabela.com.br'
+    whatsapp: '12992301282', whatsappDisplay: '(12) 99230-1282', instagram: '@reidapraiailhabela', url: 'https://www.reidapraiailhabela.com.br'
   },
   {
     id: 'antonietta-curral', category: 'food', name: 'Antonietta Bar e Restaurante',
