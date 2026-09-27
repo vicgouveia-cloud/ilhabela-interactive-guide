@@ -6,6 +6,7 @@
 
   let category = 'all';
   let directoryLocation = null;
+  let locationNoteState = null;
   let practicalFilter = 'all';
   let tourFilter = 'all';
   const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
@@ -141,6 +142,23 @@
     });
   };
 
+  const messages = {
+    success: {
+      pt: 'As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.',
+      en: 'Distances are approximate, calculated from each service’s editorial reference location.',
+      fr: 'Les distances sont approximatives et calculées à partir du lieu de référence éditorial de chaque service.',
+      es: 'Las distancias son aproximadas y se calculan desde la ubicación editorial de referencia de cada servicio.',
+      he: 'המרחקים משוערים ומחושבים לפי מיקום הייחוס העריכתי של כל שירות.'
+    },
+    error: {
+      pt: 'Não foi possível acessar sua localização. Verifique a permissão do navegador e tente novamente.',
+      en: 'Your location could not be accessed. Check your browser permission and try again.',
+      fr: 'Impossible d’accéder à votre position. Vérifiez l’autorisation du navigateur et réessayez.',
+      es: 'No fue posible acceder a tu ubicación. Verifica el permiso del navegador e inténtalo de nuevo.',
+      he: 'לא ניתן לגשת למיקום שלך. יש לבדוק את הרשאת הדפדפן ולנסות שוב.'
+    }
+  };
+
   window.renderServicesPage = function renderServicesPage() {
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
     filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
@@ -155,6 +173,11 @@
 
     renderFoodFilters();
     renderDistanceLabels();
+    const locationNote = document.getElementById('services-location-note');
+    if (locationNoteState && locationNote) {
+      locationNote.textContent = messages[locationNoteState][currentLang] || messages[locationNoteState].pt;
+      locationNote.classList.remove('hidden');
+    }
 
     const limit = document.getElementById('services-distance')?.value || 'all';
     let rows = servicesData.map(service => {
@@ -248,24 +271,9 @@
 
   document.getElementById('services-nearby')?.addEventListener('click', () => {
     const note = document.getElementById('services-location-note');
-    const messages = {
-      success: {
-        pt: 'As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.',
-        en: 'Distances are approximate, calculated from each service’s editorial reference location.',
-        fr: 'Les distances sont approximatives et calculées à partir du lieu de référence éditorial de chaque service.',
-        es: 'Las distancias son aproximadas y se calculan desde la ubicación editorial de referencia de cada servicio.',
-        he: 'המרחקים משוערים ומחושבים לפי מיקום הייחוס העריכתי של כל שירות.'
-      },
-      error: {
-        pt: 'Não foi possível acessar sua localização. Verifique a permissão do navegador e tente novamente.',
-        en: 'Your location could not be accessed. Check your browser permission and try again.',
-        fr: 'Impossible d’accéder à votre position. Vérifiez l’autorisation du navigateur et réessayez.',
-        es: 'No fue posible acceder a tu ubicación. Verifica el permiso del navegador e inténtalo de nuevo.',
-        he: 'לא ניתן לגשת למיקום שלך. יש לבדוק את הרשאת הדפדפן ולנסות שוב.'
-      }
-    };
     const showLocationError = () => {
       directoryLocation = null;
+      locationNoteState = 'error';
       document.getElementById('services-distance-wrap')?.classList.add('hidden');
       if (note) {
         note.textContent = messages.error[currentLang] || messages.error.pt;
@@ -279,6 +287,7 @@
     }
     navigator.geolocation.getCurrentPosition(position => {
       directoryLocation = [position.coords.latitude, position.coords.longitude];
+      locationNoteState = 'success';
       document.getElementById('services-distance-wrap')?.classList.remove('hidden');
       if (note) {
         note.textContent = messages.success[currentLang] || messages.success.pt;
