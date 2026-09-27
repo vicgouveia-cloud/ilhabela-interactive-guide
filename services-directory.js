@@ -181,7 +181,17 @@
     }
 
     const status = document.getElementById('services-page-status');
-    if (status) status.textContent = `${rows.length} ${t('navServices').toLowerCase()}`;
+    if (status) {
+      const resultLabels = {
+        pt: { one: 'serviço', other: 'serviços' },
+        en: { one: 'service', other: 'services' },
+        fr: { one: 'service', other: 'services' },
+        es: { one: 'servicio', other: 'servicios' },
+        he: { one: 'שירות', other: 'שירותים' }
+      };
+      const labels = resultLabels[currentLang] || resultLabels.pt;
+      status.textContent = `${rows.length} ${rows.length === 1 ? labels.one : labels.other}`;
+    }
 
     if (!rows.length) {
       const emptyMessages = {
