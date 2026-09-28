@@ -283,6 +283,8 @@
     const showLocationError = () => {
       directoryLocation = null;
       locationNoteState = 'error';
+      const distanceSelect = document.getElementById('services-distance');
+      if (distanceSelect) distanceSelect.value = 'all';
       document.getElementById('services-distance-wrap')?.classList.add('hidden');
       if (note) {
         note.textContent = messages.error[currentLang] || messages.error.pt;
