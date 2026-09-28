@@ -16,11 +16,16 @@
     Object.keys(foodFilterState).forEach(key => { foodFilterState[key] = 'all'; });
   };
 
+  const validCoords = coords => Array.isArray(coords)
+    && Number.isFinite(coords[0]) && coords[0] >= -90 && coords[0] <= 90
+    && Number.isFinite(coords[1]) && coords[1] >= -180 && coords[1] <= 180;
   const getSpotCoords = spot => {
     if (!spot) return null;
-    if (Array.isArray(spot.coords) && Number.isFinite(spot.coords[0]) && Number.isFinite(spot.coords[1])) return spot.coords;
-    if (Number.isFinite(spot.lat) && Number.isFinite(spot.lng)) return [spot.lat, spot.lng];
-    if (Number.isFinite(spot.latitude) && Number.isFinite(spot.longitude)) return [spot.latitude, spot.longitude];
+    if (validCoords(spot.coords)) return spot.coords;
+    const latLng = [spot.lat, spot.lng];
+    if (validCoords(latLng)) return latLng;
+    const latitudeLongitude = [spot.latitude, spot.longitude];
+    if (validCoords(latitudeLongitude)) return latitudeLongitude;
     return null;
   };
   const serviceCoords = service => {
