@@ -306,7 +306,12 @@
     }
     navigator.geolocation.getCurrentPosition(position => {
       if (requestId !== locationRequestId) return;
-      directoryLocation = [position.coords.latitude, position.coords.longitude];
+      const nextLocation = [position.coords.latitude, position.coords.longitude];
+      if (!validCoords(nextLocation)) {
+        showLocationError();
+        return;
+      }
+      directoryLocation = nextLocation;
       locationNoteState = 'success';
       document.getElementById('services-distance-wrap')?.classList.remove('hidden');
       if (note) {
