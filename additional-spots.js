@@ -2517,6 +2517,13 @@ const servicesData = [
     phone:'12996048438', phoneDisplay:'(12) 99604-8438', instagram:'@manaayo.ilhabela'
   },
   {
+    id:'adega-da-mica-curral', category:'essentials', name:'Adega da Mica',
+    baseLocation:{nearSpotId:'praia-do-curral', address:'Av. José Pacheco do Nascimento, 8029, Curral'},
+    serviceArea:{scope:'venue',modes:['on-site']}, activities:['beverages','liquor-store','convenience'],
+    presentation:'compact',
+    phone:'12988260185', phoneDisplay:'(12) 98826-0185', instagram:'@adegadamica'
+  },
+  {
     id:'bubble-box-pereque', category:'essentials', name:'Bubble Box Lavanderia Self Service',
     baseLocation:{nearSpotId:'praia-do-pereque'},
     serviceArea:{scope:'venue',modes:['on-site']}, activities:['laundry','self-service'],
@@ -2751,6 +2758,13 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Adega da Mica": {
+    pt: { type: "Adega e bebidas", description: "Adega no Curral com atendimento presencial, próxima à Praia do Curral." },
+    en: { type: "Wine and beverage shop", description: "Beverage shop in Curral with in-store service, near Praia do Curral." },
+    fr: { type: "Cave et boissons", description: "Cave et magasin de boissons à Curral, près de Praia do Curral." },
+    es: { type: "Bodega y bebidas", description: "Tienda de bebidas en Curral, cerca de Praia do Curral." },
+    he: { type: "חנות משקאות", description: "חנות משקאות באזור Curral, סמוך לחוף Praia do Curral." }
+  },
   "Caiçara Beach": {
     pt: { type: "Mobilidade e equipamentos", description: "Base no Perequê com aluguel de bicicletas e equipamentos para atividades na água, incluindo caiaque e stand up paddle." },
     en: { type: "Mobility and equipment", description: "Perequê base offering bicycle and water-equipment rentals, including kayaks and stand-up paddleboards." },
