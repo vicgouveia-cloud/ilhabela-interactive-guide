@@ -7,6 +7,7 @@
   let category = 'all';
   let directoryLocation = null;
   let locationNoteState = null;
+  let locationRequestId = 0;
   let practicalFilter = 'all';
   let tourFilter = 'all';
   const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
@@ -279,8 +280,10 @@
   };
 
   document.getElementById('services-nearby')?.addEventListener('click', () => {
+    const requestId = ++locationRequestId;
     const note = document.getElementById('services-location-note');
     const showLocationError = () => {
+      if (requestId !== locationRequestId) return;
       directoryLocation = null;
       locationNoteState = 'error';
       const distanceSelect = document.getElementById('services-distance');
@@ -297,6 +300,7 @@
       return;
     }
     navigator.geolocation.getCurrentPosition(position => {
+      if (requestId !== locationRequestId) return;
       directoryLocation = [position.coords.latitude, position.coords.longitude];
       locationNoteState = 'success';
       document.getElementById('services-distance-wrap')?.classList.remove('hidden');
