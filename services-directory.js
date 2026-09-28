@@ -174,6 +174,7 @@
     filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" aria-pressed="${item === category}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
     filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => {
       const nextCategory = button.dataset.servicePageCategory;
+      filterFocusTarget = `[data-service-page-category="${nextCategory}"]`;
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
       category = nextCategory;
       if (category !== 'essentials') practicalFilter = 'all';
