@@ -18,7 +18,7 @@
 
   const getSpotCoords = spot => {
     if (!spot) return null;
-    if (Array.isArray(spot.coords)) return spot.coords;
+    if (Array.isArray(spot.coords) && Number.isFinite(spot.coords[0]) && Number.isFinite(spot.coords[1])) return spot.coords;
     if (Number.isFinite(spot.lat) && Number.isFinite(spot.lng)) return [spot.lat, spot.lng];
     if (Number.isFinite(spot.latitude) && Number.isFinite(spot.longitude)) return [spot.latitude, spot.longitude];
     return null;
