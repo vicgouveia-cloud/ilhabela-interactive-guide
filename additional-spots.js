@@ -2208,6 +2208,17 @@ const servicesData = [
     image: 'assets/images/portinho-passeios.jpg'
   },
   {
+    id: 'point-da-lala',
+    category: 'food',
+    name: 'Point da Lalá',
+    baseLocation: { spotId: 'mirante-do-piuva' },
+    contextSpotIds: ['mirante-do-piuva'],
+    serviceArea: { scope: 'venue', modes: ['on-site'] },
+    activities: ['food', 'drinks'],
+    presentation: 'compact',
+    url: 'https://www.pointdalala.com.br'
+  },
+  {
     id: 'quiosque-maxx-beach',
     category: 'food',
     name: 'Quiosque Maxx Beach',
@@ -2758,6 +2769,13 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Point da Lalá": {
+    pt: { type: "Alimentos e bebidas", description: "Point no estacionamento do Mirante do Piúva, junto ao Letreiro de Ilhabela. Consulte os dias e horários de atividade antes da visita." },
+    en: { type: "Food and drinks", description: "Point at the Mirante do Piúva parking area, by the Ilhabela sign. Check operating days and hours before visiting." },
+    fr: { type: "Restauration et boissons", description: "Point situé sur le parking du Mirante do Piúva, près du panneau Ilhabela. Consultez les jours et horaires d'activité avant votre visite." },
+    es: { type: "Alimentos y bebidas", description: "Point en el estacionamiento del Mirante do Piúva, junto al letrero de Ilhabela. Consulta los días y horarios de actividad antes de la visita." },
+    he: { type: "אוכל ומשקאות", description: "נקודת אוכל ומשקאות בחניון Mirante do Piúva, ליד שלט Ilhabela. מומלץ לבדוק את ימי ושעות הפעילות לפני הביקור." }
+  },
   "Adega da Mica": {
     pt: { type: "Adega e bebidas", description: "Adega no Curral com atendimento presencial, próxima à Praia do Curral." },
     en: { type: "Wine and beverage shop", description: "Beverage shop in Curral with in-store service, near Praia do Curral." },
