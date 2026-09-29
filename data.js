@@ -1406,8 +1406,8 @@ const touristSpots = [
     "id": "cachoeira-da-laje",
     "category": "cachoeiras",
     "coords": [
-      -23.8892,
-      -45.3847
+      -23.932171146209154,
+      -45.40923386772312
     ],
     "rating": 4.9,
     "reviews": 310,
