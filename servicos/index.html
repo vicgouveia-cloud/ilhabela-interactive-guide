@@ -16,7 +16,23 @@
         <div class="brand-mark w-10 h-10 rounded-full text-white flex items-center justify-center shadow-md"><span class="material-symbols-outlined">sailing</span></div>
         <div><strong class="text-xl text-primary font-heading">Ilhabela</strong><span class="hidden sm:inline text-xs font-semibold text-secondary ml-2">Guia Interativo</span></div>
       </a>
-      <a href="/" class="px-3 py-2 rounded-xl border border-black/10 text-xs font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">arrow_back</span><span id="services-back">Atrações</span></a>
+      <div class="flex items-center gap-2">
+        <div id="language-selector" class="relative">
+          <button id="lang-btn" type="button" aria-expanded="false" aria-controls="language-menu" data-i18n-aria-label="chooseLanguage" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container/80 border border-black/10 text-xs font-bold text-primary">
+            <span class="material-symbols-outlined text-[16px]">language</span>
+            <span id="current-lang-label">PT</span>
+            <span class="material-symbols-outlined text-[14px]">expand_more</span>
+          </button>
+          <div id="language-menu" hidden class="absolute right-0 top-full mt-2 w-40 glass-panel rounded-2xl shadow-xl border border-black/10 py-1.5 z-50">
+            <button onclick="setLanguage('pt')" class="w-full text-left px-4 py-2 text-xs font-semibold text-primary hover:bg-primary/10 flex items-center gap-2"><span>🇧🇷</span> Português</button>
+            <button onclick="setLanguage('en')" class="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-primary/10 flex items-center gap-2"><span>🇺🇸</span> English</button>
+            <button onclick="setLanguage('fr')" class="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-primary/10 flex items-center gap-2"><span>🇫🇷</span> Français</button>
+            <button onclick="setLanguage('es')" class="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-primary/10 flex items-center gap-2"><span>🇪🇸</span> Español</button>
+            <button onclick="setLanguage('he')" class="w-full text-left px-4 py-2 text-xs font-semibold text-on-surface-variant hover:bg-primary/10 flex items-center gap-2"><span>🇮🇱</span> עברית</button>
+          </div>
+        </div>
+        <a href="/" class="px-3 py-2 rounded-xl border border-black/10 text-xs font-bold text-primary flex items-center gap-1"><span class="material-symbols-outlined text-[16px]">arrow_back</span><span id="services-back">Atrações</span></a>
+      </div>
     </div>
   </header>
 
