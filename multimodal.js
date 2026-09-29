@@ -1,4 +1,5 @@
 // Gateway coordinates supplied by the user; never replace attraction coordinates.
+const boneteTrailGateway = [-23.936275064037446, -45.42730164154816];
 const roadWalkingGateways = {
   'pico-do-baepi': [-23.802132860104887, -45.35514446231041],
   'praia-do-juliao': [-23.853583875006763, -45.41239561211879],
@@ -7,10 +8,10 @@ const roadWalkingGateways = {
   'cachoeira-do-veloso': [-23.876020628872798, -45.43576108900807],
   'cachoeira-do-paqueta': [-23.869517499616304, -45.423931160172216],
   'cachoeira-dos-tres-tombos': [-23.854116510544785, -45.405701165557744],
+  'cachoeira-da-laje': boneteTrailGateway,
   'poco-do-furado': [-23.833094685835388, -45.36101034668008],
   'mirante-do-baepi': [-23.802132860104887, -45.35514446231041]
 };
-const boneteTrailGateway = [-23.936275064037446, -45.42730164154816];
 const castelhanosParkGateway = [-23.839249751545807, -45.36002116037754];
 touristSpots.forEach(spot => {
   const coords = roadWalkingGateways[spot.id];
