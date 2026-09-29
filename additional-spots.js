@@ -4,8 +4,8 @@ const additionalTouristSpots = [
     "id": "praia-do-jabaquara",
     "category": "praias",
     "coords": [
-      -23.7362563,
-      -45.2929289
+      -23.736473623753398,
+      -45.292529940589944
     ],
     "rating": null,
     "reviews": 0,
