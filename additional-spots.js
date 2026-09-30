@@ -1964,8 +1964,17 @@ touristSpots.forEach(spot => {
     roadRoutable: false,
     specialAccess: true
   };
+  const directRoadRouting = legacyRouting.roadRoutable === true && legacyRouting.modes?.length === 1 && legacyRouting.modes[0] === 'road'
+    ? {
+        primaryMode: 'road',
+        gatewayId: null,
+        alternatives: [],
+        finalSegment: null
+      }
+    : {};
   spot.routing = {
     ...legacyRouting,
+    ...directRoadRouting,
     ...(structuredRoutingMetadata[spot.id] || {}),
     ...(spot.routing || {})
   };
