@@ -1,8 +1,8 @@
 // Gateway coordinates supplied by the user; never replace attraction coordinates.
-const boneteTrailGateway = [-23.936275064037446, -45.42730164154816];
+const boneteTrailGateway = routingGateways.find(g => g.id === 'sepituba-trailhead')?.coords;
 const roadWalkingGateways = {
   'pico-do-baepi': [-23.802132860104887, -45.35514446231041],
-  'praia-do-juliao': [-23.853583875006763, -45.41239561211879],
+  'praia-do-juliao': routingGateways.find(g => g.id === 'praia-do-juliao-access')?.coords,
   'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605],
   'praia-da-pacuiba': [-23.727308751868794, -45.31890535121027],
   'praia-da-ponta-azeda': [-23.74302141213607, -45.348752682254734],
@@ -18,7 +18,6 @@ const roadWalkingGateways = {
   'poco-do-furado': [-23.833094685835388, -45.36101034668008],
   'mirante-do-baepi': [-23.802132860104887, -45.35514446231041]
 };
-const castelhanosParkGateway = [-23.839249751545807, -45.36002116037754];
 touristSpots.forEach(spot => {
   const coords = roadWalkingGateways[spot.id];
   spot.routing.accessOptions = coords ? [{
@@ -31,14 +30,14 @@ touristSpots.forEach(spot => {
   if (spot.id === 'praia-do-bonete') {
     // Sepituba is the verified road gateway for the trail. Boat embarkation stays independent.
     spot.routing.accessOptions = [
-      { id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'user:2026-09-24' }, finalMode: 'trail' },
+      { id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'data:routingGateways' }, finalMode: 'trail' },
       { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
     ];
   }
   if (spot.id === 'baia-de-castelhanos') {
     // Common cars stop at the verified park gate. A 4x4 may continue to the attraction.
     spot.routing.accessOptions = [
-      { id: 'common-car', mode: 'road', approachModes: ['auto'], gateway: { name: 'Entrada do Parque', coords: castelhanosParkGateway, verified: true, source: 'user:2026-09-24' }, finalMode: '4x4', vehicleRequirement: '4x4-after-gateway' },
+      { id: 'common-car', mode: 'road', approachModes: ['auto'], gateway: { name: 'Entrada do Parque', coords: routingGateways.find(g => g.id === 'castelhanos-park-entrance')?.coords, verified: true, source: 'data:routingGateways' }, finalMode: '4x4', vehicleRequirement: '4x4-after-gateway' },
       { id: 'own-4x4', mode: '4x4', approachModes: ['4x4'], gateway: { coords: spot.coords, verified: true, source: 'destination' }, finalMode: null, vehicleRequirement: '4x4' },
       { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
     ];
