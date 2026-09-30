@@ -59,6 +59,36 @@ const routingGateways = [
     "name": "Acesso à Praia de Santa Tereza",
     "coords": [-23.771601878012316, -45.351412997079635],
     "modes": ["road", "walk"]
+  },
+  {
+    "id": "cachoeira-da-toca-access",
+    "name": "Acesso à Cachoeira da Toca",
+    "coords": [-23.826654676666603, -45.341884430628895],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "cachoeira-do-veloso-access",
+    "name": "Acesso à Cachoeira do Veloso",
+    "coords": [-23.876020628872798, -45.43576108900807],
+    "modes": ["road", "trail"]
+  },
+  {
+    "id": "cachoeira-do-paqueta-access",
+    "name": "Acesso à Cachoeira do Paquetá",
+    "coords": [-23.869517499616304, -45.423931160172216],
+    "modes": ["road", "trail"]
+  },
+  {
+    "id": "parque-municipal-das-cachoeiras-access",
+    "name": "Parque Municipal das Cachoeiras",
+    "coords": [-23.833094685835388, -45.36101034668008],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "baepi-trailhead",
+    "name": "Início da Trilha do Baepi",
+    "coords": [-23.802132860104887, -45.35514446231041],
+    "modes": ["road", "trail"]
   }
 ];
 
