@@ -69,6 +69,7 @@ Object.entries(multimodalCopy).forEach(([lang, copy]) => {
 function plannerAccessNotice(spot) {
   const resolved = resolvePlannerAccess(spot, plannerTravelMode);
   if (resolved?.finalMode === '4x4') return `${getPlannerModeLabel('4x4')}: ${t('planner4x4Handoff')}`;
+  if (spot.id === 'praia-do-bonete' && resolved?.accessId === 'road-trail') return t('plannerBoneteTrailHandoff');
   if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') {
     const accessLabel = resolved.gatewayName || (spot.id === 'praia-do-juliao' ? 'Acesso à Praia do Julião' : 'acesso rodoviário');
     return `Navegue até ${accessLabel}. Depois, siga a pé até ${getSpotTranslation(spot).title}. ${t('plannerFinalWalk')}`;
@@ -89,6 +90,8 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
+  plannerBoneteTrailHandoff: "De carro, navegue até Ponta da Sepituba. A partir dali, o acesso ao Bonete continua por trilha; não trate a praia como destino rodoviário.",
+  plannerBoneteBoatPending: "Alternativa por barco: o guia ainda não possui um ponto de embarque validado para o Bonete. Confirme embarque, horário, disponibilidade e condições diretamente com o operador.",
   plannerBoatOptions: "Opções de barco",
   plannerBoatOptionsHint: "Alternativas marítimas para destinos selecionados. O ponto de embarque depende do roteiro e do prestador.",
   plannerBoatProviderHint: "Prestadores com cobertura marítima confirmada em Ilhabela. Confirme saída, horário, disponibilidade e condições diretamente com o prestador.",
@@ -102,6 +105,8 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
+  plannerBoneteTrailHandoff: "By car, navigate to Ponta da Sepituba. From there, access to Bonete continues by trail; do not treat the beach as a road destination.",
+  plannerBoneteBoatPending: "Boat alternative: the guide does not yet have a validated boarding point for Bonete. Confirm boarding, time, availability and conditions directly with the operator.",
   plannerBoatOptions: "Boat options",
   plannerBoatOptionsHint: "Maritime alternatives for selected destinations. The boarding point depends on the route and provider.",
   plannerBoatProviderHint: "Providers with confirmed maritime coverage in Ilhabela. Confirm departure point, time, availability and conditions directly with the provider.",
@@ -115,6 +120,8 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
+  plannerBoneteTrailHandoff: "En voiture, naviguez jusqu’à Ponta da Sepituba. À partir de là, l’accès au Bonete continue par sentier ; ne considérez pas la plage comme une destination routière.",
+  plannerBoneteBoatPending: "Alternative en bateau : le guide ne dispose pas encore d’un point d’embarquement validé pour Bonete. Confirmez l’embarquement, l’horaire, la disponibilité et les conditions directement avec l’opérateur.",
   plannerBoatOptions: "Options en bateau",
   plannerBoatOptionsHint: "Alternatives maritimes pour les destinations sélectionnées. Le point d'embarquement dépend de l'itinéraire et du prestataire.",
   plannerBoatProviderHint: "Prestataires avec couverture maritime confirmée à Ilhabela. Confirmez le départ, l'heure, la disponibilité et les conditions directement avec le prestataire.",
@@ -128,6 +135,8 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
+  plannerBoneteTrailHandoff: "En coche, navega hasta Ponta da Sepituba. Desde allí, el acceso a Bonete continúa por sendero; no trates la playa como destino por carretera.",
+  plannerBoneteBoatPending: "Alternativa en barco: la guía todavía no tiene un punto de embarque validado para Bonete. Confirma embarque, horario, disponibilidad y condiciones directamente con el operador.",
   plannerBoatOptions: "Opciones en barco",
   plannerBoatOptionsHint: "Alternativas marítimas para los destinos seleccionados. El punto de embarque depende de la ruta y del prestador.",
   plannerBoatProviderHint: "Prestadores con cobertura marítima confirmada en Ilhabela. Confirma salida, horario, disponibilidad y condiciones directamente con el prestador.",
@@ -141,6 +150,8 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
+  plannerBoneteTrailHandoff: "ברכב יש לנווט עד Ponta da Sepituba. משם הגישה לבונטה ממשיכה בשביל; אין להתייחס לחוף כיעד כביש.",
+  plannerBoneteBoatPending: "חלופה בסירה: עדיין אין במדריך נקודת עלייה מאומתת לבונטה. יש לאשר עם המפעיל את נקודת העלייה, השעה, הזמינות והתנאים.",
   plannerBoatOptions: "אפשרויות שיט",
   plannerBoatOptionsHint: "חלופות ימיות ליעדים שנבחרו. נקודת העלייה לסירה תלויה במסלול ובספק השירות.",
   plannerBoatProviderHint: "ספקים עם כיסוי ימי מאומת באיליאבלה. יש לאשר ישירות עם הספק את נקודת היציאה, השעה, הזמינות והתנאים.",
@@ -332,8 +343,10 @@ function renderPlannerMaritimeOptions(spots) {
     const providers = option.providers.map(provider =>
       `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
     ).join('');
+    const includesBonete = option.matchingSpotIds.includes('praia-do-bonete');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-bold text-primary">${destinationNames}</div>
+      ${includesBonete ? `<p class="text-[11px] font-semibold text-tertiary">${t('plannerBoneteBoatPending')}</p>` : ''}
       <div class="grid gap-2">${providers}</div>
       <p class="text-[10px] text-on-surface-variant">${t('plannerBoatProviderHint')}</p>
     </div>`;
