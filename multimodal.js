@@ -225,20 +225,18 @@ const maritimeRouteProfiles = {
   }
 };
 
-const nauticalExperienceProfiles = {
-  'whale-watching': {
-    spotIds: ['ponto-baleias-sul-sepituba', 'ponto-baleias-canal'],
-    requiredMode: 'boat',
-    requiredActivity: 'whale-watching',
-    meetingPoint: null
-  },
-  'diving': {
-    spotIds: ['naufragio-aymore', 'santuario-ilha-das-cabras', 'naufragio-principe-de-asturias'],
-    requiredMode: 'diving',
-    requiredActivity: 'diving',
-    meetingPoint: null
-  }
-};
+const nauticalExperienceProfiles = Object.fromEntries(
+  [...new Set(touristSpots.map(spot => spot.experience?.type).filter(Boolean))].map(type => {
+    const members = touristSpots.filter(spot => spot.experience?.type === type);
+    const sample = members[0]?.experience;
+    return [type, {
+      spotIds: members.map(spot => spot.id),
+      requiredMode: sample?.requiredMode || null,
+      requiredActivity: sample?.requiredActivity || null,
+      meetingPoint: sample?.meetingPoint || null
+    }];
+  })
+);
 
 function getNauticalExperienceOptionsForSpot(spotId) {
   return Object.entries(nauticalExperienceProfiles)
