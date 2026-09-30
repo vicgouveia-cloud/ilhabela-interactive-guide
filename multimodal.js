@@ -1,15 +1,8 @@
-// Gateway coordinates supplied by the user; never replace attraction coordinates.
-const boneteTrailGateway = routingGateways.find(g => g.id === 'sepituba-trailhead')?.coords;
+// Structured gateways are preferred; the legacy map remains only for attractions not migrated yet.
+const getRoutingGateway = gatewayId => routingGateways.find(gateway => gateway.id === gatewayId) || null;
+const boneteTrailGateway = getRoutingGateway('sepituba-trailhead')?.coords;
 const roadWalkingGateways = {
   'pico-do-baepi': [-23.802132860104887, -45.35514446231041],
-  'praia-do-juliao': routingGateways.find(g => g.id === 'praia-do-juliao-access')?.coords,
-  'praia-da-feiticeira': [-23.84660565107699, -45.410130644310605],
-  'praia-da-pacuiba': [-23.727308751868794, -45.31890535121027],
-  'praia-da-ponta-azeda': [-23.74302141213607, -45.348752682254734],
-  'praia-do-pinto': [-23.741868315370972, -45.34807300404768],
-  'praia-do-jabaquara': [-23.736889822090436, -45.29377785097268],
-  'praia-do-barreiros': [-23.76356965576912, -45.348813572867364],
-  'praia-de-santa-tereza': [-23.771601878012316, -45.351412997079635],
   'cachoeira-da-toca': [-23.826654676666603, -45.341884430628895],
   'cachoeira-do-veloso': [-23.876020628872798, -45.43576108900807],
   'cachoeira-do-paqueta': [-23.869517499616304, -45.423931160172216],
@@ -19,11 +12,21 @@ const roadWalkingGateways = {
   'mirante-do-baepi': [-23.802132860104887, -45.35514446231041]
 };
 touristSpots.forEach(spot => {
-  const coords = roadWalkingGateways[spot.id];
+  const structuredGateway = spot.routing?.gatewayId ? getRoutingGateway(spot.routing.gatewayId) : null;
+  const coords = structuredGateway?.coords || roadWalkingGateways[spot.id];
+  const structuredFinalMode = spot.routing?.finalSegment?.mode || null;
+  const finalMode = structuredFinalMode === 'walk' ? 'pedestrian' : (structuredFinalMode || 'pedestrian');
   spot.routing.accessOptions = coords ? [{
-    id: 'road-walk', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'],
-    gateway: { coords, verified: true, source: 'user:2026-09-24' },
-    finalMode: 'pedestrian'
+    id: 'road-walk',
+    mode: structuredFinalMode || 'trail',
+    approachModes: ['auto', '4x4', 'bicycle'],
+    gateway: {
+      name: structuredGateway?.name || null,
+      coords,
+      verified: true,
+      source: structuredGateway ? 'data:routingGateways' : 'legacy:roadWalkingGateways'
+    },
+    finalMode
   }] : spot.routing.modes.map(mode => ({
     id: mode, mode, gateway: null, approachModes: [], finalMode: mode
   }));
