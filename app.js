@@ -970,12 +970,10 @@ function openSpotModal(spotId, options = {}) {
 
     ${renderLocalRecommendations(spot.id)}
 
-    ${['praia-do-juliao', 'praia-do-bonete', 'baia-de-castelhanos'].includes(spot.id) ? `
-      <a href="/lugares/${spot.id}/" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
-        <span class="material-symbols-outlined text-[17px]">article</span>
-        <span>${t('attractionPageLink')}</span>
-      </a>
-    ` : ''}
+    <a href="/lugares/${spot.id}/" class="inline-flex items-center gap-1.5 text-xs font-bold text-primary hover:underline">
+      <span class="material-symbols-outlined text-[17px]">article</span>
+      <span>${t('attractionPageLink')}</span>
+    </a>
 
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
