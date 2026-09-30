@@ -594,22 +594,18 @@
       <span class="material-symbols-outlined nav-icon">map</span>
       <span data-i18n="navMap">Mapa</span>
     </button>
-    <button onclick="setViewMode('grid')" id="bn-grid" class="bottom-nav-item" aria-label="Destinos" data-i18n-aria-label="navExplore">
-      <span class="material-symbols-outlined nav-icon">grid_view</span>
-      <span data-i18n="navExplore">Destinos</span>
-    </button>
+    <a href="/o-que-fazer/" id="bn-grid" class="bottom-nav-item" aria-label="Explorar" data-i18n-aria-label="navExplore">
+      <span class="material-symbols-outlined nav-icon">explore</span>
+      <span data-i18n="navExplore">Explorar</span>
+    </a>
     <a href="/servicos/" class="bottom-nav-item" aria-label="Serviços" data-i18n-aria-label="navServices">
       <span class="material-symbols-outlined nav-icon">concierge</span>
       <span data-i18n="navServices">Serviços</span>
     </a>
-    <button onclick="filterFavorites()" class="bottom-nav-item" id="bn-saved" aria-label="Salvos" data-i18n-aria-label="navSaved">
-      <span class="material-symbols-outlined nav-icon text-red-500">favorite</span>
-      <span data-i18n="navSaved">Salvos</span>
+    <button onclick="openPlannerSummary()" class="bottom-nav-item" id="bn-planner">
+      <span class="material-symbols-outlined nav-icon">route</span>
+      <span data-i18n="homeContinueTrip">Minha Viagem</span>
     </button>
-      <button onclick="openPlanner(event)" class="bottom-nav-item" id="bn-planner">
-        <span class="material-symbols-outlined nav-icon">checklist</span>
-        <span data-i18n="btnPlanner">Roteiro</span>
-      </button>
   </nav>
 
   <!-- FOOTER -->
@@ -641,7 +637,7 @@
   <script src="additional-spots.js?v=4.1"></script>
   <script src="app.js?v=4.6"></script>
 <script src="multimodal.js?v=4.8"></script>
-<script src="planner.js?v=5.3"></script>
+<script src="planner.js?v=5.4"></script>
 <script src="offline-trip.js?v=4.3"></script>
 </body>
 </html>
