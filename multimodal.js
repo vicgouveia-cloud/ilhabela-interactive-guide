@@ -48,7 +48,7 @@ touristSpots.forEach(spot => {
 function resolvePlannerAccess(spot, mode) {
   if (!spot) return null;
   const option = spot.routing?.accessOptions?.find(option => option.approachModes.includes(mode) && option.gateway?.verified);
-  if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode };
+  if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode, gatewayName: option.gateway.name || null, accessId: option.id };
   const modes = spot.routing?.modes || [];
   const allowed = mode === 'pedestrian' ? modes.includes('road') || modes.includes('trail')
     : mode === 'bicycle' ? modes.includes('road') : spot.routing?.roadRoutable === true;
@@ -69,7 +69,10 @@ Object.entries(multimodalCopy).forEach(([lang, copy]) => {
 function plannerAccessNotice(spot) {
   const resolved = resolvePlannerAccess(spot, plannerTravelMode);
   if (resolved?.finalMode === '4x4') return `${getPlannerModeLabel('4x4')}: ${t('planner4x4Handoff')}`;
-  if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') return t('plannerFinalWalk');
+  if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') {
+    const accessLabel = resolved.gatewayName || (spot.id === 'praia-do-juliao' ? 'Acesso à Praia do Julião' : 'acesso rodoviário');
+    return `Navegue até ${accessLabel}. Depois, siga a pé até ${getSpotTranslation(spot).title}. ${t('plannerFinalWalk')}`;
+  }
   if (spot.id === 'praia-do-bonete') return `${getPlannerModeLabel('trail')}: Ponta da Sepituba. ${getPlannerModeLabel('boat')}: ${t('plannerBoatPending')}.`;
   if (spot.id === 'baia-de-castelhanos' && plannerTravelMode === 'auto') return `Carro comum: a navegação termina na entrada do Parque. Para seguir de veículo até Castelhanos, use 4x4.`;
   return '';
