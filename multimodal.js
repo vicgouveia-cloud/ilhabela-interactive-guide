@@ -91,6 +91,7 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
+  plannerAgendaTitle: "Agenda do Dia {n}", plannerAgendaHint: "Sequência planejada do início ao retorno.", plannerAgendaStart: "Início do dia", plannerAgendaOriginPending: "Origem ainda não definida", plannerAgendaReturn: "Retorno", plannerAgendaReturnHint: "Voltar à origem definida para este dia.",
   plannerDay: "Dia", plannerDayOriginReady: "Origem do Dia {n} definida", plannerDayOrigin: "Origem do Dia {n}", plannerTapMapOrigin: "Toque no mapa…", plannerChooseMapOrigin: "Escolher origem no mapa", plannerClearOrigin: "Limpar origem", plannerReturnOrigin: "Retornar à origem", plannerRoadAccess: "acesso rodoviário", plannerJuliaoAccess: "Acesso à Praia do Julião", plannerNavigateThenWalk: "Navegue até {access}. Depois, siga a pé até {destination}.",
   plannerCastelhanosAutoHandoff: "Carro comum: navegue somente até a Entrada do Parque. Para continuar de veículo até Castelhanos, é necessário 4x4.",
   plannerCastelhanos4x4Direct: "4x4: a rota pode seguir até Castelhanos; a Entrada do Parque não é o destino final deste modo.",
@@ -110,6 +111,7 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
+  plannerAgendaTitle: "Day {n} agenda", plannerAgendaHint: "Planned sequence from start to return.", plannerAgendaStart: "Start of day", plannerAgendaOriginPending: "Origin not set yet", plannerAgendaReturn: "Return", plannerAgendaReturnHint: "Return to the origin set for this day.",
   plannerDay: "Day", plannerDayOriginReady: "Day {n} origin set", plannerDayOrigin: "Day {n} origin", plannerTapMapOrigin: "Tap the map…", plannerChooseMapOrigin: "Choose origin on map", plannerClearOrigin: "Clear origin", plannerReturnOrigin: "Return to origin", plannerRoadAccess: "road access", plannerJuliaoAccess: "Julião Beach access", plannerNavigateThenWalk: "Navigate to {access}. Then continue on foot to {destination}.",
   plannerCastelhanosAutoHandoff: "Regular car: navigate only to the Park Entrance. To continue by vehicle to Castelhanos, a 4x4 is required.",
   plannerCastelhanos4x4Direct: "4x4: the route may continue to Castelhanos; the Park Entrance is not the final destination in this mode.",
@@ -129,6 +131,7 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
+  plannerAgendaTitle: "Programme du Jour {n}", plannerAgendaHint: "Séquence prévue du départ au retour.", plannerAgendaStart: "Début de la journée", plannerAgendaOriginPending: "Origine pas encore définie", plannerAgendaReturn: "Retour", plannerAgendaReturnHint: "Retourner à l’origine définie pour cette journée.",
   plannerDay: "Jour", plannerDayOriginReady: "Origine du Jour {n} définie", plannerDayOrigin: "Origine du Jour {n}", plannerTapMapOrigin: "Touchez la carte…", plannerChooseMapOrigin: "Choisir l’origine sur la carte", plannerClearOrigin: "Effacer l’origine", plannerReturnOrigin: "Retour à l’origine", plannerRoadAccess: "accès routier", plannerJuliaoAccess: "Accès à la plage de Julião", plannerNavigateThenWalk: "Naviguez jusqu’à {access}. Puis continuez à pied jusqu’à {destination}.",
   plannerCastelhanosAutoHandoff: "Voiture ordinaire : naviguez uniquement jusqu’à l’Entrée du Parc. Pour continuer en véhicule jusqu’à Castelhanos, un 4x4 est nécessaire.",
   plannerCastelhanos4x4Direct: "4x4 : l’itinéraire peut continuer jusqu’à Castelhanos ; l’Entrée du Parc n’est pas la destination finale dans ce mode.",
@@ -148,6 +151,7 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
+  plannerAgendaTitle: "Agenda del Día {n}", plannerAgendaHint: "Secuencia planificada desde el inicio hasta el regreso.", plannerAgendaStart: "Inicio del día", plannerAgendaOriginPending: "Origen aún no definido", plannerAgendaReturn: "Regreso", plannerAgendaReturnHint: "Volver al origen definido para este día.",
   plannerDay: "Día", plannerDayOriginReady: "Origen del Día {n} definido", plannerDayOrigin: "Origen del Día {n}", plannerTapMapOrigin: "Toca el mapa…", plannerChooseMapOrigin: "Elegir origen en el mapa", plannerClearOrigin: "Borrar origen", plannerReturnOrigin: "Regresar al origen", plannerRoadAccess: "acceso por carretera", plannerJuliaoAccess: "Acceso a la Playa de Julião", plannerNavigateThenWalk: "Navega hasta {access}. Luego continúa a pie hasta {destination}.",
   plannerCastelhanosAutoHandoff: "Coche común: navega solamente hasta la Entrada del Parque. Para continuar en vehículo hasta Castelhanos, es necesario un 4x4.",
   plannerCastelhanos4x4Direct: "4x4: la ruta puede continuar hasta Castelhanos; la Entrada del Parque no es el destino final en este modo.",
@@ -167,6 +171,7 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
+  plannerAgendaTitle: "תוכנית ליום {n}", plannerAgendaHint: "רצף מתוכנן מתחילת היום ועד החזרה.", plannerAgendaStart: "תחילת היום", plannerAgendaOriginPending: "נקודת המוצא טרם הוגדרה", plannerAgendaReturn: "חזרה", plannerAgendaReturnHint: "חזרה לנקודת המוצא שהוגדרה ליום זה.",
   plannerDay: "יום", plannerDayOriginReady: "נקודת המוצא ליום {n} הוגדרה", plannerDayOrigin: "נקודת מוצא ליום {n}", plannerTapMapOrigin: "הקישו על המפה…", plannerChooseMapOrigin: "בחירת נקודת מוצא במפה", plannerClearOrigin: "ניקוי נקודת המוצא", plannerReturnOrigin: "חזרה לנקודת המוצא", plannerRoadAccess: "גישה מהכביש", plannerJuliaoAccess: "גישה לחוף Julião", plannerNavigateThenWalk: "נווטו עד {access}. לאחר מכן המשיכו ברגל עד {destination}.",
   plannerCastelhanosAutoHandoff: "רכב רגיל: יש לנווט רק עד כניסת הפארק. כדי להמשיך ברכב עד Castelhanos נדרש 4x4.",
   plannerCastelhanos4x4Direct: "4x4: המסלול יכול להמשיך עד Castelhanos; כניסת הפארק אינה היעד הסופי במצב זה.",
