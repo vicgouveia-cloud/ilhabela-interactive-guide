@@ -8,7 +8,7 @@ const translations = {
     "homeGridHint": "Abra um cartão para ver detalhes, acesso e adicionar à sua viagem.",
     "homeExplorePlaces": "Explorar lugares",
     "homeContinueTrip": "Continuar minha viagem",
-    "homeBuildTrip": "Montar roteiro",
+    "homeBuildTrip": "Montar meu roteiro",
     "navTrip": "Minha viagem",
     "homeTripCount": "{n} lugares na sua viagem",
     "homeTripCountOne": "1 lugar na sua viagem",
