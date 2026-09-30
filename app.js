@@ -719,11 +719,9 @@ function setViewMode(mode) {
     if (gridSec) gridSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
   }
 
-  // Sync bottom nav active state (mobile)
-  const bnMap  = document.getElementById('bn-map');
-  const bnGrid = document.getElementById('bn-grid');
-  if (bnMap)  bnMap.classList.toggle('active', mode === 'map');
-  if (bnGrid) bnGrid.classList.toggle('active', mode === 'grid');
+  // The mobile Explore item navigates to /o-que-fazer/ and is not the card view.
+  const bnMap = document.getElementById('bn-map');
+  if (bnMap) bnMap.classList.toggle('active', mode === 'map');
 }
 
 
