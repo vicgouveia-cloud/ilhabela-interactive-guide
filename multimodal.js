@@ -73,7 +73,7 @@ function plannerAccessNotice(spot) {
   if (resolved?.finalMode === '4x4') return `${getPlannerModeLabel('4x4')}: ${t('planner4x4Handoff')}`;
   if (spot.id === 'praia-do-bonete' && resolved?.accessId === 'road-trail') return t('plannerBoneteTrailHandoff');
   if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') {
-    const accessLabel = resolved.gatewayName || (spot.id === 'praia-do-juliao' ? 'Acesso à Praia do Julião' : t('plannerRoadAccess'));
+    const accessLabel = resolved.gatewayName || (spot.id === 'praia-do-juliao' ? t('plannerJuliaoAccess') : t('plannerRoadAccess'));
     return `${t('plannerNavigateThenWalk').replace('{access}', accessLabel).replace('{destination}', getSpotTranslation(spot).title)} ${t('plannerFinalWalk')}`;
   }
   if (spot.id === 'praia-do-bonete') return `${getPlannerModeLabel('trail')}: Ponta da Sepituba. ${getPlannerModeLabel('boat')}: ${t('plannerBoatPending')}.`;
@@ -91,7 +91,7 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
-  plannerDay: "Dia", plannerDayOriginReady: "Origem do Dia {n} definida", plannerDayOrigin: "Origem do Dia {n}", plannerTapMapOrigin: "Toque no mapa…", plannerChooseMapOrigin: "Escolher origem no mapa", plannerClearOrigin: "Limpar origem", plannerReturnOrigin: "Retornar à origem", plannerRoadAccess: "acesso rodoviário", plannerNavigateThenWalk: "Navegue até {access}. Depois, siga a pé até {destination}.",
+  plannerDay: "Dia", plannerDayOriginReady: "Origem do Dia {n} definida", plannerDayOrigin: "Origem do Dia {n}", plannerTapMapOrigin: "Toque no mapa…", plannerChooseMapOrigin: "Escolher origem no mapa", plannerClearOrigin: "Limpar origem", plannerReturnOrigin: "Retornar à origem", plannerRoadAccess: "acesso rodoviário", plannerJuliaoAccess: "Acesso à Praia do Julião", plannerNavigateThenWalk: "Navegue até {access}. Depois, siga a pé até {destination}.",
   plannerCastelhanosAutoHandoff: "Carro comum: navegue somente até a Entrada do Parque. Para continuar de veículo até Castelhanos, é necessário 4x4.",
   plannerCastelhanos4x4Direct: "4x4: a rota pode seguir até Castelhanos; a Entrada do Parque não é o destino final deste modo.",
   plannerCastelhanosBoatPending: "Alternativa por barco: o guia ainda não possui um ponto de embarque validado para Castelhanos. Confirme embarque, horário, disponibilidade e condições diretamente com o operador.",
@@ -110,7 +110,7 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
-  plannerDay: "Day", plannerDayOriginReady: "Day {n} origin set", plannerDayOrigin: "Day {n} origin", plannerTapMapOrigin: "Tap the map…", plannerChooseMapOrigin: "Choose origin on map", plannerClearOrigin: "Clear origin", plannerReturnOrigin: "Return to origin", plannerRoadAccess: "road access", plannerNavigateThenWalk: "Navigate to {access}. Then continue on foot to {destination}.",
+  plannerDay: "Day", plannerDayOriginReady: "Day {n} origin set", plannerDayOrigin: "Day {n} origin", plannerTapMapOrigin: "Tap the map…", plannerChooseMapOrigin: "Choose origin on map", plannerClearOrigin: "Clear origin", plannerReturnOrigin: "Return to origin", plannerRoadAccess: "road access", plannerJuliaoAccess: "Julião Beach access", plannerNavigateThenWalk: "Navigate to {access}. Then continue on foot to {destination}.",
   plannerCastelhanosAutoHandoff: "Regular car: navigate only to the Park Entrance. To continue by vehicle to Castelhanos, a 4x4 is required.",
   plannerCastelhanos4x4Direct: "4x4: the route may continue to Castelhanos; the Park Entrance is not the final destination in this mode.",
   plannerCastelhanosBoatPending: "Boat alternative: the guide does not yet have a validated boarding point for Castelhanos. Confirm boarding, time, availability and conditions directly with the operator.",
@@ -129,7 +129,7 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
-  plannerDay: "Jour", plannerDayOriginReady: "Origine du Jour {n} définie", plannerDayOrigin: "Origine du Jour {n}", plannerTapMapOrigin: "Touchez la carte…", plannerChooseMapOrigin: "Choisir l’origine sur la carte", plannerClearOrigin: "Effacer l’origine", plannerReturnOrigin: "Retour à l’origine", plannerRoadAccess: "accès routier", plannerNavigateThenWalk: "Naviguez jusqu’à {access}. Puis continuez à pied jusqu’à {destination}.",
+  plannerDay: "Jour", plannerDayOriginReady: "Origine du Jour {n} définie", plannerDayOrigin: "Origine du Jour {n}", plannerTapMapOrigin: "Touchez la carte…", plannerChooseMapOrigin: "Choisir l’origine sur la carte", plannerClearOrigin: "Effacer l’origine", plannerReturnOrigin: "Retour à l’origine", plannerRoadAccess: "accès routier", plannerJuliaoAccess: "Accès à la plage de Julião", plannerNavigateThenWalk: "Naviguez jusqu’à {access}. Puis continuez à pied jusqu’à {destination}.",
   plannerCastelhanosAutoHandoff: "Voiture ordinaire : naviguez uniquement jusqu’à l’Entrée du Parc. Pour continuer en véhicule jusqu’à Castelhanos, un 4x4 est nécessaire.",
   plannerCastelhanos4x4Direct: "4x4 : l’itinéraire peut continuer jusqu’à Castelhanos ; l’Entrée du Parc n’est pas la destination finale dans ce mode.",
   plannerCastelhanosBoatPending: "Alternative en bateau : le guide ne dispose pas encore d’un point d’embarquement validé pour Castelhanos. Confirmez l’embarquement, l’horaire, la disponibilité et les conditions directement avec l’opérateur.",
@@ -148,7 +148,7 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
-  plannerDay: "Día", plannerDayOriginReady: "Origen del Día {n} definido", plannerDayOrigin: "Origen del Día {n}", plannerTapMapOrigin: "Toca el mapa…", plannerChooseMapOrigin: "Elegir origen en el mapa", plannerClearOrigin: "Borrar origen", plannerReturnOrigin: "Regresar al origen", plannerRoadAccess: "acceso por carretera", plannerNavigateThenWalk: "Navega hasta {access}. Luego continúa a pie hasta {destination}.",
+  plannerDay: "Día", plannerDayOriginReady: "Origen del Día {n} definido", plannerDayOrigin: "Origen del Día {n}", plannerTapMapOrigin: "Toca el mapa…", plannerChooseMapOrigin: "Elegir origen en el mapa", plannerClearOrigin: "Borrar origen", plannerReturnOrigin: "Regresar al origen", plannerRoadAccess: "acceso por carretera", plannerJuliaoAccess: "Acceso a la Playa de Julião", plannerNavigateThenWalk: "Navega hasta {access}. Luego continúa a pie hasta {destination}.",
   plannerCastelhanosAutoHandoff: "Coche común: navega solamente hasta la Entrada del Parque. Para continuar en vehículo hasta Castelhanos, es necesario un 4x4.",
   plannerCastelhanos4x4Direct: "4x4: la ruta puede continuar hasta Castelhanos; la Entrada del Parque no es el destino final en este modo.",
   plannerCastelhanosBoatPending: "Alternativa en barco: la guía todavía no tiene un punto de embarque validado para Castelhanos. Confirma embarque, horario, disponibilidad y condiciones directamente con el operador.",
@@ -167,7 +167,7 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
-  plannerDay: "יום", plannerDayOriginReady: "נקודת המוצא ליום {n} הוגדרה", plannerDayOrigin: "נקודת מוצא ליום {n}", plannerTapMapOrigin: "הקישו על המפה…", plannerChooseMapOrigin: "בחירת נקודת מוצא במפה", plannerClearOrigin: "ניקוי נקודת המוצא", plannerReturnOrigin: "חזרה לנקודת המוצא", plannerRoadAccess: "גישה מהכביש", plannerNavigateThenWalk: "נווטו עד {access}. לאחר מכן המשיכו ברגל עד {destination}.",
+  plannerDay: "יום", plannerDayOriginReady: "נקודת המוצא ליום {n} הוגדרה", plannerDayOrigin: "נקודת מוצא ליום {n}", plannerTapMapOrigin: "הקישו על המפה…", plannerChooseMapOrigin: "בחירת נקודת מוצא במפה", plannerClearOrigin: "ניקוי נקודת המוצא", plannerReturnOrigin: "חזרה לנקודת המוצא", plannerRoadAccess: "גישה מהכביש", plannerJuliaoAccess: "גישה לחוף Julião", plannerNavigateThenWalk: "נווטו עד {access}. לאחר מכן המשיכו ברגל עד {destination}.",
   plannerCastelhanosAutoHandoff: "רכב רגיל: יש לנווט רק עד כניסת הפארק. כדי להמשיך ברכב עד Castelhanos נדרש 4x4.",
   plannerCastelhanos4x4Direct: "4x4: המסלול יכול להמשיך עד Castelhanos; כניסת הפארק אינה היעד הסופי במצב זה.",
   plannerCastelhanosBoatPending: "חלופה בסירה: עדיין אין במדריך נקודת עלייה מאומתת ל-Castelhanos. יש לאשר עם המפעיל את נקודת העלייה, השעה, הזמינות והתנאים.",
