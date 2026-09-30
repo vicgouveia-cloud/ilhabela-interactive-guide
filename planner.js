@@ -302,8 +302,11 @@ function getSpotTripDay(id) {
 function setSpotTripDay(id, day) {
   if (!tripSelection.includes(id)) return;
   const parsedDay = Math.max(1, Math.min(30, parseInt(day, 10) || 1));
+  const previousDay = getSpotTripDay(id);
   tripDays[id] = parsedDay;
+  if (previousDay !== parsedDay) delete tripCompletedStops[`${previousDay}:${id}`];
   localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
+  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
   invalidatePlannerRoute();
   renderSummary();
 }
