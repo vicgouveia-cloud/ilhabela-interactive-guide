@@ -262,7 +262,24 @@ function updatePlannerBadge() {
   if (badge) badge.textContent = tripSelection.length;
 }
 
-function openPlanner(e) {
+function setPlannerView(view) {
+  const deck = document.getElementById('planner-deck-view');
+  const summary = document.getElementById('planner-summary-view');
+  currentPlannerView = view === 'summary' ? 'summary' : 'deck';
+  const showSummary = currentPlannerView === 'summary';
+  deck.classList.toggle('hidden', showSummary);
+  deck.classList.toggle('flex', !showSummary);
+  summary.classList.toggle('hidden', !showSummary);
+  summary.classList.toggle('flex', showSummary);
+  if (showSummary) renderSummary();
+  else {
+    renderPlannerFilters();
+    generateDeckQueue();
+    renderDeckCard();
+  }
+}
+
+function openPlanner(e, options = {}) {
   if (e) e.preventDefault();
   const modal = document.getElementById('planner-modal');
   modal.classList.remove('hidden');
@@ -272,9 +289,11 @@ function openPlanner(e) {
   // Re-translate just in case
   modal.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
 
-  renderPlannerFilters();
-  generateDeckQueue();
-  renderDeckCard();
+  setPlannerView(options.view || currentPlannerView);
+}
+
+function openPlannerSummary() {
+  openPlanner(null, { view: 'summary' });
 }
 
 function closePlanner() {
@@ -285,22 +304,7 @@ function closePlanner() {
 }
 
 function togglePlannerView() {
-  const deck = document.getElementById('planner-deck-view');
-  const summary = document.getElementById('planner-summary-view');
-  if (currentPlannerView === 'deck') {
-    currentPlannerView = 'summary';
-    deck.classList.add('hidden');
-    deck.classList.remove('flex');
-    summary.classList.remove('hidden');
-    summary.classList.add('flex');
-    renderSummary();
-  } else {
-    currentPlannerView = 'deck';
-    summary.classList.add('hidden');
-    summary.classList.remove('flex');
-    deck.classList.remove('hidden');
-    deck.classList.add('flex');
-  }
+  setPlannerView(currentPlannerView === 'deck' ? 'summary' : 'deck');
 }
 
 function renderPlannerFilters() {
