@@ -2025,6 +2025,55 @@ touristSpots.forEach(spot => {
 // Structured visit-duration metadata for itinerary estimates.
 // Values represent time spent at the attraction/experience, never access or travel time.
 // null is intentional when the current editorial data only describes access or is too ambiguous.
+const maritimeAccessMetadata = {
+  'praia-do-bonete': {
+    profile: 'bonete',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'praia-da-fome': {
+    profile: 'east-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'saco-do-eustaquio': {
+    profile: 'east-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'baia-de-castelhanos': {
+    profile: 'east-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'praia-da-enchova': {
+    profile: 'south-remote-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'praia-de-indaiauba': {
+    profile: 'south-remote-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
+  'praia-do-poco': {
+    profile: 'north-remote-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  }
+};
+
+touristSpots.forEach(spot => {
+  spot.maritimeAccess = maritimeAccessMetadata[spot.id] || null;
+});
+
 const operatedExperienceMetadata = {
   'ponto-baleias-sul-sepituba': {
     type: 'whale-watching',
