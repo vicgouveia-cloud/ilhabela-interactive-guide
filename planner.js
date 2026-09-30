@@ -445,17 +445,26 @@ function renderSummary() {
   let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
-  selectedSpots.forEach(spot => {
+  selectedSpots.forEach((spot, index) => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
     html += `
-      <div class="flex items-center gap-3 p-2 border border-black/5 rounded-xl bg-surface-container/30">
+      <div class="flex items-center gap-2 p-2 border border-black/5 rounded-xl bg-surface-container/30">
+        <div class="w-6 text-center text-xs font-extrabold text-primary/60">${index + 1}</div>
         <img src="${spot.image}" class="w-16 h-16 rounded-lg object-cover" />
         <div class="flex-1 min-w-0">
           <h4 class="text-sm font-bold text-primary truncate">${tr.title}</h4>
           <p class="text-xs text-on-surface-variant truncate">${tr.subtitle}</p>
         </div>
-        <button onclick="removeFromPlanner('${spot.id}')" class="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors">
+        <div class="flex flex-col">
+          <button onclick="movePlannerSpot('${spot.id}', -1)" ${index === 0 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="Mover para cima">
+            <span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
+          </button>
+          <button onclick="movePlannerSpot('${spot.id}', 1)" ${index === selectedSpots.length - 1 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="Mover para baixo">
+            <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
+          </button>
+        </div>
+        <button onclick="removeFromPlanner('${spot.id}')" class="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors" aria-label="Remover">
           <span class="material-symbols-outlined text-[18px]">delete</span>
         </button>
       </div>
@@ -708,6 +717,16 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
   params.set('destination', points[points.length - 1]);
   if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
+}
+
+function movePlannerSpot(id, direction) {
+  const fromIndex = tripSelection.indexOf(id);
+  const toIndex = fromIndex + direction;
+  if (fromIndex < 0 || toIndex < 0 || toIndex >= tripSelection.length) return;
+  invalidatePlannerRoute();
+  [tripSelection[fromIndex], tripSelection[toIndex]] = [tripSelection[toIndex], tripSelection[fromIndex]];
+  saveTripSelection();
+  renderSummary();
 }
 
 function removeFromPlanner(id) {
