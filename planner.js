@@ -203,6 +203,7 @@ let dismissedInSession = new Set();
 let plannerFilter = 'all';
 let plannerDeckQueue = [];
 let currentPlannerView = 'deck'; // 'deck' or 'summary'
+let activeTripDay = 1;
 let plannerMap = null;
 let plannerMapMarkers = [];
 let plannerOrigin = null;
@@ -268,6 +269,19 @@ function setSpotTripDay(id, day) {
   localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
   invalidatePlannerRoute();
   renderSummary();
+}
+
+function setActiveTripDay(day) {
+  activeTripDay = Math.max(1, parseInt(day, 10) || 1);
+  invalidatePlannerRoute();
+  renderSummary();
+}
+
+function getActiveTripSpots() {
+  return tripSelection
+    .filter(id => getSpotTripDay(id) === activeTripDay)
+    .map(id => touristSpots.find(spot => spot.id === id))
+    .filter(Boolean);
 }
 
 function isSpotInTrip(id) {
@@ -467,12 +481,17 @@ function renderSummary() {
     return;
   }
 
-  const selectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
-  const maxTripDay = Math.max(1, ...selectedSpots.map(spot => getSpotTripDay(spot.id)));
+  const allSelectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
+  const maxTripDay = Math.max(1, ...allSelectedSpots.map(spot => getSpotTripDay(spot.id)));
+  if (activeTripDay > maxTripDay) activeTripDay = maxTripDay;
+  const selectedSpots = getActiveTripSpots();
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
-  let html = renderPlannerRoutingPanel(roadSpots, specialSpots);
+  let html = `<div class="flex gap-2 overflow-x-auto pb-1">
+    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">Dia ${day}</button>`).join('')}
+  </div>`;
+  html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
   selectedSpots.forEach((spot, index) => {
@@ -555,7 +574,7 @@ function formatPlannerMinutes(minutes) {
 }
 
 function getPlannerVisitEstimate() {
-  const selected = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(Boolean);
+  const selected = getActiveTripSpots();
   let min = 0, max = 0, covered = 0;
   selected.forEach(spot => {
     const range = spot.planning?.visitDurationMinutes;
@@ -676,7 +695,7 @@ function plannerDecodePolyline6(encoded) {
 
 async function plannerOptimizeRoute() {
   const routeRevision = plannerRouteRevision;
-  const roadSpots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+  const roadSpots = getActiveTripSpots().filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
   if (!plannerConfirmAccess(roadSpots)) return;
 
@@ -727,8 +746,7 @@ async function plannerOptimizeRoute() {
 }
 
 function plannerOpenGoogleMaps(segmentIndex = 0) {
-  let roadSpots = tripSelection
-    .map(id => touristSpots.find(spot => spot.id === id))
+  let roadSpots = getActiveTripSpots()
     .filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   roadSpots = getOptimizedRouteSpots(roadSpots);
   if (!roadSpots.length) {
@@ -788,8 +806,7 @@ function initPlannerMap() {
   plannerMapMarkers = [];
   const bounds = L.latLngBounds();
 
-  tripSelection.forEach((id, index) => {
-    const spot = touristSpots.find(s => s.id === id);
+  getActiveTripSpots().forEach((spot, index) => {
     if (!spot) return;
     const tr = getSpotTranslation(spot);
     const catIcon = getCategoryIcon(spot.category);
