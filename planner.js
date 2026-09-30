@@ -265,7 +265,16 @@ function saveTripSelection() {
   Object.keys(tripDays).forEach(id => {
     if (!tripSelection.includes(id)) delete tripDays[id];
   });
+  const usedDays = new Set(tripSelection.map(id => getSpotTripDay(id)));
+  Object.keys(tripDayOrigins).forEach(day => {
+    if (!usedDays.has(Number(day))) delete tripDayOrigins[day];
+  });
+  Object.keys(tripDayReturnToOrigin).forEach(day => {
+    if (!usedDays.has(Number(day))) delete tripDayReturnToOrigin[day];
+  });
   localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
+  localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
+  localStorage.setItem('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
   updatePlannerBadge();
 }
 
@@ -526,7 +535,7 @@ function renderSummary() {
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
   let html = `<div class="flex gap-2 overflow-x-auto pb-1">
-    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">Dia ${day}</button>`).join('')}
+    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
   </div>`;
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
@@ -542,7 +551,7 @@ function renderSummary() {
           <h4 class="text-sm font-bold text-primary truncate">${tr.title}</h4>
           <p class="text-xs text-on-surface-variant truncate">${tr.subtitle}</p>
           <label class="mt-1 inline-flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
-            Dia
+            ${t('plannerDay')}
             <select onchange="setSpotTripDay('${spot.id}', this.value)" class="rounded-lg border border-black/10 bg-white px-1.5 py-1 text-[11px] text-primary">
               ${Array.from({ length: Math.min(30, maxTripDay + 1) }, (_, dayIndex) => dayIndex + 1).map(day => `<option value="${day}" ${getSpotTripDay(spot.id) === day ? 'selected' : ''}>${day}</option>`).join('')}
             </select>
@@ -675,16 +684,16 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
         <div class="flex flex-wrap gap-2">
           <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
-            <span id="planner-location-label">${plannerOrigin ? 'Origem do Dia ' + activeTripDay + ' definida' : t('plannerUseLocation')}</span>
+            <span id="planner-location-label">${plannerOrigin ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerUseLocation')}</span>
           </button>
           <button type="button" onclick="plannerStartOriginPick()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">location_on</span>
-            <span>${plannerOriginPickMode ? 'Toque no mapa…' : 'Escolher origem no mapa'}</span>
+            <span>${plannerOriginPickMode ? t('plannerTapMapOrigin') : t('plannerChooseMapOrigin')}</span>
           </button>
-          ${plannerOrigin ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">Limpar origem</button>
+          ${plannerOrigin ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">${t('plannerClearOrigin')}</button>
           <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
             <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
-            Retornar à origem
+            ${t('plannerReturnOrigin')}
           </label>` : ''}
           <button type="button" onclick="plannerOptimizeRoute()" ${roadSpots.length >= 2 ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-secondary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
             ${plannerOptimizedRoute ? t('plannerOptimized') : t('plannerOptimize')}
@@ -893,7 +902,7 @@ function initPlannerMap() {
     plannerOptimizedRoute.shape.forEach(coord => bounds.extend(coord));
   }
   if (plannerOrigin) {
-    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup('Origem do Dia ' + activeTripDay);
+    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerDayOrigin').replace('{n}', activeTripDay));
     bounds.extend(plannerOrigin);
   }
   if (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length) {
