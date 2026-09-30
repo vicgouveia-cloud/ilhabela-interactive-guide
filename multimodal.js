@@ -91,6 +91,7 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
+  plannerReadyResolve: "Resolver",
   plannerReadyDay: "Dia sem pendências conhecidas no guia", plannerReadyPendingTitle: "Antes de sair", plannerReadyOriginPending: "Defina a origem deste dia.", plannerReadyBoatPending: "Confirme o embarque por barco para {destination}.", plannerReadyMeetingPending: "Confirme o ponto de encontro para {destination}.",
   plannerAgendaTitle: "Agenda do Dia {n}", plannerAgendaHint: "Sequência planejada do início ao retorno.", plannerAgendaStart: "Início do dia", plannerAgendaOriginPending: "Origem ainda não definida", plannerAgendaReturn: "Retorno", plannerAgendaReturnHint: "Voltar à origem definida para este dia.",
   plannerDay: "Dia", plannerDayOriginReady: "Origem do Dia {n} definida", plannerDayOrigin: "Origem do Dia {n}", plannerTapMapOrigin: "Toque no mapa…", plannerChooseMapOrigin: "Escolher origem no mapa", plannerClearOrigin: "Limpar origem", plannerReturnOrigin: "Retornar à origem", plannerRoadAccess: "acesso rodoviário", plannerJuliaoAccess: "Acesso à Praia do Julião", plannerNavigateThenWalk: "Navegue até {access}. Depois, siga a pé até {destination}.",
@@ -112,6 +113,7 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
+  plannerReadyResolve: "Resolve",
   plannerReadyDay: "No known pending items for this day", plannerReadyPendingTitle: "Before you go", plannerReadyOriginPending: "Set the origin for this day.", plannerReadyBoatPending: "Confirm boat boarding for {destination}.", plannerReadyMeetingPending: "Confirm the meeting point for {destination}.",
   plannerAgendaTitle: "Day {n} agenda", plannerAgendaHint: "Planned sequence from start to return.", plannerAgendaStart: "Start of day", plannerAgendaOriginPending: "Origin not set yet", plannerAgendaReturn: "Return", plannerAgendaReturnHint: "Return to the origin set for this day.",
   plannerDay: "Day", plannerDayOriginReady: "Day {n} origin set", plannerDayOrigin: "Day {n} origin", plannerTapMapOrigin: "Tap the map…", plannerChooseMapOrigin: "Choose origin on map", plannerClearOrigin: "Clear origin", plannerReturnOrigin: "Return to origin", plannerRoadAccess: "road access", plannerJuliaoAccess: "Julião Beach access", plannerNavigateThenWalk: "Navigate to {access}. Then continue on foot to {destination}.",
@@ -133,6 +135,7 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
+  plannerReadyResolve: "Résoudre",
   plannerReadyDay: "Aucune étape en attente connue pour cette journée", plannerReadyPendingTitle: "Avant de partir", plannerReadyOriginPending: "Définissez l’origine de cette journée.", plannerReadyBoatPending: "Confirmez l’embarquement en bateau pour {destination}.", plannerReadyMeetingPending: "Confirmez le point de rendez-vous pour {destination}.",
   plannerAgendaTitle: "Programme du Jour {n}", plannerAgendaHint: "Séquence prévue du départ au retour.", plannerAgendaStart: "Début de la journée", plannerAgendaOriginPending: "Origine pas encore définie", plannerAgendaReturn: "Retour", plannerAgendaReturnHint: "Retourner à l’origine définie pour cette journée.",
   plannerDay: "Jour", plannerDayOriginReady: "Origine du Jour {n} définie", plannerDayOrigin: "Origine du Jour {n}", plannerTapMapOrigin: "Touchez la carte…", plannerChooseMapOrigin: "Choisir l’origine sur la carte", plannerClearOrigin: "Effacer l’origine", plannerReturnOrigin: "Retour à l’origine", plannerRoadAccess: "accès routier", plannerJuliaoAccess: "Accès à la plage de Julião", plannerNavigateThenWalk: "Naviguez jusqu’à {access}. Puis continuez à pied jusqu’à {destination}.",
@@ -154,6 +157,7 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
+  plannerReadyResolve: "Resolver",
   plannerReadyDay: "No hay pendientes conocidos para este día", plannerReadyPendingTitle: "Antes de salir", plannerReadyOriginPending: "Define el origen de este día.", plannerReadyBoatPending: "Confirma el embarque en barco para {destination}.", plannerReadyMeetingPending: "Confirma el punto de encuentro para {destination}.",
   plannerAgendaTitle: "Agenda del Día {n}", plannerAgendaHint: "Secuencia planificada desde el inicio hasta el regreso.", plannerAgendaStart: "Inicio del día", plannerAgendaOriginPending: "Origen aún no definido", plannerAgendaReturn: "Regreso", plannerAgendaReturnHint: "Volver al origen definido para este día.",
   plannerDay: "Día", plannerDayOriginReady: "Origen del Día {n} definido", plannerDayOrigin: "Origen del Día {n}", plannerTapMapOrigin: "Toca el mapa…", plannerChooseMapOrigin: "Elegir origen en el mapa", plannerClearOrigin: "Borrar origen", plannerReturnOrigin: "Regresar al origen", plannerRoadAccess: "acceso por carretera", plannerJuliaoAccess: "Acceso a la Playa de Julião", plannerNavigateThenWalk: "Navega hasta {access}. Luego continúa a pie hasta {destination}.",
@@ -175,6 +179,7 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
+  plannerReadyResolve: "לטיפול",
   plannerReadyDay: "אין משימות ידועות שממתינות ליום זה", plannerReadyPendingTitle: "לפני היציאה", plannerReadyOriginPending: "הגדירו נקודת מוצא ליום זה.", plannerReadyBoatPending: "אשרו את נקודת העלייה לסירה עבור {destination}.", plannerReadyMeetingPending: "אשרו את נקודת המפגש עבור {destination}.",
   plannerAgendaTitle: "תוכנית ליום {n}", plannerAgendaHint: "רצף מתוכנן מתחילת היום ועד החזרה.", plannerAgendaStart: "תחילת היום", plannerAgendaOriginPending: "נקודת המוצא טרם הוגדרה", plannerAgendaReturn: "חזרה", plannerAgendaReturnHint: "חזרה לנקודת המוצא שהוגדרה ליום זה.",
   plannerDay: "יום", plannerDayOriginReady: "נקודת המוצא ליום {n} הוגדרה", plannerDayOrigin: "נקודת מוצא ליום {n}", plannerTapMapOrigin: "הקישו על המפה…", plannerChooseMapOrigin: "בחירת נקודת מוצא במפה", plannerClearOrigin: "ניקוי נקודת המוצא", plannerReturnOrigin: "חזרה לנקודת המוצא", plannerRoadAccess: "גישה מהכביש", plannerJuliaoAccess: "גישה לחוף Julião", plannerNavigateThenWalk: "נווטו עד {access}. לאחר מכן המשיכו ברגל עד {destination}.",
@@ -352,7 +357,7 @@ function renderPlannerNauticalExperiences(spots) {
     </div>`;
   }).join('');
 
-  return `<div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
+  return `<div id="planner-nautical-options" class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
     <div>
       <h3 class="text-sm font-extrabold text-primary">${t('plannerNauticalExperiences')}</h3>
       <p class="text-xs text-on-surface-variant">${t('plannerNauticalExperiencesHint')}</p>
@@ -385,7 +390,7 @@ function renderPlannerMaritimeOptions(spots) {
     </div>`;
   }).join('');
 
-  return `<div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
+  return `<div id="planner-maritime-options" class="rounded-2xl border border-black/10 bg-surface-container/40 p-4 space-y-3">
     <div>
       <h3 class="text-sm font-extrabold text-primary">${t('plannerBoatOptions')}</h3>
       <p class="text-xs text-on-surface-variant">${t('plannerBoatOptionsHint')}</p>
