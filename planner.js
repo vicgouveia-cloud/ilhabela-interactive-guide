@@ -517,9 +517,30 @@ function plannerShowDetails() {
 }
 
 // Summary View
+function getPlannerDayReadiness(spots) {
+  const pending = [];
+  if (!plannerOrigin) pending.push({ key: 'origin', label: t('plannerReadyOriginPending') });
+  spots.forEach(spot => {
+    const maritime = typeof getMaritimeRouteProfilesForSpot === 'function' ? getMaritimeRouteProfilesForSpot(spot.id) : [];
+    if (maritime.some(profile => !profile.embarkation)) {
+      pending.push({ key: 'boat:' + spot.id, label: t('plannerReadyBoatPending').replace('{destination}', getSpotTranslation(spot).title) });
+    }
+    const nautical = typeof getNauticalExperienceOptionsForSpot === 'function' ? getNauticalExperienceOptionsForSpot(spot.id) : [];
+    if (nautical.some(profile => !profile.meetingPoint)) {
+      pending.push({ key: 'meeting:' + spot.id, label: t('plannerReadyMeetingPending').replace('{destination}', getSpotTranslation(spot).title) });
+    }
+  });
+  const unique = [...new Map(pending.map(item => [item.key, item])).values()];
+  return { pending: unique, ready: unique.length === 0 };
+}
+
 function renderPlannerDayAgenda(spots) {
   const originSet = !!plannerOrigin;
   const returnSet = originSet && !!tripDayReturnToOrigin[activeTripDay];
+  const readiness = getPlannerDayReadiness(spots);
+  const readinessHtml = readiness.ready
+    ? `<div class="mb-3 flex items-center gap-2 rounded-xl bg-secondary/10 px-3 py-2 text-[11px] font-bold text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span><span>${t('plannerReadyDay')}</span></div>`
+    : `<div class="mb-3 rounded-xl border border-tertiary/20 bg-tertiary/5 px-3 py-2"><div class="mb-1 flex items-center gap-1.5 text-[11px] font-extrabold text-tertiary"><span class="material-symbols-outlined text-[16px]">pending_actions</span><span>${t('plannerReadyPendingTitle')}</span></div><ul class="space-y-0.5 text-[11px] text-on-surface-variant">${readiness.pending.map(item => `<li>• ${item.label}</li>`).join('')}</ul></div>`;
   const stopRows = spots.map((spot, index) => {
     const tr = getSpotTranslation(spot);
     const access = resolvePlannerAccess(spot, plannerTravelMode);
@@ -547,7 +568,7 @@ function renderPlannerDayAgenda(spots) {
   </div>` : '';
   return `<div class="rounded-2xl border border-black/10 bg-white p-4">
     <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
-    ${originRow}${stopRows}${returnRow}
+    ${readinessHtml}${originRow}${stopRows}${returnRow}
   </div>`;
 }
 
