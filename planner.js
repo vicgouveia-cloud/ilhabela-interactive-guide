@@ -774,9 +774,13 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
 }
 
 function movePlannerSpot(id, direction) {
+  const dayIds = tripSelection.filter(spotId => getSpotTripDay(spotId) === activeTripDay);
+  const dayIndex = dayIds.indexOf(id);
+  const targetDayIndex = dayIndex + direction;
+  if (dayIndex < 0 || targetDayIndex < 0 || targetDayIndex >= dayIds.length) return;
+  const otherId = dayIds[targetDayIndex];
   const fromIndex = tripSelection.indexOf(id);
-  const toIndex = fromIndex + direction;
-  if (fromIndex < 0 || toIndex < 0 || toIndex >= tripSelection.length) return;
+  const toIndex = tripSelection.indexOf(otherId);
   invalidatePlannerRoute();
   [tripSelection[fromIndex], tripSelection[toIndex]] = [tripSelection[toIndex], tripSelection[fromIndex]];
   saveTripSelection();
