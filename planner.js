@@ -517,6 +517,40 @@ function plannerShowDetails() {
 }
 
 // Summary View
+function renderPlannerDayAgenda(spots) {
+  const originSet = !!plannerOrigin;
+  const returnSet = originSet && !!tripDayReturnToOrigin[activeTripDay];
+  const stopRows = spots.map((spot, index) => {
+    const tr = getSpotTranslation(spot);
+    const access = resolvePlannerAccess(spot, plannerTravelMode);
+    const notice = plannerAccessNotice(spot);
+    const hasHandoff = !!access?.finalMode || (access && (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1]));
+    return `<div class="relative flex gap-3 pb-4">
+      <div class="flex w-7 shrink-0 flex-col items-center">
+        <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-white">${index + 1}</div>
+        ${index < spots.length - 1 || returnSet ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}
+      </div>
+      <div class="min-w-0 flex-1 rounded-xl border border-black/5 bg-surface-container/30 px-3 py-2">
+        <div class="text-sm font-bold text-primary">${tr.title}</div>
+        <div class="text-[11px] text-on-surface-variant">${tr.subtitle}</div>
+        ${hasHandoff && notice ? `<div class="mt-1.5 flex items-start gap-1.5 text-[11px] font-semibold text-tertiary"><span class="material-symbols-outlined text-[15px]">conversion_path</span><span>${notice}</span></div>` : ''}
+      </div>
+    </div>`;
+  }).join('');
+  const originRow = `<div class="flex gap-3 pb-3">
+    <div class="flex w-7 shrink-0 flex-col items-center"><div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">trip_origin</span></div>${spots.length ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}</div>
+    <div class="pt-1 text-xs"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div></div>
+  </div>`;
+  const returnRow = returnSet ? `<div class="flex gap-3">
+    <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">home_pin</span></div>
+    <div class="pt-1 text-xs"><strong class="text-primary">${t('plannerAgendaReturn')}</strong><div class="text-on-surface-variant">${t('plannerAgendaReturnHint')}</div></div>
+  </div>` : '';
+  return `<div class="rounded-2xl border border-black/10 bg-white p-4">
+    <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
+    ${originRow}${stopRows}${returnRow}
+  </div>`;
+}
+
 function renderSummary() {
   const listContainer = document.getElementById('planner-summary-list');
   
@@ -537,6 +571,7 @@ function renderSummary() {
   let html = `<div class="flex gap-2 overflow-x-auto pb-1">
     ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
   </div>`;
+  html += renderPlannerDayAgenda(selectedSpots);
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
