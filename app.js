@@ -804,6 +804,11 @@ function toggleSpotTripFromModal(spotId) {
   openSpotModal(spotId, { updateUrl: false });
 }
 
+function openTripFromSpotModal() {
+  closeSpotModal();
+  if (typeof openPlannerSummary === 'function') openPlannerSummary();
+}
+
 function openSpotModal(spotId, options = {}) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
@@ -967,10 +972,21 @@ function openSpotModal(spotId, options = {}) {
 
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
-      <button onclick="toggleSpotTripFromModal('${spot.id}')" class="flex-1 py-3.5 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-        <span class="material-symbols-outlined text-[18px]">${isInTrip ? "playlist_remove" : "playlist_add"}</span>
-        <span>${isInTrip ? "Remover da minha viagem" : "Adicionar à minha viagem"}</span>
-      </button>
+      ${isInTrip ? `
+        <button onclick="openTripFromSpotModal()" class="flex-1 py-3.5 rounded-xl bg-secondary text-white hover:opacity-90 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">route</span>
+          <span>Ver minha viagem</span>
+        </button>
+        <button onclick="toggleSpotTripFromModal('${spot.id}')" class="py-3.5 px-4 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">playlist_remove</span>
+          <span>Remover</span>
+        </button>
+      ` : `
+        <button onclick="toggleSpotTripFromModal('${spot.id}')" class="flex-1 py-3.5 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+          <span class="material-symbols-outlined text-[18px]">playlist_add</span>
+          <span>Adicionar à minha viagem</span>
+        </button>
+      `}
       ${(() => {
         const navigationCoords = getSpotRoadNavigationCoords(spot);
         return navigationCoords ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${navigationCoords[0]},${navigationCoords[1]}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
