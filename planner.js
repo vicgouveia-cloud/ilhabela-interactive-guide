@@ -519,15 +519,15 @@ function plannerShowDetails() {
 // Summary View
 function getPlannerDayReadiness(spots) {
   const pending = [];
-  if (!plannerOrigin) pending.push({ key: 'origin', label: t('plannerReadyOriginPending') });
+  if (!plannerOrigin) pending.push({ key: 'origin', label: t('plannerReadyOriginPending'), action: 'origin' });
   spots.forEach(spot => {
     const maritime = typeof getMaritimeRouteProfilesForSpot === 'function' ? getMaritimeRouteProfilesForSpot(spot.id) : [];
     if (maritime.some(profile => !profile.embarkation)) {
-      pending.push({ key: 'boat:' + spot.id, label: t('plannerReadyBoatPending').replace('{destination}', getSpotTranslation(spot).title) });
+      pending.push({ key: 'boat:' + spot.id, label: t('plannerReadyBoatPending').replace('{destination}', getSpotTranslation(spot).title), action: 'maritime' });
     }
     const nautical = typeof getNauticalExperienceOptionsForSpot === 'function' ? getNauticalExperienceOptionsForSpot(spot.id) : [];
     if (nautical.some(profile => !profile.meetingPoint)) {
-      pending.push({ key: 'meeting:' + spot.id, label: t('plannerReadyMeetingPending').replace('{destination}', getSpotTranslation(spot).title) });
+      pending.push({ key: 'meeting:' + spot.id, label: t('plannerReadyMeetingPending').replace('{destination}', getSpotTranslation(spot).title), action: 'maritime' });
     }
   });
   const unique = [...new Map(pending.map(item => [item.key, item])).values()];
@@ -540,7 +540,7 @@ function renderPlannerDayAgenda(spots) {
   const readiness = getPlannerDayReadiness(spots);
   const readinessHtml = readiness.ready
     ? `<div class="mb-3 flex items-center gap-2 rounded-xl bg-secondary/10 px-3 py-2 text-[11px] font-bold text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span><span>${t('plannerReadyDay')}</span></div>`
-    : `<div class="mb-3 rounded-xl border border-tertiary/20 bg-tertiary/5 px-3 py-2"><div class="mb-1 flex items-center gap-1.5 text-[11px] font-extrabold text-tertiary"><span class="material-symbols-outlined text-[16px]">pending_actions</span><span>${t('plannerReadyPendingTitle')}</span></div><ul class="space-y-0.5 text-[11px] text-on-surface-variant">${readiness.pending.map(item => `<li>• ${item.label}</li>`).join('')}</ul></div>`;
+    : `<div class="mb-3 rounded-xl border border-tertiary/20 bg-tertiary/5 px-3 py-2"><div class="mb-1 flex items-center gap-1.5 text-[11px] font-extrabold text-tertiary"><span class="material-symbols-outlined text-[16px]">pending_actions</span><span>${t('plannerReadyPendingTitle')}</span></div><ul class="space-y-1 text-[11px] text-on-surface-variant">${readiness.pending.map(item => `<li><button type="button" onclick="plannerResolvePending('${item.action}')" class="group flex w-full items-start justify-between gap-2 rounded-lg px-1 py-1 text-left hover:bg-white/70"><span>• ${item.label}</span><span class="shrink-0 font-bold text-primary group-hover:underline">${t('plannerReadyResolve')}</span></button></li>`).join('')}</ul></div>`;
   const stopRows = spots.map((spot, index) => {
     const tr = getSpotTranslation(spot);
     const access = resolvePlannerAccess(spot, plannerTravelMode);
@@ -765,6 +765,23 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
           <ul class="text-xs text-primary divide-y divide-black/5">${specialRows}</ul>
         </div>` : ''}
     </div>`;
+}
+
+function plannerResolvePending(action) {
+  if (action === 'origin') {
+    plannerStartOriginPick();
+    requestAnimationFrame(() => {
+      const map = document.getElementById('planner-map');
+      if (map) map.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+    return;
+  }
+  if (action === 'maritime') {
+    requestAnimationFrame(() => {
+      const target = document.getElementById('planner-maritime-options') || document.getElementById('planner-nautical-options');
+      if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
 }
 
 function plannerStartOriginPick() {
