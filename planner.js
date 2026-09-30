@@ -207,6 +207,8 @@ let activeTripDay = 1;
 let plannerMap = null;
 let plannerMapMarkers = [];
 let plannerOrigin = null;
+let tripDayOrigins = {};
+let tripDayReturnToOrigin = {};
 let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
@@ -229,6 +231,15 @@ function initPlanner() {
     tripDays = savedDays && typeof savedDays === 'object' && !Array.isArray(savedDays) ? savedDays : {};
   } catch(e) {
     tripDays = {};
+  }
+  try {
+    const savedOrigins = JSON.parse(localStorage.getItem('ilhabela_trip_origins') || '{}');
+    tripDayOrigins = savedOrigins && typeof savedOrigins === 'object' && !Array.isArray(savedOrigins) ? savedOrigins : {};
+    const savedReturns = JSON.parse(localStorage.getItem('ilhabela_trip_returns') || '{}');
+    tripDayReturnToOrigin = savedReturns && typeof savedReturns === 'object' && !Array.isArray(savedReturns) ? savedReturns : {};
+  } catch(e) {
+    tripDayOrigins = {};
+    tripDayReturnToOrigin = {};
   }
   const validSpotIds = new Set(touristSpots.map(spot => spot.id));
   const validSelection = tripSelection.filter(id => validSpotIds.has(id));
@@ -271,8 +282,30 @@ function setSpotTripDay(id, day) {
   renderSummary();
 }
 
+function getActiveDayOrigin() {
+  const origin = tripDayOrigins[activeTripDay];
+  return Array.isArray(origin) && origin.length === 2 ? origin : null;
+}
+
+function saveActiveDayOrigin(coords) {
+  if (coords) tripDayOrigins[activeTripDay] = coords;
+  else delete tripDayOrigins[activeTripDay];
+  localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
+  plannerOrigin = coords || null;
+  invalidatePlannerRoute();
+  renderSummary();
+}
+
+function setActiveDayReturn(enabled) {
+  tripDayReturnToOrigin[activeTripDay] = !!enabled;
+  localStorage.setItem('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
+  invalidatePlannerRoute();
+  renderSummary();
+}
+
 function setActiveTripDay(day) {
   activeTripDay = Math.max(1, parseInt(day, 10) || 1);
+  plannerOrigin = getActiveDayOrigin();
   invalidatePlannerRoute();
   renderSummary();
 }
@@ -484,6 +517,7 @@ function renderSummary() {
   const allSelectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
   const maxTripDay = Math.max(1, ...allSelectedSpots.map(spot => getSpotTripDay(spot.id)));
   if (activeTripDay > maxTripDay) activeTripDay = maxTripDay;
+  plannerOrigin = getActiveDayOrigin();
   const selectedSpots = getActiveTripSpots();
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
@@ -638,8 +672,13 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
         <div class="flex flex-wrap gap-2">
           <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
-            <span id="planner-location-label">${plannerOrigin ? t('plannerLocationReady') : t('plannerUseLocation')}</span>
+            <span id="planner-location-label">${plannerOrigin ? 'Origem do Dia ' + activeTripDay + ' definida' : t('plannerUseLocation')}</span>
           </button>
+          ${plannerOrigin ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">Limpar origem</button>
+          <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
+            <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
+            Retornar à origem
+          </label>` : ''}
           <button type="button" onclick="plannerOptimizeRoute()" ${roadSpots.length >= 2 ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-secondary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
             ${plannerOptimizedRoute ? t('plannerOptimized') : t('plannerOptimize')}
           </button>
@@ -658,9 +697,7 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
 
 function plannerUseMyLocation() {
   if (typeof lastUserLocation !== 'undefined' && lastUserLocation) {
-    plannerOrigin = [lastUserLocation.lat, lastUserLocation.lng];
-    invalidatePlannerRoute();
-    renderSummary();
+    saveActiveDayOrigin([lastUserLocation.lat, lastUserLocation.lng]);
     return;
   }
   if (!navigator.geolocation) {
@@ -668,9 +705,7 @@ function plannerUseMyLocation() {
     return;
   }
   navigator.geolocation.getCurrentPosition(position => {
-    plannerOrigin = [position.coords.latitude, position.coords.longitude];
-    invalidatePlannerRoute();
-    renderSummary();
+    saveActiveDayOrigin([position.coords.latitude, position.coords.longitude]);
   }, () => alert(t('plannerLocationDenied')), {
     enableHighAccuracy: true,
     timeout: 10000,
@@ -702,6 +737,7 @@ async function plannerOptimizeRoute() {
   const locations = [];
   if (plannerOrigin) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
   roadSpots.forEach(spot => { const coords = resolvePlannerAccess(spot, plannerTravelMode).coords; locations.push({ lat: coords[0], lon: coords[1], type: 'break' }); });
+  if (plannerOrigin && tripDayReturnToOrigin[activeTripDay]) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
 
   try {
     const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
@@ -722,8 +758,9 @@ async function plannerOptimizeRoute() {
       .map(location => Number(location.original_index))
       .filter(Number.isFinite);
     const originOffset = plannerOrigin ? 1 : 0;
+    const returnOffset = plannerOrigin && tripDayReturnToOrigin[activeTripDay] ? 1 : 0;
     const orderedIds = orderedOriginalIndexes
-      .filter(index => index >= originOffset)
+      .filter(index => index >= originOffset && index < originOffset + roadSpots.length)
       .map(index => roadSpots[index - originOffset]?.id)
       .filter(Boolean);
     if (orderedIds.length !== roadSpots.length) throw new Error('Incomplete optimized order');
@@ -768,8 +805,14 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
     if (previousAccess) params.set('origin', previousAccess.coords.join(','));
   }
   const points = segmentSpots.map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords.join(','));
-  params.set('destination', points[points.length - 1]);
-  if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
+  const isFinalSegment = (segmentIndex + 1) * 4 >= roadSpots.length;
+  if (plannerOrigin && tripDayReturnToOrigin[activeTripDay] && isFinalSegment) {
+    params.set('destination', plannerOrigin.join(','));
+    params.set('waypoints', points.join('|'));
+  } else {
+    params.set('destination', points[points.length - 1]);
+    if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
+  }
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
 }
 
