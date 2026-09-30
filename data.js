@@ -1,4 +1,25 @@
-// Attraction facts and localized content. Keep every supported language complete.
+// Reusable access transition points. Coordinates are maintained separately from attraction coordinates.
+const routingGateways = [
+  {
+    "id": "sepituba-trailhead",
+    "name": "Ponta da Sepituba — início da trilha do Bonete",
+    "coords": [-23.936275064037446, -45.42730164154816],
+    "modes": ["road", "trail"]
+  },
+  {
+    "id": "castelhanos-park-entrance",
+    "name": "Entrada/guardhouse do Parque Estadual — Castelhanos",
+    "coords": [-23.839249751545807, -45.36002116037754],
+    "modes": ["road", "4x4"]
+  },
+  {
+    "id": "praia-do-juliao-access",
+    "name": "Acesso à Praia do Julião",
+    "coords": [-23.853583875006763, -45.41239561211879],
+    "modes": ["road", "walk"]
+  }
+];
+
 const touristSpots = [
   {
     "id": "praia-do-bonete",
@@ -24,7 +45,26 @@ const touristSpots = [
       "isFamily": false,
       "isSurf": true,
       "is4x4": false
+    },"routing": {
+      "modes": [
+        "trail",
+        "boat"
+      ],
+      "primaryMode": "trail",
+      "gatewayId": "sepituba-trailhead",
+      "alternatives": [
+        {
+          "mode": "boat",
+          "gatewayId": null
+        }
+      ],
+      "finalSegment": {
+        "mode": "trail",
+        "distanceMeters": 12000,
+        "durationMinutes": null
+      }
     },
+
     "specs": {
       "difficulty": "moderate",
       "distance": "12 km (trilha)",
@@ -165,7 +205,26 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": true,
       "is4x4": true
+    },"routing": {
+      "modes": [
+        "4x4",
+        "boat"
+      ],
+      "primaryMode": "4x4",
+      "gatewayId": "castelhanos-park-entrance",
+      "alternatives": [
+        {
+          "mode": "boat",
+          "gatewayId": null
+        }
+      ],
+      "finalSegment": {
+        "mode": "4x4",
+        "distanceMeters": null,
+        "durationMinutes": null
+      }
     },
+
     "specs": {
       "difficulty": "moderate",
       "distance": "22 km de travessia off-road",
@@ -446,7 +505,21 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": false,
       "is4x4": false
+    },"routing": {
+      "modes": [
+        "road",
+        "walk"
+      ],
+      "primaryMode": "road",
+      "gatewayId": "praia-do-juliao-access",
+      "alternatives": [],
+      "finalSegment": {
+        "mode": "walk",
+        "distanceMeters": 300,
+        "durationMinutes": 5
+      }
     },
+
     "specs": {
       "difficulty": "easy",
       "distance": "300m a pé da estrada",
