@@ -758,7 +758,6 @@ async function plannerOptimizeRoute() {
       .map(location => Number(location.original_index))
       .filter(Number.isFinite);
     const originOffset = plannerOrigin ? 1 : 0;
-    const returnOffset = plannerOrigin && tripDayReturnToOrigin[activeTripDay] ? 1 : 0;
     const orderedIds = orderedOriginalIndexes
       .filter(index => index >= originOffset && index < originOffset + roadSpots.length)
       .map(index => roadSpots[index - originOffset]?.id)
@@ -877,7 +876,7 @@ function initPlannerMap() {
     plannerOptimizedRoute.shape.forEach(coord => bounds.extend(coord));
   }
   if (plannerOrigin) {
-    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerLocationReady'));
+    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup('Origem do Dia ' + activeTripDay);
     bounds.extend(plannerOrigin);
   }
   if (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length) {
