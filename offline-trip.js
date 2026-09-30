@@ -57,7 +57,7 @@ async function buildOfflineTrip(spots) {
     const daySpots = spots.filter(spot => getSpotTripDay(spot.id) === day);
     const origin = tripDayOrigins?.[day];
     const returnToOrigin = !!tripDayReturnToOrigin?.[day];
-    const nextSpot = daySpots.find(spot => !tripCompletedStops?.[spot.id]) || null;
+    const nextSpot = daySpots.find(spot => !isPlannerStopCompleted(spot.id, day)) || null;
     const articles = [];
     for (const spot of daySpots) {
       const tr = getSpotTranslation(spot);
@@ -66,7 +66,7 @@ async function buildOfflineTrip(spots) {
       const image = await getOfflineImage(spot);
       const imageHtml = image ? `<img alt="${esc(tr.title)}" src="${image}">` : `<p class="muted">${esc(copy.imageMissing)}</p>`;
       const accessHtml = notice ? `<p><strong>${esc(copy.access)}:</strong> ${esc(notice)}</p>` : '';
-      const completed = !!tripCompletedStops?.[spot.id];
+      const completed = isPlannerStopCompleted(spot.id, day);
       const isNext = nextSpot?.id === spot.id;
       const progressLabel = completed ? copy.completed : isNext ? copy.next : copy.pending;
       articles.push(`<article class="${completed ? 'completed' : isNext ? 'next' : ''}"><p class="status"><strong>${esc(progressLabel)}</strong></p><h3>${esc(tr.title)}</h3><p>${esc(tr.subtitle)}</p>${imageHtml}<p>${esc(tr.description)}</p>${accessHtml}<p>${esc(spot.coords.join(', '))}${access?.finalMode ? ' ← ' + esc(access.coords.join(', ')) : ''}</p><dl>${Object.entries(tr.specs || {}).map(([key,value]) => `<dt>${esc(specLabels[key] || key)}</dt><dd>${esc(value)}</dd>`).join('')}</dl><p>${esc(tr.ecoTip)}</p></article>`);
