@@ -1847,7 +1847,7 @@ const attractionRoutingMetadata = {
   'cachoeira-do-veloso': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-gato': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-dos-tres-tombos': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
+  'cachoeira-dos-tres-tombos': { modes: ['road', 'walk'], roadRoutable: false, specialAccess: true },
   'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'poco-do-furado': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-baepi': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
@@ -1950,6 +1950,11 @@ const structuredRoutingMetadata = {
     modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'baepi-trailhead',
     roadRoutable: false, specialAccess: true,
     alternatives: [], finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
+  },
+  'cachoeira-dos-tres-tombos': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'cachoeira-dos-tres-tombos-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: 400, durationMinutes: 10 }
   }
 };
 
