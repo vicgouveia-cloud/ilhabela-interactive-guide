@@ -502,6 +502,14 @@ function initFilterCarousel() {
 }
 
 // --- FILTERING LOGIC ---
+function normalizeSearchText(value) {
+  return String(value || '')
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .trim();
+}
+
 function getFilteredSpots() {
   return touristSpots.filter(spot => {
     if (favoritesOnly && !savedFavorites.has(spot.id)) return false;
@@ -517,12 +525,12 @@ function getFilteredSpots() {
 
     // Search query filter
     if (searchQuery.trim()) {
-      const q = searchQuery.toLowerCase().trim();
+      const q = normalizeSearchText(searchQuery);
       const tr = getSpotTranslation(spot);
-      const matchTitle = tr.title && tr.title.toLowerCase().includes(q);
-      const matchSub = tr.subtitle && tr.subtitle.toLowerCase().includes(q);
-      const matchDesc = tr.description && tr.description.toLowerCase().includes(q);
-      const matchTags = [...tr.highlights, ...spot.tags].some(tag => tag.toLowerCase().includes(q));
+      const matchTitle = normalizeSearchText(tr.title).includes(q);
+      const matchSub = normalizeSearchText(tr.subtitle).includes(q);
+      const matchDesc = normalizeSearchText(tr.description).includes(q);
+      const matchTags = [...(tr.highlights || []), ...(spot.tags || [])].some(tag => normalizeSearchText(tag).includes(q));
       if (!matchTitle && !matchSub && !matchDesc && !matchTags) {
         return false;
       }
