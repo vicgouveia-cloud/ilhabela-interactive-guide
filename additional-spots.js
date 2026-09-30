@@ -1129,6 +1129,19 @@ const additionalTouristSpots = [
     }
   },
   {
+    "id": "praia-do-barreiros", "category": "praias", "coords": [-23.763613314178436, -45.34924803610072], "rating": null, "reviews": 0,
+    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Norte","Praia urbana","Acesso a pé"],
+    "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
+    "specs": {"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"},
+    "translations": {
+      "pt": {"title":"Praia do Barreiros","subtitle":"Pequena praia ao norte da Vila, com acesso final a pé","description":"Praia na região dos Barreiros, ao norte da Vila. Para quem chega por terra, a navegação termina no acesso próximo e o pequeno trecho final até a areia é feito a pé.","highlights":["Região dos Barreiros","Praia pequena","Acesso final a pé","Norte de Ilhabela"],"ecoTip":"Leve seus resíduos de volta e preserve a praia e o entorno.","specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"}},
+      "en": {"title":"Barreiros Beach","subtitle":"Small beach north of Vila with final access on foot","description":"A beach in the Barreiros area, north of Vila. By land, navigation ends at the nearby access point and the short final section to the sand is on foot.","highlights":["Barreiros area","Small beach","Final access on foot","Northern Ilhabela"],"ecoTip":"Take all waste back with you and help preserve the beach and surroundings.","specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"Sea level","access":"Nearby road access followed by a short walk","sea":"Sheltered beach; conditions vary","structure":"Nearby urban area"}},
+      "fr": {"title":"Plage de Barreiros","subtitle":"Petite plage au nord de Vila avec accès final à pied","description":"Plage située dans le secteur de Barreiros, au nord de Vila. Par voie terrestre, la navigation se termine au point d’accès voisin et le court tronçon final jusqu’au sable se fait à pied.","highlights":["Secteur de Barreiros","Petite plage","Accès final à pied","Nord d’Ilhabela"],"ecoTip":"Remportez vos déchets et préservez la plage et ses alentours.","specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"Niveau de la mer","access":"Accès routier proche puis courte marche","sea":"Plage abritée ; conditions variables","structure":"Zone urbaine à proximité"}},
+      "es": {"title":"Playa de Barreiros","subtitle":"Pequeña playa al norte de Vila con acceso final a pie","description":"Playa situada en la zona de Barreiros, al norte de Vila. Por tierra, la navegación termina en el acceso cercano y el corto tramo final hasta la arena se hace a pie.","highlights":["Zona de Barreiros","Playa pequeña","Acceso final a pie","Norte de Ilhabela"],"ecoTip":"Lleva tus residuos de regreso y ayuda a preservar la playa y sus alrededores.","specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"Nivel del mar","access":"Acceso vial cercano seguido de una caminata corta","sea":"Playa resguardada; las condiciones varían","structure":"Zona urbana cercana"}},
+      "he": {"title":"Praia do Barreiros","subtitle":"חוף קטן מצפון ל-Vila עם קטע גישה סופי ברגל","description":"חוף באזור Barreiros, מצפון ל-Vila. בהגעה יבשתית הניווט מסתיים בנקודת הגישה הסמוכה, והקטע הקצר האחרון עד החול נעשה ברגל.","highlights":["אזור Barreiros","חוף קטן","גישה סופית ברגל","צפון Ilhabela"],"ecoTip":"קחו את הפסולת איתכם ושמרו על החוף וסביבתו.","specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"גובה פני הים","access":"גישה קרובה בכביש ולאחריה הליכה קצרה","sea":"חוף מוגן; התנאים משתנים","structure":"אזור עירוני סמוך"}}
+    }
+  },
+  {
     "id": "praia-de-santa-tereza", "category": "praias", "coords": [-23.77123434757364, -45.35217443447375], "rating": null, "reviews": 0,
     "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Norte","Praia urbana","Acesso a pé"],
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
@@ -1839,6 +1852,7 @@ const attractionRoutingMetadata = {
   'poco-do-furado': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-baepi': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-morro-da-cruz': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'praia-do-barreiros': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'mirante-dos-barreiros': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'cachoeira-do-poco-fundo': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-da-agua-branca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
