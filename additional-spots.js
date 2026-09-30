@@ -1972,9 +1972,21 @@ touristSpots.forEach(spot => {
         finalSegment: null
       }
     : {};
+  const singleModeSpecialRouting = legacyRouting.specialAccess === true &&
+    legacyRouting.roadRoutable === false &&
+    legacyRouting.modes?.length === 1 &&
+    legacyRouting.modes[0] !== 'unknown'
+    ? {
+        primaryMode: legacyRouting.modes[0],
+        gatewayId: null,
+        alternatives: [],
+        finalSegment: null
+      }
+    : {};
   spot.routing = {
     ...legacyRouting,
     ...directRoadRouting,
+    ...singleModeSpecialRouting,
     ...(structuredRoutingMetadata[spot.id] || {}),
     ...(spot.routing || {})
   };
