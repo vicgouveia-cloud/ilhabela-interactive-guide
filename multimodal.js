@@ -91,6 +91,7 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
+  plannerVisitNext: "Próxima parada", plannerVisitMarkDone: "Marcar como concluída", plannerVisitUndo: "Desfazer última", plannerVisitDayComplete: "Dia concluído", plannerVisitDayCompleteHint: "Todas as paradas deste dia foram marcadas como concluídas.",
   plannerReadyResolve: "Resolver",
   plannerReadyDay: "Dia sem pendências conhecidas no guia", plannerReadyPendingTitle: "Antes de sair", plannerReadyOriginPending: "Defina a origem deste dia.", plannerReadyBoatPending: "Confirme o embarque por barco para {destination}.", plannerReadyMeetingPending: "Confirme o ponto de encontro para {destination}.",
   plannerAgendaTitle: "Agenda do Dia {n}", plannerAgendaHint: "Sequência planejada do início ao retorno.", plannerAgendaStart: "Início do dia", plannerAgendaOriginPending: "Origem ainda não definida", plannerAgendaReturn: "Retorno", plannerAgendaReturnHint: "Voltar à origem definida para este dia.",
@@ -113,6 +114,7 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
+  plannerVisitNext: "Next stop", plannerVisitMarkDone: "Mark as completed", plannerVisitUndo: "Undo last", plannerVisitDayComplete: "Day completed", plannerVisitDayCompleteHint: "All stops for this day have been marked as completed.",
   plannerReadyResolve: "Resolve",
   plannerReadyDay: "No known pending items for this day", plannerReadyPendingTitle: "Before you go", plannerReadyOriginPending: "Set the origin for this day.", plannerReadyBoatPending: "Confirm boat boarding for {destination}.", plannerReadyMeetingPending: "Confirm the meeting point for {destination}.",
   plannerAgendaTitle: "Day {n} agenda", plannerAgendaHint: "Planned sequence from start to return.", plannerAgendaStart: "Start of day", plannerAgendaOriginPending: "Origin not set yet", plannerAgendaReturn: "Return", plannerAgendaReturnHint: "Return to the origin set for this day.",
@@ -135,6 +137,7 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
+  plannerVisitNext: "Prochaine étape", plannerVisitMarkDone: "Marquer comme terminée", plannerVisitUndo: "Annuler la dernière", plannerVisitDayComplete: "Journée terminée", plannerVisitDayCompleteHint: "Toutes les étapes de cette journée ont été marquées comme terminées.",
   plannerReadyResolve: "Résoudre",
   plannerReadyDay: "Aucune étape en attente connue pour cette journée", plannerReadyPendingTitle: "Avant de partir", plannerReadyOriginPending: "Définissez l’origine de cette journée.", plannerReadyBoatPending: "Confirmez l’embarquement en bateau pour {destination}.", plannerReadyMeetingPending: "Confirmez le point de rendez-vous pour {destination}.",
   plannerAgendaTitle: "Programme du Jour {n}", plannerAgendaHint: "Séquence prévue du départ au retour.", plannerAgendaStart: "Début de la journée", plannerAgendaOriginPending: "Origine pas encore définie", plannerAgendaReturn: "Retour", plannerAgendaReturnHint: "Retourner à l’origine définie pour cette journée.",
@@ -157,6 +160,7 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
+  plannerVisitNext: "Próxima parada", plannerVisitMarkDone: "Marcar como completada", plannerVisitUndo: "Deshacer última", plannerVisitDayComplete: "Día completado", plannerVisitDayCompleteHint: "Todas las paradas de este día fueron marcadas como completadas.",
   plannerReadyResolve: "Resolver",
   plannerReadyDay: "No hay pendientes conocidos para este día", plannerReadyPendingTitle: "Antes de salir", plannerReadyOriginPending: "Define el origen de este día.", plannerReadyBoatPending: "Confirma el embarque en barco para {destination}.", plannerReadyMeetingPending: "Confirma el punto de encuentro para {destination}.",
   plannerAgendaTitle: "Agenda del Día {n}", plannerAgendaHint: "Secuencia planificada desde el inicio hasta el regreso.", plannerAgendaStart: "Inicio del día", plannerAgendaOriginPending: "Origen aún no definido", plannerAgendaReturn: "Regreso", plannerAgendaReturnHint: "Volver al origen definido para este día.",
@@ -179,6 +183,7 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
+  plannerVisitNext: "התחנה הבאה", plannerVisitMarkDone: "סימון כהושלם", plannerVisitUndo: "ביטול האחרון", plannerVisitDayComplete: "היום הושלם", plannerVisitDayCompleteHint: "כל התחנות ליום זה סומנו כהושלמו.",
   plannerReadyResolve: "לטיפול",
   plannerReadyDay: "אין משימות ידועות שממתינות ליום זה", plannerReadyPendingTitle: "לפני היציאה", plannerReadyOriginPending: "הגדירו נקודת מוצא ליום זה.", plannerReadyBoatPending: "אשרו את נקודת העלייה לסירה עבור {destination}.", plannerReadyMeetingPending: "אשרו את נקודת המפגש עבור {destination}.",
   plannerAgendaTitle: "תוכנית ליום {n}", plannerAgendaHint: "רצף מתוכנן מתחילת היום ועד החזרה.", plannerAgendaStart: "תחילת היום", plannerAgendaOriginPending: "נקודת המוצא טרם הוגדרה", plannerAgendaReturn: "חזרה", plannerAgendaReturnHint: "חזרה לנקודת המוצא שהוגדרה ליום זה.",
