@@ -1123,12 +1123,12 @@ function populateBookingGuides() {
   if (!select) return;
 
   const selected = select.value;
-  select.innerHTML = guidesData.filter(g => g.pricePerDay).map(g => `
+  select.innerHTML = guidesData.map(g => `
     <option value="${g.id}">
-      ${g.name} • ${t(g.specialtyKey)} (R$ ${g.pricePerDay}${t('guidePricePerDay')})
+      ${g.name}${Number.isFinite(Number(g.pricePerDay)) ? ` • ${t(g.specialtyKey)} (R$ ${g.pricePerDay}${t('guidePricePerDay')})` : ''}
     </option>
   `).join('');
-  if (selected) select.value = selected;
+  if (selected && guidesData.some(g => g.id === selected)) select.value = selected;
 }
 
 function openBookingModal(guideId = null) {
@@ -1174,6 +1174,12 @@ function updateBookingEstimate() {
   if (!guideSelect || !shiftSelect || !participantsInput || !priceDisplay) return;
 
   const guide = guidesData.find(g => g.id === guideSelect.value) || guidesData[0];
+  const basePrice = Number(guide?.pricePerDay);
+  if (!Number.isFinite(basePrice)) {
+    priceDisplay.innerText = 'A confirmar';
+    return;
+  }
+
   const participants = parseInt(participantsInput.value, 10) || 1;
   const shift = shiftSelect.value;
 
@@ -1181,7 +1187,7 @@ function updateBookingEstimate() {
   if (shift === 'Dia Inteiro') multiplier = 1.4;
   if (participants > 4) multiplier += (participants - 4) * 0.15;
 
-  const estimated = Math.round(guide.pricePerDay * multiplier);
+  const estimated = Math.round(basePrice * multiplier);
   priceDisplay.innerText = `R$ ${estimated},00`;
 }
 
