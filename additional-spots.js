@@ -1880,6 +1880,44 @@ const attractionRoutingMetadata = {
   'praia-do-portinho': { modes: ['road'], roadRoutable: true, specialAccess: false }
 };
 
+const structuredRoutingMetadata = {
+  'praia-da-feiticeira': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-da-feiticeira-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-da-pacuiba': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-da-pacuiba-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-da-ponta-azeda': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-da-ponta-azeda-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-do-pinto': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-do-pinto-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-do-jabaquara': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-do-jabaquara-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-do-barreiros': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-do-barreiros-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'praia-de-santa-tereza': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-de-santa-tereza-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  }
+};
+
 touristSpots.forEach(spot => {
   const legacyRouting = attractionRoutingMetadata[spot.id] || {
     modes: ['unknown'],
@@ -1888,6 +1926,7 @@ touristSpots.forEach(spot => {
   };
   spot.routing = {
     ...legacyRouting,
+    ...(structuredRoutingMetadata[spot.id] || {}),
     ...(spot.routing || {})
   };
 });
