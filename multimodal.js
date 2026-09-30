@@ -22,7 +22,7 @@ const castelhanosParkGateway = [-23.839249751545807, -45.36002116037754];
 touristSpots.forEach(spot => {
   const coords = roadWalkingGateways[spot.id];
   spot.routing.accessOptions = coords ? [{
-    id: 'road-walk', mode: 'trail', approachModes: ['auto', 'bicycle'],
+    id: 'road-walk', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'],
     gateway: { coords, verified: true, source: 'user:2026-09-24' },
     finalMode: 'pedestrian'
   }] : spot.routing.modes.map(mode => ({
@@ -31,7 +31,7 @@ touristSpots.forEach(spot => {
   if (spot.id === 'praia-do-bonete') {
     // Sepituba is the verified road gateway for the trail. Boat embarkation stays independent.
     spot.routing.accessOptions = [
-      { id: 'road-trail', mode: 'trail', approachModes: ['auto', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'user:2026-09-24' }, finalMode: 'trail' },
+      { id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'user:2026-09-24' }, finalMode: 'trail' },
       { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
     ];
   }
