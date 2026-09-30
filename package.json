@@ -2,10 +2,12 @@
   "name": "ilhabela-interactive-guide",
   "private": true,
   "scripts": {
-    "test": "node tests/audit-i18n.cjs && playwright test",
+    "test": "node tests/audit-i18n.cjs && node tests/audit-attraction-pages.cjs && playwright test",
     "test:audit": "node tests/audit-i18n.cjs",
     "test:e2e": "playwright test",
-    "dev": "node tests/server.cjs"
+    "dev": "node tests/server.cjs",
+    "build:attractions": "node scripts/generate-attraction-pages.cjs",
+    "test:seo": "node tests/audit-attraction-pages.cjs"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",
