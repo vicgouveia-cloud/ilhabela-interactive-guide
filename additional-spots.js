@@ -1915,6 +1915,41 @@ const structuredRoutingMetadata = {
     modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-de-santa-tereza-access',
     roadRoutable: false, specialAccess: true,
     alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'cachoeira-da-toca': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'cachoeira-da-toca-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: 100, durationMinutes: 5 }
+  },
+  'cachoeira-do-veloso': {
+    modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'cachoeira-do-veloso-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: 1000, durationMinutes: 25 }
+  },
+  'cachoeira-do-paqueta': {
+    modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'cachoeira-do-paqueta-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: 1200, durationMinutes: 30 }
+  },
+  'cachoeira-da-laje': {
+    modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'sepituba-trailhead',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: 3500, durationMinutes: 60 }
+  },
+  'poco-do-furado': {
+    modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'parque-municipal-das-cachoeiras-access',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'walk', distanceMeters: null, durationMinutes: null }
+  },
+  'mirante-do-baepi': {
+    modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'baepi-trailhead',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: 400, durationMinutes: null }
+  },
+  'pico-do-baepi': {
+    modes: ['road', 'trail'], primaryMode: 'road', gatewayId: 'baepi-trailhead',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
   }
 };
 
