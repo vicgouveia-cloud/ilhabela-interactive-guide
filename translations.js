@@ -2,6 +2,9 @@
 const translations = {
   "pt": {
     "navServices": "Serviços",
+    "homeExplorePlaces": "Explorar lugares",
+    "homeContinueTrip": "Continuar minha viagem",
+    "homeTripCount": "{n} lugares na sua viagem",
     "attractionPageLink": "Ver página desta atração",
     "servicesViewAll": "Ver todos os serviços",
     "servicesBadge": "Serviços úteis",
@@ -165,6 +168,9 @@ const translations = {
   },
   "en": {
     "navServices": "Services",
+    "homeExplorePlaces": "Explore places",
+    "homeContinueTrip": "Continue my trip",
+    "homeTripCount": "{n} places in your trip",
     "attractionPageLink": "View attraction page",
     "servicesViewAll": "View all services",
     "servicesBadge": "Useful services",
@@ -328,6 +334,9 @@ const translations = {
   },
   "fr": {
     "navServices": "Services",
+    "homeExplorePlaces": "Explorer les lieux",
+    "homeContinueTrip": "Continuer mon voyage",
+    "homeTripCount": "{n} lieux dans votre voyage",
     "attractionPageLink": "Voir la page de cette attraction",
     "servicesViewAll": "Voir tous les services",
     "servicesBadge": "Services utiles",
@@ -491,6 +500,9 @@ const translations = {
   },
   "es": {
     "navServices": "Servicios",
+    "homeExplorePlaces": "Explorar lugares",
+    "homeContinueTrip": "Continuar mi viaje",
+    "homeTripCount": "{n} lugares en tu viaje",
     "attractionPageLink": "Ver página de esta atracción",
     "servicesViewAll": "Ver todos los servicios",
     "servicesBadge": "Servicios útiles",
@@ -654,6 +666,9 @@ const translations = {
   },
   "he": {
     "navServices": "שירותים",
+    "homeExplorePlaces": "גלו מקומות",
+    "homeContinueTrip": "המשך הטיול שלי",
+    "homeTripCount": "{n} מקומות בטיול שלך",
     "attractionPageLink": "צפייה בעמוד האטרקציה",
     "servicesViewAll": "הצג את כל השירותים",
     "servicesBadge": "שירותים שימושיים",
