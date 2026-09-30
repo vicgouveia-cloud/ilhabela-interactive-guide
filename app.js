@@ -537,8 +537,6 @@ function getFilteredSpots() {
 
 function filterCategory(cat) {
   currentCategory = cat;
-  favoritesOnly = false;
-  
   // Update category pill styles
   document.querySelectorAll('.cat-pill').forEach(btn => {
     const isCat = btn.getAttribute('data-cat') === cat;
