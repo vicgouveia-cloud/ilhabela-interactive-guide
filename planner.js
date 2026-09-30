@@ -1068,4 +1068,15 @@ function getPlannerMapMarkerContext(spot) {
 // Hook into app load
 document.addEventListener('DOMContentLoaded', () => {
   initPlanner();
+  const params = new URLSearchParams(window.location.search);
+  const requestedSpotId = params.get('spot');
+  if (params.get('add') === 'trip' && requestedSpotId && touristSpots.some(spot => spot.id === requestedSpotId)) {
+    if (!isSpotInTrip(requestedSpotId)) toggleSpotInTrip(requestedSpotId);
+    params.delete('add');
+    const nextUrl = window.location.pathname + (params.toString() ? '?' + params.toString() : '') + window.location.hash;
+    window.history.replaceState(window.history.state, '', nextUrl);
+  }
+  if (params.get('view') === 'trip') {
+    requestAnimationFrame(() => openPlannerSummary());
+  }
 });
