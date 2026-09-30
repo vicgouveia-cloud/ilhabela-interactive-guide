@@ -89,6 +89,12 @@ const routingGateways = [
     "name": "Início da Trilha do Baepi",
     "coords": [-23.802132860104887, -45.35514446231041],
     "modes": ["road", "trail"]
+  },
+  {
+    "id": "cachoeira-dos-tres-tombos-access",
+    "name": "Estacionamento / início da trilha da Cachoeira dos Três Tombos",
+    "coords": [-23.854116510544785, -45.405701165557744],
+    "modes": ["road", "walk"]
   }
 ];
 
