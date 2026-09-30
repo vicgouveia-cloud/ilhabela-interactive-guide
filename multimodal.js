@@ -2,6 +2,24 @@
 const getRoutingGateway = gatewayId => routingGateways.find(gateway => gateway.id === gatewayId) || null;
 const boneteTrailGateway = getRoutingGateway('sepituba-trailhead')?.coords;
 touristSpots.forEach(spot => {
+  const structuredAccessOptions = Array.isArray(spot.routing?.accessOptions) ? spot.routing.accessOptions : null;
+  if (structuredAccessOptions?.length) {
+    spot.routing.accessOptions = structuredAccessOptions.map(option => {
+      const gateway = option.gatewayId ? getRoutingGateway(option.gatewayId) : null;
+      const coords = option.destinationDirect ? spot.coords : (gateway?.coords || null);
+      return {
+        ...option,
+        gateway: coords ? {
+          name: gateway?.name || null,
+          coords,
+          verified: true,
+          source: option.destinationDirect ? 'destination' : 'data:routingGateways'
+        } : null
+      };
+    });
+    return;
+  }
+
   const structuredGateway = spot.routing?.gatewayId ? getRoutingGateway(spot.routing.gatewayId) : null;
   const coords = structuredGateway?.coords || null;
   const structuredFinalMode = spot.routing?.finalSegment?.mode || null;
@@ -10,6 +28,8 @@ touristSpots.forEach(spot => {
     id: 'road-walk',
     mode: structuredFinalMode || 'trail',
     approachModes: ['auto', '4x4', 'bicycle'],
+    gatewayId: spot.routing.gatewayId,
+    destinationDirect: false,
     gateway: {
       name: structuredGateway?.name || null,
       coords,
@@ -18,23 +38,14 @@ touristSpots.forEach(spot => {
     },
     finalMode
   }] : spot.routing.modes.map(mode => ({
-    id: mode, mode, gateway: null, approachModes: [], finalMode: mode
+    id: mode,
+    mode,
+    gatewayId: null,
+    destinationDirect: false,
+    gateway: null,
+    approachModes: [],
+    finalMode: mode
   }));
-  if (spot.id === 'praia-do-bonete') {
-    // Sepituba is the verified road gateway for the trail. Boat embarkation stays independent.
-    spot.routing.accessOptions = [
-      { id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle'], gateway: { name: 'Ponta da Sepituba', coords: boneteTrailGateway, verified: true, source: 'data:routingGateways' }, finalMode: 'trail' },
-      { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
-    ];
-  }
-  if (spot.id === 'baia-de-castelhanos') {
-    // Common cars stop at the verified park gate. A 4x4 may continue to the attraction.
-    spot.routing.accessOptions = [
-      { id: 'common-car', mode: 'road', approachModes: ['auto'], gateway: { name: 'Entrada do Parque', coords: routingGateways.find(g => g.id === 'castelhanos-park-entrance')?.coords, verified: true, source: 'data:routingGateways' }, finalMode: '4x4', vehicleRequirement: '4x4-after-gateway' },
-      { id: 'own-4x4', mode: '4x4', approachModes: ['4x4'], gateway: { coords: spot.coords, verified: true, source: 'destination' }, finalMode: null, vehicleRequirement: '4x4' },
-      { id: 'boat', mode: 'boat', approachModes: [], gateway: null, finalMode: 'boat' }
-    ];
-  }
 });
 
 function resolvePlannerAccess(spot, mode) {
