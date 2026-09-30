@@ -10,7 +10,7 @@ for (const spot of spots) {
   const file = path.join(ROOT,'lugares',spot.id,'index.html');
   if (!fs.existsSync(file)) { failures.push(`${spot.id}: página ausente`); continue; }
   const html = fs.readFileSync(file,'utf8');
-  for (const needle of ['<meta name="description"', '<link rel="canonical"', 'property="og:title"', '"@type":"TouristAttraction"', `/?spot=${spot.id}`]) {
+  for (const needle of ['<meta name="description"', '<link rel="canonical"', 'property="og:title"', '"@type":"TouristAttraction"', `/?spot=${spot.id}`, `/?spot=${spot.id}&amp;add=trip`]) {
     if (!html.includes(needle)) failures.push(`${spot.id}: ausente ${needle}`);
   }
   if (/aggregateRating|reviewRating/.test(html)) failures.push(`${spot.id}: rating/review schema não autorizado`);
