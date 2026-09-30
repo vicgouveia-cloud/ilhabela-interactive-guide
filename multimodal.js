@@ -198,32 +198,18 @@ Object.assign(translations.he, {
   plannerContactProvider: "פנייה ב-WhatsApp", plannerProviderWebsite: "אתר הספק"
 });
 
-const maritimeRouteProfiles = {
-  'bonete': {
-    spotIds: ['praia-do-bonete'],
-    requiredMode: 'boat',
-    requiredActivity: 'boat-tour',
-    embarkation: null
-  },
-  'east-coast': {
-    spotIds: ['praia-da-fome', 'saco-do-eustaquio', 'baia-de-castelhanos'],
-    requiredMode: 'boat',
-    requiredActivity: 'boat-tour',
-    embarkation: null
-  },
-  'south-remote-coast': {
-    spotIds: ['praia-da-enchova', 'praia-de-indaiauba'],
-    requiredMode: 'boat',
-    requiredActivity: 'boat-tour',
-    embarkation: null
-  },
-  'north-remote-coast': {
-    spotIds: ['praia-do-poco'],
-    requiredMode: 'boat',
-    requiredActivity: 'boat-tour',
-    embarkation: null
-  }
-};
+const maritimeRouteProfiles = Object.fromEntries(
+  [...new Set(touristSpots.map(spot => spot.maritimeAccess?.profile).filter(Boolean))].map(profileId => {
+    const members = touristSpots.filter(spot => spot.maritimeAccess?.profile === profileId);
+    const sample = members[0]?.maritimeAccess;
+    return [profileId, {
+      spotIds: members.map(spot => spot.id),
+      requiredMode: sample?.requiredMode || null,
+      requiredActivity: sample?.requiredActivity || null,
+      embarkation: sample?.embarkation || null
+    }];
+  })
+);
 
 const nauticalExperienceProfiles = Object.fromEntries(
   [...new Set(touristSpots.map(spot => spot.experience?.type).filter(Boolean))].map(type => {
