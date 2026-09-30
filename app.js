@@ -64,6 +64,11 @@ document.addEventListener('DOMContentLoaded', () => {
   populateBookingGuides();
   initFilterCarousel();
 
+  const initialSpotId = new URLSearchParams(window.location.search).get('spot');
+  if (initialSpotId && touristSpots.some(spot => spot.id === initialSpotId)) {
+    openSpotModal(initialSpotId, { updateUrl: false });
+  }
+
   // Set default booking date to tomorrow
   const tomorrow = new Date();
   tomorrow.setDate(tomorrow.getDate() + 1);
@@ -785,11 +790,29 @@ function getSpotRoadNavigationCoords(spot) {
   return spot.routing?.roadRoutable === true ? spot.coords : null;
 }
 
-function openSpotModal(spotId) {
+function setSpotUrl(spotId, replace = false) {
+  const url = new URL(window.location.href);
+  if (spotId) url.searchParams.set('spot', spotId);
+  else url.searchParams.delete('spot');
+  const state = spotId ? { spotId } : {};
+  window.history[replace ? 'replaceState' : 'pushState'](state, '', url);
+}
+
+function toggleSpotTripFromModal(spotId) {
+  if (typeof toggleSpotInTrip !== 'function') return;
+  toggleSpotInTrip(spotId);
+  openSpotModal(spotId, { updateUrl: false });
+}
+
+function openSpotModal(spotId, options = {}) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
   hideMapQuickCard();
   selectedSpotId = spotId;
+  if (options.updateUrl !== false) {
+    const currentSpotId = new URLSearchParams(window.location.search).get('spot');
+    if (currentSpotId !== spotId) setSpotUrl(spotId);
+  }
 
   // Setup Gallery
   currentModalImages = (spot.images && spot.images.length > 0) ? spot.images : [spot.image];
@@ -803,6 +826,7 @@ function openSpotModal(spotId) {
   const diffClass = getDifficultyBadgeClass(spot.specs.difficulty);
   const diffLabel = t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`);
   const isFav = savedFavorites.has(spot.id);
+  const isInTrip = typeof isSpotInTrip === 'function' && isSpotInTrip(spot.id);
 
   content.innerHTML = `
     <!-- Modal Hero Gallery Slider -->
@@ -943,6 +967,10 @@ function openSpotModal(spotId) {
 
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
+      <button onclick="toggleSpotTripFromModal('${spot.id}')" class="flex-1 py-3.5 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+        <span class="material-symbols-outlined text-[18px]">${isInTrip ? "playlist_remove" : "playlist_add"}</span>
+        <span>${isInTrip ? "Remover da minha viagem" : "Adicionar à minha viagem"}</span>
+      </button>
       ${(() => {
         const navigationCoords = getSpotRoadNavigationCoords(spot);
         return navigationCoords ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${navigationCoords[0]},${navigationCoords[1]}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
@@ -996,14 +1024,27 @@ function nextModalImage(e) {
   setModalImage(currentModalImageIndex + 1);
 }
 
-function closeSpotModal() {
+function closeSpotModal(options = {}) {
+  const hadSpot = selectedSpotId;
   selectedSpotId = null;
+  if (hadSpot && options.updateUrl !== false && new URLSearchParams(window.location.search).has('spot')) {
+    setSpotUrl(null, true);
+  }
   const modal = document.getElementById('spot-modal');
   if (modal) {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
   }
 }
+
+window.addEventListener('popstate', () => {
+  const spotId = new URLSearchParams(window.location.search).get('spot');
+  if (spotId && touristSpots.some(spot => spot.id === spotId)) {
+    openSpotModal(spotId, { updateUrl: false });
+  } else if (selectedSpotId) {
+    closeSpotModal({ updateUrl: false });
+  }
+});
 
 // --- GLOBAL SERVICES DIRECTORY ---
 let currentServiceCategory = 'all';
