@@ -2,6 +2,10 @@
 const translations = {
   "pt": {
     "navServices": "Serviços",
+    "homeExploreModeTitle": "Explore do seu jeito",
+    "homeExploreModeHint": "Busque um lugar, filtre por experiência e escolha entre mapa e cartões.",
+    "homeGridTitle": "Lugares encontrados",
+    "homeGridHint": "Abra um cartão para ver detalhes, acesso e adicionar à sua viagem.",
     "homeExplorePlaces": "Explorar lugares",
     "homeContinueTrip": "Continuar minha viagem",
     "homeTripCount": "{n} lugares na sua viagem",
@@ -168,6 +172,10 @@ const translations = {
   },
   "en": {
     "navServices": "Services",
+    "homeExploreModeTitle": "Explore your way",
+    "homeExploreModeHint": "Search for a place, filter by experience and choose between map and cards.",
+    "homeGridTitle": "Places found",
+    "homeGridHint": "Open a card for details, access information and to add it to your trip.",
     "homeExplorePlaces": "Explore places",
     "homeContinueTrip": "Continue my trip",
     "homeTripCount": "{n} places in your trip",
@@ -334,6 +342,10 @@ const translations = {
   },
   "fr": {
     "navServices": "Services",
+    "homeExploreModeTitle": "Explorez à votre façon",
+    "homeExploreModeHint": "Recherchez un lieu, filtrez par expérience et choisissez entre carte et fiches.",
+    "homeGridTitle": "Lieux trouvés",
+    "homeGridHint": "Ouvrez une fiche pour voir les détails, l'accès et l'ajouter à votre voyage.",
     "homeExplorePlaces": "Explorer les lieux",
     "homeContinueTrip": "Continuer mon voyage",
     "homeTripCount": "{n} lieux dans votre voyage",
@@ -500,6 +512,10 @@ const translations = {
   },
   "es": {
     "navServices": "Servicios",
+    "homeExploreModeTitle": "Explora a tu manera",
+    "homeExploreModeHint": "Busca un lugar, filtra por experiencia y elige entre mapa y tarjetas.",
+    "homeGridTitle": "Lugares encontrados",
+    "homeGridHint": "Abre una tarjeta para ver detalles, acceso y añadirla a tu viaje.",
     "homeExplorePlaces": "Explorar lugares",
     "homeContinueTrip": "Continuar mi viaje",
     "homeTripCount": "{n} lugares en tu viaje",
@@ -666,6 +682,10 @@ const translations = {
   },
   "he": {
     "navServices": "שירותים",
+    "homeExploreModeTitle": "גלו בדרך שלכם",
+    "homeExploreModeHint": "חפשו מקום, סננו לפי חוויה ובחרו בין מפה לכרטיסים.",
+    "homeGridTitle": "מקומות שנמצאו",
+    "homeGridHint": "פתחו כרטיס כדי לראות פרטים, מידע על גישה ולהוסיף אותו לטיול.",
     "homeExplorePlaces": "גלו מקומות",
     "homeContinueTrip": "המשך הטיול שלי",
     "homeTripCount": "{n} מקומות בטיול שלך",
