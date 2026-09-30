@@ -1214,7 +1214,7 @@ function submitBooking(event) {
 
   // Format WhatsApp text based on current language
   let message = '🌿 *' + t('bookingRequest') + '*\n\n';
-  for (const [key, value] of [['labelGuide', guide.name + ' (CADASTUR ' + guide.cadastur + ')'], ['labelTour', tour], ['labelDate', date], ['labelShift', shift], ['labelParticipants', participants], ['labelPhysicalLevel', level], ['labelObservations', notes], ['estimatedTotal', price]]) {
+  for (const [key, value] of [['labelGuide', guide.name + (guide.verification?.label ? ' (' + guide.verification.label + ')' : '')], ['labelTour', tour], ['labelDate', date], ['labelShift', shift], ['labelParticipants', participants], ['labelPhysicalLevel', level], ['labelObservations', notes], ['estimatedTotal', price]]) {
     if (value) message += '*' + t(key) + '*: ' + value + '\n';
   }
   message += '\n' + t('bookingAvailability');
