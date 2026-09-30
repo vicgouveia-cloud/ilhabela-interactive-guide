@@ -374,15 +374,29 @@ function updatePlannerBadge() {
   const badge = document.getElementById('planner-count-badge');
   if (badge) badge.textContent = tripSelection.length;
   const continueButton = document.getElementById('home-continue-trip');
+  const continueLabel = document.getElementById('home-trip-action-label');
   const tripCount = document.getElementById('home-trip-count');
   if (continueButton) {
-    continueButton.hidden = tripSelection.length === 0;
-    continueButton.classList.toggle('flex', tripSelection.length > 0);
+    continueButton.hidden = false;
+    continueButton.classList.add('flex');
+  }
+  if (continueLabel) {
+    continueLabel.dataset.i18n = tripSelection.length ? 'homeContinueTrip' : 'homeBuildTrip';
+    continueLabel.textContent = t(continueLabel.dataset.i18n);
   }
   if (tripCount) {
-    const countKey = tripSelection.length === 1 ? 'homeTripCountOne' : 'homeTripCount';
-    tripCount.textContent = t(countKey).replace('{n}', tripSelection.length);
+    if (!tripSelection.length) {
+      tripCount.textContent = '';
+    } else {
+      const countKey = tripSelection.length === 1 ? 'homeTripCountOne' : 'homeTripCount';
+      tripCount.textContent = t(countKey).replace('{n}', tripSelection.length);
+    }
   }
+}
+
+function openHomeTripPlanner() {
+  if (tripSelection.length) openPlannerSummary();
+  else openPlanner(null, { view: 'deck' });
 }
 
 function setPlannerView(view) {
