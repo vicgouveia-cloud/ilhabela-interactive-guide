@@ -209,6 +209,7 @@ let plannerMapMarkers = [];
 let plannerOrigin = null;
 let tripDayOrigins = {};
 let tripDayReturnToOrigin = {};
+let tripCompletedStops = {};
 let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
@@ -238,9 +239,12 @@ function initPlanner() {
     tripDayOrigins = savedOrigins && typeof savedOrigins === 'object' && !Array.isArray(savedOrigins) ? savedOrigins : {};
     const savedReturns = JSON.parse(localStorage.getItem('ilhabela_trip_returns') || '{}');
     tripDayReturnToOrigin = savedReturns && typeof savedReturns === 'object' && !Array.isArray(savedReturns) ? savedReturns : {};
+    const savedCompleted = JSON.parse(localStorage.getItem('ilhabela_trip_completed') || '{}');
+    tripCompletedStops = savedCompleted && typeof savedCompleted === 'object' && !Array.isArray(savedCompleted) ? savedCompleted : {};
   } catch(e) {
     tripDayOrigins = {};
     tripDayReturnToOrigin = {};
+    tripCompletedStops = {};
   }
   const validSpotIds = new Set(touristSpots.map(spot => spot.id));
   const validSelection = tripSelection.filter(id => validSpotIds.has(id));
@@ -272,9 +276,13 @@ function saveTripSelection() {
   Object.keys(tripDayReturnToOrigin).forEach(day => {
     if (!usedDays.has(Number(day))) delete tripDayReturnToOrigin[day];
   });
+  Object.keys(tripCompletedStops).forEach(id => {
+    if (!tripSelection.includes(id)) delete tripCompletedStops[id];
+  });
   localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
   localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
   localStorage.setItem('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
+  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
   updatePlannerBadge();
 }
 
@@ -517,6 +525,32 @@ function plannerShowDetails() {
 }
 
 // Summary View
+function setPlannerStopCompleted(id, completed = true) {
+  if (!tripSelection.includes(id)) return;
+  if (completed) tripCompletedStops[id] = true;
+  else delete tripCompletedStops[id];
+  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
+  renderSummary();
+}
+
+function getPlannerNextStop(spots) {
+  return spots.find(spot => !tripCompletedStops[spot.id]) || null;
+}
+
+function renderPlannerVisitProgress(spots) {
+  if (!spots.length) return '';
+  const next = getPlannerNextStop(spots);
+  const completedCount = spots.filter(spot => tripCompletedStops[spot.id]).length;
+  if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p></div>`;
+  const tr = getSpotTranslation(next);
+  const notice = plannerAccessNotice(next);
+  return `<div class="rounded-2xl border border-primary/15 bg-white p-4">
+    <div class="mb-2 flex items-center justify-between gap-3"><div><div class="text-[10px] font-extrabold uppercase tracking-wide text-secondary">${t('plannerVisitNext')}</div><h3 class="text-base font-extrabold text-primary">${tr.title}</h3></div><div class="text-[11px] font-bold text-on-surface-variant">${completedCount}/${spots.length}</div></div>
+    ${notice ? `<p class="mb-3 flex items-start gap-1.5 text-xs text-tertiary"><span class="material-symbols-outlined text-[16px]">conversion_path</span><span>${notice}</span></p>` : ''}
+    <div class="flex flex-wrap gap-2"><button type="button" onclick="setPlannerStopCompleted('${next.id}', true)" class="rounded-xl bg-secondary px-3 py-2 text-xs font-bold text-white">${t('plannerVisitMarkDone')}</button>${completedCount ? `<button type="button" onclick="setPlannerStopCompleted('${spots.slice().reverse().find(spot => tripCompletedStops[spot.id])?.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>
+  </div>`;
+}
+
 function getPlannerDayReadiness(spots) {
   const pending = [];
   if (!plannerOrigin) pending.push({ key: 'origin', label: t('plannerReadyOriginPending'), action: 'origin' });
@@ -592,6 +626,7 @@ function renderSummary() {
   let html = `<div class="flex gap-2 overflow-x-auto pb-1">
     ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
   </div>`;
+  html += renderPlannerVisitProgress(selectedSpots);
   html += renderPlannerDayAgenda(selectedSpots);
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
