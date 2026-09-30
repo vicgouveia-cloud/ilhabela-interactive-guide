@@ -2,6 +2,7 @@
 const translations = {
   "pt": {
     "navServices": "Serviços",
+    "attractionPageLink": "Ver página desta atração",
     "servicesViewAll": "Ver todos os serviços",
     "servicesBadge": "Serviços úteis",
     "servicesTitle": "Serviços em Ilhabela",
@@ -164,6 +165,7 @@ const translations = {
   },
   "en": {
     "navServices": "Services",
+    "attractionPageLink": "View attraction page",
     "servicesViewAll": "View all services",
     "servicesBadge": "Useful services",
     "servicesTitle": "Services in Ilhabela",
@@ -326,6 +328,7 @@ const translations = {
   },
   "fr": {
     "navServices": "Services",
+    "attractionPageLink": "Voir la page de cette attraction",
     "servicesViewAll": "Voir tous les services",
     "servicesBadge": "Services utiles",
     "servicesTitle": "Services à Ilhabela",
@@ -488,6 +491,7 @@ const translations = {
   },
   "es": {
     "navServices": "Servicios",
+    "attractionPageLink": "Ver página de esta atracción",
     "servicesViewAll": "Ver todos los servicios",
     "servicesBadge": "Servicios útiles",
     "servicesTitle": "Servicios en Ilhabela",
@@ -650,6 +654,7 @@ const translations = {
   },
   "he": {
     "navServices": "שירותים",
+    "attractionPageLink": "צפייה בעמוד האטרקציה",
     "servicesViewAll": "הצג את כל השירותים",
     "servicesBadge": "שירותים שימושיים",
     "servicesTitle": "שירותים באיליאבלה",
