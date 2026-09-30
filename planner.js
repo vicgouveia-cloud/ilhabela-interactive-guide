@@ -252,11 +252,18 @@ function initPlanner() {
     tripCompletedStops = {};
   }
   const validSpotIds = new Set(touristSpots.map(spot => spot.id));
+  // One-time compatibility migration: legacy favorites now belong to Minha Viagem.
+  try {
+    const legacySaved = JSON.parse(localStorage.getItem('ilhabela_saved') || '[]');
+    if (Array.isArray(legacySaved)) {
+      legacySaved.filter(id => validSpotIds.has(id)).forEach(id => {
+        if (!tripSelection.includes(id)) tripSelection.push(id);
+      });
+    }
+  } catch(e) { /* Invalid legacy data is ignored. */ }
   const validSelection = tripSelection.filter(id => validSpotIds.has(id));
-  if (validSelection.length !== tripSelection.length) {
-    tripSelection = validSelection;
-    localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
-  }
+  if (validSelection.length !== tripSelection.length) tripSelection = validSelection;
+  localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
   Object.keys(tripDays).forEach(id => {
     if (!validSpotIds.has(id) || !tripSelection.includes(id)) delete tripDays[id];
   });
