@@ -1,10 +1,9 @@
 // Structured gateways are preferred; the legacy map remains only for attractions not migrated yet.
 const getRoutingGateway = gatewayId => routingGateways.find(gateway => gateway.id === gatewayId) || null;
 const boneteTrailGateway = getRoutingGateway('sepituba-trailhead')?.coords;
-const roadWalkingGateways = {};
 touristSpots.forEach(spot => {
   const structuredGateway = spot.routing?.gatewayId ? getRoutingGateway(spot.routing.gatewayId) : null;
-  const coords = structuredGateway?.coords || roadWalkingGateways[spot.id];
+  const coords = structuredGateway?.coords || null;
   const structuredFinalMode = spot.routing?.finalSegment?.mode || null;
   const finalMode = structuredFinalMode === 'walk' ? 'pedestrian' : (structuredFinalMode || 'pedestrian');
   spot.routing.accessOptions = coords ? [{
@@ -15,7 +14,7 @@ touristSpots.forEach(spot => {
       name: structuredGateway?.name || null,
       coords,
       verified: true,
-      source: structuredGateway ? 'data:routingGateways' : 'legacy:roadWalkingGateways'
+      source: 'data:routingGateways'
     },
     finalMode
   }] : spot.routing.modes.map(mode => ({
