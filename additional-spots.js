@@ -1881,10 +1881,14 @@ const attractionRoutingMetadata = {
 };
 
 touristSpots.forEach(spot => {
-  spot.routing = attractionRoutingMetadata[spot.id] || {
+  const legacyRouting = attractionRoutingMetadata[spot.id] || {
     modes: ['unknown'],
     roadRoutable: false,
     specialAccess: true
+  };
+  spot.routing = {
+    ...legacyRouting,
+    ...(spot.routing || {})
   };
 });
 
