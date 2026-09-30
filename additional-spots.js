@@ -2025,6 +2025,43 @@ touristSpots.forEach(spot => {
 // Structured visit-duration metadata for itinerary estimates.
 // Values represent time spent at the attraction/experience, never access or travel time.
 // null is intentional when the current editorial data only describes access or is too ambiguous.
+const operatedExperienceMetadata = {
+  'ponto-baleias-sul-sepituba': {
+    type: 'whale-watching',
+    requiredMode: 'boat',
+    requiredActivity: 'whale-watching',
+    meetingPoint: null
+  },
+  'ponto-baleias-canal': {
+    type: 'whale-watching',
+    requiredMode: 'boat',
+    requiredActivity: 'whale-watching',
+    meetingPoint: null
+  },
+  'naufragio-aymore': {
+    type: 'diving',
+    requiredMode: 'diving',
+    requiredActivity: 'diving',
+    meetingPoint: null
+  },
+  'santuario-ilha-das-cabras': {
+    type: 'diving',
+    requiredMode: 'diving',
+    requiredActivity: 'diving',
+    meetingPoint: null
+  },
+  'naufragio-principe-de-asturias': {
+    type: 'diving',
+    requiredMode: 'diving',
+    requiredActivity: 'diving',
+    meetingPoint: null
+  }
+};
+
+touristSpots.forEach(spot => {
+  spot.experience = operatedExperienceMetadata[spot.id] || null;
+});
+
 const attractionPlanningMetadata = {
   'praia-do-bonete': null,
   'baia-de-castelhanos': null,
