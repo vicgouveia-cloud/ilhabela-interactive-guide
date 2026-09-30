@@ -305,6 +305,7 @@ function setActiveDayReturn(enabled) {
 }
 
 function setActiveTripDay(day) {
+  plannerOriginPickMode = false;
   activeTripDay = Math.max(1, parseInt(day, 10) || 1);
   plannerOrigin = getActiveDayOrigin();
   invalidatePlannerRoute();
@@ -374,6 +375,7 @@ function openPlannerSummary() {
 }
 
 function closePlanner() {
+  plannerOriginPickMode = false;
   const modal = document.getElementById('planner-modal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
