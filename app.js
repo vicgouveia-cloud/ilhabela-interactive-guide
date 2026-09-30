@@ -6,8 +6,6 @@ let currentLang = readStorage('ilhabela_lang', 'pt');
 let currentCategory = 'all';
 let activeAttributes = new Set();
 let searchQuery = '';
-let savedFavorites = new Set(readFavorites());
-let favoritesOnly = false;
 let quickCardSpotId = null;
 let selectedSpotId = null;
 let userLocationMarker = null;
@@ -60,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
   renderSpotsGrid();
   renderGuides();
   renderServicesDirectory();
-  updateSavedCountDisplay();
   populateBookingGuides();
   initFilterCarousel();
 
@@ -87,12 +84,6 @@ function readStorage(key, fallback) {
 }
 function writeStorage(key, value) {
   try { localStorage.setItem(key, value); } catch { /* Browsing still works when storage is disabled. */ }
-}
-function readFavorites() {
-  try {
-    const value = JSON.parse(readStorage('ilhabela_saved', '[]'));
-    return Array.isArray(value) ? value.filter(id => typeof id === 'string') : [];
-  } catch { return []; }
 }
 // Missing content is an explicit error, never a silent language substitution.
 function resolveTranslation(catalog, language, context) {
@@ -517,7 +508,6 @@ function normalizeSearchText(value) {
 
 function getFilteredSpots() {
   return touristSpots.filter(spot => {
-    if (favoritesOnly && !savedFavorites.has(spot.id)) return false;
     // Category filter
     if (currentCategory !== 'all' && spot.category !== currentCategory) {
       return false;
@@ -602,40 +592,6 @@ function clearSearch() {
   handleSearch('');
 }
 
-function filterFavorites() {
-  if (savedFavorites.size === 0) {
-    alert(t('noResults'));
-    return;
-  }
-  // Filter spots to saved only
-  favoritesOnly = true;
-  const spots = getFilteredSpots();
-  renderCustomSpotsList(spots);
-  updateMapMarkers();
-  
-  // Scroll to explore section
-  const el = document.getElementById('explore-section');
-  if (el) el.scrollIntoView({ behavior: 'smooth' });
-}
-
-function toggleFavorite(spotId, event) {
-  if (event) event.stopPropagation();
-  if (savedFavorites.has(spotId)) {
-    savedFavorites.delete(spotId);
-  } else {
-    savedFavorites.add(spotId);
-  }
-  writeStorage('ilhabela_saved', JSON.stringify(Array.from(savedFavorites)));
-  updateSavedCountDisplay();
-  renderSpotsGrid();
-  if (favoritesOnly) updateMapMarkers();
-}
-
-function updateSavedCountDisplay() {
-  const counter = document.getElementById('saved-count');
-  if (counter) counter.innerText = savedFavorites.size;
-}
-
 function renderCategoryCounts() {
   const counts = { all: touristSpots.length, praias: 0, cachoeiras: 0, trilhas: 0, picos: 0, baleias: 0, mergulho: 0, cultura: 0, mirantes: 0 };
   touristSpots.forEach(s => {
@@ -676,7 +632,6 @@ function renderCustomSpotsList(spots) {
 
   grid.innerHTML = spots.map(spot => {
     const tr = getSpotTranslation(spot);
-    const isFav = savedFavorites.has(spot.id);
     const diffClass = getDifficultyBadgeClass(spot.specs.difficulty);
     const diffLabel = t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`);
 
@@ -698,10 +653,7 @@ function renderCustomSpotsList(spots) {
             </span>
           </div>
 
-          <!-- Favorite Button -->
-          <button aria-label="${t(isFav ? 'removeFavorite' : 'saveFavorite')}" onclick="toggleFavorite('${spot.id}', event)" class="absolute top-3 right-3 w-9 h-9 rounded-full bg-white/85 backdrop-blur-md shadow-md flex items-center justify-center text-gray-500 hover:text-red-500 transition-colors z-10">
-            <span class="material-symbols-outlined text-[20px] ${isFav ? 'text-red-500 fill-current' : ''}">favorite</span>
-          </button>
+
 
           <!-- Rating Pill -->
           <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1">
@@ -830,7 +782,6 @@ function openSpotModal(spotId, options = {}) {
 
   const diffClass = getDifficultyBadgeClass(spot.specs.difficulty);
   const diffLabel = t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`);
-  const isFav = savedFavorites.has(spot.id);
   const isInTrip = typeof isSpotInTrip === 'function' && isSpotInTrip(spot.id);
 
   content.innerHTML = `
@@ -878,10 +829,7 @@ function openSpotModal(spotId, options = {}) {
         </a>
       ` : ''}
 
-      <!-- Favorite Button -->
-      <button aria-label="${t(isFav ? 'removeFavorite' : 'saveFavorite')}" onclick="toggleFavorite('${spot.id}', event); openSpotModal('${spot.id}');" class="absolute top-4 right-16 w-10 h-10 rounded-full bg-white/80 backdrop-blur-md flex items-center justify-center text-gray-600 hover:text-red-500 transition-colors z-20">
-        <span class="material-symbols-outlined text-[22px] ${isFav ? 'text-red-500 fill-current' : ''}">favorite</span>
-      </button>
+
     </div>
 
     <!-- Thumbnails Gallery Strip -->
