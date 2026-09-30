@@ -68,6 +68,8 @@ Object.entries(multimodalCopy).forEach(([lang, copy]) => {
 
 function plannerAccessNotice(spot) {
   const resolved = resolvePlannerAccess(spot, plannerTravelMode);
+  if (spot.id === 'baia-de-castelhanos' && resolved?.accessId === 'common-car') return t('plannerCastelhanosAutoHandoff');
+  if (spot.id === 'baia-de-castelhanos' && resolved?.accessId === 'own-4x4') return t('plannerCastelhanos4x4Direct');
   if (resolved?.finalMode === '4x4') return `${getPlannerModeLabel('4x4')}: ${t('planner4x4Handoff')}`;
   if (spot.id === 'praia-do-bonete' && resolved?.accessId === 'road-trail') return t('plannerBoneteTrailHandoff');
   if (resolved?.finalMode === 'pedestrian' || resolved?.finalMode === 'trail') {
@@ -90,6 +92,9 @@ function plannerConfirmAccess(spots) {
 
 // Maritime and nautical planner copy.
 Object.assign(translations.pt, {
+  plannerCastelhanosAutoHandoff: "Carro comum: navegue somente até a Entrada do Parque. Para continuar de veículo até Castelhanos, é necessário 4x4.",
+  plannerCastelhanos4x4Direct: "4x4: a rota pode seguir até Castelhanos; a Entrada do Parque não é o destino final deste modo.",
+  plannerCastelhanosBoatPending: "Alternativa por barco: o guia ainda não possui um ponto de embarque validado para Castelhanos. Confirme embarque, horário, disponibilidade e condições diretamente com o operador.",
   plannerBoneteTrailHandoff: "De carro, navegue até Ponta da Sepituba. A partir dali, o acesso ao Bonete continua por trilha; não trate a praia como destino rodoviário.",
   plannerBoneteBoatPending: "Alternativa por barco: o guia ainda não possui um ponto de embarque validado para o Bonete. Confirme embarque, horário, disponibilidade e condições diretamente com o operador.",
   plannerBoatOptions: "Opções de barco",
@@ -105,6 +110,9 @@ Object.assign(translations.pt, {
   plannerContactProvider: "Falar pelo WhatsApp", plannerProviderWebsite: "Site do prestador"
 });
 Object.assign(translations.en, {
+  plannerCastelhanosAutoHandoff: "Regular car: navigate only to the Park Entrance. To continue by vehicle to Castelhanos, a 4x4 is required.",
+  plannerCastelhanos4x4Direct: "4x4: the route may continue to Castelhanos; the Park Entrance is not the final destination in this mode.",
+  plannerCastelhanosBoatPending: "Boat alternative: the guide does not yet have a validated boarding point for Castelhanos. Confirm boarding, time, availability and conditions directly with the operator.",
   plannerBoneteTrailHandoff: "By car, navigate to Ponta da Sepituba. From there, access to Bonete continues by trail; do not treat the beach as a road destination.",
   plannerBoneteBoatPending: "Boat alternative: the guide does not yet have a validated boarding point for Bonete. Confirm boarding, time, availability and conditions directly with the operator.",
   plannerBoatOptions: "Boat options",
@@ -120,6 +128,9 @@ Object.assign(translations.en, {
   plannerContactProvider: "Contact on WhatsApp", plannerProviderWebsite: "Provider website"
 });
 Object.assign(translations.fr, {
+  plannerCastelhanosAutoHandoff: "Voiture ordinaire : naviguez uniquement jusqu’à l’Entrée du Parc. Pour continuer en véhicule jusqu’à Castelhanos, un 4x4 est nécessaire.",
+  plannerCastelhanos4x4Direct: "4x4 : l’itinéraire peut continuer jusqu’à Castelhanos ; l’Entrée du Parc n’est pas la destination finale dans ce mode.",
+  plannerCastelhanosBoatPending: "Alternative en bateau : le guide ne dispose pas encore d’un point d’embarquement validé pour Castelhanos. Confirmez l’embarquement, l’horaire, la disponibilité et les conditions directement avec l’opérateur.",
   plannerBoneteTrailHandoff: "En voiture, naviguez jusqu’à Ponta da Sepituba. À partir de là, l’accès au Bonete continue par sentier ; ne considérez pas la plage comme une destination routière.",
   plannerBoneteBoatPending: "Alternative en bateau : le guide ne dispose pas encore d’un point d’embarquement validé pour Bonete. Confirmez l’embarquement, l’horaire, la disponibilité et les conditions directement avec l’opérateur.",
   plannerBoatOptions: "Options en bateau",
@@ -135,6 +146,9 @@ Object.assign(translations.fr, {
   plannerContactProvider: "Contacter sur WhatsApp", plannerProviderWebsite: "Site du prestataire"
 });
 Object.assign(translations.es, {
+  plannerCastelhanosAutoHandoff: "Coche común: navega solamente hasta la Entrada del Parque. Para continuar en vehículo hasta Castelhanos, es necesario un 4x4.",
+  plannerCastelhanos4x4Direct: "4x4: la ruta puede continuar hasta Castelhanos; la Entrada del Parque no es el destino final en este modo.",
+  plannerCastelhanosBoatPending: "Alternativa en barco: la guía todavía no tiene un punto de embarque validado para Castelhanos. Confirma embarque, horario, disponibilidad y condiciones directamente con el operador.",
   plannerBoneteTrailHandoff: "En coche, navega hasta Ponta da Sepituba. Desde allí, el acceso a Bonete continúa por sendero; no trates la playa como destino por carretera.",
   plannerBoneteBoatPending: "Alternativa en barco: la guía todavía no tiene un punto de embarque validado para Bonete. Confirma embarque, horario, disponibilidad y condiciones directamente con el operador.",
   plannerBoatOptions: "Opciones en barco",
@@ -150,6 +164,9 @@ Object.assign(translations.es, {
   plannerContactProvider: "Consultar por WhatsApp", plannerProviderWebsite: "Sitio del prestador"
 });
 Object.assign(translations.he, {
+  plannerCastelhanosAutoHandoff: "רכב רגיל: יש לנווט רק עד כניסת הפארק. כדי להמשיך ברכב עד Castelhanos נדרש 4x4.",
+  plannerCastelhanos4x4Direct: "4x4: המסלול יכול להמשיך עד Castelhanos; כניסת הפארק אינה היעד הסופי במצב זה.",
+  plannerCastelhanosBoatPending: "חלופה בסירה: עדיין אין במדריך נקודת עלייה מאומתת ל-Castelhanos. יש לאשר עם המפעיל את נקודת העלייה, השעה, הזמינות והתנאים.",
   plannerBoneteTrailHandoff: "ברכב יש לנווט עד Ponta da Sepituba. משם הגישה לבונטה ממשיכה בשביל; אין להתייחס לחוף כיעד כביש.",
   plannerBoneteBoatPending: "חלופה בסירה: עדיין אין במדריך נקודת עלייה מאומתת לבונטה. יש לאשר עם המפעיל את נקודת העלייה, השעה, הזמינות והתנאים.",
   plannerBoatOptions: "אפשרויות שיט",
@@ -344,9 +361,11 @@ function renderPlannerMaritimeOptions(spots) {
       `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
     ).join('');
     const includesBonete = option.matchingSpotIds.includes('praia-do-bonete');
+    const includesCastelhanos = option.matchingSpotIds.includes('baia-de-castelhanos');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-bold text-primary">${destinationNames}</div>
       ${includesBonete ? `<p class="text-[11px] font-semibold text-tertiary">${t('plannerBoneteBoatPending')}</p>` : ''}
+      ${includesCastelhanos ? `<p class="text-[11px] font-semibold text-tertiary">${t('plannerCastelhanosBoatPending')}</p>` : ''}
       <div class="grid gap-2">${providers}</div>
       <p class="text-[10px] text-on-surface-variant">${t('plannerBoatProviderHint')}</p>
     </div>`;
