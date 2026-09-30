@@ -7,7 +7,7 @@ const OUT = path.join(ROOT, 'lugares');
 const BASE_URL = process.env.SITE_URL || 'https://ilhabela-guide.vercel.app';
 
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js', 'translations.js', 'multimodal.js']) {
+for (const file of ['data.js', 'additional-spots.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
