@@ -140,7 +140,27 @@ const touristSpots = [
         "mode": "trail",
         "distanceMeters": 12000,
         "durationMinutes": null
-      }
+      },
+      "accessOptions": [
+        {
+          "id": "road-trail",
+          "mode": "trail",
+          "approachModes": ["auto", "4x4", "bicycle"],
+          "gatewayId": "sepituba-trailhead",
+          "destinationDirect": false,
+          "finalMode": "trail",
+          "vehicleRequirement": null
+        },
+        {
+          "id": "boat",
+          "mode": "boat",
+          "approachModes": [],
+          "gatewayId": null,
+          "destinationDirect": false,
+          "finalMode": "boat",
+          "vehicleRequirement": null
+        }
+      ]
     },
 
     "specs": {
@@ -300,7 +320,36 @@ const touristSpots = [
         "mode": "4x4",
         "distanceMeters": null,
         "durationMinutes": null
-      }
+      },
+      "accessOptions": [
+        {
+          "id": "common-car",
+          "mode": "road",
+          "approachModes": ["auto"],
+          "gatewayId": "castelhanos-park-entrance",
+          "destinationDirect": false,
+          "finalMode": "4x4",
+          "vehicleRequirement": "4x4-after-gateway"
+        },
+        {
+          "id": "own-4x4",
+          "mode": "4x4",
+          "approachModes": ["4x4"],
+          "gatewayId": null,
+          "destinationDirect": true,
+          "finalMode": null,
+          "vehicleRequirement": "4x4"
+        },
+        {
+          "id": "boat",
+          "mode": "boat",
+          "approachModes": [],
+          "gatewayId": null,
+          "destinationDirect": false,
+          "finalMode": "boat",
+          "vehicleRequirement": null
+        }
+      ]
     },
 
     "specs": {
