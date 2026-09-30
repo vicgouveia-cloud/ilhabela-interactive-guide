@@ -213,6 +213,7 @@ let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
 let plannerRouteLine = null;
+let plannerOriginPickMode = false;
 const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
 
 // Initialize
@@ -674,6 +675,10 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
             <span id="planner-location-label">${plannerOrigin ? 'Origem do Dia ' + activeTripDay + ' definida' : t('plannerUseLocation')}</span>
           </button>
+          <button type="button" onclick="plannerStartOriginPick()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
+            <span class="material-symbols-outlined text-[15px] align-middle">location_on</span>
+            <span>${plannerOriginPickMode ? 'Toque no mapa…' : 'Escolher origem no mapa'}</span>
+          </button>
           ${plannerOrigin ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">Limpar origem</button>
           <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
             <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
@@ -693,6 +698,11 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
           <ul class="text-xs text-primary divide-y divide-black/5">${specialRows}</ul>
         </div>` : ''}
     </div>`;
+}
+
+function plannerStartOriginPick() {
+  plannerOriginPickMode = true;
+  renderSummary();
 }
 
 function plannerUseMyLocation() {
@@ -844,6 +854,11 @@ function initPlannerMap() {
     plannerMap = null;
   }
   plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false }).setView([-23.820, -45.365], 11);
+  plannerMap.on('click', event => {
+    if (!plannerOriginPickMode) return;
+    plannerOriginPickMode = false;
+    saveActiveDayOrigin([event.latlng.lat, event.latlng.lng]);
+  });
   L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>',
     maxZoom: 19
