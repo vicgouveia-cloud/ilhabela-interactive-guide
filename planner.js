@@ -366,6 +366,13 @@ function toggleSpotInTrip(id) {
 function updatePlannerBadge() {
   const badge = document.getElementById('planner-count-badge');
   if (badge) badge.textContent = tripSelection.length;
+  const continueButton = document.getElementById('home-continue-trip');
+  const tripCount = document.getElementById('home-trip-count');
+  if (continueButton) {
+    continueButton.hidden = tripSelection.length === 0;
+    continueButton.classList.toggle('flex', tripSelection.length > 0);
+  }
+  if (tripCount) tripCount.textContent = t('homeTripCount').replace('{n}', tripSelection.length);
 }
 
 function setPlannerView(view) {
