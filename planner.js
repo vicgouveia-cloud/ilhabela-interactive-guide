@@ -198,6 +198,7 @@ Object.assign(translations.he, { plannerVisitTime: "זמן באטרקציות", 
 
 // State
 let tripSelection = [];
+let tripDays = {};
 let dismissedInSession = new Set();
 let plannerFilter = 'all';
 let plannerDeckQueue = [];
@@ -222,12 +223,22 @@ function initPlanner() {
   } catch(e) {
     tripSelection = [];
   }
+  try {
+    const savedDays = JSON.parse(localStorage.getItem('ilhabela_trip_days') || '{}');
+    tripDays = savedDays && typeof savedDays === 'object' && !Array.isArray(savedDays) ? savedDays : {};
+  } catch(e) {
+    tripDays = {};
+  }
   const validSpotIds = new Set(touristSpots.map(spot => spot.id));
   const validSelection = tripSelection.filter(id => validSpotIds.has(id));
   if (validSelection.length !== tripSelection.length) {
     tripSelection = validSelection;
     localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
   }
+  Object.keys(tripDays).forEach(id => {
+    if (!validSpotIds.has(id) || !tripSelection.includes(id)) delete tripDays[id];
+  });
+  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
   updatePlannerBadge();
 }
 
@@ -238,7 +249,25 @@ function invalidatePlannerRoute() {
 
 function saveTripSelection() {
   localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
+  Object.keys(tripDays).forEach(id => {
+    if (!tripSelection.includes(id)) delete tripDays[id];
+  });
+  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
   updatePlannerBadge();
+}
+
+function getSpotTripDay(id) {
+  const day = Number(tripDays[id]);
+  return Number.isInteger(day) && day > 0 ? day : 1;
+}
+
+function setSpotTripDay(id, day) {
+  if (!tripSelection.includes(id)) return;
+  const parsedDay = Math.max(1, Math.min(30, parseInt(day, 10) || 1));
+  tripDays[id] = parsedDay;
+  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
+  invalidatePlannerRoute();
+  renderSummary();
 }
 
 function isSpotInTrip(id) {
@@ -439,6 +468,7 @@ function renderSummary() {
   }
 
   const selectedSpots = tripSelection.map(id => touristSpots.find(s => s.id === id)).filter(Boolean);
+  const maxTripDay = Math.max(1, ...selectedSpots.map(spot => getSpotTripDay(spot.id)));
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
@@ -455,6 +485,12 @@ function renderSummary() {
         <div class="flex-1 min-w-0">
           <h4 class="text-sm font-bold text-primary truncate">${tr.title}</h4>
           <p class="text-xs text-on-surface-variant truncate">${tr.subtitle}</p>
+          <label class="mt-1 inline-flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
+            Dia
+            <select onchange="setSpotTripDay('${spot.id}', this.value)" class="rounded-lg border border-black/10 bg-white px-1.5 py-1 text-[11px] text-primary">
+              ${Array.from({ length: Math.min(30, maxTripDay + 1) }, (_, dayIndex) => dayIndex + 1).map(day => `<option value="${day}" ${getSpotTripDay(spot.id) === day ? 'selected' : ''}>${day}</option>`).join('')}
+            </select>
+          </label>
         </div>
         <div class="flex flex-col">
           <button onclick="movePlannerSpot('${spot.id}', -1)" ${index === 0 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="Mover para cima">
