@@ -7,8 +7,8 @@ const touristSpots = [
       -23.9022,
       -45.3524
     ],
-    "rating": 4.9,
-    "reviews": 342,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-do-bonete_1.jpg",
     "tags": [
       "Preservada",
@@ -148,8 +148,8 @@ const touristSpots = [
       -23.8647,
       -45.2892
     ],
-    "rating": 4.9,
-    "reviews": 489,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/baia-de-castelhanos_1.jpg",
     "tags": [
       "Aventura 4x4",
@@ -289,8 +289,8 @@ const touristSpots = [
       -23.7428,
       -45.2678
     ],
-    "rating": 4.9,
-    "reviews": 230,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-da-fome_1.jpg",
     "tags": [
       "Snorkeling",
@@ -429,8 +429,8 @@ const touristSpots = [
       -23.8522,
       -45.4181
     ],
-    "rating": 4.8,
-    "reviews": 380,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-do-juliao_1.jpg",
     "tags": [
       "Piscinas Naturais",
@@ -569,8 +569,8 @@ const touristSpots = [
       -23.8625,
       -45.4294
     ],
-    "rating": 4.8,
-    "reviews": 512,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-do-curral_1.jpg",
     "tags": [
       "Pôr do Sol",
@@ -709,8 +709,8 @@ const touristSpots = [
       -23.7583,
       -45.3547
     ],
-    "rating": 4.8,
-    "reviews": 310,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-da-armacao_1.jpg",
     "tags": [
       "Capital da Vela",
@@ -849,8 +849,8 @@ const touristSpots = [
       -23.8741,
       -45.4372
     ],
-    "rating": 4.7,
-    "reviews": 195,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-do-veloso_1.jpg",
     "tags": [
       "Mar Calmo",
@@ -989,8 +989,8 @@ const touristSpots = [
       -23.7481,
       -45.3486
     ],
-    "rating": 4.8,
-    "reviews": 210,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-da-siriuba_1.jpg",
     "tags": [
       "Coqueirais",
@@ -1129,8 +1129,8 @@ const touristSpots = [
       -23.9167,
       -45.3167
     ],
-    "rating": 4.9,
-    "reviews": 120,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-da-enchova_1.jpg",
     "tags": [
       "Selvagem",
@@ -1269,8 +1269,8 @@ const touristSpots = [
       -23.9183,
       -45.3056
     ],
-    "rating": 5,
-    "reviews": 98,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/praia-de-indaiauba_1.jpg",
     "tags": [
       "Águas Turquesa",
@@ -1409,8 +1409,8 @@ const touristSpots = [
       -23.932171146209154,
       -45.40923386772312
     ],
-    "rating": 4.9,
-    "reviews": 310,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-da-laje_1.jpg",
     "tags": [
       "Tobogã de Pedra",
@@ -1549,8 +1549,8 @@ const touristSpots = [
       -23.8056,
       -45.3489
     ],
-    "rating": 4.8,
-    "reviews": 360,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-da-toca_1.jpg",
     "tags": [
       "Tobogã 50m",
@@ -1689,8 +1689,8 @@ const touristSpots = [
       -23.8767,
       -45.4267
     ],
-    "rating": 4.8,
-    "reviews": 180,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-do-veloso_1.jpg",
     "tags": [
       "Queda 30m",
@@ -1829,8 +1829,8 @@ const touristSpots = [
       -23.8572,
       -45.4089
     ],
-    "rating": 4.9,
-    "reviews": 390,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-do-paqueta_1.jpg",
     "tags": [
       "Piscina Infinita",
@@ -1970,8 +1970,8 @@ const touristSpots = [
       -23.8589,
       -45.2819
     ],
-    "rating": 4.9,
-    "reviews": 310,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-do-gato_1.jpg",
     "tags": [
       "Queda 40m",
@@ -2110,8 +2110,8 @@ const touristSpots = [
       -23.8486,
       -45.4019
     ],
-    "rating": 4.7,
-    "reviews": 265,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-dos-tres-tombos_1.jpg",
     "tags": [
       "Fácil Acesso",
@@ -2250,8 +2250,8 @@ const touristSpots = [
       -23.7456,
       -45.3411
     ],
-    "rating": 4.8,
-    "reviews": 140,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/cachoeira-da-friagem_1.jpg",
     "tags": [
       "Vista do Canal",
@@ -2390,8 +2390,8 @@ const touristSpots = [
       -23.8014,
       -45.3589
     ],
-    "rating": 4.8,
-    "reviews": 290,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/trilha-da-agua-branca_1.jpg",
     "tags": [
       "Auto-guiada",
@@ -2530,8 +2530,8 @@ const touristSpots = [
       -23.8778,
       -45.3917
     ],
-    "rating": 4.9,
-    "reviews": 350,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/trilha-do-bonete_1.jpg",
     "tags": [
       "12km de Trilha",
@@ -2670,8 +2670,8 @@ const touristSpots = [
       -23.8806,
       -45.2417
     ],
-    "rating": 4.9,
-    "reviews": 135,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/trilha-da-cabecuda-farol_1.jpg",
     "tags": [
       "Farol Histórico 1930",
@@ -2810,8 +2810,8 @@ const touristSpots = [
       -23.8755592,
       -45.3787239
     ],
-    "rating": 5,
-    "reviews": 112,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/pico-de-sao-sebastiao_1.jpg",
     "tags": [
       "1.378m - Ponto Mais Alto",
@@ -2950,8 +2950,8 @@ const touristSpots = [
       -23.8601,
       -45.2956
     ],
-    "rating": 5,
-    "reviews": 320,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/mirante-do-coracao_1.jpg",
     "tags": [
       "Formato de Coração",
@@ -3090,8 +3090,8 @@ const touristSpots = [
       -23.7936,
       -45.3358
     ],
-    "rating": 5,
-    "reviews": 298,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/pico-do-baepi_1.jpg",
     "tags": [
       "1.048m de Altitude",
@@ -3230,8 +3230,8 @@ const touristSpots = [
       -23.8889,
       -45.4389
     ],
-    "rating": 5,
-    "reviews": 215,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/ponto-baleias-sul-sepituba_1.jpg",
     "tags": [
       "Baleias Jubarte",
@@ -3370,8 +3370,8 @@ const touristSpots = [
       -23.785,
       -45.385
     ],
-    "rating": 4.9,
-    "reviews": 178,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/ponto-baleias-canal_1.jpg",
     "tags": [
       "Golfinhos Botos",
@@ -3510,8 +3510,8 @@ const touristSpots = [
       -23.8703,
       -45.4381
     ],
-    "rating": 4.9,
-    "reviews": 140,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/naufragio-aymore_1.jpg",
     "tags": [
       "Vapor 1920",
@@ -3650,8 +3650,8 @@ const touristSpots = [
       -23.8569,
       -45.4208
     ],
-    "rating": 4.9,
-    "reviews": 440,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/santuario-ilha-das-cabras_1.jpg",
     "tags": [
       "Santuário Marinho",
@@ -3790,8 +3790,8 @@ const touristSpots = [
       -23.9167,
       -45.2833
     ],
-    "rating": 5,
-    "reviews": 180,
+    "rating": null,
+    "reviews": 0,
     "image": "assets/images/naufragio-principe-de-asturias_1.jpg",
     "tags": [
       "O Titanic Brasileiro",
