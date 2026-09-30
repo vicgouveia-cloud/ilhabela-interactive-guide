@@ -379,7 +379,10 @@ function updatePlannerBadge() {
     continueButton.hidden = tripSelection.length === 0;
     continueButton.classList.toggle('flex', tripSelection.length > 0);
   }
-  if (tripCount) tripCount.textContent = t('homeTripCount').replace('{n}', tripSelection.length);
+  if (tripCount) {
+    const countKey = tripSelection.length === 1 ? 'homeTripCountOne' : 'homeTripCount';
+    tripCount.textContent = t(countKey).replace('{n}', tripSelection.length);
+  }
 }
 
 function setPlannerView(view) {
