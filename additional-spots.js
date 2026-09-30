@@ -1847,7 +1847,7 @@ const attractionRoutingMetadata = {
   'cachoeira-do-veloso': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-gato': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-dos-tres-tombos': { modes: ['road'], roadRoutable: true, specialAccess: false },
+  'cachoeira-dos-tres-tombos': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
   'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'poco-do-furado': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-baepi': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
