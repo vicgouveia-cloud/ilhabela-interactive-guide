@@ -17,6 +17,48 @@ const routingGateways = [
     "name": "Acesso à Praia do Julião",
     "coords": [-23.853583875006763, -45.41239561211879],
     "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-da-feiticeira-access",
+    "name": "Acesso à Praia da Feiticeira",
+    "coords": [-23.84660565107699, -45.410130644310605],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-da-pacuiba-access",
+    "name": "Acesso à Praia da Pacuíba",
+    "coords": [-23.727308751868794, -45.31890535121027],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-da-ponta-azeda-access",
+    "name": "Acesso à Praia da Ponta Azeda",
+    "coords": [-23.74302141213607, -45.348752682254734],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-do-pinto-access",
+    "name": "Acesso à Praia do Pinto",
+    "coords": [-23.741868315370972, -45.34807300404768],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-do-jabaquara-access",
+    "name": "Acesso à Praia do Jabaquara",
+    "coords": [-23.736889822090436, -45.29377785097268],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-do-barreiros-access",
+    "name": "Acesso à Praia do Barreiros",
+    "coords": [-23.76356965576912, -45.348813572867364],
+    "modes": ["road", "walk"]
+  },
+  {
+    "id": "praia-de-santa-tereza-access",
+    "name": "Acesso à Praia de Santa Tereza",
+    "coords": [-23.771601878012316, -45.351412997079635],
+    "modes": ["road", "walk"]
   }
 ];
 
