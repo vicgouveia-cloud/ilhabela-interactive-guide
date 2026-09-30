@@ -241,6 +241,22 @@ function saveTripSelection() {
   updatePlannerBadge();
 }
 
+function isSpotInTrip(id) {
+  return tripSelection.includes(id);
+}
+
+function toggleSpotInTrip(id) {
+  if (!touristSpots.some(spot => spot.id === id)) return false;
+  invalidatePlannerRoute();
+  if (isSpotInTrip(id)) {
+    tripSelection = tripSelection.filter(spotId => spotId !== id);
+  } else {
+    tripSelection.push(id);
+  }
+  saveTripSelection();
+  return isSpotInTrip(id);
+}
+
 function updatePlannerBadge() {
   const badge = document.getElementById('planner-count-badge');
   if (badge) badge.textContent = tripSelection.length;
