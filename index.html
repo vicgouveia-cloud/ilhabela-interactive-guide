@@ -147,19 +147,19 @@
         </p>
 
         <!-- Action CTAs -->
-        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-4">
-          <a href="#map-section" class="px-6 py-3.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg hover:bg-primary-container hover:shadow-xl transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined">map</span>
-            <span data-i18n="btnStartExploring">Explorar no Mapa</span>
+        <div class="pt-4 flex flex-wrap items-center justify-center md:justify-start gap-3">
+          <a href="/o-que-fazer/" class="px-6 py-3.5 rounded-xl bg-primary text-white font-bold text-sm shadow-lg hover:bg-primary-container hover:shadow-xl transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined">explore</span>
+            <span data-i18n="homeExplorePlaces">Explorar lugares</span>
           </a>
-          <a href="#guides-section" class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary">verified_user</span>
-            <span data-i18n="btnBookGuide">Contratar Guia Local</span>
+          <a href="#map-section" class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all flex items-center gap-2">
+            <span class="material-symbols-outlined text-secondary">map</span>
+            <span data-i18n="navMap">Mapa</span>
           </a>
-          <a href="#" onclick="openPlanner(event)" class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all flex items-center gap-2">
-            <span class="material-symbols-outlined text-secondary">checklist</span>
-            <span data-i18n="btnPlanner">Monte seu roteiro</span>
-          </a>
+          <button id="home-continue-trip" type="button" onclick="openPlannerSummary()" hidden class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all items-center gap-2">
+            <span class="material-symbols-outlined text-secondary">route</span>
+            <span><span data-i18n="homeContinueTrip">Continuar minha viagem</span><small id="home-trip-count" class="block text-[10px] font-semibold text-on-surface-variant"></small></span>
+          </button>
         </div>
 
       </div>
@@ -636,7 +636,7 @@
   </footer>
 
   <!-- Scripts with Cache Busting -->
-  <script src="translations.js?v=4.2"></script>
+  <script src="translations.js?v=4.3"></script>
   <script src="data.js?v=4.1"></script>
   <script src="additional-spots.js?v=4.1"></script>
   <script src="app.js?v=4.6"></script>
