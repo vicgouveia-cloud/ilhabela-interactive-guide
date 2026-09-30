@@ -150,9 +150,9 @@
             <span class="material-symbols-outlined text-secondary">map</span>
             <span data-i18n="navMap">Mapa</span>
           </a>
-          <button id="home-continue-trip" type="button" onclick="openPlannerSummary()" hidden class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all items-center gap-2">
+          <button id="home-continue-trip" type="button" onclick="openHomeTripPlanner()" class="px-6 py-3.5 rounded-xl glass-panel text-primary font-bold text-sm border border-primary/30 hover:bg-white transition-all flex items-center gap-2">
             <span class="material-symbols-outlined text-secondary">route</span>
-            <span><span data-i18n="homeContinueTrip">Continuar minha viagem</span><small id="home-trip-count" class="block text-[10px] font-semibold text-on-surface-variant"></small></span>
+            <span><span id="home-trip-action-label" data-i18n="homeBuildTrip">Montar roteiro</span><small id="home-trip-count" class="block text-[10px] font-semibold text-on-surface-variant"></small></span>
           </button>
         </div>
 
@@ -636,12 +636,12 @@
   </footer>
 
   <!-- Scripts with Cache Busting -->
-  <script src="translations.js?v=4.6"></script>
+  <script src="translations.js?v=4.7"></script>
   <script src="data.js?v=4.1"></script>
   <script src="additional-spots.js?v=4.1"></script>
   <script src="app.js?v=4.8"></script>
 <script src="multimodal.js?v=4.9"></script>
-<script src="planner.js?v=5.7"></script>
+<script src="planner.js?v=5.8"></script>
 <script src="offline-trip.js?v=4.3"></script>
 </body>
 </html>
