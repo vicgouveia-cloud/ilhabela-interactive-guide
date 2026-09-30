@@ -564,7 +564,7 @@ const translations = {
     "bookNow": "Solicitar Reserva",
     "guidePricePerDay": "/día",
     "guidePricePerPerson": "/persona",
-    "verifiedBadge": "CADASTUR Verificado",
+    "verifiedBadge": "Guías Locales",
     "languagesSpoken": "Idiomas:",
     "modalBookingTitle": "Reserva tu Aventura en Ilhabela",
     "modalBookingDesc": "Selecciona tu guía, el itinerario deseado y obtén un presupuesto instantáneo para confirmar directamente por WhatsApp.",
