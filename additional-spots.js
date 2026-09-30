@@ -1955,6 +1955,36 @@ const structuredRoutingMetadata = {
     modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'cachoeira-dos-tres-tombos-access',
     roadRoutable: false, specialAccess: true,
     alternatives: [], finalSegment: { mode: 'walk', distanceMeters: 400, durationMinutes: 10 }
+  },
+  'praia-da-fome': {
+    modes: ['boat', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [{ mode: 'boat', gatewayId: null }, { mode: 'trail', gatewayId: null }],
+    finalSegment: null
+  },
+  'praia-da-enchova': {
+    modes: ['trail', 'boat'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [{ mode: 'trail', gatewayId: null }, { mode: 'boat', gatewayId: null }],
+    finalSegment: null
+  },
+  'praia-de-indaiauba': {
+    modes: ['boat', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [{ mode: 'boat', gatewayId: null }, { mode: 'trail', gatewayId: null }],
+    finalSegment: null
+  },
+  'praia-do-poco': {
+    modes: ['boat', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [{ mode: 'boat', gatewayId: null }, { mode: 'trail', gatewayId: null }],
+    finalSegment: null
+  },
+  'mirante-do-coracao': {
+    modes: ['4x4', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [{ mode: '4x4', gatewayId: null }, { mode: 'trail', gatewayId: null }],
+    finalSegment: null
   }
 };
 
