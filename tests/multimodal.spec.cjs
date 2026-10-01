@@ -1,4 +1,31 @@
 const {test, expect} = require('@playwright/test');
+test('optimized route order is reflected in agenda and map without moving special-access stops', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getPlannerDisplaySpots === 'function');
+  const result = await page.evaluate(() => {
+    const ids = ['praia-do-curral', 'praia-do-bonete', 'praia-do-pereque', 'praia-grande'];
+    tripSelection = ids.slice();
+    plannerOptimizedRoute = {
+      spotIds: ['praia-grande', 'praia-do-curral', 'praia-do-pereque'],
+      distanceKm: 1,
+      timeSeconds: 60,
+      shape: []
+    };
+    const visible = getPlannerDisplaySpots().map(spot => spot.id);
+    const agenda = renderPlannerDayAgenda(getPlannerDisplaySpots());
+    initPlannerMap();
+    const markerTitles = plannerMapMarkers
+      .filter(marker => marker.getPopup && marker.getPopup())
+      .map(marker => marker.getPopup().getContent());
+    return { visible, agenda, markerTitles };
+  });
+  expect(result.visible).toEqual(['praia-grande', 'praia-do-bonete', 'praia-do-curral', 'praia-do-pereque']);
+  expect(result.agenda.indexOf('Praia Grande')).toBeLessThan(result.agenda.indexOf('Praia do Bonete'));
+  expect(result.agenda.indexOf('Praia do Bonete')).toBeLessThan(result.agenda.indexOf('Praia do Curral'));
+  expect(result.markerTitles[0]).toContain('1. Praia Grande');
+  expect(result.markerTitles.some(title => title.includes('2. Praia do Bonete'))).toBe(true);
+});
+
 test('planner map shows a separate access marker when navigation ends before the attraction', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof openPlannerSummary === 'function');

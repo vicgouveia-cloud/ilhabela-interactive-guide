@@ -672,18 +672,19 @@ function renderSummary() {
   if (activeTripDay > maxTripDay) activeTripDay = maxTripDay;
   plannerOrigin = getActiveDayOrigin();
   const selectedSpots = getActiveTripSpots();
+  const displaySpots = getPlannerDisplaySpots(selectedSpots);
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
   let html = `<div class="flex gap-2 overflow-x-auto pb-1">
     ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
   </div>`;
-  html += renderPlannerVisitProgress(selectedSpots);
-  html += renderPlannerDayAgenda(selectedSpots);
+  html += renderPlannerVisitProgress(displaySpots);
+  html += renderPlannerDayAgenda(displaySpots);
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
-  selectedSpots.forEach((spot, index) => {
+  displaySpots.forEach((spot, index) => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
     html += `
@@ -754,6 +755,20 @@ function getOptimizedRouteSpots(roadSpots) {
   const ordered = plannerOptimizedRoute.spotIds.map(id => byId.get(id)).filter(Boolean);
   return ordered.length === roadSpots.length ? ordered : roadSpots;
 }
+function getPlannerDisplaySpots(spots = getActiveTripSpots()) {
+  if (!plannerOptimizedRoute?.spotIds?.length) return spots;
+  const optimizedById = new Map(
+    plannerOptimizedRoute.spotIds
+      .map(id => spots.find(spot => spot.id === id))
+      .filter(Boolean)
+      .map(spot => [spot.id, spot])
+  );
+  if (optimizedById.size !== plannerOptimizedRoute.spotIds.length) return spots;
+  const orderedRoadSpots = plannerOptimizedRoute.spotIds.map(id => optimizedById.get(id));
+  let roadIndex = 0;
+  return spots.map(spot => optimizedById.has(spot.id) ? orderedRoadSpots[roadIndex++] : spot);
+}
+
 
 function formatPlannerMinutes(minutes) {
   const mins = Math.max(0, Math.round(minutes || 0));
@@ -997,6 +1012,15 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
 }
 
 function movePlannerSpot(id, direction) {
+  if (plannerOptimizedRoute?.spotIds?.length) {
+    const visibleDayIds = getPlannerDisplaySpots().map(spot => spot.id);
+    const dayIdSet = new Set(visibleDayIds);
+    let visibleIndex = 0;
+    tripSelection = tripSelection.map(spotId => {
+      if (!dayIdSet.has(spotId)) return spotId;
+      return visibleDayIds[visibleIndex++];
+    });
+  }
   const dayIds = tripSelection.filter(spotId => getSpotTripDay(spotId) === activeTripDay);
   const dayIndex = dayIds.indexOf(id);
   const targetDayIndex = dayIndex + direction;
@@ -1038,7 +1062,7 @@ function initPlannerMap() {
   plannerMapMarkers = [];
   const bounds = L.latLngBounds();
 
-  getActiveTripSpots().forEach((spot, index) => {
+  getPlannerDisplaySpots().forEach((spot, index) => {
     if (!spot) return;
     const tr = getSpotTranslation(spot);
     const catIcon = getCategoryIcon(spot.category);
