@@ -1,4 +1,20 @@
 const {test, expect} = require('@playwright/test');
+test('pedestrian mode uses verified gateways for final-walk attractions', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
+  const result = await page.evaluate(() => {
+    const find = id => touristSpots.find(s => s.id === id);
+    return {
+      juliao: resolvePlannerAccess(find('praia-do-juliao'), 'pedestrian'),
+      feiticeira: resolvePlannerAccess(find('praia-da-feiticeira'), 'pedestrian')
+    };
+  });
+  expect(result.juliao.coords).toEqual([-23.853583875006763, -45.41239561211879]);
+  expect(result.juliao.finalMode).toBe('pedestrian');
+  expect(result.feiticeira.coords).toEqual([-23.84660565107699, -45.410130644310605]);
+  expect(result.feiticeira.finalMode).toBe('pedestrian');
+});
+
 test('special-access offshore pins never fall through into pedestrian or bicycle Maps routes', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');

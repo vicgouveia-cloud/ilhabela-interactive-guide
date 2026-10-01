@@ -27,7 +27,7 @@ touristSpots.forEach(spot => {
   spot.routing.accessOptions = coords ? [{
     id: 'road-walk',
     mode: structuredFinalMode || 'trail',
-    approachModes: ['auto', '4x4', 'bicycle'],
+    approachModes: ['auto', '4x4', 'bicycle', 'pedestrian'],
     gatewayId: spot.routing.gatewayId,
     destinationDirect: false,
     gateway: {
