@@ -1,4 +1,38 @@
 const {test, expect} = require('@playwright/test');
+test('regular-car routes require confirmation before a final 4x4 handoff', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerConfirmAccess === 'function');
+  const result = await page.evaluate(() => {
+    const castelhanos = touristSpots.find(spot => spot.id === 'baia-de-castelhanos');
+    plannerTravelMode = 'auto';
+    const prompts = [];
+    window.confirm = message => { prompts.push(message); return false; };
+    let opened = false;
+    window.open = () => { opened = true; };
+    tripSelection = ['baia-de-castelhanos'];
+    plannerOpenGoogleMaps();
+    const blockedPrompt = prompts[0] || '';
+
+    prompts.length = 0;
+    plannerTravelMode = '4x4';
+    window.confirm = message => { prompts.push(message); return false; };
+    plannerOpenGoogleMaps();
+    return {
+      blockedPrompt,
+      opened,
+      direct4x4Prompts: prompts.slice(),
+      autoAccess: resolvePlannerAccess(castelhanos, 'auto'),
+      directAccess: resolvePlannerAccess(castelhanos, '4x4')
+    };
+  });
+  expect(result.autoAccess.finalMode).toBe('4x4');
+  expect(result.blockedPrompt).toContain('4x4');
+  expect(result.blockedPrompt).toContain('trecho final');
+  expect(result.opened).toBe(true);
+  expect(result.directAccess.finalMode).toBeNull();
+  expect(result.direct4x4Prompts).toEqual([]);
+});
+
 test('4x4 route estimates are explicitly marked as approximate road-routing references', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof renderPlannerRoutingPanel === 'function');

@@ -70,6 +70,11 @@ const multimodalCopy = {
 Object.entries(multimodalCopy).forEach(([lang, copy]) => {
   ['plannerFinalWalk', 'plannerConfirmWalk', 'plannerBoatPending', 'plannerGatewayPending', 'plannerOfflineDownload', 'plannerOfflineHint', 'plannerOfflineError', 'plannerOfflineTitle', 'planner4x4Handoff'].forEach((key, index) => translations[lang][key] = copy[index]);
 });
+Object.assign(translations.pt, { plannerConfirm4x4: "Confirmar rota sabendo que será necessário trocar para 4x4 no trecho final?" });
+Object.assign(translations.en, { plannerConfirm4x4: "Confirm the route knowing that a 4x4 transfer will be required for the final segment?" });
+Object.assign(translations.fr, { plannerConfirm4x4: "Confirmer l’itinéraire en sachant qu’un transfert en 4x4 sera nécessaire pour le dernier tronçon ?" });
+Object.assign(translations.es, { plannerConfirm4x4: "¿Confirmar la ruta sabiendo que será necesario cambiar a un 4x4 en el tramo final?" });
+Object.assign(translations.he, { plannerConfirm4x4: "לאשר את המסלול בידיעה שבקטע האחרון יהיה צורך לעבור לרכב 4x4?" });
 
 function plannerAccessNotice(spot) {
   const resolved = resolvePlannerAccess(spot, plannerTravelMode);
@@ -87,7 +92,10 @@ function plannerAccessNotice(spot) {
 
 function plannerConfirmAccess(spots) {
   const walking = spots.filter(spot => ['pedestrian', 'trail'].includes(resolvePlannerAccess(spot, plannerTravelMode)?.finalMode));
-  return !walking.length || window.confirm(walking.map(spot => getSpotTranslation(spot).title).join(', ') + '\n' + t('plannerFinalWalk') + '\n' + t('plannerConfirmWalk'));
+  if (walking.length && !window.confirm(walking.map(spot => getSpotTranslation(spot).title).join(', ') + '\n' + t('plannerFinalWalk') + '\n' + t('plannerConfirmWalk'))) return false;
+  const fourByFourHandoffs = spots.filter(spot => resolvePlannerAccess(spot, plannerTravelMode)?.finalMode === '4x4');
+  if (fourByFourHandoffs.length && !window.confirm(fourByFourHandoffs.map(spot => getSpotTranslation(spot).title).join(', ') + '\n' + t('planner4x4Handoff') + '\n' + t('plannerConfirm4x4'))) return false;
+  return true;
 }
 
 
