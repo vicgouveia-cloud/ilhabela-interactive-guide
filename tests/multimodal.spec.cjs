@@ -1,4 +1,28 @@
 const {test, expect} = require('@playwright/test');
+test('undo targets the most recently completed stop even after visible order changes', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getPlannerLastCompletedStop === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    tripSelection = ['praia-do-curral', 'praia-do-pereque', 'praia-grande'];
+    tripCompletedStops = {};
+    tripCompletedStops['1:praia-do-curral'] = true;
+    tripCompletedStops['1:praia-do-pereque'] = true;
+
+    const reordered = [
+      touristSpots.find(spot => spot.id === 'praia-do-pereque'),
+      touristSpots.find(spot => spot.id === 'praia-do-curral'),
+      touristSpots.find(spot => spot.id === 'praia-grande')
+    ];
+    const last = getPlannerLastCompletedStop(reordered);
+    const html = renderPlannerVisitProgress(reordered);
+    return { lastId: last?.id || null, html };
+  });
+  expect(result.lastId).toBe('praia-do-pereque');
+  expect(result.html).toContain("setPlannerStopCompleted('praia-do-pereque', false)");
+  expect(result.html).not.toContain("setPlannerStopCompleted('praia-do-curral', false)");
+});
+
 test('completed-day card keeps an undo action for the last completed stop', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof renderPlannerVisitProgress === 'function');

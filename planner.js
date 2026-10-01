@@ -597,6 +597,17 @@ function setPlannerStopCompleted(id, completed = true) {
 function getPlannerNextStop(spots) {
   return spots.find(spot => !isPlannerStopCompleted(spot.id, activeTripDay)) || null;
 }
+function getPlannerLastCompletedStop(spots) {
+  const byId = new Map(spots.map(spot => [spot.id, spot]));
+  const prefix = `${activeTripDay}:`;
+  const completedKeys = Object.keys(tripCompletedStops).filter(key => tripCompletedStops[key] && key.startsWith(prefix));
+  for (let index = completedKeys.length - 1; index >= 0; index--) {
+    const id = completedKeys[index].slice(prefix.length);
+    if (byId.has(id)) return byId.get(id);
+  }
+  return null;
+}
+
 
 function plannerNavigateToSpot(id) {
   const spot = touristSpots.find(item => item.id === id);
@@ -617,7 +628,7 @@ function renderPlannerVisitProgress(spots) {
   if (!spots.length) return '';
   const next = getPlannerNextStop(spots);
   const completedCount = spots.filter(spot => isPlannerStopCompleted(spot.id, activeTripDay)).length;
-  const lastCompleted = spots.slice().reverse().find(spot => isPlannerStopCompleted(spot.id, activeTripDay));
+  const lastCompleted = getPlannerLastCompletedStop(spots);
   if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="mt-3 rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>`;
   const tr = getSpotTranslation(next);
   const notice = plannerAccessNotice(next);
