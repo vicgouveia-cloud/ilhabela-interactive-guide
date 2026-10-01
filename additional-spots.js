@@ -1861,7 +1861,7 @@ const attractionRoutingMetadata = {
   'pico-de-sao-sebastiao': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-coracao': { modes: ['4x4', 'boat', 'trail'], roadRoutable: false, specialAccess: true },
   'pico-do-baepi': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'ponto-baleias-sul-sepituba': { modes: ['road', 'boat'], roadRoutable: false, specialAccess: true },
+  'ponto-baleias-sul-sepituba': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'naufragio-aymore': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
   'santuario-ilha-das-cabras': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
@@ -1881,6 +1881,14 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Whale-watching is modeled as an operated boat experience; the attraction pin is not a meeting point.
+  // No marina, pier or operator meeting point is assigned without a verified booking context.
+  'ponto-baleias-sul-sepituba': {
+    modes: ['boat'], primaryMode: 'boat', gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [],
+    finalSegment: { mode: 'boat', distanceMeters: null, durationMinutes: null }
+  },
   // Public sources confirm access by a difficult trail in the south of the island.
   // The exact trailhead is not yet coordinate-verified, so no gateway is assigned.
   'pico-de-sao-sebastiao': {
