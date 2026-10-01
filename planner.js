@@ -620,6 +620,8 @@ function plannerNavigateToSpot(id) {
     destination: access.coords.join(','),
     travelmode: googleTravelMode
   });
+  const hasCompletedStops = getActiveTripSpots().some(item => isPlannerStopCompleted(item.id, activeTripDay));
+  if (plannerOrigin && !hasCompletedStops) params.set('origin', plannerOrigin.join(','));
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
   return true;
 }

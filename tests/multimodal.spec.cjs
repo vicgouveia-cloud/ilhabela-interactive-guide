@@ -41,6 +41,31 @@ test('completed-day card keeps an undo action for the last completed stop', asyn
   expect(result).toContain("setPlannerStopCompleted('praia-do-pereque', false)");
 });
 
+test('first next-stop navigation uses the configured day origin but later stops use current location', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerNavigateToSpot === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    plannerTravelMode = 'auto';
+    plannerOrigin = [-23.80, -45.36];
+    tripSelection = ['praia-do-curral', 'praia-do-pereque'];
+    tripCompletedStops = {};
+    window.confirm = () => true;
+    const opened = [];
+    window.open = value => { opened.push(value); };
+
+    plannerNavigateToSpot('praia-do-curral');
+    tripCompletedStops['1:praia-do-curral'] = true;
+    plannerNavigateToSpot('praia-do-pereque');
+
+    return opened;
+  });
+  const first = new URL(result[0]).searchParams;
+  const second = new URL(result[1]).searchParams;
+  expect(first.get('origin')).toBe('-23.8,-45.36');
+  expect(second.get('origin')).toBeNull();
+});
+
 test('next-stop card navigates safely to resolved access and hides terrestrial action when unresolved', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof plannerNavigateToSpot === 'function' && typeof renderPlannerVisitProgress === 'function');
