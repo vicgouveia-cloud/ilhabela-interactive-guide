@@ -1881,6 +1881,35 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Bonete is reached either by the validated Sepituba trailhead or by boat.
+  // Boat embarkation remains operator-dependent and is intentionally not fixed here.
+  'praia-do-bonete': {
+    modes: ['trail', 'boat'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: 'trail', gatewayId: 'sepituba-trailhead' },
+      { mode: 'boat', gatewayId: null }
+    ],
+    finalSegment: null,
+    accessOptions: [
+      {
+        id: 'road-trail', mode: 'trail',
+        approachModes: ['auto', '4x4', 'bicycle', 'pedestrian'],
+        gatewayId: 'sepituba-trailhead',
+        destinationDirect: false,
+        finalMode: 'trail',
+        vehicleRequirement: null
+      },
+      {
+        id: 'boat', mode: 'boat',
+        approachModes: ['boat'],
+        gatewayId: null,
+        destinationDirect: true,
+        finalMode: 'boat',
+        vehicleRequirement: null
+      }
+    ]
+  },
   // Channel whale/dolphin watching is an operated boat experience; the attraction pin is not an embarkation point.
   // No fixed marina or pier is assigned because departures depend on the chosen operator.
   'ponto-baleias-canal': {
