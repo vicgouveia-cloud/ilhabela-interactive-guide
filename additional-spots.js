@@ -1864,7 +1864,7 @@ const attractionRoutingMetadata = {
   'ponto-baleias-sul-sepituba': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'naufragio-aymore': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
-  'santuario-ilha-das-cabras': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
+  'santuario-ilha-das-cabras': { modes: ['road', 'diving', 'boat'], roadRoutable: false, specialAccess: true },
   'naufragio-principe-de-asturias': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
   'praia-do-jabaquara': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'praia-da-feiticeira': { modes: ['trail'], roadRoutable: false, specialAccess: true },
@@ -1881,6 +1881,18 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // The sanctuary can be approached by road to Praia das Pedras Miudas or by dive boat.
+  // The offshore attraction pin itself is not road-routable; no unverified beach gateway is assigned.
+  'santuario-ilha-das-cabras': {
+    modes: ['road', 'diving', 'boat'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: 'road', gatewayId: null },
+      { mode: 'boat', gatewayId: null },
+      { mode: 'diving', gatewayId: null }
+    ],
+    finalSegment: { mode: 'diving', distanceMeters: null, durationMinutes: null }
+  },
   // Whale-watching is modeled as an operated boat experience; the attraction pin is not a meeting point.
   // No marina, pier or operator meeting point is assigned without a verified booking context.
   'ponto-baleias-sul-sepituba': {
