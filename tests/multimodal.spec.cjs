@@ -1,4 +1,30 @@
 const {test, expect} = require('@playwright/test');
+test('total duration is marked partial when calculated route omits final access segments', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerRoutingPanel === 'function');
+  const result = await page.evaluate(() => {
+    plannerTravelMode = 'auto';
+    plannerOptimizedRoute = { spotIds: ['praia-do-curral', 'praia-do-juliao'], distanceKm: 5, timeSeconds: 600, shape: [] };
+    tripSelection = ['praia-do-curral', 'praia-do-juliao'];
+    const selected = getActiveTripSpots();
+    const road = selected.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+    const special = selected.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
+    const partialHtml = renderPlannerRoutingPanel(road, special);
+
+    plannerOptimizedRoute = { spotIds: ['praia-do-curral', 'praia-do-pereque'], distanceKm: 5, timeSeconds: 600, shape: [] };
+    tripSelection = ['praia-do-curral', 'praia-do-pereque'];
+    const normalSelected = getActiveTripSpots();
+    const normalRoad = normalSelected.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+    const normalSpecial = normalSelected.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
+    const normalHtml = renderPlannerRoutingPanel(normalRoad, normalSpecial);
+    return { partialHtml, normalHtml };
+  });
+  expect(result.partialHtml).toContain('Estimativa parcial');
+  expect(result.partialHtml).toContain('não inclui trechos finais');
+  expect(result.normalHtml).toContain('Duração estimada');
+  expect(result.normalHtml).not.toContain('não inclui trechos finais');
+});
+
 test('day readiness flags unresolved access and required 4x4 handoffs', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof getPlannerDayReadiness === 'function');

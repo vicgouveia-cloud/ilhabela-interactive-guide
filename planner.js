@@ -190,11 +190,11 @@ Object.assign(translations.fr, { plannerTravelMode: "Déplacement", plannerTrave
 Object.assign(translations.es, { plannerTravelMode: "Desplazamiento", plannerTravelAuto: "Coche", plannerTravelBicycle: "Bicicleta", plannerTravelPedestrian: "A pie", plannerRouteSection: "Ruta", plannerModeHint: "La ruta incluye solo lugares compatibles con el modo elegido." });
 Object.assign(translations.he, { plannerTravelMode: "אופן הגעה", plannerTravelAuto: "רכב", plannerTravelBicycle: "אופניים", plannerTravelPedestrian: "ברגל", plannerRouteSection: "מסלול", plannerModeHint: "המסלול כולל רק מקומות המתאימים לאופן ההגעה שנבחר." });
 
-Object.assign(translations.pt, { plannerVisitTime: "Tempo nas atrações", plannerTotalEstimate: "Duração estimada", plannerPartialEstimate: "Estimativa parcial", plannerPartialEstimateHint: "Alguns lugares ainda não têm tempo de permanência estimado." });
-Object.assign(translations.en, { plannerVisitTime: "Time at attractions", plannerTotalEstimate: "Estimated duration", plannerPartialEstimate: "Partial estimate", plannerPartialEstimateHint: "Some places do not yet have an estimated visit time." });
-Object.assign(translations.fr, { plannerVisitTime: "Temps aux attractions", plannerTotalEstimate: "Durée estimée", plannerPartialEstimate: "Estimation partielle", plannerPartialEstimateHint: "Certains lieux n'ont pas encore de durée de visite estimée." });
-Object.assign(translations.es, { plannerVisitTime: "Tiempo en las atracciones", plannerTotalEstimate: "Duración estimada", plannerPartialEstimate: "Estimación parcial", plannerPartialEstimateHint: "Algunos lugares aún no tienen tiempo de visita estimado." });
-Object.assign(translations.he, { plannerVisitTime: "זמן באטרקציות", plannerTotalEstimate: "משך זמן משוער", plannerPartialEstimate: "הערכה חלקית", plannerPartialEstimateHint: "לחלק מהמקומות עדיין אין זמן ביקור משוער." });
+Object.assign(translations.pt, { plannerVisitTime: "Tempo nas atrações", plannerTotalEstimate: "Duração estimada", plannerPartialEstimate: "Estimativa parcial", plannerPartialEstimateHint: "Alguns lugares ainda não têm tempo de permanência estimado.", plannerRoutePartialEstimateHint: "O tempo de deslocamento não inclui trechos finais a pé, 4x4, barco ou outros acessos fora da rota calculada." });
+Object.assign(translations.en, { plannerVisitTime: "Time at attractions", plannerTotalEstimate: "Estimated duration", plannerPartialEstimate: "Partial estimate", plannerPartialEstimateHint: "Some places do not yet have an estimated visit time.", plannerRoutePartialEstimateHint: "Travel time excludes final walking, 4x4, boat, or other access segments outside the calculated route." });
+Object.assign(translations.fr, { plannerVisitTime: "Temps aux attractions", plannerTotalEstimate: "Durée estimée", plannerPartialEstimate: "Estimation partielle", plannerPartialEstimateHint: "Certains lieux n'ont pas encore de durée de visite estimée.", plannerRoutePartialEstimateHint: "Le temps de trajet exclut les derniers tronçons à pied, en 4x4, en bateau ou les autres accès hors de l’itinéraire calculé." });
+Object.assign(translations.es, { plannerVisitTime: "Tiempo en las atracciones", plannerTotalEstimate: "Duración estimada", plannerPartialEstimate: "Estimación parcial", plannerPartialEstimateHint: "Algunos lugares aún no tienen tiempo de visita estimado.", plannerRoutePartialEstimateHint: "El tiempo de desplazamiento no incluye tramos finales a pie, en 4x4, en barco u otros accesos fuera de la ruta calculada." });
+Object.assign(translations.he, { plannerVisitTime: "זמן באטרקציות", plannerTotalEstimate: "משך זמן משוער", plannerPartialEstimate: "הערכה חלקית", plannerPartialEstimateHint: "לחלק מהמקומות עדיין אין זמן ביקור משוער.", plannerRoutePartialEstimateHint: "זמן הנסיעה אינו כולל מקטעים סופיים ברגל, ב־4x4, בסירה או גישות אחרות שמחוץ למסלול המחושב." });
 
 // State
 let tripSelection = [];
@@ -811,8 +811,16 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
   const visit = getPlannerVisitEstimate();
   const travelMinutes = plannerOptimizedRoute ? Math.round((plannerOptimizedRoute.timeSeconds || 0) / 60) : 0;
+  const routeCoveragePartial = [...roadSpots, ...specialSpots].some(spot => {
+    const access = resolvePlannerAccess(spot, plannerTravelMode);
+    return !access || !!access.finalMode || (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1]);
+  });
+  const totalEstimateLabel = routeCoveragePartial ? t('plannerPartialEstimate') : t('plannerTotalEstimate');
+  const routeCoverageHint = plannerOptimizedRoute && routeCoveragePartial
+    ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerRoutePartialEstimateHint')}</div>`
+    : '';
   const visitStats = visit.covered
-    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${t('plannerTotalEstimate')}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
+    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${totalEstimateLabel}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${routeCoverageHint}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
     : visit.total
       ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
       : '';
