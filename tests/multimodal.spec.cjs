@@ -1,4 +1,21 @@
 const {test, expect} = require('@playwright/test');
+test('planner map shows a separate access marker when navigation ends before the attraction', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof openPlannerSummary === 'function');
+  const result = await page.evaluate(() => {
+    tripSelection = ['praia-do-juliao'];
+    plannerTravelMode = 'auto';
+    openPlannerSummary();
+    return {
+      markerCount: plannerMapMarkers.length,
+      attractionCoords: touristSpots.find(s => s.id === 'praia-do-juliao').coords,
+      accessCoords: resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-juliao'), 'auto').coords
+    };
+  });
+  expect(result.markerCount).toBe(2);
+  expect(result.accessCoords).not.toEqual(result.attractionCoords);
+});
+
 test('pedestrian mode uses verified gateways for final-walk attractions', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
