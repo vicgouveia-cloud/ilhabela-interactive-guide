@@ -195,6 +195,11 @@ Object.assign(translations.en, { plannerVisitTime: "Time at attractions", planne
 Object.assign(translations.fr, { plannerVisitTime: "Temps aux attractions", plannerTotalEstimate: "Durée estimée", plannerPartialEstimate: "Estimation partielle", plannerPartialEstimateHint: "Certains lieux n'ont pas encore de durée de visite estimée.", plannerRoutePartialEstimateHint: "Le temps de trajet exclut les derniers tronçons à pied, en 4x4, en bateau ou les autres accès hors de l’itinéraire calculé." });
 Object.assign(translations.es, { plannerVisitTime: "Tiempo en las atracciones", plannerTotalEstimate: "Duración estimada", plannerPartialEstimate: "Estimación parcial", plannerPartialEstimateHint: "Algunos lugares aún no tienen tiempo de visita estimado.", plannerRoutePartialEstimateHint: "El tiempo de desplazamiento no incluye tramos finales a pie, en 4x4, en barco u otros accesos fuera de la ruta calculada." });
 Object.assign(translations.he, { plannerVisitTime: "זמן באטרקציות", plannerTotalEstimate: "משך זמן משוער", plannerPartialEstimate: "הערכה חלקית", plannerPartialEstimateHint: "לחלק מהמקומות עדיין אין זמן ביקור משוער.", plannerRoutePartialEstimateHint: "זמן הנסיעה אינו כולל מקטעים סופיים ברגל, ב־4x4, בסירה או גישות אחרות שמחוץ למסלול המחושב." });
+Object.assign(translations.pt, { plannerApproximateEstimate: "Estimativa aproximada", planner4x4RouteHint: "No modo 4x4, sequência, distância e tempo usam roteamento rodoviário padrão apenas como referência. Isso não valida condições da estrada, restrições locais nem trafegabilidade off-road." });
+Object.assign(translations.en, { plannerApproximateEstimate: "Approximate estimate", planner4x4RouteHint: "In 4x4 mode, sequence, distance and time use standard road routing only as a reference. This does not validate road conditions, local restrictions or off-road passability." });
+Object.assign(translations.fr, { plannerApproximateEstimate: "Estimation approximative", planner4x4RouteHint: "En mode 4x4, l’ordre, la distance et le temps utilisent un routage routier standard uniquement comme référence. Cela ne valide ni l’état de la route, ni les restrictions locales, ni la praticabilité hors route." });
+Object.assign(translations.es, { plannerApproximateEstimate: "Estimación aproximada", planner4x4RouteHint: "En modo 4x4, la secuencia, la distancia y el tiempo usan el enrutamiento vial estándar solo como referencia. Esto no valida el estado del camino, restricciones locales ni transitabilidad fuera de carretera." });
+Object.assign(translations.he, { plannerApproximateEstimate: "הערכה משוערת", planner4x4RouteHint: "במצב 4x4, הסדר, המרחק והזמן משתמשים בניווט כביש רגיל כהערכה בלבד. הדבר אינו מאמת את מצב הדרך, מגבלות מקומיות או עבירות בשטח." });
 
 // State
 let tripSelection = [];
@@ -815,7 +820,9 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
     const access = resolvePlannerAccess(spot, plannerTravelMode);
     return !access || !!access.finalMode || (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1]);
   });
-  const totalEstimateLabel = routeCoveragePartial ? t('plannerPartialEstimate') : t('plannerTotalEstimate');
+  const totalEstimateLabel = plannerTravelMode === '4x4'
+    ? t('plannerApproximateEstimate')
+    : routeCoveragePartial ? t('plannerPartialEstimate') : t('plannerTotalEstimate');
   const routeCoverageHint = plannerOptimizedRoute && routeCoveragePartial
     ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerRoutePartialEstimateHint')}</div>`
     : '';
@@ -825,7 +832,7 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
       ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
       : '';
   const routeStats = plannerOptimizedRoute
-    ? `<div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>`
+    ? `<div class="space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary">${t('planner4x4RouteHint')}</p>` : ''}</div>`
     : '';
   const specialRows = specialSpots.map(spot => {
     const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');

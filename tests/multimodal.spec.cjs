@@ -1,4 +1,26 @@
 const {test, expect} = require('@playwright/test');
+test('4x4 route estimates are explicitly marked as approximate road-routing references', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerRoutingPanel === 'function');
+  const html = await page.evaluate(() => {
+    plannerTravelMode = '4x4';
+    tripSelection = ['praia-do-curral', 'baia-de-castelhanos'];
+    plannerOptimizedRoute = {
+      spotIds: ['praia-do-curral', 'baia-de-castelhanos'],
+      distanceKm: 24,
+      timeSeconds: 3600,
+      shape: []
+    };
+    const selected = getActiveTripSpots();
+    const road = selected.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+    const special = selected.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
+    return renderPlannerRoutingPanel(road, special);
+  });
+  expect(html).toContain('Estimativa aproximada');
+  expect(html).toContain('roteamento rodoviário padrão apenas como referência');
+  expect(html).toContain('não valida condições da estrada');
+});
+
 test('total duration is marked partial when calculated route omits final access segments', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof renderPlannerRoutingPanel === 'function');
