@@ -244,6 +244,31 @@ test('gateway routing, confirmation, separate Bonete alternatives and offline fi
   expect(await page.locator('img').evaluateAll(images => Promise.all(images.map(img => img.decode().then(() => img.naturalWidth > 0))))).toEqual([true,true]);
 });
 
+test('offline export follows optimized order for the active day', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof buildOfflineTrip === 'function' && typeof getPlannerDisplaySpots === 'function');
+  const html = await page.evaluate(async () => {
+    activeTripDay = 1;
+    tripSelection = ['praia-do-curral', 'praia-do-bonete', 'praia-do-pereque', 'praia-grande'];
+    plannerOptimizedRoute = {
+      spotIds: ['praia-grande', 'praia-do-curral', 'praia-do-pereque'],
+      distanceKm: 1,
+      timeSeconds: 60,
+      shape: []
+    };
+    const spots = tripSelection.map(id => touristSpots.find(spot => spot.id === id)).filter(Boolean);
+    return (await buildOfflineTrip(spots)).text();
+  });
+  const grande = html.indexOf('Praia Grande');
+  const bonete = html.indexOf('Praia do Bonete');
+  const curral = html.indexOf('Praia do Curral');
+  const pereque = html.indexOf('Praia do Perequê');
+  expect(grande).toBeGreaterThan(-1);
+  expect(grande).toBeLessThan(bonete);
+  expect(bonete).toBeLessThan(curral);
+  expect(curral).toBeLessThan(pereque);
+});
+
 test('offline export rejects missing photos and excess selection', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof buildOfflineTrip === 'function');

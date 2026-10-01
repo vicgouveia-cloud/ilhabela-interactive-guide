@@ -54,7 +54,10 @@ async function buildOfflineTrip(spots) {
   const days = [...new Set(spots.map(spot => getSpotTripDay(spot.id)))].sort((a,b) => a-b);
   const daySections = [];
   for (const day of days) {
-    const daySpots = spots.filter(spot => getSpotTripDay(spot.id) === day);
+    const rawDaySpots = spots.filter(spot => getSpotTripDay(spot.id) === day);
+    const daySpots = day === activeTripDay && typeof getPlannerDisplaySpots === 'function'
+      ? getPlannerDisplaySpots(rawDaySpots)
+      : rawDaySpots;
     const origin = tripDayOrigins?.[day];
     const returnToOrigin = !!tripDayReturnToOrigin?.[day];
     const nextSpot = daySpots.find(spot => !isPlannerStopCompleted(spot.id, day)) || null;
