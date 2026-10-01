@@ -1848,7 +1848,7 @@ const attractionRoutingMetadata = {
   'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-gato': { modes: ['4x4', 'boat', 'trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-dos-tres-tombos': { modes: ['road', 'walk'], roadRoutable: false, specialAccess: true },
-  'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-da-friagem': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'poco-do-furado': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-baepi': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-morro-da-cruz': { modes: ['road'], roadRoutable: true, specialAccess: false },
@@ -1881,6 +1881,17 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Official access is by road to the Siriuba urbanized area, then on foot by trail.
+  // The exact trail transition inside/after the condominium is not yet coordinate-verified.
+  'cachoeira-da-friagem': {
+    modes: ['road', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: 'road', gatewayId: null },
+      { mode: 'trail', gatewayId: null }
+    ],
+    finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
+  },
   // Official sources confirm arrival in Castelhanos by 4x4 or boat and continuation on foot,
   // but the exact Ponta do Gato trail transition is not yet coordinate-verified.
   'cachoeira-do-gato': {
