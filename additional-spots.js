@@ -1881,6 +1881,16 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Reuse the previously confirmed Bonete trailhead; the attraction pin is not a road access.
+  'trilha-do-bonete': {
+    modes: ['trail'], primaryMode: 'trail', gatewayId: 'sepituba-trailhead',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null },
+    accessOptions: [{
+      id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle', 'pedestrian'],
+      gatewayId: 'sepituba-trailhead', destinationDirect: false, finalMode: 'trail', vehicleRequirement: null
+    }]
+  },
   'praia-da-feiticeira': {
     modes: ['road', 'walk'], primaryMode: 'road', gatewayId: 'praia-da-feiticeira-access',
     roadRoutable: false, specialAccess: true,

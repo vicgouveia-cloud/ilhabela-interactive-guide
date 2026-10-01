@@ -1,4 +1,40 @@
 const {test, expect} = require('@playwright/test');
+test('validated Bonete trailhead is used by Maps and optimizer', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
+  const maps = await page.evaluate(() => {
+    tripSelection = ['trilha-do-bonete'];
+    plannerOrigin = null;
+    plannerOptimizedRoute = null;
+    window.confirm = () => true;
+    let url;
+    window.open = value => { url = value; };
+    return ['auto','4x4','bicycle','pedestrian'].map(mode => {
+      plannerTravelMode = mode;
+      plannerOpenGoogleMaps();
+      return {mode, url, notice: plannerAccessNotice(touristSpots.find(s => s.id === 'trilha-do-bonete'))};
+    });
+  });
+  for (const {mode, url, notice} of maps) {
+    const params = new URL(url).searchParams;
+    expect(params.get('destination')).toBe('-23.936275064037446,-45.42730164154816');
+    expect(params.get('travelmode')).toBe({auto:'driving','4x4':'driving',bicycle:'bicycling',pedestrian:'walking'}[mode]);
+    expect(notice).toContain('Trecho final a pé');
+  }
+  let payload;
+  await page.route('**/optimized_route', async route => {
+    payload = route.request().postDataJSON();
+    await route.fulfill({json:{trip:{locations:[{original_index:0},{original_index:1}],summary:{length:2,time:300},legs:[{shape:'??'}]}}});
+  });
+  await page.evaluate(async () => {
+    tripSelection = ['praia-do-curral','trilha-do-bonete'];
+    plannerTravelMode = 'auto';
+    await plannerOptimizeRoute();
+  });
+  expect(payload.locations[1]).toMatchObject({lat:-23.936275064037446,lon:-45.42730164154816});
+  expect(payload.costing).toBe('auto');
+});
+
 test('gateway routing, confirmation, separate Bonete alternatives and offline file', async ({page, context}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof buildOfflineTrip === 'function');
