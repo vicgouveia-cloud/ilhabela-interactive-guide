@@ -1,4 +1,26 @@
 const {test, expect} = require('@playwright/test');
+test('special-access offshore pins never fall through into pedestrian or bicycle Maps routes', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
+  const result = await page.evaluate(() => {
+    const find = id => touristSpots.find(s => s.id === id);
+    return {
+      aymorePedestrian: resolvePlannerAccess(find('naufragio-aymore'), 'pedestrian'),
+      aymoreBicycle: resolvePlannerAccess(find('naufragio-aymore'), 'bicycle'),
+      cabrasPedestrian: resolvePlannerAccess(find('santuario-ilha-das-cabras'), 'pedestrian'),
+      cabrasBicycle: resolvePlannerAccess(find('santuario-ilha-das-cabras'), 'bicycle'),
+      curralPedestrian: resolvePlannerAccess(find('praia-do-curral'), 'pedestrian'),
+      curralBicycle: resolvePlannerAccess(find('praia-do-curral'), 'bicycle')
+    };
+  });
+  expect(result.aymorePedestrian).toBeNull();
+  expect(result.aymoreBicycle).toBeNull();
+  expect(result.cabrasPedestrian).toBeNull();
+  expect(result.cabrasBicycle).toBeNull();
+  expect(result.curralPedestrian).not.toBeNull();
+  expect(result.curralBicycle).not.toBeNull();
+});
+
 test('Agua Branca car navigation ends at park entrance before walking', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');

@@ -54,9 +54,9 @@ function resolvePlannerAccess(spot, mode) {
   if (getRoutingGateway(spot.routing?.gatewayId)?.verified === false) return null;
   const option = spot.routing?.accessOptions?.find(option => option.approachModes.includes(mode) && option.gateway?.verified);
   if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode, gatewayName: option.gateway.name || null, accessId: option.id };
-  const modes = spot.routing?.modes || [];
-  const allowed = mode === 'pedestrian' ? modes.includes('road') || modes.includes('trail')
-    : mode === 'bicycle' ? modes.includes('road') : spot.routing?.roadRoutable === true;
+  // Falling back to the attraction pin is safe only for explicitly road-routable destinations.
+  // Special-access attractions without a verified gateway/accessOption must stay out of generated routes.
+  const allowed = spot.routing?.roadRoutable === true;
   return allowed ? { coords: spot.coords, destination: spot.coords, finalMode: null } : null;
 }
 
