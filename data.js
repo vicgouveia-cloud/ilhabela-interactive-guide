@@ -3148,8 +3148,8 @@ const touristSpots = [
     "id": "mirante-do-coracao",
     "category": "picos",
     "coords": [
-      -23.8601,
-      -45.2956
+      -23.86293,
+      -45.28732
     ],
     "rating": null,
     "reviews": 0,
@@ -3171,10 +3171,10 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "Mirante na beira da descida de Castelhanos",
+      "distance": "Trilha curta a partir do canto direito da Praia de Castelhanos",
       "duration": "10 min de parada fotográfica",
       "elevation": "+220m de altitude",
-      "access": "Estrada do Parque Estadual de Castelhanos (jipe 4x4 ou caminhada)",
+      "access": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante",
       "sea": "Vista espetacular da baía oceânica",
       "structure": "Deck de madeira com vista panorâmica"
     },
@@ -3182,19 +3182,19 @@ const touristSpots = [
       "pt": {
         "title": "Mirante do Coração de Castelhanos",
         "subtitle": "O ângulo perfeito que revela o contorno de coração da baía",
-        "description": "Localizado no alto da serra durante a descida para a Baía de Castelhanos, este mirante é o ponto exato onde se avistam os dois lados da praia formando um perfeito coração verde-esmeralda cercado pela Mata Atlântica.",
+        "description": "Localizado no canto direito da Praia de Castelhanos, o acesso começa no fim da faixa de areia e segue por uma trilha curta até o ponto de onde a baía revela seu famoso formato de coração.",
         "highlights": [
           "Vista do formato de coração mais famoso do Brasil",
-          "Ponto alto para fotografias memoráveis",
-          "Encontro da serra com o oceano aberto",
-          "Parada clássica dos passeios 4x4"
+          "Trilha curta a partir do canto direito de Castelhanos",
+          "Vista elevada da praia e da Mata Atlântica",
+          "Acesso a partir da própria Praia de Castelhanos"
         ],
         "ecoTip": "Tenha cuidado na beirada da encosta e utilize o deck de observação.",
         "specs": {
-          "distance": "Mirante na beira da descida de Castelhanos",
+          "distance": "Trilha curta a partir do canto direito da Praia de Castelhanos",
           "duration": "10 min de parada fotográfica",
           "elevation": "+220m de altitude",
-          "access": "Estrada do Parque Estadual de Castelhanos (jipe 4x4 ou caminhada)",
+          "access": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante",
           "sea": "Vista espetacular da baía oceânica",
           "structure": "Deck de madeira com vista panorâmica"
         }
@@ -3202,19 +3202,19 @@ const touristSpots = [
       "en": {
         "title": "Heart Overlook (Mirante do Coração)",
         "subtitle": "The vantage point revealing Castelhanos iconic heart contour",
-        "description": "Perched high on the mountain pass descending toward Castelhanos Bay, this panoramic lookout offers the iconic bird-eye view of the beach forming a heart outlined by emerald ocean and rainforest.",
+        "description": "Located at the right-hand end of Castelhanos Beach when facing the sea, the access starts at the end of the sand and follows a short trail to the viewpoint overlooking the bay's famous heart shape.",
         "highlights": [
           "Famous heart-shaped coastal contour",
           "Unbeatable postcard photography spot",
-          "Where mountain peaks meet open ocean",
-          "Signature stop on 4x4 tours"
+          "Elevated view over the beach and Atlantic Forest",
+          "Accessed from Castelhanos Beach itself"
         ],
         "ecoTip": "Stay on designated observation decks.",
         "specs": {
-          "distance": "Roadside viewpoint on the descent to Castelhanos",
+          "distance": "Short trail from the right-hand end of Castelhanos Beach",
           "duration": "10 min photo stop",
           "elevation": "+220 m altitude",
-          "access": "Castelhanos State Park road (4x4 or on foot)",
+          "access": "Reach Castelhanos by 4x4 or boat; from the right-hand end of the beach when facing the sea, follow the short trail to the viewpoint",
           "sea": "Spectacular view of the ocean bay",
           "structure": "Wooden deck with panoramic views"
         }
@@ -3222,19 +3222,19 @@ const touristSpots = [
       "fr": {
         "title": "Belvédère du Cœur de Castelhanos",
         "subtitle": "Le point de vue révélant la forme de cœur de la baie",
-        "description": "Surplombant la descente vers Castelhanos, ce mirador offre la vue célèbre où la baie dessine un cœur parfait entouré par la forêt tropicale.",
+        "description": "Situé à l’extrémité droite de la plage de Castelhanos lorsque l’on regarde la mer, l’accès commence au bout du sable puis suit un court sentier jusqu’au belvédère qui révèle la célèbre forme de cœur de la baie.",
         "highlights": [
           "Vue célèbre de la baie en forme de cœur",
           "Spot photo inoubliable",
-          "Rencontre de la montagne et de l océan",
-          "Arrêt incontournable des 4x4"
+          "Vue en hauteur sur la plage et la forêt atlantique",
+          "Accès depuis la plage de Castelhanos"
         ],
         "ecoTip": "Restez sur les plateformes aménagées.",
         "specs": {
-          "distance": "Belvédère au bord de la descente de Castelhanos",
+          "distance": "Court sentier depuis l’extrémité droite de la plage de Castelhanos",
           "duration": "Arrêt photo de 10 min",
           "elevation": "+220 m d’altitude",
-          "access": "Route du parc d’État de Castelhanos (4x4 ou marche)",
+          "access": "Rejoignez Castelhanos en 4x4 ou en bateau ; depuis l’extrémité droite de la plage face à la mer, suivez le court sentier jusqu’au belvédère",
           "sea": "Vue spectaculaire sur la baie océanique",
           "structure": "Terrasse en bois avec vue panoramique"
         }
@@ -3242,19 +3242,19 @@ const touristSpots = [
       "es": {
         "title": "Mirador del Corazón de Castelhanos",
         "subtitle": "El punto panorámico que revela la bahía en forma de corazón",
-        "description": "Ubicado en lo alto del paso de montaña hacia Castelhanos, este mirador permite contemplar la silueta en forma de corazón que forma la playa con el mar.",
+        "description": "Ubicado en el extremo derecho de la Playa de Castelhanos mirando hacia el mar, el acceso comienza al final de la arena y sigue por un sendero corto hasta el mirador que revela la famosa forma de corazón de la bahía.",
         "highlights": [
           "Silueta en forma de corazón famosa",
           "Postal fotográfica obligada",
-          "Encuentro de la selva y el mar",
-          "Parada clásica en 4x4"
+          "Vista elevada de la playa y la Mata Atlántica",
+          "Acceso desde la propia Playa de Castelhanos"
         ],
         "ecoTip": "Permanece en los miradores designados.",
         "specs": {
-          "distance": "Mirador junto al descenso a Castelhanos",
+          "distance": "Sendero corto desde el extremo derecho de la Playa de Castelhanos",
           "duration": "Parada fotográfica de 10 min",
           "elevation": "+220 m de altitud",
-          "access": "Carretera del Parque Estatal de Castelhanos (4x4 o caminata)",
+          "access": "Llega a Castelhanos en 4x4 o barco; desde el extremo derecho de la playa mirando al mar, sigue el sendero corto hasta el mirador",
           "sea": "Vista espectacular de la bahía oceánica",
           "structure": "Plataforma de madera con vista panorámica"
         }

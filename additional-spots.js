@@ -1859,7 +1859,7 @@ const attractionRoutingMetadata = {
   'trilha-do-bonete': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-da-cabecuda-farol': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'pico-de-sao-sebastiao': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
-  'mirante-do-coracao': { modes: ['4x4', 'trail'], roadRoutable: false, specialAccess: true },
+  'mirante-do-coracao': { modes: ['4x4', 'boat', 'trail'], roadRoutable: false, specialAccess: true },
   'pico-do-baepi': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-sul-sepituba': { modes: ['road', 'boat'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
@@ -2024,10 +2024,14 @@ const structuredRoutingMetadata = {
     finalSegment: null
   },
   'mirante-do-coracao': {
-    modes: ['4x4', 'trail'], primaryMode: null, gatewayId: null,
+    modes: ['4x4', 'boat', 'trail'], primaryMode: null, gatewayId: null,
     roadRoutable: false, specialAccess: true,
-    alternatives: [{ mode: '4x4', gatewayId: null }, { mode: 'trail', gatewayId: null }],
-    finalSegment: null
+    alternatives: [
+      { mode: '4x4', gatewayId: null },
+      { mode: 'boat', gatewayId: null },
+      { mode: 'trail', gatewayId: null }
+    ],
+    finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
   }
 };
 
@@ -2069,6 +2073,12 @@ touristSpots.forEach(spot => {
 // Values represent time spent at the attraction/experience, never access or travel time.
 // null is intentional when the current editorial data only describes access or is too ambiguous.
 const maritimeAccessMetadata = {
+  'mirante-do-coracao': {
+    profile: 'east-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
   'cachoeira-do-gato': {
     profile: 'east-coast',
     requiredMode: 'boat',
