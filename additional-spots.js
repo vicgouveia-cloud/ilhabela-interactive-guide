@@ -1874,7 +1874,7 @@ const attractionRoutingMetadata = {
   'mirante-do-piuva': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'saco-do-eustaquio': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'praia-do-pereque': { modes: ['road'], roadRoutable: true, specialAccess: false },
-  'praia-do-poco': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
+  'praia-do-poco': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'piscinas-naturais-do-sul': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'praia-grande': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'praia-do-portinho': { modes: ['road'], roadRoutable: true, specialAccess: false }
@@ -2018,10 +2018,10 @@ const structuredRoutingMetadata = {
     finalSegment: null
   },
   'praia-do-poco': {
-    modes: ['boat', 'trail'], primaryMode: null, gatewayId: null,
+    modes: ['boat'], primaryMode: 'boat', gatewayId: null,
     roadRoutable: false, specialAccess: true,
-    alternatives: [{ mode: 'boat', gatewayId: null }, { mode: 'trail', gatewayId: null }],
-    finalSegment: null
+    alternatives: [],
+    finalSegment: { mode: 'boat', distanceMeters: null, durationMinutes: null }
   },
   'mirante-do-coracao': {
     modes: ['4x4', 'boat', 'trail'], primaryMode: null, gatewayId: null,
