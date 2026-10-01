@@ -1,4 +1,22 @@
 const {test, expect} = require('@playwright/test');
+test('completed-day card keeps an undo action for the last completed stop', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof renderPlannerVisitProgress === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    tripSelection = ['praia-do-curral', 'praia-do-pereque'];
+    tripCompletedStops = {
+      '1:praia-do-curral': true,
+      '1:praia-do-pereque': true
+    };
+    const spots = getActiveTripSpots();
+    return renderPlannerVisitProgress(spots);
+  });
+  expect(result).toContain('Dia concluído');
+  expect(result).toContain('Desfazer última');
+  expect(result).toContain("setPlannerStopCompleted('praia-do-pereque', false)");
+});
+
 test('next-stop card navigates safely to resolved access and hides terrestrial action when unresolved', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof plannerNavigateToSpot === 'function' && typeof renderPlannerVisitProgress === 'function');

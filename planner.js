@@ -617,11 +617,11 @@ function renderPlannerVisitProgress(spots) {
   if (!spots.length) return '';
   const next = getPlannerNextStop(spots);
   const completedCount = spots.filter(spot => isPlannerStopCompleted(spot.id, activeTripDay)).length;
-  if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p></div>`;
+  const lastCompleted = spots.slice().reverse().find(spot => isPlannerStopCompleted(spot.id, activeTripDay));
+  if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="mt-3 rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>`;
   const tr = getSpotTranslation(next);
   const notice = plannerAccessNotice(next);
   const nextAccess = resolvePlannerAccess(next, plannerTravelMode);
-  const lastCompleted = spots.slice().reverse().find(spot => isPlannerStopCompleted(spot.id, activeTripDay));
   return `<div class="rounded-2xl border border-primary/15 bg-white p-4">
     <div class="mb-2 flex items-center justify-between gap-3"><div><div class="text-[10px] font-extrabold uppercase tracking-wide text-secondary">${t('plannerVisitNext')}</div><h3 class="text-base font-extrabold text-primary">${tr.title}</h3></div><div class="text-[11px] font-bold text-on-surface-variant">${completedCount}/${spots.length}</div></div>
     ${notice ? `<p class="mb-3 flex items-start gap-1.5 text-xs text-tertiary"><span class="material-symbols-outlined text-[16px]">conversion_path</span><span>${notice}</span></p>` : ''}
