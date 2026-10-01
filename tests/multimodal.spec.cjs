@@ -1,4 +1,33 @@
 const {test, expect} = require('@playwright/test');
+test('completed day offers return navigation only when return-to-origin is configured', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerNavigateToOrigin === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    plannerTravelMode = 'auto';
+    plannerOrigin = [-23.80, -45.36];
+    tripSelection = ['praia-do-curral'];
+    tripCompletedStops = {'1:praia-do-curral': true};
+    tripDayReturnToOrigin = {1: true};
+    const spots = getActiveTripSpots();
+    const enabledHtml = renderPlannerVisitProgress(spots);
+    let opened;
+    window.open = value => { opened = value; };
+    const navigated = plannerNavigateToOrigin();
+
+    tripDayReturnToOrigin = {};
+    const disabledHtml = renderPlannerVisitProgress(spots);
+    return { enabledHtml, disabledHtml, opened, navigated };
+  });
+  const params = new URL(result.opened).searchParams;
+  expect(result.enabledHtml).toContain('Navegar de volta à origem');
+  expect(result.disabledHtml).not.toContain('Navegar de volta à origem');
+  expect(result.navigated).toBe(true);
+  expect(params.get('destination')).toBe('-23.8,-45.36');
+  expect(params.get('origin')).toBeNull();
+  expect(params.get('travelmode')).toBe('driving');
+});
+
 test('undo targets the most recently completed stop even after visible order changes', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof getPlannerLastCompletedStop === 'function');

@@ -205,6 +205,11 @@ Object.assign(translations.en, { plannerNavigateNext: "Navigate to next" });
 Object.assign(translations.fr, { plannerNavigateNext: "Naviguer vers la prochaine" });
 Object.assign(translations.es, { plannerNavigateNext: "Navegar a la siguiente" });
 Object.assign(translations.he, { plannerNavigateNext: "נווטו לתחנה הבאה" });
+Object.assign(translations.pt, { plannerNavigateReturn: "Navegar de volta à origem" });
+Object.assign(translations.en, { plannerNavigateReturn: "Navigate back to origin" });
+Object.assign(translations.fr, { plannerNavigateReturn: "Naviguer vers le point de départ" });
+Object.assign(translations.es, { plannerNavigateReturn: "Navegar de regreso al origen" });
+Object.assign(translations.he, { plannerNavigateReturn: "נווטו חזרה לנקודת ההתחלה" });
 
 // State
 let tripSelection = [];
@@ -626,12 +631,27 @@ function plannerNavigateToSpot(id) {
   return true;
 }
 
+function plannerNavigateToOrigin() {
+  if (!plannerOrigin || !tripDayReturnToOrigin[activeTripDay]) return false;
+  const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
+  const params = new URLSearchParams({
+    api: '1',
+    destination: plannerOrigin.join(','),
+    travelmode: googleTravelMode
+  });
+  window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
+  return true;
+}
+
 function renderPlannerVisitProgress(spots) {
   if (!spots.length) return '';
   const next = getPlannerNextStop(spots);
   const completedCount = spots.filter(spot => isPlannerStopCompleted(spot.id, activeTripDay)).length;
   const lastCompleted = getPlannerLastCompletedStop(spots);
-  if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="mt-3 rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>`;
+  if (!next) {
+    const canReturnToOrigin = !!plannerOrigin && !!tripDayReturnToOrigin[activeTripDay];
+    return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p><div class="mt-3 flex flex-wrap gap-2">${canReturnToOrigin ? `<button type="button" onclick="plannerNavigateToOrigin()" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">keyboard_return</span>${t('plannerNavigateReturn')}</button>` : ''}${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div></div>`;
+  }
   const tr = getSpotTranslation(next);
   const notice = plannerAccessNotice(next);
   const nextAccess = resolvePlannerAccess(next, plannerTravelMode);
