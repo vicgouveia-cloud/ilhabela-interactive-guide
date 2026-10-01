@@ -1,4 +1,28 @@
 const {test, expect} = require('@playwright/test');
+test('next-stop card navigates safely to resolved access and hides terrestrial action when unresolved', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerNavigateToSpot === 'function' && typeof renderPlannerVisitProgress === 'function');
+  const result = await page.evaluate(() => {
+    plannerTravelMode = 'auto';
+    tripSelection = ['praia-do-juliao'];
+    const juliao = touristSpots.find(spot => spot.id === 'praia-do-juliao');
+    const aymore = touristSpots.find(spot => spot.id === 'naufragio-aymore');
+    window.confirm = () => true;
+    let opened;
+    window.open = value => { opened = value; };
+    const navigated = plannerNavigateToSpot('praia-do-juliao');
+    const juliaoHtml = renderPlannerVisitProgress([juliao]);
+    const aymoreHtml = renderPlannerVisitProgress([aymore]);
+    return { opened, navigated, juliaoHtml, aymoreHtml, access: resolvePlannerAccess(juliao, 'auto') };
+  });
+  const params = new URL(result.opened).searchParams;
+  expect(result.navigated).toBe(true);
+  expect(params.get('destination')).toBe(result.access.coords.join(','));
+  expect(params.get('travelmode')).toBe('driving');
+  expect(result.juliaoHtml).toContain('Navegar até próxima');
+  expect(result.aymoreHtml).not.toContain('Navegar até próxima');
+});
+
 test('regular-car routes require confirmation before a final 4x4 handoff', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof plannerConfirmAccess === 'function');

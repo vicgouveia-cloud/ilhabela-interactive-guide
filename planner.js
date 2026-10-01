@@ -200,6 +200,11 @@ Object.assign(translations.en, { plannerApproximateEstimate: "Approximate estima
 Object.assign(translations.fr, { plannerApproximateEstimate: "Estimation approximative", planner4x4RouteHint: "En mode 4x4, l’ordre, la distance et le temps utilisent un routage routier standard uniquement comme référence. Cela ne valide ni l’état de la route, ni les restrictions locales, ni la praticabilité hors route." });
 Object.assign(translations.es, { plannerApproximateEstimate: "Estimación aproximada", planner4x4RouteHint: "En modo 4x4, la secuencia, la distancia y el tiempo usan el enrutamiento vial estándar solo como referencia. Esto no valida el estado del camino, restricciones locales ni transitabilidad fuera de carretera." });
 Object.assign(translations.he, { plannerApproximateEstimate: "הערכה משוערת", planner4x4RouteHint: "במצב 4x4, הסדר, המרחק והזמן משתמשים בניווט כביש רגיל כהערכה בלבד. הדבר אינו מאמת את מצב הדרך, מגבלות מקומיות או עבירות בשטח." });
+Object.assign(translations.pt, { plannerNavigateNext: "Navegar até próxima" });
+Object.assign(translations.en, { plannerNavigateNext: "Navigate to next" });
+Object.assign(translations.fr, { plannerNavigateNext: "Naviguer vers la prochaine" });
+Object.assign(translations.es, { plannerNavigateNext: "Navegar a la siguiente" });
+Object.assign(translations.he, { plannerNavigateNext: "נווטו לתחנה הבאה" });
 
 // State
 let tripSelection = [];
@@ -593,6 +598,21 @@ function getPlannerNextStop(spots) {
   return spots.find(spot => !isPlannerStopCompleted(spot.id, activeTripDay)) || null;
 }
 
+function plannerNavigateToSpot(id) {
+  const spot = touristSpots.find(item => item.id === id);
+  const access = resolvePlannerAccess(spot, plannerTravelMode);
+  if (!spot || !access) return false;
+  if (!plannerConfirmAccess([spot])) return false;
+  const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
+  const params = new URLSearchParams({
+    api: '1',
+    destination: access.coords.join(','),
+    travelmode: googleTravelMode
+  });
+  window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
+  return true;
+}
+
 function renderPlannerVisitProgress(spots) {
   if (!spots.length) return '';
   const next = getPlannerNextStop(spots);
@@ -600,11 +620,12 @@ function renderPlannerVisitProgress(spots) {
   if (!next) return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p></div>`;
   const tr = getSpotTranslation(next);
   const notice = plannerAccessNotice(next);
+  const nextAccess = resolvePlannerAccess(next, plannerTravelMode);
   const lastCompleted = spots.slice().reverse().find(spot => isPlannerStopCompleted(spot.id, activeTripDay));
   return `<div class="rounded-2xl border border-primary/15 bg-white p-4">
     <div class="mb-2 flex items-center justify-between gap-3"><div><div class="text-[10px] font-extrabold uppercase tracking-wide text-secondary">${t('plannerVisitNext')}</div><h3 class="text-base font-extrabold text-primary">${tr.title}</h3></div><div class="text-[11px] font-bold text-on-surface-variant">${completedCount}/${spots.length}</div></div>
     ${notice ? `<p class="mb-3 flex items-start gap-1.5 text-xs text-tertiary"><span class="material-symbols-outlined text-[16px]">conversion_path</span><span>${notice}</span></p>` : ''}
-    <div class="flex flex-wrap gap-2"><button type="button" onclick="setPlannerStopCompleted('${next.id}', true)" class="rounded-xl bg-secondary px-3 py-2 text-xs font-bold text-white">${t('plannerVisitMarkDone')}</button>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>
+    <div class="flex flex-wrap gap-2">${nextAccess ? `<button type="button" onclick="plannerNavigateToSpot('${next.id}')" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">navigation</span>${t('plannerNavigateNext')}</button>` : ''}<button type="button" onclick="setPlannerStopCompleted('${next.id}', true)" class="rounded-xl bg-secondary px-3 py-2 text-xs font-bold text-white">${t('plannerVisitMarkDone')}</button>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>
   </div>`;
 }
 
