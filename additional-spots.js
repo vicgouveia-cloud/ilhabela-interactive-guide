@@ -1881,6 +1881,14 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Channel whale/dolphin watching is an operated boat experience; the attraction pin is not an embarkation point.
+  // No fixed marina or pier is assigned because departures depend on the chosen operator.
+  'ponto-baleias-canal': {
+    modes: ['boat'], primaryMode: 'boat', gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [],
+    finalSegment: { mode: 'boat', distanceMeters: null, durationMinutes: null }
+  },
   // Príncipe de Astúrias is reached by specialist boat; the final activity is technical/advanced diving.
   // No generic embarkation or operator meeting point is assigned without a verified booking context.
   'naufragio-principe-de-asturias': {
