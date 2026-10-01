@@ -1,4 +1,24 @@
 const {test, expect} = require('@playwright/test');
+test('day readiness flags unresolved access and required 4x4 handoffs', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getPlannerDayReadiness === 'function');
+  const result = await page.evaluate(() => {
+    plannerOrigin = [-23.80, -45.36];
+    plannerTravelMode = 'auto';
+    const find = id => touristSpots.find(s => s.id === id);
+    return {
+      castelhanos: getPlannerDayReadiness([find('baia-de-castelhanos')]),
+      cabecuda: getPlannerDayReadiness([find('trilha-da-cabecuda-farol')]),
+      juliao: getPlannerDayReadiness([find('praia-do-juliao')])
+    };
+  });
+  expect(result.castelhanos.ready).toBe(false);
+  expect(result.castelhanos.pending.some(item => item.key === '4x4:baia-de-castelhanos')).toBe(true);
+  expect(result.cabecuda.ready).toBe(false);
+  expect(result.cabecuda.pending.some(item => item.key === 'access:trilha-da-cabecuda-farol')).toBe(true);
+  expect(result.juliao.ready).toBe(true);
+});
+
 test('optimized route order is reflected in agenda and map without moving special-access stops', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof getPlannerDisplaySpots === 'function');
