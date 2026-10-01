@@ -1,4 +1,4 @@
-// Structured gateways are preferred; the legacy map remains only for attractions not migrated yet.
+// Explicit options take priority; remaining options are derived from catalog metadata.
 const getRoutingGateway = gatewayId => routingGateways.find(gateway => gateway.id === gatewayId) || null;
 const boneteTrailGateway = getRoutingGateway('sepituba-trailhead')?.coords;
 touristSpots.forEach(spot => {
@@ -12,7 +12,7 @@ touristSpots.forEach(spot => {
         gateway: coords ? {
           name: gateway?.name || null,
           coords,
-          verified: true,
+          verified: option.destinationDirect || gateway?.verified !== false,
           source: option.destinationDirect ? 'destination' : 'data:routingGateways'
         } : null
       };
@@ -33,7 +33,7 @@ touristSpots.forEach(spot => {
     gateway: {
       name: structuredGateway?.name || null,
       coords,
-      verified: true,
+      verified: structuredGateway.verified !== false,
       source: 'data:routingGateways'
     },
     finalMode
@@ -50,6 +50,8 @@ touristSpots.forEach(spot => {
 
 function resolvePlannerAccess(spot, mode) {
   if (!spot) return null;
+  // A quarantined gateway must not fall through to the attraction pin in any mode.
+  if (getRoutingGateway(spot.routing?.gatewayId)?.verified === false) return null;
   const option = spot.routing?.accessOptions?.find(option => option.approachModes.includes(mode) && option.gateway?.verified);
   if (option) return { coords: option.gateway.coords, destination: spot.coords, finalMode: option.finalMode, gatewayName: option.gateway.name || null, accessId: option.id };
   const modes = spot.routing?.modes || [];

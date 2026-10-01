@@ -92,6 +92,7 @@ const routingGateways = [
   },
   {
     "id": "cachoeira-dos-tres-tombos-access",
+    "verified": false,
     "name": "Estacionamento / início da trilha da Cachoeira dos Três Tombos",
     "coords": [-23.854116510544785, -45.405701165557744],
     "modes": ["road", "walk"]
