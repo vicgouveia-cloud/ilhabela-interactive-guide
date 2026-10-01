@@ -1863,7 +1863,7 @@ const attractionRoutingMetadata = {
   'pico-do-baepi': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-sul-sepituba': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-canal': { modes: ['boat'], roadRoutable: false, specialAccess: true },
-  'naufragio-aymore': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
+  'naufragio-aymore': { modes: ['road', 'diving', 'boat'], roadRoutable: false, specialAccess: true },
   'santuario-ilha-das-cabras': { modes: ['road', 'diving', 'boat'], roadRoutable: false, specialAccess: true },
   'naufragio-principe-de-asturias': { modes: ['diving', 'boat'], roadRoutable: false, specialAccess: true },
   'praia-do-jabaquara': { modes: ['road'], roadRoutable: true, specialAccess: false },
@@ -1881,6 +1881,18 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Aymore lies close to the Curral/Ribeirao coast and can be approached from shore or by dive boat.
+  // The wreck pin is offshore, so it is never road-routable and no operator meeting point is used as a generic gateway.
+  'naufragio-aymore': {
+    modes: ['road', 'diving', 'boat'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: 'road', gatewayId: null },
+      { mode: 'boat', gatewayId: null },
+      { mode: 'diving', gatewayId: null }
+    ],
+    finalSegment: { mode: 'diving', distanceMeters: null, durationMinutes: null }
+  },
   // The sanctuary can be approached by road to Praia das Pedras Miudas or by dive boat.
   // The offshore attraction pin itself is not road-routable; no unverified beach gateway is assigned.
   'santuario-ilha-das-cabras': {
