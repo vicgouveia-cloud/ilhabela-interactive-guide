@@ -1846,7 +1846,7 @@ const attractionRoutingMetadata = {
   'cachoeira-da-toca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-veloso': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-do-paqueta': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'cachoeira-do-gato': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'cachoeira-do-gato': { modes: ['4x4', 'boat', 'trail'], roadRoutable: false, specialAccess: true },
   'cachoeira-dos-tres-tombos': { modes: ['road', 'walk'], roadRoutable: false, specialAccess: true },
   'cachoeira-da-friagem': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'poco-do-furado': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
@@ -1881,6 +1881,18 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Official sources confirm arrival in Castelhanos by 4x4 or boat and continuation on foot,
+  // but the exact Ponta do Gato trail transition is not yet coordinate-verified.
+  'cachoeira-do-gato': {
+    modes: ['4x4', 'boat', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: '4x4', gatewayId: null },
+      { mode: 'boat', gatewayId: null },
+      { mode: 'trail', gatewayId: null }
+    ],
+    finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
+  },
   // Car access and parking end at the confirmed park entrance; continue on foot.
   'trilha-da-agua-branca': {
     modes: ['trail'], primaryMode: 'trail', gatewayId: 'castelhanos-park-entrance',
@@ -2046,6 +2058,12 @@ touristSpots.forEach(spot => {
 // Values represent time spent at the attraction/experience, never access or travel time.
 // null is intentional when the current editorial data only describes access or is too ambiguous.
 const maritimeAccessMetadata = {
+  'cachoeira-do-gato': {
+    profile: 'east-coast',
+    requiredMode: 'boat',
+    requiredActivity: 'boat-tour',
+    embarkation: null
+  },
   'praia-do-bonete': {
     profile: 'bonete',
     requiredMode: 'boat',
