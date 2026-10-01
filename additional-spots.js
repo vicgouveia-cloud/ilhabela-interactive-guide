@@ -1881,6 +1881,14 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Príncipe de Astúrias is reached by specialist boat; the final activity is technical/advanced diving.
+  // No generic embarkation or operator meeting point is assigned without a verified booking context.
+  'naufragio-principe-de-asturias': {
+    modes: ['boat', 'diving'], primaryMode: 'boat', gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [],
+    finalSegment: { mode: 'diving', distanceMeters: null, durationMinutes: null }
+  },
   // Aymore lies close to the Curral/Ribeirao coast and can be approached from shore or by dive boat.
   // The wreck pin is offshore, so it is never road-routable and no operator meeting point is used as a generic gateway.
   'naufragio-aymore': {
