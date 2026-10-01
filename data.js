@@ -2868,17 +2868,17 @@ const touristSpots = [
     "id": "trilha-da-cabecuda-farol",
     "category": "trilhas",
     "coords": [
-      -23.8806,
-      -45.2417
+      -23.8370139,
+      -45.2268194
     ],
     "rating": null,
     "reviews": 0,
     "image": "assets/images/trilha-da-cabecuda-farol_1.jpg",
     "tags": [
-      "Farol Histórico 1930",
-      "Costeira Oceânica",
-      "Castelhanos",
-      "Vista Aberta"
+      "Ponta da Cabeçuda",
+      "Costa Oceânica",
+      "Baía de Castelhanos",
+      "Referência Geográfica"
     ],
     "attributes": {
       "isDiving": false,
@@ -2887,116 +2887,116 @@ const touristSpots = [
       "isWild": true,
       "isFamily": false,
       "isSurf": false,
-      "is4x4": true
+      "is4x4": false
     },
     "specs": {
-      "difficulty": "moderate",
-      "distance": "3.8 km a partir do canto leste de Castelhanos",
-      "duration": "1h20 de caminhada",
-      "elevation": "+130m",
-      "access": "A partir da Praia de Castelhanos",
-      "sea": "Mar aberto do Atlântico batendo nas imensas falésias rochosas",
-      "structure": "Farol centenário da Marinha do Brasil e mirante natural"
+      "difficulty": "unknown",
+      "distance": "Acesso público não confirmado",
+      "duration": "Não estimada",
+      "elevation": "Não confirmada",
+      "access": "O guia ainda não possui um acesso terrestre público validado para este ponto",
+      "sea": "Costa oceânica exposta na extremidade norte da Baía de Castelhanos",
+      "structure": "Sem estrutura turística confirmada"
     },
     "translations": {
       "pt": {
-        "title": "Trilha do Farol da Ponta da Cabeçuda",
-        "subtitle": "Caminhada costeira até o farol histórico de 1930 no mar aberto",
-        "description": "Partindo da extremidade leste da Baía de Castelhanos, a trilha contorna a costa rochosa atlântica até o imponente Farol da Ponta da Cabeçuda, com vista monumental para o oceano sem fim.",
+        "title": "Ponta da Cabeçuda",
+        "subtitle": "Referência geográfica na costa oceânica da Baía de Castelhanos",
+        "description": "A Ponta da Cabeçuda marca o limite norte da área costeira da Baía de Castelhanos. A coordenada foi corrigida com base em referência oficial da Prefeitura. Não há, neste guia, trilha pública, farol ou acesso terrestre validados para visitação.",
         "highlights": [
-          "Farol histórico da Marinha de 1930",
-          "Vista espetacular do mar aberto",
-          "Avistamento de aves oceânicas e tartarugas",
-          "Sensação incrível de isolamento e imensidão"
+          "Ponto costeiro oficial da Baía de Castelhanos",
+          "Costa oceânica preservada",
+          "Referência geográfica da face leste de Ilhabela",
+          "Acesso turístico ainda não validado"
         ],
-        "ecoTip": "Leve chapéu e protetor solar pois a caminhada costeira tem trechos expostos ao sol.",
+        "ecoTip": "Não tente acessar por trilhas não oficiais ou sem orientação local.",
         "specs": {
-          "distance": "3.8 km a partir do canto leste de Castelhanos",
-          "duration": "1h20 de caminhada",
-          "elevation": "+130m",
-          "access": "A partir da Praia de Castelhanos",
-          "sea": "Mar aberto do Atlântico batendo nas imensas falésias rochosas",
-          "structure": "Farol centenário da Marinha do Brasil e mirante natural"
+          "distance": "Acesso público não confirmado",
+          "duration": "Não estimada",
+          "elevation": "Não confirmada",
+          "access": "Sem acesso terrestre público validado no guia",
+          "sea": "Costa oceânica exposta",
+          "structure": "Sem estrutura turística confirmada"
         }
       },
       "en": {
-        "title": "Cabeçuda Lighthouse Coastal Trail",
-        "subtitle": "Scenic ocean hike to the historic 1930 maritime lighthouse",
-        "description": "Starting from the eastern tip of Castelhanos Bay, this coastal trail winds along rugged Atlantic cliffs to the iconic 1930 lighthouse, offering boundless ocean panoramas.",
+        "title": "Ponta da Cabeçuda",
+        "subtitle": "Geographic landmark on the ocean-facing coast of Castelhanos Bay",
+        "description": "Ponta da Cabeçuda marks the northern limit of the coastal area of Castelhanos Bay. Its coordinate was corrected from an official municipal reference. This guide does not currently have a validated public trail, lighthouse or overland visitor access for this point.",
         "highlights": [
-          "Historic 1930 navy lighthouse",
-          "Dramatic open ocean cliff panoramas",
-          "Pelagic seabird and turtle spotting",
-          "Unforgettable sense of wild frontier"
+          "Official coastal reference in Castelhanos Bay",
+          "Preserved ocean-facing coastline",
+          "Geographic landmark on Ilhabela's east coast",
+          "Visitor access not yet validated"
         ],
-        "ecoTip": "Wear sun protection and a hat for sun-exposed coastal segments.",
+        "ecoTip": "Do not attempt unverified trails or access routes without local guidance.",
         "specs": {
-          "distance": "3.8 km from the east end of Castelhanos",
-          "duration": "1 h 20 min walk",
-          "elevation": "+130 m",
-          "access": "From Praia de Castelhanos",
-          "sea": "Open Atlantic waters striking immense rocky cliffs",
-          "structure": "Century-old Brazilian Navy lighthouse and natural viewpoint"
+          "distance": "Public access not confirmed",
+          "duration": "Not estimated",
+          "elevation": "Not confirmed",
+          "access": "No validated public overland access in the guide",
+          "sea": "Exposed ocean-facing coast",
+          "structure": "No confirmed visitor infrastructure"
         }
       },
       "fr": {
-        "title": "Sentier du Phare de Ponta da Cabeçuda",
-        "subtitle": "Randonnée côtière vers le phare historique de 1930",
-        "description": "Au départ de la baie de Castelhanos, ce sentier côtier longe des falaises impressionnantes jusqu au phare maritime de 1930 face à l océan infini.",
+        "title": "Ponta da Cabeçuda",
+        "subtitle": "Repère géographique sur la côte océanique de la baie de Castelhanos",
+        "description": "La Ponta da Cabeçuda marque la limite nord de la zone côtière de la baie de Castelhanos. Sa coordonnée a été corrigée à partir d'une référence officielle municipale. Le guide ne dispose pas encore d'un sentier public, d'un phare ou d'un accès terrestre validé pour la visite.",
         "highlights": [
-          "Phare historique de la marine de 1930",
-          "Vue grandiose sur le large",
-          "Oiseaux marins et tortues",
-          "Atmosphère sauvage unique"
+          "Repère côtier officiel de la baie de Castelhanos",
+          "Côte océanique préservée",
+          "Repère géographique de la côte est d'Ilhabela",
+          "Accès touristique non encore validé"
         ],
-        "ecoTip": "Prévoyez protection solaire et eau en abondance.",
+        "ecoTip": "N'empruntez pas de sentiers ou d'accès non vérifiés sans accompagnement local.",
         "specs": {
-          "distance": "3,8 km depuis l’extrémité est de Castelhanos",
-          "duration": "1 h 20 de marche",
-          "elevation": "+130 m",
-          "access": "Depuis Praia de Castelhanos",
-          "sea": "Mer ouverte de l’Atlantique frappant d’immenses falaises rocheuses",
-          "structure": "Phare centenaire de la marine brésilienne et belvédère naturel"
+          "distance": "Accès public non confirmé",
+          "duration": "Non estimée",
+          "elevation": "Non confirmée",
+          "access": "Aucun accès terrestre public validé dans le guide",
+          "sea": "Côte océanique exposée",
+          "structure": "Aucune infrastructure touristique confirmée"
         }
       },
       "es": {
-        "title": "Sendero del Faro de Ponta da Cabeçuda",
-        "subtitle": "Caminata costera hasta el faro histórico de 1930 frente al océano",
-        "description": "Desde el extremo este de Castelhanos, el sendero bordea los acantilados hasta el faro marítimo de 1930 con vistas panorámicas al Atlántico abierto.",
+        "title": "Ponta da Cabeçuda",
+        "subtitle": "Referencia geográfica en la costa oceánica de la Bahía de Castelhanos",
+        "description": "Ponta da Cabeçuda marca el límite norte del área costera de la Bahía de Castelhanos. Su coordenada fue corregida a partir de una referencia oficial municipal. El guía no dispone todavía de un sendero público, faro o acceso terrestre validado para visitas.",
         "highlights": [
-          "Faro histórico de la Armada de 1930",
-          "Vistas monumentales al mar abierto",
-          "Avistamiento de aves marinas",
-          "Aventura costera inolvidable"
+          "Referencia costera oficial de la Bahía de Castelhanos",
+          "Costa oceánica preservada",
+          "Referencia geográfica de la costa este de Ilhabela",
+          "Acceso turístico aún no validado"
         ],
-        "ecoTip": "Lleva protección solar para tramos despejados.",
+        "ecoTip": "No intentes rutas o senderos no verificados sin orientación local.",
         "specs": {
-          "distance": "3,8 km desde el extremo este de Castelhanos",
-          "duration": "1 h 20 min caminando",
-          "elevation": "+130 m",
-          "access": "Desde Praia de Castelhanos",
-          "sea": "Mar abierto del Atlántico golpeando inmensos acantilados rocosos",
-          "structure": "Faro centenario de la Marina de Brasil y mirador natural"
+          "distance": "Acceso público no confirmado",
+          "duration": "No estimada",
+          "elevation": "No confirmada",
+          "access": "Sin acceso terrestre público validado en el guía",
+          "sea": "Costa oceánica expuesta",
+          "structure": "Sin infraestructura turística confirmada"
         }
       },
       "he": {
-        "title": "טרק המגדלור ההיסטורי של פונטה דה קבסודה",
-        "subtitle": "מסלול חופי מרהיב אל מגדלור ימי היסטורי מ-1930 אל מול האוקיינוס",
-        "description": "יוצא מחלקו המזרחי של מפרץ קסטליאנוס. השביל עובר לאורך מצוקי חוף מרשימים עד למגדלור היסטורי של חיל הים מ-1930 המשקיף על האוקיינוס הפתוח.",
+        "title": "Ponta da Cabeçuda",
+        "subtitle": "נקודת ציון גאוגרפית בחוף האוקייני של מפרץ קסטליאנוס",
+        "description": "Ponta da Cabeçuda מסמנת את הגבול הצפוני של אזור החוף במפרץ קסטליאנוס. הקואורדינטה תוקנה לפי מקור עירוני רשמי. במדריך עדיין אין שביל ציבורי, מגדלור או גישה יבשתית מאומתים לביקור בנקודה זו.",
         "highlights": [
-          "מגדלור היסטורי מ-1930",
-          "נופי אוקיינוס פתוח עוצרי נשימה",
-          "צפייה בעופות ים וצבי ים",
-          "תחושת מרחב ופראיות אמיתית"
+          "נקודת חוף רשמית במפרץ קסטליאנוס",
+          "חוף אוקייני שמור",
+          "נקודת ציון בחוף המזרחי של איליאבלה",
+          "גישה תיירותית טרם אומתה"
         ],
-        "ecoTip": "הצטיידו בכובע ובקרם הגנה לשטחים החשופים לשמש.",
+        "ecoTip": "אל תנסו שבילים או דרכי גישה שלא אומתו ללא ליווי מקומי.",
         "specs": {
-          "distance": "3.8 ק״מ מהקצה המזרחי של Castelhanos",
-          "duration": "שעה ו-20 דקות הליכה",
-          "elevation": "+130 מ׳",
-          "access": "מ-Praia de Castelhanos",
-          "sea": "מי האוקיינוס האטלנטי הפתוח פוגעים במצוקי סלע עצומים",
-          "structure": "מגדלור בן מאה שנה של הצי הברזילאי ותצפית טבעית"
+          "distance": "גישה ציבורית לא אושרה",
+          "duration": "לא הוערך",
+          "elevation": "לא אושרה",
+          "access": "אין במדריך גישה יבשתית ציבורית מאומתת",
+          "sea": "חוף אוקייני חשוף",
+          "structure": "אין תשתית תיירותית מאומתת"
         }
       }
     },
