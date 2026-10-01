@@ -1875,12 +1875,23 @@ const attractionRoutingMetadata = {
   'saco-do-eustaquio': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'praia-do-pereque': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'praia-do-poco': { modes: ['boat'], roadRoutable: false, specialAccess: true },
-  'piscinas-naturais-do-sul': { modes: ['trail'], roadRoutable: false, specialAccess: true },
+  'piscinas-naturais-do-sul': { modes: ['road', 'trail'], roadRoutable: false, specialAccess: true },
   'praia-grande': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'praia-do-portinho': { modes: ['road'], roadRoutable: true, specialAccess: false }
 };
 
 const structuredRoutingMetadata = {
+  // Public access reaches the signed entrance by road, then continues on foot along the coastal trail.
+  // The exact gate coordinate is not yet verified, so no gateway is assigned.
+  'piscinas-naturais-do-sul': {
+    modes: ['road', 'trail'], primaryMode: null, gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [
+      { mode: 'road', gatewayId: null },
+      { mode: 'trail', gatewayId: null }
+    ],
+    finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
+  },
   // Official access is by road to the Siriuba urbanized area, then on foot by trail.
   // The exact trail transition inside/after the condominium is not yet coordinate-verified.
   'cachoeira-da-friagem': {
