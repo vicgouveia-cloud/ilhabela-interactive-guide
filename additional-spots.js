@@ -1881,6 +1881,16 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Car access and parking end at the confirmed park entrance; continue on foot.
+  'trilha-da-agua-branca': {
+    modes: ['trail'], primaryMode: 'trail', gatewayId: 'castelhanos-park-entrance',
+    roadRoutable: false, specialAccess: true,
+    alternatives: [], finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null },
+    accessOptions: [{
+      id: 'road-trail', mode: 'trail', approachModes: ['auto', '4x4', 'bicycle', 'pedestrian'],
+      gatewayId: 'castelhanos-park-entrance', destinationDirect: false, finalMode: 'trail', vehicleRequirement: null
+    }]
+  },
   // Reuse the previously confirmed Bonete trailhead; the attraction pin is not a road access.
   'trilha-do-bonete': {
     modes: ['trail'], primaryMode: 'trail', gatewayId: 'sepituba-trailhead',

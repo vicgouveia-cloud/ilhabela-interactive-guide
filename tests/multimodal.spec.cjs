@@ -1,4 +1,28 @@
 const {test, expect} = require('@playwright/test');
+test('Agua Branca car navigation ends at park entrance before walking', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
+  const result = await page.evaluate(() => {
+    tripSelection = ['trilha-da-agua-branca'];
+    plannerOrigin = null;
+    plannerOptimizedRoute = null;
+    plannerTravelMode = 'auto';
+    window.confirm = () => true;
+    let url;
+    window.open = value => { url = value; };
+    const spot = touristSpots.find(s => s.id === 'trilha-da-agua-branca');
+    plannerOpenGoogleMaps();
+    return {url, access: resolvePlannerAccess(spot, 'auto'), notice: plannerAccessNotice(spot), roadRoutable: spot.routing.roadRoutable};
+  });
+  const params = new URL(result.url).searchParams;
+  expect(params.get('destination')).toBe('-23.839249751545807,-45.36002116037754');
+  expect(params.get('travelmode')).toBe('driving');
+  expect(result.access.finalMode).toBe('trail');
+  expect(result.access.gatewayName).toContain('Entrada');
+  expect(result.notice).toContain('Trecho final a pé');
+  expect(result.roadRoutable).toBe(false);
+});
+
 test('validated Bonete trailhead is used by Maps and optimizer', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof resolvePlannerAccess === 'function');
