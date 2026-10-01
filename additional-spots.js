@@ -1858,7 +1858,7 @@ const attractionRoutingMetadata = {
   'trilha-da-agua-branca': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-do-bonete': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'trilha-da-cabecuda-farol': { modes: ['trail'], roadRoutable: false, specialAccess: true },
-  'pico-de-sao-sebastiao': { modes: ['unknown'], roadRoutable: false, specialAccess: true },
+  'pico-de-sao-sebastiao': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'mirante-do-coracao': { modes: ['4x4', 'boat', 'trail'], roadRoutable: false, specialAccess: true },
   'pico-do-baepi': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'ponto-baleias-sul-sepituba': { modes: ['road', 'boat'], roadRoutable: false, specialAccess: true },
@@ -1881,6 +1881,14 @@ const attractionRoutingMetadata = {
 };
 
 const structuredRoutingMetadata = {
+  // Public sources confirm access by a difficult trail in the south of the island.
+  // The exact trailhead is not yet coordinate-verified, so no gateway is assigned.
+  'pico-de-sao-sebastiao': {
+    modes: ['trail'], primaryMode: 'trail', gatewayId: null,
+    roadRoutable: false, specialAccess: true,
+    alternatives: [],
+    finalSegment: { mode: 'trail', distanceMeters: null, durationMinutes: null }
+  },
   // Public access reaches the signed entrance by road, then continues on foot along the coastal trail.
   // The exact gate coordinate is not yet verified, so no gateway is assigned.
   'piscinas-naturais-do-sul': {
