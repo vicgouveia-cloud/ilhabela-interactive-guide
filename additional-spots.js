@@ -1834,7 +1834,7 @@ touristSpots.push(...additionalTouristSpots);
 const attractionRoutingMetadata = {
   'praia-do-bonete': { modes: ['trail', 'boat'], roadRoutable: false, specialAccess: true },
   'baia-de-castelhanos': { modes: ['4x4', 'boat'], roadRoutable: false, specialAccess: true },
-  'praia-da-fome': { modes: ['boat', 'trail'], roadRoutable: false, specialAccess: true },
+  'praia-da-fome': { modes: ['boat'], roadRoutable: false, specialAccess: true },
   'praia-do-juliao': { modes: ['trail'], roadRoutable: false, specialAccess: true },
   'praia-do-curral': { modes: ['road'], roadRoutable: true, specialAccess: false },
   'praia-da-armacao': { modes: ['road'], roadRoutable: true, specialAccess: false },
@@ -2000,10 +2000,10 @@ const structuredRoutingMetadata = {
     alternatives: [], finalSegment: { mode: 'walk', distanceMeters: 400, durationMinutes: 10 }
   },
   'praia-da-fome': {
-    modes: ['boat', 'trail'], primaryMode: null, gatewayId: null,
+    modes: ['boat'], primaryMode: 'boat', gatewayId: null,
     roadRoutable: false, specialAccess: true,
-    alternatives: [{ mode: 'boat', gatewayId: null }, { mode: 'trail', gatewayId: null }],
-    finalSegment: null
+    alternatives: [],
+    finalSegment: { mode: 'boat', distanceMeters: null, durationMinutes: null }
   },
   'praia-da-enchova': {
     modes: ['trail', 'boat'], primaryMode: null, gatewayId: null,
