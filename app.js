@@ -713,7 +713,12 @@ function setViewMode(mode) {
     if (btnMap) btnMap.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
     if (btnGrid) btnGrid.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
     if (map) { setTimeout(() => map.invalidateSize(), 120); }
-    if (mapSec) mapSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    if (mapSec) {
+      mapSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      if (window.matchMedia('(max-width: 767px)').matches) {
+        setTimeout(() => window.scrollBy({ top: -8, behavior: 'smooth' }), 180);
+      }
+    }
   } else {
     if (btnGrid) btnGrid.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
     if (btnMap) btnMap.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
