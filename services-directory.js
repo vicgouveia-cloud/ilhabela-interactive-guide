@@ -61,7 +61,6 @@
     };
     const dl = key => directoryLabels[key]?.[currentLang] || directoryLabels[key]?.pt || key;
     if (category === 'tour') {
-      foodFilters.classList.remove('hidden');
       const tourOptions = [
         ['all', dl('all')],
         ['transfer', dl('transfer')],
@@ -78,7 +77,6 @@
       return;
     }
     if (category === 'essentials') {
-      foodFilters.classList.remove('hidden');
       const practicalOptions = [
         ['all', dl('all')],
         ['car-rental', dl('carRental')],
@@ -95,7 +93,6 @@
       return;
     }
     if (category !== 'food') {
-      foodFilters.classList.add('hidden');
       foodFilters.innerHTML = '';
       return;
     }
@@ -152,6 +149,19 @@
     });
   };
 
+  const nearbyLabels = {
+    idle: { pt: 'Perto de mim', en: 'Near me', fr: 'Près de moi', es: 'Cerca de mí', he: 'קרוב אליי' },
+    active: { pt: 'Usando minha localização', en: 'Using my location', fr: 'Position utilisée', es: 'Usando mi ubicación', he: 'משתמש במיקום שלי' }
+  };
+  const updateNearbyButton = () => {
+    const button = document.getElementById('services-nearby');
+    if (!button) return;
+    const span = button.querySelector('span:last-child');
+    if (span) span.textContent = (directoryLocation ? nearbyLabels.active : nearbyLabels.idle)[currentLang] || (directoryLocation ? nearbyLabels.active : nearbyLabels.idle).pt;
+    button.classList.toggle('bg-primary/5', Boolean(directoryLocation));
+    button.classList.toggle('border-primary/40', Boolean(directoryLocation));
+  };
+
   const messages = {
     success: {
       pt: 'As distâncias são aproximadas, calculadas pela localização editorial de referência de cada serviço.',
@@ -171,19 +181,38 @@
 
   window.renderServicesPage = function renderServicesPage() {
     const categories = ['all', ...new Set(servicesData.map(service => service.category))];
-    filters.innerHTML = categories.map(item => `<button type="button" data-service-page-category="${item}" aria-pressed="${item === category}" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold ${item === category ? 'bg-primary text-white border-primary' : 'bg-white text-on-surface-variant border-black/10'}">${getServiceCategoryLabel(item)}</button>`).join('');
-    filters.querySelectorAll('[data-service-page-category]').forEach(button => button.addEventListener('click', () => {
-      const nextCategory = button.dataset.servicePageCategory;
-      filterFocusTarget = `[data-service-page-category="${nextCategory}"]`;
+    const categoryLabels = {
+      prompt: { pt: 'O que você procura?', en: 'What are you looking for?', fr: 'Que recherchez-vous ?', es: '¿Qué estás buscando?', he: 'מה אתם מחפשים?' },
+      refinements: { pt: 'Refine sua busca', en: 'Refine your search', fr: 'Affinez votre recherche', es: 'Refina tu búsqueda', he: 'סינון נוסף' },
+      refinementHint: { pt: 'Refine sua busca apenas quando a categoria tiver opções adicionais.', en: 'Refine only when the selected category has additional options.', fr: 'Affinez uniquement lorsque la catégorie propose des options supplémentaires.', es: 'Refina solo cuando la categoría tenga opciones adicionales.', he: 'סננו רק כאשר לקטגוריה יש אפשרויות נוספות.' }
+    };
+    const categoryLabel = document.getElementById('services-category-label');
+    if (categoryLabel) categoryLabel.textContent = categoryLabels.prompt[currentLang] || categoryLabels.prompt.pt;
+    const refinementTitle = document.getElementById('services-refinement-title');
+    if (refinementTitle) refinementTitle.textContent = categoryLabels.refinements[currentLang] || categoryLabels.refinements.pt;
+    const refinementIntro = document.getElementById('services-refinement-intro');
+    if (refinementIntro) refinementIntro.textContent = categoryLabels.refinementHint[currentLang] || categoryLabels.refinementHint.pt;
+
+    filters.innerHTML = `
+      <select id="services-category-select" aria-labelledby="services-category-label" class="w-full min-h-11 px-3.5 rounded-xl border border-black/10 bg-surface text-sm font-bold text-primary shadow-inner">
+        ${categories.map(item => `<option value="${item}"${item === category ? ' selected' : ''}>${getServiceCategoryLabel(item)}</option>`).join('')}
+      </select>`;
+    document.getElementById('services-category-select')?.addEventListener('change', event => {
+      const nextCategory = event.target.value;
+      filterFocusTarget = '#services-category-select';
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
       category = nextCategory;
       if (category !== 'essentials') practicalFilter = 'all';
       if (category !== 'tour') tourFilter = 'all';
       window.renderServicesPage();
-    }));
+    });
 
     renderFoodFilters();
+    const refinementWrap = document.getElementById('services-refinement-wrap');
+    const hasRefinements = ['food', 'tour', 'essentials'].includes(category);
+    refinementWrap?.classList.toggle('hidden', !hasRefinements);
     renderDistanceLabels();
+    updateNearbyButton();
     if (filterFocusTarget) {
       const target = document.querySelector(filterFocusTarget);
       filterFocusTarget = null;
@@ -295,6 +324,7 @@
       const distanceSelect = document.getElementById('services-distance');
       if (distanceSelect) distanceSelect.value = 'all';
       document.getElementById('services-distance-wrap')?.classList.add('hidden');
+      document.getElementById('services-distance-wrap')?.classList.remove('flex');
       if (note) {
         note.textContent = messages.error[currentLang] || messages.error.pt;
         note.classList.remove('hidden');
@@ -315,6 +345,7 @@
       directoryLocation = nextLocation;
       locationNoteState = 'success';
       document.getElementById('services-distance-wrap')?.classList.remove('hidden');
+      document.getElementById('services-distance-wrap')?.classList.add('flex');
       if (note) {
         note.textContent = messages.success[currentLang] || messages.success.pt;
         note.classList.remove('hidden');
