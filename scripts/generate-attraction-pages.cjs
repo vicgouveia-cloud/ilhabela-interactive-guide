@@ -68,8 +68,15 @@ function render(spot) {
 <img class="hero" src="/${esc(spot.image)}" alt="${esc(tr.title)}"><p class="sub">${esc(tr.subtitle)}</p><h1>${esc(tr.title)}</h1><p>${esc(tr.description)}</p>
 <section class="card"><h2>Destaques</h2><ul>${(tr.highlights || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></section>
 <section class="card"><h2>Como chegar</h2><p>${esc(accessCopy(spot, tr))}</p></section>
-<section class="card"><h2>Planeje esta parada</h2><p>Abra a ficha interativa para ver todos os detalhes ou leve este lugar diretamente para Minha Viagem.</p><a class="cta" href="/?spot=${encodeURIComponent(spot.id)}">Abrir no Guia</a> <a class="cta secondary" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip">Adicionar à Minha Viagem</a></section>
-</main><footer>Guia Ilhabela · Informações de planejamento e acesso. Confira condições locais antes do deslocamento.</footer></body></html>`;
+<section class="card"><h2>Planeje esta parada</h2><p>Abra a ficha interativa para ver todos os detalhes ou leve este lugar diretamente para Minha Viagem.</p><a class="cta" data-analytics="open_guide" href="/?spot=${encodeURIComponent(spot.id)}">Abrir no Guia</a> <a class="cta secondary" data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip">Adicionar à Minha Viagem</a></section>
+</main><footer>Guia Ilhabela · Informações de planejamento e acesso. Confira condições locais antes do deslocamento.</footer><script>
+window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
+document.addEventListener('click',function(event){
+  const link=event.target.closest('[data-analytics]');
+  if(!link||typeof window.va!=='function')return;
+  window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
+});
+</script><script defer src="/_vercel/insights/script.js"></script></body></html>`;
 }
 
 fs.mkdirSync(OUT, { recursive: true });
