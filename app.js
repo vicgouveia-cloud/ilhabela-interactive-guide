@@ -628,66 +628,72 @@ function renderCustomSpotsList(spots) {
     return;
   }
 
-  grid.innerHTML = spots.map(spot => {
-    const tr = getSpotTranslation(spot);
-    const diffClass = getDifficultyBadgeClass(spot.specs.difficulty);
-    const diffLabel = t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`);
+  const cards = spots.map(spot => {
+    try {
+      const tr = getSpotTranslation(spot);
+      const difficulty = spot.specs?.difficulty || 'easy';
+      const difficultyKey = `difficulty${difficulty.charAt(0).toUpperCase() + difficulty.slice(1)}`;
+      const diffClass = getDifficultyBadgeClass(difficulty);
+      let diffLabel = difficulty;
+      try { diffLabel = t(difficultyKey); } catch { /* Keep raw difficulty if a UI label is unavailable. */ }
 
-    return `
-      <div onclick="openSpotModal('${spot.id}')" class="glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col group relative animate-fade-in">
-        
-        <!-- Image Banner -->
-        <div class="relative h-52 w-full overflow-hidden bg-gray-100">
-          <img src="${spot.image}" alt="${tr.title}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-          
-          <!-- Category & Difficulty Badges -->
-          <div class="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
-            <span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-primary shadow-sm flex items-center gap-1">
-              <span class="material-symbols-outlined text-[14px]">${getCategoryIcon(spot.category)}</span>
-              ${getCategoryLabel(spot.category)}
-            </span>
-            <span class="px-2 py-1 rounded-full text-[10px] font-extrabold uppercase shadow-sm ${diffClass}">
-              ${diffLabel}
-            </span>
+      const distance = String(tr.specs?.distance || '').split('(')[0].trim();
+      const duration = String(tr.specs?.duration || '').split('(')[0].trim();
+      const subtitle = tr.subtitle || tr.description || '';
+
+      return `
+        <div onclick="openSpotModal('${spot.id}')" class="glass-card rounded-2xl overflow-hidden cursor-pointer flex flex-col group relative animate-fade-in">
+          <div class="relative h-52 w-full overflow-hidden bg-gray-100">
+            <img src="${spot.image}" alt="${tr.title}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <div class="absolute top-3 left-3 flex flex-wrap items-center gap-1.5 z-10">
+              <span class="px-2.5 py-1 rounded-full bg-white/90 backdrop-blur-md text-[11px] font-bold text-primary shadow-sm flex items-center gap-1">
+                <span class="material-symbols-outlined text-[14px]">${getCategoryIcon(spot.category)}</span>
+                ${getCategoryLabel(spot.category)}
+              </span>
+              <span class="px-2 py-1 rounded-full text-[10px] font-extrabold uppercase shadow-sm ${diffClass}">${diffLabel}</span>
+            </div>
+            <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1">
+              <span class="text-amber-400">${typeof spot.rating === 'number' ? '★' : '●'}</span> ${getRatingLabel(spot, true).replace('★ ', '')}
+            </div>
           </div>
-
-
-
-          <!-- Rating Pill -->
-          <div class="absolute bottom-3 right-3 px-2 py-0.5 rounded-lg bg-black/60 backdrop-blur-md text-white text-[11px] font-bold flex items-center gap-1">
-            <span class="text-amber-400">${typeof spot.rating === 'number' ? '★' : '●'}</span> ${getRatingLabel(spot, true).replace('★ ', '')}
+          <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+            <div class="space-y-1.5">
+              <h3 class="text-lg font-bold text-primary group-hover:text-primary-container transition-colors font-heading truncate">${tr.title}</h3>
+              <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">${subtitle}</p>
+            </div>
+            ${distance || duration ? `
+              <div class="pt-3 border-t border-black/5 flex items-center justify-between text-[11px] font-semibold text-on-surface-variant">
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px] text-primary">straighten</span>${distance || '—'}
+                </span>
+                <span class="flex items-center gap-1">
+                  <span class="material-symbols-outlined text-[15px] text-primary">timer</span>${duration || '—'}
+                </span>
+              </div>` : ''}
+            <button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-primary hover:text-white text-xs font-bold text-primary transition-all duration-300 flex items-center justify-center gap-1.5">
+              <span>${t('spotDetails')}</span>
+              <span class="material-symbols-outlined text-[16px]">visibility</span>
+            </button>
           </div>
         </div>
+      `;
+    } catch (error) {
+      console.warn('[home] could not render attraction card', spot?.id, error);
+      return '';
+    }
+  }).filter(Boolean);
 
-        <!-- Card Content -->
-        <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
-          <div class="space-y-1.5">
-            <h3 class="text-lg font-bold text-primary group-hover:text-primary-container transition-colors font-heading truncate">${tr.title}</h3>
-            <p class="text-xs text-on-surface-variant line-clamp-2 leading-relaxed">${tr.subtitle || tr.description}</p>
-          </div>
-
-          <!-- Quick Specs Breakdown -->
-          <div class="pt-3 border-t border-black/5 flex items-center justify-between text-[11px] font-semibold text-on-surface-variant">
-            <span class="flex items-center gap-1" title="${t('routeDistance')}">
-              <span class="material-symbols-outlined text-[15px] text-primary">straighten</span>
-              ${(tr.specs.distance).split('(')[0]}
-            </span>
-            <span class="flex items-center gap-1" title="${t('routeDuration')}">
-              <span class="material-symbols-outlined text-[15px] text-primary">timer</span>
-              ${(tr.specs.duration).split('(')[0]}
-            </span>
-          </div>
-
-          <!-- Button View -->
-          <button class="w-full py-2.5 rounded-xl bg-surface-container hover:bg-primary hover:text-white text-xs font-bold text-primary transition-all duration-300 flex items-center justify-center gap-1.5">
-            <span>${t('spotDetails')}</span>
-            <span class="material-symbols-outlined text-[16px]">visibility</span>
-          </button>
-        </div>
-
+  if (!cards.length) {
+    grid.innerHTML = `
+      <div class="col-span-full py-16 text-center space-y-3">
+        <span class="material-symbols-outlined text-5xl text-gray-400">error_outline</span>
+        <p class="text-base text-on-surface-variant font-medium">${t('noResults')}</p>
       </div>
     `;
-  }).join('');
+    return;
+  }
+
+  grid.innerHTML = cards.join('');
 }
 
 function getDifficultyBadgeClass(diff) {
