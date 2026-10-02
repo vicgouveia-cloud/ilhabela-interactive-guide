@@ -602,6 +602,10 @@ function setPlannerStopCompleted(id, completed = true) {
 function getPlannerNextStop(spots) {
   return spots.find(spot => !isPlannerStopCompleted(spot.id, activeTripDay)) || null;
 }
+function getPlannerPendingSpots(spots = getActiveTripSpots()) {
+  return spots.filter(spot => !isPlannerStopCompleted(spot.id, activeTripDay));
+}
+
 function getPlannerLastCompletedStop(spots) {
   const byId = new Map(spots.map(spot => [spot.id, spot]));
   const prefix = `${activeTripDay}:`;
@@ -1009,7 +1013,7 @@ function plannerDecodePolyline6(encoded) {
 
 async function plannerOptimizeRoute() {
   const routeRevision = plannerRouteRevision;
-  const roadSpots = getActiveTripSpots().filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+  const roadSpots = getPlannerPendingSpots().filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   if (roadSpots.length < 2) { alert(t('plannerRouteNeedsStops')); return; }
   if (!plannerConfirmAccess(roadSpots)) return;
 
@@ -1061,7 +1065,7 @@ async function plannerOptimizeRoute() {
 }
 
 function plannerOpenGoogleMaps(segmentIndex = 0) {
-  let roadSpots = getActiveTripSpots()
+  let roadSpots = getPlannerPendingSpots()
     .filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   roadSpots = getOptimizedRouteSpots(roadSpots);
   if (!roadSpots.length) {

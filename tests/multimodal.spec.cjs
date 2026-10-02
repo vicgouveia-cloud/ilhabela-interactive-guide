@@ -1,4 +1,61 @@
 const {test, expect} = require('@playwright/test');
+test('routing and Google Maps exclude completed stops while preserving pending optimized order', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getPlannerPendingSpots === 'function');
+  const mapsResult = await page.evaluate(() => {
+    activeTripDay = 1;
+    plannerTravelMode = 'auto';
+    plannerOrigin = null;
+    tripSelection = ['praia-do-curral', 'praia-do-pereque', 'praia-grande'];
+    tripCompletedStops = {'1:praia-do-curral': true};
+    plannerOptimizedRoute = {
+      spotIds: ['praia-do-curral', 'praia-grande', 'praia-do-pereque'],
+      distanceKm: 5,
+      timeSeconds: 600,
+      shape: []
+    };
+    window.confirm = () => true;
+    let opened;
+    window.open = value => { opened = value; };
+    const pending = getPlannerPendingSpots();
+    const ordered = getOptimizedRouteSpots(
+      pending.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode))
+    );
+    const expected = ordered.map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords.join(','));
+    plannerOpenGoogleMaps();
+    return { opened, pending: pending.map(spot => spot.id), expected };
+  });
+  const mapsParams = new URL(mapsResult.opened).searchParams;
+  expect(mapsResult.pending).toEqual(['praia-do-pereque', 'praia-grande']);
+  expect(mapsParams.get('destination')).toBe(mapsResult.expected.at(-1));
+  expect(mapsParams.get('waypoints')).toBe(mapsResult.expected.slice(0, -1).join('|'));
+
+  let payload;
+  await page.route('**/optimized_route', async route => {
+    payload = route.request().postDataJSON();
+    await route.fulfill({json:{trip:{
+      locations:[{original_index:0},{original_index:1}],
+      summary:{length:2,time:300},
+      legs:[{shape:'??'}]
+    }}});
+  });
+  const coords = await page.evaluate(async () => {
+    activeTripDay = 1;
+    plannerTravelMode = 'auto';
+    plannerOrigin = null;
+    tripSelection = ['praia-do-curral', 'praia-do-pereque', 'praia-grande'];
+    tripCompletedStops = {'1:praia-do-curral': true};
+    plannerOptimizedRoute = null;
+    window.confirm = () => true;
+    const remaining = getPlannerPendingSpots()
+      .filter(spot => isSpotRoutableForMode(spot, plannerTravelMode))
+      .map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords);
+    await plannerOptimizeRoute();
+    return remaining;
+  });
+  expect(payload.locations).toEqual(coords.map(([lat, lon]) => ({lat, lon, type: 'break'})));
+});
+
 test('completed day offers return navigation only when return-to-origin is configured', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof plannerNavigateToOrigin === 'function');
