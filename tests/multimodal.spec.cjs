@@ -1,4 +1,50 @@
 const {test, expect} = require('@playwright/test');
+test('route panel estimates only pending visits and completion invalidates stale route totals', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof getPlannerVisitEstimate === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    tripSelection = ['praia-do-curral', 'praia-do-pereque'];
+    tripCompletedStops = {};
+    plannerOptimizedRoute = {
+      spotIds: ['praia-do-curral', 'praia-do-pereque'],
+      distanceKm: 12,
+      timeSeconds: 1200,
+      shape: []
+    };
+
+    const before = getPlannerVisitEstimate();
+    const curral = touristSpots.find(spot => spot.id === 'praia-do-curral');
+    const pereque = touristSpots.find(spot => spot.id === 'praia-do-pereque');
+    const expectedRemaining = pereque.planning?.visitDurationMinutes || null;
+    setPlannerStopCompleted('praia-do-curral', true);
+    const after = getPlannerVisitEstimate();
+
+    const pending = getPlannerPendingSpots();
+    const road = pending.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+    const special = pending.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
+    const html = renderPlannerRoutingPanel(road, special);
+
+    return {
+      before,
+      after,
+      expectedRemaining,
+      optimizedRouteCleared: plannerOptimizedRoute === null,
+      html,
+      curralTitle: getSpotTranslation(curral).title
+    };
+  });
+
+  expect(result.optimizedRouteCleared).toBe(true);
+  expect(result.after.total).toBe(1);
+  if (result.expectedRemaining) {
+    expect(result.after.min).toBe(result.expectedRemaining.min);
+    expect(result.after.max).toBe(result.expectedRemaining.max);
+  }
+  expect(result.after.max).toBeLessThanOrEqual(result.before.max);
+  expect(result.html).not.toContain('12.0 km');
+});
+
 test('routing and Google Maps exclude completed stops while preserving pending optimized order', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof getPlannerPendingSpots === 'function');

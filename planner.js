@@ -596,6 +596,7 @@ function setPlannerStopCompleted(id, completed = true) {
   if (completed) tripCompletedStops[key] = true;
   else delete tripCompletedStops[key];
   localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
+  invalidatePlannerRoute();
   renderSummary();
 }
 
@@ -743,8 +744,9 @@ function renderSummary() {
   plannerOrigin = getActiveDayOrigin();
   const selectedSpots = getActiveTripSpots();
   const displaySpots = getPlannerDisplaySpots(selectedSpots);
-  const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
-  const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
+  const pendingSpots = getPlannerPendingSpots(selectedSpots);
+  const roadSpots = pendingSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
+  const specialSpots = pendingSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
   let html = `<div class="flex gap-2 overflow-x-auto pb-1">
     ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
@@ -847,15 +849,14 @@ function formatPlannerMinutes(minutes) {
   return rest ? `${hours}h ${rest}min` : `${hours}h`;
 }
 
-function getPlannerVisitEstimate() {
-  const selected = getActiveTripSpots();
+function getPlannerVisitEstimate(spots = getPlannerPendingSpots()) {
   let min = 0, max = 0, covered = 0;
-  selected.forEach(spot => {
+  spots.forEach(spot => {
     const range = spot.planning?.visitDurationMinutes;
     if (!range || !Number.isFinite(range.min) || !Number.isFinite(range.max)) return;
     min += range.min; max += range.max; covered++;
   });
-  return { min, max, covered, total: selected.length, partial: covered < selected.length };
+  return { min, max, covered, total: spots.length, partial: covered < spots.length };
 }
 
 function formatPlannerRange(min, max) {
