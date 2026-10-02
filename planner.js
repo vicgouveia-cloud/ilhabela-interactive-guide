@@ -232,6 +232,12 @@ let plannerRouteLine = null;
 let plannerOriginPickMode = false;
 const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
 
+function trackGuideEvent(name, data = {}) {
+  if (typeof window.va !== 'function') return;
+  window.va('event', { name, data });
+}
+
+
 // Initialize
 function initPlanner() {
   try {
@@ -376,12 +382,14 @@ function isSpotInTrip(id) {
 function toggleSpotInTrip(id) {
   if (!touristSpots.some(spot => spot.id === id)) return false;
   invalidatePlannerRoute();
-  if (isSpotInTrip(id)) {
+  const wasInTrip = isSpotInTrip(id);
+  if (wasInTrip) {
     tripSelection = tripSelection.filter(spotId => spotId !== id);
   } else {
     tripSelection.push(id);
   }
   saveTripSelection();
+  trackGuideEvent('Trip Spot', { action: wasInTrip ? 'remove' : 'add', spotId: id });
   return isSpotInTrip(id);
 }
 
@@ -410,6 +418,7 @@ function updatePlannerBadge() {
 }
 
 function openHomeTripPlanner() {
+  trackGuideEvent('Planner Open', { source: 'home', state: tripSelection.length ? 'continue' : 'start' });
   if (tripSelection.length) openPlannerSummary();
   else openPlanner(null, { view: 'deck' });
 }
@@ -631,6 +640,7 @@ function plannerNavigateToSpot(id) {
   });
   const hasCompletedStops = getActiveTripSpots().some(item => isPlannerStopCompleted(item.id, activeTripDay));
   if (plannerOrigin && !hasCompletedStops) params.set('origin', plannerOrigin.join(','));
+  trackGuideEvent('Navigation Open', { source: 'next_stop', mode: plannerTravelMode });
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
   return true;
 }
@@ -643,6 +653,7 @@ function plannerNavigateToOrigin() {
     destination: plannerOrigin.join(','),
     travelmode: googleTravelMode
   });
+  trackGuideEvent('Navigation Open', { source: 'return_origin', mode: plannerTravelMode });
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
   return true;
 }
@@ -1054,6 +1065,7 @@ async function plannerOptimizeRoute() {
       timeSeconds: Number(trip.summary.time) || 0,
       shape
     };
+    trackGuideEvent('Route Optimized', { mode: plannerTravelMode, stops: String(roadSpots.length) });
     renderSummary();
   } catch (error) {
     if (routeRevision !== plannerRouteRevision) return;
@@ -1095,6 +1107,7 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
     params.set('destination', points[points.length - 1]);
     if (points.length > 1) params.set('waypoints', points.slice(0, -1).join('|'));
   }
+  trackGuideEvent('Navigation Open', { source: 'full_route', mode: plannerTravelMode });
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
 }
 
