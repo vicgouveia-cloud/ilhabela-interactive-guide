@@ -10,7 +10,7 @@ const spots = vm.runInContext('touristSpots', context);
 const sitemap = fs.readFileSync(path.join(ROOT,'sitemap.xml'),'utf8');
 const robots = fs.readFileSync(path.join(ROOT,'robots.txt'),'utf8');
 const failures = [];
-for (const fixed of [BASE+'/', BASE+'/o-que-fazer/', BASE+'/servicos/']) {
+for (const fixed of [BASE+'/', BASE+'/o-que-fazer/', BASE+'/servicos/', BASE+'/praias/', BASE+'/cachoeiras/', BASE+'/trilhas/']) {
   if (!sitemap.includes('<loc>'+fixed+'</loc>')) failures.push('sitemap ausente: '+fixed);
 }
 for (const spot of spots) {
@@ -18,7 +18,7 @@ for (const spot of spots) {
   if (!sitemap.includes('<loc>'+url+'</loc>')) failures.push('atração ausente no sitemap: '+spot.id);
 }
 const count = (sitemap.match(/<loc>/g) || []).length;
-const expected = spots.length + 3;
+const expected = spots.length + 6;
 if (count !== expected) failures.push('quantidade de URLs: '+count+'; esperado '+expected);
 if (!robots.includes('User-agent: *') || !robots.includes('Allow: /')) failures.push('robots.txt sem regra pública esperada');
 if (!robots.includes('Sitemap: '+BASE+'/sitemap.xml')) failures.push('robots.txt sem referência ao sitemap');

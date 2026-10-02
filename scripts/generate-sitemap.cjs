@@ -13,6 +13,9 @@ const urls = [
   BASE_URL + '/',
   BASE_URL + '/o-que-fazer/',
   BASE_URL + '/servicos/',
+  BASE_URL + '/praias/',
+  BASE_URL + '/cachoeiras/',
+  BASE_URL + '/trilhas/',
   ...spots.map(spot => BASE_URL + '/lugares/' + spot.id + '/')
 ];
 const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
