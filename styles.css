@@ -938,3 +938,62 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   padding-bottom: calc(env(safe-area-inset-bottom, 0px) + 8px);
   height: calc(var(--bottom-nav-height) + env(safe-area-inset-bottom, 0px));
 }
+
+/* Mobile map/filter continuity */
+@media (max-width: 767px) {
+  .home-explorer-main {
+    padding-top: .65rem !important;
+  }
+
+  #map-section {
+    gap: .55rem !important;
+  }
+
+  .map-section-header {
+    align-items: center !important;
+    min-height: 28px;
+  }
+
+  .map-section-title,
+  .map-section-bounds,
+  .map-layer-switcher {
+    display: none !important;
+  }
+
+  #results-text {
+    display: inline-flex;
+    align-items: center;
+    gap: .3rem;
+    margin: 0;
+    padding: .32rem .6rem;
+    border-radius: 999px;
+    background: rgba(0,51,69,.07);
+    color: var(--color-primary);
+    font-weight: 800;
+  }
+
+  .mobile-map-layer-control {
+    display: block;
+  }
+
+  .mobile-map-layer-toggle {
+    width: 40px;
+    height: 40px;
+    border: 0;
+    background: #fff;
+    color: var(--color-primary);
+    display: grid;
+    place-items: center;
+    cursor: pointer;
+  }
+
+  .mobile-map-layer-toggle .material-symbols-outlined {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-map-layer-control {
+    display: none !important;
+  }
+}

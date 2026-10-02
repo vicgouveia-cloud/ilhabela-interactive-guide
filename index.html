@@ -295,20 +295,20 @@
   </section>
 
   <!-- INTERACTIVE MAP & EXPLORATION SECTION -->
-  <main class="max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-5 md:py-8 space-y-10 md:space-y-12">
+  <main class="home-explorer-main max-w-7xl mx-auto px-3 sm:px-4 md:px-8 py-5 md:py-8 space-y-10 md:space-y-12">
     
     <!-- MAP CONTAINER -->
     <section id="map-section" class="space-y-4">
       <!-- Spots count header -->
-      <div class="flex items-start sm:items-center justify-between gap-3 flex-wrap">
+      <div class="map-section-header flex items-start sm:items-center justify-between gap-3 flex-wrap">
         <div>
-          <h2 class="text-xl sm:text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="navMap">
+          <h2 class="map-section-title text-xl sm:text-2xl md:text-3xl font-extrabold text-primary font-heading" data-i18n="navMap">
             Mapa Interativo de Ilhabela
           </h2>
           <p class="text-xs sm:text-sm text-on-surface-variant mt-0.5" id="results-text">
             <span id="results-count-num">12</span> <span data-i18n="resultsCount">pontos turísticos encontrados</span>
           </p>
-          <p class="mt-1 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
+          <p class="map-section-bounds mt-1 inline-flex items-center gap-1 text-[10px] sm:text-[11px] font-semibold text-secondary">
             <span class="material-symbols-outlined text-[13px]">lock</span>
             <span data-i18n="mapBoundsHint">Navegação limitada ao arquipélago de Ilhabela</span>
           </p>
@@ -537,26 +537,6 @@
     </div>
   </div>
 
-  <!-- MOBILE BOTTOM NAVIGATION -->
-  <nav class="md:hidden bottom-nav" id="bottom-nav" aria-label="Navegação principal" data-i18n-aria-label="mainNavigation">
-    <button onclick="setViewMode('map')" id="bn-map" class="bottom-nav-item" aria-label="Mapa" data-i18n-aria-label="navMap">
-      <span class="material-symbols-outlined nav-icon">map</span>
-      <span data-i18n="navMap">Mapa</span>
-    </button>
-    <a href="/o-que-fazer/" id="bn-grid" class="bottom-nav-item" aria-label="Explorar" data-i18n-aria-label="navExplore">
-      <span class="material-symbols-outlined nav-icon">explore</span>
-      <span data-i18n="navExplore">Explorar</span>
-    </a>
-    <a href="/servicos/" class="bottom-nav-item" aria-label="Serviços" data-i18n-aria-label="navServices">
-      <span class="material-symbols-outlined nav-icon">concierge</span>
-      <span data-i18n="navServices">Serviços</span>
-    </a>
-    <button onclick="openPlannerSummary()" class="bottom-nav-item" id="bn-planner">
-      <span class="material-symbols-outlined nav-icon">route</span>
-      <span data-i18n="navTrip">Minha viagem</span>
-    </button>
-  </nav>
-
   <!-- FOOTER -->
   <footer class="bg-primary text-white py-12 px-4 md:px-8 border-t border-white/10 mt-20">
     <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
@@ -579,6 +559,8 @@
       </div>
     </div>
   </footer>
+
+  <script defer src="/bottom-nav.js?v=1"></script>
 
   <!-- Vercel Web Analytics -->
   <script>

@@ -1,6 +1,7 @@
 // Ilhabela Interactive Guide - Main Application Logic
 let map = null;
 let mapLayers = {};
+let currentMapLayerKey = 'satellite';
 let mapMarkers = [];
 let currentLang = readStorage('ilhabela_lang', 'pt');
 let currentCategory = 'all';
@@ -61,9 +62,13 @@ document.addEventListener('DOMContentLoaded', () => {
   populateBookingGuides();
   initFilterCarousel();
 
-  const initialSpotId = new URLSearchParams(window.location.search).get('spot');
+  const initialParams = new URLSearchParams(window.location.search);
+  const initialSpotId = initialParams.get('spot');
   if (initialSpotId && touristSpots.some(spot => spot.id === initialSpotId)) {
     openSpotModal(initialSpotId, { updateUrl: false });
+  }
+  if (initialParams.get('view') === 'trip' && typeof openPlannerSummary === 'function') {
+    setTimeout(() => openPlannerSummary(), 0);
   }
 
   // Set default booking date to tomorrow
@@ -199,6 +204,7 @@ function initMap() {
 
   // Custom Zoom Control (bottom-right)
   L.control.zoom({ position: 'bottomright' }).addTo(map);
+  initMobileMapLayerToggle();
   initUserLocationControl();
   translateMapControls();
   L.control.scale({ position: 'bottomleft', imperial: false, maxWidth: 120 }).addTo(map);
@@ -329,15 +335,45 @@ function switchMapLayer(layerKey) {
   Object.values(mapLayers).forEach(layer => map.removeLayer(layer));
   if (mapLayers[layerKey]) {
     mapLayers[layerKey].addTo(map);
+    currentMapLayerKey = layerKey;
   }
 
-  // Update button active state
   ['voyager', 'satellite', 'topo'].forEach(key => {
     const btn = document.getElementById(`layer-${key}`);
-    if (btn) {
-      btn.classList.toggle('active', key === layerKey);
+    if (btn) btn.classList.toggle('active', key === currentMapLayerKey);
+  });
+  updateMobileMapLayerToggle();
+}
+
+function initMobileMapLayerToggle() {
+  if (!map || typeof L === 'undefined') return;
+  const LayerToggleControl = L.Control.extend({
+    options: { position: 'bottomright' },
+    onAdd() {
+      const container = L.DomUtil.create('div', 'leaflet-bar mobile-map-layer-control');
+      const button = L.DomUtil.create('button', 'mobile-map-layer-toggle', container);
+      button.type = 'button';
+      button.id = 'mobile-map-layer-toggle';
+      button.innerHTML = '<span class="material-symbols-outlined" aria-hidden="true">layers</span>';
+      L.DomEvent.disableClickPropagation(container);
+      L.DomEvent.disableScrollPropagation(container);
+      L.DomEvent.on(button, 'click', () => {
+        switchMapLayer(currentMapLayerKey === 'satellite' ? 'voyager' : 'satellite');
+      });
+      return container;
     }
   });
+  new LayerToggleControl().addTo(map);
+  updateMobileMapLayerToggle();
+}
+
+function updateMobileMapLayerToggle() {
+  const button = document.getElementById('mobile-map-layer-toggle');
+  if (!button) return;
+  const nextIsSatellite = currentMapLayerKey !== 'satellite';
+  const label = nextIsSatellite ? 'Alternar para satélite' : 'Alternar para mapa';
+  button.setAttribute('aria-label', label);
+  button.title = label;
 }
 
 function getCategoryIcon(cat) {
