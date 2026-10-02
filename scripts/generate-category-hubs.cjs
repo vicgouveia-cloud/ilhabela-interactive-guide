@@ -34,7 +34,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
   fs.mkdirSync(path.join(ROOT, category), { recursive: true });
   fs.writeFileSync(path.join(ROOT, category, 'index.html'), html);
   console.log(`Generated ${category}/: ${selected.length} attractions.`);

@@ -76,7 +76,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
 }
 
 fs.mkdirSync(OUT, { recursive: true });
