@@ -16,6 +16,7 @@ const urls = [
   BASE_URL + '/praias/',
   BASE_URL + '/cachoeiras/',
   BASE_URL + '/trilhas/',
+  BASE_URL + '/roteiros/3-dias/',
   ...spots.map(spot => BASE_URL + '/lugares/' + spot.id + '/')
 ];
 const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
