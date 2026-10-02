@@ -328,6 +328,57 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 .filter-scroll-left { left: .1rem; }
 .filter-scroll-right { right: .1rem; }
 
+/* Mobile filter rails: swipe first, keep controls fully visible and touch-friendly */
+.attribute-filter-track {
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scroll-padding-inline: .75rem;
+  touch-action: pan-x;
+}
+
+.attribute-filter-track::-webkit-scrollbar { display: none; }
+
+.cat-pill,
+.attr-pill {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+}
+
+@media (max-width: 767px) {
+  .filter-scroll-btn {
+    display: none;
+  }
+
+  .filter-scroll-track {
+    padding-inline: .5rem;
+    scroll-snap-type: x proximity;
+    scroll-padding-inline: .75rem;
+    touch-action: pan-x;
+  }
+
+  .attribute-filter-track {
+    padding-inline: .25rem .75rem;
+  }
+
+  .cat-pill,
+  .attr-pill {
+    min-height: 44px;
+  }
+
+  .cat-pill {
+    padding-top: .6rem !important;
+    padding-bottom: .6rem !important;
+  }
+
+  .attr-pill {
+    padding: .55rem .8rem !important;
+    border-radius: .8rem;
+  }
+}
+
 /* Unified selected state for category and attribute filters */
 .cat-pill,
 .attr-pill {

@@ -541,6 +541,9 @@ function filterCategory(cat) {
     const isCat = btn.getAttribute('data-cat') === cat;
     btn.classList.toggle('active', isCat);
     btn.setAttribute('aria-pressed', String(isCat));
+    if (isCat && window.matchMedia('(max-width: 767px)').matches) {
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   });
 
   renderSpotsGrid();
@@ -556,6 +559,9 @@ function toggleAttributeFilter(attr) {
   if (btn) {
     btn.classList.toggle('active', isActive);
     btn.setAttribute('aria-pressed', String(isActive));
+    if (isActive && window.matchMedia('(max-width: 767px)').matches) {
+      btn.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
   }
 
   renderSpotsGrid();
