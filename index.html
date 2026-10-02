@@ -224,55 +224,55 @@
           <span class="material-symbols-outlined">chevron_left</span>
         </button>
         <div id="category-filter-list" class="filter-scroll-track flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-xs font-bold" tabindex="0" aria-label="Categorias de pontos turísticos" data-i18n-aria-label="categoriesLabel">
-        <button onclick="filterCategory('all')" data-cat="all" class="cat-pill glass-pill active px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5">
+        <button onclick="filterCategory('all')" data-cat="all" aria-pressed="true" class="cat-pill glass-pill active px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5">
           <span class="material-symbols-outlined text-[16px]">explore</span>
           <span data-i18n="filterAll">Todos os Pontos</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-white/20 text-current" id="count-all">12</span>
         </button>
 
-        <button onclick="filterCategory('praias')" data-cat="praias" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('praias')" data-cat="praias" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-blue-600">beach_access</span>
           <span data-i18n="filterBeaches">Praias</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-praias">4</span>
         </button>
 
-        <button onclick="filterCategory('cachoeiras')" data-cat="cachoeiras" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('cachoeiras')" data-cat="cachoeiras" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-emerald-600">water_drop</span>
           <span data-i18n="filterWaterfalls">Cachoeiras</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-cachoeiras">3</span>
         </button>
 
-        <button onclick="filterCategory('trilhas')" data-cat="trilhas" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('trilhas')" data-cat="trilhas" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-amber-700">hiking</span>
           <span data-i18n="filterTrails">Trilhas</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-trilhas">1</span>
         </button>
 
-        <button onclick="filterCategory('picos')" data-cat="picos" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('picos')" data-cat="picos" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-purple-600">terrain</span>
           <span data-i18n="filterPeaks">Picos & Mirantes</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-picos">1</span>
         </button>
 
-        <button onclick="filterCategory('baleias')" data-cat="baleias" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('baleias')" data-cat="baleias" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-cyan-600">water_lux</span>
           <span data-i18n="filterWhales">Baleias & Golfinhos</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-baleias">1</span>
         </button>
 
-        <button onclick="filterCategory('mergulho')" data-cat="mergulho" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('mergulho')" data-cat="mergulho" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-teal-600">scuba_diving</span>
           <span data-i18n="filterDiving">Mergulho & Naufrágios</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mergulho">2</span>
         </button>
 
-        <button onclick="filterCategory('cultura')" data-cat="cultura" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('cultura')" data-cat="cultura" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-orange-700">museum</span>
           <span data-i18n="filterCulture">Cultura & História</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-cultura">2</span>
         </button>
 
-        <button onclick="filterCategory('mirantes')" data-cat="mirantes" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
+        <button onclick="filterCategory('mirantes')" data-cat="mirantes" aria-pressed="false" class="cat-pill glass-pill px-4 py-2 rounded-full whitespace-nowrap flex items-center gap-1.5 text-on-surface-variant">
           <span class="material-symbols-outlined text-[16px] text-purple-700">visibility</span>
           <span data-i18n="filterLookouts">Mirantes</span>
           <span class="ml-1 text-[10px] px-1.5 py-0.2 rounded-full bg-black/5" id="count-mirantes">1</span>
@@ -285,31 +285,31 @@
 
       <!-- Feature Badges Filter (Horizontal Sub-filters) -->
       <div class="flex items-center gap-2 overflow-x-auto pb-1 no-scrollbar text-[11px] font-semibold text-on-surface-variant">
-        <button onclick="toggleAttributeFilter('isDiving')" id="attr-isDiving" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isDiving')" id="attr-isDiving" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">scuba_diving</span>
           <span data-i18n="attrDiving">Mergulho / Snorkel</span>
         </button>
-        <button onclick="toggleAttributeFilter('isSunset')" id="attr-isSunset" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isSunset')" id="attr-isSunset" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">wb_twilight</span>
           <span data-i18n="attrSunset">Pôr do Sol</span>
         </button>
-        <button onclick="toggleAttributeFilter('isKiosk')" id="attr-isKiosk" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isKiosk')" id="attr-isKiosk" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">restaurant</span>
           <span data-i18n="attrKiosk">Com Quiosques</span>
         </button>
-        <button onclick="toggleAttributeFilter('isWild')" id="attr-isWild" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isWild')" id="attr-isWild" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">forest</span>
           <span data-i18n="attrWild">Selvagem / Preservada</span>
         </button>
-        <button onclick="toggleAttributeFilter('isFamily')" id="attr-isFamily" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isFamily')" id="attr-isFamily" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">family_restroom</span>
           <span data-i18n="attrFamily">Ideal p/ Família</span>
         </button>
-        <button onclick="toggleAttributeFilter('isSurf')" id="attr-isSurf" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('isSurf')" id="attr-isSurf" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">surfing</span>
           <span data-i18n="attrSurf">Ondas para Surf</span>
         </button>
-        <button onclick="toggleAttributeFilter('is4x4')" id="attr-is4x4" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
+        <button onclick="toggleAttributeFilter('is4x4')" id="attr-is4x4" aria-pressed="false" class="attr-pill px-3 py-1 rounded-lg border border-black/10 bg-white/60 hover:bg-white transition-all flex items-center gap-1">
           <span class="material-symbols-outlined text-[14px]">directions_car</span>
           <span data-i18n="attr4x4">Acesso 4x4 / Barco</span>
         </button>

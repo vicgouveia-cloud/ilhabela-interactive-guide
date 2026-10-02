@@ -537,16 +537,10 @@ function getFilteredSpots() {
 
 function filterCategory(cat) {
   currentCategory = cat;
-  // Update category pill styles
   document.querySelectorAll('.cat-pill').forEach(btn => {
     const isCat = btn.getAttribute('data-cat') === cat;
-    if (isCat) {
-      btn.classList.add('active', 'bg-primary', 'text-white');
-      btn.classList.remove('text-on-surface-variant');
-    } else {
-      btn.classList.remove('active', 'bg-primary', 'text-white');
-      btn.classList.add('text-on-surface-variant');
-    }
+    btn.classList.toggle('active', isCat);
+    btn.setAttribute('aria-pressed', String(isCat));
   });
 
   renderSpotsGrid();
@@ -555,18 +549,13 @@ function filterCategory(cat) {
 
 function toggleAttributeFilter(attr) {
   const btn = document.getElementById(`attr-${attr}`);
-  if (activeAttributes.has(attr)) {
-    activeAttributes.delete(attr);
-    if (btn) {
-      btn.classList.remove('bg-primary', 'text-white', 'border-primary');
-      btn.classList.add('bg-white/60', 'text-on-surface-variant');
-    }
-  } else {
-    activeAttributes.add(attr);
-    if (btn) {
-      btn.classList.add('bg-primary', 'text-white', 'border-primary');
-      btn.classList.remove('bg-white/60', 'text-on-surface-variant');
-    }
+  if (activeAttributes.has(attr)) activeAttributes.delete(attr);
+  else activeAttributes.add(attr);
+
+  const isActive = activeAttributes.has(attr);
+  if (btn) {
+    btn.classList.toggle('active', isActive);
+    btn.setAttribute('aria-pressed', String(isActive));
   }
 
   renderSpotsGrid();
