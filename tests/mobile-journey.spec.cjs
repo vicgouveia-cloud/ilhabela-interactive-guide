@@ -9,6 +9,7 @@ const names = {
   he: ['בחירת מקומות', 'הטיול שלי', 'בחירת מקומות נוספים']
 };
 async function capture(page, info, state, lang, width) {
+  if (state === 'map') await page.locator('#map-section').scrollIntoViewIfNeeded();
   await page.screenshot({ path: info.outputPath(`${state}-${lang}-${width}.png`) });
   if (lang === 'pt' && width === 390) {
     const preview = await page.screenshot({ type: 'jpeg', quality: 65 });
@@ -61,6 +62,8 @@ for (const width of [390, 1440]) for (const lang of locales) {
 
     await page.evaluate(() => openPlannerSummary());
     await expect(page.locator('#planner-title')).toHaveText(names[lang][1]);
+    const overlay = await page.locator('#planner-modal').boundingBox();
+    expect(overlay.y).toBe(0);
     await expect(page.locator('#planner-map')).toBeHidden();
     expect(await page.evaluate(() => plannerMap)).toBeNull();
     await expect(page.locator('.planner-empty-state button')).toHaveText(names[lang][0]);

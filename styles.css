@@ -1001,17 +1001,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 /* Map -> choose places -> trip: scoped layout and category clusters. */
 .map-category-cluster { background: transparent; border: 0; }
 .map-cluster-content {
-  width: 44px; height: 44px; padding: 3px; box-sizing: border-box;
+  width: 48px; height: 44px; padding: 3px; box-sizing: border-box;
   display: flex; flex-direction: column; align-items: center; justify-content: center;
   border: 2px solid white; border-radius: 14px; background: #fbf9f4;
   color: #003345; box-shadow: 0 2px 8px rgba(0,51,69,.3);
 }
 .map-cluster-content strong { font: 800 12px/14px 'DM Sans', sans-serif; }
-.map-cluster-categories { display: flex; flex-wrap: wrap; justify-content: center; gap: 1px; width: 34px; }
+.map-cluster-categories { display: flex; justify-content: center; align-items: center; gap: 2px; width: 38px; }
 .map-cluster-categories .material-symbols-outlined {
-  width: 7px; height: 10px; font-size: 8px; line-height: 10px;
+  width: 13px; height: 14px; font-size: 13px; line-height: 14px;
   border-radius: 3px; color: white;
 }
+/* The planner sits inside main's space-y-10; a fixed overlay must not inherit its margins. */
+#planner-modal { margin: 0 !important; }
+.map-cluster-more { font: 700 8px/14px 'DM Sans', sans-serif; }
 #planner-deck-view, #planner-summary-view, #planner-cards-container { min-height: 0; min-width: 0; }
 #planner-map[hidden], #planner-back-to-deck[hidden] { display: none !important; }
 #planner-summary-view.is-empty #planner-summary-list {
