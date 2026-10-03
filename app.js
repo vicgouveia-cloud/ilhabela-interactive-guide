@@ -443,7 +443,7 @@ function updateMapMarkers() {
         const categoryNames = categories.map(getCategoryLabel).join(' · ');
         return L.divIcon({
           className: 'map-category-cluster',
-          html: `<div class="map-cluster-content" role="img" aria-label="${label} ${categoryNames}" title="${categoryNames}"><strong>${count}</strong><div class="map-cluster-categories">${categories.slice(0, 2).map(category => `<span class="pin-${category} material-symbols-outlined" title="${getCategoryLabel(category)}">${getCategoryIcon(category)}</span>`).join('')}${categories.length > 2 ? `<span class="map-cluster-more">+${categories.length - 2}</span>` : ''}</div></div>`,
+          html: `<div class="map-cluster-content" role="img" aria-label="${label} ${categoryNames}" title="${categoryNames}"><strong>${count}</strong><div class="map-cluster-categories">${categories.slice(0, 2).map(category => `<span class="pin-${category} material-symbols-outlined" title="${getCategoryLabel(category)}">${getCategoryIcon(category)}</span>`).join('')}</div></div>`,
           iconSize: [48, 44],
           iconAnchor: [24, 22]
         });

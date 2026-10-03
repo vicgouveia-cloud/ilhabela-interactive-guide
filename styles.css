@@ -1014,7 +1014,6 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 /* The planner sits inside main's space-y-10; a fixed overlay must not inherit its margins. */
 #planner-modal { margin: 0 !important; }
-.map-cluster-more { font: 700 8px/14px 'DM Sans', sans-serif; }
 #planner-deck-view, #planner-summary-view, #planner-cards-container { min-height: 0; min-width: 0; }
 #planner-map[hidden], #planner-back-to-deck[hidden] { display: none !important; }
 #planner-summary-view.is-empty #planner-summary-list {
@@ -1030,6 +1029,11 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 #planner-summary-toggle:disabled { cursor: default; background: transparent; }
 @media (max-width: 767px) {
+  /* Compact the visible cluster while keeping its existing centered tap footprint. */
+  #map .map-category-cluster { display: flex; align-items: center; justify-content: center; }
+  #map .map-cluster-content { width: 40px; height: 36px; padding: 2px; border-radius: 12px; box-shadow: 0 2px 6px rgba(0,51,69,.25); }
+  #map .map-cluster-categories { width: 28px; }
+  #map .map-cluster-categories .material-symbols-outlined { width: 11px; height: 12px; font-size: 11px; line-height: 12px; }
   /* 36 -> 27px visual size (25%), retaining the existing tap footprint. */
   #map .main-map-pin { margin-left: -18px !important; margin-top: -18px !important; }
   #map .main-map-pin .pin-icon-wrap { width: 27px; height: 27px; border-width: 2px; box-shadow: 0 2px 6px rgba(0,51,69,.25); }
