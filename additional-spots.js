@@ -2328,7 +2328,8 @@ const servicesData = [
     phoneDisplay: '(12) 3894-1001',
     whatsapp: '12992184343',
     whatsappDisplay: '(12) 99218-4343',
-    url: 'https://www.lacostapousada.com.br/'
+    url: 'https://www.lacostapousada.com.br/',
+    image: 'assets/images/pousada-lacosta.webp'
   },
 
   {
