@@ -2317,6 +2317,21 @@ touristSpots.forEach(spot => {
 // contextSpotIds controla onde aparecem editorialmente; serviceArea/activities descrevem capacidade.
 const servicesData = [
   {
+    id: 'pousada-lacosta',
+    category: 'stay',
+    name: 'Pousada Lacosta',
+    baseLocation: { address: 'Avenida Riachuelo, 5531, Praia Grande, Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    presentation: 'compact',
+    phone: '1238941001',
+    phoneDisplay: '(12) 3894-1001',
+    whatsapp: '12992184343',
+    whatsappDisplay: '(12) 99218-4343',
+    url: 'https://www.lacostapousada.com.br/'
+  },
+
+  {
     id: 'caicara-beach-bike', category: 'essentials', name: 'Caiçara Beach',
     baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 658, Perequê' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -3210,6 +3225,14 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  'Pousada Lacosta': {
+    pt: { type: 'Pousada', description: 'Pousada na Avenida Riachuelo, no bairro Praia Grande, em Ilhabela.', tags: ['Praia Grande', 'Hospedagem'] },
+    en: { type: 'Guesthouse', description: 'Guesthouse on Avenida Riachuelo, in the Praia Grande neighborhood of Ilhabela.', tags: ['Praia Grande', 'Accommodation'] },
+    fr: { type: 'Pousada', description: 'Pousada située sur l’Avenida Riachuelo, dans le quartier de Praia Grande à Ilhabela.', tags: ['Praia Grande', 'Hébergement'] },
+    es: { type: 'Posada', description: 'Posada en la Avenida Riachuelo, en el barrio Praia Grande de Ilhabela.', tags: ['Praia Grande', 'Alojamiento'] },
+    he: { type: 'בית הארחה', description: 'בית הארחה בשדרת Riachuelo, בשכונת Praia Grande באיליאבלה.', tags: ['Praia Grande', 'אירוח'] }
+  },
+
   "Point da Lalá": {
     pt: { type: "Alimentos e bebidas", description: "Point no estacionamento do Mirante do Piúva, junto ao Letreiro de Ilhabela. Consulte os dias e horários de atividade antes da visita." },
     en: { type: "Food and drinks", description: "Point at the Mirante do Piúva parking area, by the Ilhabela sign. Check operating days and hours before visiting." },
