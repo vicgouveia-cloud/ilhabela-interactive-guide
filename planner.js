@@ -258,6 +258,10 @@ function initPlanner() {
   try {
     const savedOrigins = JSON.parse(localStorage.getItem('ilhabela_trip_origins') || '{}');
     tripDayOrigins = savedOrigins && typeof savedOrigins === 'object' && !Array.isArray(savedOrigins) ? savedOrigins : {};
+    Object.keys(tripDayOrigins).forEach(day => {
+      if (!isValidPlannerOrigin(tripDayOrigins[day])) delete tripDayOrigins[day];
+    });
+    localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
     const savedReturns = JSON.parse(localStorage.getItem('ilhabela_trip_returns') || '{}');
     tripDayReturnToOrigin = savedReturns && typeof savedReturns === 'object' && !Array.isArray(savedReturns) ? savedReturns : {};
     const savedCompleted = JSON.parse(localStorage.getItem('ilhabela_trip_completed') || '{}');
@@ -339,12 +343,19 @@ function setSpotTripDay(id, day) {
   renderSummary();
 }
 
+function isValidPlannerOrigin(coords) {
+  return Array.isArray(coords) && coords.length === 2
+    && Number.isFinite(coords[0]) && Number.isFinite(coords[1])
+    && Math.abs(coords[0]) <= 90 && Math.abs(coords[1]) <= 180;
+}
+
 function getActiveDayOrigin() {
   const origin = tripDayOrigins[activeTripDay];
-  return Array.isArray(origin) && origin.length === 2 ? origin : null;
+  return isValidPlannerOrigin(origin) ? origin : null;
 }
 
 function saveActiveDayOrigin(coords) {
+  if (coords !== null && !isValidPlannerOrigin(coords)) return false;
   if (coords) tripDayOrigins[activeTripDay] = coords;
   else delete tripDayOrigins[activeTripDay];
   localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
@@ -657,14 +668,14 @@ function plannerNavigateToSpot(id) {
     travelmode: googleTravelMode
   });
   const hasCompletedStops = getActiveTripSpots().some(item => isPlannerStopCompleted(item.id, activeTripDay));
-  if (plannerOrigin && !hasCompletedStops) params.set('origin', plannerOrigin.join(','));
+  if (isValidPlannerOrigin(plannerOrigin) && !hasCompletedStops) params.set('origin', plannerOrigin.join(','));
   trackGuideEvent('Navigation Open', { source: 'next_stop', mode: plannerTravelMode });
   window.open(`https://www.google.com/maps/dir/?${params.toString()}`, '_blank', 'noopener,noreferrer');
   return true;
 }
 
 function plannerNavigateToOrigin() {
-  if (!plannerOrigin || !tripDayReturnToOrigin[activeTripDay]) return false;
+  if (!isValidPlannerOrigin(plannerOrigin) || !tripDayReturnToOrigin[activeTripDay]) return false;
   const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
   const params = new URLSearchParams({
     api: '1',
@@ -682,7 +693,7 @@ function renderPlannerVisitProgress(spots) {
   const completedCount = spots.filter(spot => isPlannerStopCompleted(spot.id, activeTripDay)).length;
   const lastCompleted = getPlannerLastCompletedStop(spots);
   if (!next) {
-    const canReturnToOrigin = !!plannerOrigin && !!tripDayReturnToOrigin[activeTripDay];
+    const canReturnToOrigin = isValidPlannerOrigin(plannerOrigin) && !!tripDayReturnToOrigin[activeTripDay];
     return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p><div class="mt-3 flex flex-wrap gap-2">${canReturnToOrigin ? `<button type="button" onclick="plannerNavigateToOrigin()" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">keyboard_return</span>${t('plannerNavigateReturn')}</button>` : ''}${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div></div>`;
   }
   const tr = getSpotTranslation(next);
@@ -697,7 +708,7 @@ function renderPlannerVisitProgress(spots) {
 
 function getPlannerDayReadiness(spots) {
   const pending = [];
-  if (!plannerOrigin) pending.push({ key: 'origin', label: t('plannerReadyOriginPending'), action: 'origin' });
+  if (!isValidPlannerOrigin(plannerOrigin)) pending.push({ key: 'origin', label: t('plannerReadyOriginPending'), action: 'origin' });
   spots.forEach(spot => {
     const title = getSpotTranslation(spot).title;
     const access = resolvePlannerAccess(spot, plannerTravelMode);
@@ -720,7 +731,7 @@ function getPlannerDayReadiness(spots) {
 }
 
 function renderPlannerDayAgenda(spots) {
-  const originSet = !!plannerOrigin;
+  const originSet = isValidPlannerOrigin(plannerOrigin);
   const returnSet = originSet && !!tripDayReturnToOrigin[activeTripDay];
   const readiness = getPlannerDayReadiness(spots);
   const readinessHtml = readiness.ready
@@ -963,13 +974,13 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
         <div class="flex flex-wrap gap-2">
           <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
-            <span id="planner-location-label">${plannerOrigin ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerUseLocation')}</span>
+            <span id="planner-location-label">${isValidPlannerOrigin(plannerOrigin) ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerUseLocation')}</span>
           </button>
           <button type="button" onclick="plannerStartOriginPick()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
             <span class="material-symbols-outlined text-[15px] align-middle">location_on</span>
             <span>${plannerOriginPickMode ? t('plannerTapMapOrigin') : t('plannerChooseMapOrigin')}</span>
           </button>
-          ${plannerOrigin ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">${t('plannerClearOrigin')}</button>
+          ${isValidPlannerOrigin(plannerOrigin) ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">${t('plannerClearOrigin')}</button>
           <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
             <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
             ${t('plannerReturnOrigin')}
@@ -1021,8 +1032,8 @@ function plannerStartOriginPick() {
 }
 
 function plannerUseMyLocation() {
-  if (typeof lastUserLocation !== 'undefined' && lastUserLocation) {
-    saveActiveDayOrigin([lastUserLocation.lat, lastUserLocation.lng]);
+  if (typeof lastUserLocation !== 'undefined' && isValidPlannerOrigin(lastUserLocation)) {
+    saveActiveDayOrigin([...lastUserLocation]);
     return;
   }
   if (!navigator.geolocation) {
@@ -1060,9 +1071,9 @@ async function plannerOptimizeRoute() {
   if (!plannerConfirmAccess(roadSpots)) return;
 
   const locations = [];
-  if (plannerOrigin) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
+  if (isValidPlannerOrigin(plannerOrigin)) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
   roadSpots.forEach(spot => { const coords = resolvePlannerAccess(spot, plannerTravelMode).coords; locations.push({ lat: coords[0], lon: coords[1], type: 'break' }); });
-  if (plannerOrigin && tripDayReturnToOrigin[activeTripDay]) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
+  if (isValidPlannerOrigin(plannerOrigin) && tripDayReturnToOrigin[activeTripDay]) locations.push({ lat: plannerOrigin[0], lon: plannerOrigin[1], type: 'break' });
 
   try {
     const button = document.querySelector('[onclick="plannerOptimizeRoute()"]');
@@ -1082,7 +1093,7 @@ async function plannerOptimizeRoute() {
     const orderedOriginalIndexes = (trip.locations || [])
       .map(location => Number(location.original_index))
       .filter(Number.isFinite);
-    const originOffset = plannerOrigin ? 1 : 0;
+    const originOffset = isValidPlannerOrigin(plannerOrigin) ? 1 : 0;
     const orderedIds = orderedOriginalIndexes
       .filter(index => index >= originOffset && index < originOffset + roadSpots.length)
       .map(index => roadSpots[index - originOffset]?.id)
@@ -1123,7 +1134,7 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
   const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
   if (!plannerConfirmAccess(segmentSpots)) return;
   const hasCompletedStops = getActiveTripSpots().some(item => isPlannerStopCompleted(item.id, activeTripDay));
-  if (segmentIndex === 0 && plannerOrigin && !hasCompletedStops) {
+  if (segmentIndex === 0 && isValidPlannerOrigin(plannerOrigin) && !hasCompletedStops) {
     params.set('origin', plannerOrigin.join(','));
   } else if (segmentIndex > 0) {
     const previousSpot = roadSpots[segmentIndex * 4 - 1];
@@ -1132,7 +1143,7 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
   }
   const points = segmentSpots.map(spot => resolvePlannerAccess(spot, plannerTravelMode).coords.join(','));
   const isFinalSegment = (segmentIndex + 1) * 4 >= roadSpots.length;
-  if (plannerOrigin && tripDayReturnToOrigin[activeTripDay] && isFinalSegment) {
+  if (isValidPlannerOrigin(plannerOrigin) && tripDayReturnToOrigin[activeTripDay] && isFinalSegment) {
     params.set('destination', plannerOrigin.join(','));
     params.set('waypoints', points.join('|'));
   } else {
@@ -1227,7 +1238,7 @@ function initPlannerMap() {
     plannerRouteLine = L.polyline(plannerOptimizedRoute.shape, { weight: 5, opacity: 0.8 }).addTo(plannerMap);
     plannerOptimizedRoute.shape.forEach(coord => bounds.extend(coord));
   }
-  if (plannerOrigin) {
+  if (isValidPlannerOrigin(plannerOrigin)) {
     L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerDayOrigin').replace('{n}', activeTripDay));
     bounds.extend(plannerOrigin);
   }
