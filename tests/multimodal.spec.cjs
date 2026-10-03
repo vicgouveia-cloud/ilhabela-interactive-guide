@@ -1,4 +1,81 @@
 const {test, expect} = require('@playwright/test');
+test('remaining Maps route uses current location after completion and preserves order, gateways and return', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerOpenGoogleMaps === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    tripDays = {};
+    plannerTravelMode = 'auto';
+    plannerOrigin = [-23.8, -45.36];
+    tripSelection = ['praia-do-curral', 'praia-do-pereque', 'praia-do-juliao', 'praia-grande'];
+    tripCompletedStops = {};
+    tripDayReturnToOrigin = {};
+    plannerOptimizedRoute = {spotIds: ['praia-do-curral', 'praia-do-pereque', 'praia-grande', 'praia-do-juliao']};
+    window.confirm = () => true;
+    let opened;
+    window.open = value => { opened = value; };
+    plannerOpenGoogleMaps();
+    const initial = opened;
+    plannerNavigateToSpot('praia-do-curral');
+    const initialIndividual = opened;
+    tripCompletedStops = {'1:praia-do-curral': true, '1:praia-do-pereque': true};
+    plannerOpenGoogleMaps();
+    const remaining = opened;
+    plannerNavigateToSpot('praia-grande');
+    const remainingIndividual = opened;
+    tripDayReturnToOrigin = {1: true};
+    plannerOpenGoogleMaps();
+    const returning = opened;
+    const juliao = touristSpots.find(spot => spot.id === 'praia-do-juliao');
+    const access = resolvePlannerAccess(juliao, 'auto');
+    const grande = resolvePlannerAccess(touristSpots.find(spot => spot.id === 'praia-grande'), 'auto');
+    return {initial, initialIndividual, remaining, remainingIndividual, returning,
+      gateway: access.coords.join(','), attraction: juliao.coords.join(','), firstRemaining: grande.coords.join(',')};
+  });
+  const params = key => new URL(result[key]).searchParams;
+  expect(params('initial').get('origin')).toBe('-23.8,-45.36');
+  expect(params('initialIndividual').get('origin')).toBe('-23.8,-45.36');
+  expect(params('remaining').get('origin')).toBeNull();
+  expect(params('remainingIndividual').get('origin')).toBeNull();
+  expect(params('remainingIndividual').get('destination')).toBe(result.firstRemaining);
+  expect(params('remaining').get('waypoints')).toBe(result.firstRemaining);
+  expect(params('remaining').get('destination')).toBe(result.gateway);
+  expect(result.gateway).not.toBe(result.attraction);
+  expect(params('returning').get('origin')).toBeNull();
+  expect(params('returning').get('destination')).toBe('-23.8,-45.36');
+  expect(params('returning').get('waypoints')).toBe(`${result.firstRemaining}|${result.gateway}`);
+});
+
+test('completion origin policy applies only to the active day and first Maps segment', async ({page}) => {
+  await page.goto('/');
+  await page.waitForFunction(() => typeof plannerOpenGoogleMaps === 'function');
+  const result = await page.evaluate(() => {
+    activeTripDay = 1;
+    tripDays = {};
+    plannerTravelMode = 'auto';
+    plannerOrigin = [-23.8, -45.36];
+    tripSelection = ['praia-do-curral', 'praia-do-pereque', 'praia-grande', 'praia-do-juliao', 'praia-da-feiticeira', 'baia-de-castelhanos'];
+    plannerOptimizedRoute = null;
+    tripDayReturnToOrigin = {};
+    tripCompletedStops = {'2:praia-do-curral': true};
+    window.confirm = () => true;
+    let opened;
+    window.open = value => { opened = value; };
+    plannerOpenGoogleMaps(0);
+    const otherDay = opened;
+    tripCompletedStops['1:praia-do-curral'] = true;
+    plannerOpenGoogleMaps(0);
+    const first = opened;
+    plannerOpenGoogleMaps(1);
+    const second = opened;
+    const previous = resolvePlannerAccess(touristSpots.find(spot => spot.id === 'praia-da-feiticeira'), 'auto');
+    return {otherDay, first, second, previous: previous.coords.join(',')};
+  });
+  expect(new URL(result.otherDay).searchParams.get('origin')).toBe('-23.8,-45.36');
+  expect(new URL(result.first).searchParams.get('origin')).toBeNull();
+  expect(new URL(result.second).searchParams.get('origin')).toBe(result.previous);
+});
+
 test('routing and Google Maps exclude completed stops while preserving pending optimized order', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof getPlannerPendingSpots === 'function');

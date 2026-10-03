@@ -1122,7 +1122,8 @@ function plannerOpenGoogleMaps(segmentIndex = 0) {
   const googleTravelMode = { auto: 'driving', bicycle: 'bicycling', pedestrian: 'walking', '4x4': 'driving' }[plannerTravelMode] || 'driving';
   const params = new URLSearchParams({ api: '1', travelmode: googleTravelMode });
   if (!plannerConfirmAccess(segmentSpots)) return;
-  if (segmentIndex === 0 && plannerOrigin) {
+  const hasCompletedStops = getActiveTripSpots().some(item => isPlannerStopCompleted(item.id, activeTripDay));
+  if (segmentIndex === 0 && plannerOrigin && !hasCompletedStops) {
     params.set('origin', plannerOrigin.join(','));
   } else if (segmentIndex > 0) {
     const previousSpot = roadSpots[segmentIndex * 4 - 1];
