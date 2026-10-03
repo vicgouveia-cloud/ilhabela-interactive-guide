@@ -13,8 +13,8 @@ Object.assign(translations.he, {
 
 ﻿// Translations
 Object.assign(translations.pt, {
-  btnPlanner: "Monte seu roteiro",
-  plannerTitle: "Monte seu roteiro",
+  btnPlanner: "Escolher lugares",
+  plannerTitle: "Escolher lugares",
   plannerSubtitle: "Descubra lugares incríveis",
   btnSkip: "Pular",
   btnLike: "Gostei",
@@ -25,12 +25,12 @@ Object.assign(translations.pt, {
   plannerSelected: "escolhidos",
   plannerDetails: "Ver detalhes",
   emptySummary: "Você ainda não selecionou nenhum lugar.",
-  plannerSummaryTitle: "Seu Roteiro",
-  btnBackToDeck: "Voltar para Explorar"
+  plannerSummaryTitle: "Minha viagem",
+  btnBackToDeck: "Escolher mais lugares"
 });
 Object.assign(translations.en, {
-  btnPlanner: "Trip Planner",
-  plannerTitle: "Trip Planner",
+  btnPlanner: "Choose places",
+  plannerTitle: "Choose places",
   plannerSubtitle: "Discover amazing places",
   btnSkip: "Skip",
   btnLike: "Like",
@@ -41,12 +41,12 @@ Object.assign(translations.en, {
   plannerSelected: "selected",
   plannerDetails: "See details",
   emptySummary: "You haven't selected any places yet.",
-  plannerSummaryTitle: "Your Trip",
-  btnBackToDeck: "Back to Explore"
+  plannerSummaryTitle: "My trip",
+  btnBackToDeck: "Choose more places"
 });
 Object.assign(translations.fr, {
-  btnPlanner: "Mon Itinéraire",
-  plannerTitle: "Mon Itinéraire",
+  btnPlanner: "Choisir des lieux",
+  plannerTitle: "Choisir des lieux",
   plannerSubtitle: "Découvrez des endroits incroyables",
   btnSkip: "Passer",
   btnLike: "J'aime",
@@ -57,12 +57,12 @@ Object.assign(translations.fr, {
   plannerSelected: "choisis",
   plannerDetails: "Voir détails",
   emptySummary: "Vous n'avez encore sélectionné aucun endroit.",
-  plannerSummaryTitle: "Votre Itinéraire",
-  btnBackToDeck: "Retour à l'exploration"
+  plannerSummaryTitle: "Mon voyage",
+  btnBackToDeck: "Choisir d’autres lieux"
 });
 Object.assign(translations.es, {
-  btnPlanner: "Tu Itinerario",
-  plannerTitle: "Tu Itinerario",
+  btnPlanner: "Elegir lugares",
+  plannerTitle: "Elegir lugares",
   plannerSubtitle: "Descubre lugares increíbles",
   btnSkip: "Omitir",
   btnLike: "Me gusta",
@@ -73,12 +73,12 @@ Object.assign(translations.es, {
   plannerSelected: "elegidos",
   plannerDetails: "Ver detalles",
   emptySummary: "Aún no has seleccionado ningún lugar.",
-  plannerSummaryTitle: "Tu Itinerario",
-  btnBackToDeck: "Volver a explorar"
+  plannerSummaryTitle: "Mi viaje",
+  btnBackToDeck: "Elegir más lugares"
 });
 Object.assign(translations.he, {
-  btnPlanner: "תכנן מסלול",
-  plannerTitle: "תכנן מסלול",
+  btnPlanner: "בחירת מקומות",
+  plannerTitle: "בחירת מקומות",
   plannerSubtitle: "גלה מקומות מדהימים",
   btnSkip: "דלג",
   btnLike: "אהבתי",
@@ -89,8 +89,8 @@ Object.assign(translations.he, {
   plannerSelected: "נבחרו",
   plannerDetails: "פרטים",
   emptySummary: "עדיין לא בחרת מקומות.",
-  plannerSummaryTitle: "המסלול שלך",
-  btnBackToDeck: "חזור לגלות"
+  plannerSummaryTitle: "הטיול שלי",
+  btnBackToDeck: "בחירת מקומות נוספים"
 });
 
 // Route-planner translations. Kept separate so the existing planner copy remains untouched.
@@ -423,11 +423,25 @@ function openHomeTripPlanner() {
   else openPlanner(null, { view: 'deck' });
 }
 
+function updatePlannerHeading() {
+  const title = document.getElementById('planner-title');
+  if (title) {
+    title.dataset.i18n = currentPlannerView === 'summary' ? 'navTrip' : 'choosePlaces';
+    title.textContent = t(title.dataset.i18n);
+  }
+  const counter = document.getElementById('planner-summary-toggle');
+  if (counter) {
+    counter.disabled = currentPlannerView === 'summary';
+    counter.setAttribute('aria-label', t('navTrip'));
+  }
+}
+
 function setPlannerView(view) {
   const deck = document.getElementById('planner-deck-view');
   const summary = document.getElementById('planner-summary-view');
   currentPlannerView = view === 'summary' ? 'summary' : 'deck';
   const showSummary = currentPlannerView === 'summary';
+  updatePlannerHeading();
   deck.classList.toggle('hidden', showSummary);
   deck.classList.toggle('flex', !showSummary);
   summary.classList.toggle('hidden', !showSummary);
@@ -446,6 +460,8 @@ function openPlanner(e, options = {}) {
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
+  document.body.classList.add('planner-open');
+  window.dispatchEvent(new Event('planner-visibility-change'));
   
   // Re-translate just in case
   modal.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
@@ -463,6 +479,8 @@ function closePlanner() {
   modal.classList.add('hidden');
   modal.classList.remove('flex');
   document.body.style.overflow = '';
+  document.body.classList.remove('planner-open');
+  window.dispatchEvent(new Event('planner-visibility-change'));
 }
 
 function togglePlannerView() {
@@ -742,9 +760,21 @@ function renderPlannerDayAgenda(spots) {
 function renderSummary() {
   const listContainer = document.getElementById('planner-summary-list');
   
-  if (tripSelection.length === 0) {
-    listContainer.innerHTML = `<div class="text-center py-10"><p class="text-sm font-semibold text-on-surface-variant">${t('emptySummary')}</p></div>`;
-    initPlannerMap();
+  const isEmpty = tripSelection.length === 0;
+  document.getElementById('planner-summary-view').classList.toggle('is-empty', isEmpty);
+  document.getElementById('planner-map').hidden = isEmpty;
+  document.getElementById('planner-back-to-deck').hidden = isEmpty;
+  if (isEmpty) {
+    plannerOriginPickMode = false;
+    if (plannerMap) { plannerMap.remove(); plannerMap = null; }
+    plannerMapMarkers = [];
+    plannerRouteLine = null;
+    listContainer.innerHTML = `<div class="planner-empty-state">
+      <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
+      <h3>${t('tripEmptyTitle')}</h3>
+      <p>${t('tripEmptyHint')}</p>
+      <button type="button" onclick="setPlannerView('deck')">${t('choosePlaces')}</button>
+    </div>`;
     return;
   }
 
@@ -987,6 +1017,7 @@ function plannerResolvePending(action) {
 function plannerStartOriginPick() {
   plannerOriginPickMode = true;
   renderSummary();
+  document.getElementById('planner-map')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function plannerUseMyLocation() {

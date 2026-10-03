@@ -997,3 +997,66 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     display: none !important;
   }
 }
+
+/* Map -> choose places -> trip: scoped layout and category clusters. */
+.map-category-cluster { background: transparent; border: 0; }
+.map-cluster-content {
+  width: 44px; height: 44px; padding: 3px; box-sizing: border-box;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  border: 2px solid white; border-radius: 14px; background: #fbf9f4;
+  color: #003345; box-shadow: 0 2px 8px rgba(0,51,69,.3);
+}
+.map-cluster-content strong { font: 800 12px/14px 'DM Sans', sans-serif; }
+.map-cluster-categories { display: flex; flex-wrap: wrap; justify-content: center; gap: 1px; width: 34px; }
+.map-cluster-categories .material-symbols-outlined {
+  width: 7px; height: 10px; font-size: 8px; line-height: 10px;
+  border-radius: 3px; color: white;
+}
+#planner-deck-view, #planner-summary-view, #planner-cards-container { min-height: 0; min-width: 0; }
+#planner-map[hidden], #planner-back-to-deck[hidden] { display: none !important; }
+#planner-summary-view.is-empty #planner-summary-list {
+  flex: 1; display: flex; align-items: center; justify-content: center;
+}
+.planner-empty-state { max-width: 360px; padding: 24px 12px; text-align: center; }
+.planner-empty-state > .material-symbols-outlined { font-size: 48px; color: #3b6934; margin-bottom: 12px; }
+.planner-empty-state h3 { font-size: 22px; line-height: 1.25; font-weight: 800; color: #003345; }
+.planner-empty-state p { font-size: 14px; line-height: 1.6; margin: 12px 0 20px; color: #40484c; }
+.planner-empty-state button {
+  min-height: 44px; padding: 12px 20px; border-radius: 14px;
+  background: #003345; color: white; font-size: 14px; font-weight: 800;
+}
+#planner-summary-toggle:disabled { cursor: default; background: transparent; }
+@media (max-width: 767px) {
+  /* 36 -> 27px visual size (25%), retaining the existing tap footprint. */
+  #map .main-map-pin { margin-left: -18px !important; margin-top: -18px !important; }
+  #map .main-map-pin .pin-icon-wrap { width: 27px; height: 27px; border-width: 2px; box-shadow: 0 2px 6px rgba(0,51,69,.25); }
+  #map .main-map-pin .pin-icon-wrap .material-symbols-outlined { font-size: 12px; }
+  #map .main-map-pin .pin-pulse { width: 27px; height: 27px; }
+  #map .main-map-pin .custom-pin.active-pin { transform: scale(1.15); }
+  #planner-modal {
+    top: env(safe-area-inset-top, 0px);
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+  .planner-open .site-header { visibility: hidden; }
+  .planner-header { min-height: 48px; padding: 6px 12px; gap: 8px; }
+  .planner-header > div { min-width: 0; }
+  #planner-title { font-size: 16px; line-height: 20px; }
+  #planner-close { display: none; }
+  #planner-summary-toggle { flex-shrink: 0; min-height: 36px; padding: 6px 8px; gap: 4px; }
+  .planner-filter-rail { padding: 6px 10px; overscroll-behavior-x: contain; }
+  #planner-filters { gap: 6px; }
+  #planner-filters button { min-height: 36px; padding-inline: 12px; }
+  #planner-cards-container { padding: 8px 10px; }
+  #planner-active-card { position: relative; max-width: none; max-height: none; border-radius: 20px; }
+  #planner-active-card h3 { font-size: 18px; }
+  #planner-active-card > div:last-child { padding: 10px; }
+  #planner-actions { height: 72px; padding: 8px 12px; gap: 16px; }
+  #planner-actions > button:first-child, #planner-actions > button:last-child { width: 48px; height: 48px; }
+  /* One scroll owner: map, contextual action and all itinerary details. */
+  #planner-summary-view { overflow-y: auto; overscroll-behavior-y: contain; }
+  #planner-map { height: clamp(180px, 28dvh, 240px) !important; min-height: 180px !important; }
+  #planner-summary-list { flex: 0 0 auto; overflow: visible; padding: 12px; overflow-wrap: anywhere; }
+  #planner-summary-list > *, #planner-summary-list .flex > div { min-width: 0; }
+  #planner-back-to-deck button { min-height: 44px; }
+  #planner-summary-view.is-empty #planner-summary-list { flex: 1 0 auto; }
+}

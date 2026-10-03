@@ -3,6 +3,8 @@ let map = null;
 let mapLayers = {};
 let currentMapLayerKey = 'satellite';
 let mapMarkers = [];
+let mapMarkerCluster = null;
+const mobileMapQuery = window.matchMedia('(max-width: 767px)');
 let currentLang = readStorage('ilhabela_lang', 'pt');
 let currentCategory = 'all';
 let activeAttributes = new Set();
@@ -160,6 +162,12 @@ function setLanguage(lang, rerender = true) {
       el.setAttribute(attr, t(el.getAttribute(`data-i18n-${attr}`)));
     });
   }
+  window.dispatchEvent(new Event('guide-language-change'));
+  if (typeof updatePlannerHeading === 'function') updatePlannerHeading();
+  if (rerender && typeof currentPlannerView !== 'undefined' && document.body.classList.contains('planner-open')) {
+    if (currentPlannerView === 'summary') renderSummary();
+    else { renderPlannerFilters(); renderDeckCard(); }
+  }
   document.querySelectorAll('[data-spot-id]').forEach(el => {
     el.textContent = getSpotTranslation(touristSpots.find(s => s.id === el.dataset.spotId)).title;
   });
@@ -245,6 +253,9 @@ function initMap() {
       }).observe(mapEl.parentElement || mapEl);
     }
   }
+
+  // Resize across the mobile breakpoint without changing filters or selection.
+  mobileMapQuery.addEventListener('change', updateMapMarkers);
 
   // Render Markers
   updateMapMarkers();
@@ -407,9 +418,37 @@ function getRatingLabel(spot, withReviews = false) {
 function updateMapMarkers() {
   if (!map) return;
 
-  // Clear existing markers
+  // Desktop keeps individual markers. On mobile, every filtered attraction
+  // belongs to the cluster layer and reappears as the user zooms or spiderfies.
+  if (mapMarkerCluster) {
+    mapMarkerCluster.clearLayers();
+    map.removeLayer(mapMarkerCluster);
+    mapMarkerCluster = null;
+  }
   mapMarkers.forEach(m => map.removeLayer(m));
   mapMarkers = [];
+  const mobile = mobileMapQuery.matches;
+  if (mobile && typeof L.markerClusterGroup === 'function') {
+    mapMarkerCluster = L.markerClusterGroup({
+      maxClusterRadius: 28,
+      showCoverageOnHover: false,
+      zoomToBoundsOnClick: true,
+      spiderfyOnMaxZoom: true,
+      spiderfyDistanceMultiplier: 1.35,
+      removeOutsideVisibleBounds: false,
+      iconCreateFunction: cluster => {
+        const categories = [...new Set(cluster.getAllChildMarkers().map(marker => marker.options.spotCategory))];
+        const count = cluster.getChildCount();
+        const label = t('mapClusterLabel').replace('{n}', count);
+        return L.divIcon({
+          className: 'map-category-cluster',
+          html: `<div class="map-cluster-content" role="img" aria-label="${label}"><strong>${count}</strong><div class="map-cluster-categories">${categories.map(category => `<span class="pin-${category} material-symbols-outlined" title="${getCategoryLabel(category)}">${getCategoryIcon(category)}</span>`).join('')}</div></div>`,
+          iconSize: [44, 44],
+          iconAnchor: [22, 22]
+        });
+      }
+    }).addTo(map);
+  }
 
   const filtered = getFilteredSpots();
 
@@ -418,7 +457,7 @@ function updateMapMarkers() {
     const catIcon = getCategoryIcon(spot.category);
 
     const customIcon = L.divIcon({
-      className: 'custom-pin-container',
+      className: 'custom-pin-container main-map-pin',
       html: `
         <div class="custom-pin" id="pin-${spot.id}">
           <div class="pin-pulse pin-${spot.category}"></div>
@@ -427,16 +466,18 @@ function updateMapMarkers() {
           </div>
         </div>
       `,
-      iconSize: [30, 30],
-      iconAnchor: [15, 15]
+      iconSize: mobile ? [27, 27] : [30, 30],
+      iconAnchor: mobile ? [13.5, 13.5] : [15, 15]
     });
 
     const marker = L.marker(spot.coords, {
       icon: customIcon,
+      spotCategory: spot.category,
       keyboard: true,
       title: tr.title || '',
       alt: `${tr.title} — ${t('spotDetails')}`
-    }).addTo(map);
+    });
+    marker.addTo(mapMarkerCluster || map);
     marker.getElement()?.setAttribute('aria-label', `${tr.title} — ${t('spotDetails')}`);
 
     // Hover Tooltip

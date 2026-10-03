@@ -41,15 +41,53 @@
     nav.className = 'shared-bottom-nav';
     nav.setAttribute('aria-label', 'Navegação principal');
     const items = [
-      ['map','/#map-section','Mapa'],
-      ['explore','/o-que-fazer/','Explorar'],
-      ['services','/servicos/','Serviços'],
-      ['trip','/?view=trip','Minha viagem']
+      ['map','/#map-section','navMapShort'],
+      ['explore','/o-que-fazer/','navExplore'],
+      ['services','/servicos/','navServices'],
+      ['trip','/?view=trip','navTrip']
     ];
-    nav.innerHTML = items.map(([key,href,label]) =>
-      `<a href="${href}" class="${active===key?'is-active':''}" ${active===key?'aria-current="page"':''}>${SVG[key]}<span>${label}</span></a>`
+    nav.innerHTML = items.map(([key,href,labelKey]) =>
+      `<a href="${href}" class="${active===key?'is-active':''}" ${active===key?'aria-current="page"':''}>${SVG[key]}<span data-i18n="${labelKey}"></span></a>`
     ).join('');
     document.body.appendChild(nav);
+    // Pages without the full app still share the same five navigation labels.
+    const labels = {
+      pt: ['Mapa', 'Explorar', 'Serviços', 'Minha viagem', 'Navegação principal'],
+      en: ['Map', 'Explore', 'Services', 'My trip', 'Main navigation'],
+      es: ['Mapa', 'Explorar', 'Servicios', 'Mi viaje', 'Navegación principal'],
+      fr: ['Carte', 'Explorer', 'Services', 'Mon voyage', 'Navigation principale'],
+      he: ['מפה', 'סיור', 'שירותים', 'הטיול שלי', 'ניווט ראשי']
+    };
+    function sync() {
+      let lang = document.documentElement.lang;
+      try { lang = localStorage.getItem('ilhabela_lang') || lang; } catch { /* Use document language. */ }
+      const copy = labels[lang] || labels.pt;
+      nav.querySelectorAll('[data-i18n]').forEach((el, index) => {
+        el.textContent = typeof t === 'function' ? t(el.dataset.i18n) : copy[index];
+      });
+      nav.setAttribute('aria-label', typeof t === 'function' ? t('mainNavigation') : copy[4]);
+      const selected = document.body.classList.contains('planner-open') ? 'trip' : activeKey();
+      nav.querySelectorAll('a').forEach((link, index) => {
+        const selectedLink = items[index][0] === selected;
+        link.classList.toggle('is-active', selectedLink);
+        if (selectedLink) link.setAttribute('aria-current', 'page');
+        else link.removeAttribute('aria-current');
+      });
+    }
+    // Keep the existing URLs for other pages; on home these actions preserve
+    // the current in-memory trip and close the overlay without reloading.
+    nav.addEventListener('click', event => {
+      const link = event.target.closest('a');
+      if (!link || !nav.contains(link) || location.pathname !== '/' || typeof openPlannerSummary !== 'function') return;
+      if (link.getAttribute('href') === '/?view=trip') {
+        event.preventDefault(); openPlannerSummary(); sync();
+      } else if (link.getAttribute('href') === '/#map-section') {
+        event.preventDefault(); closePlanner(); setViewMode('map'); sync();
+      }
+    });
+    window.addEventListener('guide-language-change', sync);
+    window.addEventListener('planner-visibility-change', sync);
+    sync();
   }
 
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', mount);

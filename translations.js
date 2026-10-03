@@ -1,6 +1,12 @@
 // UI catalog: all five locales have identical keys.
 const translations = {
   "pt": {
+    "choosePlaces": "Escolher lugares",
+    "chooseMorePlaces": "Escolher mais lugares",
+    "tripEmptyTitle": "Sua viagem começa aqui",
+    "tripEmptyHint": "Escolha lugares nos cartões e adicione os que quiser conhecer. Eles aparecerão aqui para organizar seu roteiro.",
+    "mapClusterLabel": "{n} lugares próximos. Amplie para escolher um lugar.",
+    "navMapShort": "Mapa",
     "navServices": "Serviços",
     "homeExploreModeTitle": "Explore do seu jeito",
     "homeExploreModeHint": "Busque um lugar, filtre por experiência e escolha entre mapa e cartões.",
@@ -174,6 +180,12 @@ const translations = {
     "locationUnavailable": "Não foi possível obter sua localização. Você pode continuar usando o mapa normalmente."
   },
   "en": {
+    "choosePlaces": "Choose places",
+    "chooseMorePlaces": "Choose more places",
+    "tripEmptyTitle": "Your trip starts here",
+    "tripEmptyHint": "Choose places from the cards and add the ones you want to visit. They will appear here so you can organize your itinerary.",
+    "mapClusterLabel": "{n} nearby places. Zoom in to choose a place.",
+    "navMapShort": "Map",
     "navServices": "Services",
     "homeExploreModeTitle": "Explore your way",
     "homeExploreModeHint": "Search for a place, filter by experience and choose between map and cards.",
@@ -347,6 +359,12 @@ const translations = {
     "locationUnavailable": "We couldn't get your location. You can continue using the map normally."
   },
   "fr": {
+    "choosePlaces": "Choisir des lieux",
+    "chooseMorePlaces": "Choisir d’autres lieux",
+    "tripEmptyTitle": "Votre voyage commence ici",
+    "tripEmptyHint": "Choisissez des lieux parmi les fiches et ajoutez ceux que vous souhaitez visiter. Ils apparaîtront ici pour organiser votre itinéraire.",
+    "mapClusterLabel": "{n} lieux à proximité. Zoomez pour choisir un lieu.",
+    "navMapShort": "Carte",
     "navServices": "Services",
     "homeExploreModeTitle": "Explorez à votre façon",
     "homeExploreModeHint": "Recherchez un lieu, filtrez par expérience et choisissez entre carte et fiches.",
@@ -520,6 +538,12 @@ const translations = {
     "locationUnavailable": "Impossible d’obtenir votre position. Vous pouvez continuer à utiliser la carte normalement."
   },
   "es": {
+    "choosePlaces": "Elegir lugares",
+    "chooseMorePlaces": "Elegir más lugares",
+    "tripEmptyTitle": "Tu viaje empieza aquí",
+    "tripEmptyHint": "Elige lugares en las tarjetas y añade los que quieras visitar. Aparecerán aquí para organizar tu itinerario.",
+    "mapClusterLabel": "{n} lugares cercanos. Acerca el mapa para elegir un lugar.",
+    "navMapShort": "Mapa",
     "navServices": "Servicios",
     "homeExploreModeTitle": "Explora a tu manera",
     "homeExploreModeHint": "Busca un lugar, filtra por experiencia y elige entre mapa y tarjetas.",
@@ -693,6 +717,12 @@ const translations = {
     "locationUnavailable": "No pudimos obtener tu ubicación. Puedes seguir usando el mapa normalmente."
   },
   "he": {
+    "choosePlaces": "בחירת מקומות",
+    "chooseMorePlaces": "בחירת מקומות נוספים",
+    "tripEmptyTitle": "הטיול שלכם מתחיל כאן",
+    "tripEmptyHint": "בחרו מקומות מתוך הכרטיסים והוסיפו את אלה שתרצו לבקר בהם. הם יופיעו כאן כדי שתוכלו לארגן את המסלול.",
+    "mapClusterLabel": "{n} מקומות קרובים. הגדילו את המפה כדי לבחור מקום.",
+    "navMapShort": "מפה",
     "navServices": "שירותים",
     "homeExploreModeTitle": "גלו בדרך שלכם",
     "homeExploreModeHint": "חפשו מקום, סננו לפי חוויה ובחרו בין מפה לכרטיסים.",
