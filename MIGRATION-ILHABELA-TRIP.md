@@ -14,6 +14,7 @@
 - Marca fixa Ilhabela Trip nos cinco idiomas PT/EN/FR/ES/HE; subtítulos e textos funcionais continuam traduzidos, incluindo RTL.
 - Títulos, OG/site_name, Twitter onde já existiam, rodapés e mensagens pré-preenchidas para WhatsApp. Nenhuma mensagem enviada.
 - Canonicals, OG URLs, URLs/imagens absolutas do schema TouristAttraction, sitemap (58 URLs) e robots apontam a https://ilhabelatrip.com, preservando paths.
+- Serviços recebeu description, canonical, OG e Twitter coerentes, antes ausentes.
 - Templates editoriais atualizados com a mesma marca/domínio; páginas publicadas preservadas, sem regeneração que sobrescreva navegação manual.
 - Preservados nomes de prestadores, conteúdo das atrações, IDs, rotas, chaves de armazenamento, pacote, nome interno do projeto e X-Client-Id do roteador.
 
@@ -28,18 +29,22 @@ Na Cloudflare foram criados dois CNAME, TTL Auto, DNS only:
 
 Nameservers preservados: earl.ns.cloudflare.com e kara.ns.cloudflare.com. Ambos os novos hosts foram adicionados ao mesmo projeto Vercel e conectados à Production. Domínio raiz sem redirect para www. Domínio antigo continua servindo produção.
 
-Não promover a branch até validar DNS público, HTTPS do domínio raiz, respostas 200 das rotas e o preview desta branch. A emissão do certificado raiz está sendo acompanhada; www já respondeu 200 via HTTPS durante a configuração.
+Não promover a branch até validar DNS público, HTTPS do domínio raiz, respostas 200 das rotas e o preview desta branch. Os três hosts estão com Valid Configuration na Vercel. Raiz e www responderam 200 via HTTPS com validação de certificado; smoke desktop/mobile no novo domínio passou. Para contornar cache negativo local de DNS, o smoke da raiz utilizou o endereço 216.150.1.1 retornado por 1.1.1.1, preservando hostname/SNI e validação TLS. Alguns caches locais ainda retornam domínio inexistente; propagação completa segue pendente.
 
 ## Testes e limitações
 
 - Instalação limpa: 0 vulnerabilidades reportadas.
 - Auditorias de 50 páginas de atrações, catálogo de descoberta e 58 URLs do sitemap: passaram.
-- Smoke de navegação e dos cinco idiomas: passou localmente e na produção antiga; verificação desktop/mobile após mudança de domínio em andamento.
+- Smoke de navegação e dos cinco idiomas: passou localmente (1280/390px), na produção antiga (desktop) e no novo domínio (1280/390px, com resolução explícita). Preview 014c397 READY: validado no navegador autenticado, cinco idiomas, marca, canonical/OG, hubs, Serviços, atrações, roteiros e planner; sem erros de execução observados. O runner de preview sem autenticação encontrou a proteção Vercel, mantida ativa.
 - build:seo falha por accessModes não definido no gerador de descoberta.
 - test:audit falha por localRecommendations ausente no teste de idiomas.
 - test:seo falha por expectativa de analytics em categorias; auditorias individuais de routing encontram unknown/diving e roteiro 2 dias tem expectativas antigas.
 - Todas essas falhas foram reproduzidas no commit original em checkout separado. Não corrigidas nesta migração. A suíte antiga de navegador fixa 40 atrações, enquanto o catálogo atual tem 50; não serve como certificação completa do estado atual.
 - Build logs pelo conector indisponíveis: ferramenta retornou not found. Estado READY confirmado pelo conector, GitHub e painel.
+
+## Resultado do preview e riscos antes de main
+
+PR em rascunho: https://github.com/vicgouveia-cloud/ilhabela-interactive-guide/pull/1. Preview inicial: https://ilhabela-guide-1d34o3t46-vicgouveia-clouds-projects.vercel.app/. O build estático da Vercel concluiu READY. 58 páginas HTML comparadas com a base: todos os links de navegação preservados; sintaxe JavaScript validada.
 
 ## Riscos e próximos passos antes de main
 
