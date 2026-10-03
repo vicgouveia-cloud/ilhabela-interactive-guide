@@ -8,6 +8,13 @@ const names = {
   fr: ['Choisir des lieux', 'Mon voyage', 'Choisir d’autres lieux'],
   he: ['בחירת מקומות', 'הטיול שלי', 'בחירת מקומות נוספים']
 };
+async function capture(page, info, state, lang, width) {
+  await page.screenshot({ path: info.outputPath(`${state}-${lang}-${width}.png`) });
+  if (lang === 'pt' && width === 390) {
+    const preview = await page.screenshot({ type: 'jpeg', quality: 65 });
+    console.log('JOURNEY_VISUAL:' + state + ':' + preview.toString('base64'));
+  }
+}
 async function noOverflow(page, selector) {
   expect(await page.locator(selector).evaluate(el => el.scrollWidth <= el.clientWidth + 1), selector).toBe(true);
 }
@@ -23,7 +30,8 @@ for (const width of [390, 1440]) for (const lang of locales) {
       await page.waitForFunction(() => typeof L.markerClusterGroup === 'function' && mapMarkerCluster);
       expect(await page.evaluate(() => mapMarkerCluster.getLayers().length)).toBe(await page.evaluate(() => touristSpots.length));
       await expect(page.locator('#map .map-category-cluster').first()).toBeVisible();
-      // Keep the target in the viewport and end any initial fit animation.
+      await page.waitForFunction(() => !map._animatingZoom && !mapMarkerCluster._inZoomAnimation);
+      // Keep the target in the viewport after the initial fit has settled.
       await page.evaluate(() => {
         const spot = touristSpots.find(spot => spot.id === 'praia-do-juliao');
         map.stop();
@@ -49,7 +57,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
     expect(await page.evaluate(() => mapMarkers.length)).toBe(await page.evaluate(() => getFilteredSpots().length));
     if (width < 768) expect(await page.evaluate(() => mapMarkerCluster.getLayers().length)).toBe(await page.evaluate(() => getFilteredSpots().length));
     await page.evaluate(() => filterCategory('all'));
-    await page.screenshot({ path: info.outputPath(`map-${lang}-${width}.png`) });
+    await capture(page, info, 'map', lang, width);
 
     await page.evaluate(() => openPlannerSummary());
     await expect(page.locator('#planner-title')).toHaveText(names[lang][1]);
@@ -58,7 +66,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
     await expect(page.locator('.planner-empty-state button')).toHaveText(names[lang][0]);
     await expect(page.locator('#planner-back-to-deck')).toBeHidden();
     await noOverflow(page, '#planner-modal');
-    await page.screenshot({ path: info.outputPath(`empty-${lang}-${width}.png`) });
+    await capture(page, info, 'empty', lang, width);
     await page.locator('.planner-empty-state button').click();
     await expect(page.locator('#planner-title')).toHaveText(names[lang][0]);
     await expect(page.locator('#planner-active-card')).toBeVisible();
@@ -84,7 +92,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
     const first = await page.evaluate(() => plannerDeckQueue[0].id);
     await page.evaluate(language => setLanguage(language), lang);
     expect(await page.evaluate(() => plannerDeckQueue[0].id)).toBe(first);
-    await page.screenshot({ path: info.outputPath(`choose-${lang}-${width}.png`) });
+    await capture(page, info, 'choose', lang, width);
     await page.locator('#planner-actions button').nth(1).click();
     await expect(page.locator('#spot-modal')).toBeVisible();
     if (width < 768) {
@@ -131,7 +139,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
     } else {
       expect(await page.locator('#planner-summary-list').evaluate(el => getComputedStyle(el).overflowY)).toBe('auto');
     }
-    await page.screenshot({ path: info.outputPath(`trip-${lang}-${width}.png`) });
+    await capture(page, info, 'trip', lang, width);
     // Verify persistence, Google Maps endpoint and the last-removal empty state.
     const selection = await page.evaluate(() => [...tripSelection]);
     await page.evaluate(() => closePlanner());
