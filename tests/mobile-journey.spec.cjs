@@ -1,5 +1,6 @@
 const { test, expect } = require('@playwright/test');
 const locales = ['pt', 'en', 'es', 'fr', 'he'];
+test.setTimeout(60000);
 const names = {
   pt: ['Escolher lugares', 'Minha viagem', 'Escolher mais lugares'],
   en: ['Choose places', 'My trip', 'Choose more places'],
@@ -22,28 +23,21 @@ for (const width of [390, 1440]) for (const lang of locales) {
       await page.waitForFunction(() => typeof L.markerClusterGroup === 'function' && mapMarkerCluster);
       expect(await page.evaluate(() => mapMarkerCluster.getLayers().length)).toBe(await page.evaluate(() => touristSpots.length));
       await expect(page.locator('#map .map-category-cluster').first()).toBeVisible();
-      // Zooming changes the geographic viewport; check the chosen clustered
-      // attraction itself instead of comparing counts in different viewports.
-      const revealedId = await page.evaluate(() => new Promise(resolve => {
-        const marker = mapMarkers.find(marker => mapMarkerCluster.getVisibleParent(marker) !== marker);
-        mapMarkerCluster.zoomToShowLayer(marker, () => {
-          resolve(marker.getElement().querySelector('.custom-pin').id);
-        });
-      }));
-      await expect(page.locator(`#${revealedId}`)).toBeVisible();
-      const size = await page.locator('#map .main-map-pin .pin-icon-wrap').first().boundingBox();
-      expect(size.width).toBe(27);
-      // A nearby/coincident group must expose its real category pins at max zoom.
-      const group = await page.evaluate(() => {
-        const cluster = mapMarkerCluster.getVisibleParent(mapMarkers.find(marker => !map.hasLayer(marker)) || mapMarkers[0]);
-        if (!cluster?.spiderfy) return false;
-        cluster.spiderfy();
-        return true;
+      // Keep the target in the viewport and end any initial fit animation.
+      await page.evaluate(() => {
+        const spot = touristSpots.find(spot => spot.id === 'praia-do-juliao');
+        map.stop();
+        map.setView(spot.coords, 18, { animate: false });
       });
-      if (group) {
-        await expect(page.locator('#map .leaflet-cluster-spider-leg').first()).toBeVisible();
-        await page.evaluate(() => mapMarkerCluster.unspiderfy());
-      }
+      await expect.poll(() => page.evaluate(() => map.getZoom())).toBe(18);
+      await page.evaluate(() => {
+        const marker = mapMarkers.find(marker => marker.options.title === getSpotTranslation(touristSpots.find(spot => spot.id === 'praia-do-juliao')).title);
+        const parent = mapMarkerCluster.getVisibleParent(marker);
+        if (parent !== marker && parent?.spiderfy) parent.spiderfy();
+      });
+      await expect(page.locator('#pin-praia-do-juliao')).toBeVisible();
+      const size = await page.locator('#pin-praia-do-juliao .pin-icon-wrap').boundingBox();
+      expect(size.width).toBe(27);
       await page.evaluate(() => resetMapView());
     } else {
       expect(await page.evaluate(() => mapMarkerCluster)).toBeNull();

@@ -2,6 +2,9 @@ name: Mobile journey audit
 on:
   push:
     branches: [fix/mobile-map-choose-trip]
+concurrency:
+  group: mobile-journey-${{ github.ref }}
+  cancel-in-progress: true
 permissions:
   contents: read
 jobs:
