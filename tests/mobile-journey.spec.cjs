@@ -22,9 +22,15 @@ for (const width of [390, 1440]) for (const lang of locales) {
       await page.waitForFunction(() => typeof L.markerClusterGroup === 'function' && mapMarkerCluster);
       expect(await page.evaluate(() => mapMarkerCluster.getLayers().length)).toBe(await page.evaluate(() => touristSpots.length));
       await expect(page.locator('#map .map-category-cluster').first()).toBeVisible();
-      const countBefore = await page.locator('#map .main-map-pin').count();
-      await page.evaluate(() => map.setZoom(18, { animate: false }));
-      await expect.poll(() => page.locator('#map .main-map-pin').count()).toBeGreaterThan(countBefore);
+      // Zooming changes the geographic viewport; check the chosen clustered
+      // attraction itself instead of comparing counts in different viewports.
+      const revealedId = await page.evaluate(() => new Promise(resolve => {
+        const marker = mapMarkers.find(marker => mapMarkerCluster.getVisibleParent(marker) !== marker);
+        mapMarkerCluster.zoomToShowLayer(marker, () => {
+          resolve(marker.getElement().querySelector('.custom-pin').id);
+        });
+      }));
+      await expect(page.locator(`#${revealedId}`)).toBeVisible();
       const size = await page.locator('#map .main-map-pin .pin-icon-wrap').first().boundingBox();
       expect(size.width).toBe(27);
       // A nearby/coincident group must expose its real category pins at max zoom.
@@ -88,13 +94,21 @@ for (const width of [390, 1440]) for (const lang of locales) {
     await page.locator('#planner-actions button').nth(1).click();
     await expect(page.locator('#spot-modal')).toBeVisible();
     if (width < 768) {
-      const sheet = await page.locator('#spot-modal .modal-sheet').boundingBox();
       const nav = await page.locator('#bottom-nav').boundingBox();
-      expect(sheet.y + sheet.height).toBeLessThanOrEqual(nav.y + 1);
+      await expect.poll(async () => {
+        const sheet = await page.locator('#spot-modal .modal-sheet').boundingBox();
+        return sheet.y + sheet.height;
+      }).toBeLessThanOrEqual(nav.y + 1);
       await noOverflow(page, '#spot-modal .modal-sheet');
     }
     await page.evaluate(() => closeSpotModal());
-    await page.evaluate(() => plannerSwipe('right'));
+    await page.evaluate(() => {
+      const card = document.getElementById('planner-active-card');
+      const touch = clientX => new Touch({ identifier: 1, target: card, clientX, clientY: 200 });
+      card.dispatchEvent(new TouchEvent('touchstart', { touches: [touch(100)], bubbles: true }));
+      card.dispatchEvent(new TouchEvent('touchmove', { touches: [touch(220)], bubbles: true }));
+      card.dispatchEvent(new TouchEvent('touchend', { touches: [], bubbles: true }));
+    });
     await expect(page.locator('#planner-count-badge')).toHaveText('1');
     await expect.poll(() => page.evaluate(() => plannerDeckQueue[0]?.id)).not.toBe(first);
     const skip = await page.evaluate(() => plannerDeckQueue[0].id);
