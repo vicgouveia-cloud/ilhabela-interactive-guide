@@ -11,7 +11,6 @@
   let practicalFilter = 'all';
   let tourFilter = 'all';
   const foodFilterState = { type: 'all', format: 'all', specialty: 'all', occasion: 'all' };
-  let filterFocusTarget = null;
   const resetCategoryFilters = () => {
     Object.keys(foodFilterState).forEach(key => { foodFilterState[key] = 'all'; });
   };
@@ -71,7 +70,6 @@
       foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('tourType')}</span><select id="services-tour-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${tourOptions.map(([id, label]) => `<option value="${id}"${id === tourFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
       document.getElementById('services-tour-filter')?.addEventListener('change', event => {
         tourFilter = event.target.value;
-        filterFocusTarget = '#services-tour-filter';
         window.renderServicesPage();
       });
       return;
@@ -87,7 +85,6 @@
       foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
       document.getElementById('services-practical-filter')?.addEventListener('change', event => {
         practicalFilter = event.target.value;
-        filterFocusTarget = '#services-practical-filter';
         window.renderServicesPage();
       });
       return;
@@ -116,7 +113,6 @@
     foodFilters.querySelectorAll('[data-service-food-filter]').forEach(select => {
       select.addEventListener('change', () => {
         foodFilterState[select.dataset.serviceFoodFilter] = select.value;
-        filterFocusTarget = `[data-service-food-filter="${select.dataset.serviceFoodFilter}"]`;
         window.renderServicesPage();
       });
     });
@@ -199,7 +195,6 @@
       </select>`;
     document.getElementById('services-category-select')?.addEventListener('change', event => {
       const nextCategory = event.target.value;
-      filterFocusTarget = '#services-category-select';
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
       category = nextCategory;
       if (category !== 'essentials') practicalFilter = 'all';
@@ -213,11 +208,6 @@
     refinementWrap?.classList.toggle('hidden', !hasRefinements);
     renderDistanceLabels();
     updateNearbyButton();
-    if (filterFocusTarget) {
-      const target = document.querySelector(filterFocusTarget);
-      filterFocusTarget = null;
-      target?.focus();
-    }
     const locationNote = document.getElementById('services-location-note');
     if (locationNoteState && locationNote) {
       locationNote.textContent = messages[locationNoteState][currentLang] || messages[locationNoteState].pt;
