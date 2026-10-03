@@ -10,6 +10,13 @@ const names = {
 };
 async function capture(page, info, state, lang, width) {
   if (state === 'map') await page.locator('#map-section').scrollIntoViewIfNeeded();
+  if (state === 'map' || state === 'trip') {
+    await page.waitForFunction(view => {
+      const visibleMap = view === 'trip' ? plannerMap : map;
+      return visibleMap && !visibleMap._animatingZoom &&
+        Object.values(visibleMap._layers).filter(layer => layer instanceof L.TileLayer).every(layer => !layer.isLoading());
+    }, state, { timeout: 10000 }).catch(() => console.log('Map tiles were still loading during visual capture.'));
+  }
   await page.screenshot({ path: info.outputPath(`${state}-${lang}-${width}.png`) });
   if (lang === 'pt' && width === 390) {
     const preview = await page.screenshot({ type: 'jpeg', quality: 65 });
