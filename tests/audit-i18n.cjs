@@ -56,7 +56,7 @@ function auditHtml(node, ignored=false) {
   ignored ||= ['script','style'].includes(node.tagName) || 'data-i18n' in attrs || attrs.id==='language-menu' || (attrs.class||'').includes('material-symbols');
   if(node.nodeName==='#text' && !ignored) {
     const text=node.value.trim();
-    if(text && !/^(?:PT|EN|FR|ES|HE|Ilhabela Interactive Guide|R\$ [\d,.]+|[\d.]+|: 23° 46' 36" S, 45° 21' 36" W)$/.test(text)) throw Error('Unlocalized HTML: '+text);
+    if(text && !/^(?:PT|EN|FR|ES|HE|Ilhabela Trip|R\$ [\d,.]+|[\d.]+|: 23° 46' 36" S, 45° 21' 36" W)$/.test(text)) throw Error('Unlocalized HTML: '+text);
   }
   for(const child of node.childNodes||[]) auditHtml(child,ignored);
 }

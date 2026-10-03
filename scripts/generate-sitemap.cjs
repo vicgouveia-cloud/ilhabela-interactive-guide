@@ -3,7 +3,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
-const BASE_URL = (process.env.SITE_URL || 'https://ilhabela-guide.vercel.app').replace(/\/$/, '');
+const BASE_URL = (process.env.SITE_URL || 'https://ilhabelatrip.com').replace(/\/$/, '');
 const context = vm.createContext({ console });
 for (const file of ['data.js', 'additional-spots.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename:file });

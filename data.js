@@ -4137,7 +4137,7 @@ const guidesData = [
     "languagesList": ["pt"],
     "phone": "+5512991226986",
     "url": "https://trilhabela.com.br/",
-    "whatsappText": "Olá! Vi a Trilhabela no Ilhabela Interactive Guide e gostaria de informações sobre um passeio guiado.",
+    "whatsappText": "Olá! Vi a Trilhabela no Ilhabela Trip e gostaria de informações sobre um passeio guiado.",
     "translations": {
       "pt": {"role":"Guias locais & ecoturismo","bio":"Trilhabela Turismo, fundada pelo guia Ernani Sousa, atua há mais de 20 anos com trilhas, picos, travessias e passeios em Ilhabela, com guiamento credenciado pelo Parque Estadual.","specialties":["Trilhas Guiadas","Travessias","Pico do Baepi","Bonete"]},
       "en": {"role":"Local guides & ecotourism","bio":"Trilhabela Turismo, founded by guide Ernani Sousa, has over 20 years of experience with trails, peaks, crossings and tours in Ilhabela, with guiding accredited by the State Park.","specialties":["Guided trails","Crossings","Baepi Peak","Bonete"]},
@@ -4155,7 +4155,7 @@ const guidesData = [
     "languagesList": ["pt"],
     "phone": "+5512991675467",
     "url": "https://www.patopasseioilhabela.com/",
-    "whatsappText": "Olá! Vi o Pato Guia no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
+    "whatsappText": "Olá! Vi o Pato Guia no Ilhabela Trip e gostaria de informações sobre um passeio.",
     "translations": {
       "pt": {"role":"Guia nativo & experiências locais","bio":"Guia nativo de Ilhabela com mais de 11 anos de experiência, fundador da Rosa Norte e especializado em praias, trilhas, cachoeiras, Castelhanos, Bonete e avistamento de baleias.","specialties":["Guia Nativo","Castelhanos 4x4","Bonete","Avistamento de Baleias"]},
       "en": {"role":"Native guide & local experiences","bio":"Ilhabela-born guide with over 11 years of experience, founder of Rosa Norte and specialized in beaches, trails, waterfalls, Castelhanos, Bonete and whale watching.","specialties":["Native guide","Castelhanos 4x4","Bonete","Whale watching"]},
@@ -4174,7 +4174,7 @@ const guidesData = [
     "languagesList": ["pt"],
     "phone": "+5512982934171",
     "url": "https://www.vivaventurailhabela.com/",
-    "whatsappText": "Olá! Vi a Vivaventura no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
+    "whatsappText": "Olá! Vi a Vivaventura no Ilhabela Trip e gostaria de informações sobre um passeio.",
     "translations": {
       "pt": {"role":"Ecoturismo & aventuras locais","bio":"Operação local em Ilhabela com trilhas guiadas, cachoeiras, passeios de jipe 4x4, barco e experiências de observação de cetáceos.","specialties":["Trilhas Guiadas","Cachoeiras","Castelhanos 4x4","Passeios de Barco"]},
       "en": {"role":"Ecotourism & local adventures","bio":"Local Ilhabela operator offering guided trails, waterfalls, 4x4 jeep tours, boat trips and whale-watching experiences.","specialties":["Guided trails","Waterfalls","Castelhanos 4x4","Boat tours"]},
@@ -4192,7 +4192,7 @@ const guidesData = [
     "languagesList": ["pt"],
     "phone": "+5512997676558",
     "url": "https://castelhanostur.com.br/",
-    "whatsappText": "Olá! Vi a Castelhanos Turismo no Ilhabela Interactive Guide e gostaria de informações sobre um passeio.",
+    "whatsappText": "Olá! Vi a Castelhanos Turismo no Ilhabela Trip e gostaria de informações sobre um passeio.",
     "translations": {
       "pt": {"role":"Guia caiçara & ecoturismo 4x4","bio":"Operação local conduzida por Rodrigo, caiçara nativo de Ilhabela, com 25 anos de experiência em passeios pela ilha, incluindo Castelhanos, barco, Bonete e temporada de baleias.","specialties":["Castelhanos 4x4","Cultura Caiçara","Passeios de Barco","Bonete"]},
       "en": {"role":"Caiçara guide & 4x4 ecotourism","bio":"Local operation led by Rodrigo, an Ilhabela-born caiçara guide with 25 years of experience on island tours, including Castelhanos, boat trips, Bonete and whale season.","specialties":["Castelhanos 4x4","Caiçara culture","Boat tours","Bonete"]},

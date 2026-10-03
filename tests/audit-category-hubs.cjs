@@ -3,7 +3,7 @@ const path = require('node:path');
 const vm = require('node:vm');
 const assert = require('node:assert/strict');
 const ROOT = path.resolve(__dirname, '..');
-const BASE = 'https://ilhabela-guide.vercel.app';
+const BASE = 'https://ilhabelatrip.com';
 const context = vm.createContext({ console });
 for (const file of ['data.js', 'additional-spots.js']) vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 const spots = vm.runInContext('touristSpots', context);
@@ -34,8 +34,8 @@ for (const [category, label, intro] of categories) {
     assert(card.includes(`data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip"`));
     assert(card.includes('+ Minha Viagem'));
   }
-  const title = `${label} em Ilhabela | Guia Ilhabela`;
-  const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Guia Ilhabela. ${intro}`;
+  const title = `${label} em Ilhabela | Ilhabela Trip`;
+  const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Ilhabela Trip. ${intro}`;
   for (const needle of [`<title>${esc(title)}</title>`, `<meta name="description" content="${esc(description)}">`, `<link rel="canonical" href="${BASE}/${category}/">`, `<h1>${esc(label)} em Ilhabela</h1>`, `<meta property="og:title" content="${esc(title)}">`, `<meta property="og:description" content="${esc(description)}">`, `<meta property="og:url" content="${BASE}/${category}/">`, '<meta property="og:type" content="website">']) assert(html.includes(needle), `${category}: missing ${needle}`);
   assert(!/melhor(?:es)?|ranking/i.test(html), `${category}: ranking language`);
   assert(html.includes(analytics), `${category}: same analytics as discovery hub`);

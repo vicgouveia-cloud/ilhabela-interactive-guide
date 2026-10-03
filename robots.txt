@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ilhabela-guide.vercel.app/sitemap.xml
+Sitemap: https://ilhabelatrip.com/sitemap.xml
