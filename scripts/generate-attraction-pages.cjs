@@ -4,7 +4,7 @@ const vm = require('node:vm');
 
 const ROOT = path.resolve(__dirname, '..');
 const OUT = path.join(ROOT, 'lugares');
-const BASE_URL = process.env.SITE_URL || 'https://ilhabela-guide.vercel.app';
+const BASE_URL = process.env.SITE_URL || 'https://ilhabelatrip.com';
 
 const context = vm.createContext({ console });
 for (const file of ['data.js', 'additional-spots.js']) {
@@ -57,19 +57,19 @@ function render(spot) {
   }).replace(/</g, '\\u003c');
   return `<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(tr.title)} em Ilhabela | Guia Ilhabela</title>
+<title>${esc(tr.title)} em Ilhabela | Ilhabela Trip</title>
 <meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">
-<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Guia Ilhabela">
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Ilhabela Trip">
 <meta property="og:title" content="${esc(tr.title)} em Ilhabela"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(image)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(tr.title)} em Ilhabela"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${esc(image)}">
 <script type="application/ld+json">${schema}</script>
 <style>body{margin:0;background:#faf7f0;color:#1b1c19;font:17px/1.6 system-ui,-apple-system,sans-serif}header,main,footer{max-width:820px;margin:auto;padding:20px}header{display:flex;justify-content:space-between;align-items:center}a{color:#003345}header a{text-decoration:none;font-weight:800}.hero{width:100%;max-height:470px;object-fit:cover;border-radius:20px}h1,h2{color:#003345;line-height:1.2}.sub{font-size:1.15rem;color:#405057}.card{background:#fff;border:1px solid #ddd8ce;border-radius:18px;padding:18px;margin:20px 0}.cta{display:inline-block;background:#003345;color:#fff;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:14px;margin:4px 6px 4px 0}.cta.secondary{background:#fff;color:#003345;border:2px solid #003345}.note{color:#713400;font-weight:650}ul{padding-left:22px}footer{font-size:14px;color:#52656b}</style></head><body>
-<header><a href="/">Ilhabela · Guia Interativo</a><a href="/#explore-section">Explorar</a></header><main>
+<header><a href="/">Ilhabela Trip</a><a href="/#explore-section">Explorar</a></header><main>
 <img class="hero" src="/${esc(spot.image)}" alt="${esc(tr.title)}"><p class="sub">${esc(tr.subtitle)}</p><h1>${esc(tr.title)}</h1><p>${esc(tr.description)}</p>
 <section class="card"><h2>Destaques</h2><ul>${(tr.highlights || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></section>
 <section class="card"><h2>Como chegar</h2><p>${esc(accessCopy(spot, tr))}</p></section>
 <section class="card"><h2>Planeje esta parada</h2><p>Abra a ficha interativa para ver todos os detalhes ou leve este lugar diretamente para Minha Viagem.</p><a class="cta" data-analytics="open_guide" href="/?spot=${encodeURIComponent(spot.id)}">Abrir no Guia</a> <a class="cta secondary" data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip">Adicionar à Minha Viagem</a></section>
-</main><footer>Guia Ilhabela · Informações de planejamento e acesso. Confira condições locais antes do deslocamento.</footer><script>
+</main><footer>Ilhabela Trip · Informações de planejamento e acesso. Confira condições locais antes do deslocamento.</footer><script>
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
 document.addEventListener('click',function(event){
   const link=event.target.closest('[data-analytics]');

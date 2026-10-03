@@ -2,7 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '..');
-const BASE = (process.env.SITE_URL || 'https://ilhabela-guide.vercel.app').replace(/\/$/, '');
+const BASE = (process.env.SITE_URL || 'https://ilhabelatrip.com').replace(/\/$/, '');
 const context = vm.createContext({ console });
 for (const file of ['data.js', 'additional-spots.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
@@ -21,13 +21,13 @@ function card(spot) {
 }
 for (const [category, label, intro] of categories) {
   const selected = spots.filter(spot => spot.category === category);
-  const title = `${label} em Ilhabela | Guia Ilhabela`;
-  const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Guia Ilhabela. ${intro}`;
+  const title = `${label} em Ilhabela | Ilhabela Trip`;
+  const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Ilhabela Trip. ${intro}`;
   const canonical = `${BASE}/${category}/`;
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">
-<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Guia Ilhabela"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}">
-<style>${style}</style></head><body><header><a href="/">Ilhabela · Guia Interativo</a><nav><a href="/o-que-fazer/">Explorar</a> · <a href="/?view=trip">Minha Viagem</a></nav></header><main><h1>${esc(label)} em Ilhabela</h1><p class="intro">${esc(intro)}</p><div class="grid">${selected.map(card).join('\n')}</div></main><footer>Guia Ilhabela · Descubra, escolha e leve seus lugares para Minha Viagem.</footer><script>
+<meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Ilhabela Trip"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}">
+<style>${style}</style></head><body><header><a href="/">Ilhabela Trip</a><nav><a href="/o-que-fazer/">Explorar</a> · <a href="/?view=trip">Minha Viagem</a></nav></header><main><h1>${esc(label)} em Ilhabela</h1><p class="intro">${esc(intro)}</p><div class="grid">${selected.map(card).join('\n')}</div></main><footer>Ilhabela Trip · Descubra, escolha e leve seus lugares para Minha Viagem.</footer><script>
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
 document.addEventListener('click',function(event){
   const link=event.target.closest('[data-analytics]');
