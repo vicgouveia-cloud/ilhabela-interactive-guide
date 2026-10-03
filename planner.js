@@ -230,6 +230,39 @@ let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
 let plannerRouteLine = null;
 let plannerOriginPickMode = false;
+let plannerOriginErrorDay = null;
+
+const plannerOriginCopy = {
+  pt: ['De onde você vai sair no Dia {n}?', 'Escolher no mapa', 'Escolher outro ponto no mapa', 'Sem origem definida, o Google Maps poderá usar sua localização atual.', 'Toque no mapa para definir a origem do Dia {n}.', 'Não foi possível acessar sua localização. Escolha no mapa de onde você vai sair.'],
+  en: ['Where will you start Day {n}?', 'Choose on map', 'Choose another point on map', 'Without a set origin, Google Maps may use your current location.', 'Tap the map to set the origin for Day {n}.', 'We couldn’t access your location. Choose your starting point on the map.'],
+  es: ['¿Desde dónde saldrás el Día {n}?', 'Elegir en el mapa', 'Elegir otro punto en el mapa', 'Sin un origen definido, Google Maps podrá usar tu ubicación actual.', 'Toca el mapa para definir el origen del Día {n}.', 'No se pudo acceder a tu ubicación. Elige en el mapa desde dónde saldrás.'],
+  fr: ['D’où partirez-vous le Jour {n} ?', 'Choisir sur la carte', 'Choisir un autre point sur la carte', 'Sans origine définie, Google Maps pourra utiliser votre position actuelle.', 'Touchez la carte pour définir l’origine du Jour {n}.', 'Impossible d’accéder à votre position. Choisissez votre point de départ sur la carte.'],
+  he: ['מאיפה תצאו ביום {n}?', 'בחירה במפה', 'בחירת נקודה אחרת במפה', 'אם לא הוגדרה נקודת מוצא, Google Maps עשוי להשתמש במיקום הנוכחי שלכם.', 'הקישו על המפה כדי להגדיר נקודת מוצא ליום {n}.', 'לא ניתן לגשת למיקום שלכם. בחרו במפה את נקודת היציאה.']
+};
+Object.entries(plannerOriginCopy).forEach(([lang, copy]) => Object.assign(translations[lang], {
+  plannerOriginQuestion: copy[0], plannerOriginChoose: copy[1], plannerOriginChange: copy[2],
+  plannerOriginMapsHint: copy[3], plannerOriginMapInstruction: copy[4], plannerOriginFailureHint: copy[5]
+}));
+
+function renderPlannerOriginActions() {
+  const defined = isValidPlannerOrigin(plannerOrigin);
+  return `<div id="planner-origin-actions" class="mt-2 space-y-2">
+    <p>${t('plannerOriginQuestion').replace('{n}', activeTripDay)}</p>
+    ${plannerOriginErrorDay === activeTripDay ? `<p role="alert">${t('plannerOriginFailureHint')}</p>` : ''}
+    <div class="flex flex-wrap gap-2">
+      <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-primary font-bold">${t('plannerUseLocation')}</button>
+      <button type="button" onclick="plannerStartOriginPick()" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-primary font-bold">${t(defined ? 'plannerOriginChange' : 'plannerOriginChoose')}</button>
+    </div>
+    ${!defined ? `<p>${t('plannerOriginMapsHint')}</p>` : ''}
+  </div>`;
+}
+
+function plannerShowLocationFailure() {
+  plannerOriginErrorDay = activeTripDay;
+  renderSummary();
+  alert(t('plannerLocationDenied'));
+  document.getElementById('planner-origin-actions')?.scrollIntoView({behavior: 'smooth', block: 'center'});
+}
 const VALHALLA_ENDPOINT = 'https://valhalla1.openstreetmap.de/optimized_route';
 
 function trackGuideEvent(name, data = {}) {
@@ -756,7 +789,7 @@ function renderPlannerDayAgenda(spots) {
   }).join('');
   const originRow = `<div class="flex gap-3 pb-3">
     <div class="flex w-7 shrink-0 flex-col items-center"><div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">trip_origin</span></div>${spots.length ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}</div>
-    <div class="pt-1 text-xs"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div></div>
+    <div class="pt-1 text-xs min-w-0 flex-1"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div>${renderPlannerOriginActions()}</div>
   </div>`;
   const returnRow = returnSet ? `<div class="flex gap-3">
     <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">home_pin</span></div>
@@ -769,6 +802,9 @@ function renderPlannerDayAgenda(spots) {
 }
 
 function renderSummary() {
+  const mapHint = document.getElementById('planner-origin-map-hint');
+  mapHint.hidden = !plannerOriginPickMode || tripSelection.length === 0;
+  mapHint.textContent = t('plannerOriginMapInstruction').replace('{n}', activeTripDay);
   const listContainer = document.getElementById('planner-summary-list');
   
   const isEmpty = tripSelection.length === 0;
@@ -972,14 +1008,6 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
         ${routeStats}
         ${visitStats}
         <div class="flex flex-wrap gap-2">
-          <button type="button" onclick="plannerUseMyLocation()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
-            <span class="material-symbols-outlined text-[15px] align-middle">my_location</span>
-            <span id="planner-location-label">${isValidPlannerOrigin(plannerOrigin) ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerUseLocation')}</span>
-          </button>
-          <button type="button" onclick="plannerStartOriginPick()" class="px-3 py-2 rounded-xl border border-black/10 bg-surface-container text-xs font-bold text-primary">
-            <span class="material-symbols-outlined text-[15px] align-middle">location_on</span>
-            <span>${plannerOriginPickMode ? t('plannerTapMapOrigin') : t('plannerChooseMapOrigin')}</span>
-          </button>
           ${isValidPlannerOrigin(plannerOrigin) ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">${t('plannerClearOrigin')}</button>
           <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
             <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
@@ -1005,7 +1033,7 @@ function plannerResolvePending(action) {
   if (action === 'origin') {
     plannerStartOriginPick();
     requestAnimationFrame(() => {
-      const map = document.getElementById('planner-map');
+      const map = document.getElementById('planner-origin-map-hint');
       if (map) map.scrollIntoView({ behavior: 'smooth', block: 'center' });
     });
     return;
@@ -1026,23 +1054,25 @@ function plannerResolvePending(action) {
 }
 
 function plannerStartOriginPick() {
+  plannerOriginErrorDay = null;
   plannerOriginPickMode = true;
   renderSummary();
-  document.getElementById('planner-map')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  document.getElementById('planner-origin-map-hint')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 function plannerUseMyLocation() {
+  plannerOriginErrorDay = null;
   if (typeof lastUserLocation !== 'undefined' && isValidPlannerOrigin(lastUserLocation)) {
     saveActiveDayOrigin([...lastUserLocation]);
     return;
   }
   if (!navigator.geolocation) {
-    alert(t('plannerLocationDenied'));
+    plannerShowLocationFailure();
     return;
   }
   navigator.geolocation.getCurrentPosition(position => {
     saveActiveDayOrigin([position.coords.latitude, position.coords.longitude]);
-  }, () => alert(t('plannerLocationDenied')), {
+  }, () => plannerShowLocationFailure(), {
     enableHighAccuracy: true,
     timeout: 10000,
     maximumAge: 60000
