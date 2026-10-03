@@ -1038,6 +1038,12 @@ h1, h2, h3, h4, h5, h6, .font-heading {
     bottom: calc(64px + env(safe-area-inset-bottom, 0px));
   }
   .planner-open .site-header { visibility: hidden; }
+  .planner-open #spot-modal, .planner-open #booking-modal {
+    bottom: calc(64px + env(safe-area-inset-bottom, 0px));
+  }
+  .planner-open .modal-sheet {
+    max-height: calc(92dvh - 64px - env(safe-area-inset-bottom, 0px));
+  }
   .planner-header { min-height: 48px; padding: 6px 12px; gap: 8px; }
   .planner-header > div { min-width: 0; }
   #planner-title { font-size: 16px; line-height: 20px; }

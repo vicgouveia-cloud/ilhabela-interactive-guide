@@ -85,6 +85,15 @@ for (const width of [390, 1440]) for (const lang of locales) {
     await page.evaluate(language => setLanguage(language), lang);
     expect(await page.evaluate(() => plannerDeckQueue[0].id)).toBe(first);
     await page.screenshot({ path: info.outputPath(`choose-${lang}-${width}.png`) });
+    await page.locator('#planner-actions button').nth(1).click();
+    await expect(page.locator('#spot-modal')).toBeVisible();
+    if (width < 768) {
+      const sheet = await page.locator('#spot-modal .modal-sheet').boundingBox();
+      const nav = await page.locator('#bottom-nav').boundingBox();
+      expect(sheet.y + sheet.height).toBeLessThanOrEqual(nav.y + 1);
+      await noOverflow(page, '#spot-modal .modal-sheet');
+    }
+    await page.evaluate(() => closeSpotModal());
     await page.evaluate(() => plannerSwipe('right'));
     await expect(page.locator('#planner-count-badge')).toHaveText('1');
     await expect.poll(() => page.evaluate(() => plannerDeckQueue[0]?.id)).not.toBe(first);
@@ -98,7 +107,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
     });
     await expect(page.locator('#planner-title')).toHaveText(names[lang][1]);
     await expect(page.locator('#planner-map')).toBeVisible();
-    await expect(page.locator('#planner-back-to-deck button')).toHaveText(names[lang][2]);
+    await expect(page.locator('#planner-back-to-deck [data-i18n]')).toHaveText(names[lang][2]);
     await expect(page.locator('#planner-summary-list')).toContainText(await page.evaluate(() => t('plannerRouteSection')));
     await noOverflow(page, '#planner-summary-view');
     await noOverflow(page, '#planner-summary-list');

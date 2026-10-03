@@ -24,8 +24,11 @@ jobs:
           node --check planner.js
           node --check translations.js
           node --check bottom-nav.js
-      - name: Validate mobile, desktop, five languages and routing regressions
-        run: npx playwright test tests/mobile-journey.spec.cjs tests/home-planner.spec.cjs tests/multimodal.spec.cjs
+      - name: Validate mobile, desktop and five languages
+        run: npx playwright test tests/mobile-journey.spec.cjs --trace=off
+      - name: Compare existing selection and routing regressions with audited main
+        if: always()
+        run: node tests/compare-journey-baseline.cjs
       - uses: actions/upload-artifact@v4
         if: always()
         with:
@@ -33,4 +36,5 @@ jobs:
           path: |
             playwright-report/
             test-results/
+            journey-regression-results/
           retention-days: 14
