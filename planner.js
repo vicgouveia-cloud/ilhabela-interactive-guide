@@ -775,7 +775,8 @@ function renderPlannerDayAgenda(spots) {
     const access = resolvePlannerAccess(spot, plannerTravelMode);
     const notice = plannerAccessNotice(spot);
     const hasHandoff = !!access?.finalMode || (access && (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1]));
-    return `<div class="relative flex gap-3 pb-4">
+    const previous = index ? spots[index - 1].id : 'origin';
+    return `${renderPlannerLegEstimate(previous, spot.id)}<div class="relative flex gap-3 pb-4">
       <div class="flex w-7 shrink-0 flex-col items-center">
         <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-white">${index + 1}</div>
         ${index < spots.length - 1 || returnSet ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}
@@ -791,14 +792,45 @@ function renderPlannerDayAgenda(spots) {
     <div class="flex w-7 shrink-0 flex-col items-center"><div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">trip_origin</span></div>${spots.length ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}</div>
     <div class="pt-1 text-xs min-w-0 flex-1"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div>${renderPlannerOriginActions()}</div>
   </div>`;
-  const returnRow = returnSet ? `<div class="flex gap-3">
+  const returnRow = returnSet ? `${spots.length ? renderPlannerLegEstimate(spots[spots.length - 1].id, 'return') : ''}<div class="flex gap-3">
     <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">home_pin</span></div>
     <div class="pt-1 text-xs"><strong class="text-primary">${t('plannerAgendaReturn')}</strong><div class="text-on-surface-variant">${t('plannerAgendaReturnHint')}</div></div>
   </div>` : '';
   return `<div class="rounded-2xl border border-black/10 bg-white p-4">
     <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
-    ${readinessHtml}${originRow}${stopRows}${returnRow}
+    ${readinessHtml}${originRow}${plannerOptimizedRoute?.legState === plannerLegState() && plannerOptimizedRoute?.legs?.length ? `<p class="mb-2 text-[11px] text-on-surface-variant">${t('plannerEstimatedLegs')}</p>` : ''}${stopRows}${returnRow}
   </div>`;
+}
+
+const plannerLegCopy = {
+  pt: ['Deslocamentos estimados', 'até o acesso'], en: ['Estimated travel legs', 'to the access point'],
+  es: ['Desplazamientos estimados', 'hasta el acceso'], fr: ['Trajets estimés', 'jusqu’à l’accès'],
+  he: ['מקטעי נסיעה משוערים', 'עד לנקודת הגישה']
+};
+Object.entries(plannerLegCopy).forEach(([lang, copy]) => Object.assign(translations[lang], {
+  plannerEstimatedLegs: copy[0], plannerLegAccess: copy[1]
+}));
+
+function plannerLegState() {
+  return JSON.stringify([activeTripDay, plannerTravelMode, getActiveDayOrigin(), !!tripDayReturnToOrigin[activeTripDay],
+    getActiveTripSpots().map(spot => [spot.id, !!isPlannerStopCompleted(spot.id, activeTripDay), resolvePlannerAccess(spot, plannerTravelMode)])]);
+}
+
+function renderPlannerLegEstimate(from, to) {
+  const route = plannerOptimizedRoute;
+  if (!route || route.legState !== plannerLegState()) return '';
+  if (from === 'origin' && !isValidPlannerOrigin(plannerOrigin)) return '';
+  const leg = route.legs?.find(item => item.from === from && item.to === to);
+  if (!leg) return '';
+  const source = touristSpots.find(spot => spot.id === from);
+  const sourceAccess = source && resolvePlannerAccess(source, plannerTravelMode);
+  // A final walk/trail/4x4 handoff cannot imply departure from the attraction itself.
+  if (sourceAccess && (sourceAccess.finalMode || sourceAccess.coords.some((value, i) => value !== source.coords[i]))) return '';
+  const destination = touristSpots.find(spot => spot.id === to);
+  const access = destination && resolvePlannerAccess(destination, plannerTravelMode);
+  const gateway = access && (access.finalMode || access.coords.some((value, i) => value !== destination.coords[i]));
+  const distance = new Intl.NumberFormat(currentLang, {minimumFractionDigits: 1, maximumFractionDigits: 1}).format(leg.distanceKm);
+  return `<p class="planner-leg-estimate mb-2 ms-10 text-[11px] text-on-surface-variant">≈ ${Math.round(leg.timeSeconds / 60)} min · ${distance} km${gateway ? ` · ${t('plannerLegAccess')}` : ''}</p>`;
 }
 
 function renderSummary() {
@@ -1131,11 +1163,26 @@ async function plannerOptimizeRoute() {
     if (orderedIds.length !== roadSpots.length) throw new Error('Incomplete optimized order');
 
     const shape = trip.legs.map(leg => plannerDecodePolyline6(leg.shape)).flat();
+    const endpointIds = [
+      ...(isValidPlannerOrigin(plannerOrigin) ? ['origin'] : []), ...roadSpots.map(spot => spot.id),
+      ...(isValidPlannerOrigin(plannerOrigin) && tripDayReturnToOrigin[activeTripDay] ? ['return'] : [])
+    ];
+    const indexes = (trip.locations || []).map(location => Number(location.original_index));
+    const safelyMapped = indexes.length === endpointIds.length && new Set(indexes).size === endpointIds.length
+      && indexes.every(index => Number.isInteger(index) && index >= 0 && index < endpointIds.length)
+      && trip.legs.length === indexes.length - 1;
+    const legs = safelyMapped ? trip.legs.flatMap((leg, i) => {
+      const length = leg.summary?.length, time = leg.summary?.time;
+      return Number.isFinite(length) && length >= 0 && Number.isFinite(time) && time >= 0
+        ? [{from: endpointIds[indexes[i]], to: endpointIds[indexes[i + 1]], distanceKm: length, timeSeconds: time}] : [];
+    }) : [];
     plannerOptimizedRoute = {
       spotIds: orderedIds,
       distanceKm: Number(trip.summary.length) || 0,
       timeSeconds: Number(trip.summary.time) || 0,
-      shape
+      shape,
+      legs,
+      legState: plannerLegState()
     };
     trackGuideEvent('Route Optimized', { mode: plannerTravelMode, stops: String(roadSpots.length) });
     renderSummary();
