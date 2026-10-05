@@ -11,15 +11,17 @@ test('general contact: five languages, sizes, focus, keyboard, backdrop and comp
       await entry.click();
       await expect(page.locator('#contact-subject')).toBeFocused();
       await expect(page.locator('#contact-about')).toBeHidden();
-      await expect(page.locator('#contact-unavailable')).toBeDisabled();
+      await expect(page.locator('#contact-send')).toBeEnabled();
       expect(await page.locator('#contact-dialog').getAttribute('dir')).toBe(lang === 'he' ? 'rtl' : 'ltr');
       await page.keyboard.press('Tab');
       await expect(page.locator('#contact-message')).toBeFocused();
       await page.locator('#contact-message').fill('Uma mensagem de teste');
       await page.keyboard.press('Tab');
+      await expect(page.locator('#contact-send')).toBeFocused();
+      await page.keyboard.press('Tab');
       await expect(page.locator('#contact-close')).toBeFocused();
       await page.keyboard.press('Tab');
-      await expect(page.locator('#contact-subject')).toBeFocused();
+      await expect(page.locator('#contact-email')).toBeFocused();
       await page.mouse.click(2, 2);
       await expect(page.locator('#contact-dialog')).toBeVisible();
       await expect(page.locator('#contact-message')).toHaveValue('Uma mensagem de teste');
@@ -71,14 +73,14 @@ test('attraction and service entries pass explicit context without private data'
   await expect(page.locator('#contact-about')).toBeVisible();
 });
 
-test('static attraction opens the shared panel with context and no sending', async ({page}) => {
+test('static attraction opens the shared panel with context and sending available', async ({page}) => {
   await page.goto('/lugares/praia-do-curral/');
   const entry = page.locator('[data-contact-entry]');
   await entry.click();
   await expect(page.locator('#contact-title')).toHaveText('Dúvidas e sugestões');
   await expect(page.locator('#contact-about')).toHaveText('Sobre: Praia do Curral');
-  await expect(page.locator('#contact-note')).toContainText('ainda não envia mensagens');
-  await expect(page.locator('#contact-unavailable')).toBeDisabled();
+  await expect(page.locator('#contact-note')).toContainText('enviada pelo Formspree');
+  await expect(page.locator('#contact-send')).toBeEnabled();
   await page.keyboard.press('Escape');
   await expect(entry).toBeFocused();
 });
