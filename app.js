@@ -767,16 +767,22 @@ function setViewMode(mode) {
     if (btnMap) btnMap.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
     if (btnGrid) btnGrid.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
     if (map) { setTimeout(() => map.invalidateSize(), 120); }
-    if (mapSec) {
-      mapSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      if (window.matchMedia('(max-width: 767px)').matches) {
-        setTimeout(() => window.scrollBy({ top: -8, behavior: 'smooth' }), 180);
-      }
-    }
   } else {
     if (btnGrid) btnGrid.className = 'view-tab active px-4 py-1.5 flex items-center gap-1.5';
     if (btnMap) btnMap.className = 'view-tab px-4 py-1.5 flex items-center gap-1.5';
-    if (gridSec) gridSec.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
+
+  // Measure the actual fixed bars, including translated content and text zoom.
+  const section = mode === 'map' ? mapSec : gridSec;
+  if (section) {
+    const header = document.querySelector('.site-header');
+    const filters = document.querySelector('.home-discovery');
+    const offset = (header ? header.getBoundingClientRect().height : 0)
+      + (window.matchMedia('(min-width: 768px)').matches && filters ? filters.offsetHeight : 0) + 12;
+    window.scrollTo({
+      top: Math.max(0, section.getBoundingClientRect().top + window.scrollY - offset),
+      behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth'
+    });
   }
 
   // The mobile Explore item navigates to /o-que-fazer/ and is not the card view.

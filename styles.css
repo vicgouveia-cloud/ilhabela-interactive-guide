@@ -1118,3 +1118,21 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   .home-discovery .cat-pill { border-radius: 14px; padding: 10px 12px; gap: 7px; }
   .home-discovery .cat-pill .material-symbols-outlined { padding: 7px; font-size: 21px; }
 }
+
+/* Screenshot refinement: keep mobile discovery close to the first fold. */
+@media (max-width: 767px) {
+  .home-editorial { padding-block: 88px 22px; }
+  .home-editorial .hero-copy > * + * { margin-top: 10px; }
+  .home-editorial h1 { font-size: 32px; line-height: 1.15; }
+  .home-editorial [data-i18n="heroBadge"] { font-size: 9px; letter-spacing: .035em; }
+  .home-editorial [data-i18n="heroSubtitle"] { font-size: 17px; line-height: 1.35; }
+  .home-editorial [data-i18n="heroDescription"] { font-size: 13px; line-height: 1.5; }
+  #spots-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  .attraction-card-photo { aspect-ratio: 2 / 1; }
+  .attraction-card-body { padding: 14px 16px; gap: 8px; }
+  .attraction-card-title { font-size: 19px; line-height: 1.3; overflow-wrap: break-word; }
+  .attraction-card-summary { font-size: 13px; line-height: 1.5; }
+  .attraction-card-details { padding-block-start: 8px; }
+}
+/* Separate island reset from the Leaflet location, layers and zoom controls on the right. */
+#map-section .map-overlay-btn.top-right { inset-inline-start: 12px; inset-inline-end: auto; }
