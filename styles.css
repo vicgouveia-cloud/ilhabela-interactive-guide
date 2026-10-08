@@ -1073,3 +1073,48 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   #planner-back-to-deck button { min-height: 44px; }
   #planner-summary-view.is-empty #planner-summary-list { flex: 1 0 auto; }
 }
+
+/* Discovery v1: scoped to the home and its attraction cards. */
+.home-discovery #search-input { min-height: 48px; }
+.home-discovery .cat-pill { min-height: 44px; }
+.home-discovery :is(button, input):focus-visible,
+.attraction-card-details:focus-visible {
+  outline: 3px solid #007b8f;
+  outline-offset: 3px;
+}
+.home-discovery .cat-pill .material-symbols-outlined {
+  border-radius: 50%;
+  background: rgba(0, 123, 143, .08);
+  padding: 5px;
+}
+.home-discovery .cat-pill.active .material-symbols-outlined { background: rgba(255,255,255,.16); }
+.attraction-card { --category-color: #004b63; --category-surface: #e4f3f7; background: #fff; border-color: rgba(0,51,69,.1); }
+.attraction-card[data-category="praias"] { --category-color: #075985; --category-surface: #e0f2fe; }
+.attraction-card[data-category="cachoeiras"] { --category-color: #166534; --category-surface: #dcfce7; }
+.attraction-card[data-category="trilhas"] { --category-color: #92400e; --category-surface: #fef3c7; }
+.attraction-card:is([data-category="picos"], [data-category="mirantes"]) { --category-color: #6b21a8; --category-surface: #f3e8ff; }
+.attraction-card[data-category="cultura"] { --category-color: #9a3412; --category-surface: #ffedd5; }
+.attraction-card-photo { aspect-ratio: 16 / 10; }
+.attraction-card-body { padding: 20px; gap: 12px; text-align: start; }
+.attraction-card-category { display: inline-flex; align-items: center; gap: 5px; align-self: flex-start; border-radius: 999px; padding: 5px 10px; font-size: 11px; font-weight: 700; color: var(--category-color); background: var(--category-surface); }
+.attraction-card-category .material-symbols-outlined { font-size: 16px; }
+.attraction-card-title { font-size: 18px; line-height: 1.4; font-weight: 800; color: #003345; overflow-wrap: anywhere; }
+.attraction-card-summary { font-size: 13px; line-height: 1.65; color: #40484c; }
+.attraction-card-details { display: flex; align-items: center; justify-content: space-between; gap: 8px; min-height: 44px; margin-top: auto; padding-block: 12px 0; border-top: 1px solid #e8eeef; color: #003345; font-size: 12px; font-weight: 700; text-align: start; }
+.attraction-card-details .material-symbols-outlined { font-size: 20px; }
+[dir="rtl"] .attraction-card-details .material-symbols-outlined { transform: scaleX(-1); }
+@media (min-width: 1024px) {
+  .home-editorial { padding-block: 112px 48px; min-height: 470px; }
+  .home-editorial > .absolute { inset-block: 88px 24px; inset-inline: 54% max(32px, calc((100vw - 1216px) / 2)); border-radius: 28px; overflow: hidden; }
+  .home-editorial .hero-overlay { background: linear-gradient(0deg, rgba(0,51,69,.18), transparent 60%); }
+  .home-editorial .hero-copy { max-width: 49%; text-align: start; }
+  .home-editorial h1 { font-size: clamp(36px, 3.4vw, 50px); }
+  .home-editorial [data-i18n="heroSubtitle"] { font-size: 19px; }
+  .home-editorial [data-i18n="heroDescription"] { font-size: 15px; line-height: 1.7; }
+  .home-editorial [data-i18n="heroBadge"] { font-size: 9px; letter-spacing: .06em; }
+  .home-editorial .animate-ping { animation: none; }
+  .home-discovery { background: #fbf9f4; padding-block: 22px; border-block: 1px solid rgba(0,51,69,.08); }
+  .home-discovery #search-input { border-radius: 14px; background: #fff; box-shadow: 0 4px 16px rgba(0,51,69,.04); }
+  .home-discovery .cat-pill { border-radius: 14px; padding: 10px 12px; gap: 7px; }
+  .home-discovery .cat-pill .material-symbols-outlined { padding: 7px; font-size: 21px; }
+}
