@@ -812,10 +812,13 @@ function setSpotUrl(spotId, replace = false) {
   window.history[replace ? 'replaceState' : 'pushState'](state, '', url);
 }
 
+let spotModalReturnFocus = null;
+
 function toggleSpotTripFromModal(spotId) {
   if (typeof toggleSpotInTrip !== 'function') return;
   toggleSpotInTrip(spotId);
   openSpotModal(spotId, { updateUrl: false });
+  document.querySelector('#spot-modal .spot-trip-toggle')?.focus({ preventScroll: true });
 }
 
 function openTripFromSpotModal() {
@@ -826,6 +829,8 @@ function openTripFromSpotModal() {
 function openSpotModal(spotId, options = {}) {
   const spot = touristSpots.find(s => s.id === spotId);
   if (!spot) return;
+  if (!selectedSpotId) spotModalReturnFocus = document.activeElement;
+  const previousFocus = document.activeElement;
   hideMapQuickCard();
   selectedSpotId = spotId;
   if (options.updateUrl !== false) {
@@ -843,12 +848,13 @@ function openSpotModal(spotId, options = {}) {
   if (!modal || !content) return;
 
   const diffClass = getDifficultyBadgeClass(spot.specs.difficulty);
-  const diffLabel = t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`);
+  const diffLabel = ['easy', 'moderate', 'hard', 'extreme'].includes(spot.specs.difficulty)
+    ? t(`difficulty${spot.specs.difficulty.charAt(0).toUpperCase() + spot.specs.difficulty.slice(1)}`) : '';
   const isInTrip = typeof isSpotInTrip === 'function' && isSpotInTrip(spot.id);
 
   content.innerHTML = `
     <!-- Modal Hero Gallery Slider -->
-    <div class="relative w-full rounded-2xl overflow-hidden bg-gray-900 shadow-md">
+    <div class="spot-detail-hero relative w-full rounded-2xl overflow-hidden bg-gray-900 shadow-md">
       
       <!-- Main Slide Image -->
       <div class="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden flex items-center justify-center">
@@ -866,23 +872,9 @@ function openSpotModal(spotId, options = {}) {
           
           <!-- Image Index Indicator -->
           <div class="absolute top-4 left-4 px-2.5 py-1 rounded-full bg-black/60 backdrop-blur-md text-white text-[11px] font-bold z-20" id="modal-img-counter">
-            1 / ${currentModalImages.length} ${t('photos')}
+            <bdi>1 / ${currentModalImages.length}</bdi> ${t('photos')}
           </div>
         ` : ''}
-      </div>
-
-      <!-- Floating Title & Badges -->
-      <div class="absolute bottom-12 left-4 right-4 text-white space-y-1.5 z-10 pointer-events-none">
-        <div class="flex items-center gap-2">
-          <span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${diffClass}">
-            ${diffLabel}
-          </span>
-          <span class="px-2.5 py-0.5 rounded-full bg-white/20 backdrop-blur-md text-[10px] font-bold">
-            ${typeof spot.rating === 'number' ? `${getRatingLabel(spot, true)} ${t('reviews')}` : getRatingLabel(spot)}
-          </span>
-        </div>
-        <h2 id="spot-modal-title" class="text-xl sm:text-2xl md:text-3xl font-extrabold font-heading text-white leading-tight">${tr.title}</h2>
-        <p class="text-xs text-white/80 line-clamp-1">${tr.subtitle}</p>
       </div>
 
       ${spot.photoSource ? `
@@ -898,13 +890,23 @@ function openSpotModal(spotId, options = {}) {
     ${currentModalImages.length > 1 ? `
       <div class="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar" id="modal-thumbnails">
         ${currentModalImages.map((img, idx) => `
-          <button onclick="setModalImage(${idx})" class="modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 ${idx === 0 ? 'border-primary scale-105' : 'border-transparent opacity-70 hover:opacity-100'} transition-all shadow-sm">
+          <button aria-label="${t('photos')} ${idx + 1}" onclick="setModalImage(${idx})" class="modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 ${idx === 0 ? 'border-primary scale-105' : 'border-transparent opacity-70 hover:opacity-100'} transition-all shadow-sm">
             <img src="${img}" alt="" loading="lazy" decoding="async" class="w-full h-full object-cover" onerror="this.parentElement.style.display='none'" />
           </button>
         `).join('')}
       </div>
     ` : ''}
 
+    <header class="spot-detail-heading">
+      <span class="spot-detail-category"><span aria-hidden="true" class="material-symbols-outlined">${getCategoryIcon(spot.category)}</span>${getCategoryLabel(spot.category)}</span>
+      <h2 id="spot-modal-title">${tr.title}</h2>
+      <p class="spot-detail-summary">${tr.subtitle}</p>
+      <div class="spot-detail-meta">${diffLabel ? `<span class="px-2.5 py-0.5 rounded-full text-[10px] font-extrabold uppercase ${diffClass}">${diffLabel}</span>` : ''}<span>${typeof spot.rating === 'number' ? `${getRatingLabel(spot, true)} ${t('reviews')}` : getRatingLabel(spot)}</span></div>
+    </header>
+    <div class="spot-detail-trip" aria-live="polite">
+      <button type="button" class="spot-trip-toggle" aria-pressed="${isInTrip}" onclick="toggleSpotTripFromModal('${spot.id}')"><span aria-hidden="true" class="material-symbols-outlined">${isInTrip ? 'playlist_remove' : 'playlist_add'}</span><span>${t(isInTrip ? 'spotRemoveTrip' : 'spotAddTrip')}</span></button>
+      ${isInTrip ? `<button type="button" class="spot-trip-view" onclick="openTripFromSpotModal()">${t('spotViewTrip')}<span aria-hidden="true" class="material-symbols-outlined">route</span></button>` : ''}
+    </div>
     <!-- Description & Highlights -->
     <div class="space-y-4">
       <p class="text-sm md:text-base text-on-surface-variant leading-relaxed">${tr.description}</p>
@@ -928,20 +930,7 @@ function openSpotModal(spotId, options = {}) {
     <div class="p-5 rounded-2xl bg-surface-container/80 border border-black/5 space-y-3">
       <h4 class="text-xs font-bold text-primary uppercase tracking-wider">${t('technicalSpecs')}</h4>
       
-      <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 text-xs">
-        <div>
-          <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDistance')}</span>
-          <strong class="text-primary font-bold">${tr.specs.distance}</strong>
-        </div>
-        <div>
-          <span class="text-on-surface-variant/70 block text-[11px]">${t('routeDuration')}</span>
-          <strong class="text-primary font-bold">${tr.specs.duration}</strong>
-        </div>
-        <div>
-          <span class="text-on-surface-variant/70 block text-[11px]">${t('routeElevation')}</span>
-          <strong class="text-primary font-bold">${tr.specs.elevation}</strong>
-        </div>
-      </div>
+      <!-- Distance, duration and elevation require explicit per-measure validation before display. -->
 
       <div class="pt-3 border-t border-black/5 space-y-2 text-xs">
         <div>
@@ -987,21 +976,6 @@ function openSpotModal(spotId, options = {}) {
 
     <!-- Action Buttons -->
     <div class="flex flex-col sm:flex-row gap-3 pt-2">
-      ${isInTrip ? `
-        <button onclick="openTripFromSpotModal()" class="flex-1 py-3.5 rounded-xl bg-secondary text-white hover:opacity-90 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">route</span>
-          <span>Ver minha viagem</span>
-        </button>
-        <button onclick="toggleSpotTripFromModal('${spot.id}')" class="py-3.5 px-4 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">playlist_remove</span>
-          <span>Remover</span>
-        </button>
-      ` : `
-        <button onclick="toggleSpotTripFromModal('${spot.id}')" class="flex-1 py-3.5 rounded-xl border-2 border-secondary text-secondary hover:bg-secondary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
-          <span class="material-symbols-outlined text-[18px]">playlist_add</span>
-          <span>Adicionar à minha viagem</span>
-        </button>
-      `}
       ${(() => {
         const navigationCoords = getSpotRoadNavigationCoords(spot);
         return navigationCoords ? `<a href="https://www.google.com/maps/dir/?api=1&destination=${navigationCoords[0]},${navigationCoords[1]}" target="_blank" rel="noopener noreferrer" class="flex-1 py-3.5 rounded-xl border-2 border-primary text-primary hover:bg-primary/5 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
@@ -1028,7 +1002,19 @@ function openSpotModal(spotId, options = {}) {
 
   modal.classList.remove('hidden');
   modal.classList.add('flex');
+  if (!modal.contains(previousFocus) || !previousFocus.isConnected) {
+    modal.querySelector('.spot-trip-toggle')?.focus({ preventScroll: true });
+  }
 }
+
+document.addEventListener('keydown', event => {
+  const modal = document.getElementById('spot-modal');
+  if (event.key !== 'Tab' || !modal?.classList.contains('flex')) return;
+  const controls = [...modal.querySelectorAll('button, a[href], select, [tabindex="0"]')].filter(el => el.getClientRects().length);
+  const first = controls[0], last = controls[controls.length - 1];
+  if (event.shiftKey && (document.activeElement === first || !modal.contains(document.activeElement))) { event.preventDefault(); last?.focus(); }
+  else if (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
+});
 
 function setModalImage(idx) {
   if (!currentModalImages || currentModalImages.length === 0) return;
@@ -1041,7 +1027,7 @@ function setModalImage(idx) {
 
   const counterEl = document.getElementById('modal-img-counter');
   if (counterEl) {
-    counterEl.innerText = `${currentModalImageIndex + 1} / ${currentModalImages.length} ${t('photos')}`;
+    counterEl.innerHTML = `<bdi>${currentModalImageIndex + 1} / ${currentModalImages.length}</bdi> ${t('photos')}`;
   }
 
   const thumbBtns = document.querySelectorAll('.modal-thumb-btn');
@@ -1075,6 +1061,8 @@ function closeSpotModal(options = {}) {
     modal.classList.add('hidden');
     modal.classList.remove('flex');
   }
+  if (hadSpot && spotModalReturnFocus?.isConnected) spotModalReturnFocus.focus({ preventScroll: true });
+  spotModalReturnFocus = null;
 }
 
 window.addEventListener('popstate', () => {

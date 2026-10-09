@@ -1136,3 +1136,20 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 /* Separate island reset from the Leaflet location, layers and zoom controls on the right. */
 #map-section .map-overlay-btn.top-right { inset-inline-start: 12px; inset-inline-end: auto; }
+/* Attraction detail only; logical spacing also supports Hebrew. */
+#spot-modal { z-index: 1200; }
+#spot-modal .spot-detail-hero > div:first-child { height: clamp(210px, 32vh, 340px); }
+#spot-modal .spot-detail-hero .bg-gradient-to-t { background: linear-gradient(0deg, rgba(0,0,0,.5), transparent 40%); }
+#spot-modal #modal-photo-credit { max-width: calc(100% - 1.5rem); white-space: normal; border-radius: .75rem; }
+#spot-modal .spot-detail-heading { text-align: start; }
+#spot-modal .spot-detail-category { display: inline-flex; align-items: center; gap: .4rem; color: #006b5f; font-size: .75rem; font-weight: 800; }
+#spot-modal .spot-detail-category .material-symbols-outlined { font-size: 19px; }
+#spot-modal .spot-detail-heading h2 { margin: .4rem 0 .6rem; font-family: Montserrat, Heebo, sans-serif; font-weight: 800; font-size: clamp(1.65rem, 3vw, 2.2rem); line-height: 1.15; color: #003345; overflow-wrap: anywhere; }
+#spot-modal .spot-detail-summary { font-size: 1rem; line-height: 1.55; color: #465961; }
+#spot-modal .spot-detail-meta { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin-top: .8rem; font-size: .7rem; color: #465961; }
+#spot-modal .spot-detail-trip { display: flex; flex-wrap: wrap; gap: .65rem; padding: .85rem; border-radius: 1rem; background: #e5eee9; }
+#spot-modal .spot-trip-toggle, #spot-modal .spot-trip-view { display: flex; align-items: center; justify-content: center; gap: .6rem; min-height: 48px; padding: .8rem 1rem; border-radius: .75rem; font-size: .85rem; font-weight: 800; }
+#spot-modal .spot-trip-toggle { flex: 1 1 220px; color: white; background: #006b5f; }
+#spot-modal .spot-trip-toggle:hover { background: #00574d; }
+#spot-modal .spot-trip-view { flex: 1 1 140px; color: #003345; background: white; }
+#spot-modal :is(button, a, select):focus-visible { outline: 3px solid #006b5f; outline-offset: 3px; }
