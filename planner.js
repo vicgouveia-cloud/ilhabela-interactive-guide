@@ -727,12 +727,12 @@ function renderPlannerVisitProgress(spots) {
   const lastCompleted = getPlannerLastCompletedStop(spots);
   if (!next) {
     const canReturnToOrigin = isValidPlannerOrigin(plannerOrigin) && !!tripDayReturnToOrigin[activeTripDay];
-    return `<div class="rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p><div class="mt-3 flex flex-wrap gap-2">${canReturnToOrigin ? `<button type="button" onclick="plannerNavigateToOrigin()" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">keyboard_return</span>${t('plannerNavigateReturn')}</button>` : ''}${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div></div>`;
+    return `<div class="planner-progress rounded-2xl border border-secondary/20 bg-secondary/10 p-4"><div class="flex items-center gap-2 text-sm font-extrabold text-primary"><span class="material-symbols-outlined">task_alt</span>${t('plannerVisitDayComplete')}</div><p class="mt-1 text-xs text-on-surface-variant">${t('plannerVisitDayCompleteHint')}</p><div class="mt-3 flex flex-wrap gap-2">${canReturnToOrigin ? `<button type="button" onclick="plannerNavigateToOrigin()" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">keyboard_return</span>${t('plannerNavigateReturn')}</button>` : ''}${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div></div>`;
   }
   const tr = getSpotTranslation(next);
   const notice = plannerAccessNotice(next);
   const nextAccess = resolvePlannerAccess(next, plannerTravelMode);
-  return `<div class="rounded-2xl border border-primary/15 bg-white p-4">
+  return `<div class="planner-progress rounded-2xl border border-primary/15 bg-white p-4">
     <div class="mb-2 flex items-center justify-between gap-3"><div><div class="text-[10px] font-extrabold uppercase tracking-wide text-secondary">${t('plannerVisitNext')}</div><h3 class="text-base font-extrabold text-primary">${tr.title}</h3></div><div class="text-[11px] font-bold text-on-surface-variant">${completedCount}/${spots.length}</div></div>
     ${notice ? `<p class="mb-3 flex items-start gap-1.5 text-xs text-tertiary"><span class="material-symbols-outlined text-[16px]">conversion_path</span><span>${notice}</span></p>` : ''}
     <div class="flex flex-wrap gap-2">${nextAccess ? `<button type="button" onclick="plannerNavigateToSpot('${next.id}')" class="rounded-xl bg-primary px-3 py-2 text-xs font-bold text-white"><span class="material-symbols-outlined mr-1 align-middle text-[15px]">navigation</span>${t('plannerNavigateNext')}</button>` : ''}<button type="button" onclick="setPlannerStopCompleted('${next.id}', true)" class="rounded-xl bg-secondary px-3 py-2 text-xs font-bold text-white">${t('plannerVisitMarkDone')}</button>${lastCompleted ? `<button type="button" onclick="setPlannerStopCompleted('${lastCompleted.id}', false)" class="rounded-xl border border-black/10 bg-white px-3 py-2 text-xs font-bold text-primary">${t('plannerVisitUndo')}</button>` : ''}</div>
@@ -776,7 +776,7 @@ function renderPlannerDayAgenda(spots) {
     const notice = plannerAccessNotice(spot);
     const hasHandoff = !!access?.finalMode || (access && (access.coords[0] !== spot.coords[0] || access.coords[1] !== spot.coords[1]));
     const previous = index ? spots[index - 1].id : 'origin';
-    return `${renderPlannerLegEstimate(previous, spot.id)}<div class="relative flex gap-3 pb-4">
+    return `${renderPlannerLegEstimate(previous, spot.id)}<div class="planner-agenda-stop relative flex gap-3 pb-4">
       <div class="flex w-7 shrink-0 flex-col items-center">
         <div class="flex h-7 w-7 items-center justify-center rounded-full bg-primary text-[11px] font-extrabold text-white">${index + 1}</div>
         ${index < spots.length - 1 || returnSet ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}
@@ -788,7 +788,7 @@ function renderPlannerDayAgenda(spots) {
       </div>
     </div>`;
   }).join('');
-  const originRow = `<div class="flex gap-3 pb-3">
+  const originRow = `<div class="planner-origin-row flex gap-3 pb-3">
     <div class="flex w-7 shrink-0 flex-col items-center"><div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">trip_origin</span></div>${spots.length ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}</div>
     <div class="pt-1 text-xs min-w-0 flex-1"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div>${renderPlannerOriginActions()}</div>
   </div>`;
@@ -796,7 +796,7 @@ function renderPlannerDayAgenda(spots) {
     <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">home_pin</span></div>
     <div class="pt-1 text-xs"><strong class="text-primary">${t('plannerAgendaReturn')}</strong><div class="text-on-surface-variant">${t('plannerAgendaReturnHint')}</div></div>
   </div>` : '';
-  return `<div class="rounded-2xl border border-black/10 bg-white p-4">
+  return `<div class="planner-agenda rounded-2xl border border-black/10 bg-white p-4">
     <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
     ${readinessHtml}${originRow}${plannerOptimizedRoute?.legState === plannerLegState() && plannerOptimizedRoute?.legs?.length ? `<p class="mb-2 text-[11px] text-on-surface-variant">${t('plannerEstimatedLegs')}</p>` : ''}${stopRows}${returnRow}
   </div>`;
@@ -866,22 +866,23 @@ function renderSummary() {
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
-  let html = `<div class="flex gap-2 overflow-x-auto pb-1">
-    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}</button>`).join('')}
+  let html = `<div class="planner-days flex gap-2 overflow-x-auto pb-1" role="group" aria-label="${t('plannerDay')}">
+    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button type="button" aria-pressed="${activeTripDay === day}" onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}<span class="planner-day-count" aria-hidden="true">${allSelectedSpots.filter(spot => getSpotTripDay(spot.id) === day).length}</span></button>`).join('')}
   </div>`;
   html += renderPlannerVisitProgress(displaySpots);
   html += renderPlannerDayAgenda(displaySpots);
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
+  html += `<h3 class="planner-edit-heading">${t('plannerOrganizePlaces')}</h3>`;
   displaySpots.forEach((spot, index) => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
     html += `
-      <div class="flex items-center gap-2 p-2 border border-black/5 rounded-xl bg-surface-container/30">
+      <div class="planner-edit-card flex items-center gap-2 p-2 border border-black/5 rounded-xl bg-surface-container/30">
         <div class="w-6 text-center text-xs font-extrabold text-primary/60">${index + 1}</div>
-        <img src="${spot.image}" class="w-16 h-16 rounded-lg object-cover" />
-        <div class="flex-1 min-w-0">
+        <img src="${spot.image}" alt="" loading="lazy" class="w-16 h-16 rounded-lg object-cover" />
+        <div class="planner-edit-copy flex-1 min-w-0">
           <h4 class="text-sm font-bold text-primary truncate">${tr.title}</h4>
           <p class="text-xs text-on-surface-variant truncate">${tr.subtitle}</p>
           <label class="mt-1 inline-flex items-center gap-1 text-[10px] font-bold text-on-surface-variant">
@@ -891,15 +892,15 @@ function renderSummary() {
             </select>
           </label>
         </div>
-        <div class="flex flex-col">
-          <button onclick="movePlannerSpot('${spot.id}', -1)" ${index === 0 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="Mover para cima">
+        <div class="planner-reorder flex flex-col">
+          <button type="button" onclick="movePlannerSpot('${spot.id}', -1)" ${index === 0 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="${t('plannerMoveUp')}">
             <span class="material-symbols-outlined text-[18px]">keyboard_arrow_up</span>
           </button>
-          <button onclick="movePlannerSpot('${spot.id}', 1)" ${index === selectedSpots.length - 1 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="Mover para baixo">
+          <button type="button" onclick="movePlannerSpot('${spot.id}', 1)" ${index === selectedSpots.length - 1 ? 'disabled' : ''} class="p-1 rounded-full text-primary disabled:opacity-20 hover:bg-primary/5" aria-label="${t('plannerMoveDown')}">
             <span class="material-symbols-outlined text-[18px]">keyboard_arrow_down</span>
           </button>
         </div>
-        <button onclick="removeFromPlanner('${spot.id}')" class="p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors" aria-label="Remover">
+        <button type="button" onclick="removeFromPlanner('${spot.id}')" class="planner-remove p-2 text-red-500 hover:bg-red-50 rounded-full transition-colors" aria-label="${t('btnRemove')}">
           <span class="material-symbols-outlined text-[18px]">delete</span>
         </button>
       </div>
@@ -1010,7 +1011,7 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
       ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
       : '';
   const routeStats = plannerOptimizedRoute
-    ? `<div class="space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary">${t('planner4x4RouteHint')}</p>` : ''}</div>`
+    ? `<div class="planner-route-stats space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary">${t('planner4x4RouteHint')}</p>` : ''}</div>`
     : '';
   const specialRows = specialSpots.map(spot => {
     const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');

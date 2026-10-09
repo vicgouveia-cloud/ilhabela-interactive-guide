@@ -1153,3 +1153,61 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 #spot-modal .spot-trip-toggle:hover { background: #00574d; }
 #spot-modal .spot-trip-view { flex: 1 1 140px; color: #003345; background: white; }
 #spot-modal :is(button, a, select):focus-visible { outline: 3px solid #006b5f; outline-offset: 3px; }
+
+/* Minha Viagem 2.0: presentation only, scoped to the existing summary. */
+#planner-summary-view { background: #f4f5ef; }
+#planner-summary-list { padding: 20px; overflow-wrap: anywhere; }
+#planner-summary-list > * { min-width: 0; }
+#planner-summary-list :is(button, select) { min-height: 44px; }
+#planner-summary-list button { white-space: normal; text-align: start; }
+#planner-summary-list :is(button, select, a):focus-visible { outline: 3px solid #006b5f; outline-offset: 3px; }
+#planner-summary-list h3 { font-size: 1rem; line-height: 1.4; }
+#planner-summary-list p { line-height: 1.6; }
+#planner-summary-list .planner-days { padding: 4px 3px 10px; gap: 10px; }
+#planner-summary-list .planner-days button { display: flex; align-items: center; gap: 16px; min-height: 52px; font-size: .85rem; border-radius: 14px; }
+#planner-summary-list .planner-day-count { display: inline-flex; align-items: center; justify-content: center; min-width: 24px; height: 24px; border-radius: 8px; background: #ffffff25; border: 1px solid currentColor; font-size: .7rem; }
+#planner-summary-list .planner-progress { padding: 20px; border-inline-start: 4px solid #006b5f; box-shadow: 0 3px 12px #00334508; }
+#planner-summary-list .planner-progress h3 { font-size: 1.2rem; }
+#planner-summary-list .planner-agenda { padding: 20px; box-shadow: 0 3px 12px #00334508; }
+#planner-summary-list .planner-origin-row { padding: 14px; margin-block: 16px; background: #e9f0e9; border: 1px solid #c9dacb; border-radius: 14px; }
+#planner-origin-actions { font-size: .8rem; line-height: 1.5; }
+#planner-origin-actions button { padding: 10px 12px; }
+#planner-summary-list .planner-agenda-stop > div:last-child { padding: 14px; background: #f8f9f5; }
+#planner-summary-list .planner-agenda-stop > div:last-child > div:first-child { font-size: .95rem; }
+#planner-summary-list .planner-agenda-stop > div:last-child > div:nth-child(2) { margin-top: 4px; font-size: .8rem; line-height: 1.5; }
+#planner-summary-list .planner-leg-estimate { padding: 8px 12px; border-inline-start: 3px solid #b7cdbb; background: #edf3ee; border-radius: 0 8px 8px 0; font-size: .8rem; }
+[dir="rtl"] #planner-summary-list .planner-leg-estimate { border-radius: 8px 0 0 8px; }
+#planner-routing-panel { padding: 20px; }
+#planner-routing-panel > div:first-child > .flex { flex-wrap: wrap; overflow: visible; }
+#planner-routing-panel .planner-route-stats > .flex { flex-wrap: wrap; gap: 8px 20px; padding: 14px; border-radius: 12px; background: #e9f0e9; }
+#planner-summary-list .planner-edit-heading { margin-block: 24px 12px; font-size: 1.1rem; font-weight: 800; color: #003345; }
+#planner-summary-list .planner-edit-card { display: grid; grid-template-columns: 24px 72px minmax(0, 1fr) 44px 44px; gap: 12px; padding: 14px; background: white; border: 1px solid #dce3dd; border-radius: 16px; }
+#planner-summary-list .planner-edit-card img { width: 72px; height: 80px; border-radius: 12px; }
+#planner-summary-list .planner-edit-copy :is(h4, p) { white-space: normal; overflow: visible; text-overflow: clip; }
+#planner-summary-list .planner-edit-copy h4 { font-size: .95rem; line-height: 1.35; }
+#planner-summary-list .planner-edit-copy p { margin-top: 4px; font-size: .8rem; }
+#planner-summary-list .planner-edit-copy label { margin-top: 10px; font-size: .75rem; }
+#planner-summary-list .planner-edit-copy select { min-width: 56px; font-size: .8rem; padding-inline: 8px; }
+#planner-summary-list .planner-reorder { gap: 6px; }
+#planner-summary-list .planner-reorder button { width: 44px; background: #f0f4ef; border-radius: 10px; }
+#planner-summary-list .planner-remove { width: 44px; }
+#planner-back-to-deck button { min-height: 44px; padding: 8px 12px; border: 1px solid #cbd9ce; border-radius: 12px; background: white; }
+#planner-origin-map-hint { line-height: 1.5; border-bottom: 1px solid #cbd9ce; }
+@media (min-width: 1024px) {
+  #planner-summary-view:not(.hidden):not(.is-empty) { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(340px, 1fr); grid-template-rows: auto minmax(0, 1fr); gap: 16px; padding: 20px; }
+  #planner-summary-view:not(.is-empty) #planner-back-to-deck { grid-column: 1; grid-row: 1; padding: 0; }
+  #planner-summary-view:not(.is-empty) #planner-summary-list { grid-column: 1; grid-row: 2; padding: 0 8px 8px 0; overflow-y: auto; min-height: 0; }
+  #planner-summary-view:not(.is-empty) #planner-origin-map-hint { grid-column: 2; grid-row: 1; border-radius: 12px; }
+  #planner-summary-view:not(.is-empty) #planner-map { grid-column: 2; grid-row: 2; height: 100% !important; min-height: 0 !important; border: 1px solid #cbd9ce; border-radius: 20px; box-shadow: 0 4px 20px #0033450a; }
+}
+@media (max-width: 767px) {
+  #planner-summary-list { padding: 14px; }
+  #planner-map { height: 180px !important; }
+  #planner-summary-list :is(.planner-agenda, .planner-progress), #planner-routing-panel { padding: 16px; }
+  #planner-summary-list .planner-origin-row { padding: 10px; gap: 8px; }
+  #planner-summary-list .planner-edit-card { grid-template-columns: 20px 56px minmax(0, 1fr); gap: 10px; padding: 12px; }
+  #planner-summary-list .planner-edit-card img { width: 56px; height: 72px; }
+  #planner-summary-list .planner-reorder { grid-column: 2; flex-direction: row; width: max-content; }
+  #planner-summary-list .planner-remove { grid-column: 3; justify-self: end; }
+  #planner-summary-list .planner-leg-estimate { margin-inline-start: 36px; }
+}

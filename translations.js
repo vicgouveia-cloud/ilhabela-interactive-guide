@@ -911,3 +911,10 @@ const translations = {
     "locationUnavailable": "לא ניתן לקבל את המיקום שלכם. אפשר להמשיך להשתמש במפה כרגיל."
   }
 };
+
+// Presentation and accessible controls for the existing trip summary.
+Object.assign(translations.pt, { plannerOrganizePlaces: 'Organizar lugares', plannerMoveUp: 'Mover para cima', plannerMoveDown: 'Mover para baixo' });
+Object.assign(translations.en, { plannerOrganizePlaces: 'Organize places', plannerMoveUp: 'Move up', plannerMoveDown: 'Move down' });
+Object.assign(translations.es, { plannerOrganizePlaces: 'Organizar lugares', plannerMoveUp: 'Mover hacia arriba', plannerMoveDown: 'Mover hacia abajo' });
+Object.assign(translations.fr, { plannerOrganizePlaces: 'Organiser les lieux', plannerMoveUp: 'Déplacer vers le haut', plannerMoveDown: 'Déplacer vers le bas' });
+Object.assign(translations.he, { plannerOrganizePlaces: 'סידור המקומות', plannerMoveUp: 'הזזה למעלה', plannerMoveDown: 'הזזה למטה' });
