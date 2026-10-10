@@ -1,0 +1,10 @@
+{
+  "mirante-do-coracao": {
+    "image": "assets/images/mirante-do-coracao_verified.jpg",
+    "credit": "Louise Cristina Araujo Ferri · Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "provenance": "Existing verifiedPhotoLibrary entry in app.js; asset unchanged since 7b51cccea759c8831c5066ed6ea4fa29b1b65b25"
+  }
+}
