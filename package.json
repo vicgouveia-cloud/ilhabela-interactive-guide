@@ -2,12 +2,12 @@
   "name": "ilhabela-interactive-guide",
   "private": true,
   "scripts": {
-    "test": "node tests/audit-i18n.cjs && node tests/audit-attraction-pages.cjs && node tests/audit-discovery-hub.cjs && node tests/audit-sitemap.cjs && playwright test",
+    "test": "node tests/audit-attraction-generator.cjs && node tests/audit-reconciled-attractions.cjs && node tests/audit-i18n.cjs && node tests/audit-attraction-pages.cjs && node tests/audit-discovery-hub.cjs && node tests/audit-sitemap.cjs && playwright test",
     "test:audit": "node tests/audit-i18n.cjs",
     "test:e2e": "playwright test",
     "dev": "node tests/server.cjs",
     "build:attractions": "node scripts/generate-attraction-pages.cjs",
-    "test:seo": "node tests/audit-attraction-pages.cjs && node tests/audit-discovery-hub.cjs && node tests/audit-category-hubs.cjs && node tests/audit-itinerary-hubs.cjs && node tests/audit-routing-data.cjs && node tests/audit-sitemap.cjs",
+    "test:seo": "node tests/audit-attraction-generator.cjs && node tests/audit-reconciled-attractions.cjs && node tests/audit-attraction-pages.cjs && node tests/audit-discovery-hub.cjs && node tests/audit-category-hubs.cjs && node tests/audit-itinerary-hubs.cjs && node tests/audit-routing-data.cjs && node tests/audit-sitemap.cjs",
     "build:seo": "node scripts/generate-attraction-pages.cjs && node scripts/generate-discovery-hub.cjs && node scripts/generate-category-hubs.cjs && node scripts/generate-itinerary-hubs.cjs && node scripts/generate-sitemap.cjs"
   },
   "devDependencies": {

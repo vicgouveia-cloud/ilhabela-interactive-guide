@@ -1,0 +1,502 @@
+{
+  "praia-do-bonete": {
+    "copy": "Por terra, a navegação de veículo termina em Ponta da Sepituba (-23.936275064037446, -45.42730164154816); dali o acesso continua por trilha. Alternativa por barco: o ponto de embarque ainda deve ser confirmado diretamente com o operador.",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-bonete/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": true,
+      "pendingAccess": true
+    }
+  },
+  "baia-de-castelhanos": {
+    "copy": "Com carro comum, a navegação termina na Entrada do Parque (-23.839249751545807, -45.36002116037754) e a continuação exige 4x4. Com veículo 4x4, a rota pode seguir até Castelhanos. Alternativa por barco: o ponto de embarque ainda deve ser confirmado diretamente com o operador.",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/baia-de-castelhanos/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": true,
+      "pendingAccess": true
+    }
+  },
+  "praia-da-fome": {
+    "copy": "Passeios náuticos a partir da Vila ou trilha a partir do Jabaquara",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-fome/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-juliao": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.853583875006763, -45.41239561211879); o trecho final continua a pé ou por trilha conforme a atração. Trilha calçada e sombreada a partir da Av. José Pacheco do Nascimento",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-juliao/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-curral": {
+    "copy": "Carro, ônibus urbano ou táxi pela Av. José Pacheco do Nascimento",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-curral/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-armacao": {
+    "copy": "Av. Pedro Paula de Moraes (norte da ilha)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-armacao/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-veloso": {
+    "copy": "Final da Av. José Pacheco do Nascimento (lado sul)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-veloso/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-siriuba": {
+    "copy": "Av. Leonardo Reale (lado norte)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-siriuba/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-enchova": {
+    "copy": "Trilha a partir da Praia do Bonete ou embarcação",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-enchova/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-de-indaiauba": {
+    "copy": "Passeios de lancha contratados ou trilha costeira sul",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-de-indaiauba/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-da-laje": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.936275064037446, -45.42730164154816); o trecho final continua a pé ou por trilha conforme a atração. Pela Trilha do Bonete a partir da Ponta da Sepituba",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-laje/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-da-toca": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.826654676666603, -45.341884430628895); o trecho final continua a pé ou por trilha conforme a atração. Início da Estrada de Castelhanos (bairro Reino)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-toca/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-do-veloso": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.876020628872798, -45.43576108900807); o trecho final continua a pé ou por trilha conforme a atração. Trilha sombreada a partir do bairro do Veloso (lado sul)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-veloso/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-do-paqueta": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.869517499616304, -45.423931160172216); o trecho final continua a pé ou por trilha conforme a atração. Início no bairro do Bexiga (lado sul), subida em trilha",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-paqueta/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-do-gato": {
+    "copy": "Início no canto esquerdo da Baía de Castelhanos",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-gato/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-dos-tres-tombos": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.854116510544785, -45.405701165557744); o trecho final continua a pé ou por trilha conforme a atração. Acesso asfaltado próximo à Praia da Feiticeira",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-dos-tres-tombos/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-da-friagem": {
+    "copy": "Início no bairro da Praia da Siriúba (norte)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-friagem/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "trilha-da-agua-branca": {
+    "copy": "Guarita do Parque Estadual de Ilhabela (Estrada de Castelhanos)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/trilha-da-agua-branca/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "trilha-do-bonete": {
+    "copy": "Início na Ponta da Sepituba (extremo sul da ilha)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/trilha-do-bonete/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "trilha-da-cabecuda-farol": {
+    "copy": "Sem acesso terrestre público validado no guia O ponto da atração não deve ser tratado automaticamente como destino rodoviário.",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/trilha-da-cabecuda-farol/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "pico-de-sao-sebastiao": {
+    "copy": "Obrigatório acompanhamento de guia credenciado do Parque Estadual",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/pico-de-sao-sebastiao/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "mirante-do-coracao": {
+    "copy": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante O ponto da atração não deve ser tratado automaticamente como destino rodoviário. Alternativa por barco: o ponto de embarque ainda deve ser confirmado diretamente com o operador.",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-do-coracao/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": true,
+      "pendingAccess": true
+    }
+  },
+  "pico-do-baepi": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.802132860104887, -45.35514446231041); o trecho final continua a pé ou por trilha conforme a atração. Início no bairro do Itaguaçu (Parque Estadual de Ilhabela)",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/pico-do-baepi/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "ponto-baleias-sul-sepituba": {
+    "copy": "Pela estrada sul até Sepituba ou passeios de lancha autorizados pelo Projeto Viva Baleias",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/ponto-baleias-sul-sepituba/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "ponto-baleias-canal": {
+    "copy": "Passeios náuticos de lancha, veleiro ou escuna",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/ponto-baleias-canal/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "naufragio-aymore": {
+    "copy": "Mergulho a partir da praia ou barco de operadora",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/naufragio-aymore/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "santuario-ilha-das-cabras": {
+    "copy": "Entrada direta pela Praia das Pedras Miúdas ou barco de mergulho",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/santuario-ilha-das-cabras/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "naufragio-principe-de-asturias": {
+    "copy": "Lanchas de operadoras de mergulho credenciadas",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/naufragio-principe-de-asturias/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-jabaquara": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.736889822090436, -45.29377785097268); o trecho final continua a pé ou por trilha conforme a atração. Estrada asfaltada e trecho final de terra",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-jabaquara/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-feiticeira": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.84660565107699, -45.410130644310605); o trecho final continua a pé ou por trilha conforme a atração. Pequena trilha a partir da avenida",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-feiticeira/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-sino": {
+    "copy": "Avenida principal, ônibus ou carro",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-sino/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "centro-historico-vila": {
+    "copy": "Carro, ônibus, bicicleta ou táxi",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/centro-historico-vila/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "fazenda-engenho-dagua": {
+    "copy": "Avenida principal, carro, ônibus ou bicicleta",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/fazenda-engenho-dagua/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "mirante-do-piuva": {
+    "copy": "Carro, bicicleta ou caminhada",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-do-piuva/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "saco-do-eustaquio": {
+    "copy": "Barco ou lancha",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/saco-do-eustaquio/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-pereque": {
+    "copy": "Carro, ônibus, bicicleta ou caminhada",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-pereque/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-barreiros": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.76356965576912, -45.348813572867364); o trecho final continua a pé ou por trilha conforme a atração. Acesso rodoviário próximo e trecho final a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-barreiros/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-de-santa-tereza": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.771601878012316, -45.351412997079635); o trecho final continua a pé ou por trilha conforme a atração. Acesso rodoviário próximo e trecho final a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-de-santa-tereza/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-pinto": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.741868315370972, -45.34807300404768); o trecho final continua a pé ou por trilha conforme a atração. Acesso rodoviário próximo e trecho final a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-pinto/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-ponta-azeda": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.74302141213607, -45.348752682254734); o trecho final continua a pé ou por trilha conforme a atração. Acesso rodoviário próximo e trecho final a pé; também atendida pelo Aquabus",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-ponta-azeda/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-da-pacuiba": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.727308751868794, -45.31890535121027); o trecho final continua a pé ou por trilha conforme a atração. Estacionamento no extremo norte; trecho final exclusivamente a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-da-pacuiba/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-poco": {
+    "copy": "Preferencialmente barco; trilha somente com guia",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-poco/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "piscinas-naturais-do-sul": {
+    "copy": "Portão sinalizado e caminhada pela costeira",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/piscinas-naturais-do-sul/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-grande": {
+    "copy": "Carro, ônibus ou bicicleta pela avenida",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-grande/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "praia-do-portinho": {
+    "copy": "Carro, ônibus ou bicicleta pela avenida",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/praia-do-portinho/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "poco-do-furado": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.833094685835388, -45.36101034668008); o trecho final continua a pé ou por trilha conforme a atração. Parque Municipal das Cachoeiras; trecho final a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/poco-do-furado/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "mirante-do-baepi": {
+    "copy": "A navegação terrestre termina no acesso validado (-23.802132860104887, -45.35514446231041); o trecho final continua a pé ou por trilha conforme a atração. Entrada da Trilha do Baepi; trecho final a pé",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-do-baepi/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "mirante-do-morro-da-cruz": {
+    "copy": "Acesso rodoviário direto",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-do-morro-da-cruz/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "mirante-dos-barreiros": {
+    "copy": "Acesso rodoviário direto pela Av. Luís Massa",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-dos-barreiros/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  },
+  "cachoeira-do-poco-fundo": {
+    "copy": "A pé a partir do Bonete",
+    "provenance": {
+      "kind": "preserved-editorial-copy",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-poco-fundo/index.html",
+      "verification": "not-revalidated",
+      "pendingEmbarkation": false,
+      "pendingAccess": false
+    }
+  }
+}
