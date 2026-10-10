@@ -948,13 +948,18 @@ function openSpotModal(spotId, options = {}) {
       </div>
     </div>
 
-    ${typeof tr.ecoTip === 'string' && tr.ecoTip.trim() ? `<section data-golden-tip class="p-4 rounded-2xl bg-secondary-container/30 border border-secondary/20 space-y-1 text-xs" aria-labelledby="spot-golden-tip-title">
-      <h3 id="spot-golden-tip-title" class="text-secondary font-bold flex items-center gap-1.5">
-        <span class="material-symbols-outlined text-[16px]" aria-hidden="true">lightbulb</span>
-        ${t('ecoTipTitle')}
-      </h3>
-      <p class="text-on-surface-variant">${tr.ecoTip}</p>
-    </section>` : ''}
+    <!-- Eco & Borrachudos Tips -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 text-xs">
+      <div class="p-4 rounded-2xl bg-secondary-container/30 border border-secondary/20 space-y-1">
+        <strong class="text-secondary font-bold flex items-center gap-1.5">
+          <span class="material-symbols-outlined text-[16px]">eco</span>
+          ${t('ecoTipTitle')}
+        </strong>
+        <p class="text-on-surface-variant">${tr.ecoTip}</p>
+      </div>
+
+
+    </div>
 
     ${renderLocalRecommendations(spot.id)}
 

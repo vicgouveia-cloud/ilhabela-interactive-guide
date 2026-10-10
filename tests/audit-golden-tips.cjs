@@ -13,27 +13,21 @@ function load(read) {
 }
 const current = load(f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const previous = load(f => execFileSync('git', ['show', `${BASE}:${f}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 }));
-const withoutTips = value => JSON.parse(JSON.stringify(value, (key, val) => ['ecoTip', 'ecoTipTitle'].includes(key) ? undefined : val));
-assert.deepEqual(withoutTips(current), withoutTips(previous), 'All non-tip catalog facts, translations and services preserved');
+assert.deepEqual(current, previous, 'All 250 ecoTip values and all other catalog/UI data exactly restored');
 assert.equal(current.touristSpots.length, 50);
-let visible = 0;
-for (const spot of current.touristSpots) {
-  const hasTip = spot.translations.pt.ecoTip !== null;
-  if (hasTip) visible++;
-  for (const lang of ['pt', 'en', 'es', 'fr', 'he']) {
-    const tip = spot.translations[lang].ecoTip;
-    assert.equal(tip !== null, hasTip, `${spot.id}: locale visibility parity`);
-    if (hasTip) {
-      assert.equal(typeof tip, 'string');
-      assert(tip.trim());
-      if (lang !== 'pt') assert.notEqual(tip, spot.translations.pt.ecoTip);
-    }
-  }
+for (const spot of current.touristSpots) for (const lang of ['pt','en','es','fr','he']) {
+  assert.equal(typeof spot.translations[lang].ecoTip, 'string');
+  assert(spot.translations[lang].ecoTip.trim());
 }
-assert.equal(visible, 17);
+const originalApp = execFileSync('git', ['show', BASE + ':app.js'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 });
+const startWarning = originalApp.indexOf('      <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-1">', originalApp.indexOf('<!-- Eco & Borrachudos Tips -->'));
+const endWarning = originalApp.indexOf('      </div>', startWarning) + '      </div>'.length;
+assert(startWarning >= 0);
+const expectedApp = originalApp.slice(0,startWarning) + originalApp.slice(endWarning);
+assert.equal(fs.readFileSync(path.join(ROOT,'app.js'),'utf8').replace(/\r\n/g,'\n'), expectedApp.replace(/\r\n/g,'\n'), 'Only global repellent presentation removed; every other block intact');
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
   const old = execFileSync('git', ['show', `${BASE}:${file}`], { cwd: ROOT });
   assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
 }
-console.log('Golden tips OK: 50 attractions, 17 visible / 33 hidden, five locales; other facts and 50 static pages unchanged.');
+console.log('Preservation OK: 250 original ecoTips exactly restored; only global repellent block removed; all other blocks and 50 static pages intact.');

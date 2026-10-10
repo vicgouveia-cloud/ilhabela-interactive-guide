@@ -184,7 +184,7 @@ const touristSpots = [
           "Encontro do rio cristalino com o mar",
           "Pôr do sol cinematográfico"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respeite a cultura caiçara local, recolha todo o seu lixo e apoie o artesanato nativo.",
         "specs": {
           "distance": "12 km (trilha)",
           "duration": "4h a 5h (a pé) ou 40min (barco)",
@@ -204,7 +204,7 @@ const touristSpots = [
           "Freshwater river estuary",
           "Cinematic sunsets"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respect the local community, pack all trash out, and support local native crafts.",
         "specs": {
           "distance": "12 km (trail)",
           "duration": "4–5 h on foot or 40 min by boat",
@@ -224,7 +224,7 @@ const touristSpots = [
           "Rivière d eau douce sur la plage",
           "Couchers de soleil magiques"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respectez la culture locale et remportez tous vos déchets.",
         "specs": {
           "distance": "12 km (sentier)",
           "duration": "4 à 5 h à pied ou 40 min en bateau",
@@ -244,7 +244,7 @@ const touristSpots = [
           "Río cristalino en la playa",
           "Atardecer inolvidable"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respeta la cultura local, lleva tu basura de regreso y apoya el comercio nativo.",
         "specs": {
           "distance": "12 km (sendero)",
           "duration": "4 a 5 h a pie o 40 min en barco",
@@ -264,7 +264,7 @@ const touristSpots = [
           "נהר מים מתוקים לרחצה",
           "שקיעות רומנטיות עוצרות נשימה"
         ],
-        "ecoTip": null,
+        "ecoTip": "כבדו את הקהילה המקומית, אל תשאירו אשפה ותמכו בתושבי המקום.",
         "specs": {
           "distance": "12 ק״מ (שביל)",
           "duration": "4–5 שעות ברגל או 40 דקות בסירה",
@@ -514,7 +514,7 @@ const touristSpots = [
           "Passeio clássico de escuna",
           "Sombra fresca de árvores centenárias"
         ],
-        "ecoTip": null,
+        "ecoTip": "Não pise nos corais e não alimente os peixes para preservar o ecossistema marinho.",
         "specs": {
           "distance": "Acesso por barco / lancha / escuna",
           "duration": "35 min de navegação",
@@ -534,7 +534,7 @@ const touristSpots = [
           "Classic boat tour stop",
           "Shaded by ancient coastal trees"
         ],
-        "ecoTip": null,
+        "ecoTip": "Do not step on reef corals and refrain from feeding marine life.",
         "specs": {
           "distance": "Access by boat / speedboat / schooner",
           "duration": "35 min by boat",
@@ -554,7 +554,7 @@ const touristSpots = [
           "Escale classique en bateau",
           "Ombrage naturel des grands arbres"
         ],
-        "ecoTip": null,
+        "ecoTip": "Ne marchez pas sur les coraux et ne nourrissez pas les poissons.",
         "specs": {
           "distance": "Accès en bateau / bateau rapide / goélette",
           "duration": "35 min de navigation",
@@ -574,7 +574,7 @@ const touristSpots = [
           "Parada clásica de paseos en barco",
           "Sombra fresca de árboles nativos"
         ],
-        "ecoTip": null,
+        "ecoTip": "No pises los corales y evita alimentar a los peces marinos.",
         "specs": {
           "distance": "Acceso en barco / lancha / goleta",
           "duration": "35 min de navegación",
@@ -594,7 +594,7 @@ const touristSpots = [
           "עצירה קלאסית בסיורי שייט",
           "צל נעים מעצי חוף עתיקים"
         ],
-        "ecoTip": null,
+        "ecoTip": "אין לדרוך על אלמוגים ואין להאכיל את הדגים.",
         "specs": {
           "distance": "גישה בסירה / סירת מנוע / מפרשית",
           "duration": "35 דקות שייט",
@@ -668,7 +668,7 @@ const touristSpots = [
           "Gastronomia refinada nos quiosques",
           "Pôr do sol deslumbrante"
         ],
-        "ecoTip": "O fim da tarde no Julião pode render uma vista bonita do pôr do sol. As cores e a visibilidade dependem do tempo e da época do ano.",
+        "ecoTip": "Respeite as áreas de pedras e não recolha conchas ou animais marinhos.",
         "specs": {
           "distance": "300m a pé da estrada",
           "duration": "5 min de caminhada",
@@ -688,7 +688,7 @@ const touristSpots = [
           "Charming beachside dining",
           "Golden sunset views"
         ],
-        "ecoTip": "Late afternoon at Julião can offer a lovely sunset view. Colours and visibility depend on the weather and season.",
+        "ecoTip": "Respect the tide pools and leave shells and sea creatures in place.",
         "specs": {
           "distance": "300 m walk from the road",
           "duration": "5 min walk",
@@ -708,7 +708,7 @@ const touristSpots = [
           "Excellente cuisine de fruits de mer",
           "Superbe coucher de soleil"
         ],
-        "ecoTip": "La fin d’après-midi à Julião peut offrir une belle vue du coucher de soleil. Les couleurs et la visibilité dépendent du temps et de la saison.",
+        "ecoTip": "Ne ramassez pas de coquillages pour préserver l écosystème.",
         "specs": {
           "distance": "300 m à pied depuis la route",
           "duration": "5 min de marche",
@@ -728,7 +728,7 @@ const touristSpots = [
           "Restaurantes de playa de primer nivel",
           "Atardecer dorado"
         ],
-        "ecoTip": "El final de la tarde en Julião puede ofrecer una bonita vista del atardecer. Los colores y la visibilidad dependen del tiempo y de la época del año.",
+        "ecoTip": "Cuida las pozas de marea y no te lleves caracolas ni estrellas.",
         "specs": {
           "distance": "300 m a pie desde la carretera",
           "duration": "5 min caminando",
@@ -748,7 +748,7 @@ const touristSpots = [
           "מסעדות חוף עם דגים טריים",
           "נוף שקיעה זהוב"
         ],
-        "ecoTip": "בשעות אחר הצהריים המאוחרות בז’וליאו ייתכן נוף יפה של השקיעה. הצבעים והראות תלויים במזג האוויר ובעונה.",
+        "ecoTip": "כבדו את בריכות הסלעים ואל תיקחו צדפים או בעלי חיים מהחוף.",
         "specs": {
           "distance": "300 מ׳ הליכה מהכביש",
           "duration": "5 דקות הליכה",
@@ -808,7 +808,7 @@ const touristSpots = [
           "Águas ideais para stand up paddle e nado",
           "Capelinha histórica à beira-mar"
         ],
-        "ecoTip": null,
+        "ecoTip": "Utilize protetor solar amigo dos corais e descarte o lixo nos pontos de coleta.",
         "specs": {
           "distance": "0 km (beira da estrada)",
           "duration": "Acesso direto por carro / transporte",
@@ -828,7 +828,7 @@ const touristSpots = [
           "Calm waters for swimming & SUP",
           "Charming seaside chapel"
         ],
-        "ecoTip": null,
+        "ecoTip": "Dispose of waste in recycling bins and use reef-safe sunscreen.",
         "specs": {
           "distance": "0 km (roadside)",
           "duration": "Direct access by car / transport",
@@ -848,7 +848,7 @@ const touristSpots = [
           "Eaux paisibles propices au paddle",
           "Petite chapelle historique"
         ],
-        "ecoTip": null,
+        "ecoTip": "Privilégiez les contenants réutilisables sur le sable.",
         "specs": {
           "distance": "0 km (bord de route)",
           "duration": "Accès direct en voiture / transport",
@@ -868,7 +868,7 @@ const touristSpots = [
           "Aguas perfectas para nadar y SUP",
           "Capilla histórica frente al mar"
         ],
-        "ecoTip": null,
+        "ecoTip": "Usa los puntos de reciclaje y cuida la limpieza de la playa.",
         "specs": {
           "distance": "0 km (junto a la carretera)",
           "duration": "Acceso directo en coche / transporte",
@@ -888,7 +888,7 @@ const touristSpots = [
           "מים רגועים לשחייה וסאפ",
           "כנסייה היסטורית על קו החוף"
         ],
-        "ecoTip": null,
+        "ecoTip": "הקפידו לזרוק אשפה לפחים ומנעו שימוש בפלסטיק חד פעמי.",
         "specs": {
           "distance": "0 ק״מ (לצד הכביש)",
           "duration": "גישה ישירה ברכב / תחבורה",
@@ -1088,7 +1088,7 @@ const touristSpots = [
           "Próxima à trilha da Cachoeira do Veloso",
           "Pôr do sol deslumbrante"
         ],
-        "ecoTip": null,
+        "ecoTip": "Aproveite para conjugar a visita com a Cachoeira do Veloso a poucos metros de trilha.",
         "specs": {
           "distance": "Última praia com acesso asfaltado no sul",
           "duration": "Acesso direto por carro",
@@ -1108,7 +1108,7 @@ const touristSpots = [
           "Close to Veloso Waterfall trail",
           "Golden hour sunsets"
         ],
-        "ecoTip": null,
+        "ecoTip": "Combine your visit with the short hike to nearby Veloso Waterfall.",
         "specs": {
           "distance": "Last southern beach with paved access",
           "duration": "Direct access by car",
@@ -1128,7 +1128,7 @@ const touristSpots = [
           "Accès proche à la cascade do Veloso",
           "Magnifique coucher de soleil"
         ],
-        "ecoTip": null,
+        "ecoTip": "Combinez la plage avec la visite de la cascade voisine.",
         "specs": {
           "distance": "Dernière plage du sud avec accès goudronné",
           "duration": "Accès direct en voiture",
@@ -1148,7 +1148,7 @@ const touristSpots = [
           "Cercana a la Cascada do Veloso",
           "Hermoso atardecer"
         ],
-        "ecoTip": null,
+        "ecoTip": "Combina tu visita con la caminata a la Cascada do Veloso.",
         "specs": {
           "distance": "Última playa del sur con acceso asfaltado",
           "duration": "Acceso directo en coche",
@@ -1168,7 +1168,7 @@ const touristSpots = [
           "סמוך לשביל המפל של ולוזו",
           "שקיעות רומנטיות"
         ],
-        "ecoTip": null,
+        "ecoTip": "מומלץ לשלב רחצה בחוף עם טיול קצר למפל ולוזו הסמוך.",
         "specs": {
           "distance": "החוף הדרומי האחרון עם גישה סלולה",
           "duration": "גישה ישירה ברכב",
@@ -1228,7 +1228,7 @@ const touristSpots = [
           "Sombra fresca de coqueirais",
           "Restaurantes charmosos"
         ],
-        "ecoTip": null,
+        "ecoTip": "Não recolha estrelas-do-mar ou corais encontrados na praia.",
         "specs": {
           "distance": "À beira da estrada norte",
           "duration": "Acesso direto por carro",
@@ -1248,7 +1248,7 @@ const touristSpots = [
           "Shady coconut palm groves",
           "Delightful beach dining"
         ],
-        "ecoTip": null,
+        "ecoTip": "Leave marine life and starfish undisturbed.",
         "specs": {
           "distance": "Beside the northern road",
           "duration": "Direct access by car",
@@ -1268,7 +1268,7 @@ const touristSpots = [
           "Ombre douce des cocotiers",
           "Restaurants de plage accueillants"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respectez la faune marine et les étoiles de mer.",
         "specs": {
           "distance": "Au bord de la route du nord",
           "duration": "Accès direct en voiture",
@@ -1288,7 +1288,7 @@ const touristSpots = [
           "Sombra de cocoteros",
           "Gastronomía acogedora"
         ],
-        "ecoTip": null,
+        "ecoTip": "No molestes a las estrellas de mar ni recojas corales.",
         "specs": {
           "distance": "Junto a la carretera del norte",
           "duration": "Acceso directo en coche",
@@ -1308,7 +1308,7 @@ const touristSpots = [
           "צל עצי קוקוס טרופיים",
           "מסעדות חוף מקסימות"
         ],
-        "ecoTip": null,
+        "ecoTip": "אל תפריעו לחיים הימיים ולכוכבי הים.",
         "specs": {
           "distance": "לצד הכביש הצפוני",
           "duration": "גישה ישירה ברכב",
@@ -1368,7 +1368,7 @@ const touristSpots = [
           "Seixos e pedras polidas pelo oceano",
           "Ponto nobre de pesca e mergulho"
         ],
-        "ecoTip": null,
+        "ecoTip": "Local totalmente remoto. Leve todos os suprimentos necessários e traga 100% do seu lixo de volta.",
         "specs": {
           "distance": "Trilha de 1h30 a partir do Bonete ou Barco",
           "duration": "Acesso a pé pelo Bonete ou lancha",
@@ -1388,7 +1388,7 @@ const touristSpots = [
           "Ocean-polished pebble coastlines",
           "Premier fishing & dive spot"
         ],
-        "ecoTip": null,
+        "ecoTip": "Completely remote location. Pack all essentials and leave zero trace.",
         "specs": {
           "distance": "1 h 30 min trail from Bonete or boat",
           "duration": "On foot via Bonete or by speedboat",
@@ -1408,7 +1408,7 @@ const touristSpots = [
           "Galets polis par les vagues",
           "Spot de pêche et plongée"
         ],
-        "ecoTip": null,
+        "ecoTip": "Zone très isolée. Emportez vos vivres et remportez tous vos déchets.",
         "specs": {
           "distance": "Sentier de 1 h 30 depuis Bonete ou bateau",
           "duration": "À pied par Bonete ou en bateau rapide",
@@ -1428,7 +1428,7 @@ const touristSpots = [
           "Piedras pulidas por el océano",
           "Pesca y buceo libre"
         ],
-        "ecoTip": null,
+        "ecoTip": "Zona remota. Lleva agua, provisiones y regresa toda tu basura.",
         "specs": {
           "distance": "Sendero de 1 h 30 min desde Bonete o barco",
           "duration": "A pie por Bonete o en lancha",
@@ -1448,7 +1448,7 @@ const touristSpots = [
           "חלוקי נחל ענקיים מלוטשים",
           "אתר דיג ושנירקול נדיר"
         ],
-        "ecoTip": null,
+        "ecoTip": "אזור מבודד לחלוטין. קחו עמכם מים ואוכל ואל תשאירו עקבות.",
         "specs": {
           "distance": "שביל של שעה וחצי מ-Bonete או סירה",
           "duration": "ברגל דרך Bonete או בסירת מנוע",
@@ -1508,7 +1508,7 @@ const touristSpots = [
           "Sensação de ilha deserta paradisíaca",
           "Mergulho livre com rica fauna"
         ],
-        "ecoTip": null,
+        "ecoTip": "Área de preservação intocada. Não deixe nenhum resíduo.",
         "specs": {
           "distance": "Acesso por barco ou trilha avançada",
           "duration": "45 min de barco ou trilha",
@@ -1528,7 +1528,7 @@ const touristSpots = [
           "True deserted island paradise feel",
           "Snorkeling with rich marine fauna"
         ],
-        "ecoTip": null,
+        "ecoTip": "Pristine conservation zone. Leave nothing behind.",
         "specs": {
           "distance": "Access by boat or advanced trail",
           "duration": "45 min by boat or trail",
@@ -1548,7 +1548,7 @@ const touristSpots = [
           "Atmosphère d île déserte de rêve",
           "Snorkeling extraordinaire"
         ],
-        "ecoTip": null,
+        "ecoTip": "Sanctuaire naturel préservé. Respectez les lieux.",
         "specs": {
           "distance": "Accès en bateau ou sentier difficile",
           "duration": "45 min en bateau ou sentier",
@@ -1568,7 +1568,7 @@ const touristSpots = [
           "Sensación de playa desierta de ensueño",
           "Excelente snorkel con peces"
         ],
-        "ecoTip": null,
+        "ecoTip": "Zona virgen protegida. No dejes ningún residuo.",
         "specs": {
           "distance": "Acceso en barco o sendero avanzado",
           "duration": "45 min en barco o sendero",
@@ -1588,7 +1588,7 @@ const touristSpots = [
           "תחושה של אי בודד מגן עדן",
           "שנירקול מושלם עם שפע דגים"
         ],
-        "ecoTip": null,
+        "ecoTip": "שמורה בתולית מוגנת. קחו את כל הפסולת עמכם.",
         "specs": {
           "distance": "גישה בסירה או בשביל למתקדמים",
           "duration": "45 דקות בסירה או שביל",
@@ -1648,7 +1648,7 @@ const touristSpots = [
           "Ponte pênsil suspensa sobre o rio",
           "Parada obrigatória dos trilheiros"
         ],
-        "ecoTip": null,
+        "ecoTip": "Desça no tobogã apenas sentado e verifique a profundidade antes de mergulhar.",
         "specs": {
           "distance": "3.5 km na Trilha do Bonete",
           "duration": "1h de caminhada a partir de Sepituba",
@@ -1668,7 +1668,7 @@ const touristSpots = [
           "Scenic suspension bridge across the river",
           "Top hiker rest spot"
         ],
-        "ecoTip": null,
+        "ecoTip": "Slide only in a seated position and check pool depth first.",
         "specs": {
           "distance": "3.5 km along the Bonete trail",
           "duration": "1 h walk from Sepituba",
@@ -1688,7 +1688,7 @@ const touristSpots = [
           "Pont suspendu au-dessus du torrent",
           "Halte favorite des randonneurs"
         ],
-        "ecoTip": null,
+        "ecoTip": "Glissez assis et vérifiez la profondeur avant de sauter.",
         "specs": {
           "distance": "3,5 km sur le sentier du Bonete",
           "duration": "1 h de marche depuis Sepituba",
@@ -1708,7 +1708,7 @@ const touristSpots = [
           "Puente colgante de madera",
           "Parada obligada de senderistas"
         ],
-        "ecoTip": null,
+        "ecoTip": "Deslízate sentado y revisa la profundidad del agua.",
         "specs": {
           "distance": "3,5 km por el sendero de Bonete",
           "duration": "1 h caminando desde Sepituba",
@@ -1728,7 +1728,7 @@ const touristSpots = [
           "גשר תלוי מעל הנהר",
           "תחנת מנוחה מושלמת למטיילים"
         ],
-        "ecoTip": null,
+        "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה.",
         "specs": {
           "distance": "3.5 ק״מ בשביל Bonete",
           "duration": "שעת הליכה מ-Sepituba",
@@ -1788,7 +1788,7 @@ const touristSpots = [
           "Degustação no alambique histórico",
           "Estrutura completa com restaurante e banheiros"
         ],
-        "ecoTip": null,
+        "ecoTip": "Propriedade privada preservada com taxa simbólica de manutenção.",
         "specs": {
           "distance": "100m da entrada (estrada de Castelhanos)",
           "duration": "5 min de caminhada",
@@ -1808,7 +1808,7 @@ const touristSpots = [
           "Artisanal cachaça tasting",
           "Full family amenities & restaurant"
         ],
-        "ecoTip": null,
+        "ecoTip": "Preserved private reserve with a nominal maintenance entrance fee.",
         "specs": {
           "distance": "100 m from the entrance (Castelhanos road)",
           "duration": "5 min walk",
@@ -1828,7 +1828,7 @@ const touristSpots = [
           "Dégustation à la distillerie historique",
           "Infrastructures complètes et restaurant"
         ],
-        "ecoTip": null,
+        "ecoTip": "Réserve privée avec petit droit d entrée pour l entretien du site.",
         "specs": {
           "distance": "100 m de l’entrée (route de Castelhanos)",
           "duration": "5 min de marche",
@@ -1848,7 +1848,7 @@ const touristSpots = [
           "Degustación en el alambique tradicional",
           "Restaurante y servicios completos"
         ],
-        "ecoTip": null,
+        "ecoTip": "Propiedad privada con tarifa simbólica para conservación.",
         "specs": {
           "distance": "100 m de la entrada (carretera de Castelhanos)",
           "duration": "5 min caminando",
@@ -1868,7 +1868,7 @@ const touristSpots = [
           "טעימות במזקקה היסטורית",
           "מסעדה ושירותים מסודרים לכל המשפחה"
         ],
-        "ecoTip": null,
+        "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה.",
         "specs": {
           "distance": "100 מ׳ מהכניסה (כביש Castelhanos)",
           "duration": "5 דקות הליכה",
@@ -1928,7 +1928,7 @@ const touristSpots = [
           "Ambiente tranquilo e sombreado",
           "Poço de água límpida para banho"
         ],
-        "ecoTip": null,
+        "ecoTip": "Use calçado com boa aderência nas pedras.",
         "specs": {
           "distance": "1 km a partir do bairro do Veloso",
           "duration": "25 min de caminhada",
@@ -1948,7 +1948,7 @@ const touristSpots = [
           "Quiet and shaded rainforest setting",
           "Refreshing clear dip pool"
         ],
-        "ecoTip": null,
+        "ecoTip": "Wear shoes with good traction on slippery stones.",
         "specs": {
           "distance": "1 km from the Veloso neighborhood",
           "duration": "25 min walk",
@@ -1968,7 +1968,7 @@ const touristSpots = [
           "Ambiance calme et ombragée",
           "Bassin de baignade rafraîchissant"
         ],
-        "ecoTip": null,
+        "ecoTip": "Portez des chaussures adhérentes pour marcher sur les roches.",
         "specs": {
           "distance": "1 km depuis le quartier Veloso",
           "duration": "25 min de marche",
@@ -1988,7 +1988,7 @@ const touristSpots = [
           "Ambiente sereno y con sombra",
           "Poza cristalina para refrescarse"
         ],
-        "ecoTip": null,
+        "ecoTip": "Usa calzado adecuado para no resbalar en las piedras.",
         "specs": {
           "distance": "1 km desde el barrio Veloso",
           "duration": "25 min caminando",
@@ -2008,7 +2008,7 @@ const touristSpots = [
           "אווירה שקטה ומוצלת",
           "בריכת מים קרירה וצלולה"
         ],
-        "ecoTip": null,
+        "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים.",
         "specs": {
           "distance": "1 ק״מ משכונת Veloso",
           "duration": "25 דקות הליכה",
@@ -2068,7 +2068,7 @@ const touristSpots = [
           "Hidromassagem natural na queda intermediária",
           "Águas cristalinas da serra"
         ],
-        "ecoTip": "A vista da Paquetá pode ganhar cores no fim da tarde, conforme o tempo. Planeje sair antes de a trilha escurecer; não espere o pôr do sol se isso comprometer a volta.",
+        "ecoTip": "Cuidado nas pedras molhadas pois são escorregadias.",
         "specs": {
           "distance": "1.2 km (trilha)",
           "duration": "30 min de caminhada",
@@ -2088,7 +2088,7 @@ const touristSpots = [
           "Natural hydromassage plunge pools",
           "Pristine rainforest mountain water"
         ],
-        "ecoTip": "The view at Paquetá may take on sunset colours late in the afternoon, weather permitting. Plan to leave before the trail gets dark; do not wait for sunset if it makes the return unsafe.",
+        "ecoTip": "Rocks can be slippery. Tread carefully.",
         "specs": {
           "distance": "1.2 km (trail)",
           "duration": "30 min walk",
@@ -2108,7 +2108,7 @@ const touristSpots = [
           "Bassin d hydromassage naturel",
           "Eaux pures des montagnes"
         ],
-        "ecoTip": "La vue à Paquetá peut se colorer en fin d’après-midi, selon le temps. Prévoyez de partir avant que le sentier ne s’assombrisse ; n’attendez pas le coucher de soleil si cela compromet le retour.",
+        "ecoTip": "Attention aux roches glissantes.",
         "specs": {
           "distance": "1,2 km (sentier)",
           "duration": "30 min de marche",
@@ -2128,7 +2128,7 @@ const touristSpots = [
           "Hidromasaje natural entre rocas",
           "Agua de vertiente cristalina"
         ],
-        "ecoTip": "La vista de Paquetá puede ganar colores al final de la tarde, según el tiempo. Planea salir antes de que oscurezca el sendero; no esperes el atardecer si compromete el regreso.",
+        "ecoTip": "Camina con cuidado sobre las rocas húmedas.",
         "specs": {
           "distance": "1,2 km (sendero)",
           "duration": "30 min caminando",
@@ -2148,7 +2148,7 @@ const touristSpots = [
           "זרמי מים לג׳קוזי טבעי",
           "מים צלולים ממעיינות ההר"
         ],
-        "ecoTip": "הנוף בפאקטה עשוי לקבל צבעי שקיעה לקראת הערב, בהתאם למזג האוויר. תכננו לצאת לפני שהשביל מחשיך; אל תחכו לשקיעה אם הדבר מסכן את החזרה.",
+        "ecoTip": "הסלעים חלקים, יש ללכת בזהירות.",
         "specs": {
           "distance": "1.2 ק״מ (שביל)",
           "duration": "30 דקות הליכה",
@@ -2489,7 +2489,7 @@ const touristSpots = [
           "Trilha sombreada e fresca",
           "Pouco movimentada e privativa"
         ],
-        "ecoTip": null,
+        "ecoTip": "Traga água potável e use repelente.",
         "specs": {
           "distance": "1.5 km (trilha)",
           "duration": "35 min",
@@ -2509,7 +2509,7 @@ const touristSpots = [
           "Shaded cool bamboo trail",
           "Quiet and private atmosphere"
         ],
-        "ecoTip": null,
+        "ecoTip": "Bring drinking water and insect repellent.",
         "specs": {
           "distance": "1.5 km (trail)",
           "duration": "35 min",
@@ -2529,7 +2529,7 @@ const touristSpots = [
           "Sentier ombragé agréable",
           "Site calme et peu fréquenté"
         ],
-        "ecoTip": null,
+        "ecoTip": "Prévoyez de l eau et un répulsif.",
         "specs": {
           "distance": "1,5 km (sentier)",
           "duration": "35 min",
@@ -2549,7 +2549,7 @@ const touristSpots = [
           "Sendero fresco con sombra",
           "Ambiente tranquilo y privado"
         ],
-        "ecoTip": null,
+        "ecoTip": "Lleva agua y repelente.",
         "specs": {
           "distance": "1,5 km (sendero)",
           "duration": "35 min",
@@ -2569,7 +2569,7 @@ const touristSpots = [
           "שביל מוצל וקריר",
           "אתר שקט ואינטימי"
         ],
-        "ecoTip": null,
+        "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים.",
         "specs": {
           "distance": "1.5 ק״מ (שביל)",
           "duration": "35 דקות",
@@ -2629,7 +2629,7 @@ const touristSpots = [
           "Excelente para crianças e famílias",
           "Centro de visitantes do Parque Estadual"
         ],
-        "ecoTip": null,
+        "ecoTip": "Excelente opção para dias nublados ou para caminhadas leves com crianças.",
         "specs": {
           "distance": "2.2 km (circuito estruturado)",
           "duration": "1h30 a 2h",
@@ -2649,7 +2649,7 @@ const touristSpots = [
           "Perfect for children and families",
           "State Park visitor center amenities"
         ],
-        "ecoTip": null,
+        "ecoTip": "Ideal for cloudy days or gentle family rainforest walks.",
         "specs": {
           "distance": "2.2 km (developed circuit)",
           "duration": "1 h 30 min–2 h",
@@ -2669,7 +2669,7 @@ const touristSpots = [
           "Parfait pour les familles et enfants",
           "Centre d accueil du Parc d État"
         ],
-        "ecoTip": null,
+        "ecoTip": "Idéal pour une sortie nature facile en famille.",
         "specs": {
           "distance": "2,2 km (circuit aménagé)",
           "duration": "1 h 30 à 2 h",
@@ -2689,7 +2689,7 @@ const touristSpots = [
           "Ideal para familias y niños",
           "Centro de visitantes del Parque"
         ],
-        "ecoTip": null,
+        "ecoTip": "Opción perfecta para caminatas familiares relajadas.",
         "specs": {
           "distance": "2,2 km (circuito acondicionado)",
           "duration": "1 h 30 min a 2 h",
@@ -2709,7 +2709,7 @@ const touristSpots = [
           "מושלם למשפחות עם ילדים",
           "מרכז מבקרים של הפארק הלאומי"
         ],
-        "ecoTip": null,
+        "ecoTip": "אפשרות מצוינת לטיול משפחתי קליל ומהנה בטבע.",
         "specs": {
           "distance": "2.2 ק״מ (מסלול מוסדר)",
           "duration": "שעה וחצי עד שעתיים",
@@ -3049,7 +3049,7 @@ const touristSpots = [
           "Vista sem limites para o oceano e continente",
           "A maior conquista de montanha da ilha"
         ],
-        "ecoTip": null,
+        "ecoTip": "Expedição extrema de preservação integral. Obrigatório contratar guia credenciado.",
         "specs": {
           "distance": "14 km (ida e volta)",
           "duration": "8h a 10h de expedição",
@@ -3069,7 +3069,7 @@ const touristSpots = [
           "Boundless views over the Atlantic ocean",
           "The ultimate mountaineering achievement"
         ],
-        "ecoTip": null,
+        "ecoTip": "Strict conservation zone. Certified mountain guide required.",
         "specs": {
           "distance": "14 km (round trip)",
           "duration": "8–10 h expedition",
@@ -3089,7 +3089,7 @@ const touristSpots = [
           "Vue infinie sur l océan et la côte",
           "Le défi suprême de randonnée"
         ],
-        "ecoTip": null,
+        "ecoTip": "Zone de réserve intégrale. Guide certifié obligatoire.",
         "specs": {
           "distance": "14 km (aller-retour)",
           "duration": "8 à 10 h d’expédition",
@@ -3109,7 +3109,7 @@ const touristSpots = [
           "Vistas espectaculares sobre el océano",
           "La mayor conquista de montaña"
         ],
-        "ecoTip": null,
+        "ecoTip": "Zona de máxima protección. Guía certificado obligatorio.",
         "specs": {
           "distance": "14 km (ida y vuelta)",
           "duration": "8 a 10 h de expedición",
@@ -3129,7 +3129,7 @@ const touristSpots = [
           "נוף אינסופי של האוקיינוס והיבשת",
           "ההישג האולטימטיבי לחובבי טיפוס הרים"
         ],
-        "ecoTip": null,
+        "ecoTip": "שמורה מוגנת ברמה הגבוהה ביותר. חובה לצאת בליווי מדריך מוסמך.",
         "specs": {
           "distance": "14 ק״מ (הלוך וחזור)",
           "duration": "מסע של 8–10 שעות",
@@ -3329,7 +3329,7 @@ const touristSpots = [
           "Fauna e flora ricas da Mata Atlântica",
           "Contemplação do pôr do sol e nuvens"
         ],
-        "ecoTip": null,
+        "ecoTip": "Leve no mínimo 2 litros de água, lanches calóricos e agasalho para o topo (vento frio).",
         "specs": {
           "distance": "7.4 km (ida e volta)",
           "duration": "4h30 a 6h",
@@ -3349,7 +3349,7 @@ const touristSpots = [
           "Rich Atlantic rainforest biodiversity",
           "Cloudscapes and golden light"
         ],
-        "ecoTip": null,
+        "ecoTip": "Carry at least 2 liters of water, energy snacks, and a windbreaker for the breezy summit.",
         "specs": {
           "distance": "7.4 km (round trip)",
           "duration": "4 h 30 min–6 h",
@@ -3369,7 +3369,7 @@ const touristSpots = [
           "Immersion en forêt tropicale primaire",
           "Mer de nuages au lever du jour"
         ],
-        "ecoTip": null,
+        "ecoTip": "Prévoyez au moins 2 litres d eau, des collations énergétiques et un coupe-vent.",
         "specs": {
           "distance": "7,4 km (aller-retour)",
           "duration": "4 h 30 à 6 h",
@@ -3389,7 +3389,7 @@ const touristSpots = [
           "Flora y fauna endémica de la Mata Atlántica",
           "Cielos y nubes sobre el mar"
         ],
-        "ecoTip": null,
+        "ecoTip": "Lleva mínimo 2 litros de agua por persona, comida energética y abrigo para la cumbre.",
         "specs": {
           "distance": "7,4 km (ida y vuelta)",
           "duration": "4 h 30 min a 6 h",
@@ -3409,7 +3409,7 @@ const touristSpots = [
           "מגוון ביולוגי עשיר של יער הגשם",
           "עננים ונופי שקיעה מעל המים"
         ],
-        "ecoTip": null,
+        "ecoTip": "קחו לפחות 2 ליטר מים לאדם, חטיפי אנרגיה וביגוד חם לפסגה.",
         "specs": {
           "distance": "7.4 ק״מ (הלוך וחזור)",
           "duration": "4.5–6 שעות",
@@ -3469,7 +3469,7 @@ const touristSpots = [
           "Escuta de cantos de baleia com hidrofones",
           "Passeios guiados por biólogos"
         ],
-        "ecoTip": null,
+        "ecoTip": "Mantenha distância regulamentada de navegação (mínimo 100m) e nunca persiga os cetáceos.",
         "specs": {
           "distance": "Acesso costeiro ou passeios embarcados",
           "duration": "Passeios de barco: 3h a 4h",
@@ -3489,7 +3489,7 @@ const touristSpots = [
           "Live hydrophone whale song listening",
           "Marine biologist guided expeditions"
         ],
-        "ecoTip": null,
+        "ecoTip": "Maintain certified safe boat distances (100m minimum) and practice ethical wildlife observation.",
         "specs": {
           "distance": "Coastal access or boat tours",
           "duration": "Boat tours: 3–4 h",
@@ -3509,7 +3509,7 @@ const touristSpots = [
           "Écoute sous-marine des chants de baleines",
           "Excursions guidées par des biologistes"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respectez les distances de sécurité de navigation (100 m minimum).",
         "specs": {
           "distance": "Accès côtier ou excursions en bateau",
           "duration": "Sorties en bateau : 3 à 4 h",
@@ -3529,7 +3529,7 @@ const touristSpots = [
           "Escucha de cantos con hidrófonos",
           "Expediciones con biólogos marinos"
         ],
-        "ecoTip": null,
+        "ecoTip": "Respeta la distancia mínima reglamentaria de navegación (100 m).",
         "specs": {
           "distance": "Acceso costero o paseos en barco",
           "duration": "Paseos en barco: 3 a 4 h",
@@ -3549,7 +3549,7 @@ const touristSpots = [
           "האזנה לשירת הלווייתנים באמצעות הידרופון",
           "סיורים מודרכים עם ביולוגים ימיים"
         ],
-        "ecoTip": null,
+        "ecoTip": "שמרו על מרחק שייט בטוח כחוק (לפחות 100 מטר) ולעולם אל תרדפו אחרי היונקים.",
         "specs": {
           "distance": "גישה מהחוף או בסיורי שייט",
           "duration": "סיורי שייט: 3–4 שעות",
@@ -3609,7 +3609,7 @@ const touristSpots = [
           "Pôr do sol dourado no canal",
           "Fotografia de fauna marinha"
         ],
-        "ecoTip": null,
+        "ecoTip": "Não jogue alimentos e mantenha os motores em baixa rotação próximo aos animais.",
         "specs": {
           "distance": "Embarcações a partir da Vila ou Perequê",
           "duration": "2h de navegação",
@@ -3629,7 +3629,7 @@ const touristSpots = [
           "Golden hour sunset over the channel",
           "Marine photography"
         ],
-        "ecoTip": null,
+        "ecoTip": "Never feed wildlife and maintain idle boat speeds near dolphins.",
         "specs": {
           "distance": "Boats from Vila or Perequê",
           "duration": "2 h by boat",
@@ -3649,7 +3649,7 @@ const touristSpots = [
           "Coucher de soleil doré sur l eau",
           "Superbes photos marines"
         ],
-        "ecoTip": null,
+        "ecoTip": "Ne nourrissez pas les animaux sauvages.",
         "specs": {
           "distance": "Embarcations depuis Vila ou Perequê",
           "duration": "2 h de navigation",
@@ -3669,7 +3669,7 @@ const touristSpots = [
           "Puesta de sol dorada en el canal",
           "Fotografía marina de cerca"
         ],
-        "ecoTip": null,
+        "ecoTip": "No arrojes comida y mantén velocidad lenta cerca de ellos.",
         "specs": {
           "distance": "Embarcaciones desde Vila o Perequê",
           "duration": "2 h de navegación",
@@ -3689,7 +3689,7 @@ const touristSpots = [
           "שקיעות זהובות מעל המים",
           "צילום ימי מרהיב"
         ],
-        "ecoTip": null,
+        "ecoTip": "אין להאכיל את חיות הבר ויש לשוט במהירות איטית בסמוך אליהן.",
         "specs": {
           "distance": "סירות מ-Vila או Perequê",
           "duration": "שעתיים שייט",
