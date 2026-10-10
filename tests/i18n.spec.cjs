@@ -80,7 +80,7 @@ for (const width of [390,1440]) for (const lang of locales) {
       await page.evaluate(id=>openSpotModal(id),spot.id);
       await expect(page.locator('#spot-modal-title')).toHaveText(spot.tr.title);
       const text=await page.locator('#spot-modal-content').textContent();
-      for (const value of [spot.tr.description,spot.tr.ecoTip,...spot.tr.highlights,...Object.values(spot.tr.specs)]) expect(text).toContain(value);
+      for (const value of [spot.tr.description,...(spot.tr.ecoTip ? [spot.tr.ecoTip] : []),...spot.tr.highlights,...Object.values(spot.tr.specs)]) expect(text).toContain(value);
       expect(text).toContain(data.ui.technicalSpecs);
       expect(text).toContain(data.ui.bookThisTour);
       expect(text).not.toMatch(/undefined|\[object Object\]|Missing translation/);

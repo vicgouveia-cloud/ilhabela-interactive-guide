@@ -27,10 +27,12 @@ for (const lang of locales) {
   for (const spot of data.touristSpots) {
     const tr = spot.translations[lang];
     assert.ok(tr, spot.id+'.'+lang);
-    for (const key of ['title','subtitle','description','highlights','ecoTip']) nonempty(tr[key],spot.id+'.'+lang+'.'+key);
+    for (const key of ['title','subtitle','description','highlights']) nonempty(tr[key],spot.id+'.'+lang+'.'+key);
+    if (tr.ecoTip !== null) nonempty(tr.ecoTip,spot.id+'.'+lang+'.ecoTip');
     for (const key of ['distance','duration','elevation','access','sea','structure']) nonempty(tr.specs?.[key],spot.id+'.'+lang+'.specs.'+key);
     if (lang !== 'pt') {
-      for (const key of ['subtitle','description','ecoTip']) assert.notEqual(tr[key],spot.translations.pt[key],spot.id+'.'+lang+'.'+key+' copied PT');
+      for (const key of ['subtitle','description']) assert.notEqual(tr[key],spot.translations.pt[key],spot.id+'.'+lang+'.'+key+' copied PT');
+      if (tr.ecoTip !== null) assert.notEqual(tr.ecoTip,spot.translations.pt.ecoTip,spot.id+'.'+lang+'.ecoTip copied PT');
       // This address and qualifier are spelled identically in Portuguese and Spanish.
       for (const key of ['access','sea','structure']) if (!(spot.id==='praia-da-siriuba' && lang==='es' && key==='access')) assert.notEqual(tr.specs[key],spot.translations.pt.specs[key],spot.id+'.'+lang+'.'+key+' copied PT');
     }

@@ -49,7 +49,7 @@ const additionalTouristSpots = [
           "Boa opção para famílias",
           "Paisagem preservada"
         ],
-        "ecoTip": "Não estacione sobre a vegetação e leve seu lixo de volta.",
+        "ecoTip": null,
         "specs": {
           "distance": "18 km da balsa",
           "duration": "45 min de carro",
@@ -69,7 +69,7 @@ const additionalTouristSpots = [
           "Good choice for families",
           "Preserved scenery"
         ],
-        "ecoTip": "Do not park on vegetation and take your rubbish back with you.",
+        "ecoTip": null,
         "specs": {
           "distance": "18 km from the ferry",
           "duration": "45 min by car",
@@ -89,7 +89,7 @@ const additionalTouristSpots = [
           "Bonne option pour les familles",
           "Paysage préservé"
         ],
-        "ecoTip": "Ne stationnez pas sur la végétation et remportez vos déchets.",
+        "ecoTip": null,
         "specs": {
           "distance": "18 km du ferry",
           "duration": "45 min en voiture",
@@ -109,7 +109,7 @@ const additionalTouristSpots = [
           "Buena opción para familias",
           "Paisaje conservado"
         ],
-        "ecoTip": "No estaciones sobre la vegetación y lleva tu basura de regreso.",
+        "ecoTip": null,
         "specs": {
           "distance": "18 km del ferry",
           "duration": "45 min en coche",
@@ -129,7 +129,7 @@ const additionalTouristSpots = [
           "אפשרות טובה למשפחות",
           "נוף שמור"
         ],
-        "ecoTip": "אל תחנו על הצמחייה וקחו את האשפה איתכם בחזרה.",
+        "ecoTip": null,
         "specs": {
           "distance": "18 ק״מ מהמעבורת",
           "duration": "45 דקות ברכב",
@@ -190,7 +190,7 @@ const additionalTouristSpots = [
           "Acesso relativamente fácil",
           "Lendas de Ilhabela"
         ],
-        "ecoTip": "Use os acessos oficiais e respeite as propriedades vizinhas.",
+        "ecoTip": "Na Feiticeira, procure sombra pela manhã; à tarde ela pode ficar mais escassa. A disponibilidade varia com a época do ano e a vegetação.",
         "specs": {
           "distance": "6 km da balsa",
           "duration": "15 min de carro",
@@ -210,7 +210,7 @@ const additionalTouristSpots = [
           "Relatively easy access",
           "Ilhabela legends"
         ],
-        "ecoTip": "Use official access paths and respect neighboring properties.",
+        "ecoTip": "At Feiticeira, look for shade in the morning; it may be scarcer in the afternoon. Availability varies with the season and vegetation.",
         "specs": {
           "distance": "6 km from the ferry",
           "duration": "15 min by car",
@@ -230,7 +230,7 @@ const additionalTouristSpots = [
           "Accès relativement facile",
           "Légendes d’Ilhabela"
         ],
-        "ecoTip": "Utilisez les accès officiels et respectez les propriétés voisines.",
+        "ecoTip": "À Feiticeira, cherchez de l’ombre le matin ; elle peut être plus rare l’après-midi. Sa disponibilité varie selon la saison et la végétation.",
         "specs": {
           "distance": "6 km du ferry",
           "duration": "15 min en voiture",
@@ -250,7 +250,7 @@ const additionalTouristSpots = [
           "Acceso relativamente fácil",
           "Leyendas de Ilhabela"
         ],
-        "ecoTip": "Usa los accesos oficiales y respeta las propiedades vecinas.",
+        "ecoTip": "En Feiticeira, busca sombra por la mañana; por la tarde puede ser más escasa. La disponibilidad varía según la época del año y la vegetación.",
         "specs": {
           "distance": "6 km del ferry",
           "duration": "15 min en coche",
@@ -270,7 +270,7 @@ const additionalTouristSpots = [
           "גישה קלה יחסית",
           "אגדות Ilhabela"
         ],
-        "ecoTip": "השתמשו בכניסות הרשמיות וכבדו את הנכסים הסמוכים.",
+        "ecoTip": "בפייטיסיירה כדאי לחפש צל בבוקר; אחר הצהריים הוא עשוי להיות מועט יותר. הזמינות משתנה לפי העונה והצמחייה.",
         "specs": {
           "distance": "6 ק״מ מהמעבורת",
           "duration": "15 דקות ברכב",
@@ -472,7 +472,7 @@ const additionalTouristSpots = [
           "Museu Náutico",
           "Restaurantes e vida noturna"
         ],
-        "ecoTip": "Priorize o deslocamento a pé pela Vila e descarte resíduos nos pontos adequados.",
+        "ecoTip": null,
         "specs": {
           "distance": "6 km da balsa",
           "duration": "2 h a meio dia",
@@ -492,7 +492,7 @@ const additionalTouristSpots = [
           "Museu Náutico",
           "Restaurants and nightlife"
         ],
-        "ecoTip": "Explore Vila on foot and dispose of waste at designated points.",
+        "ecoTip": null,
         "specs": {
           "distance": "6 km from the ferry",
           "duration": "2 h to half a day",
@@ -512,7 +512,7 @@ const additionalTouristSpots = [
           "Museu Náutico",
           "Restaurants et vie nocturne"
         ],
-        "ecoTip": "Privilégiez la marche dans Vila et jetez les déchets aux endroits prévus.",
+        "ecoTip": null,
         "specs": {
           "distance": "6 km du ferry",
           "duration": "2 h à une demi-journée",
@@ -532,7 +532,7 @@ const additionalTouristSpots = [
           "Museu Náutico",
           "Restaurantes y vida nocturna"
         ],
-        "ecoTip": "Prioriza recorrer Vila a pie y deposita los residuos en los lugares adecuados.",
+        "ecoTip": null,
         "specs": {
           "distance": "6 km del ferry",
           "duration": "2 h a medio día",
@@ -552,7 +552,7 @@ const additionalTouristSpots = [
           "Museu Náutico",
           "מסעדות וחיי לילה"
         ],
-        "ecoTip": "העדיפו ללכת ברגל ב-Vila והשליכו פסולת בנקודות המיועדות לכך.",
+        "ecoTip": null,
         "specs": {
           "distance": "6 ק״מ מהמעבורת",
           "duration": "שעתיים עד חצי יום",
@@ -754,7 +754,7 @@ const additionalTouristSpots = [
           "Vista do canal",
           "Próximo à balsa"
         ],
-        "ecoTip": "Pare somente em local permitido e não caminhe pela pista.",
+        "ecoTip": null,
         "specs": {
           "distance": "2,5 km da balsa",
           "duration": "20 a 40 min",
@@ -774,7 +774,7 @@ const additionalTouristSpots = [
           "Channel views",
           "Near the ferry"
         ],
-        "ecoTip": "Stop only where permitted and do not walk on the roadway.",
+        "ecoTip": null,
         "specs": {
           "distance": "2.5 km from the ferry",
           "duration": "20–40 min",
@@ -794,7 +794,7 @@ const additionalTouristSpots = [
           "Vue sur le canal",
           "Près du ferry"
         ],
-        "ecoTip": "Arrêtez-vous uniquement aux endroits autorisés et ne marchez pas sur la chaussée.",
+        "ecoTip": null,
         "specs": {
           "distance": "2,5 km du ferry",
           "duration": "20 à 40 min",
@@ -814,7 +814,7 @@ const additionalTouristSpots = [
           "Vista del canal",
           "Cerca del ferry"
         ],
-        "ecoTip": "Detente solo donde esté permitido y no camines por la calzada.",
+        "ecoTip": null,
         "specs": {
           "distance": "2,5 km del ferry",
           "duration": "20 a 40 min",
@@ -834,7 +834,7 @@ const additionalTouristSpots = [
           "נוף לתעלה",
           "קרוב למעבורת"
         ],
-        "ecoTip": "עצרו רק במקום מותר ואל תלכו על הכביש.",
+        "ecoTip": null,
         "specs": {
           "distance": "2.5 ק״מ מהמעבורת",
           "duration": "20–40 דקות",
@@ -1036,7 +1036,7 @@ const additionalTouristSpots = [
           "Restaurantes",
           "Fácil acesso"
         ],
-        "ecoTip": "Use a ciclovia e os pontos de coleta disponíveis na orla.",
+        "ecoTip": null,
         "specs": {
           "distance": "2 km da balsa",
           "duration": "1 h a meio dia",
@@ -1056,7 +1056,7 @@ const additionalTouristSpots = [
           "Restaurants",
           "Easy access"
         ],
-        "ecoTip": "Use the cycle path and waste collection points along the waterfront.",
+        "ecoTip": null,
         "specs": {
           "distance": "2 km from the ferry",
           "duration": "1 h to half a day",
@@ -1076,7 +1076,7 @@ const additionalTouristSpots = [
           "Restaurants",
           "Accès facile"
         ],
-        "ecoTip": "Utilisez la piste cyclable et les points de collecte du front de mer.",
+        "ecoTip": null,
         "specs": {
           "distance": "2 km du ferry",
           "duration": "1 h à une demi-journée",
@@ -1096,7 +1096,7 @@ const additionalTouristSpots = [
           "Restaurantes",
           "Fácil acceso"
         ],
-        "ecoTip": "Usa la ciclovía y los puntos de recolección disponibles en la orilla.",
+        "ecoTip": null,
         "specs": {
           "distance": "2 km del ferry",
           "duration": "1 h a medio día",
@@ -1116,7 +1116,7 @@ const additionalTouristSpots = [
           "מסעדות",
           "גישה קלה"
         ],
-        "ecoTip": "השתמשו בשביל האופניים ובנקודות איסוף הפסולת לאורך הטיילת.",
+        "ecoTip": null,
         "specs": {
           "distance": "2 ק״מ מהמעבורת",
           "duration": "שעה עד חצי יום",
@@ -1134,11 +1134,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"},
     "translations": {
-      "pt": {"title":"Praia do Barreiros","subtitle":"Pequena praia ao norte da Vila, com acesso final a pé","description":"Praia na região dos Barreiros, ao norte da Vila. Para quem chega por terra, a navegação termina no acesso próximo e o pequeno trecho final até a areia é feito a pé.","highlights":["Região dos Barreiros","Praia pequena","Acesso final a pé","Norte de Ilhabela"],"ecoTip":"Leve seus resíduos de volta e preserve a praia e o entorno.","specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"}},
-      "en": {"title":"Barreiros Beach","subtitle":"Small beach north of Vila with final access on foot","description":"A beach in the Barreiros area, north of Vila. By land, navigation ends at the nearby access point and the short final section to the sand is on foot.","highlights":["Barreiros area","Small beach","Final access on foot","Northern Ilhabela"],"ecoTip":"Take all waste back with you and help preserve the beach and surroundings.","specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"Sea level","access":"Nearby road access followed by a short walk","sea":"Sheltered beach; conditions vary","structure":"Nearby urban area"}},
-      "fr": {"title":"Plage de Barreiros","subtitle":"Petite plage au nord de Vila avec accès final à pied","description":"Plage située dans le secteur de Barreiros, au nord de Vila. Par voie terrestre, la navigation se termine au point d’accès voisin et le court tronçon final jusqu’au sable se fait à pied.","highlights":["Secteur de Barreiros","Petite plage","Accès final à pied","Nord d’Ilhabela"],"ecoTip":"Remportez vos déchets et préservez la plage et ses alentours.","specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"Niveau de la mer","access":"Accès routier proche puis courte marche","sea":"Plage abritée ; conditions variables","structure":"Zone urbaine à proximité"}},
-      "es": {"title":"Playa de Barreiros","subtitle":"Pequeña playa al norte de Vila con acceso final a pie","description":"Playa situada en la zona de Barreiros, al norte de Vila. Por tierra, la navegación termina en el acceso cercano y el corto tramo final hasta la arena se hace a pie.","highlights":["Zona de Barreiros","Playa pequeña","Acceso final a pie","Norte de Ilhabela"],"ecoTip":"Lleva tus residuos de regreso y ayuda a preservar la playa y sus alrededores.","specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"Nivel del mar","access":"Acceso vial cercano seguido de una caminata corta","sea":"Playa resguardada; las condiciones varían","structure":"Zona urbana cercana"}},
-      "he": {"title":"Praia do Barreiros","subtitle":"חוף קטן מצפון ל-Vila עם קטע גישה סופי ברגל","description":"חוף באזור Barreiros, מצפון ל-Vila. בהגעה יבשתית הניווט מסתיים בנקודת הגישה הסמוכה, והקטע הקצר האחרון עד החול נעשה ברגל.","highlights":["אזור Barreiros","חוף קטן","גישה סופית ברגל","צפון Ilhabela"],"ecoTip":"קחו את הפסולת איתכם ושמרו על החוף וסביבתו.","specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"גובה פני הים","access":"גישה קרובה בכביש ולאחריה הליכה קצרה","sea":"חוף מוגן; התנאים משתנים","structure":"אזור עירוני סמוך"}}
+      "pt": {"title":"Praia do Barreiros","subtitle":"Pequena praia ao norte da Vila, com acesso final a pé","description":"Praia na região dos Barreiros, ao norte da Vila. Para quem chega por terra, a navegação termina no acesso próximo e o pequeno trecho final até a areia é feito a pé.","highlights":["Região dos Barreiros","Praia pequena","Acesso final a pé","Norte de Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"}},
+      "en": {"title":"Barreiros Beach","subtitle":"Small beach north of Vila with final access on foot","description":"A beach in the Barreiros area, north of Vila. By land, navigation ends at the nearby access point and the short final section to the sand is on foot.","highlights":["Barreiros area","Small beach","Final access on foot","Northern Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"Sea level","access":"Nearby road access followed by a short walk","sea":"Sheltered beach; conditions vary","structure":"Nearby urban area"}},
+      "fr": {"title":"Plage de Barreiros","subtitle":"Petite plage au nord de Vila avec accès final à pied","description":"Plage située dans le secteur de Barreiros, au nord de Vila. Par voie terrestre, la navigation se termine au point d’accès voisin et le court tronçon final jusqu’au sable se fait à pied.","highlights":["Secteur de Barreiros","Petite plage","Accès final à pied","Nord d’Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"Niveau de la mer","access":"Accès routier proche puis courte marche","sea":"Plage abritée ; conditions variables","structure":"Zone urbaine à proximité"}},
+      "es": {"title":"Playa de Barreiros","subtitle":"Pequeña playa al norte de Vila con acceso final a pie","description":"Playa situada en la zona de Barreiros, al norte de Vila. Por tierra, la navegación termina en el acceso cercano y el corto tramo final hasta la arena se hace a pie.","highlights":["Zona de Barreiros","Playa pequeña","Acceso final a pie","Norte de Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"Nivel del mar","access":"Acceso vial cercano seguido de una caminata corta","sea":"Playa resguardada; las condiciones varían","structure":"Zona urbana cercana"}},
+      "he": {"title":"Praia do Barreiros","subtitle":"חוף קטן מצפון ל-Vila עם קטע גישה סופי ברגל","description":"חוף באזור Barreiros, מצפון ל-Vila. בהגעה יבשתית הניווט מסתיים בנקודת הגישה הסמוכה, והקטע הקצר האחרון עד החול נעשה ברגל.","highlights":["אזור Barreiros","חוף קטן","גישה סופית ברגל","צפון Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"גובה פני הים","access":"גישה קרובה בכביש ולאחריה הליכה קצרה","sea":"חוף מוגן; התנאים משתנים","structure":"אזור עירוני סמוך"}}
     }
   },
   {
@@ -1147,11 +1147,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"},
     "translations": {
-      "pt": {"title":"Praia de Santa Tereza","subtitle":"Pequena praia próxima à Vila, no norte de Ilhabela","description":"Praia urbana ao norte da Vila, com acesso próximo por via pública e um curto trecho final a pé até a areia.","highlights":["Próxima à Vila","Praia urbana","Acesso final a pé","Norte de Ilhabela"],"ecoTip":"Leve seus resíduos de volta e preserve a praia e o entorno.","specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"}},
-      "en": {"title":"Santa Tereza Beach","subtitle":"Small beach near Vila in northern Ilhabela","description":"An urban beach north of Vila, with nearby road access and a short final walk to the sand.","highlights":["Near Vila","Urban beach","Final access on foot","Northern Ilhabela"],"ecoTip":"Take all waste back with you and help preserve the beach and surroundings.","specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"Sea level","access":"Nearby road access plus a final walk","sea":"Sheltered beach; conditions vary","structure":"Urban area nearby"}},
-      "fr": {"title":"Plage de Santa Tereza","subtitle":"Petite plage près de Vila, au nord d’Ilhabela","description":"Plage urbaine au nord de Vila, avec un accès routier proche et un court tronçon final à pied jusqu’au sable.","highlights":["Près de Vila","Plage urbaine","Accès final à pied","Nord d’Ilhabela"],"ecoTip":"Rapportez vos déchets et préservez la plage et ses abords.","specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"Niveau de la mer","access":"Accès routier proche puis marche finale","sea":"Plage abritée ; conditions variables","structure":"Zone urbaine à proximité"}},
-      "es": {"title":"Playa de Santa Tereza","subtitle":"Pequeña playa cerca de Vila, en el norte de Ilhabela","description":"Playa urbana al norte de Vila, con acceso vial cercano y un corto tramo final a pie hasta la arena.","highlights":["Cerca de Vila","Playa urbana","Acceso final a pie","Norte de Ilhabela"],"ecoTip":"Lleva tus residuos de vuelta y ayuda a preservar la playa y su entorno.","specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"Nivel del mar","access":"Acceso vial cercano y tramo final a pie","sea":"Playa protegida; condiciones variables","structure":"Zona urbana cercana"}},
-      "he": {"title":"חוף Santa Tereza","subtitle":"חוף קטן ליד Vila בצפון Ilhabela","description":"חוף עירוני מצפון ל-Vila, עם גישה קרובה בכביש וקטע קצר אחרון ברגל עד החול.","highlights":["ליד Vila","חוף עירוני","גישה סופית ברגל","צפון Ilhabela"],"ecoTip":"קחו את הפסולת איתכם ועזרו לשמור על החוף וסביבתו.","specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"גובה פני הים","access":"גישה קרובה בכביש ולאחריה הליכה קצרה","sea":"חוף מוגן; התנאים משתנים","structure":"אזור עירוני סמוך"}}
+      "pt": {"title":"Praia de Santa Tereza","subtitle":"Pequena praia próxima à Vila, no norte de Ilhabela","description":"Praia urbana ao norte da Vila, com acesso próximo por via pública e um curto trecho final a pé até a areia.","highlights":["Próxima à Vila","Praia urbana","Acesso final a pé","Norte de Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"Nível do mar","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Praia abrigada; condições variam","structure":"Área urbana próxima"}},
+      "en": {"title":"Santa Tereza Beach","subtitle":"Small beach near Vila in northern Ilhabela","description":"An urban beach north of Vila, with nearby road access and a short final walk to the sand.","highlights":["Near Vila","Urban beach","Final access on foot","Northern Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"Sea level","access":"Nearby road access plus a final walk","sea":"Sheltered beach; conditions vary","structure":"Urban area nearby"}},
+      "fr": {"title":"Plage de Santa Tereza","subtitle":"Petite plage près de Vila, au nord d’Ilhabela","description":"Plage urbaine au nord de Vila, avec un accès routier proche et un court tronçon final à pied jusqu’au sable.","highlights":["Près de Vila","Plage urbaine","Accès final à pied","Nord d’Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"Niveau de la mer","access":"Accès routier proche puis marche finale","sea":"Plage abritée ; conditions variables","structure":"Zone urbaine à proximité"}},
+      "es": {"title":"Playa de Santa Tereza","subtitle":"Pequeña playa cerca de Vila, en el norte de Ilhabela","description":"Playa urbana al norte de Vila, con acceso vial cercano y un corto tramo final a pie hasta la arena.","highlights":["Cerca de Vila","Playa urbana","Acceso final a pie","Norte de Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"Nivel del mar","access":"Acceso vial cercano y tramo final a pie","sea":"Playa protegida; condiciones variables","structure":"Zona urbana cercana"}},
+      "he": {"title":"חוף Santa Tereza","subtitle":"חוף קטן ליד Vila בצפון Ilhabela","description":"חוף עירוני מצפון ל-Vila, עם גישה קרובה בכביש וקטע קצר אחרון ברגל עד החול.","highlights":["ליד Vila","חוף עירוני","גישה סופית ברגל","צפון Ilhabela"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"גובה פני הים","access":"גישה קרובה בכביש ולאחריה הליכה קצרה","sea":"חוף מוגן; התנאים משתנים","structure":"אזור עירוני סמוך"}}
     }
   },
   {
@@ -1160,11 +1160,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":true,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Mar geralmente tranquilo","structure":"Quiosques na praia"},
     "translations": {
-      "pt": {"title":"Praia do Pinto","subtitle":"Praia do norte com mar geralmente tranquilo e acesso final a pé","description":"Praia do norte de Ilhabela, com mar geralmente tranquilo e quiosques. Para quem chega de carro, a navegação termina no acesso próximo e o trecho final é feito a pé.","highlights":["Praia do norte","Mar geralmente tranquilo","Quiosques","Acesso final a pé"],"ecoTip":"Leve seus resíduos de volta e preserve a praia e o entorno.","specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Mar geralmente tranquilo","structure":"Quiosques na praia"}},
-      "en": {"title":"Pinto Beach","subtitle":"Northern beach with generally calm sea and final access on foot","description":"A beach in northern Ilhabela with generally calm sea and kiosks. By car, navigation ends at the nearby access point and the final section is on foot.","highlights":["Northern beach","Generally calm sea","Kiosks","Final access on foot"],"ecoTip":"Take all waste back with you and help preserve the beach and surroundings.","specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"—","access":"Nearby road access plus a final walk","sea":"Generally calm sea","structure":"Kiosks on the beach"}},
-      "fr": {"title":"Plage do Pinto","subtitle":"Plage du nord à la mer généralement calme et accès final à pied","description":"Plage du nord d’Ilhabela, avec une mer généralement calme et des kiosques. En voiture, la navigation s’arrête au point d’accès proche puis le trajet continue à pied.","highlights":["Plage du nord","Mer généralement calme","Kiosques","Accès final à pied"],"ecoTip":"Rapportez vos déchets et préservez la plage et ses abords.","specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"—","access":"Accès routier proche puis marche finale","sea":"Mer généralement calme","structure":"Kiosques sur la plage"}},
-      "es": {"title":"Playa do Pinto","subtitle":"Playa del norte con mar generalmente tranquilo y acceso final a pie","description":"Playa del norte de Ilhabela, con mar generalmente tranquilo y quioscos. En coche, la navegación termina en el acceso cercano y el tramo final se realiza caminando.","highlights":["Playa del norte","Mar generalmente tranquilo","Quioscos","Acceso final a pie"],"ecoTip":"Lleva tus residuos de vuelta y ayuda a preservar la playa y su entorno.","specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"—","access":"Acceso vial cercano y tramo final a pie","sea":"Mar generalmente tranquilo","structure":"Quioscos en la playa"}},
-      "he": {"title":"חוף do Pinto","subtitle":"חוף בצפון עם ים בדרך כלל רגוע וגישה סופית ברגל","description":"חוף בצפון איליאבלה עם ים בדרך כלל רגוע וקיוסקים. ברכב הניווט מסתיים בנקודת הגישה הקרובה ומשם ממשיכים ברגל.","highlights":["חוף בצפון","ים בדרך כלל רגוע","קיוסקים","גישה סופית ברגל"],"ecoTip":"קחו את הפסולת איתכם ועזרו לשמור על החוף וסביבתו.","specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"—","access":"גישה קרובה בכביש ולאחריה הליכה","sea":"ים בדרך כלל רגוע","structure":"קיוסקים בחוף"}}
+      "pt": {"title":"Praia do Pinto","subtitle":"Praia do norte com mar geralmente tranquilo e acesso final a pé","description":"Praia do norte de Ilhabela, com mar geralmente tranquilo e quiosques. Para quem chega de carro, a navegação termina no acesso próximo e o trecho final é feito a pé.","highlights":["Praia do norte","Mar geralmente tranquilo","Quiosques","Acesso final a pé"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé","sea":"Mar geralmente tranquilo","structure":"Quiosques na praia"}},
+      "en": {"title":"Pinto Beach","subtitle":"Northern beach with generally calm sea and final access on foot","description":"A beach in northern Ilhabela with generally calm sea and kiosks. By car, navigation ends at the nearby access point and the final section is on foot.","highlights":["Northern beach","Generally calm sea","Kiosks","Final access on foot"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"—","access":"Nearby road access plus a final walk","sea":"Generally calm sea","structure":"Kiosks on the beach"}},
+      "fr": {"title":"Plage do Pinto","subtitle":"Plage du nord à la mer généralement calme et accès final à pied","description":"Plage du nord d’Ilhabela, avec une mer généralement calme et des kiosques. En voiture, la navigation s’arrête au point d’accès proche puis le trajet continue à pied.","highlights":["Plage du nord","Mer généralement calme","Kiosques","Accès final à pied"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"—","access":"Accès routier proche puis marche finale","sea":"Mer généralement calme","structure":"Kiosques sur la plage"}},
+      "es": {"title":"Playa do Pinto","subtitle":"Playa del norte con mar generalmente tranquilo y acceso final a pie","description":"Playa del norte de Ilhabela, con mar generalmente tranquilo y quioscos. En coche, la navegación termina en el acceso cercano y el tramo final se realiza caminando.","highlights":["Playa del norte","Mar generalmente tranquilo","Quioscos","Acceso final a pie"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"—","access":"Acceso vial cercano y tramo final a pie","sea":"Mar generalmente tranquilo","structure":"Quioscos en la playa"}},
+      "he": {"title":"חוף do Pinto","subtitle":"חוף בצפון עם ים בדרך כלל רגוע וגישה סופית ברגל","description":"חוף בצפון איליאבלה עם ים בדרך כלל רגוע וקיוסקים. ברכב הניווט מסתיים בנקודת הגישה הקרובה ומשם ממשיכים ברגל.","highlights":["חוף בצפון","ים בדרך כלל רגוע","קיוסקים","גישה סופית ברגל"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"—","access":"גישה קרובה בכביש ולאחריה הליכה","sea":"ים בדרך כלל רגוע","structure":"קיוסקים בחוף"}}
     }
   },
   {
@@ -1173,11 +1173,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":false,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé; também atendida pelo Aquabus","sea":"Mar geralmente tranquilo","structure":"Sem quiosques ou restaurantes na praia"},
     "translations": {
-      "pt": {"title":"Praia da Ponta Azeda","subtitle":"Pequena praia do norte com acesso a pé e pelo Aquabus","description":"Praia pequena no norte de Ilhabela, ligada ao entorno por um acesso curto a pé e também atendida pelo Aquabus. Para quem chega de carro, a navegação termina no acesso próximo e o trecho final é feito a pé.","highlights":["Praia pequena no norte","Mar geralmente tranquilo","Acesso final a pé","Atendida pelo Aquabus"],"ecoTip":"Leve seus resíduos de volta e preserve a faixa de areia e o entorno.","specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé; também atendida pelo Aquabus","sea":"Mar geralmente tranquilo","structure":"Sem quiosques ou restaurantes na praia"}},
-      "en": {"title":"Ponta Azeda Beach","subtitle":"Small northern beach with walking and Aquabus access","description":"A small beach in northern Ilhabela, reached by a short final walk and also served by Aquabus. By car, navigation ends at the nearby access point and the final section is on foot.","highlights":["Small northern beach","Generally calm sea","Final access on foot","Served by Aquabus"],"ecoTip":"Take all waste back with you and help preserve the beach and surroundings.","specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"—","access":"Nearby road access plus a final walk; also served by Aquabus","sea":"Generally calm sea","structure":"No kiosks or restaurants on the beach"}},
-      "fr": {"title":"Plage de Ponta Azeda","subtitle":"Petite plage du nord accessible à pied et par Aquabus","description":"Petite plage du nord d’Ilhabela, accessible par une courte marche finale et également desservie par l’Aquabus. En voiture, la navigation s’arrête au point d’accès proche puis le trajet continue à pied.","highlights":["Petite plage du nord","Mer généralement calme","Accès final à pied","Desservie par l’Aquabus"],"ecoTip":"Rapportez vos déchets et préservez la plage et ses abords.","specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"—","access":"Accès routier proche puis marche finale ; également desservie par l’Aquabus","sea":"Mer généralement calme","structure":"Aucun kiosque ni restaurant sur la plage"}},
-      "es": {"title":"Playa de Ponta Azeda","subtitle":"Pequeña playa del norte con acceso a pie y por Aquabus","description":"Pequeña playa del norte de Ilhabela, accesible mediante un corto tramo final a pie y también atendida por el Aquabus. En coche, la navegación termina en el acceso cercano y el tramo final se realiza caminando.","highlights":["Pequeña playa del norte","Mar generalmente tranquilo","Acceso final a pie","Atendida por el Aquabus"],"ecoTip":"Lleva tus residuos de vuelta y ayuda a preservar la playa y su entorno.","specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"—","access":"Acceso vial cercano y tramo final a pie; también atendida por el Aquabus","sea":"Mar generalmente tranquilo","structure":"Sin quioscos ni restaurantes en la playa"}},
-      "he": {"title":"חוף Ponta Azeda","subtitle":"חוף קטן בצפון עם גישה רגלית וב-Aquabus","description":"חוף קטן בצפון איליאבלה, שאליו מגיעים בהליכה קצרה והוא מקבל גם שירות Aquabus. ברכב הניווט מסתיים בנקודת הגישה הקרובה ומשם ממשיכים ברגל.","highlights":["חוף קטן בצפון","ים בדרך כלל רגוע","גישה סופית ברגל","שירות Aquabus"],"ecoTip":"קחו את הפסולת איתכם ועזרו לשמור על החוף וסביבתו.","specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"—","access":"גישה קרובה בכביש ולאחריה הליכה; גם שירות Aquabus","sea":"ים בדרך כלל רגוע","structure":"אין קיוסקים או מסעדות בחוף"}}
+      "pt": {"title":"Praia da Ponta Azeda","subtitle":"Pequena praia do norte com acesso a pé e pelo Aquabus","description":"Praia pequena no norte de Ilhabela, ligada ao entorno por um acesso curto a pé e também atendida pelo Aquabus. Para quem chega de carro, a navegação termina no acesso próximo e o trecho final é feito a pé.","highlights":["Praia pequena no norte","Mar geralmente tranquilo","Acesso final a pé","Atendida pelo Aquabus"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Trecho final curto a pé","duration":"Caminhada curta","elevation":"—","access":"Acesso rodoviário próximo e trecho final a pé; também atendida pelo Aquabus","sea":"Mar geralmente tranquilo","structure":"Sem quiosques ou restaurantes na praia"}},
+      "en": {"title":"Ponta Azeda Beach","subtitle":"Small northern beach with walking and Aquabus access","description":"A small beach in northern Ilhabela, reached by a short final walk and also served by Aquabus. By car, navigation ends at the nearby access point and the final section is on foot.","highlights":["Small northern beach","Generally calm sea","Final access on foot","Served by Aquabus"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Short final walk","duration":"Short walk","elevation":"—","access":"Nearby road access plus a final walk; also served by Aquabus","sea":"Generally calm sea","structure":"No kiosks or restaurants on the beach"}},
+      "fr": {"title":"Plage de Ponta Azeda","subtitle":"Petite plage du nord accessible à pied et par Aquabus","description":"Petite plage du nord d’Ilhabela, accessible par une courte marche finale et également desservie par l’Aquabus. En voiture, la navigation s’arrête au point d’accès proche puis le trajet continue à pied.","highlights":["Petite plage du nord","Mer généralement calme","Accès final à pied","Desservie par l’Aquabus"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Court tronçon final à pied","duration":"Courte marche","elevation":"—","access":"Accès routier proche puis marche finale ; également desservie par l’Aquabus","sea":"Mer généralement calme","structure":"Aucun kiosque ni restaurant sur la plage"}},
+      "es": {"title":"Playa de Ponta Azeda","subtitle":"Pequeña playa del norte con acceso a pie y por Aquabus","description":"Pequeña playa del norte de Ilhabela, accesible mediante un corto tramo final a pie y también atendida por el Aquabus. En coche, la navegación termina en el acceso cercano y el tramo final se realiza caminando.","highlights":["Pequeña playa del norte","Mar generalmente tranquilo","Acceso final a pie","Atendida por el Aquabus"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Tramo final corto a pie","duration":"Caminata corta","elevation":"—","access":"Acceso vial cercano y tramo final a pie; también atendida por el Aquabus","sea":"Mar generalmente tranquilo","structure":"Sin quioscos ni restaurantes en la playa"}},
+      "he": {"title":"חוף Ponta Azeda","subtitle":"חוף קטן בצפון עם גישה רגלית וב-Aquabus","description":"חוף קטן בצפון איליאבלה, שאליו מגיעים בהליכה קצרה והוא מקבל גם שירות Aquabus. ברכב הניווט מסתיים בנקודת הגישה הקרובה ומשם ממשיכים ברגל.","highlights":["חוף קטן בצפון","ים בדרך כלל רגוע","גישה סופית ברגל","שירות Aquabus"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"קטע סופי קצר ברגל","duration":"הליכה קצרה","elevation":"—","access":"גישה קרובה בכביש ולאחריה הליכה; גם שירות Aquabus","sea":"ים בדרך כלל רגוע","structure":"אין קיוסקים או מסעדות בחוף"}}
     }
   },
   {
@@ -1186,11 +1186,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":false,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Cerca de 200 m de trilha","duration":"Caminhada curta","elevation":"—","access":"Estacionamento no extremo norte; trecho final exclusivamente a pé","sea":"Praia pequena e preservada","structure":"Sem estrutura comercial na praia"},
     "translations": {
-      "pt": {"title":"Praia da Pacuíba","subtitle":"Pequena praia preservada no extremo norte de Ilhabela","description":"Praia pequena e mais reservada no extremo norte da ilha. O acesso de carro termina no estacionamento junto à estrada e o trecho final é feito a pé por uma trilha curta.","highlights":["Extremo norte de Ilhabela","Trilha curta de acesso","Ambiente mais preservado","Praia pequena e reservada"],"ecoTip":"Leve seus resíduos de volta e permaneça no caminho de acesso.","specs":{"difficulty":"easy","distance":"Cerca de 200 m de trilha","duration":"Caminhada curta","elevation":"—","access":"Estacionamento no extremo norte; trecho final exclusivamente a pé","sea":"Praia pequena e preservada","structure":"Sem estrutura comercial na praia"}},
-      "en": {"title":"Pacuíba Beach","subtitle":"Small preserved beach on Ilhabela’s far north","description":"A small, secluded beach on the far north of the island. Driving ends at the roadside parking area and the final section is reached on foot via a short trail.","highlights":["Far north of Ilhabela","Short access trail","Preserved setting","Small secluded beach"],"ecoTip":"Take all waste back with you and stay on the access path.","specs":{"difficulty":"easy","distance":"About 200 m of trail","duration":"Short walk","elevation":"—","access":"Parking in the far north; final section on foot only","sea":"Small preserved beach","structure":"No commercial facilities on the beach"}},
-      "fr": {"title":"Plage de Pacuíba","subtitle":"Petite plage préservée à l’extrême nord d’Ilhabela","description":"Petite plage isolée à l’extrême nord de l’île. L’accès en voiture se termine au stationnement près de la route, puis une courte marche permet d’atteindre la plage.","highlights":["Extrême nord d’Ilhabela","Court sentier d’accès","Cadre préservé","Petite plage isolée"],"ecoTip":"Rapportez tous vos déchets et restez sur le chemin d’accès.","specs":{"difficulty":"easy","distance":"Environ 200 m de sentier","duration":"Courte marche","elevation":"—","access":"Stationnement à l’extrême nord ; section finale uniquement à pied","sea":"Petite plage préservée","structure":"Aucune structure commerciale sur la plage"}},
-      "es": {"title":"Playa de Pacuíba","subtitle":"Pequeña playa preservada en el extremo norte de Ilhabela","description":"Pequeña playa apartada en el extremo norte de la isla. El acceso en coche termina en el estacionamiento junto a la carretera y el tramo final se realiza a pie por un sendero corto.","highlights":["Extremo norte de Ilhabela","Sendero corto de acceso","Entorno preservado","Playa pequeña y apartada"],"ecoTip":"Lleva tus residuos de vuelta y permanece en el sendero de acceso.","specs":{"difficulty":"easy","distance":"Aprox. 200 m de sendero","duration":"Caminata corta","elevation":"—","access":"Estacionamiento en el extremo norte; tramo final solo a pie","sea":"Playa pequeña y preservada","structure":"Sin estructura comercial en la playa"}},
-      "he": {"title":"חוף Pacuíba","subtitle":"חוף קטן ושמור בצפון הרחוק של איליאבלה","description":"חוף קטן ומבודד בצפון הרחוק של האי. הנסיעה ברכב מסתיימת באזור החניה ליד הכביש, ומשם ממשיכים ברגל בשביל קצר.","highlights":["הצפון הרחוק של איליאבלה","שביל גישה קצר","סביבה שמורה","חוף קטן ומבודד"],"ecoTip":"קחו את כל הפסולת איתכם והישארו בשביל הגישה.","specs":{"difficulty":"easy","distance":"כ-200 מ׳ בשביל","duration":"הליכה קצרה","elevation":"—","access":"חניה בצפון הרחוק; הקטע האחרון ברגל בלבד","sea":"חוף קטן ושמור","structure":"אין שירותים מסחריים בחוף"}}
+      "pt": {"title":"Praia da Pacuíba","subtitle":"Pequena praia preservada no extremo norte de Ilhabela","description":"Praia pequena e mais reservada no extremo norte da ilha. O acesso de carro termina no estacionamento junto à estrada e o trecho final é feito a pé por uma trilha curta.","highlights":["Extremo norte de Ilhabela","Trilha curta de acesso","Ambiente mais preservado","Praia pequena e reservada"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 200 m de trilha","duration":"Caminhada curta","elevation":"—","access":"Estacionamento no extremo norte; trecho final exclusivamente a pé","sea":"Praia pequena e preservada","structure":"Sem estrutura comercial na praia"}},
+      "en": {"title":"Pacuíba Beach","subtitle":"Small preserved beach on Ilhabela’s far north","description":"A small, secluded beach on the far north of the island. Driving ends at the roadside parking area and the final section is reached on foot via a short trail.","highlights":["Far north of Ilhabela","Short access trail","Preserved setting","Small secluded beach"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"About 200 m of trail","duration":"Short walk","elevation":"—","access":"Parking in the far north; final section on foot only","sea":"Small preserved beach","structure":"No commercial facilities on the beach"}},
+      "fr": {"title":"Plage de Pacuíba","subtitle":"Petite plage préservée à l’extrême nord d’Ilhabela","description":"Petite plage isolée à l’extrême nord de l’île. L’accès en voiture se termine au stationnement près de la route, puis une courte marche permet d’atteindre la plage.","highlights":["Extrême nord d’Ilhabela","Court sentier d’accès","Cadre préservé","Petite plage isolée"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Environ 200 m de sentier","duration":"Courte marche","elevation":"—","access":"Stationnement à l’extrême nord ; section finale uniquement à pied","sea":"Petite plage préservée","structure":"Aucune structure commerciale sur la plage"}},
+      "es": {"title":"Playa de Pacuíba","subtitle":"Pequeña playa preservada en el extremo norte de Ilhabela","description":"Pequeña playa apartada en el extremo norte de la isla. El acceso en coche termina en el estacionamiento junto a la carretera y el tramo final se realiza a pie por un sendero corto.","highlights":["Extremo norte de Ilhabela","Sendero corto de acceso","Entorno preservado","Playa pequeña y apartada"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Aprox. 200 m de sendero","duration":"Caminata corta","elevation":"—","access":"Estacionamiento en el extremo norte; tramo final solo a pie","sea":"Playa pequeña y preservada","structure":"Sin estructura comercial en la playa"}},
+      "he": {"title":"חוף Pacuíba","subtitle":"חוף קטן ושמור בצפון הרחוק של איליאבלה","description":"חוף קטן ומבודד בצפון הרחוק של האי. הנסיעה ברכב מסתיימת באזור החניה ליד הכביש, ומשם ממשיכים ברגל בשביל קצר.","highlights":["הצפון הרחוק של איליאבלה","שביל גישה קצר","סביבה שמורה","חוף קטן ומבודד"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"כ-200 מ׳ בשביל","duration":"הליכה קצרה","elevation":"—","access":"חניה בצפון הרחוק; הקטע האחרון ברגל בלבד","sea":"חוף קטן ושמור","structure":"אין שירותים מסחריים בחוף"}}
     }
   },
   {
@@ -1242,7 +1242,7 @@ const additionalTouristSpots = [
           "Mergulho livre",
           "Paisagem remota"
         ],
-        "ecoTip": "Faça a trilha apenas com guia experiente e nunca deixe resíduos no local.",
+        "ecoTip": null,
         "specs": {
           "distance": "Trilha longa ou acesso marítimo",
           "duration": "Dia inteiro",
@@ -1262,7 +1262,7 @@ const additionalTouristSpots = [
           "Snorkeling",
           "Remote scenery"
         ],
-        "ecoTip": "Use the trail only with an experienced guide and never leave waste behind.",
+        "ecoTip": null,
         "specs": {
           "distance": "Long trail or access by sea",
           "duration": "Full day",
@@ -1282,7 +1282,7 @@ const additionalTouristSpots = [
           "Snorkeling",
           "Paysage isolé"
         ],
-        "ecoTip": "Empruntez le sentier uniquement avec un guide expérimenté et ne laissez aucun déchet.",
+        "ecoTip": null,
         "specs": {
           "distance": "Long sentier ou accès maritime",
           "duration": "Journée entière",
@@ -1302,7 +1302,7 @@ const additionalTouristSpots = [
           "Esnórquel",
           "Paisaje remoto"
         ],
-        "ecoTip": "Haz el sendero solo con un guía experimentado y nunca dejes residuos.",
+        "ecoTip": null,
         "specs": {
           "distance": "Sendero largo o acceso marítimo",
           "duration": "Día completo",
@@ -1322,7 +1322,7 @@ const additionalTouristSpots = [
           "שנירקול",
           "נוף מרוחק"
         ],
-        "ecoTip": "צאו לשביל רק עם מדריך מנוסה ולעולם אל תשאירו פסולת במקום.",
+        "ecoTip": null,
         "specs": {
           "distance": "שביל ארוך או גישה דרך הים",
           "duration": "יום שלם",
@@ -1383,7 +1383,7 @@ const additionalTouristSpots = [
           "Água transparente",
           "Fotografia"
         ],
-        "ecoTip": "Não visite com mar agitado, chuva ou pedras molhadas; use tênis e respeite os moradores.",
+        "ecoTip": "Com boa visibilidade, a vista das Piscinas Naturais do Sul pode alcançar Alcatrazes. Não conte com essa vista em tempo fechado nem prolongue a visita para esperar o pôr do sol; as condições do mar continuam determinantes.",
         "specs": {
           "distance": "Trilha curta sobre costeira",
           "duration": "1 h a 2 h",
@@ -1403,7 +1403,7 @@ const additionalTouristSpots = [
           "Clear water",
           "Photography"
         ],
-        "ecoTip": "Do not visit in rough seas, rain or with wet rocks; wear trainers and respect residents.",
+        "ecoTip": "With good visibility, the view from the Southern Natural Pools can reach Alcatrazes. Do not count on it in poor weather or extend your visit to wait for sunset; sea conditions remain decisive.",
         "specs": {
           "distance": "Short trail along the rocky coast",
           "duration": "1–2 h",
@@ -1423,7 +1423,7 @@ const additionalTouristSpots = [
           "Eau transparente",
           "Photographie"
         ],
-        "ecoTip": "Ne visitez pas par mer agitée, sous la pluie ou sur des rochers mouillés ; portez des baskets et respectez les habitants.",
+        "ecoTip": "Par bonne visibilité, la vue depuis les Piscines Naturelles du Sud peut porter jusqu’à Alcatrazes. Ne comptez pas sur cette vue par mauvais temps et ne prolongez pas la visite pour attendre le coucher de soleil ; l’état de la mer reste déterminant.",
         "specs": {
           "distance": "Court sentier sur la côte rocheuse",
           "duration": "1 à 2 h",
@@ -1443,7 +1443,7 @@ const additionalTouristSpots = [
           "Agua transparente",
           "Fotografía"
         ],
-        "ecoTip": "No visites con mar agitado, lluvia o rocas mojadas; usa zapatillas y respeta a los residentes.",
+        "ecoTip": "Con buena visibilidad, desde las Piscinas Naturales del Sur se puede ver Alcatrazes. No cuentes con esa vista con mal tiempo ni alargues la visita para esperar el atardecer; las condiciones del mar siguen siendo determinantes.",
         "specs": {
           "distance": "Sendero corto por la costa rocosa",
           "duration": "1 a 2 h",
@@ -1463,7 +1463,7 @@ const additionalTouristSpots = [
           "מים שקופים",
           "צילום"
         ],
-        "ecoTip": "אל תבקרו בים סוער, בגשם או כשהסלעים רטובים; נעלו נעלי ספורט וכבדו את התושבים.",
+        "ecoTip": "בראות טובה, מהבריכות הטבעיות בדרום אפשר לראות את אלקטרזס. אל תסתמכו על כך במזג אוויר סגרירי ואל תאריכו את הביקור כדי לחכות לשקיעה; תנאי הים הם עדיין הגורם המכריע.",
         "specs": {
           "distance": "שביל קצר לאורך החוף הסלעי",
           "duration": "שעה עד שעתיים",
@@ -1524,7 +1524,7 @@ const additionalTouristSpots = [
           "Restaurantes",
           "Fácil acesso"
         ],
-        "ecoTip": "Observe as condições do mar e descarte resíduos nos coletores da orla.",
+        "ecoTip": null,
         "specs": {
           "distance": "7 km da balsa",
           "duration": "1 h a meio dia",
@@ -1544,7 +1544,7 @@ const additionalTouristSpots = [
           "Restaurants",
           "Easy access"
         ],
-        "ecoTip": "Check sea conditions and dispose of waste in waterfront bins.",
+        "ecoTip": null,
         "specs": {
           "distance": "7 km from the ferry",
           "duration": "1 h to half a day",
@@ -1564,7 +1564,7 @@ const additionalTouristSpots = [
           "Restaurants",
           "Accès facile"
         ],
-        "ecoTip": "Observez l’état de la mer et jetez les déchets dans les poubelles du front de mer.",
+        "ecoTip": null,
         "specs": {
           "distance": "7 km du ferry",
           "duration": "1 h à une demi-journée",
@@ -1584,7 +1584,7 @@ const additionalTouristSpots = [
           "Restaurantes",
           "Fácil acceso"
         ],
-        "ecoTip": "Observa las condiciones del mar y deposita los residuos en los contenedores de la orilla.",
+        "ecoTip": null,
         "specs": {
           "distance": "7 km del ferry",
           "duration": "1 h a medio día",
@@ -1604,7 +1604,7 @@ const additionalTouristSpots = [
           "מסעדות",
           "גישה קלה"
         ],
-        "ecoTip": "בדקו את תנאי הים והשליכו פסולת בפחים לאורך הטיילת.",
+        "ecoTip": null,
         "specs": {
           "distance": "7 ק״מ מהמעבורת",
           "duration": "שעה עד חצי יום",
@@ -1665,7 +1665,7 @@ const additionalTouristSpots = [
           "Píer acessível",
           "Possível avistamento de tartarugas"
         ],
-        "ecoTip": "Não toque nos animais e não retire conchas ou organismos do santuário.",
+        "ecoTip": null,
         "specs": {
           "distance": "4 km da balsa",
           "duration": "1 h a meio dia",
@@ -1685,7 +1685,7 @@ const additionalTouristSpots = [
           "Accessible pier",
           "Possible turtle sightings"
         ],
-        "ecoTip": "Do not touch the animals and do not remove shells or organisms from the sanctuary.",
+        "ecoTip": null,
         "specs": {
           "distance": "4 km from the ferry",
           "duration": "1 h to half day",
@@ -1705,7 +1705,7 @@ const additionalTouristSpots = [
           "Jetée accessible",
           "Observation possible de tortues"
         ],
-        "ecoTip": "Ne touchez pas aux animaux et ne retirez ni coquillages ni organismes du sanctuaire.",
+        "ecoTip": null,
         "specs": {
           "distance": "À 4 km du ferry",
           "duration": "1 h à une demi-journée",
@@ -1725,7 +1725,7 @@ const additionalTouristSpots = [
           "Muelle accesible",
           "Posible avistamiento de tortugas"
         ],
-        "ecoTip": "No toques a los animales y no retires conchas ni organismos del santuario.",
+        "ecoTip": null,
         "specs": {
           "distance": "4 km del ferry",
           "duration": "1 h a medio día",
@@ -1745,7 +1745,7 @@ const additionalTouristSpots = [
           "מזח נגיש",
           "אפשרות לתצפית צבים"
         ],
-        "ecoTip": "אל תגעו בבעלי החיים ואל תוציאו צדפות או אורגניזמים מהשמורה.",
+        "ecoTip": null,
         "specs": {
           "distance": "4 ק\"מ מהמעבורת",
           "duration": "שעה עד חצי יום",
@@ -1763,11 +1763,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"},
     "translations": {
-      "pt": {"title":"Poço do Furado","subtitle":"Piscina natural dentro do Parque das Cachoeiras","description":"Poço acessível por uma caminhada curta dentro do Parque Municipal das Cachoeiras. O pin é aproximado; a navegação de carro termina na entrada do parque.","highlights":["Piscina natural","Trilha curta","Mata Atlântica","Parque das Cachoeiras"],"ecoTip":"Siga a trilha sinalizada e não saia do percurso.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
-      "en": {"title":"Poço do Furado","subtitle":"Natural pool inside Parque das Cachoeiras","description":"A natural pool reached by a short walk inside Parque Municipal das Cachoeiras. The attraction pin is approximate; driving navigation ends at the park entrance.","highlights":["Natural pool","Short trail","Atlantic Forest","Waterfall park"],"ecoTip":"Stay on the marked trail.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
-      "fr": {"title":"Poço do Furado","subtitle":"Bassin naturel dans le Parque das Cachoeiras","description":"Bassin naturel accessible par une courte marche dans le parc. Le point de l’attraction est approximatif; la navigation en voiture s’arrête à l’entrée.","highlights":["Bassin naturel","Courte randonnée","Forêt atlantique","Parc des cascades"],"ecoTip":"Restez sur le sentier balisé.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
-      "es": {"title":"Poço do Furado","subtitle":"Poza natural dentro del Parque das Cachoeiras","description":"Poza natural accesible por una caminata corta dentro del parque. El punto de la atracción es aproximado; la navegación en coche termina en la entrada.","highlights":["Poza natural","Sendero corto","Mata Atlántica","Parque de cascadas"],"ecoTip":"Permanece en el sendero señalizado.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
-      "he": {"title":"Poço do Furado","subtitle":"בריכה טבעית בפארק המפלים","description":"בריכה טבעית שאליה מגיעים בהליכה קצרה בתוך הפארק. נקודת האטרקציה משוערת; הניווט ברכב מסתיים בכניסה לפארק.","highlights":["בריכה טבעית","מסלול קצר","היער האטלנטי","פארק המפלים"],"ecoTip":"הישארו בשביל המסומן.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}}
+      "pt": {"title":"Poço do Furado","subtitle":"Piscina natural dentro do Parque das Cachoeiras","description":"Poço acessível por uma caminhada curta dentro do Parque Municipal das Cachoeiras. O pin é aproximado; a navegação de carro termina na entrada do parque.","highlights":["Piscina natural","Trilha curta","Mata Atlântica","Parque das Cachoeiras"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
+      "en": {"title":"Poço do Furado","subtitle":"Natural pool inside Parque das Cachoeiras","description":"A natural pool reached by a short walk inside Parque Municipal das Cachoeiras. The attraction pin is approximate; driving navigation ends at the park entrance.","highlights":["Natural pool","Short trail","Atlantic Forest","Waterfall park"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
+      "fr": {"title":"Poço do Furado","subtitle":"Bassin naturel dans le Parque das Cachoeiras","description":"Bassin naturel accessible par une courte marche dans le parc. Le point de l’attraction est approximatif; la navigation en voiture s’arrête à l’entrée.","highlights":["Bassin naturel","Courte randonnée","Forêt atlantique","Parc des cascades"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
+      "es": {"title":"Poço do Furado","subtitle":"Poza natural dentro del Parque das Cachoeiras","description":"Poza natural accesible por una caminata corta dentro del parque. El punto de la atracción es aproximado; la navegación en coche termina en la entrada.","highlights":["Poza natural","Sendero corto","Mata Atlántica","Parque de cascadas"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
+      "he": {"title":"Poço do Furado","subtitle":"בריכה טבעית בפארק המפלים","description":"בריכה טבעית שאליה מגיעים בהליכה קצרה בתוך הפארק. נקודת האטרקציה משוערת; הניווט ברכב מסתיים בכניסה לפארק.","highlights":["בריכה טבעית","מסלול קצר","היער האטלנטי","פארק המפלים"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}}
     }
   },
   {
@@ -1776,11 +1776,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"},
     "translations": {
-      "pt": {"title":"Mirante do Baepi","subtitle":"Vista panorâmica sem precisar chegar ao pico","description":"Mirante na parte inicial da Trilha do Baepi, alcançado por uma caminhada curta a partir da guarita.","highlights":["Vista panorâmica","Trilha curta","Mata Atlântica","Baepi"],"ecoTip":"Use calçado adequado e permaneça na trilha.","specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
-      "en": {"title":"Baepi Lookout","subtitle":"Panoramic views without climbing to the summit","description":"A lookout on the first section of the Baepi trail, reached by a short walk from the trail entrance.","highlights":["Panoramic view","Short trail","Atlantic Forest","Baepi"],"ecoTip":"Wear suitable footwear and stay on the trail.","specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
-      "fr": {"title":"Mirador du Baepi","subtitle":"Vue panoramique sans monter jusqu’au sommet","description":"Belvédère situé au début du sentier du Baepi, accessible après une courte marche depuis l’entrée.","highlights":["Vue panoramique","Courte randonnée","Forêt atlantique","Baepi"],"ecoTip":"Portez des chaussures adaptées et restez sur le sentier.","specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
-      "es": {"title":"Mirador del Baepi","subtitle":"Vista panorámica sin subir hasta la cumbre","description":"Mirador en el tramo inicial del sendero del Baepi, accesible tras una caminata corta desde la entrada.","highlights":["Vista panorámica","Sendero corto","Mata Atlántica","Baepi"],"ecoTip":"Usa calzado adecuado y permanece en el sendero.","specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
-      "he": {"title":"תצפית באפי","subtitle":"נוף פנורמי בלי לעלות לפסגה","description":"תצפית בחלק הראשון של שביל באפי, במרחק הליכה קצרה מנקודת הכניסה.","highlights":["נוף פנורמי","מסלול קצר","היער האטלנטי","Baepi"],"ecoTip":"נעלו נעליים מתאימות והישארו בשביל.","specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}}
+      "pt": {"title":"Mirante do Baepi","subtitle":"Vista panorâmica sem precisar chegar ao pico","description":"Mirante na parte inicial da Trilha do Baepi, alcançado por uma caminhada curta a partir da guarita.","highlights":["Vista panorâmica","Trilha curta","Mata Atlântica","Baepi"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
+      "en": {"title":"Baepi Lookout","subtitle":"Panoramic views without climbing to the summit","description":"A lookout on the first section of the Baepi trail, reached by a short walk from the trail entrance.","highlights":["Panoramic view","Short trail","Atlantic Forest","Baepi"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
+      "fr": {"title":"Mirador du Baepi","subtitle":"Vue panoramique sans monter jusqu’au sommet","description":"Belvédère situé au début du sentier du Baepi, accessible après une courte marche depuis l’entrée.","highlights":["Vue panoramique","Courte randonnée","Forêt atlantique","Baepi"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
+      "es": {"title":"Mirador del Baepi","subtitle":"Vista panorámica sin subir hasta la cumbre","description":"Mirador en el tramo inicial del sendero del Baepi, accesible tras una caminata corta desde la entrada.","highlights":["Vista panorámica","Sendero corto","Mata Atlántica","Baepi"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}},
+      "he": {"title":"תצפית באפי","subtitle":"נוף פנורמי בלי לעלות לפסגה","description":"תצפית בחלק הראשון של שביל באפי, במרחק הליכה קצרה מנקודת הכניסה.","highlights":["נוף פנורמי","מסלול קצר","היער האטלנטי","Baepi"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Cerca de 400 m de trilha","duration":"20–30 min de caminhada","elevation":"—","access":"Entrada da Trilha do Baepi; trecho final a pé","sea":"Não se aplica","structure":"Guarita no início da trilha"}}
     }
   },
   {
@@ -1789,11 +1789,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"},
     "translations": {
-      "pt": {"title":"Mirante do Morro da Cruz","subtitle":"Vista elevada do Canal de São Sebastião","description":"Mirante de fácil acesso na região do Morro da Cruz, com perspectiva elevada do canal e boa luz no fim da tarde.","highlights":["Canal de São Sebastião","Pôr do sol","Acesso fácil","Fotografia"],"ecoTip":"Pare apenas em local permitido e preserve o entorno.","specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
-      "en": {"title":"Morro da Cruz Lookout","subtitle":"Elevated views over the São Sebastião Channel","description":"An easy-access lookout in the Morro da Cruz area with elevated channel views and good late-afternoon light.","highlights":["São Sebastião Channel","Sunset","Easy access","Photography"],"ecoTip":"Stop only where permitted and protect the surroundings.","specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
-      "fr": {"title":"Belvédère Morro da Cruz","subtitle":"Vue en hauteur sur le canal de São Sebastião","description":"Belvédère facile d’accès dans le secteur de Morro da Cruz, avec une vue élevée sur le canal.","highlights":["Canal de São Sebastião","Coucher du soleil","Accès facile","Photographie"],"ecoTip":"Stationnez uniquement aux endroits autorisés.","specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
-      "es": {"title":"Mirador Morro da Cruz","subtitle":"Vista elevada del Canal de São Sebastião","description":"Mirador de fácil acceso en la zona de Morro da Cruz, con vista elevada del canal.","highlights":["Canal de São Sebastião","Atardecer","Acceso fácil","Fotografía"],"ecoTip":"Detente solo donde esté permitido.","specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
-      "he": {"title":"תצפית מורו דה קרוז","subtitle":"מבט גבוה על תעלת סאו סבסטיאו","description":"תצפית נגישה באזור Morro da Cruz עם מבט גבוה על התעלה.","highlights":["תעלת סאו סבסטיאו","שקיעה","גישה קלה","צילום"],"ecoTip":"עצרו רק במקום מותר ושמרו על הסביבה.","specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}}
+      "pt": {"title":"Mirante do Morro da Cruz","subtitle":"Vista elevada do Canal de São Sebastião","description":"Mirante de fácil acesso na região do Morro da Cruz, com perspectiva elevada do canal e boa luz no fim da tarde.","highlights":["Canal de São Sebastião","Pôr do sol","Acesso fácil","Fotografia"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
+      "en": {"title":"Morro da Cruz Lookout","subtitle":"Elevated views over the São Sebastião Channel","description":"An easy-access lookout in the Morro da Cruz area with elevated channel views and good late-afternoon light.","highlights":["São Sebastião Channel","Sunset","Easy access","Photography"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
+      "fr": {"title":"Belvédère Morro da Cruz","subtitle":"Vue en hauteur sur le canal de São Sebastião","description":"Belvédère facile d’accès dans le secteur de Morro da Cruz, avec une vue élevée sur le canal.","highlights":["Canal de São Sebastião","Coucher du soleil","Accès facile","Photographie"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
+      "es": {"title":"Mirador Morro da Cruz","subtitle":"Vista elevada del Canal de São Sebastião","description":"Mirador de fácil acceso en la zona de Morro da Cruz, con vista elevada del canal.","highlights":["Canal de São Sebastião","Atardecer","Acceso fácil","Fotografía"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}},
+      "he": {"title":"תצפית מורו דה קרוז","subtitle":"מבט גבוה על תעלת סאו סבסטיאו","description":"תצפית נגישה באזור Morro da Cruz עם מבט גבוה על התעלה.","highlights":["תעלת סאו סבסטיאו","שקיעה","גישה קלה","צילום"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Próximo à região central","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto","sea":"Não se aplica","structure":"Mirante urbano de parada breve"}}
     }
   },
   {
@@ -1802,11 +1802,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":true,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"},
     "translations": {
-      "pt": {"title":"Mirante dos Barreiros","subtitle":"Panorama do canal no caminho para o norte","description":"Parada panorâmica na Av. Luís Massa, ao norte da Vila, com acesso direto por estrada e área de estacionamento.","highlights":["Vista do canal","Rota norte","Acesso de carro","Fotografia"],"ecoTip":"Use a área de estacionamento e não pare sobre a pista.","specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
-      "en": {"title":"Barreiros Lookout","subtitle":"Channel panorama on the way north","description":"A panoramic stop on Av. Luís Massa, north of Vila, with direct road access and parking.","highlights":["Channel view","North route","Road access","Photography"],"ecoTip":"Use the parking area and do not stop on the roadway.","specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
-      "fr": {"title":"Belvédère de Barreiros","subtitle":"Panorama du canal en direction du nord","description":"Halte panoramique sur l’Av. Luís Massa, au nord de la Vila, avec accès routier direct et stationnement.","highlights":["Vue du canal","Route nord","Accès routier","Photographie"],"ecoTip":"Utilisez le stationnement et ne vous arrêtez pas sur la chaussée.","specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
-      "es": {"title":"Mirador de Barreiros","subtitle":"Panorama del canal rumbo al norte","description":"Parada panorámica en la Av. Luís Massa, al norte de Vila, con acceso directo por carretera y estacionamiento.","highlights":["Vista del canal","Ruta norte","Acceso por carretera","Fotografía"],"ecoTip":"Usa el estacionamiento y no te detengas en la calzada.","specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
-      "he": {"title":"תצפית באריירוס","subtitle":"נוף התעלה בדרך צפונה","description":"נקודת תצפית בשדרת Luís Massa מצפון ל-Vila, עם גישה ישירה בכביש וחניה.","highlights":["נוף התעלה","המסלול הצפוני","גישה בכביש","צילום"],"ecoTip":"השתמשו בחניה ואל תעצרו על הכביש.","specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}}
+      "pt": {"title":"Mirante dos Barreiros","subtitle":"Panorama do canal no caminho para o norte","description":"Parada panorâmica na Av. Luís Massa, ao norte da Vila, com acesso direto por estrada e área de estacionamento.","highlights":["Vista do canal","Rota norte","Acesso de carro","Fotografia"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
+      "en": {"title":"Barreiros Lookout","subtitle":"Channel panorama on the way north","description":"A panoramic stop on Av. Luís Massa, north of Vila, with direct road access and parking.","highlights":["Channel view","North route","Road access","Photography"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
+      "fr": {"title":"Belvédère de Barreiros","subtitle":"Panorama du canal en direction du nord","description":"Halte panoramique sur l’Av. Luís Massa, au nord de la Vila, avec accès routier direct et stationnement.","highlights":["Vue du canal","Route nord","Accès routier","Photographie"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
+      "es": {"title":"Mirador de Barreiros","subtitle":"Panorama del canal rumbo al norte","description":"Parada panorámica en la Av. Luís Massa, al norte de Vila, con acceso directo por carretera y estacionamiento.","highlights":["Vista del canal","Ruta norte","Acceso por carretera","Fotografía"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}},
+      "he": {"title":"תצפית באריירוס","subtitle":"נוף התעלה בדרך צפונה","description":"נקודת תצפית בשדרת Luís Massa מצפון ל-Vila, עם גישה ישירה בכביש וחניה.","highlights":["נוף התעלה","המסלול הצפוני","גישה בכביש","צילום"],"ecoTip":null,"specs":{"difficulty":"easy","distance":"Ao norte da Vila","duration":"Parada de 20–40 min","elevation":"—","access":"Acesso rodoviário direto pela Av. Luís Massa","sea":"Não se aplica","structure":"Estacionamento junto ao mirante"}}
     }
   },
   {
@@ -1815,11 +1815,11 @@ const additionalTouristSpots = [
     "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
     "specs": {"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"},
     "translations": {
-      "pt": {"title":"Cachoeira do Poço Fundo","subtitle":"Cachoeira próxima à comunidade do Bonete","description":"Cachoeira acessível a pé a partir do Bonete, ideal para combinar com uma estadia ou visita à comunidade.","highlights":["Água doce","Bonete","Mata Atlântica","Caminhada"],"ecoTip":"Respeite a trilha e leve de volta todo o lixo.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
-      "en": {"title":"Poço Fundo Waterfall","subtitle":"Waterfall near the Bonete community","description":"A waterfall reached on foot from Bonete, well suited to combine with a stay or visit to the community.","highlights":["Fresh water","Bonete","Atlantic Forest","Walking"],"ecoTip":"Respect the trail and carry all waste back.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
-      "fr": {"title":"Cascade Poço Fundo","subtitle":"Cascade proche de la communauté de Bonete","description":"Cascade accessible à pied depuis Bonete, à combiner avec un séjour ou une visite de la communauté.","highlights":["Eau douce","Bonete","Forêt atlantique","Marche"],"ecoTip":"Respectez le sentier et remportez tous vos déchets.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
-      "es": {"title":"Cascada Poço Fundo","subtitle":"Cascada cerca de la comunidad de Bonete","description":"Cascada accesible a pie desde Bonete, ideal para combinar con una estancia o visita a la comunidad.","highlights":["Agua dulce","Bonete","Mata Atlántica","Caminata"],"ecoTip":"Respeta el sendero y llévate todos tus residuos.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
-      "he": {"title":"מפל פוסו פונדו","subtitle":"מפל סמוך לקהילת בונטה","description":"מפל שאליו מגיעים ברגל מבונטה, ומתאים לשילוב עם ביקור או שהייה בקהילה.","highlights":["מים מתוקים","Bonete","היער האטלנטי","הליכה"],"ecoTip":"שמרו על השביל וקחו את כל הפסולת חזרה.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}}
+      "pt": {"title":"Cachoeira do Poço Fundo","subtitle":"Cachoeira próxima à comunidade do Bonete","description":"Cachoeira acessível a pé a partir do Bonete, ideal para combinar com uma estadia ou visita à comunidade.","highlights":["Água doce","Bonete","Mata Atlântica","Caminhada"],"ecoTip":null,"specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
+      "en": {"title":"Poço Fundo Waterfall","subtitle":"Waterfall near the Bonete community","description":"A waterfall reached on foot from Bonete, well suited to combine with a stay or visit to the community.","highlights":["Fresh water","Bonete","Atlantic Forest","Walking"],"ecoTip":null,"specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
+      "fr": {"title":"Cascade Poço Fundo","subtitle":"Cascade proche de la communauté de Bonete","description":"Cascade accessible à pied depuis Bonete, à combiner avec un séjour ou une visite de la communauté.","highlights":["Eau douce","Bonete","Forêt atlantique","Marche"],"ecoTip":null,"specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
+      "es": {"title":"Cascada Poço Fundo","subtitle":"Cascada cerca de la comunidad de Bonete","description":"Cascada accesible a pie desde Bonete, ideal para combinar con una estancia o visita a la comunidad.","highlights":["Agua dulce","Bonete","Mata Atlántica","Caminata"],"ecoTip":null,"specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
+      "he": {"title":"מפל פוסו פונדו","subtitle":"מפל סמוך לקהילת בונטה","description":"מפל שאליו מגיעים ברגל מבונטה, ומתאים לשילוב עם ביקור או שהייה בקהילה.","highlights":["מים מתוקים","Bonete","היער האטלנטי","הליכה"],"ecoTip":null,"specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}}
     }
   }
 
