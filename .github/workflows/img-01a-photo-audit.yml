@@ -1,0 +1,37 @@
+name: IMG-01A photo source consolidation audit
+
+on:
+  push:
+    branches:
+      - fix/img-01a-photo-source-consolidation
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify-photos-seo-i18n:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Check out current branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Validate syntax of changed source files
+        run: |
+          node --check attraction-photos.js
+          node --check scripts/generate-attraction-pages.cjs
+          node --check tests/audit-attraction-images.cjs
+          node --check tests/audit-reconciled-attractions.cjs
+      - name: SEO and generated page regression suite
+        run: npm run test:seo
+      - name: Internationalization audit
+        run: npm run test:audit
