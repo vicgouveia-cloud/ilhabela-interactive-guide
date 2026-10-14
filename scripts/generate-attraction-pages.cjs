@@ -6,7 +6,6 @@ const ROOT = path.resolve(__dirname, '..');
 const OUT = path.resolve(process.env.ATTRACTION_OUTPUT_DIR || path.join(ROOT, 'lugares'));
 // Editorial preservation is independent of operational gateway verification.
 const accessCopies = JSON.parse(fs.readFileSync(path.join(__dirname, 'attraction-access-copy.json'), 'utf8'));
-const photoOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'attraction-photo-overrides.json'), 'utf8'));
 const BASE_URL = process.env.SITE_URL || 'https://ilhabelatrip.com';
 
 const context = vm.createContext({ console });
@@ -30,14 +29,15 @@ function render(spot) {
   const tr = spot.translations?.pt;
   if (!tr?.title || !tr.description || !spot.image) throw new Error(`Conteúdo PT incompleto: ${spot.id}`);
   const canonical = `${BASE_URL}/lugares/${spot.id}/`;
-  const photo = photoOverrides[spot.id];
-  const imagePath = photo?.image || spot.image;
+  // The resolved touristSpots record is authoritative for both the browser and SEO.
+  const imagePath = spot.image;
   const image = absolute(imagePath);
-  const photoCredit = photo
-    ? `<p><small>Foto: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Imagem redimensionada.</small></p>`
-    : spot.photoCredit && spot.photoSource
-      ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a></small></p>`
-      : '';
+  const licenseNote = spot.photoLicense && spot.photoLicenseUrl
+    ? ` · <a href="${esc(spot.photoLicenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoLicense)}</a>${spot.photoAdaptation ? ' · ' + esc(spot.photoAdaptation) : ''}`
+    : '';
+  const photoCredit = spot.photoCredit && spot.photoSource
+    ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a>${licenseNote}</small></p>`
+    : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
   const schema = JSON.stringify({
     '@context':'https://schema.org', '@type':'TouristAttraction', name:tr.title,
