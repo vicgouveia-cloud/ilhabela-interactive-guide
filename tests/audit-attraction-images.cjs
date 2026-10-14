@@ -52,6 +52,12 @@ const discovery = fs.readFileSync(path.join(ROOT, 'o-que-fazer/index.html'), 'ut
 const categories = Object.fromEntries(['praias', 'cachoeiras', 'trilhas'].map(id => [id, fs.readFileSync(path.join(ROOT, id, 'index.html'), 'utf8')]));
 const itinerary = fs.readFileSync(path.join(ROOT, 'roteiros/3-dias/index.html'), 'utf8');
 const itineraryIds = new Set(['mirante-do-piuva', 'praia-do-juliao', 'praia-da-feiticeira', 'praia-do-curral', 'baia-de-castelhanos', 'praia-do-bonete', 'praia-da-armacao', 'praia-do-sino', 'praia-do-jabaquara', 'centro-historico-vila']);
+function imageForCard(html, id) {
+  const card = [...html.matchAll(/<article\\b[^>]*>[\\s\\S]*?<\\/article>/g)]
+    .map(match => match[0])
+    .find(article => article.includes('href="/lugares/' + id + '/"'));
+  return card?.match(/<img\\b[^>]*\\bsrc="([^"]+)"/)?.[1] ?? null;
+}
 
 for (const spot of spots) {
   const existing = original.get(spot.id);
@@ -88,10 +94,11 @@ for (const spot of spots) {
     assert(html.includes('Foto: <a href="' + esc(spot.photoSource) + '"'), spot.id + ': missing source');
     assert(html.includes(esc(spot.photoCredit)), spot.id + ': missing credit');
   }
-  const card = '<img src="/' + esc(spot.image) + '" alt="' + esc(spot.translations.pt.title) + '" loading="lazy">';
-  assert(discovery.includes(card), spot.id + ': discovery hub differs');
-  if (categories[spot.category]) assert(categories[spot.category].includes(card), spot.id + ': category hub differs');
-  if (itineraryIds.has(spot.id)) assert(itinerary.includes(card), spot.id + ': itinerary hub differs');
+  // Compare the exact attraction photo, not its editorial alt text: some approved static titles differ.
+  const expectedCardImage = '/' + spot.image;
+  assert.equal(imageForCard(discovery, spot.id), expectedCardImage, spot.id + ': discovery photo differs');
+  if (categories[spot.category]) assert.equal(imageForCard(categories[spot.category], spot.id), expectedCardImage, spot.id + ': category photo differs');
+  if (itineraryIds.has(spot.id)) assert.equal(imageForCard(itinerary, spot.id), expectedCardImage, spot.id + ': itinerary photo differs');
 }
 // Warn (do not fail) when identical bytes are reused by different attractions.
 // An intentional shared gallery photograph still deserves an explicit editorial review.
