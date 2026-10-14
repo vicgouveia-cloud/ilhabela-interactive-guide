@@ -1,0 +1,82 @@
+name: IMG-01C photo identity and regression audit
+
+on:
+  push:
+    branches:
+      - feat/img-01c-poco-fundo-access
+    paths:
+      - .github/workflows/img-01c-verify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  img01c-focused:
+    runs-on: ubuntu-latest
+    timeout-minutes: 23
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Check JavaScript syntax
+        run: |
+          node --check app.js
+          node --check attraction-photos.js
+          node --check tests/audit-attraction-images.cjs
+          node --check tests/audit-img01b-licensed-photos.cjs
+          node --check tests/audit-img01c-poco-fundo.cjs
+      - name: Validate all attraction pages, galleries and licensed photos
+        run: |
+          node tests/audit-attraction-generator.cjs
+          node tests/audit-reconciled-attractions.cjs
+          node tests/audit-attraction-images.cjs
+          node tests/audit-img01b-licensed-photos.cjs
+          node tests/audit-img01c-poco-fundo.cjs
+          node tests/audit-attraction-pages.cjs
+          node tests/audit-discovery-hub.cjs
+          node tests/audit-category-hubs.cjs
+          node tests/audit-sitemap.cjs
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+      - name: Browser photos: mobile, desktop and Hebrew RTL
+        run: npx playwright test tests/img01b-modal.spec.cjs --trace=off
+      - name: Confirm inherited failures at pre-IMG-01C main
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add --detach /tmp/img01c-base 993a602def90a6bb7084d75b179711309cc6dc9d
+          for test in tests/audit-itinerary-hubs.cjs tests/audit-routing-data.cjs tests/audit-i18n.cjs; do
+            set +e
+            (cd /tmp/img01c-base && NODE_PATH="$GITHUB_WORKSPACE/node_modules" node "$test") > /tmp/img01c-prev.log 2>&1
+            previous=$?
+            node "$test" > /tmp/img01c-current.log 2>&1
+            current=$?
+            set -e
+            if [ "$previous" -ne 0 ] && [ "$current" -ne 0 ]; then
+              echo "::warning::Previously failing audit remains failing: $test"
+              tail -n 3 /tmp/img01c-current.log
+            elif [ "$previous" -eq 0 ] && [ "$current" -ne 0 ]; then
+              echo "::error::New regression detected in $test"
+              cat /tmp/img01c-current.log
+              exit 1
+            elif [ "$previous" -ne 0 ] && [ "$current" -eq 0 ]; then
+              echo "::notice::Previously failing audit now passes: $test"
+            else
+              echo "Unchanged PASS: $test"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: img01c-photo-browser-evidence
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
