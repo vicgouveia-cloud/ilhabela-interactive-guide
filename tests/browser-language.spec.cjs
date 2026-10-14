@@ -4,8 +4,11 @@ async function visitWithLanguages(page, browserLanguages, storedLanguage = null,
   await page.addInitScript(({ browserLanguages, storedLanguage }) => {
     Object.defineProperty(navigator, 'languages', { configurable: true, get: () => browserLanguages });
     Object.defineProperty(navigator, 'language', { configurable: true, get: () => browserLanguages[0] || '' });
-    localStorage.removeItem('ilhabela_lang');
-    if (storedLanguage !== null) localStorage.setItem('ilhabela_lang', storedLanguage);
+    if (!sessionStorage.getItem('__locale_test_setup')) {
+      localStorage.removeItem('ilhabela_lang');
+      if (storedLanguage !== null) localStorage.setItem('ilhabela_lang', storedLanguage);
+      sessionStorage.setItem('__locale_test_setup', '1');
+    }
   }, { browserLanguages, storedLanguage });
   await page.goto(route);
 }
