@@ -40,7 +40,7 @@ for (const [id, expected] of Object.entries(approved.assignments)) {
 }
 for (const [imagePath, gitBlobSha] of Object.entries(approved.blobs)) {
   const bytes = fs.readFileSync(path.join(ROOT, imagePath));
-  const digest = createHash('sha1').update('blob ' + bytes.length + '\\0').update(bytes).digest('hex');
+  const digest = createHash('sha1').update('blob ' + bytes.length + '\0').update(bytes).digest('hex');
   assert.equal(digest, gitBlobSha, imagePath + ': approved photo binary changed');
 }
 
