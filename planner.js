@@ -834,6 +834,10 @@ function renderPlannerLegEstimate(from, to) {
 }
 
 function renderSummary() {
+  // Preserve intentional disclosure choices when a day, mode or route change rerenders the summary.
+  const previousDetails = document.getElementById('planner-summary-list');
+  const openSections = Object.fromEntries(['planner-transport-details', 'planner-organize-details']
+    .map(id => [id, !!previousDetails?.querySelector(`[id="${id}"]`)?.open]));
   const mapHint = document.getElementById('planner-origin-map-hint');
   mapHint.hidden = !plannerOriginPickMode || tripSelection.length === 0;
   mapHint.textContent = t('plannerOriginMapInstruction').replace('{n}', activeTripDay);
@@ -874,7 +878,7 @@ function renderSummary() {
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
-  html += `<h3 class="planner-edit-heading">${t('plannerOrganizePlaces')}</h3>`;
+  html += `<details id="planner-organize-details" class="rounded-2xl border border-black/10 bg-white px-4 py-3 my-3"><summary class="cursor-pointer text-sm font-extrabold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">${t('plannerOrganizePlaces')}</summary><div class="pt-3 space-y-2">`;
   displaySpots.forEach((spot, index) => {
     const id = spot.id;
     const tr = getSpotTranslation(spot);
@@ -906,7 +910,12 @@ function renderSummary() {
       </div>
     `;
   });
+  html += `</div></details>`;
   listContainer.innerHTML = html;
+  for (const [id, wasOpen] of Object.entries(openSections)) {
+    const details = listContainer.querySelector(`[id="${id}"]`);
+    if (details) details.open = wasOpen;
+  }
   initPlannerMap();
 }
 
@@ -983,6 +992,17 @@ function formatPlannerRange(min, max) {
   return min === max ? formatPlannerMinutes(min) : `${formatPlannerMinutes(min)}–${formatPlannerMinutes(max)}`;
 }
 
+const plannerTransportDisclosureCopy = {
+  pt: 'Detalhes do transporte',
+  en: 'Transport details',
+  es: 'Detalles del transporte',
+  fr: 'Détails du transport',
+  he: 'פרטי התחבורה'
+};
+Object.entries(plannerTransportDisclosureCopy).forEach(([lang, label]) => {
+  translations[lang].plannerTransportDetails = label;
+});
+
 function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const orderedRoadSpots = getOptimizedRouteSpots(roadSpots);
   const travelModes = [
@@ -1029,17 +1049,11 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
       <div id="planner-routing-panel" class="rounded-2xl border border-black/10 bg-white p-4 space-y-3">
         ${modeSelector}
         ${[...roadSpots, ...specialSpots].map(spot => plannerAccessNotice(spot) ? `<p class="text-xs text-primary"><strong>${getSpotTranslation(spot).title}:</strong> ${plannerAccessNotice(spot)}</p>` : '').join('')}
-        <button type="button" onclick="plannerDownloadOffline()" class="px-3 py-2 rounded-xl border text-xs font-bold">${t('plannerOfflineDownload')}</button>
-        <p class="text-xs text-on-surface-variant">${t('plannerOfflineHint')}</p>
         <div class="flex items-center justify-between gap-3">
-          <div>
-            <h3 class="text-sm font-extrabold text-primary">${t('plannerRouteSection')} · ${getPlannerTravelModeLabel(plannerTravelMode)}</h3>
-            <p class="text-xs text-on-surface-variant">${roadNames.length ? roadNames.join(' · ') : t('plannerNoRoadStops')}</p>
-          </div>
-          <span class="material-symbols-outlined text-secondary">route</span>
+          <h3 class="text-sm font-extrabold text-primary">${t('plannerRouteSection')} · ${getPlannerTravelModeLabel(plannerTravelMode)}</h3>
+          <span class="material-symbols-outlined text-secondary" aria-hidden="true">route</span>
         </div>
         ${routeStats}
-        ${visitStats}
         <div class="flex flex-wrap gap-2">
           ${isValidPlannerOrigin(plannerOrigin) ? `<button type="button" onclick="saveActiveDayOrigin(null)" class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary">${t('plannerClearOrigin')}</button>
           <label class="px-3 py-2 rounded-xl border border-black/10 bg-white text-xs font-bold text-primary inline-flex items-center gap-2">
@@ -1052,6 +1066,15 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
           ${mapsButtons}
         </div>
         ${roadSpots.length > 4 ? `<p class="text-[11px] text-tertiary">${t('plannerGoogleLimit')}</p>` : ''}
+        <details id="planner-transport-details" class="rounded-xl border border-black/10 bg-surface-container/30 px-3 py-2">
+          <summary class="cursor-pointer text-xs font-extrabold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">${t('plannerTransportDetails')}</summary>
+          <div class="pt-3 space-y-2">
+            <p class="text-xs text-on-surface-variant">${roadNames.length ? roadNames.join(' · ') : t('plannerNoRoadStops')}</p>
+            ${visitStats}
+            <button type="button" onclick="plannerDownloadOffline()" class="px-3 py-2 rounded-xl border text-xs font-bold">${t('plannerOfflineDownload')}</button>
+            <p class="text-xs text-on-surface-variant">${t('plannerOfflineHint')}</p>
+          </div>
+        </details>
       </div>
       ${specialSpots.length ? `
         <div class="rounded-2xl border border-black/10 bg-surface-container/40 p-4">
