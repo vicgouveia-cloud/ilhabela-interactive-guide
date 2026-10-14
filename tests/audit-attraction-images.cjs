@@ -53,10 +53,10 @@ const categories = Object.fromEntries(['praias', 'cachoeiras', 'trilhas'].map(id
 const itinerary = fs.readFileSync(path.join(ROOT, 'roteiros/3-dias/index.html'), 'utf8');
 const itineraryIds = new Set(['mirante-do-piuva', 'praia-do-juliao', 'praia-da-feiticeira', 'praia-do-curral', 'baia-de-castelhanos', 'praia-do-bonete', 'praia-da-armacao', 'praia-do-sino', 'praia-do-jabaquara', 'centro-historico-vila']);
 function imageForCard(html, id) {
-  const card = [...html.matchAll(/<article\\b[^>]*>[\\s\\S]*?<\\/article>/g)]
+  const card = [...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g)]
     .map(match => match[0])
     .find(article => article.includes('href="/lugares/' + id + '/"'));
-  return card?.match(/<img\\b[^>]*\\bsrc="([^"]+)"/)?.[1] ?? null;
+  return card?.match(/<img\b[^>]*\bsrc="([^"]+)"/)?.[1] ?? null;
 }
 
 for (const spot of spots) {
