@@ -30,6 +30,7 @@ for (const spot of spots) {
   if (known) {
     assert.equal(spot.image, known.images[0], spot.id + ': shared photo not applied');
     assert.deepEqual(Array.from(spot.images), Array.from(known.images), spot.id + ': gallery changed');
+    for (const galleryImage of known.images) assert(fs.existsSync(path.join(ROOT, galleryImage)), spot.id + ': missing gallery asset ' + galleryImage);
     assert.equal(spot.photoCredit, known.credit, spot.id + ': verified credit changed');
     assert.equal(spot.photoSource, known.source, spot.id + ': verified source changed');
   } else {
