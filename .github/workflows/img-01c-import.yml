@@ -1,0 +1,66 @@
+name: IMG-01C import licensed Poço Fundo access photo
+
+on:
+  push:
+    branches:
+      - feat/img-01c-poco-fundo-access
+    paths:
+      - .github/workflows/img-01c-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-licensed-photo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Verify and convert location-specific Commons source
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e assets/images/cachoeira-do-poco-fundo-acesso_commons.webp
+          curl -fsSL --retry 3 --connect-timeout 12 --max-time 120 \
+            -A 'IlhabelaTripPhotoSourceReview/1.0 (https://ilhabelatrip.com; Wikimedia Commons attribution)' \
+            -o /tmp/img01c-poco-fundo-access.jpg \
+            'https://upload.wikimedia.org/wikipedia/commons/b/b6/Trilha_do_Po%C3%A7o_Fundo.jpg'
+          python - <<'PY'
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          source = Path('/tmp/img01c-poco-fundo-access.jpg')
+          destination = Path('assets/images/cachoeira-do-poco-fundo-acesso_commons.webp')
+          assert source.stat().st_size > 50000
+          with Image.open(source) as im:
+              im.verify()
+          with Image.open(source) as im:
+              assert im.format == 'JPEG', im.format
+              rgb = ImageOps.exif_transpose(im).convert('RGB')
+              assert rgb.width >= 960 and rgb.height >= 720, (rgb.width, rgb.height)
+              rgb.thumbnail((1200, 900), Image.Resampling.LANCZOS)
+              rgb.save(destination, 'WEBP', quality=84, method=6)
+          with Image.open(destination) as im:
+              im.verify()
+          assert destination.stat().st_size > 20000
+          print(f'Verified CC BY-SA 4.0 source converted: {destination} ({destination.stat().st_size} bytes)')
+          PY
+      - name: Commit only one new photo to IMG-01C feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feat/img-01c-poco-fundo-access'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/images/cachoeira-do-poco-fundo-acesso_commons.webp
+          git diff --cached --check
+          test "$(git diff --cached --name-only)" = 'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp'
+          git commit -m 'assets(img-01c): add location-verified Poço Fundo access photograph'
+          git push origin HEAD:refs/heads/feat/img-01c-poco-fundo-access
