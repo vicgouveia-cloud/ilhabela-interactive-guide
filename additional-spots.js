@@ -2706,6 +2706,7 @@ const servicesData = [
   {
     id: 'la-gloria-house',
     category: 'stay',
+    featured: true,
     name: 'La Gloria House',
     baseLocation: { nearSpotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
