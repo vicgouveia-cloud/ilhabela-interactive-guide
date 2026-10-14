@@ -32,8 +32,23 @@ jobs:
           ATTRACTION_OUTPUT_DIR="$output" node scripts/generate-attraction-pages.cjs
           cp "$output/praia-do-pinto/index.html" lugares/praia-do-pinto/index.html
           cp "$output/praia-da-pacuiba/index.html" lugares/praia-da-pacuiba/index.html
-          node scripts/generate-discovery-hub.cjs
-          node scripts/generate-category-hubs.cjs
+          # Existing discovery generator on main references undefined accessModes.
+          # Keep approved hub structure byte-identical except these two photo URLs.
+          python - <<'PY'
+          from pathlib import Path
+          replacements = {
+              'praia-do-pinto': 'assets/images/praia-do-pinto_commons.webp',
+              'praia-da-pacuiba': 'assets/images/praia-da-pacuiba-costao_commons.webp'
+          }
+          for page in (Path('o-que-fazer/index.html'), Path('praias/index.html')):
+              data = page.read_text(encoding='utf-8')
+              for slug, new_image in replacements.items():
+                  expected = f'<a class="image" href="/lugares/{slug}/"><img src="/assets/images/attraction-placeholder.svg"'
+                  updated = f'<a class="image" href="/lugares/{slug}/"><img src="/{new_image}"'
+                  assert data.count(expected) == 1, f'Wrong original card state: {page}: {slug}'
+                  data = data.replace(expected, updated, 1)
+              page.write_text(data, encoding='utf-8')
+          PY
           git diff --exit-code -- cachoeiras/index.html trilhas/index.html
           git add -- lugares/praia-do-pinto/index.html lugares/praia-da-pacuiba/index.html o-que-fazer/index.html praias/index.html
           git diff --cached --check
