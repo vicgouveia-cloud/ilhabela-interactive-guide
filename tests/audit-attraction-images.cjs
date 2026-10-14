@@ -28,7 +28,7 @@ const spots = vm.runInContext('touristSpots', shared);
 const verified = vm.runInContext('verifiedPhotoLibrary', shared);
 const original = new Map(Array.from(before, spot => [spot.id, spot]));
 assert.equal(spots.length, 50, 'expected 50 attractions');
-assert.equal(Object.keys(verified).length, 24, 'preserve all 24 existing verified photo records');
+assert.equal(Object.keys(verified).length, 26, 'preserve 24 prior photos and add exactly two licensed IMG-01B records');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
 const absolute = value => 'https://ilhabelatrip.com/' + value.replace(/^\//, '');
 const discovery = fs.readFileSync(path.join(ROOT, 'o-que-fazer/index.html'), 'utf8');
@@ -63,16 +63,21 @@ for (const spot of spots) {
     assert(html.includes('Foto: <a href="' + esc(spot.photoSource) + '"'), spot.id + ': missing source');
     assert(html.includes(esc(spot.photoCredit)), spot.id + ': missing credit');
   }
-  const card = '<img src="/' + esc(spot.image) + '" alt="' + esc(spot.translations.pt.title) + '" loading="lazy">';
-  assert(discovery.includes(card), spot.id + ': discovery hub differs');
-  if (categories[spot.category]) assert(categories[spot.category].includes(card), spot.id + ': category hub differs');
-  if (itineraryIds.has(spot.id)) assert(itinerary.includes(card), spot.id + ': itinerary hub differs');
+  // Test the file attached to this attraction, not possibly older localized alt copy.
+  function imageForCard(html) {
+    const card = [...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g)]
+      .map(match => match[0]).find(article => article.includes('href="/lugares/' + spot.id + '/"'));
+    return card?.match(/<img\b[^>]*\bsrc="([^"]+)"/)?.[1] ?? null;
+  }
+  assert.equal(imageForCard(discovery), '/' + spot.image, spot.id + ': discovery hub differs');
+  if (categories[spot.category]) assert.equal(imageForCard(categories[spot.category]), '/' + spot.image, spot.id + ': category hub differs');
+  if (itineraryIds.has(spot.id)) assert.equal(imageForCard(itinerary), '/' + spot.image, spot.id + ': itinerary hub differs');
 }
 // The specifically licensed Mirante do Coração attribution stays untouched.
 const mirante = fs.readFileSync(path.join(ROOT, 'lugares/mirante-do-coracao/index.html'), 'utf8');
 assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'specific photo license missing');
 // These have no approved replacements yet; photo search is deliberately out of scope for IMG-01A.
-for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-do-pinto','praia-da-ponta-azeda','praia-da-pacuiba','poco-do-furado','cachoeira-do-poco-fundo']) {
+for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','cachoeira-do-poco-fundo','mirante-do-baepi','mirante-do-morro-da-cruz','mirante-dos-barreiros']) {
   assert.equal(spots.find(s=>s.id===id).image, original.get(id).image, id + ': placeholder silently replaced');
 }
-console.log('IMG-01A image consistency: 50 attraction pages, 24 verified galleries, metadata, hubs and preserved photos OK.');
+console.log('IMG-01B image consistency: 50 attraction pages, 26 verified photo records, metadata, hubs and eight pending placeholders OK.');
