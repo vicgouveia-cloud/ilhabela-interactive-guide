@@ -9,6 +9,19 @@ const load = files => {
   for (const file of files) vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), ctx, { filename: file });
   return ctx;
 };
+const index = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
+const scriptOrder = ['data.js?v=', 'additional-spots.js?v=', 'attraction-photos.js?v=', 'app.js?v='];
+let lastPosition = -1;
+for (const marker of scriptOrder) {
+  const position = index.indexOf(marker);
+  assert(position > lastPosition, 'browser script order missing or wrong: ' + marker);
+  lastPosition = position;
+}
+assert(!fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8').includes('const verifiedPhotoLibrary ='), 'old photo library still duplicated in app.js');
+for (const file of ['generate-attraction-pages.cjs','generate-discovery-hub.cjs','generate-category-hubs.cjs','generate-itinerary-hubs.cjs']) {
+  assert(fs.readFileSync(path.join(ROOT, 'scripts', file), 'utf8').includes("'attraction-photos.js'"), 'generator missing shared library: ' + file);
+}
+
 const before = vm.runInContext('touristSpots', load(['data.js', 'additional-spots.js']));
 const shared = load(['data.js', 'additional-spots.js', 'attraction-photos.js']);
 const spots = vm.runInContext('touristSpots', shared);
