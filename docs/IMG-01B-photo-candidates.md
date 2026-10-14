@@ -48,3 +48,31 @@
 4. Executar auditorias e testes, visualizar preview em mobile e desktop, conferir 5 idiomas/RTL e solicitar liberação separada de produção.
 
 Esta pesquisa não constitui confirmação de licença em sites que apenas exibem fotografias.
+
+
+## Revisão direcionada aos dez locais solicitados (14/10/2026)
+
+Nesta rodada, `main` e os arquivos de imagens **não foram modificados**. A tabela distingue fotografia editorialmente útil de licença autorizada para incorporação.
+
+| Atração | Fotografia/fonte específica | Direitos | Decisão editorial |
+| --- | --- | --- | --- |
+| Praia dos Barreiros | [Galeria Arquipélago](https://arquipelagoilhabela.com.br/praia-do-barreiros/) (Fernanda Lupo e Márcio Bortolusso); [Praias 360](https://www.praias-360.com.br/sao-paulo/Ilhabela/praia-do-barreiros) | Direitos não liberados | Selecionar imagem da orla, pedir autorização. |
+| Praia de Santa Tereza | [Galeria Arquipélago](https://arquipelagoilhabela.com.br/praia-de-santa-teresa/) (Fernanda Lupo e Márcio Bortolusso); [Tudo Em Ilhabela](https://ilhabela.tudoem.com.br/turismo/2025/03/30/praia-de-santa-tereza) | Direitos não liberados | Preferir imagem com canoas de pesca na praia. |
+| Praia do Pinto | [Galeria Arquipélago](https://arquipelagoilhabela.com.br/praia-do-pinto/); [Melhores Destinos](https://guia.melhoresdestinos.com.br/praia-do-pinto-229-6293-l.html) | Direitos não liberados | Selecionar vista panorâmica da areia/orla, não apenas píer se houver opção melhor. |
+| Praia da Ponta Azeda | [Galeria Arquipélago](https://arquipelagoilhabela.com.br/praia-da-ponta-azeda/); [Melhores Destinos](https://guia.melhoresdestinos.com.br/praia-da-ponta-azeda-229-6294-l.html) | Direitos não liberados | Preferir praia e faixa de areia, não foto de praia vizinha. |
+| Praia da Pacuíba | [Costão aéreo do Pacuíba, João D'Andretta](https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Jo%C3%A3o_Paulo_Marques_DAndretta_(10).jpg) | **CC BY-SA 4.0**, autoria, coordenada documentadas | Pode servir de imagem secundária ou hero *do costão* com legenda precisa. Como não mostra a faixa de areia, avaliar antes de escolher como imagem principal. Fonte alternativa com praia: [Visite Ilhabela](https://visiteilhabela.com.br/lugar/praia-da-pacuiba/), sem licença aberta identificada. |
+| Poço do Furado | [Visite Ilhabela – Parque Municipal das Cachoeiras](https://visiteilhabela.com.br/lugar/parque-municipal-das-cachoeiras/) foto indicada como Poço do Furado, crédito Turismo Ilhabela | Direitos não liberados | Não confundir com a queda da antiga usina nem com os cinco poços da trilha da Água Branca. |
+| Mirante do Baepi | [Vista na trilha do Pico do Baepi](https://pt.wikiloc.com/trilhas-trekking/pico-baepi-ilhabela-29050902) | Direitos não liberados | O ponto do catálogo é um **mirante no início da trilha**, não o cume; não usar fotos do cume como hero sem confirmar se o mesmo ponto é retratado. |
+| Mirante do Morro da Cruz | [10 mirantes Ilhabela.com.br](https://www.ilhabela.com.br/dicas/10-mirantes-e-lugares-incriveis-para-fotos-em-ilhabela/?p=9455) | Direitos não liberados | Mirante na região Perequê/Itaguaçu: não usar fotos do Morro da Cruz de Florianópolis ou outras cidades. |
+| Mirante dos Barreiros | [Descrição e fotos — Alemão Beach Ilhabela](https://alemaobeachilhabela.com.br/mirantes-de-ilhabela-para-registrar-fotos-inesqueciveis/); [Tripadvisor Mirante do Barreiro](https://www.tripadvisor.com/Attraction_Review-g609135-d7238247-Reviews-Mirante_do_Barreiro-Ilhabela_State_of_Sao_Paulo.html) | Direitos não liberados | Confirmar enquadramento/posição do mirante na Av. Luís Massa, ao norte da Vila. |
+| Cachoeira do Poço Fundo | [Cachoeira Bonete 01](https://commons.wikimedia.org/wiki/File:Cachoeira_Bonete_-_Ilhabela-SP_01.jpg) e [02](https://commons.wikimedia.org/wiki/File:Cachoeira_Bonete_-_Ilhabela-SP_02.jpg), Thynane Janaina Sobral de Laia | **CC BY-SA 4.0**, mas sem identificação explícita no arquivo como *Poço Fundo* | Checar com referência local se são exatamente a cachoeira a 10 min da Praia do Bonete antes de vincular. [Guia específico](https://www.ilhabela.com.br/cachoeiras/cachoeira-do-poco-fundo) confirma a atração. |
+
+### Critérios de decisão para implementação IMG-01B
+
+- **Candidata legal e geograficamente documentada:** Pacuíba (vista do costão), mas pendente de aprovação do enquadramento como hero.
+- **Candidatas com CC e identidade ainda incerta:** Cachoeira Bonete 01/02 — não associar automaticamente ao Poço Fundo.
+- **Candidatas visualmente promissoras mas com reprodução sem autorização comprovada:** demais atrações; primeiro obter permissão ou arquivo próprio.
+- **Mirante do Baepi:** não confundir o mirante inicial com fotos do cume, ainda que sejam sob licença CC.
+- Preservar o módulo de fotos compartilhadas do IMG-01A, créditos, licença, origem e metadados. Não ativar foto de terceiros apenas porque a página é pública.
+
+Próximo artefato previsto: prévia IMG-01B **somente com imagens liberadas e geograficamente verificadas**; nenhuma alteração de `main` sem homologação.
