@@ -25,7 +25,40 @@ const verifiedPhotoLibrary = {
   'pico-de-sao-sebastiao': { images: ['assets/images/pico-de-sao-sebastiao_verified.jpg'], credit: 'Grupo IMS Ilhabela · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela.jpg' },
   'ponto-baleias-canal': { images: ['assets/images/ponto-baleias-canal_verified.jpg'], credit: 'Projeto Baleia à Vista · Ilhabela.com.br', source: 'https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/' },
   'naufragio-aymore': { images: ['assets/images/naufragio-aymore_verified.jpg'], credit: 'Acervo Reserving · mergulho em naufrágios de Ilhabela', source: 'https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ' },
-  'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' }
+  'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' },
+  // IMG-01B: geographically identified and CC BY-SA 4.0 licensed; assets added on this feature branch only.
+  'praia-do-pinto': {
+    images: ['assets/images/praia-do-pinto_commons.webp'],
+    credit: 'Kathryn elizabeth loba collins · Wikimedia Commons',
+    source: 'https://commons.wikimedia.org/wiki/File:Praia_do_pinto_ilhabela_1957388_4024779116035_1551329815_n.jpg',
+    license: 'CC BY-SA 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    provenance: 'Wikimedia Commons: Praia do Pinto, Ilhabela; own work, 25 September 2012; CC BY-SA 4.0.',
+    adaptation: 'Imagem convertida para WebP.',
+    caption: {
+      pt: 'Vista da orla da Praia do Pinto, fotografada a partir do mar.',
+      en: 'View of Pinto Beach shoreline, photographed from the sea.',
+      fr: 'Vue du littoral de la plage do Pinto, photographiée depuis la mer.',
+      es: 'Vista de la costa de la playa do Pinto, fotografiada desde el mar.',
+      he: 'מבט על חוף פינטו, כפי שצולם מהים.'
+    }
+  },
+  'praia-da-pacuiba': {
+    images: ['assets/images/praia-da-pacuiba-costao_commons.webp'],
+    credit: "João D'Andretta · Wikimedia Commons",
+    source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Jo%C3%A3o_Paulo_Marques_DAndretta_(10).jpg',
+    license: 'CC BY-SA 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    provenance: "Wikimedia Commons: rocky shoreline of Praia da Pacuíba, GPS -23.725257, -45.317138; João D'Andretta, 27 July 2022; CC BY-SA 4.0.",
+    adaptation: 'Imagem redimensionada e convertida para WebP.',
+    caption: {
+      pt: 'Vista aérea do costão rochoso na região da Praia da Pacuíba; a faixa de areia não aparece na foto.',
+      en: 'Aerial view of the rocky shoreline near Pacuíba Beach; the sandy beach is not shown.',
+      fr: 'Vue aérienne de la côte rocheuse près de la plage da Pacuíba ; la plage de sable est hors champ.',
+      es: 'Vista aérea de la costa rocosa cerca de la playa da Pacuíba; la franja de arena no aparece.',
+      he: 'מבט אווירי על החוף הסלעי ליד חוף פקואיבה; רצועת החול אינה נראית בתמונה.'
+    }
+  }
 };
 
 touristSpots.forEach(spot => {
@@ -35,5 +68,10 @@ touristSpots.forEach(spot => {
   spot.images = verified.images;
   spot.photoCredit = verified.credit;
   spot.photoSource = verified.source;
+  if (verified.license) spot.photoLicense = verified.license;
+  if (verified.licenseUrl) spot.photoLicenseUrl = verified.licenseUrl;
+  if (verified.provenance) spot.photoProvenance = verified.provenance;
+  if (verified.adaptation) spot.photoAdaptation = verified.adaptation;
+  if (verified.caption) spot.photoCaption = verified.caption;
 });
 
