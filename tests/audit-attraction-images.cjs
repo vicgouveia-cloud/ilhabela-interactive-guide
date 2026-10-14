@@ -28,6 +28,22 @@ const shared = load(['data.js', 'additional-spots.js', 'attraction-photos.js']);
 const spots = vm.runInContext('touristSpots', shared);
 const verified = vm.runInContext('verifiedPhotoLibrary', shared);
 const original = new Map(Array.from(before, spot => [spot.id, spot]));
+const approved = JSON.parse(fs.readFileSync(path.join(ROOT, 'tests/approved-attraction-photo-baseline.json'), 'utf8'));
+assert.equal(approved.sourceMain, 'eb8fd9cde593348e2e8199c2b1cd4279dd71acbf');
+for (const [id, expected] of Object.entries(approved.assignments)) {
+  const spot = spots.find(item => item.id === id);
+  assert(spot, 'approved attraction missing: ' + id);
+  const images = spot.images?.length ? Array.from(spot.images) : [spot.image];
+  assert.deepEqual(images, expected.images, id + ': approved photo assignment/gallery changed');
+  assert.equal(spot.photoCredit || null, expected.credit, id + ': approved photo credit changed');
+  assert.equal(spot.photoSource || null, expected.source, id + ': approved photo source changed');
+}
+for (const [imagePath, gitBlobSha] of Object.entries(approved.blobs)) {
+  const bytes = fs.readFileSync(path.join(ROOT, imagePath));
+  const digest = createHash('sha1').update('blob ' + bytes.length + '\\0').update(bytes).digest('hex');
+  assert.equal(digest, gitBlobSha, imagePath + ': approved photo binary changed');
+}
+
 assert.equal(spots.length, 50, 'expected 50 attractions');
 assert.equal(Object.keys(verified).length, 24, 'preserve all 24 existing verified photo records');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
@@ -105,4 +121,4 @@ assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'spe
 for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-do-pinto','praia-da-ponta-azeda','praia-da-pacuiba','poco-do-furado','cachoeira-do-poco-fundo']) {
   assert.equal(spots.find(s=>s.id===id).image, original.get(id).image, id + ': placeholder silently replaced');
 }
-console.log('IMG-01A image consistency: 50 attraction pages, 24 verified galleries, metadata, hubs and preserved photos OK.');
+console.log('IMG-01A image consistency: 50 attraction pages, 24 verified galleries, 36 approved attraction assignments, 51 protected assets, metadata and hubs OK.');
