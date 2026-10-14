@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '..');
 const BASE = (process.env.SITE_URL || 'https://ilhabelatrip.com').replace(/\/$/, '');
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js']) {
+for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
