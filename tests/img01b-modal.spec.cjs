@@ -2,7 +2,8 @@ const { test, expect } = require('@playwright/test');
 
 const photos=[
   {id:'praia-do-pinto',image:'assets/images/praia-do-pinto_commons.webp'},
-  {id:'praia-da-pacuiba',image:'assets/images/praia-da-pacuiba-costao_commons.webp'}
+  {id:'praia-da-pacuiba',image:'assets/images/praia-da-pacuiba-costao_commons.webp'},
+  {id:'cachoeira-do-poco-fundo',image:'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp'}
 ];
 
 for (const spot of photos) for (const width of [390,1440]) for (const lang of ['pt','he']) {
