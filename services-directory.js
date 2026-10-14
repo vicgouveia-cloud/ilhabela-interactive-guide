@@ -237,6 +237,8 @@
       if (limit !== 'all') rows = rows.filter(row => row.distance !== null && row.distance <= Number(limit));
       rows.sort((a, b) => (a.distance ?? 999) - (b.distance ?? 999));
     }
+    // Featured services appear first; retain the existing order within each group.
+    rows.sort((a, b) => Number(Boolean(b.service.featured)) - Number(Boolean(a.service.featured)));
 
     const status = document.getElementById('services-page-status');
     if (status) {
