@@ -1,6 +1,6 @@
 const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
 const ROOT=path.resolve(__dirname,'..');const context=vm.createContext({console});
-for(const file of ['data.js','additional-spots.js'])vm.runInContext(fs.readFileSync(path.join(ROOT,file),'utf8'),context,{filename:file});
+for(const file of ['data.js','additional-spots.js', 'attraction-photos.js'])vm.runInContext(fs.readFileSync(path.join(ROOT,file),'utf8'),context,{filename:file});
 const spots=vm.runInContext('touristSpots',context);
 const esc=v=>String(v??'').replace(/[&<>"']/g,ch=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const plan={
