@@ -100,6 +100,7 @@ for (const spot of spots) {
   const paths = spot.images?.length ? spot.images : [spot.image];
   for (const imagePath of new Set(paths)) {
     assert(fs.existsSync(path.join(ROOT, imagePath)), spot.id + ': missing photo asset ' + imagePath);
+    if (imagePath === 'assets/images/attraction-placeholder.svg') continue; // Generic pending placeholders are deliberately shared.
     let hash = hashedPaths.get(imagePath);
     if (!hash) {
       hash = createHash('sha256').update(fs.readFileSync(path.join(ROOT, imagePath))).digest('hex');
