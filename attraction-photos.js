@@ -20,7 +20,7 @@ const verifiedPhotoLibrary = {
   'cachoeira-dos-tres-tombos': { images: ['assets/images/cachoeira-dos-tres-tombos_verified.jpg'], credit: 'Virto.Photo · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Cachoeira_dos_Tr%C3%AAs_Tombos.jpg' },
   'cachoeira-da-friagem': { images: ['assets/images/cachoeira-da-friagem_verified.webp'], credit: 'Trilhabela', source: 'https://trilhabela.com.br/passeio/cachoeira-da-friagem-ilhabela/' },
   'trilha-da-agua-branca': { images: ['assets/images/trilha-da-agua-branca_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/' },
-  'mirante-do-coracao': { images: ['assets/images/mirante-do-coracao_verified.jpg'], credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg' },
+  'mirante-do-coracao': { images: ['assets/images/mirante-do-coracao_verified.jpg'], credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg', license: 'CC BY-SA 4.0', licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/', provenance: 'Existing verifiedPhotoLibrary entry in app.js; asset unchanged since 7b51cccea759c8831c5066ed6ea4fa29b1b65b25', adaptation: 'Imagem redimensionada.' },
   'pico-do-baepi': { images: ['assets/images/pico-do-baepi_verified.jpg'], credit: 'Igorh84 · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg' },
   'pico-de-sao-sebastiao': { images: ['assets/images/pico-de-sao-sebastiao_verified.jpg'], credit: 'Grupo IMS Ilhabela · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela.jpg' },
   'ponto-baleias-canal': { images: ['assets/images/ponto-baleias-canal_verified.jpg'], credit: 'Projeto Baleia à Vista · Ilhabela.com.br', source: 'https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/' },
@@ -35,5 +35,9 @@ touristSpots.forEach(spot => {
   spot.images = verified.images;
   spot.photoCredit = verified.credit;
   spot.photoSource = verified.source;
+  if (verified.license) spot.photoLicense = verified.license;
+  if (verified.licenseUrl) spot.photoLicenseUrl = verified.licenseUrl;
+  if (verified.provenance) spot.photoProvenance = verified.provenance;
+  if (verified.adaptation) spot.photoAdaptation = verified.adaptation;
 });
 
