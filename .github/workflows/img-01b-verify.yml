@@ -1,0 +1,81 @@
+name: IMG-01B licensed attraction photos audit
+
+on:
+  push:
+    branches:
+      - feat/img-01b-missing-attraction-photos
+    paths:
+      - .github/workflows/img-01b-verify.yml
+
+permissions:
+  contents: read
+
+jobs:
+  images-seo-locales:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Check image-related JavaScript syntax
+        run: |
+          node --check attraction-photos.js
+          node --check app.js
+          node --check scripts/generate-attraction-pages.cjs
+          node --check tests/audit-attraction-images.cjs
+          node --check tests/audit-img01b-licensed-photos.cjs
+      - name: Check regenerated static pages and licensed photo metadata
+        run: |
+          node tests/audit-attraction-generator.cjs
+          node tests/audit-reconciled-attractions.cjs
+          node tests/audit-attraction-images.cjs
+          node tests/audit-img01b-licensed-photos.cjs
+          node tests/audit-attraction-pages.cjs
+          node tests/audit-discovery-hub.cjs
+          node tests/audit-category-hubs.cjs
+          node tests/audit-sitemap.cjs
+      - name: Install Chromium and dependencies
+        if: always()
+        run: npx playwright install --with-deps chromium
+      - name: Verify two attractions in browser, mobile and desktop with RTL
+        if: always()
+        run: npx playwright test tests/img01b-modal.spec.cjs --trace=off
+      - name: Original SEO suite (known baseline failures remain visible)
+        if: always()
+        run: npm run test:seo
+      - name: Original five-language i18n audit (baseline comparison)
+        if: always()
+        run: npm run test:audit
+      - name: Verify known inherited audit failures against originating main
+        if: always()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git worktree add --detach /tmp/img01b-original-main eb8fd9cde593348e2e8199c2b1cd4279dd71acbf
+          for test in tests/audit-itinerary-hubs.cjs tests/audit-routing-data.cjs tests/audit-i18n.cjs; do
+            set +e
+            (cd /tmp/img01b-original-main && NODE_PATH="$GITHUB_WORKSPACE/node_modules" node "$test") >/tmp/original-audit-result.log 2>&1
+            result=$?
+            set -e
+            if [ "$result" -ne 0 ]; then
+              echo "::warning::Original main reproduces failure in $test"
+              tail -n 7 /tmp/original-audit-result.log
+            else
+              echo "::notice::Original main passes $test; branch failure would require investigation"
+            fi
+          done
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: img01b-photo-browser-evidence
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 14
