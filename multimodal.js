@@ -245,13 +245,20 @@ const nauticalExperienceProfiles = Object.fromEntries(
   })
 );
 
+// Keep capability validation separate from editorial preference. A recommended
+// provider is shown alone only when it already qualifies for this specific profile.
+function preferRecommendedPlannerProviders(eligibleProviders) {
+  const recommended = eligibleProviders.filter(provider => provider.featured === true);
+  return recommended.length ? recommended : eligibleProviders;
+}
+
 function getNauticalExperienceOptionsForSpot(spotId) {
   return Object.entries(nauticalExperienceProfiles)
     .filter(([, profile]) => profile.spotIds.includes(spotId))
     .map(([id, profile]) => ({
       id,
       ...profile,
-      providers: servicesData.filter(service => {
+      providers: preferRecommendedPlannerProviders(servicesData.filter(service => {
         const modes = service.serviceArea?.modes || [];
         const verifiedModes = service.serviceArea?.verifiedModes || [];
         const activities = service.activities || [];
@@ -259,7 +266,7 @@ function getNauticalExperienceOptionsForSpot(spotId) {
           modes.includes(profile.requiredMode) &&
           verifiedModes.includes(profile.requiredMode) &&
           activities.includes(profile.requiredActivity);
-      })
+      }))
     }));
 }
 
@@ -271,7 +278,7 @@ function getMaritimeRouteProfilesForSpot(spotId) {
 
 function getMaritimeProvidersForProfile(profile) {
   if (!profile) return [];
-  return servicesData.filter(service => {
+  return preferRecommendedPlannerProviders(servicesData.filter(service => {
     const modes = service.serviceArea?.modes || [];
     const activities = service.activities || [];
     const verifiedModes = service.serviceArea?.verifiedModes || [];
@@ -279,7 +286,7 @@ function getMaritimeProvidersForProfile(profile) {
       modes.includes(profile.requiredMode) &&
       verifiedModes.includes(profile.requiredMode) &&
       activities.includes(profile.requiredActivity);
-  });
+  }));
 }
 
 function getMaritimeOptionsForSpot(spotId) {
