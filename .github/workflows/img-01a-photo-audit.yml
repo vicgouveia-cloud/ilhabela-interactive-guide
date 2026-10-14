@@ -33,11 +33,12 @@ jobs:
           node --check tests/audit-reconciled-attractions.cjs
       - name: SEO and generated page regression suite
         run: npm run test:seo
-      - name: Remaining routing and sitemap SEO audits
+      - name: Remaining routing SEO audit
         if: always()
-        run: |
-          node tests/audit-routing-data.cjs
-          node tests/audit-sitemap.cjs
+        run: node tests/audit-routing-data.cjs
+      - name: Sitemap SEO audit
+        if: always()
+        run: node tests/audit-sitemap.cjs
       - name: Internationalization audit
         if: always()
         run: npm run test:audit
@@ -53,6 +54,16 @@ jobs:
             echo "::warning::Itinerary regression reproduces at originating main; outside IMG-01A scope"
           else
             echo "::error::Itinerary failure appears introduced by this branch"
+            exit 1
+          fi
+          set +e
+          (cd /tmp/img-01a-base && node tests/audit-routing-data.cjs)
+          routing_result=$?
+          set -e
+          if [ "$routing_result" -ne 0 ]; then
+            echo "::warning::Routing data audit also fails at originating main; outside IMG-01A scope"
+          else
+            echo "::error::Routing failure appears introduced by this branch"
             exit 1
           fi
           set +e
