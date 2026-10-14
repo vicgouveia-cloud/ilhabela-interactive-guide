@@ -73,7 +73,7 @@ for (const marker of [
   '<img class="hero" src="/'+IMAGE+'"',
   '<meta property="og:image" content="'+full+'">',
   '<meta name="twitter:image" content="'+full+'">',
-  SOURCE, 'CC BY-SA 4.0', LICENSE, newSpot.photoCaption.pt
+  SOURCE, 'CC BY-SA 4.0', LICENSE, newSpot.photoCaption.pt.replace(/'/g,'&#39;')
 ])assert(page.includes(marker),ID+' static page missing '+marker);
 const schema=JSON.parse(page.split('<script type="application/ld+json">')[1].split('</script>')[0]);
 assert.equal(JSON.stringify(schema.image),JSON.stringify([full]));
