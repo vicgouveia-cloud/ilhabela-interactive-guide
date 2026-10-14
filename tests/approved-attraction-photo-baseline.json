@@ -1,0 +1,327 @@
+{
+  "note": "Immutable IMG-01A photo regression fixture from production main; test reference only, never used by runtime or SEO renderers.",
+  "sourceMain": "eb8fd9cde593348e2e8199c2b1cd4279dd71acbf",
+  "assignments": {
+    "baia-de-castelhanos": {
+      "images": [
+        "assets/images/baia-de-castelhanos_verified.jpg",
+        "assets/images/baia-de-castelhanos_verified_2.jpg",
+        "assets/images/mirante-do-coracao_verified.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_de_Castelhanos"
+    },
+    "cachoeira-da-friagem": {
+      "images": [
+        "assets/images/cachoeira-da-friagem_verified.webp"
+      ],
+      "credit": "Trilhabela",
+      "source": "https://trilhabela.com.br/passeio/cachoeira-da-friagem-ilhabela/"
+    },
+    "cachoeira-da-laje": {
+      "images": [
+        "assets/images/cachoeira-da-laje_verified.jpg"
+      ],
+      "credit": "Arthur Grangeiro de Souza · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Arthur_Grangeiro_de_Souza_(165).jpg"
+    },
+    "cachoeira-da-toca": {
+      "images": [
+        "assets/images/cachoeira-da-toca_verified.png"
+      ],
+      "credit": "Miquel Girones · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:ILHABELACACHO.png"
+    },
+    "cachoeira-do-gato": {
+      "images": [
+        "assets/images/cachoeira-do-gato_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/cachoeiras/cachoeira-do-gato/"
+    },
+    "cachoeira-do-paqueta": {
+      "images": [
+        "assets/images/cachoeira-do-paqueta_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/pontos-turisticos/cachoeira-do-paqueta/"
+    },
+    "cachoeira-do-veloso": {
+      "images": [
+        "assets/images/cachoeira-do-veloso_verified.jpg"
+      ],
+      "credit": "Italo Reis · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Cachoeira_do_Veloso,_em_Ilhabela.jpg"
+    },
+    "cachoeira-dos-tres-tombos": {
+      "images": [
+        "assets/images/cachoeira-dos-tres-tombos_verified.jpg"
+      ],
+      "credit": "Virto.Photo · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Cachoeira_dos_Tr%C3%AAs_Tombos.jpg"
+    },
+    "centro-historico-vila": {
+      "images": [
+        "assets/images/centro-historico_verified.jpg"
+      ],
+      "credit": "Sectur Ilhabela",
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15433/centro-historico-de-ilhabela-cultura-gastronomia-e-paisagens-em-um-so-lugar"
+    },
+    "fazenda-engenho-dagua": {
+      "images": [
+        "assets/images/fazenda-engenho-dagua_verified.jpg"
+      ],
+      "credit": "Prefeitura de Ilhabela",
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/17580/fazenda-engenho-dagua-em-ilhabela-um-lugar-de-historia-cultura-e-memoria-preservadas/"
+    },
+    "mirante-do-coracao": {
+      "images": [
+        "assets/images/mirante-do-coracao_verified.jpg"
+      ],
+      "credit": "Louise Cristina Araujo Ferri · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg"
+    },
+    "mirante-do-piuva": {
+      "images": [
+        "assets/images/mirante-do-piuva_verified.jpg"
+      ],
+      "credit": "Prefeitura de Ilhabela",
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15401/10-mirantes-de-ilhabela-para-apreciar-a-vista-do-arquipelago"
+    },
+    "naufragio-aymore": {
+      "images": [
+        "assets/images/naufragio-aymore_verified.jpg"
+      ],
+      "credit": "Acervo Reserving · mergulho em naufrágios de Ilhabela",
+      "source": "https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ"
+    },
+    "pico-de-sao-sebastiao": {
+      "images": [
+        "assets/images/pico-de-sao-sebastiao_verified.jpg"
+      ],
+      "credit": "Grupo IMS Ilhabela · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela.jpg"
+    },
+    "pico-do-baepi": {
+      "images": [
+        "assets/images/pico-do-baepi_verified.jpg"
+      ],
+      "credit": "Igorh84 · Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg"
+    },
+    "piscinas-naturais-do-sul": {
+      "images": [
+        "assets/images/piscinas-naturais_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/trilhas/piscinas-naturais/"
+    },
+    "ponto-baleias-canal": {
+      "images": [
+        "assets/images/ponto-baleias-canal_verified.jpg"
+      ],
+      "credit": "Projeto Baleia à Vista · Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/"
+    },
+    "praia-da-armacao": {
+      "images": [
+        "assets/images/praia-da-armacao_verified.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Cachorro_caminhando_pela_Praia_da_Arma%C3%A7%C3%A3o.jpg"
+    },
+    "praia-da-enchova": {
+      "images": [
+        "assets/images/praia-da-enchova_verified.jpg",
+        "assets/images/praia-da-enchova_verified_2.jpg",
+        "assets/images/praia-da-enchova_verified_3.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-das-enchovas"
+    },
+    "praia-da-feiticeira": {
+      "images": [
+        "assets/images/praia-da-feiticeira_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-da-feiticeira"
+    },
+    "praia-da-fome": {
+      "images": [
+        "assets/images/praia-da-fome_verified.jpg",
+        "assets/images/praia-da-fome_verified_2.jpg",
+        "assets/images/praia-da-fome_verified_3.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_da_Fome_(Ilhabela)"
+    },
+    "praia-da-siriuba": {
+      "images": [
+        "assets/images/praia-da-siriuba_verified.jpg",
+        "assets/images/praia-da-siriuba_verified_2.jpg",
+        "assets/images/praia-da-siriuba_verified_3.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-da-siriuba"
+    },
+    "praia-de-indaiauba": {
+      "images": [
+        "assets/images/praia-de-indaiauba_verified.jpg"
+      ],
+      "credit": "Prefeitura de Ilhabela",
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela"
+    },
+    "praia-do-bonete": {
+      "images": [
+        "assets/images/praia-do-bonete_verified.jpg",
+        "assets/images/praia-do-bonete_verified_2.jpg",
+        "assets/images/praia-do-bonete_verified_3.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_do_Bonete_(Ilhabela)"
+    },
+    "praia-do-curral": {
+      "images": [
+        "assets/images/praia-do-curral_verified.jpg",
+        "assets/images/praia-do-curral_verified_2.jpg",
+        "assets/images/praia-do-curral_verified_3.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_do_Curral_(Ilhabela)"
+    },
+    "praia-do-jabaquara": {
+      "images": [
+        "assets/images/praia-do-jabaquara_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-jabaquara"
+    },
+    "praia-do-juliao": {
+      "images": [
+        "assets/images/praia-do-juliao_verified.jpg",
+        "assets/images/praia-do-juliao_verified_2.jpg",
+        "assets/images/praia-do-juliao_verified_3.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-juliao"
+    },
+    "praia-do-pereque": {
+      "images": [
+        "assets/images/praia-do-pereque_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-pereque"
+    },
+    "praia-do-poco": {
+      "images": [
+        "assets/images/praia-do-poco_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-poco"
+    },
+    "praia-do-portinho": {
+      "images": [
+        "assets/images/praia-do-portinho_verified.jpg"
+      ],
+      "credit": "Marcelo Carbono · Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-portinho"
+    },
+    "praia-do-sino": {
+      "images": [
+        "assets/images/praia-do-sino_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-sino-garapocaia"
+    },
+    "praia-do-veloso": {
+      "images": [
+        "assets/images/praia-do-veloso_verified.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/File:Ilhabela_-_Praia_do_Veloso.jpg"
+    },
+    "praia-grande": {
+      "images": [
+        "assets/images/praia-grande_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-grande/"
+    },
+    "saco-do-eustaquio": {
+      "images": [
+        "assets/images/saco-do-eustaquio_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/praias/praia-do-saco-do-eustaquio/"
+    },
+    "santuario-ilha-das-cabras": {
+      "images": [
+        "assets/images/santuario-ilha-das-cabras_verified.jpg",
+        "assets/images/santuario-ilha-das-cabras_verified_2.jpg",
+        "assets/images/santuario-ilha-das-cabras_verified_3.jpg"
+      ],
+      "credit": "Wikimedia Commons",
+      "source": "https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)"
+    },
+    "trilha-da-agua-branca": {
+      "images": [
+        "assets/images/trilha-da-agua-branca_verified.jpg"
+      ],
+      "credit": "Acervo Ilhabela.com.br",
+      "source": "https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/"
+    }
+  },
+  "blobs": {
+    "assets/images/baia-de-castelhanos_verified.jpg": "21a25537b2cb8dff1a14c1853493162456255d42",
+    "assets/images/baia-de-castelhanos_verified_2.jpg": "b00c294570a7ce558c27803506820a7a23aa00dc",
+    "assets/images/mirante-do-coracao_verified.jpg": "a810503f256bf2e559a2a9f35c73d8fa4271abc9",
+    "assets/images/cachoeira-da-friagem_verified.webp": "d243afa2bbbc50ccc1a58529f5f7019b5384cff1",
+    "assets/images/cachoeira-da-laje_verified.jpg": "28985bd884f9f0e0354c50039cdb8b925455b5c8",
+    "assets/images/cachoeira-da-toca_verified.png": "710aacade8c84e31b394495c335059a2db4525fc",
+    "assets/images/cachoeira-do-gato_verified.jpg": "fac351531b48a04838214b9cae1aa4bb9187fc8f",
+    "assets/images/cachoeira-do-paqueta_verified.jpg": "f9f47d4130c15094b9ad8505c37468e7db84c317",
+    "assets/images/cachoeira-do-veloso_verified.jpg": "114a239b712a03cd7be680f665882bfd327fd358",
+    "assets/images/cachoeira-dos-tres-tombos_verified.jpg": "07595517ece89d5158e4443b334e014ac511ebb8",
+    "assets/images/centro-historico_verified.jpg": "6dc562dd8bac7b91503ec8ff8b186ef7c844a0e8",
+    "assets/images/fazenda-engenho-dagua_verified.jpg": "86c5741fca036e68dfc5a0de4ce242b13281b101",
+    "assets/images/mirante-do-piuva_verified.jpg": "ebf47df60356768f03d52882d7aafa1ddd915fac",
+    "assets/images/naufragio-aymore_verified.jpg": "2db1327a4cf6e4088c73b02684e1f86d7d8b8b9c",
+    "assets/images/pico-de-sao-sebastiao_verified.jpg": "337294c1061e009546853923197e2ac5f994a3e0",
+    "assets/images/pico-do-baepi_verified.jpg": "1ccb7b49548e07935816b850b00253b50f9dc035",
+    "assets/images/piscinas-naturais_verified.jpg": "434d35123611036cc7d24102a990d45a14db9c15",
+    "assets/images/ponto-baleias-canal_verified.jpg": "0e92868ab1ab27fdb00d40d16a91f90772bcadea",
+    "assets/images/praia-da-armacao_verified.jpg": "240e04e24e119b2deafc703e6a85220640b3678a",
+    "assets/images/praia-da-enchova_verified.jpg": "4d260fa0516afc1e4898af6535ce4f549b5229e3",
+    "assets/images/praia-da-enchova_verified_2.jpg": "03068d2f8f52f442da357b35fe810a7c9fcd366b",
+    "assets/images/praia-da-enchova_verified_3.jpg": "975bcecc149b3b489bdf9004bd2dfbe4850ca9d7",
+    "assets/images/praia-da-feiticeira_verified.jpg": "b9b97d3209c9e7575cd8324b112f04b8626c8c63",
+    "assets/images/praia-da-fome_verified.jpg": "f72f29f03212075e347cb4a8af19b3ace9c7bf30",
+    "assets/images/praia-da-fome_verified_2.jpg": "57ce591f39525ec83ba148e761c1c67ee6710819",
+    "assets/images/praia-da-fome_verified_3.jpg": "9b9a939872ba79939f1b7c5ffb982105577381d4",
+    "assets/images/praia-da-siriuba_verified.jpg": "8e82bd37484eb292a28f66ca97cb120889b42388",
+    "assets/images/praia-da-siriuba_verified_2.jpg": "29a911f789a1a946c809b546d493df3dd133f1df",
+    "assets/images/praia-da-siriuba_verified_3.jpg": "14f33aa02d6db810f0e85b480a7eea2d3facffd2",
+    "assets/images/praia-de-indaiauba_verified.jpg": "857adc086c4428d93e887a692bb7797779ea1835",
+    "assets/images/praia-do-bonete_verified.jpg": "62c7ff4bc4c2e816d97047831efcb9c0fdcb3580",
+    "assets/images/praia-do-bonete_verified_2.jpg": "9dce646be6b0ea59604d6988f12374c071689963",
+    "assets/images/praia-do-bonete_verified_3.jpg": "ce52384231f05e4c7c06b7778bcad624d16e6e15",
+    "assets/images/praia-do-curral_verified.jpg": "4cf91a8a5cd3cfafe3616ef24d49a25d0120600e",
+    "assets/images/praia-do-curral_verified_2.jpg": "1e444bfa40660e84ced983efb11112206cda678f",
+    "assets/images/praia-do-curral_verified_3.jpg": "ae91b28590ff13f10d8c5daafc8f59d6d9e21c28",
+    "assets/images/praia-do-jabaquara_verified.jpg": "413a27f056c585bdcc41651a76512e7576465a8c",
+    "assets/images/praia-do-juliao_verified.jpg": "cd9df876d24b2962e39a38ffc8076b2dd71cbf12",
+    "assets/images/praia-do-juliao_verified_2.jpg": "58b30805047688eccd86bd0433fb6eedeb4be6bf",
+    "assets/images/praia-do-juliao_verified_3.jpg": "0d3c7f9cd6c170e7286f6d6f5836b41a62d48a92",
+    "assets/images/praia-do-pereque_verified.jpg": "ed457df4cb9331206a2680af574654c9d0001dd9",
+    "assets/images/praia-do-poco_verified.jpg": "d93a6e1495a50009227e9bb2d21c2bc7d056539c",
+    "assets/images/praia-do-portinho_verified.jpg": "f9c7390bb7a0689de57cacccfaadbdc2705c4e6e",
+    "assets/images/praia-do-sino_verified.jpg": "ba3e183e80fab84baeeff41bb26d5ad4ca78bcb7",
+    "assets/images/praia-do-veloso_verified.jpg": "5d0ecead26a0b6888af309dc8744c906a1485fc8",
+    "assets/images/praia-grande_verified.jpg": "7ce13dd85bbaac22abb3b28d425794574060a58a",
+    "assets/images/saco-do-eustaquio_verified.jpg": "2a8945236bfc0850f1cc218502a2e69bcc94a14c",
+    "assets/images/santuario-ilha-das-cabras_verified.jpg": "c99132018394db305d9a8e7e82608abf7152e02c",
+    "assets/images/santuario-ilha-das-cabras_verified_2.jpg": "7a54b4cc6204e2d5675a969afc8936c9ef2bb62e",
+    "assets/images/santuario-ilha-das-cabras_verified_3.jpg": "7b12aba7901bccfef0a70cc842133eec13c1f572",
+    "assets/images/trilha-da-agua-branca_verified.jpg": "c3f1e8f011c20f5a95cacec57a017b0357705076"
+  }
+}
