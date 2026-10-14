@@ -337,6 +337,15 @@ function renderPlannerProviderActions(provider) {
   return `<div class="flex flex-wrap gap-2 pt-1">${whatsapp}${website}</div>`;
 }
 
+// Native disclosure keeps the operator visible while letting visitors open contact
+// actions only when needed. Critical access/boarding notices remain outside it.
+function renderCompactPlannerProvider(provider) {
+  return `<details class="rounded-lg border border-black/10 bg-white px-3 py-2 group">
+    <summary class="cursor-pointer text-[11px] font-bold text-primary min-h-6 flex items-center justify-between gap-2 focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">${provider.name}<span class="material-symbols-outlined text-[18px] text-secondary group-open:rotate-180" aria-hidden="true">expand_more</span></summary>
+    <div class="pt-2">${renderPlannerProviderActions(provider)}</div>
+  </details>`;
+}
+
 function renderPlannerNauticalExperiences(spots) {
   const options = getNauticalExperienceOptionsForSpots(spots);
   if (!options.length) return '';
@@ -351,9 +360,7 @@ function renderPlannerNauticalExperiences(spots) {
       .filter(Boolean)
       .map(spot => getSpotTranslation(spot).title)
       .join(' · ');
-    const providers = option.providers.map(provider =>
-      `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
-    ).join('');
+    const providers = option.providers.map(renderCompactPlannerProvider).join('');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
       <div class="text-xs font-extrabold text-primary">${labels[option.id] || option.id}</div>
       <div class="text-xs font-semibold text-on-surface-variant">${destinationNames}</div>
@@ -385,9 +392,7 @@ function renderPlannerMaritimeOptions(spots) {
       .filter(Boolean)
       .map(spot => getSpotTranslation(spot).title)
       .join(' · ');
-    const providers = option.providers.map(provider =>
-      `<div class="rounded-lg border border-black/10 bg-white p-2 space-y-2"><div class="text-[11px] font-bold text-primary">${provider.name}</div>${renderPlannerProviderActions(provider)}</div>`
-    ).join('');
+    const providers = option.providers.map(renderCompactPlannerProvider).join('');
     const includesBonete = option.matchingSpotIds.includes('praia-do-bonete');
     const includesCastelhanos = option.matchingSpotIds.includes('baia-de-castelhanos');
     return `<div class="rounded-xl border border-black/10 bg-white p-3 space-y-2">
