@@ -2,6 +2,7 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
+const { createHash } = require('node:crypto');
 
 const ROOT = path.resolve(__dirname, '..');
 const load = files => {
@@ -46,10 +47,18 @@ for (const spot of spots) {
     for (const galleryImage of known.images) assert(fs.existsSync(path.join(ROOT, galleryImage)), spot.id + ': missing gallery asset ' + galleryImage);
     assert.equal(spot.photoCredit, known.credit, spot.id + ': verified credit changed');
     assert.equal(spot.photoSource, known.source, spot.id + ': verified source changed');
+    if (known.license || known.licenseUrl || known.provenance || known.adaptation) {
+      assert.equal(spot.photoLicense, known.license, spot.id + ': verified license changed');
+      assert.equal(spot.photoLicenseUrl, known.licenseUrl, spot.id + ': verified license URL changed');
+      assert.equal(spot.photoProvenance, known.provenance, spot.id + ': verified provenance changed');
+      assert.equal(spot.photoAdaptation, known.adaptation, spot.id + ': adaptation note changed');
+    }
   } else {
     assert.equal(spot.image, existing.image, spot.id + ': unapproved photo changed');
     assert.equal(spot.photoCredit, existing.photoCredit, spot.id + ': existing credit changed');
     assert.equal(spot.photoSource, existing.photoSource, spot.id + ': existing source changed');
+    assert.equal(spot.photoLicense, existing.photoLicense, spot.id + ': unapproved license changed');
+    assert.equal(spot.photoLicenseUrl, existing.photoLicenseUrl, spot.id + ': unapproved license URL changed');
   }
   assert(fs.existsSync(path.join(ROOT, spot.image)), spot.id + ': missing image file ' + spot.image);
   const html = fs.readFileSync(path.join(ROOT, 'lugares', spot.id, 'index.html'), 'utf8');
@@ -68,6 +77,27 @@ for (const spot of spots) {
   if (categories[spot.category]) assert(categories[spot.category].includes(card), spot.id + ': category hub differs');
   if (itineraryIds.has(spot.id)) assert(itinerary.includes(card), spot.id + ': itinerary hub differs');
 }
+// Warn (do not fail) when identical bytes are reused by different attractions.
+// An intentional shared gallery photograph still deserves an explicit editorial review.
+const photoHashes = new Map(), hashedPaths = new Map();
+for (const spot of spots) {
+  const paths = spot.images?.length ? spot.images : [spot.image];
+  for (const imagePath of new Set(paths)) {
+    assert(fs.existsSync(path.join(ROOT, imagePath)), spot.id + ': missing photo asset ' + imagePath);
+    let hash = hashedPaths.get(imagePath);
+    if (!hash) {
+      hash = createHash('sha256').update(fs.readFileSync(path.join(ROOT, imagePath))).digest('hex');
+      hashedPaths.set(imagePath, hash);
+    }
+    if (!photoHashes.has(hash)) photoHashes.set(hash, []);
+    photoHashes.get(hash).push({ id: spot.id, image: imagePath });
+  }
+}
+const sharedBinaryWarnings = [...photoHashes.values()].filter(group => new Set(group.map(item => item.id)).size > 1);
+for (const group of sharedBinaryWarnings) {
+  console.warn('IMG-01A shared-binary warning:', group.map(item => item.id + ' (' + item.image + ')').join(' | '));
+}
+
 // The specifically licensed Mirante do Coração attribution stays untouched.
 const mirante = fs.readFileSync(path.join(ROOT, 'lugares/mirante-do-coracao/index.html'), 'utf8');
 assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'specific photo license missing');
