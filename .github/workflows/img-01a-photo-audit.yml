@@ -33,6 +33,11 @@ jobs:
           node --check tests/audit-reconciled-attractions.cjs
       - name: SEO and generated page regression suite
         run: npm run test:seo
+      - name: Remaining routing and sitemap SEO audits
+        if: always()
+        run: |
+          node tests/audit-routing-data.cjs
+          node tests/audit-sitemap.cjs
       - name: Internationalization audit
         if: always()
         run: npm run test:audit
