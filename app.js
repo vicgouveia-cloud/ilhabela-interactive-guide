@@ -5,7 +5,7 @@ let currentMapLayerKey = 'satellite';
 let mapMarkers = [];
 let mapMarkerCluster = null;
 const mobileMapQuery = window.matchMedia('(max-width: 767px)');
-let currentLang = readStorage('ilhabela_lang', 'pt');
+let currentLang = readStorage('ilhabela_lang', null);
 let currentCategory = 'all';
 let activeAttributes = new Set();
 let searchQuery = '';
@@ -85,6 +85,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // --- I18N SYSTEM ---
 const supportedLanguages = ['pt', 'en', 'fr', 'es', 'he'];
+
+// Respect a saved choice. On the first visit, use the first supported browser language.
+// Unrecognized browser languages fall back to English for international visitors.
+function detectInitialLanguage() {
+  if (supportedLanguages.includes(currentLang)) return currentLang;
+  let browserLanguages = [];
+  try {
+    browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+  } catch { /* Some browsers may restrict language information. */ }
+  for (const language of browserLanguages) {
+    const base = typeof language === 'string' ? language.toLowerCase().split(/[-_]/)[0] : '';
+    if (supportedLanguages.includes(base)) return base;
+  }
+  return 'en';
+}
+currentLang = detectInitialLanguage();
 
 function readStorage(key, fallback) {
   try { return localStorage.getItem(key) || fallback; } catch { return fallback; }
