@@ -1,0 +1,58 @@
+name: IMG-01B regenerate only two photo pages
+
+on:
+  push:
+    branches:
+      - feat/img-01b-missing-attraction-photos
+    paths:
+      - .github/workflows/img-01b-regenerate.yml
+
+permissions:
+  contents: write
+
+jobs:
+  regenerate-affected-pages:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Generate only two affected attraction pages and the two hubs
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$(mktemp -d)"
+          ATTRACTION_OUTPUT_DIR="$output" node scripts/generate-attraction-pages.cjs
+          cp "$output/praia-do-pinto/index.html" lugares/praia-do-pinto/index.html
+          cp "$output/praia-da-pacuiba/index.html" lugares/praia-da-pacuiba/index.html
+          node scripts/generate-discovery-hub.cjs
+          node scripts/generate-category-hubs.cjs
+          git diff --exit-code -- cachoeiras/index.html trilhas/index.html
+          git add -- lugares/praia-do-pinto/index.html lugares/praia-da-pacuiba/index.html o-que-fazer/index.html praias/index.html
+          git diff --cached --check
+          python - <<'PY'
+          import subprocess
+          expected = {'lugares/praia-do-pinto/index.html',
+                      'lugares/praia-da-pacuiba/index.html',
+                      'o-que-fazer/index.html',
+                      'praias/index.html'}
+          changed = set(subprocess.check_output(['git','diff','--cached','--name-only'], text=True).splitlines())
+          assert changed == expected, f'Only four files must change: {changed}'
+          print('Exactly four generated pages changed:', ', '.join(sorted(changed)))
+          PY
+      - name: Commit only the four generated HTML files on IMG-01B branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "feat/img-01b-missing-attraction-photos"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "build(img-01b): sync Pinto and Pacuíba SEO pages and discovery hubs"
+          git push origin HEAD:refs/heads/feat/img-01b-missing-attraction-photos
