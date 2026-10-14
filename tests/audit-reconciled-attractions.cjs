@@ -4,13 +4,12 @@ const path = require('node:path');
 const vm = require('node:vm');
 const ROOT = path.resolve(__dirname, '..');
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js']) {
+for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context);
 }
 const spots = vm.runInContext('touristSpots', context);
 const photos = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/attraction-photo-overrides.json'), 'utf8'));
-const app = fs.readFileSync(path.join(ROOT, 'app.js'), 'utf8');
-const library = vm.runInNewContext(app.slice(app.indexOf('const verifiedPhotoLibrary ='), app.indexOf('touristSpots.forEach')) + '\nverifiedPhotoLibrary;');
+const library = vm.runInContext('verifiedPhotoLibrary', context);
 assert.deepEqual(Object.keys(photos), ['mirante-do-coracao']);
 for (const [id, photo] of Object.entries(photos)) {
   assert.equal(photo.image, library[id].images[0]);
