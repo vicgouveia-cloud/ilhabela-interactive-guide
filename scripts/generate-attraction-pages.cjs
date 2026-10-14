@@ -10,7 +10,7 @@ const photoOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'attracti
 const BASE_URL = process.env.SITE_URL || 'https://ilhabelatrip.com';
 
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js']) {
+for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
@@ -33,7 +33,11 @@ function render(spot) {
   const photo = photoOverrides[spot.id];
   const imagePath = photo?.image || spot.image;
   const image = absolute(imagePath);
-  const photoCredit = photo ? `<p><small>Foto: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Imagem redimensionada.</small></p>` : '';
+  const photoCredit = photo
+    ? `<p><small>Foto: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Imagem redimensionada.</small></p>`
+    : spot.photoCredit && spot.photoSource
+      ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a></small></p>`
+      : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
   const schema = JSON.stringify({
     '@context':'https://schema.org', '@type':'TouristAttraction', name:tr.title,
