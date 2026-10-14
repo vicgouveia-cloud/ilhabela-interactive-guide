@@ -43,7 +43,7 @@ jobs:
           node tests/audit-sitemap.cjs
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
-      - name: Browser photos: mobile, desktop and Hebrew RTL
+      - name: "Browser photos: mobile, desktop and Hebrew RTL"
         run: npx playwright test tests/img01b-modal.spec.cjs --trace=off
       - name: Confirm inherited failures at pre-IMG-01C main
         if: always()
