@@ -866,6 +866,15 @@ function openSpotModal(spotId, options = {}) {
 
     </div>
 
+    <!-- License and accurate photo subject for newly added CC-licensed images. -->
+    ${spot.photoLicense && spot.photoLicenseUrl ? `
+      <div class="text-[11px] text-on-surface-variant leading-relaxed px-1" data-photo-license>
+        <a href="${spot.photoLicenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${spot.photoLicense}</a>
+        · ${t('photoCredit')}: <a href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="underline">${spot.photoCredit}</a>
+        ${spot.photoCaption ? ` · ${spot.photoCaption[currentLang] || spot.photoCaption.pt}` : ''}
+      </div>
+    ` : ''}
+
     <!-- Thumbnails Gallery Strip -->
     ${currentModalImages.length > 1 ? `
       <div class="flex items-center gap-2.5 overflow-x-auto pb-1 no-scrollbar" id="modal-thumbnails">
