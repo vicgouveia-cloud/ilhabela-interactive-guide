@@ -1115,9 +1115,10 @@ function renderServicesDirectory() {
     return `<button type="button" onclick="setServiceCategory('${category}')" class="shrink-0 px-3.5 py-2 rounded-full border text-xs font-bold transition-colors ${active ? 'bg-primary text-white border-primary' : 'bg-white/70 text-on-surface-variant border-black/10 hover:text-primary'}">${getServiceCategoryLabel(category)}</button>`;
   }).join('');
 
-  const visible = currentServiceCategory === 'all'
+  const visible = (currentServiceCategory === 'all'
     ? servicesData
-    : servicesData.filter(service => service.category === currentServiceCategory);
+    : servicesData.filter(service => service.category === currentServiceCategory))
+    .slice().sort((a, b) => Number(Boolean(b.featured)) - Number(Boolean(a.featured)));
 
   grid.innerHTML = visible.map(service => {
     const tr = getServiceTranslation(service);
