@@ -323,5 +323,51 @@
     "assets/images/santuario-ilha-das-cabras_verified_2.jpg": "7a54b4cc6204e2d5675a969afc8936c9ef2bb62e",
     "assets/images/santuario-ilha-das-cabras_verified_3.jpg": "7b12aba7901bccfef0a70cc842133eec13c1f572",
     "assets/images/trilha-da-agua-branca_verified.jpg": "c3f1e8f011c20f5a95cacec57a017b0357705076"
+  },
+  "pending": {
+    "praia-do-barreiros": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "praia-de-santa-tereza": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "praia-do-pinto": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "praia-da-ponta-azeda": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "praia-da-pacuiba": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "poco-do-furado": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "cachoeira-do-poco-fundo": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "mirante-do-baepi": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "mirante-do-morro-da-cruz": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "mirante-dos-barreiros": {
+      "image": "assets/images/attraction-placeholder.svg",
+      "status": "placeholder"
+    },
+    "naufragio-principe-de-asturias": {
+      "image": "assets/images/naufragio-principe-de-asturias_1.jpg",
+      "status": "inadequate"
+    }
   }
 }
