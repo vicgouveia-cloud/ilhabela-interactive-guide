@@ -117,8 +117,13 @@ for (const group of sharedBinaryWarnings) {
 // The specifically licensed Mirante do Coração attribution stays untouched.
 const mirante = fs.readFileSync(path.join(ROOT, 'lugares/mirante-do-coracao/index.html'), 'utf8');
 assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'specific photo license missing');
-// These have no approved replacements yet; photo search is deliberately out of scope for IMG-01A.
-for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-do-pinto','praia-da-ponta-azeda','praia-da-pacuiba','poco-do-furado','cachoeira-do-poco-fundo']) {
-  assert.equal(spots.find(s=>s.id===id).image, original.get(id).image, id + ': placeholder silently replaced');
+// All ten placeholders and the inappropriate shipwreck photo remain explicitly out of scope.
+for (const [id, pending] of Object.entries(approved.pending)) {
+  const spot = spots.find(item => item.id === id);
+  assert(spot, id + ': outstanding attraction missing');
+  assert.equal(spot.image, pending.image, id + ': pending image changed without IMG-01B approval');
+  assert.equal(spot.image, original.get(id).image, id + ': original image reference altered');
+  if (pending.status === 'placeholder') assert.equal(pending.image, 'assets/images/attraction-placeholder.svg', id + ': expected placeholder');
 }
+assert.equal(Object.keys(approved.pending).length, 11, 'pending attraction count changed');
 console.log('IMG-01A image consistency: 50 attraction pages, 24 verified galleries, 36 approved attraction assignments, 51 protected assets, metadata and hubs OK.');
