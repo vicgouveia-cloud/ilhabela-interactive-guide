@@ -763,13 +763,34 @@ function getPlannerDayReadiness(spots) {
   return { pending: unique, ready: unique.length === 0 };
 }
 
+const plannerPreparationCopy = {"pt":["Prepare o dia","Origem do dia","Forma de deslocamento","Acessos e embarques"],"en":["Prepare your day","Starting point","Travel mode","Access and boarding"],"es":["Prepara el día","Punto de partida","Medio de transporte","Accesos y embarques"],"fr":["Préparer la journée","Point de départ","Mode de transport","Accès et embarquements"],"he":["הכנת היום","נקודת יציאה","אמצעי תחבורה","גישה ועלייה לסירה"]};
+Object.entries(plannerPreparationCopy).forEach(([lang, arr]) => ['plannerPrepareDay','plannerPrepareOrigin','plannerPrepareTravel','plannerPrepareAccess'].forEach((key,i)=>{translations[lang][key]=arr[i]}));
+
+function renderPlannerModeSelector() {
+  const travelModes = [
+    ['auto', 'directions_car', 'plannerTravelAuto'],
+    ['bicycle', 'directions_bike', 'plannerTravelBicycle'],
+    ['pedestrian', 'directions_walk', 'plannerTravelPedestrian'],
+    ['4x4', 'directions_car', 'plannerMode4x4']
+  ];
+  const modeSelector = `<div><div class="text-[11px] font-bold text-on-surface-variant mb-1.5">${t('plannerTravelMode')}</div><div class="flex gap-2 overflow-x-auto">${travelModes.map(([mode, icon, key]) => `<button type="button" onclick="plannerSetTravelMode('${mode}')" class="shrink-0 px-3 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 ${plannerTravelMode === mode ? 'bg-primary text-white border-primary' : 'bg-surface-container text-primary border-black/10'}"><span class="material-symbols-outlined text-[16px]">${icon}</span>${t(key)}</button>`).join('')}</div><p class="text-[10px] text-on-surface-variant mt-1.5">${t('plannerModeHint')}</p></div>`;
+  return modeSelector;
+}
+function renderPlannerPreparationPanel(spots, roadSpots) {
+  const readiness = getPlannerDayReadiness(spots);
+  const notices = readiness.ready ? `<p class="rounded-xl bg-secondary/10 p-3 text-xs font-semibold text-primary">${t('plannerReadyDay')}</p>` : `<div class="rounded-xl border border-tertiary/20 bg-tertiary/5 p-3"><h4 class="mb-2 text-xs font-bold text-tertiary">${t('plannerReadyPendingTitle')}</h4><ul class="space-y-2 text-xs">${readiness.pending.map(item => `<li><button type="button" onclick="plannerResolvePending('${item.action}')" class="flex w-full justify-between gap-3 py-1 text-start"><span>• ${item.label}</span><span class="font-bold text-primary">${t('plannerReadyResolve')}</span></button></li>`).join('')}</ul></div>`;
+  return `<section id="planner-preparation" class="rounded-2xl border border-primary/15 bg-white p-4 space-y-4">
+    <h3 class="text-base font-extrabold text-primary">${t('plannerPrepareDay')}</h3>
+    <div><h4 class="text-sm font-bold text-primary">1. ${t('plannerPrepareOrigin')}</h4><p class="text-xs text-on-surface-variant">${isValidPlannerOrigin(plannerOrigin) ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</p>${renderPlannerOriginActions()}</div>
+    <div><h4 class="text-sm font-bold text-primary">2. ${t('plannerPrepareTravel')}</h4>${renderPlannerModeSelector()}</div>
+    <div><h4 class="text-sm font-bold text-primary">3. ${t('plannerPrepareAccess')}</h4>${notices}</div>
+    <button type="button" onclick="plannerOptimizeRoute()" ${roadSpots.length >= 2 ? '' : 'disabled'} class="px-4 py-3 rounded-xl bg-secondary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">${plannerOptimizedRoute ? t('plannerOptimized') : t('plannerOptimize')}</button>
+  </section>`;
+}
+
 function renderPlannerDayAgenda(spots) {
   const originSet = isValidPlannerOrigin(plannerOrigin);
   const returnSet = originSet && !!tripDayReturnToOrigin[activeTripDay];
-  const readiness = getPlannerDayReadiness(spots);
-  const readinessHtml = readiness.ready
-    ? `<div class="mb-3 flex items-center gap-2 rounded-xl bg-secondary/10 px-3 py-2 text-[11px] font-bold text-primary"><span class="material-symbols-outlined text-[16px]">check_circle</span><span>${t('plannerReadyDay')}</span></div>`
-    : `<div class="mb-3 rounded-xl border border-tertiary/20 bg-tertiary/5 px-3 py-2"><div class="mb-1 flex items-center gap-1.5 text-[11px] font-extrabold text-tertiary"><span class="material-symbols-outlined text-[16px]">pending_actions</span><span>${t('plannerReadyPendingTitle')}</span></div><ul class="space-y-1 text-[11px] text-on-surface-variant">${readiness.pending.map(item => `<li><button type="button" onclick="plannerResolvePending('${item.action}')" class="group flex w-full items-start justify-between gap-2 rounded-lg px-1 py-1 text-left hover:bg-white/70"><span>• ${item.label}</span><span class="shrink-0 font-bold text-primary group-hover:underline">${t('plannerReadyResolve')}</span></button></li>`).join('')}</ul></div>`;
   const stopRows = spots.map((spot, index) => {
     const tr = getSpotTranslation(spot);
     const access = resolvePlannerAccess(spot, plannerTravelMode);
@@ -790,7 +811,7 @@ function renderPlannerDayAgenda(spots) {
   }).join('');
   const originRow = `<div class="planner-origin-row flex gap-3 pb-3">
     <div class="flex w-7 shrink-0 flex-col items-center"><div class="flex h-7 w-7 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">trip_origin</span></div>${spots.length ? '<div class="mt-1 min-h-5 w-px flex-1 bg-primary/20"></div>' : ''}</div>
-    <div class="pt-1 text-xs min-w-0 flex-1"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div>${renderPlannerOriginActions()}</div>
+    <div class="pt-1 text-xs min-w-0 flex-1"><strong class="text-primary">${t('plannerAgendaStart')}</strong><div class="text-on-surface-variant">${originSet ? t('plannerDayOriginReady').replace('{n}', activeTripDay) : t('plannerAgendaOriginPending')}</div></div>
   </div>`;
   const returnRow = returnSet ? `${spots.length ? renderPlannerLegEstimate(spots[spots.length - 1].id, 'return') : ''}<div class="flex gap-3">
     <div class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full border-2 border-secondary bg-white text-secondary"><span class="material-symbols-outlined text-[15px]">home_pin</span></div>
@@ -798,7 +819,7 @@ function renderPlannerDayAgenda(spots) {
   </div>` : '';
   return `<div class="planner-agenda rounded-2xl border border-black/10 bg-white p-4">
     <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
-    ${readinessHtml}${originRow}${plannerOptimizedRoute?.legState === plannerLegState() && plannerOptimizedRoute?.legs?.length ? `<p class="mb-2 text-[11px] text-on-surface-variant">${t('plannerEstimatedLegs')}</p>` : ''}${stopRows}${returnRow}
+    ${originRow}${plannerOptimizedRoute?.legState === plannerLegState() && plannerOptimizedRoute?.legs?.length ? `<p class="mb-2 text-[11px] text-on-surface-variant">${t('plannerEstimatedLegs')}</p>` : ''}${stopRows}${returnRow}
   </div>`;
 }
 
@@ -873,11 +894,12 @@ function renderSummary() {
   let html = `<div class="planner-days flex gap-2 overflow-x-auto pb-1" role="group" aria-label="${t('plannerDay')}">
     ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button type="button" aria-pressed="${activeTripDay === day}" onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}<span class="planner-day-count" aria-hidden="true">${allSelectedSpots.filter(spot => getSpotTripDay(spot.id) === day).length}</span></button>`).join('')}
   </div>`;
-  html += renderPlannerVisitProgress(displaySpots);
-  html += renderPlannerDayAgenda(displaySpots);
-  html += renderPlannerRoutingPanel(roadSpots, specialSpots);
+  html += renderPlannerPreparationPanel(selectedSpots, roadSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
+  html += renderPlannerRoutingPanel(roadSpots, specialSpots);
+  html += renderPlannerVisitProgress(displaySpots);
+  html += renderPlannerDayAgenda(displaySpots);
   html += `<details id="planner-organize-details" class="rounded-2xl border border-black/10 bg-white px-4 py-3 my-3"><summary class="cursor-pointer text-sm font-extrabold text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">${t('plannerOrganizePlaces')}</summary><div class="pt-3 space-y-2">`;
   displaySpots.forEach((spot, index) => {
     const id = spot.id;
@@ -1005,13 +1027,6 @@ Object.entries(plannerTransportDisclosureCopy).forEach(([lang, label]) => {
 
 function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   const orderedRoadSpots = getOptimizedRouteSpots(roadSpots);
-  const travelModes = [
-    ['auto', 'directions_car', 'plannerTravelAuto'],
-    ['bicycle', 'directions_bike', 'plannerTravelBicycle'],
-    ['pedestrian', 'directions_walk', 'plannerTravelPedestrian'],
-    ['4x4', 'directions_car', 'plannerMode4x4']
-  ];
-  const modeSelector = `<div><div class="text-[11px] font-bold text-on-surface-variant mb-1.5">${t('plannerTravelMode')}</div><div class="flex gap-2 overflow-x-auto">${travelModes.map(([mode, icon, key]) => `<button type="button" onclick="plannerSetTravelMode('${mode}')" class="shrink-0 px-3 py-2 rounded-xl border text-xs font-bold flex items-center gap-1.5 ${plannerTravelMode === mode ? 'bg-primary text-white border-primary' : 'bg-surface-container text-primary border-black/10'}"><span class="material-symbols-outlined text-[16px]">${icon}</span>${t(key)}</button>`).join('')}</div><p class="text-[10px] text-on-surface-variant mt-1.5">${t('plannerModeHint')}</p></div>`;
   const roadNames = orderedRoadSpots.map(spot => getSpotTranslation(spot).title);
   const visit = getPlannerVisitEstimate();
   const travelMinutes = plannerOptimizedRoute ? Math.round((plannerOptimizedRoute.timeSeconds || 0) / 60) : 0;
@@ -1047,7 +1062,6 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
   return `
     <div class="space-y-3 mb-4">
       <div id="planner-routing-panel" class="rounded-2xl border border-black/10 bg-white p-4 space-y-3">
-        ${modeSelector}
         ${[...roadSpots, ...specialSpots].map(spot => plannerAccessNotice(spot) ? `<p class="text-xs text-primary"><strong>${getSpotTranslation(spot).title}:</strong> ${plannerAccessNotice(spot)}</p>` : '').join('')}
         <div class="flex items-center justify-between gap-3">
           <h3 class="text-sm font-extrabold text-primary">${t('plannerRouteSection')} · ${getPlannerTravelModeLabel(plannerTravelMode)}</h3>
@@ -1060,9 +1074,6 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
             <input type="checkbox" onchange="setActiveDayReturn(this.checked)" ${tripDayReturnToOrigin[activeTripDay] ? 'checked' : ''}>
             ${t('plannerReturnOrigin')}
           </label>` : ''}
-          <button type="button" onclick="plannerOptimizeRoute()" ${roadSpots.length >= 2 ? '' : 'disabled'} class="px-3 py-2 rounded-xl bg-secondary text-white text-xs font-bold disabled:opacity-40 disabled:cursor-not-allowed">
-            ${plannerOptimizedRoute ? t('plannerOptimized') : t('plannerOptimize')}
-          </button>
           ${mapsButtons}
         </div>
         ${roadSpots.length > 4 ? `<p class="text-[11px] text-tertiary">${t('plannerGoogleLimit')}</p>` : ''}
