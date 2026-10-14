@@ -34,4 +34,19 @@ jobs:
       - name: SEO and generated page regression suite
         run: npm run test:seo
       - name: Internationalization audit
+        if: always()
         run: npm run test:audit
+      - name: Confirm whether the itinerary failure exists at the originating main
+        if: failure()
+        run: |
+          git worktree add --detach /tmp/img-01a-base eb8fd9cde593348e2e8199c2b1cd4279dd71acbf
+          set +e
+          (cd /tmp/img-01a-base && node tests/audit-itinerary-hubs.cjs)
+          result=$?
+          set -e
+          if [ "$result" -ne 0 ]; then
+            echo "::warning::Itinerary regression reproduces at originating main; outside IMG-01A scope"
+          else
+            echo "::error::Itinerary failure appears introduced by this branch"
+            exit 1
+          fi
