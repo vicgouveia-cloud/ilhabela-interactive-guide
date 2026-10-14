@@ -1,0 +1,62 @@
+name: IMG-01C regenerate Poço Fundo static surfaces
+
+on:
+  push:
+    branches:
+      - feat/img-01c-poco-fundo-access
+    paths:
+      - .github/workflows/img-01c-build.yml
+
+permissions:
+  contents: write
+
+jobs:
+  synchronize-one-attraction:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Regenerate only Poço Fundo SEO and patch its two card image URLs
+        shell: bash
+        run: |
+          set -euo pipefail
+          output="$(mktemp -d)"
+          ATTRACTION_OUTPUT_DIR="$output" node scripts/generate-attraction-pages.cjs
+          cp "$output/cachoeira-do-poco-fundo/index.html" lugares/cachoeira-do-poco-fundo/index.html
+          python - <<'PY'
+          from pathlib import Path
+          slug = 'cachoeira-do-poco-fundo'
+          old = f'<a class="image" href="/lugares/{slug}/"><img src="/assets/images/attraction-placeholder.svg"'
+          new = f'<a class="image" href="/lugares/{slug}/"><img src="/assets/images/cachoeira-do-poco-fundo-acesso_commons.webp"'
+          for filename in ('o-que-fazer/index.html', 'cachoeiras/index.html'):
+              file = Path(filename)
+              text = file.read_text(encoding='utf8')
+              assert text.count(old) == 1, f'{filename}: expected exactly one current placeholder card'
+              file.write_text(text.replace(old,new,1), encoding='utf8')
+          PY
+          git add -- lugares/cachoeira-do-poco-fundo/index.html o-que-fazer/index.html cachoeiras/index.html
+          git diff --cached --check
+          python - <<'PY'
+          import subprocess
+          expected={'lugares/cachoeira-do-poco-fundo/index.html','o-que-fazer/index.html','cachoeiras/index.html'}
+          changed=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines())
+          assert changed==expected, f'Unexpected generated files: {changed}'
+          print('Validated changes only in:', ', '.join(sorted(changed)))
+          PY
+      - name: Commit only the three generated HTML files to feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = 'feat/img-01c-poco-fundo-access'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git commit -m 'build(img-01c): sync Poço Fundo access hero and two hub cards'
+          git push origin HEAD:refs/heads/feat/img-01c-poco-fundo-access
