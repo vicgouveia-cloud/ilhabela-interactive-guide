@@ -2652,6 +2652,7 @@ const servicesData = [
   {
     id: 'portinho-passeios',
     category: 'tour',
+    featured: true,
     name: 'Portinho Passeios',
     baseLocation: { spotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
