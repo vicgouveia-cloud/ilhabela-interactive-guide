@@ -6,6 +6,9 @@ on:
       - feat/img-01c-poco-fundo-access
     paths:
       - .github/workflows/img-01c-verify.yml
+      - tests/audit-img01c-poco-fundo.cjs
+      - tests/audit-attraction-images.cjs
+      - attraction-photos.js
 
 permissions:
   contents: read
