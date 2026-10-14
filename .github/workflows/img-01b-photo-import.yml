@@ -1,0 +1,72 @@
+name: IMG-01B import approved CC photographs
+
+on:
+  push:
+    branches:
+      - feat/img-01b-missing-attraction-photos
+    paths:
+      - .github/workflows/img-01b-photo-import.yml
+
+permissions:
+  contents: write
+
+jobs:
+  import-photos:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install image decoder
+        run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Fetch only two geographically identified CC BY-SA 4.0 source images
+        shell: bash
+        run: |
+          set -euo pipefail
+          test ! -e assets/images/praia-do-pinto_commons.webp
+          test ! -e assets/images/praia-da-pacuiba-costao_commons.webp
+          curl -fsSL --retry 3 --connect-timeout 12 --max-time 120 \
+            -A 'IlhabelaTripImageAudit/1.0 (https://ilhabelatrip.com; Wikimedia Commons attribution)' \
+            -o /tmp/img01b-pinto.jpg \
+            'https://upload.wikimedia.org/wikipedia/commons/7/71/Praia_do_pinto_ilhabela_1957388_4024779116035_1551329815_n.jpg'
+          curl -fsSL --retry 3 --connect-timeout 12 --max-time 120 \
+            -A 'IlhabelaTripImageAudit/1.0 (https://ilhabelatrip.com; Wikimedia Commons attribution)' \
+            -o /tmp/img01b-pacuiba.jpg \
+            'https://upload.wikimedia.org/wikipedia/commons/8/80/Parque_Estadual_de_Ilhabela_-_Jo%C3%A3o_Paulo_Marques_DAndretta_%2810%29.jpg'
+          python - <<'PY'
+          from PIL import Image, ImageOps
+          from pathlib import Path
+          sources = [
+              ('/tmp/img01b-pinto.jpg', 'assets/images/praia-do-pinto_commons.webp', (960, 720)),
+              ('/tmp/img01b-pacuiba.jpg', 'assets/images/praia-da-pacuiba-costao_commons.webp', (1280, 720)),
+          ]
+          for source, dest, expected_max in sources:
+              assert Path(source).stat().st_size > 30000, f'Unexpected small download: {source}'
+              with Image.open(source) as original:
+                  original.verify()
+              with Image.open(source) as original:
+                  assert original.format == 'JPEG', f'Unexpected image type: {source}'
+                  rgb = ImageOps.exif_transpose(original).convert('RGB')
+                  assert rgb.width >= 640 and rgb.height >= 426, f'Unexpected dimensions: {source}'
+                  rgb.thumbnail(expected_max, Image.Resampling.LANCZOS)
+                  rgb.save(dest, 'WEBP', quality=83, method=6)
+                  with Image.open(dest) as check:
+                      check.verify()
+              print(f'Validated {dest}: {rgb.width}x{rgb.height} ({Path(dest).stat().st_size} bytes)')
+          PY
+      - name: Commit only the two images to this feature branch
+        shell: bash
+        run: |
+          set -euo pipefail
+          test "$GITHUB_REF_NAME" = "feat/img-01b-missing-attraction-photos"
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -- assets/images/praia-do-pinto_commons.webp assets/images/praia-da-pacuiba-costao_commons.webp
+          git diff --cached --check
+          git commit -m "assets(img-01b): add two verified Wikimedia Commons CC BY-SA photographs"
+          git push origin HEAD:refs/heads/feat/img-01b-missing-attraction-photos
