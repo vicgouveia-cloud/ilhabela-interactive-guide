@@ -8,15 +8,21 @@ for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context);
 }
 const spots = vm.runInContext('touristSpots', context);
-const photos = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/attraction-photo-overrides.json'), 'utf8'));
 const library = vm.runInContext('verifiedPhotoLibrary', context);
-assert.deepEqual(Object.keys(photos), ['mirante-do-coracao']);
-for (const [id, photo] of Object.entries(photos)) {
-  assert.equal(photo.image, library[id].images[0]);
-  assert.equal(photo.credit, library[id].credit);
-  assert.equal(photo.source, library[id].source);
-  assert(fs.existsSync(path.join(ROOT, photo.image)));
-}
+const licensed = Object.entries(library).filter(([, entry]) => entry.license);
+assert.deepEqual(licensed.map(([id]) => id), ['mirante-do-coracao']);
+const [id, photo] = licensed[0];
+const spot = spots.find(item => item.id === id);
+assert(spot, 'licensed attraction missing');
+assert.equal(spot.image, photo.images[0]);
+assert.equal(spot.photoCredit, photo.credit);
+assert.equal(spot.photoSource, photo.source);
+assert.equal(spot.photoLicense, 'CC BY-SA 4.0');
+assert.equal(spot.photoLicenseUrl, 'https://creativecommons.org/licenses/by-sa/4.0/');
+assert.equal(spot.photoProvenance, photo.provenance);
+assert.equal(spot.photoAdaptation, 'Imagem redimensionada.');
+assert(fs.existsSync(path.join(ROOT, photo.images[0])));
+assert(!fs.existsSync(path.join(ROOT, 'scripts/attraction-photo-overrides.json')), 'obsolete photo override still exists');
 const generated = new Map();
 // Exercise the real generator without writing, deleting or regenerating pages.
 const memoryFs = {
@@ -42,7 +48,7 @@ for (const id of ['trilha-da-cabecuda-farol', 'mirante-do-coracao']) {
     assert.equal(schema.description, tr.description);
     assert.equal(schema.geo.latitude, spot.coords[0]);
     assert.equal(schema.geo.longitude, spot.coords[1]);
-    assert.deepEqual(schema.image, [`https://ilhabelatrip.com/${photos[id]?.image || spot.image}`]);
+    assert.deepEqual(schema.image, [`https://ilhabelatrip.com/${spot.image}`]);
     assert(html.includes(`<h1>${esc(tr.title)}</h1><p>${esc(tr.description)}</p>`));
     assert(html.includes(esc(tr.specs.access)));
     for (const highlight of tr.highlights) assert(html.includes(`<li>${esc(highlight)}</li>`));
