@@ -28,7 +28,7 @@ const spots = vm.runInContext('touristSpots', shared);
 const verified = vm.runInContext('verifiedPhotoLibrary', shared);
 const original = new Map(Array.from(before, spot => [spot.id, spot]));
 assert.equal(spots.length, 50, 'expected 50 attractions');
-assert.equal(Object.keys(verified).length, 26, 'preserve 24 prior photos and add exactly two licensed IMG-01B records');
+assert.equal(Object.keys(verified).length, 27, 'preserve 26 earlier records and add licensed Poço Fundo access photo');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
 const absolute = value => 'https://ilhabelatrip.com/' + value.replace(/^\//, '');
 const discovery = fs.readFileSync(path.join(ROOT, 'o-que-fazer/index.html'), 'utf8');
@@ -77,7 +77,7 @@ for (const spot of spots) {
 const mirante = fs.readFileSync(path.join(ROOT, 'lugares/mirante-do-coracao/index.html'), 'utf8');
 assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'specific photo license missing');
 // These have no approved replacements yet; photo search is deliberately out of scope for IMG-01A.
-for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','cachoeira-do-poco-fundo','mirante-do-baepi','mirante-do-morro-da-cruz','mirante-dos-barreiros']) {
+for (const id of ['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','mirante-do-baepi','mirante-do-morro-da-cruz','mirante-dos-barreiros']) {
   assert.equal(spots.find(s=>s.id===id).image, original.get(id).image, id + ': placeholder silently replaced');
 }
-console.log('IMG-01B image consistency: 50 attraction pages, 26 verified photo records, metadata, hubs and eight pending placeholders OK.');
+console.log('IMG-01B image consistency: 50 attraction pages, 27 verified photo records, metadata, hubs and seven pending placeholders OK.');
