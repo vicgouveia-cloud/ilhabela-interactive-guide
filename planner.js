@@ -820,7 +820,19 @@ function renderPlannerDayAgenda(spots) {
   return `<div class="planner-agenda rounded-2xl border border-black/10 bg-white p-4">
     <div class="mb-3 flex items-center justify-between gap-3"><div><h3 class="text-sm font-extrabold text-primary">${t('plannerAgendaTitle').replace('{n}', activeTripDay)}</h3><p class="text-[11px] text-on-surface-variant">${t('plannerAgendaHint')}</p></div><span class="material-symbols-outlined text-secondary">format_list_numbered</span></div>
     ${originRow}${plannerOptimizedRoute?.legState === plannerLegState() && plannerOptimizedRoute?.legs?.length ? `<p class="mb-2 text-[11px] text-on-surface-variant">${t('plannerEstimatedLegs')}</p>` : ''}${stopRows}${returnRow}
+    <button type="button" onclick="plannerOpenReorderFromAgenda()" class="mt-4 w-full rounded-xl border border-primary/20 bg-white px-3 py-3 text-sm font-bold text-primary hover:bg-surface-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-primary">${t('plannerAgendaReorder')}</button>
   </div>`;
+}
+
+const plannerAgendaReorderCopy = { pt: 'Reordenar paradas', en: 'Reorder stops', es: 'Reordenar paradas', fr: 'Réorganiser les étapes', he: 'שינוי סדר העצירות' };
+Object.entries(plannerAgendaReorderCopy).forEach(([lang, value]) => { translations[lang].plannerAgendaReorder = value; });
+
+function plannerOpenReorderFromAgenda() {
+  const organizer = document.getElementById('planner-organize-details');
+  if (!organizer) return;
+  organizer.open = true;
+  organizer.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  organizer.querySelector('summary')?.focus({ preventScroll: true });
 }
 
 const plannerLegCopy = {
