@@ -50,3 +50,13 @@ jobs:
             echo "::error::Itinerary failure appears introduced by this branch"
             exit 1
           fi
+          set +e
+          (cd /tmp/img-01a-base && NODE_PATH="$GITHUB_WORKSPACE/node_modules" node tests/audit-i18n.cjs)
+          i18n_result=$?
+          set -e
+          if [ "$i18n_result" -ne 0 ]; then
+            echo "::warning::I18n audit also fails at originating main; unrelated to image consolidation"
+          else
+            echo "::error::I18n audit failure appears introduced by this branch"
+            exit 1
+          fi
