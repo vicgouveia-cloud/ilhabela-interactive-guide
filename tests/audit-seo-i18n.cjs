@@ -164,6 +164,21 @@ for (const id of validatedEnSpots) {
   assert(enHtml.includes(`<link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/${id}/">`), `${id} EN missing en hreflang`);
   assert(enHtml.includes(`<link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/${id}/">`), `${id} EN missing x-default hreflang`);
   assert(!enHtml.includes('noindex'), `${id} validated EN page must not have noindex`);
+
+  // Reciprocal HTML alternate tags on Portuguese counterpart
+  const ptHtml = fs.readFileSync(path.join(ROOT, 'lugares', id, 'index.html'), 'utf8');
+  assert(ptHtml.includes(`<link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/${id}/">`), `${id} PT missing reciprocal pt hreflang`);
+  assert(ptHtml.includes(`<link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/${id}/">`), `${id} PT missing reciprocal en hreflang`);
+  assert(ptHtml.includes(`<link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/${id}/">`), `${id} PT missing reciprocal x-default hreflang`);
+}
+
+// Non-validated Portuguese attractions must NOT have hreflang tags in HTML
+const validatedEnSpotSet = new Set(validatedEnSpots);
+for (const spot of spots) {
+  if (!validatedEnSpotSet.has(spot.id)) {
+    const ptHtml = fs.readFileSync(path.join(ROOT, 'lugares', spot.id, 'index.html'), 'utf8');
+    assert(!ptHtml.includes('hreflang='), `Non-pilot PT page ${spot.id} must not contain hreflang tags in HTML`);
+  }
 }
 
 // Prepared / unvalidated spots must NOT have hreflang tags linking to noindex
@@ -172,7 +187,7 @@ for (const id of preparedNoindexSpots) {
   assert(enHtml.includes('<meta name="robots" content="noindex, follow">'), `${id} must have noindex tag`);
   assert(!enHtml.includes('hreflang='), `${id} unvalidated page must not have hreflang tags`);
 }
-console.log('✓ Reciprocal hreflang and x-default fully verified.\n');
+console.log('✓ Reciprocal hreflang and x-default fully verified on PT and EN pages.\n');
 
 // -------------------------------------------------------------
 // 4. Correspondência exata entre sitemap.xml e páginas indexáveis
