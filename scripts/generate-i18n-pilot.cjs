@@ -131,7 +131,7 @@ let enIndex = rootIndex
     '<meta name="description" content="Explore 50 places in Ilhabela across beaches, waterfalls, trails, viewpoints, culture and sea experiences, using the interactive map to choose and plan your trip." />'
   )
   .replace(
-    /<link rel="canonical" href="https:\/\/ilhabelatrip\.com\/" \/>/,
+    /<link rel="canonical" href="https:\/\/ilhabelatrip\.com\/" \/>(?:\s*<link rel="alternate"[^>]+>){0,3}/,
     '<link rel="canonical" href="https://ilhabelatrip.com/en/" />\n  <link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/" />\n  <link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/" />\n  <link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/" />'
   )
   .replace(/<meta property="og:locale" content="pt_BR" \/>/, '<meta property="og:locale" content="en_US" />')
