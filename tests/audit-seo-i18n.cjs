@@ -249,6 +249,57 @@ assert(appJs.includes('/^(en|es|fr|he)\\b/') || appJs.includes('pathMatch'), 'ap
 
 console.log('✓ Return links, CTAs and runtime language detection verified.\n');
 
+// -------------------------------------------------------------
+// 8. Navegação nos Hubs EN e ausência de links 404 (SEO-PR-02B)
+// -------------------------------------------------------------
+console.log('Checking navigation integrity and zero 404 links in EN hubs...');
+const enHubFiles = [
+  'en/o-que-fazer/index.html',
+  'en/praias/index.html',
+  'en/cachoeiras/index.html',
+  'en/trilhas/index.html'
+];
+const pilotSpotsSet = new Set([...validatedEnSpots, ...preparedNoindexSpots]);
+
+for (const hubRelPath of enHubFiles) {
+  const hubHtml = fs.readFileSync(path.join(ROOT, hubRelPath), 'utf8');
+  // Check all internal hrefs
+  const hrefs = [...hubHtml.matchAll(/href="([^"#\?]+)(?:[#\?][^"]*)?"/g)].map(m => m[1]);
+  for (const href of hrefs) {
+    if (href.startsWith('http://') || href.startsWith('https://') || href.startsWith('mailto:') || href.startsWith('tel:')) continue;
+    const diskPath = href.endsWith('/')
+      ? path.join(ROOT, href.replace(/^\//, ''), 'index.html')
+      : path.join(ROOT, href.replace(/^\//, ''));
+    assert(fs.existsSync(diskPath), `${hubRelPath}: broken internal link ${href} -> ${diskPath}`);
+  }
+}
+
+// Check /en/o-que-fazer/index.html cards specifically
+const discoveryHtml = fs.readFileSync(path.join(ROOT, 'en/o-que-fazer/index.html'), 'utf8');
+const articles = [...discoveryHtml.matchAll(/<article>([\s\S]*?)<\/article>/g)];
+assert.equal(articles.length, 50, 'en/o-que-fazer must contain exactly 50 attraction cards');
+
+let pilotCardCount = 0;
+let fallbackCardCount = 0;
+
+for (const spot of spots) {
+  const isPilot = pilotSpotsSet.has(spot.id);
+  if (isPilot) {
+    pilotCardCount++;
+    const expectedStaticLink = `/en/lugares/${spot.id}/`;
+    assert(discoveryHtml.includes(`href="${expectedStaticLink}"`), `Pilot spot ${spot.id} must link to static page`);
+  } else {
+    fallbackCardCount++;
+    const expectedFallback = `href="/?spot=${encodeURIComponent(spot.id)}&amp;lang=en"`;
+    assert(discoveryHtml.includes(expectedFallback), `Non-pilot spot ${spot.id} must link to interactive guide fallback`);
+    assert(!discoveryHtml.includes(`href="/en/lugares/${spot.id}/"`), `Non-pilot spot ${spot.id} must NOT link to non-existent static page`);
+  }
+}
+
+assert.equal(pilotCardCount, 5, 'Exactly 5 pilot attractions in discovery hub');
+assert.equal(fallbackCardCount, 45, 'Exactly 45 interactive fallback attractions in discovery hub');
+console.log('✓ Zero 404 links, 5 static EN destinations and 45 interactive fallbacks verified.\n');
+
 console.log('===============================================================');
 console.log('ALL SEO-I18N-01 FOUNDATION & PILOT AUDIT TESTS PASSED (100% OK)');
 console.log('===============================================================');

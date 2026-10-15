@@ -183,9 +183,12 @@ const groups = [
 ];
 const byCategory = Object.fromEntries(groups.map(([id]) => [id, spots.filter(s => s.category === id)]));
 
+const PILOT_SPOT_IDS = new Set(PILOT_SPOTS.map(p => p.id));
+
 function enCard(s) {
   const tr = s.translations?.en || s.translations.pt;
-  return `<article><a class="image" href="/en/lugares/${esc(s.id)}/"><img src="/${esc(s.image)}" alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h3><a href="/en/lugares/${esc(s.id)}/">${esc(tr.title)}</a></h3><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="/en/lugares/${esc(s.id)}/">View details &amp; access →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(s.id)}&amp;add=trip&amp;lang=en">+ My Trip</a></div></div></article>`;
+  const href = PILOT_SPOT_IDS.has(s.id) ? `/en/lugares/${esc(s.id)}/` : `/?spot=${encodeURIComponent(s.id)}&amp;lang=en`;
+  return `<article><a class="image" href="${href}"><img src="/${esc(s.image)}" alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h3><a href="${href}">${esc(tr.title)}</a></h3><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="${href}">View details &amp; access →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(s.id)}&amp;add=trip&amp;lang=en">+ My Trip</a></div></div></article>`;
 }
 
 const enSections = groups.map(([id, title]) =>
@@ -214,7 +217,8 @@ const catStyle = 'body{margin:0;background:#faf7f0;color:#1b1c19;font:16px/1.55 
 
 function enCategoryCard(spot) {
   const tr = spot.translations?.en || spot.translations.pt;
-  return `<article data-spot="${esc(spot.id)}"><a class="image" href="/en/lugares/${esc(spot.id)}/"><img src="/${esc(spot.image)}" alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h2><a href="/en/lugares/${esc(spot.id)}/">${esc(tr.title)}</a></h2><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="/en/lugares/${esc(spot.id)}/">View details &amp; access →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip&amp;lang=en">+ My Trip</a></div></div></article>`;
+  const href = PILOT_SPOT_IDS.has(spot.id) ? `/en/lugares/${esc(spot.id)}/` : `/?spot=${encodeURIComponent(spot.id)}&amp;lang=en`;
+  return `<article data-spot="${esc(spot.id)}"><a class="image" href="${href}"><img src="/${esc(spot.image)}" alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h2><a href="${href}">${esc(tr.title)}</a></h2><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="${href}">View details &amp; access →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip&amp;lang=en">+ My Trip</a></div></div></article>`;
 }
 
 const enCategoryDefinitions = [
