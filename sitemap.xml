@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://ilhabelatrip.com/</loc></url>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://ilhabelatrip.com/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/o-que-fazer/</loc></url>
   <url><loc>https://ilhabelatrip.com/servicos/</loc></url>
   <url><loc>https://ilhabelatrip.com/praias/</loc></url>
@@ -12,7 +17,12 @@
   <url><loc>https://ilhabelatrip.com/lugares/baia-de-castelhanos/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-da-fome/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-do-juliao/</loc></url>
-  <url><loc>https://ilhabelatrip.com/lugares/praia-do-curral/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/lugares/praia-do-curral/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/praia-do-curral/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/praia-do-curral/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/praia-do-curral/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-da-armacao/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-do-veloso/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-da-siriuba/</loc></url>
@@ -28,7 +38,12 @@
   <url><loc>https://ilhabelatrip.com/lugares/trilha-da-agua-branca/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/trilha-do-bonete/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/trilha-da-cabecuda-farol/</loc></url>
-  <url><loc>https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/pico-de-sao-sebastiao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/lugares/mirante-do-coracao/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/pico-do-baepi/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/ponto-baleias-sul-sepituba/</loc></url>
@@ -55,7 +70,36 @@
   <url><loc>https://ilhabelatrip.com/lugares/praia-do-portinho/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/poco-do-furado/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/mirante-do-baepi/</loc></url>
-  <url><loc>https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/mirante-do-morro-da-cruz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/lugares/mirante-dos-barreiros/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/cachoeira-do-poco-fundo/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/lugares/praia-do-curral/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/praia-do-curral/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/praia-do-curral/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/praia-do-curral/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/lugares/mirante-do-morro-da-cruz/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/mirante-do-morro-da-cruz/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/lugares/pico-de-sao-sebastiao/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/pico-de-sao-sebastiao/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
+  </url>
 </urlset>
