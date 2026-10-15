@@ -6,5 +6,21 @@
     "license": "CC BY-SA 4.0",
     "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
     "provenance": "Existing verifiedPhotoLibrary entry in app.js; asset unchanged since 7b51cccea759c8831c5066ed6ea4fa29b1b65b25"
+  },
+  "baia-de-castelhanos": {
+    "image": "assets/images/baia-de-castelhanos_verified.jpg",
+    "credit": "João Vitor Oliveira Martins · Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "provenance": "Wikimedia Commons: File:Praia de Castelhanos - Ilhabela - SP.jpg; author João Vitor Oliveira Martins; CC BY-SA 4.0; resized to 1920x1080."
+  },
+  "praia-do-bonete": {
+    "image": "assets/images/praia-do-bonete_verified.jpg",
+    "credit": "Jcornelius · Wikimedia Commons",
+    "source": "https://commons.wikimedia.org/wiki/File:Praia_do_Bonete,_Ilhabela,_2021.jpg",
+    "license": "CC BY-SA 4.0",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0/",
+    "provenance": "Wikimedia Commons: File:Praia do Bonete, Ilhabela, 2021.jpg; author Jcornelius (Cornelius Kibelka); CC BY-SA 4.0; resized to 1920x1080."
   }
 }

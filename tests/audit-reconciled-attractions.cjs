@@ -10,7 +10,7 @@ for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
 const spots = vm.runInContext('touristSpots', context);
 const photos = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts/attraction-photo-overrides.json'), 'utf8'));
 const library = vm.runInContext('verifiedPhotoLibrary', context);
-assert.deepEqual(Object.keys(photos), ['mirante-do-coracao']);
+assert.deepEqual(Object.keys(photos).sort(), ['baia-de-castelhanos', 'mirante-do-coracao', 'praia-do-bonete'].sort());
 for (const [id, photo] of Object.entries(photos)) {
   assert.equal(photo.image, library[id].images[0]);
   assert.equal(photo.credit, library[id].credit);
