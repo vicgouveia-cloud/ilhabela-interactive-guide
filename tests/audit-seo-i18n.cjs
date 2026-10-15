@@ -348,6 +348,30 @@ assert.equal(pilotCardCount, 5, 'Exactly 5 pilot attractions in discovery hub');
 assert.equal(fallbackCardCount, 45, 'Exactly 45 interactive fallback attractions in discovery hub');
 console.log('✓ Zero 404 links, 5 static EN destinations and 45 interactive fallbacks verified.\n');
 
+// 9. English discovery editorial guidance (SEO-I18N-04A)
+console.log('Checking English discovery editorial guidance and preserved beach cards...');
+assert(discoveryHtml.includes('<p class="intro">Explore 50 Ilhabela places by experience:'), 'English discovery hub introductory guidance missing');
+assert(discoveryHtml.includes('the mapped destination may differ from its access point'), 'English discovery hub special-access guidance missing');
+assert(discoveryHtml.includes('select + My Trip to save it to your itinerary'), 'English discovery hub My Trip guidance missing');
+assert(discoveryHtml.includes('<meta name="robots" content="noindex, follow">'), 'English discovery hub must remain noindex');
+
+const beachHubHtml = fs.readFileSync(path.join(ROOT, 'en', 'praias', 'index.html'), 'utf8');
+assert(beachHubHtml.includes('<p class="intro">Explore 23 Ilhabela beaches,'), 'English beach hub intro missing');
+assert(beachHubHtml.includes('Driving directions do not always lead directly to the sand'), 'English beach hub road-access guidance missing');
+assert(beachHubHtml.includes('<meta name="robots" content="noindex, follow">'), 'English beach hub must remain noindex');
+const actualBeachIds = [...beachHubHtml.matchAll(/<article data-spot="([^"]+)"/g)].map(match => match[1]);
+const expectedBeachIds = spots.filter(spot => spot.category === 'praias').map(spot => spot.id);
+assert.deepEqual(actualBeachIds, expectedBeachIds, 'English beach hub must preserve all 23 original beach cards and their order');
+assert.equal(actualBeachIds.length, 23, 'English beach hub must have exactly 23 beach cards');
+for (const beachId of actualBeachIds) {
+  const href = pilotSpotsSet.has(beachId)
+    ? `/en/lugares/${beachId}/`
+    : `/?spot=${encodeURIComponent(beachId)}&amp;lang=en`;
+  assert(beachHubHtml.includes(`href="${href}"`), `English beach hub must preserve destination link: ${beachId}`);
+  assert(beachHubHtml.includes(`href="/?spot=${encodeURIComponent(beachId)}&amp;add=trip&amp;lang=en"`), `English beach hub must preserve My Trip link: ${beachId}`);
+}
+console.log('✓ English editorial guidance, 50 discovery cards, 23 beach cards, noindex and My Trip links verified.\\n');
+
 console.log('===============================================================');
 console.log('ALL SEO-I18N-01 FOUNDATION & PILOT AUDIT TESTS PASSED (100% OK)');
 console.log('===============================================================');
