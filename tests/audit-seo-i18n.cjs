@@ -9,7 +9,7 @@ const BASE_URL = 'https://ilhabelatrip.com';
 
 // Load catalog data
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js']) {
+for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);

@@ -7,7 +7,7 @@ const BASE_URL = (process.env.SITE_URL || 'https://ilhabelatrip.com').replace(/\
 const photoOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'attraction-photo-overrides.json'), 'utf8'));
 
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js']) {
+for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
@@ -144,6 +144,7 @@ let enIndex = rootIndex
   .replace(/src="translations\.js\?v=([^"]+)"/, 'src="/translations.js?v=$1"')
   .replace(/src="data\.js\?v=([^"]+)"/, 'src="/data.js?v=$1"')
   .replace(/src="additional-spots\.js\?v=([^"]+)"/, 'src="/additional-spots.js?v=$1"')
+  .replace(/src="attraction-photos\.js\?v=([^"]+)"/, 'src="/attraction-photos.js?v=$1"')
   .replace(/src="app\.js\?v=([^"]+)"/, 'src="/app.js?v=$1"')
   .replace(/src="multimodal\.js\?v=([^"]+)"/, 'src="/multimodal.js?v=$1"')
   .replace(/src="planner\.js\?v=([^"]+)"/, 'src="/planner.js?v=$1"')
