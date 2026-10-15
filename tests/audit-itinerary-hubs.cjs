@@ -10,4 +10,4 @@ const html2=fs.readFileSync(path.join(ROOT,'roteiros','2-dias','index.html'),'ut
 for(const id of ids2){if(!html2.includes('/lugares/'+id+'/'))failures.push('2 dias atração ausente: '+id);if(!html2.includes('/?spot='+id+'&amp;add=trip'))failures.push('2 dias CTA ausente: '+id);}
 for(const needle of ['<title>Ilhabela em 2 dias','name="description"','rel="canonical" href="https://ilhabelatrip.com/roteiros/2-dias/"','/_vercel/insights/script.js','SEO Entry Action','norte + Vila','Castelhanos ou Bonete'])if(!html2.includes(needle))failures.push('2 dias ausente: '+needle);
 if((html2.match(/<article>/g)||[]).length!==ids2.length)failures.push('2 dias quantidade de cards incorreta');
-if(failures.length){console.error(failures.join('\n'));process.exit(1)}console.log('Roteiro 2 dias OK: '+ids2.length+' opções.');
+if(!html.includes('href="/roteiros/2-dias/"'))failures.push('3 dias sem link para roteiro 2 dias');if(!html2.includes('href="/roteiros/3-dias/"'))failures.push('2 dias sem link para roteiro 3 dias');if(failures.length){console.error(failures.join('\n'));process.exit(1)}console.log('Roteiro 2 dias OK: '+ids2.length+' opções.');
