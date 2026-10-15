@@ -11,7 +11,13 @@ for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
 const spots = vm.runInContext('touristSpots', context);
 
 // Validated EN pilot attractions eligible for indexing and sitemap
-const VALIDATED_EN_SPOTS = ['praia-do-curral', 'mirante-do-morro-da-cruz', 'pico-de-sao-sebastiao'];
+const VALIDATED_EN_SPOTS = [
+  'praia-do-curral',
+  'mirante-do-morro-da-cruz',
+  'pico-de-sao-sebastiao',
+  'baia-de-castelhanos',
+  'praia-do-bonete'
+];
 
 // Map of alternate language versions for reciprocal hreflang
 const alternates = new Map();

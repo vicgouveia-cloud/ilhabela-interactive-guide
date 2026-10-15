@@ -17,7 +17,13 @@ for (const spot of spots) {
   const url = BASE+'/lugares/'+spot.id+'/';
   if (!sitemap.includes('<loc>'+url+'</loc>')) failures.push('atração ausente no sitemap: '+spot.id);
 }
-const validatedEnSpots = ['praia-do-curral', 'mirante-do-morro-da-cruz', 'pico-de-sao-sebastiao'];
+const validatedEnSpots = [
+  'praia-do-curral',
+  'mirante-do-morro-da-cruz',
+  'pico-de-sao-sebastiao',
+  'baia-de-castelhanos',
+  'praia-do-bonete'
+];
 for (const enUrl of [BASE + '/en/', ...validatedEnSpots.map(id => BASE + '/en/lugares/' + id + '/')]) {
   if (!sitemap.includes('<loc>' + enUrl + '</loc>')) failures.push('URL EN ausente no sitemap: ' + enUrl);
 }

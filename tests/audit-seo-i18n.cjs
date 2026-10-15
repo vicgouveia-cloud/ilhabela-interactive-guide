@@ -76,10 +76,25 @@ console.log('✓ All 58 PT canonical URLs preserved with self-referencing canoni
 // -------------------------------------------------------------
 // 2. Canonical e Metadados das Páginas Piloto EN
 // -------------------------------------------------------------
-console.log('Checking self-referencing canonicals & EN locales...');
-const validatedEnSpots = ['praia-do-curral', 'mirante-do-morro-da-cruz', 'pico-de-sao-sebastiao'];
-const preparedNoindexSpots = ['baia-de-castelhanos', 'praia-do-bonete'];
+const validatedEnSpots = [
+  'praia-do-curral',
+  'mirante-do-morro-da-cruz',
+  'pico-de-sao-sebastiao',
+  'baia-de-castelhanos',
+  'praia-do-bonete'
+];
+const preparedNoindexSpots = [];
 const preparedHubs = ['/en/o-que-fazer/', '/en/praias/', '/en/cachoeiras/', '/en/trilhas/'];
+
+// Exactly 6 indexable English URLs (1 home + 5 attractions)
+const EXACT_6_INDEXABLE_EN_URLS = [
+  `${BASE_URL}/en/`,
+  `${BASE_URL}/en/lugares/praia-do-curral/`,
+  `${BASE_URL}/en/lugares/mirante-do-morro-da-cruz/`,
+  `${BASE_URL}/en/lugares/pico-de-sao-sebastiao/`,
+  `${BASE_URL}/en/lugares/baia-de-castelhanos/`,
+  `${BASE_URL}/en/lugares/praia-do-bonete/`
+];
 
 // Home EN
 const enHomeHtml = fs.readFileSync(path.join(ROOT, 'en', 'index.html'), 'utf8');
@@ -166,7 +181,7 @@ console.log('Checking sitemap.xml alignment...');
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 const sitemapLocs = (sitemap.match(/<loc>([^<]+)<\/loc>/g) || []).map(l => l.replace(/<\/?loc>/g, ''));
 
-assert.equal(sitemapLocs.length, 62, `Sitemap must contain exactly 62 URLs (58 PT + 4 EN validated), got ${sitemapLocs.length}`);
+assert.equal(sitemapLocs.length, 64, `Sitemap must contain exactly 64 URLs (58 PT + 6 EN validated), got ${sitemapLocs.length}`);
 
 // All 58 PT URLs must be present
 for (const relUrl of all58PtUrls) {
@@ -174,14 +189,13 @@ for (const relUrl of all58PtUrls) {
   assert(sitemapLocs.includes(fullUrl), `PT URL missing from sitemap: ${fullUrl}`);
 }
 
-// Exactly 4 validated EN URLs must be present
-const expectedEnUrls = [
-  `${BASE_URL}/en/`,
-  ...validatedEnSpots.map(id => `${BASE_URL}/en/lugares/${id}/`)
-];
+// Exactly 6 validated EN URLs must be present
+const expectedEnUrls = EXACT_6_INDEXABLE_EN_URLS;
 for (const enUrl of expectedEnUrls) {
   assert(sitemapLocs.includes(enUrl), `Validated EN URL missing from sitemap: ${enUrl}`);
 }
+const sitemapEnUrls = sitemapLocs.filter(u => u.includes('/en/')).sort();
+assert.deepEqual(sitemapEnUrls, [...EXACT_6_INDEXABLE_EN_URLS].sort(), 'Sitemap contains unexpected EN URLs');
 
 // No noindex pages in sitemap
 for (const id of preparedNoindexSpots) {
@@ -191,11 +205,11 @@ for (const hub of preparedHubs) {
   assert(!sitemap.includes(hub), `Prepared hub ${hub} must not be in sitemap`);
 }
 
-// Verify xhtml:link alternates in sitemap for the 4 pairs
+// Verify xhtml:link alternates in sitemap for all validated EN pairs
 for (const enUrl of expectedEnUrls) {
   assert(sitemap.includes(`href="${enUrl}"`), `Sitemap xhtml:link missing ${enUrl}`);
 }
-console.log('✓ Sitemap accurately reflects all 62 indexable URLs with reciprocal xhtml:link.\n');
+console.log('✓ Sitemap accurately reflects all 64 indexable URLs with reciprocal xhtml:link.\n');
 
 // -------------------------------------------------------------
 // 5. Ausência de texto em português nas páginas em inglês do piloto
