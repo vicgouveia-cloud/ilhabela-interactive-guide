@@ -38,14 +38,14 @@ const PILOT_SPOTS = [
   {
     id: 'baia-de-castelhanos',
     validated: false,
-    pendingReason: 'Detailed 4x4 park entrance handover navigation copy lacks approved English translation.',
-    accessEn: 'Accredited 4x4 vehicles through the State Park or boat / speedboat by sea'
+    pendingReason: 'Detailed 4x4 park entrance handover navigation copy and access rules implemented; awaiting final editorial approval for indexation.',
+    accessEn: 'Standard two-wheel-drive passenger cars cannot reach the beach: road navigation for conventional vehicles ends at the State Park Entrance (-23.8392, -45.3600). The remaining 17 km (10.5 miles) through protected Atlantic Forest requires an accredited 4x4 vehicle with high clearance or an off-road tour operator. Park road traffic operates under scheduled one-way windows (typically inbound in the morning, outbound in the afternoon) with daily vehicle limits managed by the Ilhabela State Park (Fundação Florestal). Alternatively, Castelhanos can be reached by sea via boat or speedboat tours departing from western channel points; boarding locations and schedules vary and must be confirmed directly with your licensed operator. Maritime landing takes place on open-ocean surf and depends strictly on sea conditions. Always verify current park regulations, gate schedules, and weather before departure.'
   },
   {
     id: 'praia-do-bonete',
     validated: false,
-    pendingReason: 'Detailed Sepituba vehicle terminus and trail trailhead navigation copy lacks approved English translation.',
-    accessEn: 'Trail from Sepituba or boat / Boneteiro'
+    pendingReason: 'Detailed Sepituba vehicle terminus and trail trailhead navigation copy implemented; awaiting final editorial approval for indexation.',
+    accessEn: 'There is no road access to Bonete Beach. Public road vehicle navigation ends at Ponta da Sepituba (-23.9362, -45.4273) in southern Ilhabela. From this trailhead, access continues on foot via a demanding 12 km (7.5-mile) trail through the Ilhabela State Park rainforest, typically taking 4 to 5 hours of sustained hiking with river crossings and uneven terrain. Sturdy footwear, insect repellent, plenty of water, and an early morning start are essential. Alternatively, visitors can reach the beach by sea aboard traditional caiçara boats (\'boneteiras\') or licensed speedboats. Maritime access is strictly subject to open-sea swell and surf conditions, and boat landings or pickups can be delayed or canceled when seas are rough. Both outbound and return boat transportation must always be confirmed directly in advance with your operator.'
   }
 ];
 
@@ -61,7 +61,9 @@ function renderEnAttractionPage(spot, pilotInfo) {
   const image = absolute(imagePath);
   const photoCredit = photo
     ? `<p><small>Photo: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Resized image.</small></p>`
-    : '';
+    : (['baia-de-castelhanos', 'praia-do-bonete'].includes(spot.id) && spot.photoCredit && spot.photoSource)
+      ? `<p><small>Photo: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a></small></p>`
+      : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
   const schema = JSON.stringify({
     '@context': 'https://schema.org',
