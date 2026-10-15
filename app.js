@@ -869,13 +869,18 @@ function openSpotModal(spotId, options = {}) {
     </div>
 
     <!-- License and accurate photo subject for newly added CC-licensed images. -->
-    ${spot.photoLicense && spot.photoLicenseUrl ? `
-      <div class="text-[11px] text-on-surface-variant leading-relaxed px-1" data-photo-license>
+    <div id="modal-photo-license" class="text-[11px] text-on-surface-variant leading-relaxed px-1 ${spot.photoLicense && spot.photoLicenseUrl ? '' : 'hidden'}" data-photo-license>
+      ${spot.photoLicense && spot.photoLicenseUrl ? `
         <a href="${spot.photoLicenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${spot.photoLicense}</a>
         · ${t('photoCredit')}: <a href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="underline">${spot.photoCredit}</a>
-        ${spot.photoCaption ? ` · ${spot.photoCaption[currentLang] || spot.photoCaption.pt}` : ''}
-      </div>
-    ` : ''}
+        ${(() => {
+          const adapt = (spot.photoAttributions && spot.photoAttributions[0]?.adaptation) || spot.photoAdaptation;
+          const adaptText = formatPhotoAdaptation(adapt, currentLang);
+          return adaptText ? ` · ${adaptText}` : '';
+        })()}
+        ${spot.photoCaption ? ` · ${(spot.photoCaption[currentLang] || spot.photoCaption.pt)}` : ''}
+      ` : ''}
+    </div>
 
     <!-- Thumbnails Gallery Strip -->
     ${currentModalImages.length > 1 ? `
@@ -1001,6 +1006,25 @@ document.addEventListener('keydown', event => {
   else if (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
 });
 
+function formatPhotoAdaptation(adapt, lang) {
+  if (!adapt) return '';
+  if (typeof adapt === 'object') return adapt[lang] || adapt.pt || adapt.en || '';
+  if (typeof adapt === 'string') {
+    if (adapt === 'Imagem redimensionada.') {
+      const map = {
+        pt: 'Imagem redimensionada.',
+        en: 'Resized image.',
+        fr: 'Image redimensionnée.',
+        es: 'Imagen redimensionada.',
+        he: 'תמונה שונה בגודלה.'
+      };
+      return map[lang] || adapt;
+    }
+    return adapt;
+  }
+  return '';
+}
+
 function setModalImage(idx) {
   if (!currentModalImages || currentModalImages.length === 0) return;
   currentModalImageIndex = (idx + currentModalImages.length) % currentModalImages.length;
@@ -1023,6 +1047,42 @@ function setModalImage(idx) {
       btn.className = 'modal-thumb-btn w-20 h-14 rounded-xl overflow-hidden flex-shrink-0 border-2 border-transparent opacity-70 hover:opacity-100 transition-all shadow-sm';
     }
   });
+
+  const spot = typeof touristSpots !== 'undefined' && touristSpots.find(s => s.id === selectedSpotId);
+  if (spot) {
+    const attr = (spot.photoAttributions && spot.photoAttributions[currentModalImageIndex]) || (currentModalImageIndex === 0 ? {
+      credit: spot.photoCredit,
+      source: spot.photoSource,
+      license: spot.photoLicense,
+      licenseUrl: spot.photoLicenseUrl,
+      adaptation: spot.photoAdaptation,
+      caption: spot.photoCaption
+    } : null);
+
+    const creditEl = document.getElementById('modal-photo-credit');
+    if (creditEl) {
+      if (attr && attr.credit && attr.source) {
+        creditEl.href = attr.source;
+        creditEl.innerHTML = `${t('photoCredit')}: ${attr.credit}`;
+        creditEl.classList.remove('hidden');
+      } else {
+        creditEl.classList.add('hidden');
+      }
+    }
+
+    const licenseEl = document.getElementById('modal-photo-license');
+    if (licenseEl) {
+      if (attr && attr.license && attr.licenseUrl && attr.source && attr.credit) {
+        const adapt = attr.adaptation || (currentModalImageIndex === 0 ? spot.photoAdaptation : null);
+        const adaptText = formatPhotoAdaptation(adapt, currentLang);
+        const captionText = attr.caption ? (attr.caption[currentLang] || attr.caption.pt || attr.caption) : (currentModalImageIndex === 0 && spot.photoCaption ? (spot.photoCaption[currentLang] || spot.photoCaption.pt) : '');
+        licenseEl.innerHTML = `<a href="${attr.licenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${attr.license}</a> · ${t('photoCredit')}: <a href="${attr.source}" target="_blank" rel="noopener noreferrer" class="underline">${attr.credit}</a>${adaptText ? ` · ${adaptText}` : ''}${captionText ? ` · ${captionText}` : ''}`;
+        licenseEl.classList.remove('hidden');
+      } else {
+        licenseEl.classList.add('hidden');
+      }
+    }
+  }
 }
 
 function prevModalImage(e) {
