@@ -9,10 +9,11 @@ const BASE_URL = 'https://ilhabelatrip.com';
 
 // Load catalog data
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
+for (const file of ['translations.js', 'data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
+const translations = vm.runInContext('translations', context);
 const photoOverrides = JSON.parse(fs.readFileSync(path.join(ROOT, 'scripts', 'attraction-photo-overrides.json'), 'utf8'));
 
 // Helper to extract text and attributes
@@ -86,6 +87,12 @@ assert(enHomeHtml.includes('<html lang="en"'), '/en/ must have lang="en"');
 assert(enHomeHtml.includes('<link rel="canonical" href="https://ilhabelatrip.com/en/" />'), '/en/ must have self canonical');
 assert(enHomeHtml.includes('<meta property="og:locale" content="en_US" />'), '/en/ must have og:locale="en_US"');
 
+// Hero asset path and alt text verification (SEO-PR-02C)
+assert(enHomeHtml.includes('src="/assets/images/mirante-do-coracao_verified.jpg"'), 'Home EN hero image must have absolute path starting with /');
+assert(!enHomeHtml.includes('src="assets/images/mirante-do-coracao_verified.jpg"'), 'Home EN hero image must not have relative path without leading /');
+assert(enHomeHtml.includes(`alt="${translations.en.heroImage}"`), 'Home EN hero image must use approved English alt text from translations.js');
+assert(!enHomeHtml.includes('alt="Vista real da Baía de Castelhanos, em Ilhabela"'), 'Home EN hero image must not retain Portuguese alt text');
+
 // EN attraction pages
 for (const id of [...validatedEnSpots, ...preparedNoindexSpots]) {
   const enPagePath = path.join(ROOT, 'en', 'lugares', id, 'index.html');
@@ -104,6 +111,18 @@ for (const hub of preparedHubs) {
   assert(html.includes('<html lang="en">'), `${hub} must have lang="en"`);
   assert(html.includes(`<link rel="canonical" href="https://ilhabelatrip.com${hub}">`), `${hub} self canonical`);
   assert(html.includes('<meta name="robots" content="noindex, follow">'), `${hub} must be noindex, follow`);
+}
+
+// Guard all EN HTML files against relative asset paths without leading slash
+const allEnHtmlFiles = [
+  'en/index.html',
+  ...preparedHubs.map(h => path.join(h.replace(/^\//, ''), 'index.html')),
+  ...[...validatedEnSpots, ...preparedNoindexSpots].map(id => path.join('en', 'lugares', id, 'index.html'))
+];
+for (const relFile of allEnHtmlFiles) {
+  const fileContent = fs.readFileSync(path.join(ROOT, relFile), 'utf8');
+  assert(!/(?:src|href)="assets\//.test(fileContent), `${relFile} must not contain relative asset paths "assets/" without leading slash`);
+  assert(!/(?:src|href)="styles\.css/.test(fileContent), `${relFile} must not contain relative "styles.css" without leading slash`);
 }
 console.log('✓ Self-referencing canonicals and language attributes verified.\n');
 

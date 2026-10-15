@@ -7,10 +7,11 @@ const BASE_URL = (process.env.SITE_URL || 'https://ilhabelatrip.com').replace(/\
 const photoOverrides = JSON.parse(fs.readFileSync(path.join(__dirname, 'attraction-photo-overrides.json'), 'utf8'));
 
 const context = vm.createContext({ console });
-for (const file of ['data.js', 'additional-spots.js', 'attraction-photos.js']) {
+for (const file of ['translations.js', 'data.js', 'additional-spots.js', 'attraction-photos.js']) {
   vm.runInContext(fs.readFileSync(path.join(ROOT, file), 'utf8'), context, { filename: file });
 }
 const spots = vm.runInContext('touristSpots', context);
+const translations = vm.runInContext('translations', context);
 
 const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[ch]));
 const absolute = value => /^https?:\/\//.test(value) ? value : `${BASE_URL}/${String(value).replace(/^\//, '')}`;
@@ -149,6 +150,8 @@ let enIndex = rootIndex
   .replace(/src="multimodal\.js\?v=([^"]+)"/, 'src="/multimodal.js?v=$1"')
   .replace(/src="planner\.js\?v=([^"]+)"/, 'src="/planner.js?v=$1"')
   .replace(/src="offline-trip\.js\?v=([^"]+)"/, 'src="/offline-trip.js?v=$1"')
+  .replace(/src="assets\/images\/mirante-do-coracao_verified\.jpg"/, 'src="/assets/images/mirante-do-coracao_verified.jpg"')
+  .replace(/alt="Vista real da Baía de Castelhanos, em Ilhabela"/, `alt="${esc(translations.en.heroImage)}"`)
   .replace(/<a href="#hero"/g, '<a href="/en/#hero"')
   .replace(/href="#map-section"/g, 'href="/en/#map-section"')
   .replace(/href="#explore-section"/g, 'href="/en/#explore-section"')
