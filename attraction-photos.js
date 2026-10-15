@@ -8,27 +8,49 @@ const verifiedPhotoLibrary = {
     source: 'https://commons.wikimedia.org/wiki/File:Praia_do_Bonete,_Ilhabela,_2021.jpg',
     license: 'CC BY-SA 4.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    adaptation: 'Imagem redimensionada.',
     attributions: [
       {
         image: 'assets/images/praia-do-bonete_verified.jpg',
         credit: 'Jcornelius · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Praia_do_Bonete,_Ilhabela,_2021.jpg',
         license: 'CC BY-SA 4.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       },
       {
         image: 'assets/images/praia-do-bonete_verified_2.jpg',
         credit: 'Eduardofebronio · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Praia_do_Bonete_-_Ilhabela.jpg',
         license: 'CC BY-SA 3.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       },
       {
         image: 'assets/images/praia-do-bonete_verified_3.jpg',
         credit: 'florent1024 · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Bonete,_Ilhabela_-_SP,_Brazil_-_panoramio.jpg',
         license: 'CC BY-SA 3.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/3.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       }
     ]
   },
@@ -38,27 +60,49 @@ const verifiedPhotoLibrary = {
     source: 'https://commons.wikimedia.org/wiki/File:Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg',
     license: 'CC BY-SA 4.0',
     licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    adaptation: 'Imagem redimensionada.',
     attributions: [
       {
         image: 'assets/images/baia-de-castelhanos_verified.jpg',
         credit: 'João Vitor Oliveira Martins · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg',
         license: 'CC BY-SA 4.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       },
       {
         image: 'assets/images/baia-de-castelhanos_verified_2.jpg',
         credit: 'João Vitor Oliveira Martins · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Castelhanos_-_Ilhabela_-_sp.jpg',
         license: 'CC BY-SA 4.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       },
       {
         image: 'assets/images/mirante-do-coracao_verified.jpg',
         credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons',
         source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg',
         license: 'CC BY-SA 4.0',
-        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/'
+        licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+        adaptation: {
+          pt: 'Imagem redimensionada.',
+          en: 'Resized image.',
+          fr: 'Image redimensionnée.',
+          es: 'Imagen redimensionada.',
+          he: 'תמונה שונה בגודלה.'
+        }
       }
     ]
   },

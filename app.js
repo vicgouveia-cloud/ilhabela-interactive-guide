@@ -873,6 +873,11 @@ function openSpotModal(spotId, options = {}) {
       ${spot.photoLicense && spot.photoLicenseUrl ? `
         <a href="${spot.photoLicenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${spot.photoLicense}</a>
         · ${t('photoCredit')}: <a href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="underline">${spot.photoCredit}</a>
+        ${(() => {
+          const adapt = (spot.photoAttributions && spot.photoAttributions[0]?.adaptation) || spot.photoAdaptation;
+          const adaptText = formatPhotoAdaptation(adapt, currentLang);
+          return adaptText ? ` · ${adaptText}` : '';
+        })()}
         ${spot.photoCaption ? ` · ${(spot.photoCaption[currentLang] || spot.photoCaption.pt)}` : ''}
       ` : ''}
     </div>
@@ -1001,6 +1006,25 @@ document.addEventListener('keydown', event => {
   else if (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
 });
 
+function formatPhotoAdaptation(adapt, lang) {
+  if (!adapt) return '';
+  if (typeof adapt === 'object') return adapt[lang] || adapt.pt || adapt.en || '';
+  if (typeof adapt === 'string') {
+    if (adapt === 'Imagem redimensionada.') {
+      const map = {
+        pt: 'Imagem redimensionada.',
+        en: 'Resized image.',
+        fr: 'Image redimensionnée.',
+        es: 'Imagen redimensionada.',
+        he: 'תמונה שונה בגודלה.'
+      };
+      return map[lang] || adapt;
+    }
+    return adapt;
+  }
+  return '';
+}
+
 function setModalImage(idx) {
   if (!currentModalImages || currentModalImages.length === 0) return;
   currentModalImageIndex = (idx + currentModalImages.length) % currentModalImages.length;
@@ -1031,6 +1055,7 @@ function setModalImage(idx) {
       source: spot.photoSource,
       license: spot.photoLicense,
       licenseUrl: spot.photoLicenseUrl,
+      adaptation: spot.photoAdaptation,
       caption: spot.photoCaption
     } : null);
 
@@ -1048,8 +1073,10 @@ function setModalImage(idx) {
     const licenseEl = document.getElementById('modal-photo-license');
     if (licenseEl) {
       if (attr && attr.license && attr.licenseUrl && attr.source && attr.credit) {
+        const adapt = attr.adaptation || (currentModalImageIndex === 0 ? spot.photoAdaptation : null);
+        const adaptText = formatPhotoAdaptation(adapt, currentLang);
         const captionText = attr.caption ? (attr.caption[currentLang] || attr.caption.pt || attr.caption) : (currentModalImageIndex === 0 && spot.photoCaption ? (spot.photoCaption[currentLang] || spot.photoCaption.pt) : '');
-        licenseEl.innerHTML = `<a href="${attr.licenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${attr.license}</a> · ${t('photoCredit')}: <a href="${attr.source}" target="_blank" rel="noopener noreferrer" class="underline">${attr.credit}</a>${captionText ? ` · ${captionText}` : ''}`;
+        licenseEl.innerHTML = `<a href="${attr.licenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${attr.license}</a> · ${t('photoCredit')}: <a href="${attr.source}" target="_blank" rel="noopener noreferrer" class="underline">${attr.credit}</a>${adaptText ? ` · ${adaptText}` : ''}${captionText ? ` · ${captionText}` : ''}`;
         licenseEl.classList.remove('hidden');
       } else {
         licenseEl.classList.add('hidden');
