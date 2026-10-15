@@ -17,8 +17,12 @@ for (const spot of spots) {
   const url = BASE+'/lugares/'+spot.id+'/';
   if (!sitemap.includes('<loc>'+url+'</loc>')) failures.push('atração ausente no sitemap: '+spot.id);
 }
+const validatedEnSpots = ['praia-do-curral', 'mirante-do-morro-da-cruz', 'pico-de-sao-sebastiao'];
+for (const enUrl of [BASE + '/en/', ...validatedEnSpots.map(id => BASE + '/en/lugares/' + id + '/')]) {
+  if (!sitemap.includes('<loc>' + enUrl + '</loc>')) failures.push('URL EN ausente no sitemap: ' + enUrl);
+}
 const count = (sitemap.match(/<loc>/g) || []).length;
-const expected = spots.length + 8;
+const expected = spots.length + 8 + 1 + validatedEnSpots.length;
 if (count !== expected) failures.push('quantidade de URLs: '+count+'; esperado '+expected);
 if (!robots.includes('User-agent: *') || !robots.includes('Allow: /')) failures.push('robots.txt sem regra pública esperada');
 if (!robots.includes('Sitemap: '+BASE+'/sitemap.xml')) failures.push('robots.txt sem referência ao sitemap');
