@@ -84,16 +84,19 @@ const validatedEnSpots = [
   'praia-do-bonete'
 ];
 const preparedNoindexSpots = [];
-const preparedHubs = ['/en/o-que-fazer/', '/en/praias/', '/en/cachoeiras/', '/en/trilhas/'];
+const validatedHubs = ['/en/o-que-fazer/', '/en/praias/'];
+const preparedHubs = ['/en/cachoeiras/', '/en/trilhas/'];
 
-// Exactly 6 indexable English URLs (1 home + 5 attractions)
-const EXACT_6_INDEXABLE_EN_URLS = [
+// Exactly 8 indexable English URLs (1 home + 5 attractions + 2 hubs)
+const EXACT_8_INDEXABLE_EN_URLS = [
   `${BASE_URL}/en/`,
   `${BASE_URL}/en/lugares/praia-do-curral/`,
   `${BASE_URL}/en/lugares/mirante-do-morro-da-cruz/`,
   `${BASE_URL}/en/lugares/pico-de-sao-sebastiao/`,
   `${BASE_URL}/en/lugares/baia-de-castelhanos/`,
-  `${BASE_URL}/en/lugares/praia-do-bonete/`
+  `${BASE_URL}/en/lugares/praia-do-bonete/`,
+  `${BASE_URL}/en/o-que-fazer/`,
+  `${BASE_URL}/en/praias/`
 ];
 
 // Home EN
@@ -118,7 +121,7 @@ for (const id of [...validatedEnSpots, ...preparedNoindexSpots]) {
   assert(html.includes('<meta property="og:locale" content="en_US">'), `/en/lugares/${id}/ og:locale="en_US"`);
 }
 
-// Prepared Hubs
+// Unvalidated hubs remain noindex
 for (const hub of preparedHubs) {
   const hubPath = path.join(ROOT, hub.replace(/^\//, ''), 'index.html');
   assert(fs.existsSync(hubPath), `Missing hub page: ${hubPath}`);
@@ -128,10 +131,28 @@ for (const hub of preparedHubs) {
   assert(html.includes('<meta name="robots" content="noindex, follow">'), `${hub} must be noindex, follow`);
 }
 
+
+for (const hub of validatedHubs) {
+  const slug = hub.split('/')[2];
+  const ptUrl = `${BASE_URL}/${slug}/`;
+  const enUrl = `${BASE_URL}${hub}`;
+  const ptHtml = fs.readFileSync(path.join(ROOT, slug, 'index.html'), 'utf8');
+  const enHtml = fs.readFileSync(path.join(ROOT, 'en', slug, 'index.html'), 'utf8');
+  assert(enHtml.includes('<html lang="en">'), `${hub}: English language missing`);
+  assert(enHtml.includes(`<link rel="canonical" href="${enUrl}">`), `${hub}: self canonical missing`);
+  assert(!enHtml.includes('name="robots" content="noindex'), `${hub}: indexable hub must not be noindex`);
+  for (const html of [ptHtml, enHtml]) {
+    for (const [lang, url] of [['pt', ptUrl], ['en', enUrl], ['x-default', ptUrl]]) {
+      assert(html.includes(`<link rel="alternate" hreflang="${lang}" href="${url}">`), `${hub}: missing reciprocal ${lang} hreflang`);
+    }
+  }
+}
+assert(fs.readFileSync(path.join(ROOT, 'en/o-que-fazer/index.html'), 'utf8').includes('href="/en/praias/"'), 'Discovery hub must link to the beach hub');
+
 // Guard all EN HTML files against relative asset paths without leading slash
 const allEnHtmlFiles = [
   'en/index.html',
-  ...preparedHubs.map(h => path.join(h.replace(/^\//, ''), 'index.html')),
+  ...[...validatedHubs, ...preparedHubs].map(h => path.join(h.replace(/^\//, ''), 'index.html'))
   ...[...validatedEnSpots, ...preparedNoindexSpots].map(id => path.join('en', 'lugares', id, 'index.html'))
 ];
 for (const relFile of allEnHtmlFiles) {
@@ -196,7 +217,7 @@ console.log('Checking sitemap.xml alignment...');
 const sitemap = fs.readFileSync(path.join(ROOT, 'sitemap.xml'), 'utf8');
 const sitemapLocs = (sitemap.match(/<loc>([^<]+)<\/loc>/g) || []).map(l => l.replace(/<\/?loc>/g, ''));
 
-assert.equal(sitemapLocs.length, 64, `Sitemap must contain exactly 64 URLs (58 PT + 6 EN validated), got ${sitemapLocs.length}`);
+assert.equal(sitemapLocs.length, 66, `Sitemap must contain exactly 66 URLs (58 PT + 8 EN validated), got ${sitemapLocs.length}`);
 
 // All 58 PT URLs must be present
 for (const relUrl of all58PtUrls) {
@@ -204,13 +225,13 @@ for (const relUrl of all58PtUrls) {
   assert(sitemapLocs.includes(fullUrl), `PT URL missing from sitemap: ${fullUrl}`);
 }
 
-// Exactly 6 validated EN URLs must be present
-const expectedEnUrls = EXACT_6_INDEXABLE_EN_URLS;
+// Exactly 8 validated EN URLs must be present
+const expectedEnUrls = EXACT_8_INDEXABLE_EN_URLS;
 for (const enUrl of expectedEnUrls) {
   assert(sitemapLocs.includes(enUrl), `Validated EN URL missing from sitemap: ${enUrl}`);
 }
 const sitemapEnUrls = sitemapLocs.filter(u => u.includes('/en/')).sort();
-assert.deepEqual(sitemapEnUrls, [...EXACT_6_INDEXABLE_EN_URLS].sort(), 'Sitemap contains unexpected EN URLs');
+assert.deepEqual(sitemapEnUrls, [...EXACT_8_INDEXABLE_EN_URLS].sort(), 'Sitemap contains unexpected EN URLs');
 
 // No noindex pages in sitemap
 for (const id of preparedNoindexSpots) {
@@ -224,7 +245,7 @@ for (const hub of preparedHubs) {
 for (const enUrl of expectedEnUrls) {
   assert(sitemap.includes(`href="${enUrl}"`), `Sitemap xhtml:link missing ${enUrl}`);
 }
-console.log('✓ Sitemap accurately reflects all 64 indexable URLs with reciprocal xhtml:link.\n');
+console.log('✓ Sitemap accurately reflects all 66 indexable URLs with reciprocal xhtml:link.\n');
 
 // -------------------------------------------------------------
 // 5. Ausência de texto em português nas páginas em inglês do piloto
@@ -353,12 +374,12 @@ console.log('Checking English discovery editorial guidance and preserved beach c
 assert(discoveryHtml.includes('<p class="intro">Explore 50 Ilhabela places by experience:'), 'English discovery hub introductory guidance missing');
 assert(discoveryHtml.includes('the mapped destination may differ from its access point'), 'English discovery hub special-access guidance missing');
 assert(discoveryHtml.includes('select + My Trip to save it to your itinerary'), 'English discovery hub My Trip guidance missing');
-assert(discoveryHtml.includes('<meta name="robots" content="noindex, follow">'), 'English discovery hub must remain noindex');
+assert(!discoveryHtml.includes('name="robots" content="noindex'), 'English discovery hub is indexable');
 
 const beachHubHtml = fs.readFileSync(path.join(ROOT, 'en', 'praias', 'index.html'), 'utf8');
 assert(beachHubHtml.includes('<p class="intro">Explore 23 Ilhabela beaches,'), 'English beach hub intro missing');
 assert(beachHubHtml.includes('Driving directions do not always lead directly to the sand'), 'English beach hub road-access guidance missing');
-assert(beachHubHtml.includes('<meta name="robots" content="noindex, follow">'), 'English beach hub must remain noindex');
+assert(!beachHubHtml.includes('name="robots" content="noindex'), 'English beach hub is indexable');
 const actualBeachIds = [...beachHubHtml.matchAll(/<article data-spot="([^"]+)"/g)].map(match => match[1]);
 const expectedBeachIds = spots.filter(spot => spot.category === 'praias').map(spot => spot.id);
 assert.deepEqual(actualBeachIds, expectedBeachIds, 'English beach hub must preserve all 23 original beach cards and their order');

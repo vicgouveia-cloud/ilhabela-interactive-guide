@@ -171,7 +171,7 @@ if (!rootIndex.includes('hreflang="en"')) {
   console.log('Updated root index.html with reciprocal hreflang tags');
 }
 
-// 4. Generate Prepared EN Hubs (marked noindex, follow pending approved editorial copy)
+// 4. Generate indexable English discovery hub; remaining category hubs keep noindex
 const groups = [
   ['praias', 'Beaches'],
   ['cachoeiras', 'Waterfalls'],
@@ -193,13 +193,16 @@ function enCard(s) {
 }
 
 const enSections = groups.map(([id, title]) =>
-  `<section id="${id}"><div class="section-head"><div><h2>${title}</h2></div><span>${byCategory[id].length} places</span></div><div class="grid">${byCategory[id].map(enCard).join('')}</div></section>`
+  `<section id="${id}"><div class="section-head"><div><h2>${title}</h2>${id === 'praias' ? '<p><a href="/en/praias/">Explore all beaches →</a></p>' : ''}</div><span>${byCategory[id].length} places</span></div><div class="grid">${byCategory[id].map(enCard).join('')}</div></section>`
 ).join('\n');
 
 const enJump = groups.map(([id, title]) => `<a href="#${id}">${title} · ${byCategory[id].length}</a>`).join('');
 
 const discoveryHubHtml = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Things to do in Ilhabela | Beaches, waterfalls, trails and more</title><meta name="description" content="Explore ${spots.length} places in Ilhabela by experience type: beaches, waterfalls, trails, peaks, lookouts, diving, marine wildlife, culture and history."><link rel="canonical" href="https://ilhabelatrip.com/en/o-que-fazer/"><meta name="robots" content="noindex, follow"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Ilhabela Trip"><meta property="og:title" content="Things to do in Ilhabela"><meta property="og:description" content="Explore beaches, waterfalls, trails, lookouts, diving, marine wildlife, culture and history."><meta property="og:url" content="https://ilhabelatrip.com/en/o-que-fazer/">
+<title>Things to do in Ilhabela | Beaches, waterfalls, trails and more</title><meta name="description" content="Explore ${spots.length} places in Ilhabela by experience type: beaches, waterfalls, trails, peaks, lookouts, diving, marine wildlife, culture and history."><link rel="canonical" href="https://ilhabelatrip.com/en/o-que-fazer/">
+<link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/o-que-fazer/">
+<link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/o-que-fazer/">
+<link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/o-que-fazer/"><meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Ilhabela Trip"><meta property="og:title" content="Things to do in Ilhabela"><meta property="og:description" content="Explore beaches, waterfalls, trails, lookouts, diving, marine wildlife, culture and history."><meta property="og:url" content="https://ilhabelatrip.com/en/o-que-fazer/">
 <style>body{margin:0;background:#faf7f0;color:#1b1c19;font:16px/1.55 system-ui,-apple-system,sans-serif}header,main,footer{max-width:1120px;margin:auto;padding:20px}header{display:flex;justify-content:space-between;gap:20px;align-items:center}a{color:#003345}header a{text-decoration:none;font-weight:800}.hero{padding:45px 0 24px;max-width:760px}.eyebrow{font-size:12px;text-transform:uppercase;font-weight:850;letter-spacing:.08em;color:#3b6934}h1{font-size:clamp(2.2rem,6vw,4.4rem);line-height:1;margin:.25em 0;color:#003345}h2,h3{color:#003345}.intro{font-size:1.18rem;color:#405057}.jump{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 48px}.jump a{background:#fff;border:1px solid #ddd8ce;border-radius:999px;padding:8px 13px;text-decoration:none;font-weight:700}.section-head{display:flex;justify-content:space-between;gap:20px;align-items:end;border-bottom:1px solid #ddd8ce;margin:52px 0 18px;padding-bottom:12px}.section-head h2{font-size:1.8rem;margin:0}.section-head p{margin:4px 0 0;color:#52656b}.section-head span{white-space:nowrap;color:#52656b}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px}article{background:#fff;border:1px solid #e1ddd4;border-radius:16px;overflow:hidden}.image{display:block;height:150px;background:#e7e4dc}.image img{width:100%;height:100%;object-fit:cover}.body{padding:15px}.body h3{margin:0 0 5px;font-size:1.08rem}.body h3 a{text-decoration:none}.body p{margin:0 0 12px;color:#52656b;font-size:.92rem}.actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.more,.trip{font-weight:800;font-size:.86rem}.trip{text-decoration:none;border:1px solid #b8c8c4;border-radius:999px;padding:5px 9px;background:#f7fbfa}footer{margin-top:55px;color:#52656b;font-size:14px}@media(max-width:600px){header,main,footer{padding:16px}.section-head{align-items:start;flex-direction:column;gap:4px}}</style></head><body><header><a href="/en/">Ilhabela Trip</a><nav><a href="/?view=trip&amp;lang=en">My Trip</a> · <a href="/servicos/">Services</a></nav></header><main><div class="hero"><div class="eyebrow">Explore Ilhabela</div><h1>Things to do in Ilhabela</h1><p class="intro">Explore 50 Ilhabela places by experience: beaches, waterfalls, forest walks, viewpoints, marine wildlife, diving, and culture. This guide does not rank destinations; choose the experiences that suit your visit.</p><p>Access varies by destination: some places require an authorized 4x4, a forest trail, or a boat, and the mapped destination may differ from its access point. Check local conditions and confirm operator arrangements when needed. Open a place for details or select + My Trip to save it to your itinerary.</p></div><nav class="jump" aria-label="Experience types">${enJump}</nav>${enSections}</main><footer>Ilhabela Trip · Discover, choose and add places to My Trip.</footer><script>
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
 document.addEventListener('click',function(event){
@@ -211,7 +214,7 @@ document.addEventListener('click',function(event){
 
 fs.mkdirSync(path.join(ROOT, 'en', 'o-que-fazer'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'en', 'o-que-fazer', 'index.html'), discoveryHubHtml);
-console.log('Generated /en/o-que-fazer/ [indexable: false, noindex: true]');
+console.log('Generated /en/o-que-fazer/ [indexable: true]');
 
 // 5. Generate EN Category Hubs (/en/praias/, /en/cachoeiras/, /en/trilhas/)
 const catStyle = 'body{margin:0;background:#faf7f0;color:#1b1c19;font:16px/1.55 system-ui,-apple-system,sans-serif}header,main,footer{max-width:1120px;margin:auto;padding:20px}header{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}a,h1,h2{color:#003345}header a{text-decoration:none;font-weight:800}h1{font-size:clamp(2rem,6vw,4rem);line-height:1.1}.intro{font-size:1.18rem;color:#405057}.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:16px;margin-top:28px}article{background:#fff;border:1px solid #e1ddd4;border-radius:16px;overflow:hidden}.image{display:block;height:150px}.image img{width:100%;height:100%;object-fit:cover}.body{padding:15px}.body h2{margin:0 0 5px;font-size:1.08rem}.body h2 a{text-decoration:none}.body p{color:#52656b;font-size:.92rem}.actions{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}.more,.trip{font-weight:800;font-size:.86rem}.trip{text-decoration:none;border:1px solid #b8c8c4;border-radius:999px;padding:5px 9px;background:#f7fbfa}footer{margin-top:55px;color:#52656b;font-size:14px}';
@@ -231,11 +234,14 @@ const enCategoryDefinitions = [
 for (const [catId, label] of enCategoryDefinitions) {
   const selected = spots.filter(s => s.category === catId);
   const title = `${label} in Ilhabela | Ilhabela Trip`;
-  const description = `${label} in Ilhabela: ${selected.length} places from the Ilhabela Trip catalog.`;
+  const description = catId === 'praias' ? 'Explore 23 Ilhabela beaches with road, forest-trail, 4x4 and boat access guidance, photos and trip-planning links.' : `${label} in Ilhabela: ${selected.length} places from the Ilhabela Trip catalog.`;
   const canonical = `${BASE_URL}/en/${catId}/`;
+  const categorySeoTags = catId === 'praias'
+    ? `<link rel="alternate" hreflang="pt" href="${BASE_URL}/praias/">\n<link rel="alternate" hreflang="en" href="${BASE_URL}/en/praias/">\n<link rel="alternate" hreflang="x-default" href="${BASE_URL}/praias/">`
+    : '<meta name="robots" content="noindex, follow">';
   const categoryIntro = catId === 'praias' ? "<p class=\"intro\">Explore 23 Ilhabela beaches, from shores reached by regular roads to remote stretches that may require a forest trail, an authorized 4x4, or a boat. Driving directions do not always lead directly to the sand. Check each beach’s access notes, trail or sea conditions, and operator arrangements before traveling. Open a place for details or select + My Trip to save it to your itinerary.</p>" : '';
   const catHtml = `<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}"><meta name="robots" content="noindex, follow">
+<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">${categorySeoTags}
 <meta property="og:type" content="website"><meta property="og:locale" content="en_US"><meta property="og:site_name" content="Ilhabela Trip"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}">
 <style>${catStyle}</style></head><body><header><a href="/en/">Ilhabela Trip</a><nav><a href="/en/o-que-fazer/">Explore</a> · <a href="/?view=trip&amp;lang=en">My Trip</a></nav></header><main><h1>${esc(label)} in Ilhabela</h1>${categoryIntro}<div class="grid">${selected.map(enCategoryCard).join('\n')}</div></main><footer>Ilhabela Trip · Discover, choose and add places to My Trip.</footer><script>
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};
@@ -249,5 +255,5 @@ document.addEventListener('click',function(event){
   const catDir = path.join(ROOT, 'en', catId);
   fs.mkdirSync(catDir, { recursive: true });
   fs.writeFileSync(path.join(catDir, 'index.html'), catHtml);
-  console.log(`Generated /en/${catId}/ [indexable: false, noindex: true]`);
+  console.log(`Generated /en/${catId}/ [indexable: ${catId === 'praias'}, noindex: ${catId !== 'praias'}]`);
 }

@@ -6,9 +6,19 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/"/>
   </url>
-  <url><loc>https://ilhabelatrip.com/o-que-fazer/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/o-que-fazer/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/o-que-fazer/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/o-que-fazer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/o-que-fazer/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/servicos/</loc></url>
-  <url><loc>https://ilhabelatrip.com/praias/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/praias/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/praias/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/praias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/praias/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/cachoeiras/</loc></url>
   <url><loc>https://ilhabelatrip.com/trilhas/</loc></url>
   <url><loc>https://ilhabelatrip.com/roteiros/3-dias/</loc></url>
@@ -123,5 +133,17 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/praia-do-bonete/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/o-que-fazer/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/o-que-fazer/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/o-que-fazer/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/o-que-fazer/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/praias/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/praias/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/praias/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/praias/"/>
   </url>
 </urlset>

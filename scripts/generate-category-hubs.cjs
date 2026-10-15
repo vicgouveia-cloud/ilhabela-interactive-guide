@@ -24,8 +24,9 @@ for (const [category, label, intro] of categories) {
   const title = `${label} em Ilhabela | Ilhabela Trip`;
   const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Ilhabela Trip. ${intro}`;
   const canonical = `${BASE}/${category}/`;
+  const alternateTags = category === 'praias' ? `\n<link rel="alternate" hreflang="pt" href="${BASE}/praias/">\n<link rel="alternate" hreflang="en" href="${BASE}/en/praias/">\n<link rel="alternate" hreflang="x-default" href="${BASE}/praias/">` : '';
   const html = `<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">
+<title>${esc(title)}</title><meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">${alternateTags}
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Ilhabela Trip"><meta property="og:title" content="${esc(title)}"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}">
 <style>${style}</style></head><body><header><a href="/">Ilhabela Trip</a><nav><a href="/o-que-fazer/">Explorar</a> · <a href="/?view=trip">Minha Viagem</a></nav></header><main><h1>${esc(label)} em Ilhabela</h1><p class="intro">${esc(intro)}</p><div class="grid">${selected.map(card).join('\n')}</div></main><footer>Ilhabela Trip · Descubra, escolha e leve seus lugares para Minha Viagem.</footer><script>
 window.va=window.va||function(){(window.vaq=window.vaq||[]).push(arguments);};

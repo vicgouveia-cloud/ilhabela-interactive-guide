@@ -19,6 +19,8 @@ const VALIDATED_EN_SPOTS = [
   'praia-do-bonete'
 ];
 
+const VALIDATED_EN_HUBS = ['o-que-fazer', 'praias'];
+
 // Map of alternate language versions for reciprocal hreflang
 const alternates = new Map();
 
@@ -47,6 +49,15 @@ for (const id of VALIDATED_EN_SPOTS) {
   alternates.set(enUrl, mapping);
 }
 
+// Reciprocal PT/EN alternates for validated English hubs.
+for (const slug of VALIDATED_EN_HUBS) {
+  const ptUrl = `${BASE_URL}/${slug}/`;
+  const enUrl = `${BASE_URL}/en/${slug}/`;
+  const mapping = { pt: ptUrl, en: enUrl, 'x-default': ptUrl };
+  alternates.set(ptUrl, mapping);
+  alternates.set(enUrl, mapping);
+}
+
 const ptUrls = [
   BASE_URL + '/',
   BASE_URL + '/o-que-fazer/',
@@ -61,7 +72,8 @@ const ptUrls = [
 
 const enUrls = [
   BASE_URL + '/en/',
-  ...VALIDATED_EN_SPOTS.map(id => BASE_URL + '/en/lugares/' + id + '/')
+  ...VALIDATED_EN_SPOTS.map(id => BASE_URL + '/en/lugares/' + id + '/'),
+  ...VALIDATED_EN_HUBS.map(slug => BASE_URL + '/en/' + slug + '/')
 ];
 
 const allUrls = [...ptUrls, ...enUrls];
