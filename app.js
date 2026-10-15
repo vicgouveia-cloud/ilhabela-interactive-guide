@@ -89,6 +89,8 @@ const supportedLanguages = ['pt', 'en', 'fr', 'es', 'he'];
 // Respect a saved choice. On the first visit, use the first supported browser language.
 // Unrecognized browser languages fall back to English for international visitors.
 function detectInitialLanguage() {
+  const pathMatch = typeof window !== 'undefined' && window.location?.pathname?.match(/^\/(en|es|fr|he)\b/);
+  if (pathMatch && supportedLanguages.includes(pathMatch[1])) return pathMatch[1];
   if (supportedLanguages.includes(currentLang)) return currentLang;
   let browserLanguages = [];
   try {
