@@ -26,6 +26,14 @@ function accessCopy(spot) {
   return record.copy;
 }
 
+const VALIDATED_EN_SPOTS = new Set([
+  'praia-do-curral',
+  'mirante-do-morro-da-cruz',
+  'pico-de-sao-sebastiao',
+  'baia-de-castelhanos',
+  'praia-do-bonete'
+]);
+
 function render(spot) {
   const tr = spot.translations?.pt;
   if (!tr?.title || !tr.description || !spot.image) throw new Error(`Conteúdo PT incompleto: ${spot.id}`);
@@ -42,6 +50,11 @@ function render(spot) {
     ? `<p><small>${esc(spot.photoCaption.pt)}</small></p>`
     : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
+  const hreflangs = VALIDATED_EN_SPOTS.has(spot.id)
+    ? `\n<link rel="alternate" hreflang="pt" href="${canonical}">
+<link rel="alternate" hreflang="en" href="${BASE_URL}/en/lugares/${spot.id}/">
+<link rel="alternate" hreflang="x-default" href="${canonical}">`
+    : '';
   const schema = JSON.stringify({
     '@context':'https://schema.org', '@type':'TouristAttraction', name:tr.title,
     description:tr.description, url:canonical, image:[image],
@@ -51,7 +64,7 @@ function render(spot) {
   return `<!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${esc(tr.title)} em Ilhabela | Ilhabela Trip</title>
-<meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">
+<meta name="description" content="${esc(description)}"><link rel="canonical" href="${esc(canonical)}">${hreflangs}
 <meta property="og:type" content="website"><meta property="og:locale" content="pt_BR"><meta property="og:site_name" content="Ilhabela Trip">
 <meta property="og:title" content="${esc(tr.title)} em Ilhabela"><meta property="og:description" content="${esc(description)}"><meta property="og:url" content="${esc(canonical)}"><meta property="og:image" content="${esc(image)}">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="${esc(tr.title)} em Ilhabela"><meta name="twitter:description" content="${esc(description)}"><meta name="twitter:image" content="${esc(image)}">

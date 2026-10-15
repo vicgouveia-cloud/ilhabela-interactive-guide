@@ -13,8 +13,18 @@
   <url><loc>https://ilhabelatrip.com/trilhas/</loc></url>
   <url><loc>https://ilhabelatrip.com/roteiros/3-dias/</loc></url>
   <url><loc>https://ilhabelatrip.com/roteiros/2-dias/</loc></url>
-  <url><loc>https://ilhabelatrip.com/lugares/praia-do-bonete/</loc></url>
-  <url><loc>https://ilhabelatrip.com/lugares/baia-de-castelhanos/</loc></url>
+  <url>
+    <loc>https://ilhabelatrip.com/lugares/praia-do-bonete/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/praia-do-bonete/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/lugares/baia-de-castelhanos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/baia-de-castelhanos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/baia-de-castelhanos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/baia-de-castelhanos/"/>
+  </url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-da-fome/</loc></url>
   <url><loc>https://ilhabelatrip.com/lugares/praia-do-juliao/</loc></url>
   <url>
@@ -101,5 +111,17 @@
     <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
     <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/pico-de-sao-sebastiao/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/lugares/baia-de-castelhanos/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/baia-de-castelhanos/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/baia-de-castelhanos/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/baia-de-castelhanos/"/>
+  </url>
+  <url>
+    <loc>https://ilhabelatrip.com/en/lugares/praia-do-bonete/</loc>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://ilhabelatrip.com/en/lugares/praia-do-bonete/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://ilhabelatrip.com/lugares/praia-do-bonete/"/>
   </url>
 </urlset>

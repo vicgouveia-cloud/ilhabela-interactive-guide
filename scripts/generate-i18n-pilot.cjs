@@ -17,8 +17,8 @@ const esc = value => String(value ?? '').replace(/[&<>"']/g, ch => ({'&':'&amp;'
 const absolute = value => /^https?:\/\//.test(value) ? value : `${BASE_URL}/${String(value).replace(/^\//, '')}`;
 
 // Status of the 5 pilot attractions:
-// Fully validated: praia-do-curral, mirante-do-morro-da-cruz, pico-de-sao-sebastiao
-// Pending approved critical access copy translation: baia-de-castelhanos, praia-do-bonete
+// All 5 fully validated and indexable:
+// praia-do-curral, mirante-do-morro-da-cruz, pico-de-sao-sebastiao, baia-de-castelhanos, praia-do-bonete
 const PILOT_SPOTS = [
   {
     id: 'praia-do-curral',
@@ -37,14 +37,12 @@ const PILOT_SPOTS = [
   },
   {
     id: 'baia-de-castelhanos',
-    validated: false,
-    pendingReason: 'Detailed 4x4 park entrance handover navigation copy and access rules implemented; awaiting final editorial approval for indexation.',
+    validated: true,
     accessEn: 'Standard two-wheel-drive passenger cars cannot reach the beach: road navigation for conventional vehicles ends at the State Park Entrance (-23.8392, -45.3600). The remaining 17 km (10.5 miles) through protected Atlantic Forest requires either an authorized private high-clearance 4x4 vehicle or a guided tour operated by an accredited agency. Park road traffic is subject to scheduled one-way circulation windows (typically inbound in the morning and outbound in the afternoon) and daily vehicle quotas established by the Ilhabela State Park (Fundação Florestal), though operational schedules and limits may change depending on season, maintenance, or park administration. Alternatively, Castelhanos can be accessed by sea via boat or speedboat tours departing from western channel points; boarding locations and departure times vary by operator and must be confirmed directly in advance. Maritime landings take place directly on open-ocean surf and remain strictly dependent on sea conditions. Always check current park access regulations, gate schedules, road conditions, and maritime forecasts prior to traveling.'
   },
   {
     id: 'praia-do-bonete',
-    validated: false,
-    pendingReason: 'Detailed Sepituba vehicle terminus and trail trailhead navigation copy implemented; awaiting final editorial approval for indexation.',
+    validated: true,
     accessEn: 'There is no road access to Bonete Beach. Public road vehicle navigation ends at Ponta da Sepituba (-23.9362, -45.4273) in southern Ilhabela. From this trailhead, access continues on foot via a demanding 12 km (7.5-mile) trail through the Ilhabela State Park rainforest. This represents an estimated 4 to 5 hours of sustained one-way hiking each way across rugged terrain with three river crossings; actual duration varies with personal pace and trail conditions. Sturdy hiking footwear, insect repellent, adequate water, and an early morning departure are essential. Alternatively, visitors can reach the beach by sea aboard traditional caiçara boats (\'boneteiras\') or licensed speedboats. Boat services do not operate on fixed public timetables, and maritime access is strictly subject to open-sea swell and surf conditions, which can delay or prevent landings and pickups. Both outbound passage and return transportation must always be confirmed directly in advance with your chosen operator.'
   }
 ];
