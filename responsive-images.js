@@ -62,26 +62,26 @@
       "bytes": 657792
     }
   ],
-  "assets/images/pico-de-sao-sebastiao_verified.jpg": [
+  "assets/images/pico-de-sao-sebastiao-autoral-original.jpeg": [
     {
       "width": 320,
-      "path": "assets/images/pico-de-sao-sebastiao_verified-320w.webp",
-      "bytes": 25352
+      "path": "assets/images/pico-de-sao-sebastiao-autoral-original-320w.webp",
+      "bytes": 11624
     },
     {
       "width": 640,
-      "path": "assets/images/pico-de-sao-sebastiao_verified-640w.webp",
-      "bytes": 93646
+      "path": "assets/images/pico-de-sao-sebastiao-autoral-original-640w.webp",
+      "bytes": 44812
     },
     {
       "width": 960,
-      "path": "assets/images/pico-de-sao-sebastiao_verified-960w.webp",
-      "bytes": 189576
+      "path": "assets/images/pico-de-sao-sebastiao-autoral-original-960w.webp",
+      "bytes": 94544
     },
     {
       "width": 1600,
-      "path": "assets/images/pico-de-sao-sebastiao_verified-1600w.webp",
-      "bytes": 438208
+      "path": "assets/images/pico-de-sao-sebastiao-autoral-original-1600w.webp",
+      "bytes": 201134
     }
   ]
 };
@@ -90,6 +90,12 @@
     if (!entries) return '';
     return ' srcset="' + entries.map(v => '/' + v.path + ' ' + v.width + 'w').join(', ') + '" sizes="' + sizes + '"';
   }
+  // PERF-01A: attribution travels with the user photograph in cards/hubs.
+  responsiveImageAttrs.attribution = function (spot, lang) {
+    if (spot.id !== 'pico-de-sao-sebastiao') return '';
+    const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[ch]));
+    return '<small data-photo-attribution="pico-de-sao-sebastiao" class="block text-xs leading-relaxed" style="display:block;font-size:12px;line-height:1.5" onclick="event.stopPropagation()"><a href="' + esc(spot.photoSource) + '">' + esc(spot.photoCredit) + '</a> · <a href="' + esc(spot.photoLicenseUrl) + '">' + esc(spot.photoLicense) + '</a> · ' + esc(spot.photoAdaptation[lang]) + ' · ' + esc(spot.photoCaption[lang]) + '</small>';
+  };
   if (typeof module !== 'undefined' && module.exports) module.exports = responsiveImageAttrs;
   else root.responsiveImageAttrs = responsiveImageAttrs;
 })(typeof window !== 'undefined' ? window : globalThis);

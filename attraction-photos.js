@@ -124,7 +124,30 @@ const verifiedPhotoLibrary = {
   'trilha-da-agua-branca': { images: ['assets/images/trilha-da-agua-branca_verified.jpg'], credit: 'Acervo Ilhabela.com.br', source: 'https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/' },
   'mirante-do-coracao': { images: ['assets/images/mirante-do-coracao_verified.jpg'], credit: 'Louise Cristina Araujo Ferri · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg' },
   'pico-do-baepi': { images: ['assets/images/pico-do-baepi_verified.jpg'], credit: 'Igorh84 · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg' },
-  'pico-de-sao-sebastiao': { images: ['assets/images/pico-de-sao-sebastiao_verified.jpg'], credit: 'Grupo IMS Ilhabela · Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela.jpg' },
+  'pico-de-sao-sebastiao': {
+    "images": [
+        "assets/images/pico-de-sao-sebastiao-autoral-original.jpeg"
+    ],
+    "credit": "Acervo pessoal — Ilhabela Trip",
+    "source": "/assets/images/pico-de-sao-sebastiao-autoral-original.jpeg",
+    "license": "©",
+    "licenseUrl": "/assets/images/pico-de-sao-sebastiao-autoral.PROVENANCE.md",
+    "provenance": "Photograph supplied by the user on 2026-10-16. User confirms authorship, depicts Pico de São Sebastião in Ilhabela, and authorizes use in Ilhabela Trip. No summit viewpoint claimed. SHA256 03f8fdfc172f8c68e80e5a1a9f18d0a80c4f5f19d2ceba8e17c538caec4f3373",
+    "adaptation": {
+        "pt": "Original preservado; variantes redimensionadas e convertidas para WebP.",
+        "en": "Original preserved; variants resized and converted to WebP.",
+        "es": "Original conservado; variantes redimensionadas y convertidas a WebP.",
+        "fr": "Original conservé ; variantes redimensionnées et converties en WebP.",
+        "he": "המקור נשמר; הגרסאות הוקטנו והומרו ל־WebP."
+    },
+    "caption": {
+        "pt": "Pico de São Sebastião, em Ilhabela. Fotografia do acervo pessoal.",
+        "en": "Pico de São Sebastião, Ilhabela. Photograph from the personal collection.",
+        "es": "Pico de São Sebastião, en Ilhabela. Fotografía del archivo personal.",
+        "fr": "Pico de São Sebastião, à Ilhabela. Photographie de la collection personnelle.",
+        "he": "פיקו דה סאו סבסטיאו, איליאבלה. צילום מהאוסף האישי."
+    }
+},
   'ponto-baleias-canal': { images: ['assets/images/ponto-baleias-canal_verified.jpg'], credit: 'Projeto Baleia à Vista · Ilhabela.com.br', source: 'https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/' },
   'naufragio-aymore': { images: ['assets/images/naufragio-aymore_verified.jpg'], credit: 'Acervo Reserving · mergulho em naufrágios de Ilhabela', source: 'https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ' },
   'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' },

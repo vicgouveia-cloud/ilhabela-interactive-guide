@@ -7,16 +7,17 @@ for (const width of [390, 1440]) {
     const context = await browser.newContext({viewport: {width, height: 900}, deviceScaleFactor: 1});
     const page = await context.newPage();
     for (const name of names) {
-      const original = `/assets/images/${name}_verified.${name === 'cachoeira-da-toca' ? 'png' : 'jpg'}`;
+      const imageName = name === 'pico-de-sao-sebastiao' ? 'pico-de-sao-sebastiao-autoral-original' : name + '_verified';
+      const original = `/assets/images/${imageName}.${name === 'cachoeira-da-toca' ? 'png' : name === 'pico-de-sao-sebastiao' ? 'jpeg' : 'jpg'}`;
       const requests = [];
-      const record = request => { if (request.url().includes(name + '_verified')) requests.push(new URL(request.url()).pathname); };
+      const record = request => { if (request.url().includes(imageName)) requests.push(new URL(request.url()).pathname); };
       page.on('request', record);
       await page.goto(`/lugares/${name}/`);
       const hero = page.locator('img.hero');
       await expect(hero).toHaveAttribute('src', original);
       await hero.evaluate(img => img.decode());
       const selected = await hero.evaluate(img => img.currentSrc);
-      expect(selected).toMatch(new RegExp(name + '_verified-\\d+w\\.webp$'));
+      expect(selected).toMatch(new RegExp(imageName + '-\\d+w\\.webp$'));
       expect(requests).not.toContain(original);
       const transferred = await page.evaluate(url => performance.getEntriesByName(url).at(-1).encodedBodySize, selected);
       expect(transferred).toBe(fs.statSync(path.join(__dirname, '..', new URL(selected).pathname)).size);

@@ -503,7 +503,7 @@ function showMapQuickCard(spot) {
   
   card.innerHTML = `
     <div class="flex gap-3 items-center">
-      <img src="${spot.image}"${responsiveImageAttrs(spot.image, '80px')} alt="${tr.title}" class="w-20 h-20 rounded-xl object-cover shadow-sm flex-shrink-0" />
+      <img src="${spot.image}"${responsiveImageAttrs(spot.image, '80px')}${spot.id === 'pico-de-sao-sebastiao' ? ' style="object-position:center bottom"' : ''} alt="${spot.id === 'pico-de-sao-sebastiao' ? spot.photoCaption[currentLang] : tr.title}" class="w-20 h-20 rounded-xl object-cover shadow-sm flex-shrink-0" />
       <div class="flex-1 min-w-0 space-y-1">
         <div class="flex items-center gap-1.5">
           <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase ${getDifficultyBadgeClass(spot.specs.difficulty)}">
@@ -514,7 +514,7 @@ function showMapQuickCard(spot) {
           </span>
         </div>
         <h4 class="text-sm font-bold text-primary leading-tight font-heading">${tr.title}</h4>
-        <p class="text-xs text-on-surface-variant line-clamp-2">${tr.subtitle}</p>
+        <p class="text-xs text-on-surface-variant line-clamp-2">${tr.subtitle}</p>${responsiveImageAttrs.attribution(spot, currentLang)}
         <button onclick="openSpotModal('${spot.id}')" class="map-quick-card-action text-xs font-bold text-primary hover:underline flex items-center gap-1 pt-0.5">
           <span>${t('spotDetails')}</span>
           <span class="material-symbols-outlined text-[14px]">arrow_forward</span>
@@ -692,7 +692,7 @@ function renderCustomSpotsList(spots) {
       return `
         <article onclick="openSpotModal('${spot.id}')" data-category="${spot.category}" class="glass-card attraction-card rounded-2xl overflow-hidden cursor-pointer flex flex-col group relative animate-fade-in">
           <div class="attraction-card-photo relative w-full overflow-hidden bg-gray-100">
-            <img src="${spot.image}"${responsiveImageAttrs(spot.image, '(max-width: 640px) 100vw, 400px')} alt="${tr.title}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
+            <img src="${spot.image}"${responsiveImageAttrs(spot.image, '(max-width: 640px) 100vw, 400px')}${spot.id === 'pico-de-sao-sebastiao' ? ' style="object-position:center bottom"' : ''} alt="${spot.id === 'pico-de-sao-sebastiao' ? spot.photoCaption[currentLang] : tr.title}" loading="lazy" decoding="async" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
           </div>
           <div class="attraction-card-body flex-1 flex flex-col">
             <span class="attraction-card-category">
@@ -700,7 +700,7 @@ function renderCustomSpotsList(spots) {
               ${getCategoryLabel(spot.category)}
             </span>
             <h3 class="attraction-card-title font-heading">${tr.title}</h3>
-            <p class="attraction-card-summary">${subtitle}</p>
+            <p class="attraction-card-summary">${subtitle}</p>${responsiveImageAttrs.attribution(spot, currentLang)}
             <button type="button" class="attraction-card-details" aria-label="${t('spotDetails')}: ${tr.title}">
               <span>${t('spotDetails')}</span>
               <span aria-hidden="true" class="material-symbols-outlined">arrow_forward</span>
@@ -840,7 +840,7 @@ function openSpotModal(spotId, options = {}) {
       
       <!-- Main Slide Image -->
       <div class="relative h-64 sm:h-80 md:h-96 w-full overflow-hidden flex items-center justify-center">
-        <img id="modal-main-img" src="${currentModalImages[0]}"${responsiveImageAttrs(currentModalImages[0], '(max-width: 768px) 100vw, 900px')} alt="${tr.title}" class="w-full h-full object-cover transition-all duration-500" onerror="this.removeAttribute('srcset');this.removeAttribute('sizes');this.src='assets/images/baia-de-castelhanos_verified.jpg'" />
+        <img id="modal-main-img" src="${currentModalImages[0]}"${responsiveImageAttrs(currentModalImages[0], '(max-width: 768px) 100vw, 900px')}${spot.id === 'pico-de-sao-sebastiao' ? ' style="object-position:center bottom"' : ''} alt="${spot.id === 'pico-de-sao-sebastiao' ? spot.photoCaption[currentLang] : tr.title}" class="w-full h-full object-cover transition-all duration-500" onerror="this.removeAttribute('srcset');this.removeAttribute('sizes');this.onerror=null;this.src='${spot.id === 'pico-de-sao-sebastiao' ? spot.image : 'assets/images/baia-de-castelhanos_verified.jpg'}'" />
         <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent pointer-events-none"></div>
 
         <!-- Prev / Next Slider Arrows -->

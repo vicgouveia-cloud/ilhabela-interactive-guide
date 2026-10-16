@@ -8,7 +8,7 @@ from PIL import Image, ImageOps
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = ["cachoeira-da-laje_verified.jpg", "cachoeira-da-toca_verified.png",
-           "mirante-do-coracao_verified.jpg", "pico-de-sao-sebastiao_verified.jpg"]
+           "mirante-do-coracao_verified.jpg", "pico-de-sao-sebastiao-autoral-original.jpeg"]
 manifest = {}
 for name in SOURCES:
     source = ROOT / "assets/images" / name

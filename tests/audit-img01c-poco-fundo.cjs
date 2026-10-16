@@ -50,6 +50,15 @@ for(const locale of ['pt','en','fr','es','he']) {
 }
 for(const original of before.spots.filter(s=>s.id!==ID && s.id!=='mirante-do-baepi')) {
   const actual=currentById.get(original.id);
+  // PERF-01A approved correction: keep the historical IMG-01C checks for every
+  // other photo, while requiring the exact authorized user photograph.
+  if (original.id === 'pico-de-sao-sebastiao') {
+    original.image = 'assets/images/pico-de-sao-sebastiao-autoral-original.jpeg';
+    original.images = [original.image];
+    original.photoCredit = 'Acervo pessoal — Ilhabela Trip';
+    original.photoSource = '/assets/images/pico-de-sao-sebastiao-autoral-original.jpeg';
+  }
+
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
   assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
