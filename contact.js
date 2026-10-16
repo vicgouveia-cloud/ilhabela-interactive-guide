@@ -7,17 +7,30 @@
     he: ['שאלות והצעות', 'בנוגע ל:', 'נושא', 'הודעה', 'סגירה']
   };
   const sendingCopy = {
-    pt: ['Seu e-mail (opcional)', 'Enviar', 'Enviando…', 'Mensagem aceita. Obrigado pelo contato!', 'Não foi possível confirmar o envio. Seu texto foi mantido; tente novamente.', 'Informe um assunto de 3 a 160 caracteres, uma mensagem de 10 a 5000 caracteres e, se preenchido, um e-mail válido.', 'Seu e-mail é opcional. A mensagem será enviada pelo Formspree.'],
-    en: ['Your email (optional)', 'Send', 'Sending…', 'Message accepted. Thank you for contacting us!', 'We couldn’t confirm sending. Your text has been kept; please try again.', 'Enter a subject of 3–160 characters, a message of 10–5000 characters and, if provided, a valid email.', 'Your email is optional. The message will be sent through Formspree.'],
-    es: ['Tu correo (opcional)', 'Enviar', 'Enviando…', 'Mensaje aceptado. ¡Gracias por contactarnos!', 'No pudimos confirmar el envío. Conservamos tu texto; inténtalo de nuevo.', 'Introduce un asunto de 3–160 caracteres, un mensaje de 10–5000 caracteres y, si lo completas, un correo válido.', 'Tu correo es opcional. El mensaje se enviará mediante Formspree.'],
-    fr: ['Votre e-mail (facultatif)', 'Envoyer', 'Envoi…', 'Message accepté. Merci de nous avoir contactés !', 'Impossible de confirmer l’envoi. Votre texte a été conservé ; réessayez.', 'Saisissez un objet de 3 à 160 caractères, un message de 10 à 5000 caractères et, si renseigné, un e-mail valide.', 'Votre e-mail est facultatif. Le message sera envoyé via Formspree.'],
-    he: ['האימייל שלכם (לא חובה)', 'שליחה', 'שולח…', 'ההודעה התקבלה. תודה שפניתם אלינו!', 'לא ניתן לאשר את השליחה. הטקסט נשמר; נסו שוב.', 'הזינו נושא באורך 3–160 תווים, הודעה באורך 10–5000 תווים וכתובת אימייל תקינה אם מילאתם אותה.', 'האימייל אינו חובה. ההודעה תישלח באמצעות Formspree.']
+    pt: ['Seu e-mail (opcional)', 'Enviar', 'Enviando…', 'Mensagem aceita. Obrigado pelo contato!', 'Não foi possível confirmar o envio. Seu texto foi mantido; tente novamente.', 'Informe um assunto de 3 a 160 caracteres, uma mensagem de 10 a 5000 caracteres e, se preenchido, um e-mail válido.', 'Seu e-mail é opcional. Informe-o se quiser receber uma resposta.'],
+    en: ['Your email (optional)', 'Send', 'Sending…', 'Message accepted. Thank you for contacting us!', 'We couldn’t confirm sending. Your text has been kept; please try again.', 'Enter a subject of 3–160 characters, a message of 10–5000 characters and, if provided, a valid email.', 'Your email is optional. Include it if you’d like a reply.'],
+    es: ['Tu correo (opcional)', 'Enviar', 'Enviando…', 'Mensaje aceptado. ¡Gracias por contactarnos!', 'No pudimos confirmar el envío. Conservamos tu texto; inténtalo de nuevo.', 'Introduce un asunto de 3–160 caracteres, un mensaje de 10–5000 caracteres y, si lo completas, un correo válido.', 'Tu correo es opcional. Inclúyelo si quieres recibir una respuesta.'],
+    fr: ['Votre e-mail (facultatif)', 'Envoyer', 'Envoi…', 'Message accepté. Merci de nous avoir contactés !', 'Impossible de confirmer l’envoi. Votre texte a été conservé ; réessayez.', 'Saisissez un objet de 3 à 160 caractères, un message de 10 à 5000 caractères et, si renseigné, un e-mail valide.', 'Votre e-mail est facultatif. Indiquez-le si vous souhaitez une réponse.'],
+    he: ['האימייל שלכם (לא חובה)', 'שליחה', 'שולח…', 'ההודעה התקבלה. תודה שפניתם אלינו!', 'לא ניתן לאשר את השליחה. הטקסט נשמר; נסו שוב.', 'הזינו נושא באורך 3–160 תווים, הודעה באורך 10–5000 תווים וכתובת אימייל תקינה אם מילאתם אותה.', 'האימייל אינו חובה. הוסיפו אותו אם תרצו לקבל תשובה.']
+  };
+  const introduction = {
+    pt: ["Fale com a gente","Conhece um lugar especial em Ilhabela? Tem alguma sugestão para melhorar o guia ou quer falar com a gente? Envie sua mensagem — vamos adorar ouvir você."],
+    en: ["Get in touch","Know a special place in Ilhabela? Have a suggestion to improve the guide or want to get in touch? Send us a message — we’d love to hear from you."],
+    es: ["Habla con nosotros","¿Conoces un lugar especial en Ilhabela? ¿Tienes alguna sugerencia para mejorar la guía o quieres ponerte en contacto? Envíanos un mensaje — nos encantará escucharte."],
+    fr: ["Contactez-nous","Vous connaissez un lieu unique à Ilhabela ? Vous avez une suggestion pour améliorer le guide ou souhaitez nous contacter ? Envoyez-nous un message — nous serons ravis de vous lire."],
+    he: ["דברו איתנו","מכירים מקום מיוחד באיליאבלה? יש לכם הצעה לשיפור המדריך או שתרצו ליצור קשר? שלחו לנו הודעה — נשמח לשמוע מכם."]
   };
   let dialog, opener, context, busy = false, accepted = false;
   const language = () => document.documentElement.lang.split('-')[0] || 'pt';
   function refreshEntries() {
     const words = copy[language()] || copy.pt;
-    document.querySelectorAll('[data-contact-entry]').forEach(el => { if (el.textContent !== words[0]) el.textContent = words[0]; });
+    document.querySelectorAll('[data-contact-entry]').forEach(el => {
+      if (el.classList.contains('contact-header-entry')) {
+        const label = (introduction[language()] || introduction.pt)[0];
+        el.setAttribute('aria-label', label);
+        el.title = label;
+      } else if (el.textContent !== words[0]) el.textContent = words[0];
+    });
   }
   window.openContact = function openContact(input = {}) {
     opener = document.activeElement;
@@ -28,8 +41,8 @@
       dialog = document.createElement('dialog');
       dialog.id = 'contact-dialog';
       dialog.setAttribute('aria-labelledby', 'contact-title');
-      dialog.setAttribute('aria-describedby', 'contact-note');
-      dialog.innerHTML = '<form class="contact-content" novalidate><h2 id="contact-title"></h2><p id="contact-about" hidden></p><label for="contact-email"></label><input id="contact-email" name="email" type="email" maxlength="254" autocomplete="email"><label for="contact-subject"></label><input id="contact-subject" name="subject" type="text" required minlength="3" maxlength="160" autocomplete="off"><label for="contact-message"></label><textarea id="contact-message" name="message" required minlength="10" rows="6" maxlength="5000"></textarea><input name="_gotcha" type="text" hidden aria-hidden="true" tabindex="-1" autocomplete="off"><p id="contact-note"></p><p id="contact-status" role="status" aria-live="polite"></p><div class="contact-actions"><button id="contact-send" type="submit"></button><button id="contact-close" type="button"></button></div></form>';
+      dialog.setAttribute('aria-describedby', 'contact-intro contact-note');
+      dialog.innerHTML = '<form class="contact-content" novalidate><h2 id="contact-title"></h2><p id="contact-intro"></p><p id="contact-about" hidden></p><label for="contact-email"></label><input id="contact-email" name="email" type="email" maxlength="254" autocomplete="email"><label for="contact-subject"></label><input id="contact-subject" name="subject" type="text" required minlength="3" maxlength="160" autocomplete="off"><label for="contact-message"></label><textarea id="contact-message" name="message" required minlength="10" rows="6" maxlength="5000"></textarea><input name="_gotcha" type="text" hidden aria-hidden="true" tabindex="-1" autocomplete="off"><p id="contact-note"></p><p id="contact-status" role="status" aria-live="polite"></p><div class="contact-actions"><button id="contact-send" type="submit"></button><button id="contact-close" type="button"></button></div></form>';
       document.body.append(dialog);
       dialog.addEventListener('cancel', event => { event.preventDefault(); closeContact(); event.stopPropagation(); });
       dialog.addEventListener('keydown', event => {
@@ -46,7 +59,9 @@
     }
     dialog.lang = context.language;
     dialog.dir = context.language === 'he' ? 'rtl' : 'ltr';
-    dialog.querySelector('#contact-title').textContent = words[0];
+    const intro = introduction[context.language] || introduction.pt;
+    dialog.querySelector('#contact-title').textContent = intro[0];
+    dialog.querySelector('#contact-intro').textContent = intro[1];
     const about = dialog.querySelector('#contact-about');
     about.hidden = !context.name;
     about.textContent = context.name ? `${words[1]} ${context.name}` : '';

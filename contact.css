@@ -12,3 +12,6 @@
 .contact-actions button:disabled { opacity: .65; }
 #contact-close { background: #003345; color: white; cursor: pointer; }
 #contact-dialog :focus-visible, [data-contact-entry]:focus-visible { outline: 3px solid #b9721c; outline-offset: 3px; }
+
+.contact-header-entry[data-contact-entry] { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; width: 44px; height: 44px; padding: 0; border: 1px solid rgb(0 51 69 / .16); border-radius: 50%; color: #003345; text-decoration: none; }
+.contact-header-entry:hover { background: rgb(0 51 69 / .08); }

@@ -1,5 +1,7 @@
 const {test, expect} = require('@playwright/test');
 
+test.use({locale: 'pt-BR'});
+
 test('general contact: five languages, sizes, focus, keyboard, backdrop and compact viewport', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof openContact === 'function');
@@ -77,9 +79,9 @@ test('static attraction opens the shared panel with context and sending availabl
   await page.goto('/lugares/praia-do-curral/');
   const entry = page.locator('[data-contact-entry]');
   await entry.click();
-  await expect(page.locator('#contact-title')).toHaveText('Dúvidas e sugestões');
+  await expect(page.locator('#contact-title')).toHaveText('Fale com a gente');
   await expect(page.locator('#contact-about')).toHaveText('Sobre: Praia do Curral');
-  await expect(page.locator('#contact-note')).toContainText('enviada pelo Formspree');
+  await expect(page.locator('#contact-note')).toContainText('receber uma resposta');
   await expect(page.locator('#contact-send')).toBeEnabled();
   await page.keyboard.press('Escape');
   await expect(entry).toBeFocused();
