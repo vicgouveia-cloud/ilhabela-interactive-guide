@@ -47,4 +47,3 @@ Sem envio a terceiros, merge ou deploy Production. Esta proposta requer homologa
 ## Validação deste lote documental
 
 PASS: audit-attraction-images (50 páginas, 28 registros, seis placeholders) e audit-sitemap (66 URLs). O teste audit-img01b-licensed-photos falha na linha 66 pela lista fixa histórica, reproduzido com HEAD exatamente na base d0275a7 antes de qualquer commit. audit-seo-i18n não executou: dependência parse5 ausente no checkout. Não houve validação visual mobile/desktop porque a integração foi interrompida no gate de arquitetura; isso permanece critério obrigatório da futura implementação. Diff de produto vazio; somente os dois documentos novos.
-
