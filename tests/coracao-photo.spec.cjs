@@ -11,7 +11,8 @@ for (const width of [1440, 390]) {
     expect(response.status()).toBe(200);
     const hero = page.locator('img.hero');
     await expect(hero).toHaveAttribute('src', '/assets/images/mirante-do-coracao_verified.jpg');
-    await expect.poll(() => hero.evaluate(img => img.complete && img.naturalWidth)).toBe(1920);
+    await expect.poll(() => hero.evaluate(img => img.complete && img.naturalWidth > 0)).toBe(true);
+    expect(await hero.evaluate(img => img.currentSrc)).toMatch(/mirante-do-coracao_verified-\d+w\.webp$/);
     await expect(page.getByRole('link', { name: 'Louise Cristina Araujo Ferri · Wikimedia Commons' })).toBeVisible();
     await expect(page.getByRole('link', { name: 'CC BY-SA 4.0' })).toBeVisible();
     await expect(page.locator('header').getByRole('link', { name: 'Explorar', exact: true })).toHaveAttribute('href', '/o-que-fazer/');

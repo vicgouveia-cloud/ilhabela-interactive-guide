@@ -1,3 +1,4 @@
+const responsiveImageAttrs = require('../responsive-images.js');
 const fs=require('node:fs');const path=require('node:path');const vm=require('node:vm');
 const ROOT=path.resolve(__dirname,'..');const context=vm.createContext({console});
 for(const file of ['data.js','additional-spots.js', 'attraction-photos.js'])vm.runInContext(fs.readFileSync(path.join(ROOT,file),'utf8'),context,{filename:file});
@@ -14,7 +15,7 @@ const groups=[
 ['cultura','Cultura e história','Patrimônio, memória e referências culturais de Ilhabela.']
 ];
 const by=Object.fromEntries(groups.map(([id])=>[id,spots.filter(s=>s.category===id)]));
-const card=s=>{const tr=s.translations.pt;return `<article><a class="image" href="/lugares/${esc(s.id)}/"><img src="/${esc(s.image)}" alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h3><a href="/lugares/${esc(s.id)}/">${esc(tr.title)}</a></h3><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="/lugares/${esc(s.id)}/">Ver detalhes e acesso →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(s.id)}&amp;add=trip">+ Minha Viagem</a></div></div></article>`};
+const card=s=>{const tr=s.translations.pt;return `<article><a class="image" href="/lugares/${esc(s.id)}/"><img src="/${esc(s.image)}"${responsiveImageAttrs(s.image, '(max-width: 640px) 100vw, 400px')} alt="${esc(tr.title)}" loading="lazy"></a><div class="body"><h3><a href="/lugares/${esc(s.id)}/">${esc(tr.title)}</a></h3><p>${esc(tr.subtitle)}</p><div class="actions"><a class="more" data-analytics="view_attraction" href="/lugares/${esc(s.id)}/">Ver detalhes e acesso →</a><a class="trip" data-analytics="add_trip" href="/?spot=${encodeURIComponent(s.id)}&amp;add=trip">+ Minha Viagem</a></div></div></article>`};
 const sections=groups.map(([id,title,desc])=>`<section id="${id}"><div class="section-head"><div><h2>${title}</h2><p>${desc}</p>${id === 'cachoeiras' ? '<p><a href="/cachoeiras/">Ver todas as cachoeiras →</a></p>' : ''}</div><span>${by[id].length} lugares</span></div><div class="grid">${by[id].map(card).join('')}</div></section>`).join('\n');
 const jump=groups.map(([id,title])=>`<a href="#${id}">${title} · ${by[id].length}</a>`).join('');
 const html=`<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
