@@ -1211,3 +1211,19 @@ h1, h2, h3, h4, h5, h6, .font-heading {
   #planner-summary-list .planner-remove { grid-column: 3; justify-self: end; }
   #planner-summary-list .planner-leg-estimate { margin-inline-start: 36px; }
 }
+
+/* Keep the brand and contact/language controls aligned on narrow phones. */
+@media (max-width: 639px) {
+  .compact-mobile-header { display: flex; align-items: center; height: var(--header-height); padding: 0 12px; }
+  .compact-mobile-header > div { width: 100%; gap: 8px; }
+  .compact-mobile-header .header-brand { flex-shrink: 0; gap: 6px; }
+  .compact-mobile-header [data-i18n="brandTitle"] { white-space: nowrap; }
+  .compact-mobile-header .header-controls { flex-shrink: 0; gap: 6px; }
+  .compact-mobile-header #lang-btn { min-height: 44px; }
+}
+@media (max-width: 380px) {
+  .compact-mobile-header [data-i18n="brandTitle"] { font-size: 16px; }
+  .compact-mobile-header .brand-mark { width: 32px; height: 32px; flex-shrink: 0; }
+  .compact-mobile-header #lang-btn { padding-inline: 8px; gap: 4px; }
+  .compact-mobile-header #lang-btn > :last-child { display: none; }
+}
