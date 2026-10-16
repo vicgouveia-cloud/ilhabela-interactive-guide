@@ -1,8 +1,10 @@
 const { test, expect } = require('@playwright/test');
 
 const photos=[
-  {id:'praia-do-pinto',image:'assets/images/praia-do-pinto_commons.webp'},
-  {id:'praia-da-pacuiba',image:'assets/images/praia-da-pacuiba-costao_commons.webp'}
+  {id:'praia-do-pinto',image:'assets/images/praia-do-pinto_commons.webp',licenseName:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+  {id:'praia-da-pacuiba',image:'assets/images/praia-da-pacuiba-costao_commons.webp',licenseName:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+  {id:'cachoeira-do-poco-fundo',image:'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp',licenseName:'CC BY-SA 4.0',licenseUrl:'https://creativecommons.org/licenses/by-sa/4.0/'},
+  {id:'mirante-do-baepi',image:'assets/images/mirante-do-baepi_commons.webp',licenseName:'Domínio Público',licenseUrl:'https://creativecommons.org/publicdomain/mark/1.0/'}
 ];
 
 for (const spot of photos) for (const width of [390,1440]) for (const lang of ['pt','he']) {
@@ -20,7 +22,7 @@ for (const spot of photos) for (const width of [390,1440]) for (const lang of ['
     await expect(page.locator('html')).toHaveAttribute('dir',lang==='he'?'rtl':'ltr');
     const license=modal.locator('[data-photo-license]');
     await expect(license).toBeVisible();
-    await expect(license.getByRole('link',{name:'CC BY-SA 4.0'})).toHaveAttribute('href','https://creativecommons.org/licenses/by-sa/4.0/');
+    await expect(license.getByRole('link',{name:spot.licenseName})).toHaveAttribute('href',spot.licenseUrl);
     const caption=await page.evaluate(id=>{const spot=touristSpots.find(s=>s.id===id);return spot.photoCaption[currentLang];},spot.id);
     await expect(license).toContainText(caption);
     const creditLink=modal.locator('#modal-photo-credit');
@@ -35,7 +37,7 @@ for(const spot of photos) {
     await expect(page.locator('img.hero')).toHaveAttribute('src','/'+spot.image);
     await expect(page.locator('meta[property="og:image"]')).toHaveAttribute('content','https://ilhabelatrip.com/'+spot.image);
     await expect(page.locator('meta[name="twitter:image"]')).toHaveAttribute('content','https://ilhabelatrip.com/'+spot.image);
-    await expect(page.getByRole('link',{name:'CC BY-SA 4.0'})).toHaveAttribute('href','https://creativecommons.org/licenses/by-sa/4.0/');
+    await expect(page.getByRole('link',{name:spot.licenseName})).toHaveAttribute('href',spot.licenseUrl);
     await expect.poll(()=>page.locator('img.hero').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
   });
 }
