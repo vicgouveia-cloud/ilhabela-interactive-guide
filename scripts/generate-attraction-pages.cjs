@@ -1,3 +1,4 @@
+const responsiveImageAttrs = require('../responsive-images.js');
 const fs = require('node:fs');
 const path = require('node:path');
 const vm = require('node:vm');
@@ -44,7 +45,7 @@ function render(spot) {
   const photoCredit = photo
     ? `<p><small>Foto: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Imagem redimensionada.</small></p>`
     : spot.photoCredit && spot.photoSource
-      ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a>${spot.photoLicense && spot.photoLicenseUrl ? ` · <a href="${esc(spot.photoLicenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoLicense)}</a>` : ''}${spot.photoAdaptation ? ` · ${esc(spot.photoAdaptation)}` : ''}</small></p>`
+      ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a>${spot.photoLicense && spot.photoLicenseUrl ? ` · <a href="${esc(spot.photoLicenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoLicense)}</a>` : ''}${spot.photoAdaptation ? ` · ${esc(typeof spot.photoAdaptation === 'object' ? spot.photoAdaptation.pt : spot.photoAdaptation)}` : ''}</small></p>`
       : '';
   const photoCaption = spot.photoCaption?.pt
     ? `<p><small>${esc(spot.photoCaption.pt)}</small></p>`
@@ -71,7 +72,7 @@ function render(spot) {
 <script type="application/ld+json">${schema}</script>
 <style>body{margin:0;background:#faf7f0;color:#1b1c19;font:17px/1.6 system-ui,-apple-system,sans-serif}header,main,footer{max-width:820px;margin:auto;padding:20px}header{display:flex;justify-content:space-between;align-items:center}a{color:#003345}header a{text-decoration:none;font-weight:800}.hero{width:100%;max-height:470px;object-fit:cover;border-radius:20px}h1,h2{color:#003345;line-height:1.2}.sub{font-size:1.15rem;color:#405057}.card{background:#fff;border:1px solid #ddd8ce;border-radius:18px;padding:18px;margin:20px 0}.cta{display:inline-block;background:#003345;color:#fff;text-decoration:none;font-weight:800;padding:12px 18px;border-radius:14px;margin:4px 6px 4px 0}.cta.secondary{background:#fff;color:#003345;border:2px solid #003345}ul{padding-left:22px}footer{font-size:14px;color:#52656b}</style><link rel="stylesheet" href="/contact.css"></head><body>
 <header><a href="/">Ilhabela Trip</a><a href="/o-que-fazer/">Explorar</a></header><main>
-<img class="hero" src="/${esc(imagePath)}" alt="${esc(spot.photoCaption?.pt || tr.title)}">${photoCredit}${photoCaption}<p class="sub">${esc(tr.subtitle)}</p><h1>${esc(tr.title)}</h1><p>${esc(tr.description)}</p>
+<img class="hero" src="/${esc(imagePath)}"${responsiveImageAttrs(imagePath, '(max-width: 860px) calc(100vw - 40px), 820px')}${spot.id === 'pico-de-sao-sebastiao' ? ' style="object-position:center bottom"' : ''} alt="${esc(spot.photoCaption?.pt || tr.title)}">${photoCredit}${photoCaption}<p class="sub">${esc(tr.subtitle)}</p><h1>${esc(tr.title)}</h1><p>${esc(tr.description)}</p>
 <section class="card"><h2>Destaques</h2><ul>${(tr.highlights || []).map(item => `<li>${esc(item)}</li>`).join('')}</ul></section>
 <section class="card"><h2>Como chegar</h2><p>${esc(accessCopy(spot))}</p></section>
 <section class="card"><h2>Planeje esta parada</h2><p>Abra a ficha interativa para ver todos os detalhes ou leve este lugar diretamente para Minha Viagem.</p><a class="cta" data-analytics="open_guide" href="/?spot=${encodeURIComponent(spot.id)}">Abrir no Guia</a> <a class="cta secondary" data-analytics="add_trip" href="/?spot=${encodeURIComponent(spot.id)}&amp;add=trip">Adicionar à Minha Viagem</a></section>
