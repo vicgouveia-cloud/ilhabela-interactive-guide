@@ -1,0 +1,456 @@
+{
+  "base": "96751f40d069d93b09901299898f0b914f63dd68",
+  "count": 50,
+  "inventory": [
+    {
+      "slug": "praia-do-bonete",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-bonete/",
+      "image": "assets/images/praia-do-bonete_verified.jpg",
+      "placeholder": false,
+      "credit": "Jcornelius · Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Praia_do_Bonete,_Ilhabela,_2021.jpg"
+    },
+    {
+      "slug": "baia-de-castelhanos",
+      "page": "https://ilhabelatrip.com/lugares/baia-de-castelhanos/",
+      "image": "assets/images/baia-de-castelhanos_verified.jpg",
+      "placeholder": false,
+      "credit": "João Vitor Oliveira Martins · Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Praia_de_Castelhanos_-_Ilhabela_-_SP.jpg"
+    },
+    {
+      "slug": "praia-da-fome",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-fome/",
+      "image": "assets/images/praia-da-fome_verified.jpg",
+      "placeholder": false,
+      "credit": "Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_da_Fome_(Ilhabela)"
+    },
+    {
+      "slug": "praia-do-juliao",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-juliao/",
+      "image": "assets/images/praia-do-juliao_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-juliao"
+    },
+    {
+      "slug": "praia-do-curral",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-curral/",
+      "image": "assets/images/praia-do-curral_verified.jpg",
+      "placeholder": false,
+      "credit": "Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/Category:Praia_do_Curral_(Ilhabela)"
+    },
+    {
+      "slug": "praia-da-armacao",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-armacao/",
+      "image": "assets/images/praia-da-armacao_verified.jpg",
+      "placeholder": false,
+      "credit": "Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Cachorro_caminhando_pela_Praia_da_Arma%C3%A7%C3%A3o.jpg"
+    },
+    {
+      "slug": "praia-do-veloso",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-veloso/",
+      "image": "assets/images/praia-do-veloso_verified.jpg",
+      "placeholder": false,
+      "credit": "Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Ilhabela_-_Praia_do_Veloso.jpg"
+    },
+    {
+      "slug": "praia-da-siriuba",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-siriuba/",
+      "image": "assets/images/praia-da-siriuba_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-da-siriuba"
+    },
+    {
+      "slug": "praia-da-enchova",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-enchova/",
+      "image": "assets/images/praia-da-enchova_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-das-enchovas"
+    },
+    {
+      "slug": "praia-de-indaiauba",
+      "page": "https://ilhabelatrip.com/lugares/praia-de-indaiauba/",
+      "image": "assets/images/praia-de-indaiauba_verified.jpg",
+      "placeholder": false,
+      "credit": "Prefeitura de Ilhabela",
+      "license": null,
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela"
+    },
+    {
+      "slug": "cachoeira-da-laje",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-da-laje/",
+      "image": "assets/images/cachoeira-da-laje_verified.jpg",
+      "placeholder": false,
+      "credit": "Arthur Grangeiro de Souza · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Arthur_Grangeiro_de_Souza_(165).jpg"
+    },
+    {
+      "slug": "cachoeira-da-toca",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-da-toca/",
+      "image": "assets/images/cachoeira-da-toca_verified.png",
+      "placeholder": false,
+      "credit": "Miquel Girones · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:ILHABELACACHO.png"
+    },
+    {
+      "slug": "cachoeira-do-veloso",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-do-veloso/",
+      "image": "assets/images/cachoeira-do-veloso_verified.jpg",
+      "placeholder": false,
+      "credit": "Italo Reis · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Cachoeira_do_Veloso,_em_Ilhabela.jpg"
+    },
+    {
+      "slug": "cachoeira-do-paqueta",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-do-paqueta/",
+      "image": "assets/images/cachoeira-do-paqueta_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/pontos-turisticos/cachoeira-do-paqueta/"
+    },
+    {
+      "slug": "cachoeira-do-gato",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-do-gato/",
+      "image": "assets/images/cachoeira-do-gato_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/cachoeiras/cachoeira-do-gato/"
+    },
+    {
+      "slug": "cachoeira-dos-tres-tombos",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-dos-tres-tombos/",
+      "image": "assets/images/cachoeira-dos-tres-tombos_verified.jpg",
+      "placeholder": false,
+      "credit": "Virto.Photo · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Cachoeira_dos_Tr%C3%AAs_Tombos.jpg"
+    },
+    {
+      "slug": "cachoeira-da-friagem",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-da-friagem/",
+      "image": "assets/images/cachoeira-da-friagem_verified.webp",
+      "placeholder": false,
+      "credit": "Trilhabela",
+      "license": null,
+      "source": "https://trilhabela.com.br/passeio/cachoeira-da-friagem-ilhabela/"
+    },
+    {
+      "slug": "trilha-da-agua-branca",
+      "page": "https://ilhabelatrip.com/lugares/trilha-da-agua-branca/",
+      "image": "assets/images/trilha-da-agua-branca_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/cachoeiras/cachoeiras-trilha-da-agua-branca/"
+    },
+    {
+      "slug": "trilha-do-bonete",
+      "page": "https://ilhabelatrip.com/lugares/trilha-do-bonete/",
+      "image": "assets/images/trilha-do-bonete_1.jpg",
+      "placeholder": false,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "trilha-da-cabecuda-farol",
+      "page": "https://ilhabelatrip.com/lugares/trilha-da-cabecuda-farol/",
+      "image": "assets/images/trilha-da-cabecuda-farol_1.jpg",
+      "placeholder": false,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "pico-de-sao-sebastiao",
+      "page": "https://ilhabelatrip.com/lugares/pico-de-sao-sebastiao/",
+      "image": "assets/images/pico-de-sao-sebastiao-autoral-original.jpeg",
+      "placeholder": false,
+      "credit": "Acervo pessoal — Ilhabela Trip",
+      "license": "©",
+      "source": "/assets/images/pico-de-sao-sebastiao-autoral-original.jpeg"
+    },
+    {
+      "slug": "mirante-do-coracao",
+      "page": "https://ilhabelatrip.com/lugares/mirante-do-coracao/",
+      "image": "assets/images/mirante-do-coracao_verified.jpg",
+      "placeholder": false,
+      "credit": "Louise Cristina Araujo Ferri · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Mirante_do_Cora%C3%A7%C3%A3o_-_Praia_de_Castelhanos.jpg"
+    },
+    {
+      "slug": "pico-do-baepi",
+      "page": "https://ilhabelatrip.com/lugares/pico-do-baepi/",
+      "image": "assets/images/pico-do-baepi_verified.jpg",
+      "placeholder": false,
+      "credit": "Igorh84 · Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/File:Pico_do_Baepi.jpg"
+    },
+    {
+      "slug": "ponto-baleias-sul-sepituba",
+      "page": "https://ilhabelatrip.com/lugares/ponto-baleias-sul-sepituba/",
+      "image": "assets/images/ponto-baleias-sul-sepituba_1.jpg",
+      "placeholder": false,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "ponto-baleias-canal",
+      "page": "https://ilhabelatrip.com/lugares/ponto-baleias-canal/",
+      "image": "assets/images/ponto-baleias-canal_verified.jpg",
+      "placeholder": false,
+      "credit": "Projeto Baleia à Vista · Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/"
+    },
+    {
+      "slug": "naufragio-aymore",
+      "page": "https://ilhabelatrip.com/lugares/naufragio-aymore/",
+      "image": "assets/images/naufragio-aymore_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Reserving · mergulho em naufrágios de Ilhabela",
+      "license": null,
+      "source": "https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ"
+    },
+    {
+      "slug": "santuario-ilha-das-cabras",
+      "page": "https://ilhabelatrip.com/lugares/santuario-ilha-das-cabras/",
+      "image": "assets/images/santuario-ilha-das-cabras_verified.jpg",
+      "placeholder": false,
+      "credit": "Wikimedia Commons",
+      "license": null,
+      "source": "https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)"
+    },
+    {
+      "slug": "naufragio-principe-de-asturias",
+      "page": "https://ilhabelatrip.com/lugares/naufragio-principe-de-asturias/",
+      "image": "assets/images/naufragio-principe-de-asturias_1.jpg",
+      "placeholder": false,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "praia-do-jabaquara",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-jabaquara/",
+      "image": "assets/images/praia-do-jabaquara_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-jabaquara"
+    },
+    {
+      "slug": "praia-da-feiticeira",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-feiticeira/",
+      "image": "assets/images/praia-da-feiticeira_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-da-feiticeira"
+    },
+    {
+      "slug": "praia-do-sino",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-sino/",
+      "image": "assets/images/praia-do-sino_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-sino-garapocaia"
+    },
+    {
+      "slug": "centro-historico-vila",
+      "page": "https://ilhabelatrip.com/lugares/centro-historico-vila/",
+      "image": "assets/images/centro-historico_verified.jpg",
+      "placeholder": false,
+      "credit": "Sectur Ilhabela",
+      "license": null,
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15433/centro-historico-de-ilhabela-cultura-gastronomia-e-paisagens-em-um-so-lugar"
+    },
+    {
+      "slug": "fazenda-engenho-dagua",
+      "page": "https://ilhabelatrip.com/lugares/fazenda-engenho-dagua/",
+      "image": "assets/images/fazenda-engenho-dagua_verified.jpg",
+      "placeholder": false,
+      "credit": "Prefeitura de Ilhabela",
+      "license": null,
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/17580/fazenda-engenho-dagua-em-ilhabela-um-lugar-de-historia-cultura-e-memoria-preservadas/"
+    },
+    {
+      "slug": "mirante-do-piuva",
+      "page": "https://ilhabelatrip.com/lugares/mirante-do-piuva/",
+      "image": "assets/images/mirante-do-piuva_verified.jpg",
+      "placeholder": false,
+      "credit": "Prefeitura de Ilhabela",
+      "license": null,
+      "source": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15401/10-mirantes-de-ilhabela-para-apreciar-a-vista-do-arquipelago"
+    },
+    {
+      "slug": "saco-do-eustaquio",
+      "page": "https://ilhabelatrip.com/lugares/saco-do-eustaquio/",
+      "image": "assets/images/saco-do-eustaquio_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-saco-do-eustaquio/"
+    },
+    {
+      "slug": "praia-do-pereque",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-pereque/",
+      "image": "assets/images/praia-do-pereque_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-pereque"
+    },
+    {
+      "slug": "praia-do-barreiros",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-barreiros/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "praia-de-santa-tereza",
+      "page": "https://ilhabelatrip.com/lugares/praia-de-santa-tereza/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "praia-do-pinto",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-pinto/",
+      "image": "assets/images/praia-do-pinto_commons.webp",
+      "placeholder": false,
+      "credit": "Kathryn elizabeth loba collins · Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Praia_do_pinto_ilhabela_1957388_4024779116035_1551329815_n.jpg"
+    },
+    {
+      "slug": "praia-da-ponta-azeda",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-ponta-azeda/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "praia-da-pacuiba",
+      "page": "https://ilhabelatrip.com/lugares/praia-da-pacuiba/",
+      "image": "assets/images/praia-da-pacuiba-costao_commons.webp",
+      "placeholder": false,
+      "credit": "João D'Andretta · Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Parque_Estadual_de_Ilhabela_-_Jo%C3%A3o_Paulo_Marques_DAndretta_(10).jpg"
+    },
+    {
+      "slug": "praia-do-poco",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-poco/",
+      "image": "assets/images/praia-do-poco_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-poco"
+    },
+    {
+      "slug": "piscinas-naturais-do-sul",
+      "page": "https://ilhabelatrip.com/lugares/piscinas-naturais-do-sul/",
+      "image": "assets/images/piscinas-naturais_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/trilhas/piscinas-naturais/"
+    },
+    {
+      "slug": "praia-grande",
+      "page": "https://ilhabelatrip.com/lugares/praia-grande/",
+      "image": "assets/images/praia-grande_verified.jpg",
+      "placeholder": false,
+      "credit": "Acervo Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-grande/"
+    },
+    {
+      "slug": "praia-do-portinho",
+      "page": "https://ilhabelatrip.com/lugares/praia-do-portinho/",
+      "image": "assets/images/praia-do-portinho_verified.jpg",
+      "placeholder": false,
+      "credit": "Marcelo Carbono · Ilhabela.com.br",
+      "license": null,
+      "source": "https://www.ilhabela.com.br/praias/praia-do-portinho"
+    },
+    {
+      "slug": "poco-do-furado",
+      "page": "https://ilhabelatrip.com/lugares/poco-do-furado/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "mirante-do-baepi",
+      "page": "https://ilhabelatrip.com/lugares/mirante-do-baepi/",
+      "image": "assets/images/mirante-do-baepi_commons.webp",
+      "placeholder": false,
+      "credit": "Henrique Oliveira · Wikimedia Commons",
+      "license": "Domínio Público",
+      "source": "https://commons.wikimedia.org/wiki/File:Landscape_of_S%C3%A3o_Sebasti%C3%A3o.jpg"
+    },
+    {
+      "slug": "mirante-do-morro-da-cruz",
+      "page": "https://ilhabelatrip.com/lugares/mirante-do-morro-da-cruz/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "mirante-dos-barreiros",
+      "page": "https://ilhabelatrip.com/lugares/mirante-dos-barreiros/",
+      "image": "assets/images/attraction-placeholder.svg",
+      "placeholder": true,
+      "credit": null,
+      "license": null,
+      "source": null
+    },
+    {
+      "slug": "cachoeira-do-poco-fundo",
+      "page": "https://ilhabelatrip.com/lugares/cachoeira-do-poco-fundo/",
+      "image": "assets/images/cachoeira-do-poco-fundo-acesso_commons.webp",
+      "placeholder": false,
+      "credit": "Jmdelboux · Wikimedia Commons",
+      "license": "CC BY-SA 4.0",
+      "source": "https://commons.wikimedia.org/wiki/File:Trilha_do_Po%C3%A7o_Fundo.jpg"
+    }
+  ]
+}
