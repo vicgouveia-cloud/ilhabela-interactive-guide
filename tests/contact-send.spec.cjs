@@ -1,5 +1,7 @@
 const {test, expect} = require('@playwright/test');
 
+test.use({locale: 'pt-BR'});
+
 test('accepted submissions whitelist context and optional email across languages and sizes', async ({page}) => {
   const payloads = [];
   await page.route('https://formspree.io/f/xeaejbqe', async route => {
