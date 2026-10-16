@@ -22,13 +22,13 @@
   <link rel="stylesheet" href="/styles.css?v=4.1" />
 </head>
 <body class="bg-surface text-on-surface min-h-screen antialiased">
-  <header class="sticky top-0 z-40 glass-panel border-b border-black/5 px-4 md:px-8 py-3.5">
+  <header class="compact-mobile-header sticky top-0 z-40 glass-panel border-b border-black/5 px-4 md:px-8 py-3.5">
     <div class="max-w-7xl mx-auto flex items-center justify-between gap-3">
-      <a href="/" class="flex items-center gap-2.5">
+      <a href="/" class="header-brand flex items-center gap-2.5">
         <div class="brand-mark w-10 h-10 rounded-full text-white flex items-center justify-center shadow-md"><span class="material-symbols-outlined">sailing</span></div>
         <div><strong class="text-xl text-primary font-heading" data-i18n="brandTitle">Ilhabela Trip</strong><span class="hidden sm:inline text-xs font-semibold text-secondary ml-2">Guia Interativo</span></div>
       </a>
-      <div class="flex items-center gap-2">
+      <div class="header-controls flex items-center gap-2">
         <button type="button" class="contact-header-entry" data-contact-entry aria-label="Fale com a gente" aria-haspopup="dialog" title="Fale com a gente"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></button>
         <div id="language-selector" class="relative">
           <button id="lang-btn" type="button" aria-expanded="false" aria-controls="language-menu" data-i18n-aria-label="chooseLanguage" class="flex items-center gap-1.5 px-3 py-2 rounded-xl bg-surface-container/80 border border-black/10 text-xs font-bold text-primary">
