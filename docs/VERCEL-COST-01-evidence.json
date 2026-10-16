@@ -1,0 +1,252 @@
+{
+  "base": "96751f40d069d93b09901299898f0b914f63dd68",
+  "capturedAt": "2026-10-16T18:45:38.026Z",
+  "production": [
+    {
+      "path": "/",
+      "status": 200,
+      "bytes": 37701,
+      "matchesMain": true,
+      "sha256": "ddad01dcfc0efacdb63083fdb29520615bef7851d92cca57b6c19353fa6bf68e",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "1014",
+      "placeholder": false
+    },
+    {
+      "path": "/data.js",
+      "status": 200,
+      "bytes": 199788,
+      "matchesMain": true,
+      "sha256": "dcefe1a45e34035ca239884441ab74996a59b7fcb5c91c12b0081ee9a44d57d4",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "993",
+      "placeholder": false
+    },
+    {
+      "path": "/additional-spots.js",
+      "status": 200,
+      "bytes": 290510,
+      "matchesMain": true,
+      "sha256": "1443ec311d3d9b4174b0b8af98cf58eb708df5125a1753ce1f21b14ae3d1008b",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "993",
+      "placeholder": true
+    },
+    {
+      "path": "/attraction-photos.js",
+      "status": 200,
+      "bytes": 17119,
+      "matchesMain": true,
+      "sha256": "6ff147b7911f5f06bc03d53f97d17b5d27fb3b7b40167db229d0e928d451c589",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "993",
+      "placeholder": false
+    },
+    {
+      "path": "/responsive-images.js",
+      "status": 200,
+      "bytes": 3486,
+      "matchesMain": true,
+      "sha256": "49abec154974a8d57e5d3b9d4e1170de9683e32fcc05381b22cd863637bbdb8c",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "993",
+      "placeholder": false
+    },
+    {
+      "path": "/lugares/pico-de-sao-sebastiao/",
+      "status": 200,
+      "bytes": 6555,
+      "matchesMain": true,
+      "sha256": "93e589b95a05d5a9e153bc39625f560698f0f5b325b36986ff8859e9e668130a",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "984",
+      "placeholder": false
+    },
+    {
+      "path": "/lugares/praia-do-barreiros/",
+      "status": 200,
+      "bytes": 5152,
+      "matchesMain": true,
+      "sha256": "09a213607a8a3e756582b2b4a94c708abd3df22eabfb90df3c6fa5484c9c8fbf",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "21",
+      "placeholder": true
+    },
+    {
+      "path": "/lugares/praia-de-santa-tereza/",
+      "status": 200,
+      "bytes": 4883,
+      "matchesMain": true,
+      "sha256": "d3401183e04b2deb03b18690d647b1e4225ef9685e5604869aa751efd3c41619",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "21",
+      "placeholder": true
+    },
+    {
+      "path": "/lugares/praia-da-ponta-azeda/",
+      "status": 200,
+      "bytes": 5429,
+      "matchesMain": true,
+      "sha256": "02216f1d8370f9bffc71e7eb9a310ada52861674b66a05dc4923e9d4e3cc4e28",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "20",
+      "placeholder": true
+    },
+    {
+      "path": "/lugares/poco-do-furado/",
+      "status": 200,
+      "bytes": 5006,
+      "matchesMain": true,
+      "sha256": "e0d440d1d642cf83a57ba07bd73b05170aca98e4a45f54488c4ffe04ab69b07a",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "20",
+      "placeholder": true
+    },
+    {
+      "path": "/lugares/mirante-do-morro-da-cruz/",
+      "status": 200,
+      "bytes": 5030,
+      "matchesMain": true,
+      "sha256": "6b450f66b93b71c70af11fdc9930b552160a1e042b0b11484c3e45f61534c8a8",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "20",
+      "placeholder": true
+    },
+    {
+      "path": "/lugares/mirante-dos-barreiros/",
+      "status": 200,
+      "bytes": 4688,
+      "matchesMain": true,
+      "sha256": "fb74afa552d4b76b663835c73ca5baac8307f7c365439e84d277c01905dbcbd1",
+      "cacheControl": "public, max-age=0, must-revalidate",
+      "vercelCache": "HIT",
+      "age": "20",
+      "placeholder": true
+    }
+  ],
+  "historicalDeployments": {
+    "source": "audit-vercel-2026-10-16/github-deployments.json; historical snapshot, not refreshed",
+    "records": 763,
+    "environments": {
+      "Production": 339,
+      "Preview": 424
+    },
+    "uniqueSha": 597,
+    "uniqueRefs": 597,
+    "topRefs": [
+      [
+        "993a602def90a6bb7084d75b179711309cc6dc9d",
+        2
+      ],
+      [
+        "eb8fd9cde593348e2e8199c2b1cd4279dd71acbf",
+        2
+      ],
+      [
+        "8156af82af7d93d82f335d50d9a33ca2d5767fb7",
+        2
+      ],
+      [
+        "2500dbe02886fce822d25de7775a10370770de2f",
+        2
+      ],
+      [
+        "5faf0022b12f2daa304d22a9089a6cb07f759a44",
+        2
+      ],
+      [
+        "a19419e179285fa5174de5ae368a388b2fa0b12f",
+        2
+      ],
+      [
+        "341575b8f1b0ab8fb9eaca9cb63e29968ffaf207",
+        2
+      ],
+      [
+        "5264188a292d29455021e586d096754b75ef2514",
+        2
+      ],
+      [
+        "98c3b3420034ff54855ab3b4a201e3900fa165f8",
+        2
+      ],
+      [
+        "f66a6fbcce8cbeb4b09400604ce7e41e274c55f2",
+        2
+      ],
+      [
+        "88a6b5c5451fc3444f84c2737fe4c7aa601c5386",
+        2
+      ],
+      [
+        "a2a1db7fcbc402d42aa4ae25fd8e423a16526054",
+        2
+      ]
+    ]
+  },
+  "repository": {
+    "trackedFiles": 283,
+    "trackedBytes": 46051549,
+    "largest": [
+      {
+        "path": "assets/images/pico-de-sao-sebastiao_verified.jpg",
+        "bytes": 6735018
+      },
+      {
+        "path": "assets/images/cachoeira-da-laje_verified.jpg",
+        "bytes": 1321241
+      },
+      {
+        "path": "assets/images/mirante-do-coracao_verified.jpg",
+        "bytes": 1094415
+      },
+      {
+        "path": "assets/images/cachoeira-da-toca_verified.png",
+        "bytes": 1061130
+      },
+      {
+        "path": "assets/images/cachoeira-dos-tres-tombos_verified.jpg",
+        "bytes": 850329
+      },
+      {
+        "path": "assets/images/praia-do-curral_verified.jpg",
+        "bytes": 826231
+      },
+      {
+        "path": "assets/images/cachoeira-da-laje_verified-1600w.webp",
+        "bytes": 815744
+      },
+      {
+        "path": "assets/images/cachoeira-do-veloso_verified.jpg",
+        "bytes": 778394
+      },
+      {
+        "path": "assets/images/baia-de-castelhanos_verified.jpg",
+        "bytes": 774790
+      },
+      {
+        "path": "assets/images/praia-do-bonete_verified.jpg",
+        "bytes": 738619
+      },
+      {
+        "path": "assets/images/praia-da-fome_verified.jpg",
+        "bytes": 710259
+      },
+      {
+        "path": "assets/images/santuario-ilha-das-cabras_verified.jpg",
+        "bytes": 690976
+      }
+    ]
+  }
+}
