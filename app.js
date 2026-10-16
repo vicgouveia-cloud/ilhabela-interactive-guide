@@ -871,6 +871,7 @@ function openSpotModal(spotId, options = {}) {
     <!-- License and accurate photo subject for newly added CC-licensed images. -->
     <div id="modal-photo-license" class="text-[11px] text-on-surface-variant leading-relaxed px-1 ${spot.photoLicense && spot.photoLicenseUrl ? '' : 'hidden'}" data-photo-license>
       ${spot.photoLicense && spot.photoLicenseUrl ? `
+        ${spot.id === 'pico-de-sao-sebastiao' ? `<details class="rounded-lg border border-black/10 px-2 py-1"><summary class="cursor-pointer font-semibold text-primary">${photoDetailsLabel(currentLang)}</summary><div class="mt-1">` : ''}
         <a href="${spot.photoLicenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${spot.photoLicense}</a>
         · ${t('photoCredit')}: <a href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="underline">${spot.photoCredit}</a>
         ${(() => {
@@ -879,6 +880,7 @@ function openSpotModal(spotId, options = {}) {
           return adaptText ? ` · ${adaptText}` : '';
         })()}
         ${spot.photoCaption ? ` · ${(spot.photoCaption[currentLang] || spot.photoCaption.pt)}` : ''}
+        ${spot.id === 'pico-de-sao-sebastiao' ? '</div></details>' : ''}
       ` : ''}
     </div>
 
@@ -1006,6 +1008,10 @@ document.addEventListener('keydown', event => {
   else if (!event.shiftKey && (document.activeElement === last || !modal.contains(document.activeElement))) { event.preventDefault(); first?.focus(); }
 });
 
+function photoDetailsLabel(lang) {
+  return ({ pt: 'Detalhes da fotografia', en: 'Photo details', es: 'Detalles de la fotografía', fr: 'Détails de la photo', he: 'פרטי התמונה' })[lang] || 'Photo details';
+}
+
 function formatPhotoAdaptation(adapt, lang) {
   if (!adapt) return '';
   if (typeof adapt === 'object') return adapt[lang] || adapt.pt || adapt.en || '';
@@ -1086,7 +1092,10 @@ function setModalImage(idx) {
         const adapt = attr.adaptation || (currentModalImageIndex === 0 ? spot.photoAdaptation : null);
         const adaptText = formatPhotoAdaptation(adapt, currentLang);
         const captionText = attr.caption ? (attr.caption[currentLang] || attr.caption.pt || attr.caption) : (currentModalImageIndex === 0 && spot.photoCaption ? (spot.photoCaption[currentLang] || spot.photoCaption.pt) : '');
-        licenseEl.innerHTML = `<a href="${attr.licenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${attr.license}</a> · ${t('photoCredit')}: <a href="${attr.source}" target="_blank" rel="noopener noreferrer" class="underline">${attr.credit}</a>${adaptText ? ` · ${adaptText}` : ''}${captionText ? ` · ${captionText}` : ''}`;
+        const licenseLine = `<a href="${attr.licenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${attr.license}</a> · ${t('photoCredit')}: <a href="${attr.source}" target="_blank" rel="noopener noreferrer" class="underline">${attr.credit}</a>${adaptText ? ` · ${adaptText}` : ''}${captionText ? ` · ${captionText}` : ''}`;
+        licenseEl.innerHTML = spot.id === 'pico-de-sao-sebastiao'
+          ? `<details class="rounded-lg border border-black/10 px-2 py-1"><summary class="cursor-pointer font-semibold text-primary">${photoDetailsLabel(currentLang)}</summary><div class="mt-1">${licenseLine}</div></details>`
+          : licenseLine;
         licenseEl.classList.remove('hidden');
       } else {
         licenseEl.classList.add('hidden');
