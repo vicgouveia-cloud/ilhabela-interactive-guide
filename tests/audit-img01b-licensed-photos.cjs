@@ -25,9 +25,9 @@ const photos={
     credit:"João D'Andretta · Wikimedia Commons"
   }
 };
-const pending=['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','mirante-do-baepi','mirante-do-morro-da-cruz','mirante-dos-barreiros','cachoeira-do-poco-fundo'];
+const pending=['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','mirante-do-morro-da-cruz','mirante-dos-barreiros'];
 assert.equal(after.spots.length,50);
-assert.equal(Object.keys(after.library).length,26);
+assert.equal(Object.keys(after.library).length,28);
 function imageCard(html,id) {
   const card=[...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g)].map(x=>x[0]).find(x=>x.includes('href="/lugares/'+id+'/"'));
   return card?.match(/<img\b[^>]*\bsrc="([^"]+)"/)?.[1]??null;
@@ -64,8 +64,10 @@ for(const old of after.spots.filter(s=>!photos[s.id])) {
 }
 const changes=execFileSync('git',['diff','--name-status','eb8fd9cde593348e2e8199c2b1cd4279dd71acbf','HEAD','--','assets/images/'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean).sort();
 assert.deepEqual(changes,['A\tassets/images/praia-da-pacuiba-costao_commons.webp','A\tassets/images/praia-do-pinto_commons.webp'].sort());
+assert(fs.existsSync(path.join(root,'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp')), 'missing poco fundo asset');
+assert(fs.existsSync(path.join(root,'assets/images/mirante-do-baepi_commons.webp')), 'missing baepi asset');
 const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
-assert(index.includes('attraction-photos.js?v=1.1'));
+assert(index.includes('attraction-photos.js?v=1.3'));
 assert(index.includes('app.js?v=5.2'));
 assert(fs.readFileSync(path.join(root,'app.js'),'utf8').includes('data-photo-license'));
-console.log('IMG-01B OK: 2 new CC BY-SA images, 8 placeholders retained, 48 other attraction images unchanged.');
+console.log('IMG-01E OK: Mirante do Baepi, Poço Fundo, Pinto and Pacuíba images verified; 6 placeholders retained.');

@@ -152,7 +152,7 @@ assert(fs.readFileSync(path.join(ROOT, 'en/o-que-fazer/index.html'), 'utf8').inc
 // Guard all EN HTML files against relative asset paths without leading slash
 const allEnHtmlFiles = [
   'en/index.html',
-  ...[...validatedHubs, ...preparedHubs].map(h => path.join(h.replace(/^\//, ''), 'index.html'))
+  ...[...validatedHubs, ...preparedHubs].map(h => path.join(h.replace(/^\//, ''), 'index.html')),
   ...[...validatedEnSpots, ...preparedNoindexSpots].map(id => path.join('en', 'lugares', id, 'index.html'))
 ];
 for (const relFile of allEnHtmlFiles) {
@@ -381,7 +381,7 @@ assert(beachHubHtml.includes('<p class="intro">Explore 23 Ilhabela beaches,'), '
 assert(beachHubHtml.includes('Driving directions do not always lead directly to the sand'), 'English beach hub road-access guidance missing');
 assert(!beachHubHtml.includes('name="robots" content="noindex'), 'English beach hub is indexable');
 const actualBeachIds = [...beachHubHtml.matchAll(/<article data-spot="([^"]+)"/g)].map(match => match[1]);
-const expectedBeachIds = spots.filter(spot => spot.category === 'praias').map(spot => spot.id);
+const expectedBeachIds = Array.from(spots.filter(spot => spot.category === 'praias').map(spot => spot.id));
 assert.deepEqual(actualBeachIds, expectedBeachIds, 'English beach hub must preserve all 23 original beach cards and their order');
 assert.equal(actualBeachIds.length, 23, 'English beach hub must have exactly 23 beach cards');
 for (const beachId of actualBeachIds) {

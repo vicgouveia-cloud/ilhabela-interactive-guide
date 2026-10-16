@@ -160,6 +160,42 @@ const verifiedPhotoLibrary = {
       es: 'Vista aérea de la costa rocosa cerca de la playa da Pacuíba; la franja de arena no aparece.',
       he: 'מבט אווירי על החוף הסלעי ליד חוף פקואיבה; רצועת החול אינה נראית בתמונה.'
     }
+  },
+  // IMG-01C: the photographed sign explicitly names Cachoeira Poço Fundo.
+  // It depicts the signed approach, NOT the waterfall or its bathing pool.
+  'cachoeira-do-poco-fundo': {
+    images: ['assets/images/cachoeira-do-poco-fundo-acesso_commons.webp'],
+    credit: 'Jmdelboux · Wikimedia Commons',
+    source: 'https://commons.wikimedia.org/wiki/File:Trilha_do_Po%C3%A7o_Fundo.jpg',
+    license: 'CC BY-SA 4.0',
+    licenseUrl: 'https://creativecommons.org/licenses/by-sa/4.0/',
+    provenance: 'Wikimedia Commons: Trilha do Poço Fundo, 25 April 2017; sign for Cachoeira Poço Fundo near Bonete, geotag -23.912594, -45.342669; CC BY-SA 4.0.',
+    adaptation: 'Imagem redimensionada e convertida para WebP.',
+    caption: {
+      pt: 'Placa da trilha de acesso à Cachoeira do Poço Fundo, na região do Bonete; a queda d\u0027água não aparece na imagem.',
+      en: 'Sign marking the access trail to Poço Fundo Waterfall, near Bonete; the waterfall itself is not shown.',
+      fr: 'Panneau indiquant le sentier d\u0027accès à la cascade Poço Fundo, près de Bonete ; la chute d\u0027eau n\u0027apparaît pas sur la photo.',
+      es: 'Señal del sendero de acceso a la cascada Poço Fundo, cerca de Bonete; la cascada no aparece en la imagen.',
+      he: 'שלט המכוון לשביל הגישה למפל פוסו פונדו, ליד בונטה; המפל עצמו אינו מופיע בתמונה.'
+    }
+  },
+  // IMG-01E: observation deck on the initial section of the Baepi trail; Public Domain / CC0.
+  // Enquadra a plataforma de madeira e a vista panorâmica do canal; NÃO confunde com o cume rochoso (1.048 m).
+  'mirante-do-baepi': {
+    images: ['assets/images/mirante-do-baepi_commons.webp'],
+    credit: 'Henrique Oliveira · Wikimedia Commons',
+    source: 'https://commons.wikimedia.org/wiki/File:Landscape_of_S%C3%A3o_Sebasti%C3%A3o.jpg',
+    license: 'Domínio Público',
+    licenseUrl: 'https://creativecommons.org/publicdomain/mark/1.0/',
+    provenance: 'Wikimedia Commons: Landscape taken from Ilhabela, more precisely from the mid point in the Baepi trail; Henrique Oliveira via Flickr (PD Mark), 7 July 2019; Public Domain.',
+    adaptation: 'Imagem enquadrada e convertida para WebP.',
+    caption: {
+      pt: 'Deck de observação na parte inicial da Trilha do Baepi, com vista panorâmica do Canal de São Sebastião.',
+      en: 'Observation deck on the initial section of the Baepi Trail, with panoramic views of the São Sebastião Channel.',
+      fr: 'Plateforme d\u0027observation au début du sentier du Baepi, avec vue panoramique sur le canal de São Sebastião.',
+      es: 'Mirador de madera en el tramo inicial del sendero del Baepi, con vista panorámica del canal de São Sebastião.',
+      he: 'דק תצפית מעץ בחלקו הראשון של שביל באפי, עם מבט פנורמי על תעלת סאו סבסטיאו.'
+    }
   }
 };
 
