@@ -58,11 +58,11 @@ function renderEnAttractionPage(spot, pilotInfo) {
   const photo = photoOverrides[spot.id];
   const imagePath = photo?.image || spot.image;
   const image = absolute(imagePath);
-  const photoCredit = photo
+  const photoCredit = spot.id === 'pico-de-sao-sebastiao'
+    ? `<p><small>Photo: <a href="${esc(spot.photoSource)}">${esc(spot.photoCredit)}</a></small></p>`
+    : photo
     ? `<p><small>Photo: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Resized image.</small></p>`
-    : spot.photoCaption && spot.id === 'pico-de-sao-sebastiao'
-      ? `<p><small>Photo: <a href="${esc(spot.photoSource)}">${esc(spot.photoCredit)}</a> · <a href="${esc(spot.photoLicenseUrl)}">${esc(spot.photoLicense)}</a> · ${esc(spot.photoAdaptation.en)} · ${esc(spot.photoCaption.en)}</small></p>`
-      : '';
+    : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
   const schema = JSON.stringify({
     '@context': 'https://schema.org',

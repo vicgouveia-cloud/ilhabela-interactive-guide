@@ -869,8 +869,8 @@ function openSpotModal(spotId, options = {}) {
     </div>
 
     <!-- License and accurate photo subject for newly added CC-licensed images. -->
-    <div id="modal-photo-license" class="text-[11px] text-on-surface-variant leading-relaxed px-1 ${spot.photoLicense && spot.photoLicenseUrl ? '' : 'hidden'}" data-photo-license>
-      ${spot.photoLicense && spot.photoLicenseUrl ? `
+    <div id="modal-photo-license" class="text-[11px] text-on-surface-variant leading-relaxed px-1 ${spot.id !== 'pico-de-sao-sebastiao' && spot.photoLicense && spot.photoLicenseUrl ? '' : 'hidden'}" data-photo-license>
+      ${spot.id !== 'pico-de-sao-sebastiao' && spot.photoLicense && spot.photoLicenseUrl ? `
         <a href="${spot.photoLicenseUrl}" target="_blank" rel="noopener noreferrer" class="underline font-semibold">${spot.photoLicense}</a>
         · ${t('photoCredit')}: <a href="${spot.photoSource}" target="_blank" rel="noopener noreferrer" class="underline">${spot.photoCredit}</a>
         ${(() => {
@@ -1082,7 +1082,7 @@ function setModalImage(idx) {
 
     const licenseEl = document.getElementById('modal-photo-license');
     if (licenseEl) {
-      if (attr && attr.license && attr.licenseUrl && attr.source && attr.credit) {
+      if (spot.id !== 'pico-de-sao-sebastiao' && attr && attr.license && attr.licenseUrl && attr.source && attr.credit) {
         const adapt = attr.adaptation || (currentModalImageIndex === 0 ? spot.photoAdaptation : null);
         const adaptText = formatPhotoAdaptation(adapt, currentLang);
         const captionText = attr.caption ? (attr.caption[currentLang] || attr.caption.pt || attr.caption) : (currentModalImageIndex === 0 && spot.photoCaption ? (spot.photoCaption[currentLang] || spot.photoCaption.pt) : '');

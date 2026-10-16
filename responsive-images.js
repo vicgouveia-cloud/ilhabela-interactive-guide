@@ -94,7 +94,8 @@
   responsiveImageAttrs.attribution = function (spot, lang) {
     if (spot.id !== 'pico-de-sao-sebastiao') return '';
     const esc = value => String(value).replace(/[&<>"']/g, ch => ({'&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;'}[ch]));
-    return '<small data-photo-attribution="pico-de-sao-sebastiao" class="block text-xs leading-relaxed" style="display:block;font-size:12px;line-height:1.5" onclick="event.stopPropagation()"><a href="' + esc(spot.photoSource) + '">' + esc(spot.photoCredit) + '</a> · <a href="' + esc(spot.photoLicenseUrl) + '">' + esc(spot.photoLicense) + '</a> · ' + esc(spot.photoAdaptation[lang]) + ' · ' + esc(spot.photoCaption[lang]) + '</small>';
+    const photoWord = ({ pt: 'Foto', en: 'Photo', es: 'Foto', fr: 'Photo', he: 'צילום' })[lang] || 'Photo';
+    return '<small data-photo-attribution="pico-de-sao-sebastiao" class="block text-xs leading-relaxed" style="display:block;font-size:12px;line-height:1.5" onclick="event.stopPropagation()">' + esc(photoWord) + ': ' + esc(spot.photoCredit) + '</small>';
   };
   if (typeof module !== 'undefined' && module.exports) module.exports = responsiveImageAttrs;
   else root.responsiveImageAttrs = responsiveImageAttrs;

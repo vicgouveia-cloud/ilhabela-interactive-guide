@@ -42,12 +42,14 @@ function render(spot) {
   const photo = photoOverrides[spot.id];
   const imagePath = photo?.image || spot.image;
   const image = absolute(imagePath);
-  const photoCredit = photo
+  const photoCredit = spot.id === 'pico-de-sao-sebastiao'
+    ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a></small></p>`
+    : photo
     ? `<p><small>Foto: <a href="${esc(photo.source)}" target="_blank" rel="noopener noreferrer">${esc(photo.credit)}</a> · <a href="${esc(photo.licenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(photo.license)}</a> · Imagem redimensionada.</small></p>`
     : spot.photoCredit && spot.photoSource
       ? `<p><small>Foto: <a href="${esc(spot.photoSource)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoCredit)}</a>${spot.photoLicense && spot.photoLicenseUrl ? ` · <a href="${esc(spot.photoLicenseUrl)}" target="_blank" rel="noopener noreferrer">${esc(spot.photoLicense)}</a>` : ''}${spot.photoAdaptation ? ` · ${esc(typeof spot.photoAdaptation === 'object' ? spot.photoAdaptation.pt : spot.photoAdaptation)}` : ''}</small></p>`
       : '';
-  const photoCaption = spot.photoCaption?.pt
+  const photoCaption = spot.photoCaption?.pt && spot.id !== 'pico-de-sao-sebastiao'
     ? `<p><small>${esc(spot.photoCaption.pt)}</small></p>`
     : '';
   const description = tr.description.replace(/\s+/g, ' ').trim().slice(0, 220);
