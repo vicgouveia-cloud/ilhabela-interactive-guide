@@ -152,6 +152,15 @@
         <p class="text-base sm:text-lg text-on-surface-variant font-normal leading-relaxed max-w-2xl" data-i18n="heroDescription">
           Explore mais de 40 praias paradisíacas, cachoeiras com piscinas naturais infinitas, trilhas lendárias na Mata Atlântica e pontos de avistamento de baleias com nosso mapa interativo e guias locais credenciados.
         </p>
+        
+        <!-- A single trip entry point; labels and selection count reuse the existing planner state. -->
+        <div class="mt-5 flex flex-col items-center gap-2 md:items-start">
+          <button id="home-continue-trip" type="button" onclick="openHomeTripPlanner()" class="inline-flex min-h-[48px] items-center justify-center gap-2 rounded-full bg-primary px-5 py-3 text-sm font-bold text-white shadow-lg transition-colors hover:bg-primary-container focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary">
+            <span class="material-symbols-outlined text-[20px]" aria-hidden="true">route</span>
+            <span id="home-trip-action-label" data-i18n="homeBuildTrip">Montar meu roteiro</span>
+          </button>
+          <p id="home-trip-count" class="min-h-[1.25rem] text-xs font-semibold text-primary/90" role="status" aria-live="polite"></p>
+        </div>
 
 
 
