@@ -875,12 +875,15 @@ function renderSummary() {
   mapHint.hidden = !plannerOriginPickMode || tripSelection.length === 0;
   mapHint.textContent = t('plannerOriginMapInstruction').replace('{n}', activeTripDay);
   const listContainer = document.getElementById('planner-summary-list');
-  
+  const daySelector = document.getElementById('planner-day-selector');
+
   const isEmpty = tripSelection.length === 0;
+  daySelector.hidden = isEmpty;
   document.getElementById('planner-summary-view').classList.toggle('is-empty', isEmpty);
   document.getElementById('planner-map').hidden = isEmpty;
   document.getElementById('planner-back-to-deck').hidden = isEmpty;
   if (isEmpty) {
+    daySelector.replaceChildren();
     plannerOriginPickMode = false;
     if (plannerMap) { plannerMap.remove(); plannerMap = null; }
     plannerMapMarkers = [];
@@ -903,10 +906,10 @@ function renderSummary() {
   const roadSpots = selectedSpots.filter(spot => isSpotRoutableForMode(spot, plannerTravelMode));
   const specialSpots = selectedSpots.filter(spot => !isSpotRoutableForMode(spot, plannerTravelMode));
 
-  let html = `<div class="planner-days flex gap-2 overflow-x-auto pb-1" role="group" aria-label="${t('plannerDay')}">
-    ${Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button type="button" aria-pressed="${activeTripDay === day}" onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}<span class="planner-day-count" aria-hidden="true">${allSelectedSpots.filter(spot => getSpotTripDay(spot.id) === day).length}</span></button>`).join('')}
-  </div>`;
-  html += renderPlannerPreparationPanel(selectedSpots, roadSpots);
+  daySelector.setAttribute('aria-label', t('plannerDay'));
+  daySelector.innerHTML = Array.from({ length: maxTripDay }, (_, index) => index + 1).map(day => `<button type="button" aria-pressed="${activeTripDay === day}" onclick="setActiveTripDay(${day})" class="shrink-0 px-4 py-2 rounded-xl text-xs font-extrabold border ${activeTripDay === day ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10'}">${t('plannerDay')} ${day}<span class="planner-day-count" aria-hidden="true">${allSelectedSpots.filter(spot => getSpotTripDay(spot.id) === day).length}</span></button>`).join('');
+  let html = '';
+    html += renderPlannerPreparationPanel(selectedSpots, roadSpots);
   html += renderPlannerMaritimeOptions(selectedSpots);
   html += renderPlannerNauticalExperiences(selectedSpots);
   html += renderPlannerRoutingPanel(roadSpots, specialSpots);
