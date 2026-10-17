@@ -3258,10 +3258,60 @@ const servicesData = [
     imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga'
   },
 
+  // Coworking editorial batch: separate businesses/services, sourced from their official pages.
+  // No third-party photographs are reproduced; no editorial recommendation is implied.
+  {
+    id: 'vila-hub-coworking', category: 'essentials', name: 'Vila Hub',
+    operatorGroupId: 'grupo-hostel-da-vila', practicalType: 'coworking',
+    baseLocation: { address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['coworking'], presentation: 'compact',
+    url: 'https://hosteldavila.com.br/pt/ilhabela/coworking'
+  },
+  {
+    id: 'blue-cowork-ilhabela', category: 'essentials', name: 'Blue Cowork Ilhabela',
+    practicalType: 'coworking',
+    baseLocation: { address: 'Praça Elvira Catarina Storace, 12 - CJ 03, Perequê, Ilhabela - SP', nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['coworking'], presentation: 'compact',
+    whatsapp: '12997162601', instagram: '@coworkilhabela',
+    url: 'https://coworkilhabela.com/'
+  },
+  {
+    id: 'reserva-ilhabela-coworking', category: 'essentials', name: 'Reserva Ilhabela — Coworking',
+    operatorGroupId: 'reserva-ilhabela', practicalType: 'coworking',
+    baseLocation: { address: 'Rua José Lins do Rêgo, 29, Feiticeira, Ilhabela - SP', nearSpotId: 'praia-da-feiticeira' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['coworking'], presentation: 'compact',
+    url: 'https://reservailhabela.com.br/'
+  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Vila Hub": {
+    pt: {"type":"Coworking","description":"Espaço de trabalho compartilhado do Hostel da Vila, no Centro Histórico, com estações de trabalho e opções de uso recorrente. Consulte os planos atuais no site.","tags":["Centro Histórico","Coworking","Estações de trabalho"]},
+    en: {"type":"Coworking","description":"Shared workspace at Hostel da Vila in the historic center, offering workstations and recurring plans. Check current plans on the official website.","tags":["Historic center","Coworking","Workstations"]},
+    fr: {"type":"Coworking","description":"Espace de travail partagé au Hostel da Vila, dans le centre historique, avec postes de travail et formules régulières. Vérifiez les offres sur le site officiel.","tags":["Centre historique","Coworking","Postes de travail"]},
+    es: {"type":"Coworking","description":"Espacio de trabajo compartido del Hostel da Vila, en el centro histórico, con puestos de trabajo y planes recurrentes. Consulta los planes actuales en la web oficial.","tags":["Centro histórico","Coworking","Puestos de trabajo"]},
+    he: {"type":"חלל עבודה משותף","description":"חלל עבודה משותף בהוסטל דה וילה במרכז ההיסטורי, עם עמדות עבודה ומסלולים קבועים. יש לבדוק תוכניות עדכניות באתר הרשמי.","tags":["המרכז ההיסטורי","חלל עבודה משותף","עמדות עבודה"]}
+  },
+  "Blue Cowork Ilhabela": {
+    pt: {"type":"Coworking","description":"Espaço de coworking no Perequê, próximo à praia, com internet, estações de trabalho, salas de reunião e opções de uso avulso ou recorrente.","tags":["Perequê","Coworking","Sala de reunião"]},
+    en: {"type":"Coworking","description":"Coworking space in Perequê near the beach, with internet, workstations, meeting rooms and options for day use or recurring access.","tags":["Perequê","Coworking","Meeting room"]},
+    fr: {"type":"Coworking","description":"Espace de coworking au Perequê, près de la plage, avec Internet, postes de travail, salles de réunion et formules à la journée ou régulières.","tags":["Perequê","Coworking","Salle de réunion"]},
+    es: {"type":"Coworking","description":"Espacio de coworking en Perequê, cerca de la playa, con internet, puestos de trabajo, salas de reuniones y opciones de uso diario o recurrente.","tags":["Perequê","Coworking","Sala de reuniones"]},
+    he: {"type":"חלל עבודה משותף","description":"חלל עבודה משותף בפרקה סמוך לחוף, עם אינטרנט, עמדות עבודה, חדרי ישיבות ואפשרויות כניסה יומית או קבועה.","tags":["פרקה","חלל עבודה משותף","חדר ישיבות"]}
+  },
+  "Reserva Ilhabela — Coworking": {
+    pt: {"type":"Coworking","description":"Espaço de trabalho compartilhado da Reserva Ilhabela, na Feiticeira, com Wi-Fi e acesso para visitantes por plataforma de reservas. Confirme a disponibilidade.","tags":["Feiticeira","Coworking","Visitantes"]},
+    en: {"type":"Coworking","description":"Shared workspace at Reserva Ilhabela in Feiticeira, with Wi-Fi and visitor access via a booking platform. Confirm availability before visiting.","tags":["Feiticeira","Coworking","Visitors"]},
+    fr: {"type":"Coworking","description":"Espace de travail partagé à Reserva Ilhabela, à Feiticeira, avec Wi-Fi et accès des visiteurs via une plateforme de réservation. Vérifiez les disponibilités.","tags":["Feiticeira","Coworking","Visiteurs"]},
+    es: {"type":"Coworking","description":"Espacio de trabajo compartido en Reserva Ilhabela, en Feiticeira, con Wi-Fi y acceso para visitantes mediante una plataforma de reservas. Confirma disponibilidad.","tags":["Feiticeira","Coworking","Visitantes"]},
+    he: {"type":"חלל עבודה משותף","description":"חלל עבודה משותף ברזרבה איליאבלה בפייטיסיירה, עם אינטרנט אלחוטי וגישה למבקרים דרך פלטפורמת הזמנות. יש לוודא זמינות.","tags":["פייטיסיירה","חלל עבודה משותף","מבקרים"]}
+  },
+
   'Recanto de Gaya': {
     pt: { type: 'Hostel', description: 'Hospedagem no Perequê com dormitório compartilhado e suítes privativas, cozinha compartilhada, jardim e Wi-Fi. Contato preferencial pelo Instagram.', tags: ['Perequê', 'Hostel', 'Quartos privativos e compartilhados'] },
     en: { type: 'Hostel', description: 'Accommodation in Perequê with a shared dormitory and private suites, shared kitchen, garden and Wi-Fi. Instagram is the preferred contact channel.', tags: ['Perequê', 'Hostel', 'Private and shared rooms'] },
