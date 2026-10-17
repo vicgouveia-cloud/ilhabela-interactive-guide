@@ -39,7 +39,7 @@ const bar=services.find(s=>s.id==='floresta-bar');
 const yoga=services.find(s=>s.id==='aula-yoga-hostel-da-vila');
 assert.equal(hostel.stayType,'hostel');
 assert.deepEqual(Array.from(bar.serviceType),['bar']);
-assert(bar.featured && bar.recommended && bar.presentation==='featured');
+assert(bar.featured && bar.recommended && bar.presentation==='compact','Floresta Bar remains recommended without enlarged card');
 assert.equal(yoga.experienceType,'wellness');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&['diving','tour'].includes(s.category)),'pending tours or diving added');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&(s.activities||[]).includes('coworking')),'coworking not approved in this lot');
