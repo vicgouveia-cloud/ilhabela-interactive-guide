@@ -60,7 +60,8 @@
       carRental: { pt: 'Aluguel de carro', en: 'Car rental', fr: 'Location de voiture', es: 'Alquiler de auto', he: 'השכרת רכב' },
       bikeRental: { pt: 'Aluguel de bicicleta', en: 'Bike rental', fr: 'Location de vélo', es: 'Alquiler de bicicleta', he: 'השכרת אופניים' },
       nauticalSupport: { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
-      marina: { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' }
+      marina: { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' },
+      coworking: { pt: 'Coworking', en: 'Coworking', fr: 'Coworking', es: 'Coworking', he: 'חלל עבודה משותף' }
     };
     const dl = key => directoryLabels[key]?.[currentLang] || directoryLabels[key]?.pt || key;
     if (category === 'tour') {
@@ -84,7 +85,8 @@
         ['car-rental', dl('carRental')],
         ['bike-rental', dl('bikeRental')],
         ['nautical-support', dl('nauticalSupport')],
-        ['marina', dl('marina')]
+        ['marina', dl('marina')],
+        ['coworking', dl('coworking')]
       ];
       foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
       document.getElementById('services-practical-filter')?.addEventListener('change', event => {
@@ -118,7 +120,20 @@
       ['specialty', 'serviceSpecialties'],
       ['occasion', 'serviceOccasions']
     ];
-    foodFilters.innerHTML = fields.map(([dimension, field]) => {
+    const foodTypeShortcuts = [
+      ['all', {pt:'Todos',en:'All',fr:'Tous',es:'Todos',he:'הכול'}],
+      ['restaurant', {pt:'Restaurantes',en:'Restaurants',fr:'Restaurants',es:'Restaurantes',he:'מסעדות'}],
+      ['bar', {pt:'Bares',en:'Bars',fr:'Bars',es:'Bares',he:'ברים'}],
+      ['kiosk', {pt:'Quiosques',en:'Beach kiosks',fr:'Kiosques de plage',es:'Quioscos',he:'קיוסקים בחוף'}],
+      ['cafe', {pt:'Cafeterias',en:'Cafés',fr:'Cafés',es:'Cafeterías',he:'בתי קפה'}]
+    ];
+    const shortcutsLabel = {pt:'Filtrar por tipo',en:'Filter by type',fr:'Filtrer par type',es:'Filtrar por tipo',he:'סינון לפי סוג'}[currentLang] || 'Filtrar por tipo';
+    const typeButtons = `<div role="group" aria-label="${shortcutsLabel}" class="col-span-full flex flex-wrap items-center gap-2">${foodTypeShortcuts.map(([id, names]) => {
+      const active = foodFilterState.type === id;
+      const buttonStyle = active ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10 hover:border-primary/50';
+      return `<button type="button" data-service-food-shortcut="${id}" aria-pressed="${active}" class="min-h-10 px-3 rounded-xl border text-xs font-bold ${buttonStyle}">${names[currentLang] || names.pt}</button>`;
+    }).join('')}</div>`;
+    foodFilters.innerHTML = typeButtons + fields.map(([dimension, field]) => {
       const values = [...new Set(servicesData.filter(s => s.category === 'food').flatMap(s => s[field] || []))];
       const options = ['all', ...values].map(id => {
         const selected = id === foodFilterState[dimension] ? ' selected' : '';
@@ -127,6 +142,12 @@
       }).join('');
       return `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${serviceTaxonomy.labels[dimension][currentLang]}</span><select data-service-food-filter="${dimension}" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${options}</select></label>`;
     }).join('');
+    foodFilters.querySelectorAll('[data-service-food-shortcut]').forEach(button => {
+      button.addEventListener('click', () => {
+        foodFilterState.type = button.dataset.serviceFoodShortcut;
+        window.renderServicesPage();
+      });
+    });
     foodFilters.querySelectorAll('[data-service-food-filter]').forEach(select => {
       select.addEventListener('change', () => {
         foodFilterState[select.dataset.serviceFoodFilter] = select.value;

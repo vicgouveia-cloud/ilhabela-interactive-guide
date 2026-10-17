@@ -15,8 +15,8 @@ const cases=[
  ['floresta-bar','food','assets/images/floresta-bar_oficial.webp'],
  ['aula-yoga-hostel-da-vila','experience','assets/images/aula-yoga-hostel-da-vila_oficial.webp']
 ];
-assert.equal(services.length,112,'expected 108 remaining historical services, three Vila records and one Recanto de Gaya record');
-assert.equal(new Set(services.map(s=>s.id)).size,112,'service IDs must remain unique');
+assert.equal(services.length,115,'112 previous services plus three verified coworking venues');
+assert.equal(new Set(services.map(s=>s.id)).size,115,'service IDs must remain unique');
 assert(!services.some(s=>s.id==='ruda-destinos' || s.name==='Rudá Destinos'),'Rudá Destinos must be removed');
 for(const [id,category,image] of cases){
   const row=services.find(s=>s.id===id);
@@ -43,7 +43,7 @@ assert.deepEqual(Array.from(bar.serviceType),['bar']);
 assert(bar.featured && bar.recommended && bar.presentation==='compact','Floresta Bar remains recommended without enlarged card');
 assert.equal(yoga.experienceType,'wellness');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&['diving','tour'].includes(s.category)),'pending tours or diving added');
-assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&(s.activities||[]).includes('coworking')),'coworking not approved in this lot');
+assert(!services.some(s=>['hostel-da-vila','floresta-bar','aula-yoga-hostel-da-vila'].includes(s.id)&&(s.activities||[]).includes('coworking')),'existing service records must not be reclassified as coworking');
 const recanto=services.find(s=>s.id==='recanto-de-gaya');
 assert(recanto,'Recanto de Gaya missing');
 assert.equal(recanto.category,'stay');
@@ -74,4 +74,4 @@ for(const lang of ['pt','en','es','fr','he']){
 }
 const doc=fs.readFileSync(path.join(ROOT,'docs/SERV-HOSTEL-VILA-01-provenance.md'),'utf8');
 assert(doc.includes('reutilização'),'rights caveat required');
-console.log('SERV-HOSTEL-VILA-01 OK: 112 services, four verified WebP images, five languages, recommended bar and pending items excluded');
+console.log('SERV-HOSTEL-VILA-01 OK: 115 services, four verified WebP images, five languages, recommended bar and pending items excluded');
