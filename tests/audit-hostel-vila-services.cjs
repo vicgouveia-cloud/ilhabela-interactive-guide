@@ -15,8 +15,8 @@ const cases=[
  ['floresta-bar','food','assets/images/floresta-bar_oficial.webp'],
  ['aula-yoga-hostel-da-vila','experience','assets/images/aula-yoga-hostel-da-vila_oficial.webp']
 ];
-assert.equal(services.length,112,'expected 109 historical services plus three approved records');
-assert.equal(new Set(services.map(s=>s.id)).size,112,'service IDs must remain unique');
+assert.equal(services.length,113,'expected 109 historical services, three Vila records and one Recanto de Gaya record');
+assert.equal(new Set(services.map(s=>s.id)).size,113,'service IDs must remain unique');
 for(const [id,category,image] of cases){
   const row=services.find(s=>s.id===id);
   assert(row,id+': missing');
@@ -43,6 +43,24 @@ assert(bar.featured && bar.recommended && bar.presentation==='compact','Floresta
 assert.equal(yoga.experienceType,'wellness');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&['diving','tour'].includes(s.category)),'pending tours or diving added');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&(s.activities||[]).includes('coworking')),'coworking not approved in this lot');
+const recanto=services.find(s=>s.id==='recanto-de-gaya');
+assert(recanto,'Recanto de Gaya missing');
+assert.equal(recanto.category,'stay');
+assert.equal(recanto.stayType,'hostel');
+assert.equal(recanto.featured,true);
+assert.equal(recanto.recommended,true);
+assert.equal(recanto.presentation,'compact');
+assert.equal(recanto.contactPreference,'instagram');
+assert.equal(recanto.instagram,'@recantodegaya_');
+assert.equal(recanto.phone,undefined);
+assert.equal(recanto.whatsapp,undefined);
+assert.equal(recanto.image,undefined,'do not republish photo without permission');
+assert.equal(recanto.baseLocation.address,'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP');
+for(const lang of ['pt','en','es','fr','he']) {
+ assert(recanto.translations[lang]?.type);
+ assert(recanto.translations[lang]?.description);
+ assert(recanto.translations[lang]?.tags?.length);
+}
 for(const lang of ['pt','en','es','fr','he']){
   for(const key of ['hostel','hotel','pousada','alternative'])assert(taxonomy.stayType[key]?.[lang]);
   assert(taxonomy.experienceType.wellness?.[lang]);
