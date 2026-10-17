@@ -1,0 +1,87 @@
+name: SERV-HOSTEL-VILA-01 import official images
+on:
+  push:
+    branches:
+      - feat/services-hostel-vila-experiences
+    paths:
+      - .github/workflows/services-hostel-vila-import.yml
+permissions:
+  contents: write
+jobs:
+  import-images:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Import three specifically identified image files
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/services-hostel-vila
+          python - <<'PY'
+          import json, hashlib, subprocess
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          items=[{"id":"hostel-da-vila","source":"https://hdv-files.sfo3.digitaloceanspaces.com/slideshowhome/h0kus78-deck-lounge-cafe-hostel-da-vila-ilhabela-1440x900.jpg","dest":"assets/images/hostel-da-vila_oficial.webp","ref":"https://www.hosteldavila.com.br/pt/ilhabela/home"},{"id":"floresta-bar","source":"https://hdv-files.sfo3.digitaloceanspaces.com/slideshowhome/egmk3mq-bar-floresta-noite-galera-hostel-da-vila-ilhabela-1440x900.jpg","dest":"assets/images/floresta-bar_oficial.webp","ref":"https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar"},{"id":"aula-yoga-hostel-da-vila","source":"https://hdv-files.sfo3.digitaloceanspaces.com/slideshowhome/w8bcfa1-aula-de-yoga-na-piscina-hostel-da-vila-ilhabela-1440x900.jpg","dest":"assets/images/aula-yoga-hostel-da-vila_oficial.webp","ref":"https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga"}]
+          evidence=[]
+          for item in items:
+              dest=Path(item['dest'])
+              if dest.exists(): raise RuntimeError('Unexpected existing image: '+str(dest))
+              temp=Path('/tmp/services-hostel-vila')/(item['id']+'.jpg')
+              subprocess.run(['curl','--fail','--location','--silent','--show-error','--retry','2','--connect-timeout','15','--max-time','80','-A','Mozilla/5.0 IlhabelaTrip editorial','-o',str(temp),item['source']],check=True)
+              raw=temp.read_bytes()
+              if len(raw)<30000:raise RuntimeError('Source photo unexpectedly small: '+item['id'])
+              with Image.open(temp) as image:image.verify()
+              with Image.open(temp) as image:
+                  if image.format!='JPEG' or image.width<900 or image.height<500:raise RuntimeError('Wrong format/size for '+item['id'])
+                  before=[image.width,image.height]
+                  pix=ImageOps.exif_transpose(image).convert('RGB')
+                  pix.thumbnail((1280,960),Image.Resampling.LANCZOS)
+                  pix.save(dest,'WEBP',quality=82,method=6)
+                  with Image.open(dest) as check:check.verify()
+              evidence.append({'id':item['id'],'source_image':item['source'],'source_page':item['ref'],'original_dimensions':before,'original_sha256':hashlib.sha256(raw).hexdigest(),'webp_sha256':hashlib.sha256(dest.read_bytes()).hexdigest(),'webp_bytes':dest.stat().st_size})
+              print(item['id'],before,dest.stat().st_size,'bytes')
+          with Path('docs/SERV-HOSTEL-VILA-01-provenance.md').open('a',encoding='utf-8') as doc:
+              doc.write('\n## Evidências técnicas\n\n```json\n'+json.dumps(evidence,ensure_ascii=False,indent=2)+'\n```\n')
+          PY
+      - run: npm ci --ignore-scripts
+      - name: Check names, categories, translations, photos and exclusions
+        run: |
+          node tests/audit-hostel-vila-services.cjs
+          node --check additional-spots.js
+          node --check service-taxonomy.js
+          node --check services-directory.js
+          node --check app.js
+      - run: npx playwright install --with-deps chromium
+      - name: Check five languages, filters, responsive images and existing featured ordering
+        run: npx playwright test tests/services-hostel-vila.spec.cjs tests/services-featured.spec.cjs --trace=off --workers=2
+      - name: Commit only three WebP files and technical provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/images/hostel-da-vila_oficial.webp assets/images/floresta-bar_oficial.webp assets/images/aula-yoga-hostel-da-vila_oficial.webp docs/SERV-HOSTEL-VILA-01-provenance.md
+          git diff --cached --check
+          git commit -m 'assets(services): import official hostel bar yoga photos and provenance'
+          git push origin HEAD:refs/heads/feat/services-hostel-vila-experiences
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: services-hostel-vila-test-evidence
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
+
