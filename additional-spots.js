@@ -2652,7 +2652,7 @@ const servicesData = [
   {
     id: 'portinho-passeios',
     category: 'tour',
-    featured: true,
+    featured: true, recommended: true,
     name: 'Portinho Passeios',
     baseLocation: { spotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
@@ -2707,7 +2707,7 @@ const servicesData = [
   {
     id: 'la-gloria-house',
     category: 'stay', stayType: 'alternative',
-    featured: true,
+    featured: true, recommended: true,
     name: 'La Gloria House',
     baseLocation: { nearSpotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
