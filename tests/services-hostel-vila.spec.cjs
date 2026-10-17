@@ -25,6 +25,8 @@ for(const [lang,width] of cases) {
     await expect(bar).toHaveCount(1);
     await expect(bar.locator('img')).toHaveAttribute('src','/assets/images/floresta-bar_oficial.webp');
     await expect(bar).toContainText({pt:'Recomendado',en:'Recommended',es:'Recomendado',fr:'Recommandé',he:'מומלץ'}[lang]);
+    await expect(bar).not.toHaveClass(/md:col-span-2/);
+    await expect(bar.locator('img').locator('..')).toHaveClass(/h-28/);
     await bar.locator('img').scrollIntoViewIfNeeded();
     await bar.locator('img').evaluate(img=>img.decode());
     await category.selectOption('experience');
