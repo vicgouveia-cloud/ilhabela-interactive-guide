@@ -3665,11 +3665,11 @@ const serviceTranslations = {
     he: { type: 'צלילה', description: 'מרכז צלילה ב-Praia do Portinho המציע צלילת היכרות בליווי איש מקצוע, כולל ציוד.', features: ['צלילת היכרות', 'ציוד כלול', 'תמונות וסרטונים', 'מתאים למתחילים'] }
   },
   'La Gloria House': {
-    pt: { type: 'Hospedagem recomendada', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'] },
-    en: { type: 'Recommended accommodation', description: 'Guest house near Praia do Portinho, with private suites, a cabin and a pool overlooking the Atlantic Forest.', features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 guests', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar'] },
-    fr: { type: 'Hébergement recommandé', description: 'Guest house proche de Praia do Portinho, avec suites privées, cabane et piscine donnant sur la forêt atlantique.', features: ['À environ 5 min de Praia do Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar'] },
-    es: { type: 'Alojamiento recomendado', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
-    he: { type: 'לינה מומלצת', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
+    pt: { type: 'Hospedagem', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'] },
+    en: { type: 'Accommodation', description: 'Guest house near Praia do Portinho, with private suites, a cabin and a pool overlooking the Atlantic Forest.', features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 guests', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar'] },
+    fr: { type: 'Hébergement', description: 'Guest house proche de Praia do Portinho, avec suites privées, cabane et piscine donnant sur la forêt atlantique.', features: ['À environ 5 min de Praia do Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar'] },
+    es: { type: 'Alojamiento', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
+    he: { type: 'לינה', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
   }
 ,
   'Acarajé do Tio Toinho': {
