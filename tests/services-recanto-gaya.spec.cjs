@@ -20,7 +20,7 @@ for(const lang of Object.keys(languages))for(const width of [320,390,1440]){
    await expect(img).toHaveCount(1);
    await expect(img).toHaveAttribute('src','/assets/images/recanto-de-gaya_autorizada.webp');
    await img.scrollIntoViewIfNeeded();
-   await img.evaluate(async image=>{ await image.decode(); if(image.naturalWidth<300 || image.naturalHeight<300)throw Error('Recanto photo failed to load'); });
+   await img.evaluate(async image=>{ await image.decode(); if(image.naturalWidth<700 || image.naturalHeight<700)throw Error('Recanto photo failed to load'); });
    const left=recanto.locator('span.absolute.top-3.left-3');
    await expect(left).toHaveText({pt:'Hostel',en:'Hostel',fr:'Auberge de jeunesse',es:'Hostel',he:'הוסטל'}[lang]);
    const contact=recanto.locator('a[href="https://www.instagram.com/recantodegaya_/"]');

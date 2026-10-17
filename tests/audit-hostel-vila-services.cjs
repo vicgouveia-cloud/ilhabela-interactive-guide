@@ -60,7 +60,7 @@ assert.equal(recanto.imageCredit,'Imagem fornecida pelo responsável do guia');
 const recantoFile=fs.readFileSync(path.join(ROOT,recanto.image));
 assert.equal(recantoFile.subarray(0,4).toString('ascii'),'RIFF');
 assert.equal(recantoFile.subarray(8,12).toString('ascii'),'WEBP');
-assert.equal(recantoFile.length,15502,'verify recorded optimized asset');
+assert.equal(recantoFile.length,106288,'verify high-resolution approved image asset');
 assert.equal(recanto.baseLocation.address,'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP');
 for(const lang of ['pt','en','es','fr','he']) {
  assert(recanto.translations[lang]?.type);

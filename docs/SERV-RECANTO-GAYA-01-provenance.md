@@ -6,9 +6,9 @@ Cadastro: `recanto-de-gaya`. Categoria Hospedagem → Hostel. Imagem de referên
 
 Arquivo original: PNG, 940 × 938 px, SHA-256 `1e9622e347dd240151e3ca9cf41a81d8ad49d468938ae17712cd2d243c15b027`.
 
-Arquivo publicado no projeto: `assets/images/recanto-de-gaya_autorizada.webp`, WebP 320 × 319 px, 15.502 bytes, SHA-256 `9199d083e727c95d984d35090812ca2ac78780a1cdc85d60bb291716bc821195`.
+Arquivo publicado no projeto: `assets/images/recanto-de-gaya_autorizada.webp`, WebP 720 × 718 px, 106.288 bytes, SHA-256 `e19d358bd7f77b20038c1ac59b25ee2b764f41b3081237170a528a438d38ae7a`.
 
-Processamento: conversão RGB, redimensionamento proporcional com filtro LANCZOS, WebP qualidade 22, **sem recorte da fotografia**. O layout do cartão pode aplicar corte de exibição via `object-cover`, preservando o arquivo completo.
+Processamento: conversão RGB, redimensionamento proporcional com filtro LANCZOS, WebP qualidade 65, **sem recorte da fotografia**. O layout do cartão pode aplicar corte de exibição via `object-cover`, preservando o arquivo completo.
 
 Crédito visível: **Imagem fornecida pelo responsável do guia**.
 
