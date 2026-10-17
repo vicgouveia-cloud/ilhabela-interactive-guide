@@ -1,0 +1,38 @@
+name: Recanto de Gaya photo preview validation
+on:
+  push:
+    branches:
+      - feat/services-hostel-vila-experiences
+    paths:
+      - .github/workflows/recanto-photo-preview-check.yml
+permissions:
+  contents: read
+jobs:
+  visual-check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Validate updated service records and authorized photo
+        run: |
+          node --check additional-spots.js
+          node --check services-directory.js
+          node tests/audit-hostel-vila-services.cjs
+          test -s assets/images/recanto-de-gaya_autorizada.webp
+      - run: npx playwright install --with-deps chromium
+      - name: Verify photo image decoding, service labels, actions, all five languages and widths
+        run: npx playwright test tests/services-recanto-gaya.spec.cjs tests/services-global-actions.spec.cjs tests/services-hostel-vila.spec.cjs tests/services-recommendation-badges.spec.cjs --trace=off --workers=3
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: recanto-gaya-photo-test-evidence
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
