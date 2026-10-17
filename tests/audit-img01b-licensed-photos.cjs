@@ -27,7 +27,7 @@ const photos={
 };
 const pending=['praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado','mirante-do-morro-da-cruz','mirante-dos-barreiros'];
 assert.equal(after.spots.length,50);
-assert.equal(Object.keys(after.library).length,28);
+assert.equal(Object.keys(after.library).length,34);
 function imageCard(html,id) {
   const card=[...html.matchAll(/<article\b[^>]*>[\s\S]*?<\/article>/g)].map(x=>x[0]).find(x=>x.includes('href="/lugares/'+id+'/"'));
   return card?.match(/<img\b[^>]*\bsrc="([^"]+)"/)?.[1]??null;
@@ -57,17 +57,24 @@ for(const [id,photo] of Object.entries(photos)) {
   for(const hub of ['o-que-fazer/index.html','praias/index.html'])
     assert.equal(imageCard(fs.readFileSync(path.join(root,hub),'utf8'),id),'/'+photo.image,id+': hub '+hub);
 }
-for(const id of pending)assert.equal(spots[id].image,'assets/images/attraction-placeholder.svg',id+': placeholder changed');
+for(const id of pending) {
+  assert(after.library[id],id+': subsequently approved photo missing');
+  assert.equal(spots[id].image,after.library[id].images[0],id+': approved photo');
+  assert(fs.existsSync(path.join(root,spots[id].image)),id+': photo asset missing');
+}
 for(const old of after.spots.filter(s=>!photos[s.id])) {
   const expected=after.library[old.id]?.images?.[0]||before[old.id].image;
   assert.equal(old.image,expected,old.id+': previously approved photo changed');
 }
-const changes=execFileSync('git',['diff','--name-status','eb8fd9cde593348e2e8199c2b1cd4279dd71acbf','HEAD','--','assets/images/'],{cwd:root,encoding:'utf8'}).trim().split(/\r?\n/).filter(Boolean).sort();
-assert.deepEqual(changes,['A\tassets/images/praia-da-pacuiba-costao_commons.webp','A\tassets/images/praia-do-pinto_commons.webp'].sort());
+// The licensed batch remains present alongside subsequent approved image batches.
+// Compare the complete current library against the approved main snapshot.
+const approvedContext=vm.createContext({touristSpots:[]});
+vm.runInContext(execFileSync('git',['show','565d20ebf05926328e87bc416c650737311bb0cf:attraction-photos.js'],{cwd:root,encoding:'utf8'}),approvedContext);
+assert.deepEqual(JSON.parse(JSON.stringify(after.library)),JSON.parse(vm.runInContext('JSON.stringify(verifiedPhotoLibrary)',approvedContext)),'approved photo metadata preserved');
 assert(fs.existsSync(path.join(root,'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp')), 'missing poco fundo asset');
 assert(fs.existsSync(path.join(root,'assets/images/mirante-do-baepi_commons.webp')), 'missing baepi asset');
 const index=fs.readFileSync(path.join(root,'index.html'),'utf8');
 assert(index.includes('attraction-photos.js?v=1.3'));
 assert(index.includes('app.js?v=5.2'));
 assert(fs.readFileSync(path.join(root,'app.js'),'utf8').includes('data-photo-license'));
-console.log('IMG-01E OK: Mirante do Baepi, Poço Fundo, Pinto and Pacuíba images verified; 6 placeholders retained.');
+console.log('IMG-01E OK: Mirante do Baepi, Poço Fundo, Pinto and Pacuíba images verified; subsequent approved photos preserved.');

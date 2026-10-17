@@ -1,0 +1,152 @@
+{
+  "poco-do-furado": {
+    "en": {
+      "distance": "About 570 m round trip",
+      "duration": "Short walk",
+      "access": "Parque Municipal das Cachoeiras; final stretch on foot",
+      "sea": "Not applicable",
+      "structure": "Parking and facilities at the park entrance"
+    },
+    "es": {
+      "distance": "Unos 570 m ida y vuelta",
+      "duration": "Caminata corta",
+      "access": "Parque Municipal das Cachoeiras; tramo final a pie",
+      "sea": "No se aplica",
+      "structure": "Estacionamiento e instalaciones en la entrada del parque"
+    },
+    "fr": {
+      "distance": "Environ 570 m aller-retour",
+      "duration": "Courte marche",
+      "access": "Parque Municipal das Cachoeiras ; dernière partie à pied",
+      "sea": "Sans objet",
+      "structure": "Parking et installations à l’entrée du parc"
+    },
+    "he": {
+      "distance": "כ־570 מ׳ הלוך ושוב",
+      "duration": "הליכה קצרה",
+      "access": "Parque Municipal das Cachoeiras; הקטע האחרון ברגל",
+      "sea": "לא רלוונטי",
+      "structure": "חניה ומתקנים בכניסה לפארק"
+    }
+  },
+  "mirante-do-baepi": {
+    "en": {
+      "distance": "About 400 m of trail",
+      "duration": "20–30 min walk",
+      "access": "Trilha do Baepi entrance; final stretch on foot",
+      "sea": "Not applicable",
+      "structure": "Guardhouse at the start of the trail"
+    },
+    "es": {
+      "distance": "Unos 400 m de sendero",
+      "duration": "20–30 min de caminata",
+      "access": "Entrada de la Trilha do Baepi; tramo final a pie",
+      "sea": "No se aplica",
+      "structure": "Garita al inicio del sendero"
+    },
+    "fr": {
+      "distance": "Environ 400 m de sentier",
+      "duration": "20–30 min de marche",
+      "access": "Entrée de la Trilha do Baepi ; dernière partie à pied",
+      "sea": "Sans objet",
+      "structure": "Poste de garde au début du sentier"
+    },
+    "he": {
+      "distance": "כ־400 מ׳ של שביל",
+      "duration": "20–30 דקות הליכה",
+      "access": "הכניסה ל־Trilha do Baepi; הקטע האחרון ברגל",
+      "sea": "לא רלוונטי",
+      "structure": "עמדת שמירה בתחילת השביל"
+    }
+  },
+  "mirante-do-morro-da-cruz": {
+    "en": {
+      "distance": "Near the central area",
+      "duration": "20–40 min stop",
+      "access": "Direct road access",
+      "sea": "Not applicable",
+      "structure": "Urban viewpoint for a brief stop"
+    },
+    "es": {
+      "distance": "Cerca de la zona central",
+      "duration": "Parada de 20–40 min",
+      "access": "Acceso directo por carretera",
+      "sea": "No se aplica",
+      "structure": "Mirador urbano para una parada breve"
+    },
+    "fr": {
+      "distance": "Près de la zone centrale",
+      "duration": "Arrêt de 20–40 min",
+      "access": "Accès routier direct",
+      "sea": "Sans objet",
+      "structure": "Belvédère urbain pour un bref arrêt"
+    },
+    "he": {
+      "distance": "בקרבת האזור המרכזי",
+      "duration": "עצירה של 20–40 דקות",
+      "access": "גישה ישירה בכביש",
+      "sea": "לא רלוונטי",
+      "structure": "נקודת תצפית עירונית לעצירה קצרה"
+    }
+  },
+  "mirante-dos-barreiros": {
+    "en": {
+      "distance": "North of Vila",
+      "duration": "20–40 min stop",
+      "access": "Direct road access via Av. Luís Massa",
+      "sea": "Not applicable",
+      "structure": "Parking beside the viewpoint"
+    },
+    "es": {
+      "distance": "Al norte de Vila",
+      "duration": "Parada de 20–40 min",
+      "access": "Acceso directo por carretera por Av. Luís Massa",
+      "sea": "No se aplica",
+      "structure": "Estacionamiento junto al mirador"
+    },
+    "fr": {
+      "distance": "Au nord de Vila",
+      "duration": "Arrêt de 20–40 min",
+      "access": "Accès routier direct par Av. Luís Massa",
+      "sea": "Sans objet",
+      "structure": "Parking à côté du belvédère"
+    },
+    "he": {
+      "distance": "מצפון ל־Vila",
+      "duration": "עצירה של 20–40 דקות",
+      "access": "גישה ישירה בכביש דרך Av. Luís Massa",
+      "sea": "לא רלוונטי",
+      "structure": "חניה לצד נקודת התצפית"
+    }
+  },
+  "cachoeira-do-poco-fundo": {
+    "en": {
+      "distance": "Walk from Bonete",
+      "duration": "Short outing from the community",
+      "access": "On foot from Bonete",
+      "sea": "Not applicable",
+      "structure": "No direct road access"
+    },
+    "es": {
+      "distance": "Caminata desde Bonete",
+      "duration": "Paseo corto desde la comunidad",
+      "access": "A pie desde Bonete",
+      "sea": "No se aplica",
+      "structure": "Sin acceso directo por carretera"
+    },
+    "fr": {
+      "distance": "Marche depuis Bonete",
+      "duration": "Courte sortie depuis la communauté",
+      "access": "À pied depuis Bonete",
+      "sea": "Sans objet",
+      "structure": "Pas d’accès routier direct"
+    },
+    "he": {
+      "distance": "הליכה מבונטה",
+      "duration": "טיול קצר מהקהילה",
+      "access": "ברגל מבונטה",
+      "sea": "לא רלוונטי",
+      "structure": "ללא גישה ישירה בכביש"
+    }
+  }
+}

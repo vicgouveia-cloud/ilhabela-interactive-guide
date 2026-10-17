@@ -637,7 +637,7 @@ h1, h2, h3, h4, h5, h6, .font-heading {
 }
 
 #language-menu[hidden] { display: none !important; }
-#language-menu { inset-inline-end: 0; right: auto; }
+#language-menu { right: auto; left: auto; inset-inline-end: 0; }
 [dir="rtl"] .filter-scroll-btn .material-symbols-outlined { transform: scaleX(-1); }
 .modal-language-select {
   display: block;
