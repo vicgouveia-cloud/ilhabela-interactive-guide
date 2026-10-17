@@ -1,11 +1,5 @@
 const {test,expect}=require('@playwright/test');
-const languages={
- pt:'Contato pelo Instagram',
- en:'Contact on Instagram',
- fr:'Contacter sur Instagram',
- es:'Contactar por Instagram',
- he:'יצירת קשר באינסטגרם'
-};
+const languages={pt:'Instagram',en:'Instagram',fr:'Instagram',es:'Instagram',he:'Instagram'};
 for(const lang of Object.keys(languages))for(const width of [320,390,1440]){
  test(`Recanto de Gaya recommended and Instagram-first: ${lang} ${width}px`,async({page})=>{
    await page.setViewportSize({width,height:900});
@@ -29,7 +23,8 @@ for(const lang of Object.keys(languages))for(const width of [320,390,1440]){
    await expect(contact).toHaveCount(1);
    await expect(contact).toContainText(languages[lang]);
    await expect(contact).toHaveAttribute('target','_blank');
-   await expect(contact).toHaveClass(/bg-primary/);
+   await expect(contact).toHaveClass(/h-11/);
+   await expect(contact).not.toHaveClass(/col-span-2/);
    const links=recanto.locator('.grid.grid-cols-2 a');
    await expect(links).toHaveCount(2);
    await expect(links.nth(0)).toHaveAttribute('href','https://www.instagram.com/recantodegaya_/');
