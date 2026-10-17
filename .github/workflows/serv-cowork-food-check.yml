@@ -37,3 +37,4 @@ jobs:
             test-results/
           retention-days: 7
           if-no-files-found: ignore
+# Recheck after scoping historical non-coworking assertions to the three original Vila services.
