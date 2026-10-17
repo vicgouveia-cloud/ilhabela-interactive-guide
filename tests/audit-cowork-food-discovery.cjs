@@ -10,7 +10,7 @@ for(const file of ['data.js','additional-spots.js','service-taxonomy.js']) {
 const services=vm.runInContext('servicesData',ctx);
 const taxonomy=vm.runInContext('serviceTaxonomy',ctx);
 const ids=services.map(s=>s.id);
-assert.equal(services.length,115,'112 previous records and exactly three coworking additions');
+assert.equal(services.length,120,'115 previous records and exactly five mobility additions');
 assert.equal(new Set(ids).size,services.length,'no duplicate service IDs');
 assert.equal(services.filter(s=>s.category==='food').length,60,'preserve the 60 food and drink entries');
 for(const type of ['restaurant','bar','kiosk','cafe']){
