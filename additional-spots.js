@@ -2318,7 +2318,7 @@ touristSpots.forEach(spot => {
 const servicesData = [
   {
     id: 'pousada-lacosta',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Lacosta',
     baseLocation: { address: 'Avenida Riachuelo, 5531, Praia Grande, Ilhabela - SP' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2411,7 +2411,7 @@ const servicesData = [
   },
   {
     id: 'dpny-beach-hotel',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'DPNY Beach Hotel & SPA',
     baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7668, Praia do Curral' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2423,7 +2423,7 @@ const servicesData = [
   },
   {
     id: 'vila-kebaya',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'Hotel Boutique Vila Kebaya',
     baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua Antônio Lisboa Alves, 167, Vila' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2435,7 +2435,7 @@ const servicesData = [
   },
   {
     id: 'porto-pacuiba-hotel',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'Porto Pacuíba Hotel',
     baseLocation: { address: 'Av. Leonardo Reale, 2392, Viana' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2456,18 +2456,6 @@ const servicesData = [
     phone: '1238923838',
     phoneDisplay: '(12) 3892-3838',
     url: 'https://www.localiza.com/brasil/pt-br/rede-de-agencias/sao-sebastiao'
-  },
-  {
-    id: 'ruda-destinos',
-    category: 'tour',
-    name: 'Rudá Destinos',
-    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 1295, Loja 2, Perequê' },
-    serviceArea: { scope: 'regional', modes: ['transfer', '4x4'], verifiedModes: ['transfer', '4x4'] },
-    activities: ['airport-transfer', 'private-transfer', '4x4-tour'],
-    presentation: 'compact',
-    whatsapp: '12974418182',
-    whatsappDisplay: '(12) 97441-8182',
-    url: 'https://loja-rudadestinos.paytour.com.br/'
   },
   {
     id: 'nova-aluguel-de-carros',
@@ -2505,7 +2493,7 @@ const servicesData = [
   },
   {
     id: 'pousada-armacao-dos-ventos',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Armação dos Ventos',
     baseLocation: { nearSpotId: 'praia-da-armacao', address: 'Avenida Perimetral Norte, 4260, Praia da Armação' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2517,7 +2505,7 @@ const servicesData = [
   },
   {
     id: 'pousada-canto-bravo',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Canto Bravo',
     baseLocation: { spotId: 'praia-do-bonete', address: 'Praia do Bonete, 1' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2529,7 +2517,7 @@ const servicesData = [
   },
   {
     id: 'pousada-iguana-azul',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Iguana Azul',
     baseLocation: { address: "Rua Conde D'eu, 102, Bexiga" },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2652,7 +2640,7 @@ const servicesData = [
   {
     id: 'portinho-passeios',
     category: 'tour',
-    featured: true,
+    featured: true, recommended: true,
     name: 'Portinho Passeios',
     baseLocation: { spotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
@@ -2706,8 +2694,8 @@ const servicesData = [
   },
   {
     id: 'la-gloria-house',
-    category: 'stay',
-    featured: true,
+    category: 'stay', stayType: 'alternative',
+    featured: true, recommended: true,
     name: 'La Gloria House',
     baseLocation: { nearSpotId: 'praia-do-portinho' },
     contextSpotIds: ['praia-do-portinho'],
@@ -3224,10 +3212,206 @@ const servicesData = [
     phone:'12991251628', phoneDisplay:'(12) 99125-1628'
   },
 
+  // Separate services; same operator group, individual commercial identities and official images.
+  // Recanto de Gaya: customer prefers direct Instagram contact, not WhatsApp.
+  // Address and accommodation types corroborated by the hosts' published Booking profile.
+  {
+    id: 'recanto-de-gaya', category: 'stay', name: 'Recanto de Gaya',
+    stayType: 'hostel', featured: true, recommended: true, presentation: 'compact',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    contactPreference: 'instagram', instagram: '@recantodegaya_',
+    sourceUrl: 'https://linktr.ee/recantodegaya',
+    image: 'assets/images/recanto-de-gaya_autorizada.webp',
+    imageCredit: 'Imagem fornecida pelo responsável do guia'
+  },
+  {
+    id: 'hostel-da-vila', category: 'stay', name: 'Hostel da Vila',
+    operatorGroupId: 'grupo-hostel-da-vila', stayType: 'hostel',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'], presentation: 'compact',
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/home',
+    image: 'assets/images/hostel-da-vila_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/home'
+  },
+  {
+    id: 'floresta-bar', category: 'food', name: 'Floresta Bar',
+    operatorGroupId: 'grupo-hostel-da-vila', serviceType: ['bar'], serviceFormats: ['snacks'], serviceOccasions: ['afternoon','night'],
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP (Floresta Bar)' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['bar','food','drinks','live-music'], presentation: 'compact',
+    featured: true, recommended: true,
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar',
+    image: 'assets/images/floresta-bar_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar'
+  },
+  {
+    id: 'aula-yoga-hostel-da-vila', category: 'experience', name: 'Aula de Yoga — Hostel da Vila',
+    operatorGroupId: 'grupo-hostel-da-vila', experienceType: 'wellness',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP (deck da piscina)' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['yoga','wellness'], presentation: 'compact',
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga',
+    image: 'assets/images/aula-yoga-hostel-da-vila_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga'
+  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  'Recanto de Gaya': {
+    pt: { type: 'Hostel', description: 'Hospedagem no Perequê com dormitório compartilhado e suítes privativas, cozinha compartilhada, jardim e Wi-Fi. Contato preferencial pelo Instagram.', tags: ['Perequê', 'Hostel', 'Quartos privativos e compartilhados'] },
+    en: { type: 'Hostel', description: 'Accommodation in Perequê with a shared dormitory and private suites, shared kitchen, garden and Wi-Fi. Instagram is the preferred contact channel.', tags: ['Perequê', 'Hostel', 'Private and shared rooms'] },
+    fr: { type: 'Auberge de jeunesse', description: 'Hébergement à Perequê avec dortoir et suites privées, cuisine commune, jardin et Wi-Fi. Contact privilégié via Instagram.', tags: ['Perequê', 'Auberge', 'Chambres privées et dortoir'] },
+    es: { type: 'Hostel', description: 'Alojamiento en Perequê con dormitorio compartido y suites privadas, cocina compartida, jardín y Wi-Fi. El contacto preferido es Instagram.', tags: ['Perequê', 'Hostel', 'Habitaciones privadas y compartidas'] },
+    he: { type: 'הוסטל', description: 'אירוח בפרקה עם חדר משותף וסוויטות פרטיות, מטבח משותף, גינה ואינטרנט אלחוטי. ערוץ הקשר המועדף הוא אינסטגרם.', tags: ['פרקה', 'הוסטל', 'חדרים פרטיים ומשותפים'] }
+  },
+
+  "Hostel da Vila": {
+  "pt": {
+    "type": "Hostel",
+    "description": "Hostel na Vila, junto à Mata Atlântica, com dormitórios compartilhados, quartos privativos e acomodações criativas.",
+    "tags": [
+      "Centro Histórico",
+      "Hostel",
+      "Acomodações criativas"
+    ]
+  },
+  "en": {
+    "type": "Hostel",
+    "description": "Hostel in the historic Vila, near the Atlantic Forest, offering shared dorms, private rooms and unusual stays.",
+    "tags": [
+      "Historic center",
+      "Hostel",
+      "Creative stays"
+    ]
+  },
+  "fr": {
+    "type": "Auberge de jeunesse",
+    "description": "Auberge dans le centre historique, près de la forêt atlantique, avec dortoirs, chambres privées et logements insolites.",
+    "tags": [
+      "Centre historique",
+      "Auberge",
+      "Logements insolites"
+    ]
+  },
+  "es": {
+    "type": "Hostel",
+    "description": "Hostel en el centro histórico, junto a la Mata Atlántica, con dormitorios compartidos, habitaciones privadas y alojamientos originales.",
+    "tags": [
+      "Centro histórico",
+      "Hostel",
+      "Alojamientos originales"
+    ]
+  },
+  "he": {
+    "type": "הוסטל",
+    "description": "הוסטל במרכז ההיסטורי של איליאבלה, ליד היער האטלנטי, עם חדרים משותפים, פרטיים ואפשרויות לינה מיוחדות.",
+    "tags": [
+      "המרכז ההיסטורי",
+      "הוסטל",
+      "לינה מיוחדת"
+    ]
+  }
+},
+  "Floresta Bar": {
+  "pt": {
+    "type": "Bar",
+    "description": "Bar aberto ao público dentro do Hostel da Vila, em meio à Mata Atlântica, com drinks, comidinhas e programação cultural. Consulte os eventos antes da visita.",
+    "tags": [
+      "Drinks",
+      "Música",
+      "Mata Atlântica"
+    ]
+  },
+  "en": {
+    "type": "Bar",
+    "description": "Public bar inside Hostel da Vila, in the Atlantic Forest, with cocktails, snacks and cultural events. Check the schedule before visiting.",
+    "tags": [
+      "Cocktails",
+      "Music",
+      "Atlantic Forest"
+    ]
+  },
+  "fr": {
+    "type": "Bar",
+    "description": "Bar ouvert au public au sein du Hostel da Vila, en forêt atlantique, proposant cocktails, collations et événements culturels. Vérifiez le programme.",
+    "tags": [
+      "Cocktails",
+      "Musique",
+      "Forêt atlantique"
+    ]
+  },
+  "es": {
+    "type": "Bar",
+    "description": "Bar abierto al público dentro del Hostel da Vila, rodeado de Mata Atlántica, con cócteles, aperitivos y eventos culturales. Consulta la programación.",
+    "tags": [
+      "Cócteles",
+      "Música",
+      "Mata Atlántica"
+    ]
+  },
+  "he": {
+    "type": "בר",
+    "description": "בר הפתוח לקהל בתוך הוסטל דה וילה, לצד היער האטלנטי, עם קוקטיילים, נשנושים ואירועי תרבות. יש לבדוק את לוח האירועים.",
+    "tags": [
+      "קוקטיילים",
+      "מוזיקה",
+      "יער אטלנטי"
+    ]
+  }
+},
+  "Aula de Yoga — Hostel da Vila": {
+  "pt": {
+    "type": "Bem-estar · Yoga",
+    "description": "Aula de yoga no deck da piscina do Hostel da Vila, com tapete incluído e contribuição colaborativa conforme a programação publicada. Consulte a disponibilidade.",
+    "tags": [
+      "Yoga",
+      "Bem-estar",
+      "Deck da piscina"
+    ]
+  },
+  "en": {
+    "type": "Wellness · Yoga",
+    "description": "Yoga on the Hostel da Vila pool deck, with mats provided and a contribution-based format under the published schedule. Confirm availability.",
+    "tags": [
+      "Yoga",
+      "Wellness",
+      "Pool deck"
+    ]
+  },
+  "fr": {
+    "type": "Bien-être · Yoga",
+    "description": "Yoga sur la terrasse de la piscine du Hostel da Vila, tapis fourni et participation libre selon le programme annoncé. Vérifiez les disponibilités.",
+    "tags": [
+      "Yoga",
+      "Bien-être",
+      "Piscine"
+    ]
+  },
+  "es": {
+    "type": "Bienestar · Yoga",
+    "description": "Yoga junto a la piscina del Hostel da Vila, con esterilla incluida y aportación colaborativa según el programa. Consulta la disponibilidad.",
+    "tags": [
+      "Yoga",
+      "Bienestar",
+      "Piscina"
+    ]
+  },
+  "he": {
+    "type": "בריאות · יוגה",
+    "description": "שיעור יוגה ליד בריכת הוסטל דה וילה, כולל מזרן, בתשלום לפי יכולת בהתאם לתוכנית המתפרסמת. יש לבדוק זמינות.",
+    "tags": [
+      "יוגה",
+      "בריאות",
+      "בריכה"
+    ]
+  }
+},
+
   'Pousada Lacosta': {
     pt: { type: 'Pousada', description: 'Pousada na Avenida Riachuelo, no bairro Praia Grande, em Ilhabela.', tags: ['Praia Grande', 'Hospedagem'] },
     en: { type: 'Guesthouse', description: 'Guesthouse on Avenida Riachuelo, in the Praia Grande neighborhood of Ilhabela.', tags: ['Praia Grande', 'Accommodation'] },
@@ -3354,13 +3538,6 @@ const serviceTranslations = {
     fr: { type: "Location de voitures", description: "Location de voitures à São Sebastião, sur le continent, comme option régionale pour les visiteurs d’Ilhabela." },
     es: { type: "Alquiler de autos", description: "Alquiler de autos en São Sebastião, en el continente, como opción regional para visitantes de Ilhabela." },
     he: { type: "השכרת רכב", description: "השכרת רכב בסאו סבסטיאו, ביבשת, כאפשרות אזורית למבקרים באיליאבלה." }
-  },
-  "Rudá Destinos": {
-    pt: { type: "Receptivo e transfer", description: "Operadora regional com transfer privativo, traslado de aeroporto e passeio 4x4." },
-    en: { type: "Receptive & transfers", description: "Regional operator offering private transfers, airport transfers and 4x4 tours." },
-    fr: { type: "Réceptif et transferts", description: "Opérateur régional proposant transferts privés, transferts aéroport et excursions en 4x4." },
-    es: { type: "Receptivo y traslados", description: "Operador regional con traslados privados, traslados de aeropuerto y paseos 4x4." },
-    he: { type: "שירותי תיירות והסעות", description: "מפעיל אזורי המציע הסעות פרטיות, הסעות משדה התעופה וטיולי 4x4." }
   },
   "NOVA Aluguel de Carros": {
     pt: { type: "Locadora de veículos", description: "Aluguel de carros com base em Barra Velha, Ilhabela." },
@@ -3490,11 +3667,11 @@ const serviceTranslations = {
     he: { type: 'צלילה', description: 'מרכז צלילה ב-Praia do Portinho המציע צלילת היכרות בליווי איש מקצוע, כולל ציוד.', features: ['צלילת היכרות', 'ציוד כלול', 'תמונות וסרטונים', 'מתאים למתחילים'] }
   },
   'La Gloria House': {
-    pt: { type: 'Hospedagem recomendada', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'] },
-    en: { type: 'Recommended accommodation', description: 'Guest house near Praia do Portinho, with private suites, a cabin and a pool overlooking the Atlantic Forest.', features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 guests', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar'] },
-    fr: { type: 'Hébergement recommandé', description: 'Guest house proche de Praia do Portinho, avec suites privées, cabane et piscine donnant sur la forêt atlantique.', features: ['À environ 5 min de Praia do Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar'] },
-    es: { type: 'Alojamiento recomendado', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
-    he: { type: 'לינה מומלצת', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
+    pt: { type: 'Hospedagem', description: 'Guest House próxima à Praia do Portinho, com suítes privativas, cabana e piscina com vista para a Mata Atlântica.', features: ['A cerca de 5 min da Praia do Portinho', 'Suítes para 2 a 4 pessoas', 'Cabana', 'Piscina', 'Wi-Fi', 'Ar-condicionado', 'Frigobar'] },
+    en: { type: 'Accommodation', description: 'Guest house near Praia do Portinho, with private suites, a cabin and a pool overlooking the Atlantic Forest.', features: ['About 5 min from Praia do Portinho', 'Suites for 2 to 4 guests', 'Cabin', 'Pool', 'Wi-Fi', 'Air conditioning', 'Minibar'] },
+    fr: { type: 'Hébergement', description: 'Guest house proche de Praia do Portinho, avec suites privées, cabane et piscine donnant sur la forêt atlantique.', features: ['À environ 5 min de Praia do Portinho', 'Suites pour 2 à 4 personnes', 'Cabane', 'Piscine', 'Wi-Fi', 'Climatisation', 'Minibar'] },
+    es: { type: 'Alojamiento', description: 'Guest house cerca de Praia do Portinho, con suites privadas, cabaña y piscina con vista a la Mata Atlántica.', features: ['A unos 5 min de Praia do Portinho', 'Suites para 2 a 4 personas', 'Cabaña', 'Piscina', 'Wi-Fi', 'Aire acondicionado', 'Minibar'] },
+    he: { type: 'לינה', description: 'בית הארחה סמוך ל-Praia do Portinho, עם סוויטות פרטיות, בקתה ובריכה הצופה אל היער האטלנטי.', features: ['כ-5 דקות מ-Praia do Portinho', 'סוויטות ל-2 עד 4 אורחים', 'בקתה', 'בריכה', 'Wi-Fi', 'מיזוג אוויר', 'מיני בר'] }
   }
 ,
   'Acarajé do Tio Toinho': {

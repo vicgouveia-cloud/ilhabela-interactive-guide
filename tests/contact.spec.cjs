@@ -41,38 +41,17 @@ test('general contact: five languages, sizes, focus, keyboard, backdrop and comp
   }
 });
 
-test('attraction and service entries pass explicit context without private data', async ({page}) => {
-  await page.goto('/?spot=praia-do-curral');
-  await page.waitForFunction(() => typeof openContact === 'function');
-  await page.evaluate(() => {
-    const original = openContact;
-    window.openContact = input => { window.contactCaptured = input; original(input); };
-    openSpotModal('praia-do-curral');
-  });
-  const entry = page.locator('#spot-modal [data-contact-entry]');
-  await entry.click();
-  await expect(page.locator('#contact-about')).toContainText('Praia do Curral');
-  const context = await page.evaluate(() => window.contactCaptured);
-  expect(context.type).toBe('attraction'); expect(context.id).toBe('praia-do-curral');
-  expect(context.sourceUrl).toContain('spot=praia-do-curral');
-  expect(Object.keys(context).sort()).toEqual(['type', 'id', 'name', 'language', 'sourceUrl'].sort());
-  await page.keyboard.press('Escape');
-  await expect(entry).toBeFocused();
-  await expect(page.locator('#spot-modal')).toBeVisible();
-  await page.evaluate(() => closeSpotModal());
-  await page.goto('/servicos/');
-  await page.waitForFunction(() => typeof openContact === 'function');
-  await page.evaluate(() => {
-    const original = openContact;
-    window.openContact = input => { window.contactCaptured = input; original(input); };
-  });
-  const service = page.locator('[data-contact-type="service"]').first();
-  await expect(service).toHaveCount(1);
-  const id = await service.getAttribute('data-contact-id');
-  await service.click();
-  expect((await page.evaluate(() => window.contactCaptured)).id).toBe(id);
-  expect((await page.evaluate(() => window.contactCaptured)).type).toBe('service');
-  await expect(page.locator('#contact-about')).toBeVisible();
+test('contact stays in the header, not on service cards or attraction modals', async ({page}) => {
+ await page.goto('/?spot=praia-do-curral');
+ await page.waitForFunction(()=>typeof openContact==='function');
+ await page.evaluate(()=>openSpotModal('praia-do-curral'));
+ await expect(page.locator('#spot-modal [data-contact-entry]')).toHaveCount(0);
+ await page.evaluate(()=>closeSpotModal());
+ await page.goto('/servicos/');
+ await page.waitForFunction(()=>document.querySelectorAll('#services-page-grid article').length>0);
+ await expect(page.locator('#services-page-grid [data-contact-entry]')).toHaveCount(0);
+ await page.locator('header .contact-header-entry').click();
+ await expect(page.locator('#contact-dialog')).toBeVisible();
 });
 
 test('static attraction opens the shared panel with context and sending available', async ({page}) => {
