@@ -58,8 +58,8 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
         await expect(card).toHaveCount(1);
         // Phone numbers removed: must NOT have tel: link
         await expect(card.locator('a[href^="tel:"]')).toHaveCount(0);
-        // Google Maps direction link preserved
-        await expect(card.locator('a[href^="https://www.google.com/maps/search/"]')).toHaveCount(1);
+        // Google Maps omitted in the absence of an unequivocal Google Maps destination
+        await expect(card.locator('a[href*="maps"]')).toHaveCount(0);
         // Description references official support channel
         await expect(card.locator('p')).toContainText('0800 770 5221');
       }
@@ -70,6 +70,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const busResults = page.locator('#services-page-grid article');
       await expect(busResults).toHaveCount(1);
       await expect(busResults.locator('h2')).toContainText('Ônibus Municipal Expresso Fênix');
+      await expect(busResults.locator('a[href*="maps"]')).toHaveCount(0);
 
       // 6. Modality: Balsa (1)
       await mobilitySelect.selectOption('ferry');
@@ -79,6 +80,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const balsaCard = ferryResults.filter({ has: page.locator('h2', { hasText: 'Travessia de Balsa São Sebastião–Ilhabela' }) });
       await expect(balsaCard).toHaveCount(1);
       await expect(balsaCard.locator('a[href*="semil.sp.gov.br/travessias"]')).toBeVisible();
+      await expect(balsaCard.locator('a[href*="maps"]')).toHaveCount(1);
 
       // 7. Modality: Aquabus (1)
       await mobilitySelect.selectOption('aquabus');
@@ -86,6 +88,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const aquaResults = page.locator('#services-page-grid article');
       await expect(aquaResults).toHaveCount(1);
       await expect(aquaResults.locator('h2')).toContainText('Aquabus Ilhabela');
+      await expect(aquaResults.locator('a[href*="maps"]')).toHaveCount(0);
 
       // 8. Modality: Aluguel de carros e motos (3)
       await mobilitySelect.selectOption('car-rental');
@@ -93,7 +96,9 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const carResults = page.locator('#services-page-grid article');
       await expect(carResults).toHaveCount(3);
       for (const carName of ['Jessé Locadora de Carros e Motos', 'Localiza — São Sebastião', 'NOVA Aluguel de Carros']) {
-        await expect(carResults.filter({ has: page.locator('h2', { hasText: carName }) })).toHaveCount(1);
+        const carCard = carResults.filter({ has: page.locator('h2', { hasText: carName }) });
+        await expect(carCard).toHaveCount(1);
+        await expect(carCard.locator('a[href*="maps"]')).toHaveCount(1);
       }
       // Check phone formatting has dir="ltr"
       const jesseCard = carResults.filter({ has: page.locator('h2', { hasText: 'Jessé Locadora de Carros e Motos' }) });
@@ -107,7 +112,9 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const bikeResults = page.locator('#services-page-grid article');
       await expect(bikeResults).toHaveCount(3);
       for (const bikeName of ['Caiçara Beach', 'Webtur', 'Easy Aluguel de Bike']) {
-        await expect(bikeResults.filter({ has: page.locator('h2', { hasText: bikeName }) })).toHaveCount(1);
+        const bikeCard = bikeResults.filter({ has: page.locator('h2', { hasText: bikeName }) });
+        await expect(bikeCard).toHaveCount(1);
+        await expect(bikeCard.locator('a[href*="maps"]')).toHaveCount(1);
       }
 
       // 10. Modality: Transfers (1)
@@ -116,6 +123,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const transferResults = page.locator('#services-page-grid article');
       await expect(transferResults).toHaveCount(1);
       await expect(transferResults.locator('h2')).toContainText('Transfer Executivo — Aeroportos e Litoral');
+      await expect(transferResults.locator('a[href*="maps"]')).toHaveCount(0);
 
       // 11. Modality: Transporte por aplicativo (1)
       await mobilitySelect.selectOption('app-transport');
@@ -123,7 +131,10 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       const appResults = page.locator('#services-page-grid article');
       await expect(appResults).toHaveCount(1);
       await expect(appResults.locator('h2')).toContainText('Transporte por Aplicativo — Orientações');
-      await expect(appResults.locator('p')).toContainText('Caiçara Driver');
+      await expect(appResults.locator('a[href*="maps"]')).toHaveCount(0);
+      await expect(appResults.locator('p')).toContainText('Fast Go Drive');
+      await expect(appResults.locator('p')).not.toContainText('Caiçara Driver');
+      await expect(appResults.locator('p')).not.toContainText('Woptin');
 
       // 12. Reset Modality to 'all'
       await mobilitySelect.selectOption('all');
@@ -132,7 +143,21 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       // 13. Reset Practical to 'all'
       await practicalSelect.selectOption('all');
       await expect(page.locator('#services-page-grid article')).toHaveCount(32);
-      await expect(page.locator('#services-mobility-filter')).toHaveCount(0);
+      // 14. Proximity check for Barra Velha services: no fake distance, no disappearance
+      await practicalSelect.selectOption('mobility');
+      await page.evaluate(() => {
+        navigator.geolocation.getCurrentPosition = (success) => {
+          success({ coords: { latitude: -23.7789, longitude: -45.3589 } });
+        };
+      });
+      await page.locator('#services-nearby').click();
+      await expect(page.locator('#services-page-grid article')).toHaveCount(13);
+      for (const bvName of ['Jessé Locadora de Carros e Motos', 'Ponto de Táxi — Balsa (Barra Velha)', 'NOVA Aluguel de Carros', 'Travessia de Balsa São Sebastião–Ilhabela']) {
+        const card = page.locator('#services-page-grid article').filter({ has: page.locator('h2', { hasText: bvName }) });
+        await expect(card).toHaveCount(1);
+        // Must NOT show fake distance badge
+        await expect(card.locator('p.text-secondary')).toHaveCount(0);
+      }
 
       // Integrity checks
       await expect(page.locator('#services-page-grid')).not.toContainText('Rudá Destinos');
