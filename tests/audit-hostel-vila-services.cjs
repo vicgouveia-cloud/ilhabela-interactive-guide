@@ -55,7 +55,12 @@ assert.equal(recanto.contactPreference,'instagram');
 assert.equal(recanto.instagram,'@recantodegaya_');
 assert.equal(recanto.phone,undefined);
 assert.equal(recanto.whatsapp,undefined);
-assert.equal(recanto.image,undefined,'do not republish photo without permission');
+assert.equal(recanto.image,'assets/images/recanto-de-gaya_autorizada.webp','approved photograph must replace placeholder');
+assert.equal(recanto.imageCredit,'Imagem fornecida pelo responsável do guia');
+const recantoFile=fs.readFileSync(path.join(ROOT,recanto.image));
+assert.equal(recantoFile.subarray(0,4).toString('ascii'),'RIFF');
+assert.equal(recantoFile.subarray(8,12).toString('ascii'),'WEBP');
+assert.equal(recantoFile.length,15502,'verify recorded optimized asset');
 assert.equal(recanto.baseLocation.address,'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP');
 for(const lang of ['pt','en','es','fr','he']) {
  assert(recanto.translations[lang]?.type);
@@ -69,4 +74,4 @@ for(const lang of ['pt','en','es','fr','he']){
 }
 const doc=fs.readFileSync(path.join(ROOT,'docs/SERV-HOSTEL-VILA-01-provenance.md'),'utf8');
 assert(doc.includes('reutilização'),'rights caveat required');
-console.log('SERV-HOSTEL-VILA-01 OK: 112 services, three verified WebP images, five languages, recommended bar and pending items excluded');
+console.log('SERV-HOSTEL-VILA-01 OK: 112 services, four verified WebP images, five languages, recommended bar and pending items excluded');

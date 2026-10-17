@@ -3222,7 +3222,9 @@ const servicesData = [
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['lodging'],
     contactPreference: 'instagram', instagram: '@recantodegaya_',
-    sourceUrl: 'https://linktr.ee/recantodegaya'
+    sourceUrl: 'https://linktr.ee/recantodegaya',
+    image: 'assets/images/recanto-de-gaya_autorizada.webp',
+    imageCredit: 'Imagem fornecida pelo responsável do guia'
   },
   {
     id: 'hostel-da-vila', category: 'stay', name: 'Hostel da Vila',
