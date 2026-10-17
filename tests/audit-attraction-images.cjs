@@ -28,7 +28,7 @@ const spots = vm.runInContext('touristSpots', shared);
 const verified = vm.runInContext('verifiedPhotoLibrary', shared);
 const original = new Map(Array.from(before, spot => [spot.id, spot]));
 assert.equal(spots.length, 50, 'expected 50 attractions');
-assert.equal(Object.keys(verified).length, 31, '28 approved historical records plus 3 Prefeitura beach photographs');
+assert.equal(Object.keys(verified).length, 34, '28 approved historical records plus 3 Prefeitura beach photographs plus 3 final authorized photographs');
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' })[ch]);
 const absolute = value => 'https://ilhabelatrip.com/' + value.replace(/^\//, '');
 const discovery = fs.readFileSync(path.join(ROOT, 'o-que-fazer/index.html'), 'utf8');
@@ -76,8 +76,9 @@ for (const spot of spots) {
 // The specifically licensed Mirante do Coração attribution stays untouched.
 const mirante = fs.readFileSync(path.join(ROOT, 'lugares/mirante-do-coracao/index.html'), 'utf8');
 assert(mirante.includes('https://creativecommons.org/licenses/by-sa/4.0/'), 'specific photo license missing');
-// These have no approved replacements yet; photo search is deliberately out of scope for IMG-01A.
+// IMG-03: all 50 attractions now have real verified photographs (zero placeholders remaining!).
+assert.equal(spots.filter(s => s.image === 'assets/images/attraction-placeholder.svg').length, 0, 'zero placeholders remaining');
 for (const id of ['poco-do-furado','mirante-do-morro-da-cruz','mirante-dos-barreiros']) {
-  assert.equal(spots.find(s=>s.id===id).image, original.get(id).image, id + ': placeholder silently replaced');
+  assert.notEqual(spots.find(s=>s.id===id).image, 'assets/images/attraction-placeholder.svg', id + ': still has placeholder');
 }
-console.log('IMG-01E image consistency: 50 attraction pages, 31 verified photo records, metadata, hubs and three pending placeholders OK.');
+console.log('IMG-03 image consistency: 50 attraction pages, 34 verified photo records, metadata, hubs and zero remaining placeholders OK.');

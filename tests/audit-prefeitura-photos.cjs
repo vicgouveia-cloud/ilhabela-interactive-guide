@@ -9,7 +9,7 @@ const spots = vm.runInContext('touristSpots',c);
 const library = vm.runInContext('verifiedPhotoLibrary',c);
 const cases = [{"id":"praia-de-santa-tereza","img":"assets/images/praia-de-santa-tereza_prefeitura.webp","url":"https://www.ilhabela.sp.gov.br/imgeditor/Santa%20Tereza%20-%20Ilhabela.jpg"},{"id":"praia-do-barreiros","img":"assets/images/praia-do-barreiros_prefeitura.webp","url":"https://www.ilhabela.sp.gov.br/imgeditor/Praia%20dos%20Barreiros%20-%20Ilhabela.jpg"},{"id":"praia-da-ponta-azeda","img":"assets/images/praia-da-ponta-azeda_prefeitura.webp","url":"https://www.ilhabela.sp.gov.br/imgeditor/Praia%20da%20Ponta%20Azeda%20%E2%80%93%20Ilhabela.jpg"}];
 assert.equal(spots.length, 50);
-assert.equal(Object.keys(library).length, 31);
+assert.equal(Object.keys(library).length, 34);
 for (const entry of cases) {
   const spot = spots.find(s => s.id===entry.id);
   const photo = library[entry.id];
@@ -36,6 +36,5 @@ for (const entry of cases) {
     assert(card && card.includes('src="/'+entry.img+'"'),entry.id+': hub mismatched '+hub);
   }
 }
-for (const id of ['poco-do-furado','mirante-do-morro-da-cruz','mirante-dos-barreiros']) assert.equal(spots.find(s=>s.id===id).image,'assets/images/attraction-placeholder.svg');
 assert(fs.existsSync(path.join(root,'docs/IMG-PREFEITURA-01-provenance.md')), 'missing provenance and hash record');
-console.log('IMG-PREFEITURA-01: 3 images, 5 locales, 3 static pages, 2 hubs, 3 remaining placeholders OK');
+console.log('IMG-PREFEITURA-01: 3 images, 5 locales, 3 static pages, 2 hubs OK');

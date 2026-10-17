@@ -260,6 +260,52 @@ const verifiedPhotoLibrary = {
       es: 'Mirador de madera en el tramo inicial del sendero del Baepi, con vista panorámica del canal de São Sebastião.',
       he: 'דק תצפית מעץ בחלקו הראשון של שביל באפי, עם מבט פנורמי על תעלת סאו סבסטיאו.'
     }
+  },
+  // IMG-03: final three authorized photographs replacing the last remaining placeholders.
+  // Poço do Furado: published in Parque das Cachoeiras guide (Sectur/Ilhabela.com.br).
+  // Permission confirmed by project owner in chat 2026-10-17. No open license declared.
+  'poco-do-furado': {
+    images: ['assets/images/poco-do-furado_sectur.webp'],
+    credit: 'Prefeitura de Ilhabela · Sectur Ilhabela',
+    source: 'https://www.ilhabela.com.br/cachoeiras/parque-das-cachoeiras/',
+    provenance: "Photograph published in the Parque das Cachoeiras guide (Sectur), source URL: https://www.ilhabela.com.br/wp-content/uploads/2023/10/poco-do-furado-parque-das-cachoeiras-ilhabela-sectur-1.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+      pt: "Piscina natural do Poço do Furado, com águas claras e queda d'água no Parque das Cachoeiras.",
+      en: "Natural pool at Poço do Furado, with clear waters and waterfall inside Parque das Cachoeiras.",
+      es: "Piscina natural de Poço do Furado, con aguas claras y cascada en el Parque das Cachoeiras.",
+      fr: "Bassin naturel de Poço do Furado, aux eaux claires et cascade dans le Parque das Cachoeiras.",
+      he: "בריכה טבעית בפוסו דו פוראדו, עם מים צלולים ומפל בפארק המפלים."
+    }
+  },
+  // Mirante do Morro da Cruz: published on ilhabela.com.br.
+  // Permission confirmed by project owner in chat 2026-10-17. No open license declared.
+  'mirante-do-morro-da-cruz': {
+    images: ['assets/images/mirante-do-morro-da-cruz_ilhabelacombr.webp'],
+    credit: 'Acervo Ilhabela.com.br',
+    source: 'https://www.ilhabela.com.br/dicas/10-mirantes-e-lugares-incriveis-para-fotos-em-ilhabela/',
+    provenance: "Photograph published in the article '10 mirantes e lugares incríveis para fotos em Ilhabela', source URL: https://www.ilhabela.com.br/wp-content/uploads/2019/06/mirante-do-morro-da-cruz-ilhabela.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+      pt: "Vista panorâmica do Canal de São Sebastião a partir do Mirante do Morro da Cruz.",
+      en: "Panoramic view of the São Sebastião Channel from Morro da Cruz Lookout.",
+      es: "Vista panorámica del canal de São Sebastião desde el mirador de Morro da Cruz.",
+      fr: "Vue panoramique sur le canal de São Sebastião depuis le belvédère de Morro da Cruz.",
+      he: "מבט פנורמי על תעלת סאו סבסטיאו מתצפית מורו דה קרוז."
+    }
+  },
+  // Mirante dos Barreiros: published by Prefeitura de Ilhabela (Sectur).
+  // Permission confirmed by project owner in chat 2026-10-17. No open license declared.
+  'mirante-dos-barreiros': {
+    images: ['assets/images/mirante-dos-barreiros_prefeitura.webp'],
+    credit: 'Prefeitura de Ilhabela · Sectur Ilhabela',
+    source: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15401/10-mirantes-de-ilhabela-para-apreciar-a-vista-do-arquipelago',
+    provenance: "Photograph published in the municipal article '10 mirantes de Ilhabela para apreciar a vista do arquipélago', source URL: https://www.ilhabela.sp.gov.br/fotos/06e0b0a2a8339400f21ecae72c54f131.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+      pt: "Deck e letreiro no Mirante dos Barreiros, com vista ampla para o Canal de São Sebastião.",
+      en: "Deck and landmark sign at Barreiros Lookout, with wide views over the São Sebastião Channel.",
+      es: "Mirador y letras escultóricas en el mirador de Barreiros, con amplia vista al canal de São Sebastião.",
+      fr: "Plateforme et enseigne au belvédère de Barreiros, avec large vue sur le canal de São Sebastião.",
+      he: "דק ושלט נקודת הציון בתצפית באריירוס, עם מבט רחב על תעלת סאו סבסטיאו."
+    }
   }
 };
 
