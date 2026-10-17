@@ -53,11 +53,11 @@ jobs:
                   with Image.open(out) as check: check.verify()
               evidence.append({**item,'original_dimensions':original_size,'original_sha256':hashlib.sha256(raw).hexdigest(),'webp_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'webp_bytes':out.stat().st_size})
               print(item['id'],original_size,out.stat().st_size,'bytes')
-          report = '# IMG-PREFEITURA-01 — fontes e transformações\n\n' +
+          report = ('# IMG-PREFEITURA-01 — fontes e transformações\n\n' +
                    'Publicação de origem: https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela (01/08/2025; Sectur Ilhabela).\n\n' +
                    'O responsável pelo Ilhabela Trip confirmou nesta conversa, em 17/10/2026, ter autorização para usar as três imagens. Os documentos e as condições formais da autorização não foram apresentados aqui; não há afirmação de licença aberta nem identificação do fotógrafo individual.\n\n' +
                    'O crédito público é Prefeitura de Ilhabela · Sectur Ilhabela; confirmar se o documento de autorização exige outro crédito. Os arquivos foram redimensionados, se necessário, e convertidos em WebP, sem recorte.\n\n' +
-                   '## Registro técnico\n\n```json\n'+json.dumps(evidence,ensure_ascii=False,indent=2)+'\n```\n'
+                   '## Registro técnico\n\n```json\n'+json.dumps(evidence,ensure_ascii=False,indent=2)+'\n```\n')
           Path('docs/IMG-PREFEITURA-01-provenance.md').write_text(report,encoding='utf-8')
           PY
       - name: Regenerate only three affected static attraction pages and adjust two category hubs
