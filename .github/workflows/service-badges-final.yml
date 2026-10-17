@@ -35,3 +35,4 @@ jobs:
             test-results/
           if-no-files-found: ignore
           retention-days: 7
+# Rerun: historic audit updated after Floresta Bar compact sizing approval.
