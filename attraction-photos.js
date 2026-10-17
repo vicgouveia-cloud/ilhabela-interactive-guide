@@ -151,6 +151,47 @@ const verifiedPhotoLibrary = {
   'ponto-baleias-canal': { images: ['assets/images/ponto-baleias-canal_verified.jpg'], credit: 'Projeto Baleia à Vista · Ilhabela.com.br', source: 'https://www.ilhabela.com.br/dicas/baleia-a-vista-em-ilhabela/' },
   'naufragio-aymore': { images: ['assets/images/naufragio-aymore_verified.jpg'], credit: 'Acervo Reserving · mergulho em naufrágios de Ilhabela', source: 'https://activities.reserving.com/d/ilhabela/diving-at-ilhabela-shipwrecks-lstJW6LQ' },
   'santuario-ilha-das-cabras': { images: ['assets/images/santuario-ilha-das-cabras_verified.jpg', 'assets/images/santuario-ilha-das-cabras_verified_2.jpg', 'assets/images/santuario-ilha-das-cabras_verified_3.jpg'], credit: 'Wikimedia Commons', source: 'https://commons.wikimedia.org/wiki/Category:Ilha_das_Cabras_(Ilhabela)' },
+  // Prefeitura de Ilhabela: photographs of the three named beaches, with specific-use permission reported by site owner.
+  // No Creative Commons claim. Original publication/source and individual author status recorded in provenance.
+  'praia-de-santa-tereza': {
+    images: ['assets/images/praia-de-santa-tereza_prefeitura.webp'],
+    credit: 'Prefeitura de Ilhabela · Sectur Ilhabela',
+    source: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela',
+    provenance: "Photograph published in the municipal news article 'Conheça 42 praias de Ilhabela' (2025-08-01), source URL: https://www.ilhabela.sp.gov.br/imgeditor/Santa%20Tereza%20-%20Ilhabela.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+        "pt": "Vista da Praia de Santa Tereza, com coqueiros e embarcações junto à orla.",
+        "en": "View of Santa Tereza Beach, with palm trees and boats along the shore.",
+        "es": "Vista de la playa de Santa Tereza, con palmeras y embarcaciones junto a la costa.",
+        "fr": "Vue de la plage de Santa Tereza, avec des palmiers et des bateaux près du rivage.",
+        "he": "מבט על חוף סנטה תרזה, עם דקלים וסירות לאורך החוף."
+    }
+  },
+  'praia-do-barreiros': {
+    images: ['assets/images/praia-do-barreiros_prefeitura.webp'],
+    credit: 'Prefeitura de Ilhabela · Sectur Ilhabela',
+    source: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela',
+    provenance: "Photograph published in the municipal news article 'Conheça 42 praias de Ilhabela' (2025-08-01), source URL: https://www.ilhabela.sp.gov.br/imgeditor/Praia%20dos%20Barreiros%20-%20Ilhabela.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+        "pt": "Vista aérea da Praia dos Barreiros, com faixa de areia e mar abrigado.",
+        "en": "Aerial view of Barreiros Beach, showing its sandy shore and sheltered waters.",
+        "es": "Vista aérea de la playa de Barreiros, con arena y aguas protegidas.",
+        "fr": "Vue aérienne de la plage de Barreiros, avec son rivage sablonneux et ses eaux abritées.",
+        "he": "מבט אווירי על חוף באריירוס, עם רצועת חול ומים מוגנים."
+    }
+  },
+  'praia-da-ponta-azeda': {
+    images: ['assets/images/praia-da-ponta-azeda_prefeitura.webp'],
+    credit: 'Prefeitura de Ilhabela · Sectur Ilhabela',
+    source: 'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela',
+    provenance: "Photograph published in the municipal news article 'Conheça 42 praias de Ilhabela' (2025-08-01), source URL: https://www.ilhabela.sp.gov.br/imgeditor/Praia%20da%20Ponta%20Azeda%20%E2%80%93%20Ilhabela.jpg. Site owner reports receiving permission for Ilhabela Trip use (confirmed in chat 2026-10-17); authorization document and individual photographer identification not provided here. Do not claim a public open license.",
+    caption: {
+        "pt": "Vista aérea da Praia da Ponta Azeda e da faixa de areia junto à vegetação.",
+        "en": "Aerial view of Ponta Azeda Beach and its sandy shoreline beside the greenery.",
+        "es": "Vista aérea de la playa de Ponta Azeda y su orilla de arena junto a la vegetación.",
+        "fr": "Vue aérienne de la plage de Ponta Azeda et de son rivage sablonneux bordé de végétation.",
+        "he": "מבט אווירי על חוף פונטה אזדה ורצועת החול שלצד הצמחייה."
+    }
+  },
   // IMG-01B: geographically identified and CC BY-SA 4.0 licensed; assets added on this feature branch only.
   'praia-do-pinto': {
     images: ['assets/images/praia-do-pinto_commons.webp'],
