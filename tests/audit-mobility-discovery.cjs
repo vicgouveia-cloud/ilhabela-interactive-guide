@@ -14,11 +14,14 @@ const services = vm.runInContext('servicesData', ctx);
 const taxonomy = vm.runInContext('serviceTaxonomy', ctx);
 const ids = services.map(s => s.id);
 
-assert.equal(services.length, 124, '120 previous records plus four verified food additions');
-assert.equal(new Set(ids).size, 124, 'no duplicate service IDs');
+assert.equal(services.length, 125, '120 previous records plus four verified food additions and Fast Go Drive');
+assert.equal(new Set(ids).size, 125, 'no duplicate service IDs');
 
 const essentials = services.filter(s => s.category === 'essentials');
-assert.equal(essentials.length, 32, '32 essential services (including 13 mobility, 3 coworking, 2 marinas, and public essentials)');
+assert.equal(essentials.length, 19, '19 practical services (including 3 coworking, 4 health, 3 laundry, 2 marinas, 4 supermarkets/adega, 1 equipment, 2 tourist info)');
+
+const mobilityServices = services.filter(s => s.category === 'mobility');
+assert.equal(mobilityServices.length, 14, '14 standalone mobility services (13 migrated + Fast Go Drive)');
 
 const mobilityIds = [
   'travessia-balsa-ilhabela',
@@ -33,21 +36,27 @@ const mobilityIds = [
   'ponto-de-taxi-balsa',
   'ponto-de-taxi-vila',
   'transporte-por-aplicativo-info',
+  'fast-go-drive',
   'transfer-executivo-gru-ilhabela'
 ];
 
 for (const id of mobilityIds) {
   const record = services.find(s => s.id === id);
   assert(record, 'Missing mobility service: ' + id);
-  assert.equal(record.category, 'essentials', id + ' must be in category essentials');
+  assert.equal(record.category, 'mobility', id + ' must be in category mobility');
   assert(record.activities && record.activities.length > 0, id + ' missing activities');
   assert(!record.image || record.image.startsWith('assets/images/'), id + ' invalid image path');
-  assert(!record.featured, id + ' must not have featured flag');
+  if (id === 'fast-go-drive') {
+    assert.equal(record.recommended, true, 'Fast Go Drive must be recommended: true');
+    assert.equal(record.practicalType, 'app-transport', 'Fast Go Drive practicalType');
+  } else {
+    assert(!record.featured, id + ' must not have featured flag');
+  }
 
   for (const lang of ['pt', 'en', 'es', 'fr', 'he']) {
     const t = record.translations?.[lang];
     assert(t && t.type && t.description, id + ' missing translation for ' + lang);
-    if (['jesse-locadora-veiculos', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila', 'transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela'].includes(id)) {
+    if (['jesse-locadora-veiculos', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila', 'transporte-por-aplicativo-info', 'fast-go-drive', 'transfer-executivo-gru-ilhabela'].includes(id)) {
       assert(Array.isArray(t.tags) && t.tags.length > 0, id + ' missing tags for ' + lang);
     }
   }
@@ -110,4 +119,4 @@ assert(notes.includes('15717'), 'Sources doc must link to official Prefeitura ap
 assert(notes.includes('setembro de 2025') && notes.includes('Woptin'), 'Sources doc must explain Woptin presence in September 2025 list');
 assert(notes.includes('ponto-de-taxi-balsa') && notes.includes('Google Maps'), 'Sources doc must explain taxi stand maps omission');
 
-console.log('SERV-MOBILITY-01: 120 unique services, 32 essentials, 13 mobility services in 5 languages OK');
+console.log('SERV-MOBILITY-01 / SVC-ESSENTIALS-01: 125 unique services, 19 essentials, 14 standalone mobility services in 5 languages OK');
