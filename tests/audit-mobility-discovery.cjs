@@ -53,6 +53,21 @@ for (const id of mobilityIds) {
   }
 }
 
+// Verify factual cleanups:
+const balsa = services.find(s => s.id === 'travessia-balsa-ilhabela');
+assert.equal(balsa.url, 'https://semil.sp.gov.br/travessias/', 'Balsa must point to official SEMIL coastal crossings domain');
+assert(balsa.baseLocation?.address && balsa.baseLocation.address.includes('Barra Velha'), 'Balsa must have Barra Velha address');
+
+for (const taxiId of ['ponto-de-taxi-balsa', 'ponto-de-taxi-vila']) {
+  const taxi = services.find(s => s.id === taxiId);
+  assert(!taxi.phone && !taxi.phoneDisplay, taxiId + ' must not have unverified phone numbers');
+}
+
+for (const nonPhysicalId of ['transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela']) {
+  const item = services.find(s => s.id === nonPhysicalId);
+  assert(!item.baseLocation?.nearSpotId, nonPhysicalId + ' must not have nearSpotId beach link');
+}
+
 // Ensure banned operator Rudá Destinos remains excluded
 assert(!services.some(s => s.id === 'ruda-destinos' || s.name === 'Rudá Destinos'), 'Rudá Destinos must stay removed');
 

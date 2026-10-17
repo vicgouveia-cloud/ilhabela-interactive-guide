@@ -9,6 +9,7 @@
   let locationNoteState = null;
   let locationRequestId = 0;
   let practicalFilter = 'all';
+  let mobilityFilter = 'all';
   let tourFilter = 'all';
   let stayFilter = 'all';
   let experienceFilter = 'all';
@@ -62,7 +63,17 @@
       nauticalSupport: { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
       marina: { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' },
       coworking: { pt: 'Coworking', en: 'Coworking', fr: 'Coworking', es: 'Coworking', he: 'חלל עבודה משותף' },
-      mobility: { pt: 'Mobilidade (todos)', en: 'Mobility (all)', fr: 'Mobilité (tous)', es: 'Movilidad (todos)', he: 'תחבורה (הכול)' },
+      mobility: { pt: 'Mobilidade e Transportes', en: 'Mobility and Transport', fr: 'Mobilité et Transports', es: 'Movilidad y Transportes', he: 'תחבורה והתניידות' },
+      mobilityModality: { pt: 'Modalidade', en: 'Transport mode', fr: 'Mode de transport', es: 'Modalidad de transporte', he: 'אופן תחבורה' },
+      allTransport: { pt: 'Todos os transportes', en: 'All transport', fr: 'Tous les transports', es: 'Todos los transportes', he: 'כל אמצעי התחבורה' },
+      taxiModal: { pt: 'Táxis', en: 'Taxis', fr: 'Taxis', es: 'Taxis', he: 'מוניות' },
+      busModal: { pt: 'Ônibus', en: 'Bus', fr: 'Bus', es: 'Autobús', he: 'אוטובוס' },
+      ferryModal: { pt: 'Balsa', en: 'Ferry', fr: 'Ferry', es: 'Ferry', he: 'מעבורת' },
+      aquabusModal: { pt: 'Aquabus', en: 'Aquabus', fr: 'Aquabus', es: 'Aquabus', he: 'אקווה-בוס' },
+      carRentalModal: { pt: 'Aluguel de carros e motos', en: 'Car and motorcycle rental', fr: 'Location de voitures et motos', es: 'Alquiler de autos y motos', he: 'השכרת רכב ואופנועים' },
+      bikeRentalModal: { pt: 'Aluguel de bicicletas', en: 'Bicycle rental', fr: 'Location de vélos', es: 'Alquiler de bicicletas', he: 'השכרת אופניים' },
+      transferModal: { pt: 'Transfers', en: 'Transfers', fr: 'Transferts', es: 'Traslados', he: 'הסעות' },
+      appTransportModal: { pt: 'Transporte por aplicativo', en: 'Ride-hailing info', fr: 'Transport par application', es: 'Transporte por aplicación', he: 'תחבורה באפליקציה' },
       taxiPoint: { pt: 'Pontos de táxi', en: 'Taxi stands', fr: 'Stations de taxis', es: 'Paradas de taxis', he: 'תחנות מוניות' },
       publicTransport: { pt: 'Ônibus e Aquabus', en: 'Bus and Aquabus', fr: 'Bus et Aquabus', es: 'Autobús y Aquabus', he: 'אוטובוס ואקווה-בוס' },
       ferryCrossing: { pt: 'Travessia de balsa', en: 'Ferry crossing', fr: 'Traversée en ferry', es: 'Travesía en ferry', he: 'מעבורת' },
@@ -89,45 +100,44 @@
       const practicalOptions = [
         ['all', dl('all')],
         ['mobility', dl('mobility')],
-        ['taxi-point', dl('taxiPoint')],
-        ['public-transport', dl('publicTransport')],
-        ['ferry', dl('ferryCrossing')],
-        ['car-rental', dl('carRental')],
-        ['bike-rental', dl('bikeRental')],
-        ['transfer', dl('transferService')],
-        ['app-transport', dl('appTransport')],
         ['coworking', dl('coworking')],
         ['nautical-support', dl('nauticalSupport')],
         ['marina', dl('marina')]
       ];
-      const practicalShortcuts = [
-        ['all', {pt:'Todos',en:'All',fr:'Tous',es:'Todos',he:'הכול'}],
-        ['mobility', {pt:'Mobilidade',en:'Mobility',fr:'Mobilité',es:'Movilidad',he:'תחבורה'}],
-        ['taxi-point', {pt:'Táxis',en:'Taxis',fr:'Taxis',es:'Taxis',he:'מוניות'}],
-        ['public-transport', {pt:'Ônibus / Balsa',en:'Bus / Ferry',fr:'Bus / Ferry',es:'Autobús / Ferry',he:'אוטובוס / מעבורת'}],
-        ['car-rental', {pt:'Carros / Motos',en:'Vehicles',fr:'Véhicules',es:'Vehículos',he:'רכב'}],
-        ['bike-rental', {pt:'Bicicletas',en:'Bicycles',fr:'Vélos',es:'Bicicletas',he:'אופניים'}],
-        ['coworking', {pt:'Coworking',en:'Coworking',fr:'Coworking',es:'Coworking',he:'חלל עבודה'}]
+      const mobilityOptions = [
+        ['all', dl('allTransport')],
+        ['taxi', dl('taxiModal')],
+        ['bus', dl('busModal')],
+        ['ferry', dl('ferryModal')],
+        ['aquabus', dl('aquabusModal')],
+        ['car-rental', dl('carRentalModal')],
+        ['bike-rental', dl('bikeRentalModal')],
+        ['transfer', dl('transferModal')],
+        ['app-transport', dl('appTransportModal')]
       ];
-      const shortcutsLabel = {pt:'Atalhos de serviços práticos',en:'Practical service shortcuts',fr:'Raccourcis de services pratiques',es:'Accesos directos de servicios prácticos',he:'קיצורי דרך לשירותים שימושיים'}[currentLang] || 'Atalhos de serviços práticos';
-      const typeButtons = `<div role="group" aria-label="${shortcutsLabel}" class="col-span-full flex flex-wrap items-center gap-2">${practicalShortcuts.map(([id, names]) => {
-        const active = practicalFilter === id;
-        const buttonStyle = active ? 'bg-primary text-white border-primary' : 'bg-white text-primary border-black/10 hover:border-primary/50';
-        return `<button type="button" data-service-practical-shortcut="${id}" aria-pressed="${active}" class="min-h-10 px-3 rounded-xl border text-xs font-bold ${buttonStyle}">${names[currentLang] || names.pt}</button>`;
-      }).join('')}</div>`;
 
-      foodFilters.innerHTML = typeButtons + `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      let practicalHtml = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
 
-      foodFilters.querySelectorAll('[data-service-practical-shortcut]').forEach(button => {
-        button.addEventListener('click', () => {
-          practicalFilter = button.dataset.servicePracticalShortcut;
-          window.renderServicesPage();
-        });
-      });
+      if (practicalFilter === 'mobility') {
+        practicalHtml += `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('mobilityModality')}</span><select id="services-mobility-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${mobilityOptions.map(([id, label]) => `<option value="${id}"${id === mobilityFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      }
+
+      foodFilters.innerHTML = practicalHtml;
+
       document.getElementById('services-practical-filter')?.addEventListener('change', event => {
         practicalFilter = event.target.value;
+        if (practicalFilter !== 'mobility') {
+          mobilityFilter = 'all';
+        }
         window.renderServicesPage();
       });
+
+      if (practicalFilter === 'mobility') {
+        document.getElementById('services-mobility-filter')?.addEventListener('change', event => {
+          mobilityFilter = event.target.value;
+          window.renderServicesPage();
+        });
+      }
       return;
     }
     if (category === 'stay' || category === 'experience') {
@@ -270,7 +280,10 @@
       const nextCategory = event.target.value;
       if (nextCategory !== category || nextCategory === 'all') resetCategoryFilters();
       category = nextCategory;
-      if (category !== 'essentials') practicalFilter = 'all';
+      if (category !== 'essentials') {
+        practicalFilter = 'all';
+        mobilityFilter = 'all';
+      }
       if (category !== 'tour') tourFilter = 'all';
       if (category !== 'stay') stayFilter = 'all';
       if (category !== 'experience') experienceFilter = 'all';
@@ -302,12 +315,23 @@
     if (category === 'essentials' && practicalFilter !== 'all') {
       if (practicalFilter === 'mobility') {
         rows = rows.filter(row => (row.service.activities || []).some(act => mobilityActivities.includes(act)));
-      } else if (practicalFilter === 'public-transport') {
-        rows = rows.filter(row => (row.service.activities || []).some(act => ['public-transport', 'bus', 'water-transport', 'ferry', 'island-access'].includes(act)));
-      } else if (practicalFilter === 'ferry') {
-        rows = rows.filter(row => (row.service.activities || []).some(act => ['ferry', 'island-access'].includes(act)));
-      } else if (practicalFilter === 'transfer') {
-        rows = rows.filter(row => (row.service.activities || []).some(act => ['transfer', 'airport-transfer', 'private-transfer'].includes(act)));
+        if (mobilityFilter === 'taxi') {
+          rows = rows.filter(row => (row.service.activities || []).includes('taxi-point'));
+        } else if (mobilityFilter === 'bus') {
+          rows = rows.filter(row => (row.service.activities || []).includes('bus'));
+        } else if (mobilityFilter === 'ferry') {
+          rows = rows.filter(row => (row.service.activities || []).includes('ferry'));
+        } else if (mobilityFilter === 'aquabus') {
+          rows = rows.filter(row => (row.service.activities || []).includes('water-transport'));
+        } else if (mobilityFilter === 'car-rental') {
+          rows = rows.filter(row => (row.service.activities || []).includes('car-rental'));
+        } else if (mobilityFilter === 'bike-rental') {
+          rows = rows.filter(row => (row.service.activities || []).includes('bike-rental'));
+        } else if (mobilityFilter === 'transfer') {
+          rows = rows.filter(row => (row.service.activities || []).some(act => ['transfer', 'airport-transfer', 'private-transfer'].includes(act)));
+        } else if (mobilityFilter === 'app-transport') {
+          rows = rows.filter(row => (row.service.activities || []).includes('app-transport'));
+        }
       } else {
         rows = rows.filter(row => (row.service.activities || []).includes(practicalFilter));
       }
@@ -401,7 +425,7 @@
       const facebookUrl = typeof service.facebook === 'string' && /^https:\/\//.test(service.facebook) ? service.facebook : '';
       const facebook = facebookUrl ? `<a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('public')}${actionText('Facebook')}</a>` : '';
       const whatsapp = service.whatsapp ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="${actionBase} bg-[#25D366] text-white border-transparent">${actionIcon('chat')}${actionText('WhatsApp')}</a>` : '';
-      const phone = service.phone ? `<a href="tel:+55${service.phone}" class="${actionBase}" title="${service.phoneDisplay || service.phone}">${actionIcon('call')}${actionText(service.phoneDisplay || service.phone)}</a>` : '';
+      const phone = service.phone ? `<a href="tel:+55${service.phone}" dir="ltr" class="${actionBase}" title="${service.phoneDisplay || service.phone}">${actionIcon('call')}<span class="truncate" dir="ltr"><bdi>${service.phoneDisplay || service.phone}</bdi></span></a>` : '';
       const maps = `<a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('map')}${actionText('Google Maps')}</a>`;
       const serviceActions = `${website}${instagram}${facebook}${whatsapp}${phone}${maps}`;
       const recommendedLabel = { pt:'Recomendado', en:'Recommended', fr:'Recommandé', es:'Recomendado', he:'מומלץ' }[currentLang] || 'Recomendado';

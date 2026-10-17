@@ -3080,10 +3080,10 @@ const servicesData = [
   },
   {
     id:'travessia-balsa-ilhabela', category:'essentials', name:'Travessia de Balsa São Sebastião–Ilhabela',
-    baseLocation:{nearSpotId:'praia-do-pereque'},
+    baseLocation:{nearSpotId:'praia-do-pereque', address:'Terminal da Balsa, Av. Princesa Isabel, s/n, Barra Velha, Ilhabela - SP'},
     serviceArea:{scope:'intercity-route',modes:['ferry']}, activities:['ferry','island-access'],
     presentation:'compact', serviceType:['ferry'],
-    url:'https://semil.sp.gov.br/dh/'
+    url:'https://semil.sp.gov.br/travessias/'
   },
   {
     id:'cit-barra-velha', category:'essentials', name:'Centro de Informações Turísticas — Barra Velha',
@@ -3305,7 +3305,6 @@ const servicesData = [
     baseLocation: { address: 'Terminal da Balsa, Av. Princesa Isabel, s/n, Barra Velha, Ilhabela - SP', nearSpotId: 'praia-do-pereque' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
     activities: ['taxi-point'], presentation: 'compact',
-    phone: '1238958222', phoneDisplay: '(12) 3895-8222',
     url: 'https://www.ilhabela.sp.gov.br/'
   },
   {
@@ -3314,13 +3313,12 @@ const servicesData = [
     baseLocation: { address: 'Praça Coronel Julião, s/n, Centro Histórico, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
     activities: ['taxi-point'], presentation: 'compact',
-    phone: '1238965000', phoneDisplay: '(12) 3896-5000',
     url: 'https://www.ilhabela.sp.gov.br/'
   },
   {
     id: 'transporte-por-aplicativo-info', category: 'essentials', name: 'Transporte por Aplicativo — Orientações',
     practicalType: 'app-transport',
-    baseLocation: { address: 'Circulação insular, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
+    baseLocation: { address: 'Circulação municipal em toda a ilha' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
     activities: ['app-transport'], presentation: 'compact',
     url: 'https://www.ilhabela.sp.gov.br/'
@@ -3328,7 +3326,7 @@ const servicesData = [
   {
     id: 'transfer-executivo-gru-ilhabela', category: 'essentials', name: 'Transfer Executivo — Aeroportos e Litoral',
     practicalType: 'transfer',
-    baseLocation: { address: 'Atendimento São Paulo / Aeroportos ↔ Ilhabela', nearSpotId: 'praia-do-pereque' },
+    baseLocation: { address: 'São Paulo / Aeroportos (GRU e CGH) ↔ Ilhabela' },
     serviceArea: { scope: 'intercity-route', modes: ['road'], verifiedModes: [] },
     activities: ['transfer', 'airport-transfer', 'private-transfer'], presentation: 'compact',
     phone: '11916947035', phoneDisplay: '(11) 91694-7035', whatsapp: '11916947035',
@@ -3347,25 +3345,25 @@ const serviceTranslations = {
     he: {"type":"השכרת רכב ואופנועים","description":"השכרת רכבים ואופנועים בבארה וליה, בסמוך למעבורת. אפשרויות נוחות להתניידות עצמאית ברחבי איליאבלה.","tags":["בארה וליה","השכרת רכב","השכרת אופנועים"]}
   },
   "Ponto de Táxi — Balsa (Barra Velha)": {
-    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial de táxis localizado na saída do desembarque da balsa em Barra Velha. Corridas locais e transfers pela ilha operando com taxímetro homologado.","tags":["Terminal da Balsa","Barra Velha","Táxi oficial"]},
-    en: {"type":"Official taxi stand","description":"Official taxi stand located at the ferry arrival exit in Barra Velha. Local rides and transfers across the island with metered fares.","tags":["Ferry terminal","Barra Velha","Official taxi"]},
-    fr: {"type":"Station de taxis officielle","description":"Station officielle de taxis située à la sortie du ferry à Barra Velha. Courses locales et transferts sur l’île avec compteur homologué.","tags":["Terminal du ferry","Barra Velha","Taxi officiel"]},
-    es: {"type":"Parada oficial de taxis","description":"Parada oficial de taxis ubicada a la salida del desembarque de la balsa en Barra Velha. Viajes locales y traslados con taxímetro homologado.","tags":["Terminal de balsa","Barra Velha","Taxi oficial"]},
-    he: {"type":"תחנת מוניות רשמית","description":"תחנת מוניות רשמית ביציאה ממסוף המעבורת בבארה וליה. נסיעות מקומיות והסעות עם מונה מאושר.","tags":["מסוף המעבורת","בארה וליה","מונית רשמית"]}
+    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial na saída da balsa em Barra Velha. Embarque presencial com taxímetro municipal ou atendimento pelo canal oficial da Prefeitura (0800 770 5221). Não há telefone fixo individual no ponto.","tags":["Terminal da Balsa","Barra Velha","Táxi oficial"]},
+    en: {"type":"Official taxi stand","description":"Official stand at the ferry exit in Barra Velha. In-person boarding with municipal taximeter or support via the official municipal line (0800 770 5221). No individual telephone at the stand.","tags":["Ferry terminal","Barra Velha","Official taxi"]},
+    fr: {"type":"Station de taxis officielle","description":"Station officielle à la sortie du ferry à Barra Velha. Prise en charge sur place avec compteur municipal ou assistance via la ligne officielle (0800 770 5221). Pas de téléphone fixe individuel sur place.","tags":["Terminal du ferry","Barra Velha","Taxi officiel"]},
+    es: {"type":"Parada oficial de taxis","description":"Parada oficial a la salida de la balsa en Barra Velha. Abordaje presencial con taxímetro municipal o asistencia por el canal oficial del municipio (0800 770 5221). Sin teléfono fijo individual en la parada.","tags":["Terminal de balsa","Barra Velha","Taxi oficial"]},
+    he: {"type":"תחנת מוניות רשמית","description":"תחנה רשמית ביציאה מהמעבורת בבארה וליה. עלייה ישירה במקום לפי מונה עירוני או שירות בערוץ העירוני הרשמי (0800 770 5221). אין קו טלפון קבוע בתחנה.","tags":["מסוף המעבורת","בארה וליה","מונית רשמית"]}
   },
   "Ponto de Táxi — Vila (Centro Histórico)": {
-    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial de táxis na Praça Coronel Julião, no Centro Histórico (Vila). Atendimento para a região norte, praias, hotéis e centro gastronômico.","tags":["Centro Histórico","Vila","Táxi oficial"]},
-    en: {"type":"Official taxi stand","description":"Official taxi stand at Praça Coronel Julião in the historic center (Vila). Service for northern beaches, hotels and dining areas.","tags":["Historic center","Vila","Official taxi"]},
-    fr: {"type":"Station de taxis officielle","description":"Station officielle de taxis sur la place Coronel Julião, au centre historique (Vila). Dessertes vers le nord, hôtels et restaurants.","tags":["Centre historique","Vila","Taxi officiel"]},
-    es: {"type":"Parada oficial de taxis","description":"Parada oficial de taxis en la Praça Coronel Julião, en el centro histórico (Vila). Servicio hacia el norte, playas, hoteles y restaurantes.","tags":["Centro histórico","Vila","Taxi oficial"]},
-    he: {"type":"תחנת מוניות רשמית","description":"תחנת מוניות רשמית בכיכר קורונל ז'וליאו במרכז ההיסטורי (וילה). שירות לחופי הצפון, למלונות ולמסעדות.","tags":["המרכז ההיסטורי","וילה","מונית רשמית"]}
+    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial na Praça Coronel Julião, no Centro Histórico (Vila). Embarque presencial com taxímetro homologado para praias, hotéis e centro gastronômico, ou canal oficial (0800 770 5221).","tags":["Centro Histórico","Vila","Táxi oficial"]},
+    en: {"type":"Official taxi stand","description":"Official stand at Praça Coronel Julião in the historic center (Vila). In-person boarding with metered fares for beaches, hotels and dining, or municipal channel (0800 770 5221).","tags":["Historic center","Vila","Official taxi"]},
+    fr: {"type":"Station de taxis officielle","description":"Station officielle sur la place Coronel Julião, au centre historique (Vila). Prise en charge sur place au compteur vers les plages, hôtels et restaurants, ou ligne officielle (0800 770 5221).","tags":["Centre historique","Vila","Taxi officiel"]},
+    es: {"type":"Parada oficial de taxis","description":"Parada oficial en la Praça Coronel Julião, centro histórico (Vila). Abordaje presencial con taxímetro homologado hacia playas, hoteles y gastronomía, o canal oficial (0800 770 5221).","tags":["Centro histórico","Vila","Taxi oficial"]},
+    he: {"type":"תחנת מוניות רשמית","description":"תחנה רשמית בכיכר קורונל ז'וליאו במרכז ההיסטורי (וילה). עלייה במקום עם מונה מוסדר לחופים, למלונות ולמסעדות, או בערוץ העירוני (0800 770 5221).","tags":["המרכז ההיסטורי","וילה","מונית רשמית"]}
   },
   "Transporte por Aplicativo — Orientações": {
-    pt: {"type":"Utilidade pública","description":"A oferta de motoristas por aplicativos (Uber e 99) em Ilhabela é reduzida e instável. Não confie neles como único meio de retorno de praias distantes; prefira táxis oficiais ou ônibus municipais.","tags":["Utilidade pública","Mobilidade urbana","Aviso importante"]},
-    en: {"type":"Public utility","description":"Ride-hailing availability (Uber and 99) in Ilhabela is limited and irregular. Do not rely on them as your sole way back from remote beaches; prefer official taxis or municipal buses.","tags":["Public utility","Urban mobility","Important notice"]},
-    fr: {"type":"Utilité publique","description":"La disponibilité des VTC (Uber et 99) à Ilhabela est limitée et irrégulière. Ne comptez pas uniquement sur eux pour rentrer des plages éloignées; privilégiez les taxis officiels ou les bus.","tags":["Utilité publique","Mobilité urbaine","Avis important"]},
-    es: {"type":"Utilidad pública","description":"La disponibilidad de transporte por aplicación (Uber y 99) en Ilhabela es reducida e irregular. No dependas de ellos como único medio para volver de playas alejadas; opta por taxis oficiales o autobuses.","tags":["Utilidad pública","Movilidad urbana","Aviso importante"]},
-    he: {"type":"מידע לתועלת הציבור","description":"הזמינות של אפליקציות נסיעה (Uber ו-99) באיליאבלה מוגבלת ולא סדירה. אין להסתמך עליהן בלעדית לחזרה מחופים מרוחקים; מומלץ להיעזר במוניות רשמיות או באוטובוסים עירוניים.","tags":["שירות לציבור","תחבורה עירונית","הודעה חשובה"]}
+    pt: {"type":"Utilidade pública","description":"O transporte de passageiros por aplicativo em Ilhabela é regulamentado por legislação municipal. A operação na ilha conta prioritariamente com plataformas credenciadas no município, com destaque para o Caiçara Driver (além de Fast Go e Woptin), integrando-se aos pontos oficiais de táxi e ao transporte coletivo. Em aplicativos convencionais como Uber e 99, recomenda-se verificar previamente a disponibilidade para a ida e o retorno.","tags":["Utilidade pública","Mobilidade urbana","Aplicativos credenciados"]},
+    en: {"type":"Public utility","description":"Ride-hailing passenger transport in Ilhabela is governed by municipal regulations. Island operations rely primarily on municipally registered platforms, notably Caiçara Driver (alongside Fast Go and Woptin), complementing official taxi stands and public transit. When using mainstream platforms such as Uber or 99, travelers are advised to verify driver availability in advance for outbound and return trips.","tags":["Public utility","Urban mobility","Registered apps"]},
+    fr: {"type":"Utilité publique","description":"Le transport de passagers par application à Ilhabela est encadré par la réglementation municipale. Les trajets sur l’île reposent en priorité sur des plateformes enregistrées auprès de la municipalité, notamment Caiçara Driver (ainsi que Fast Go et Woptin), en complément des stations de taxis officielles et des transports en commun. Si vous utilisez des applications courantes telles qu’Uber ou 99, il est conseillé de vérifier à l’avance la disponibilité pour l’aller et le retour.","tags":["Utilité publique","Mobilité urbaine","Applis enregistrées"]},
+    es: {"type":"Utilidad pública","description":"El transporte de pasajeros por aplicación en Ilhabela está regulado por la normativa municipal. La operativa en la isla se apoya principalmente en plataformas registradas en el municipio, con destaque para Caiçara Driver (además de Fast Go y Woptin), en coordinación con las paradas oficiales de taxi y el transporte público. Al utilizar aplicaciones convencionales como Uber o 99, se recomienda comprobar con antelación la disponibilidad de viajes para la ida y la vuelta.","tags":["Utilidad pública","Movilidad urbana","Apps registradas"]},
+    he: {"type":"מידע לתועלת הציבור","description":"הסעת נוסעים באפליקציות באיליאבלה מוסדרת בחקיקה עירונית. הפעילות באי מתבססת בעיקר על פלטפורמות מקומיות מורשות, ובראשן Caiçara Driver (לצד Fast Go ו-Woptin), לצד תחנות המוניות הרשמיות והתחבורה הציבורית. בעת שימוש באפליקציות בינלאומיות כגון Uber או 99, מומלץ לוודא מראש זמינות לנסיעה הלוך וחזור.","tags":["שירות לציבור","תחבורה עירונית","אפליקציות מורשות"]}
   },
   "Transfer Executivo — Aeroportos e Litoral": {
     pt: {"type":"Transfer executivo","description":"Serviço funcional de translado privativo e executivo entre os aeroportos de São Paulo (Guarulhos e Congonhas) e Ilhabela, com agendamento prévio e veículos climatizados.","tags":["Aeroporto Guarulhos","Transfer privativo","Agendamento"]},

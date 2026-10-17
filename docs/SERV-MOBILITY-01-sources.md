@@ -12,7 +12,7 @@ Estruturar o grupo de **Mobilidade e Transportes** dentro da categoria existente
 ## 3. Fontes Oficiais e Operadores Auditados
 1. **Travessia de Balsa São Sebastião–Ilhabela (`travessia-balsa-ilhabela`):**
    - *Operador:* Secretaria de Meio Ambiente, Infraestrutura e Logística do Estado de SP (SEMIL) / Departamento Hidroviário (DH).
-   - *Canais Oficiais:* [semil.sp.gov.br/dh/](https://semil.sp.gov.br/dh/) | Telefone: 0800 77 33 711.
+   - *Canais Oficiais:* [semil.sp.gov.br/travessias/](https://semil.sp.gov.br/travessias/) | Telefone: 0800 77 33 711.
    - *Informações Úteis:* Fila em tempo real, travessia de pedestres gratuita, veículos tarifados e agendamento "Hora Marcada".
 
 2. **Ônibus Municipal — Expresso Fênix (`onibus-municipal-expresso-fenix`):**
@@ -26,14 +26,14 @@ Estruturar o grupo de **Mobilidade e Transportes** dentro da categoria existente
    - *Pontos Atendidos:* Píeres da Praia Grande, Balsa, Perequê, Engenho D'Água, Vila e Ponta Azeda (sujeito às condições meteorológicas e de mar).
 
 4. **Pontos Oficiais de Táxi:**
-   - *Ponto da Balsa (Barra Velha):* Terminal de desembarque da balsa. Telefone público de referência: (12) 3895-8222.
-   - *Ponto da Vila (Centro Histórico):* Praça Coronel Julião, s/n. Telefone público de referência: (12) 3896-5000.
-   - *Regulamentação:* Veículos homologados pela Prefeitura de Ilhabela, operando por taxímetro regulamentado.
+   - *Ponto da Balsa (Barra Velha):* Terminal de desembarque da balsa, Av. Princesa Isabel, s/n.
+   - *Ponto da Vila (Centro Histórico):* Praça Coronel Julião, s/n.
+   - *Regulamentação e Suporte:* Veículos homologados pela Prefeitura de Ilhabela, operando por taxímetro regulamentado. Embarque presencial direto nos pontos ou atendimento pelo canal oficial da Prefeitura: 0800 770 5221. Sem linhas individuais expostas nos postes físicos.
 
 5. **Transporte por Aplicativo — Orientações (`transporte-por-aplicativo-info`):**
    - *Natureza:* Ficha informativa de **Utilidade Pública**.
-   - *Fato Operacional:* A frota de motoristas cadastrados na Uber e 99 em Ilhabela é extremamente reduzida. Turistas frequentemente enfrentam cancelamentos e ausência de carros para retornos de praias do sul, norte ou após o pôr do sol.
-   - *Orientação ao Turista:* Não depender exclusivamente de aplicativos; priorizar táxis oficiais ou ônibus municipais.
+   - *Fato Operacional:* O transporte individual de passageiros por aplicativo em Ilhabela é regulamentado por legislação municipal. A operação na ilha conta prioritariamente com plataformas credenciadas no município, com destaque para o Caiçara Driver (além de Fast Go e Woptin), operando de forma integrada à rede de táxis oficiais e linhas de ônibus.
+   - *Orientação ao Turista:* Ao utilizar plataformas convencionais como Uber e 99, recomenda-se verificar previamente a disponibilidade de motoristas para ida e volta. Para maior previsibilidade, priorizar plataformas credenciadas no município, táxis oficiais ou transporte coletivo.
 
 6. **Locadoras de Veículos (Carros e Motos):**
    - *Jessé Locadora de Carros e Motos (`jesse-locadora-veiculos`):* Av. Princesa Isabel, 2756, Barra Velha. WhatsApp: (12) 99736-8387. Site: [jesselocadora.com.br](https://jesselocadora.com.br/).
