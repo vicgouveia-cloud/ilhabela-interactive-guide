@@ -1,0 +1,32 @@
+name: SERV-HOSTEL-VILA-01 final browser check
+on:
+  push:
+    branches:
+      - feat/services-hostel-vila-experiences
+    paths:
+      - .github/workflows/services-hostel-vila-final.yml
+permissions:
+  contents: read
+jobs:
+  services-browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: node tests/audit-hostel-vila-services.cjs
+      - run: npx playwright install --with-deps chromium
+      - name: Verify images, filters and cards in five languages
+        run: npx playwright test tests/services-hostel-vila.spec.cjs --trace=off --workers=2
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: services-hostel-final-browser-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
