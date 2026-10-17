@@ -36,3 +36,4 @@ jobs:
             test-results/
           if-no-files-found: ignore
           retention-days: 7
+# Recheck higher-resolution 720px image after initial approved import.
