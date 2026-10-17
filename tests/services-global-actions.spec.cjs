@@ -13,6 +13,8 @@ for(const lang of ['pt','en','es','fr','he'])for(const width of [320,390,1440]){
      await expect(page.locator('#services-page-grid article').first()).toBeVisible();
      await expect(page.locator('#services-page-grid')).not.toContainText('Rudá Destinos');
      await expect(page.locator('#services-page-grid [data-contact-entry]')).toHaveCount(0);
+     // Photo origins stay in catalog metadata, but not superimposed on venue cards.
+     await expect(page.locator('#services-page-grid article span.absolute.bottom-2.right-2')).toHaveCount(0);
      const cardCount=await page.locator('#services-page-grid article').count();
      for(let i=0;i<Math.min(5,cardCount);i++){
        const card=page.locator('#services-page-grid article').nth(i);
