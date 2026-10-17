@@ -28,6 +28,7 @@ const serviceTaxonomy = {
     transport: {pt:'Transporte público',en:'Public transport',fr:'Transport public',es:'Transporte público',he:'תחבורה ציבורית'},
     ferry: {pt:'Travessia de balsa',en:'Ferry crossing',fr:'Traversée en ferry',es:'Travesía en ferry',he:'מעבורת'},
     touristInformation: {pt:'Informações turísticas',en:'Tourist information',fr:'Informations touristiques',es:'Información turística',he:'מידע לתיירים'},
+    coworking: {pt:'Coworking',en:'Coworking',fr:'Coworking',es:'Coworking',he:'חלל עבודה משותף'},
     restaurant: {pt:'Restaurante',en:'Restaurant',fr:'Restaurant',es:'Restaurante',he:'מסעדה'},
     pizzeria: {pt:'Pizzaria',en:'Pizzeria',fr:'Pizzeria',es:'Pizzería',he:'פיצרייה'},
     kiosk: {pt:'Quiosque',en:'Kiosk',fr:'Kiosque',es:'Quiosco',he:'קיוסק'},
