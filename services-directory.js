@@ -448,7 +448,9 @@
       const appAndroid = service.appAndroid ? `<a href="${service.appAndroid}" target="_blank" rel="noopener noreferrer" class="${actionBase}" title="Fast Go Drive Passageiro — Android">${actionIcon('phone_android')}${actionText('Android')}</a>` : '';
       const hasPhysicalLocation = !['fast-go-drive', 'transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela', 'onibus-municipal-expresso-fenix', 'aquabus-ilhabela', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila'].includes(service.id);
       const maps = hasPhysicalLocation ? `<a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('map')}${actionText('Google Maps')}</a>` : '';
-      const serviceActions = `${website}${instagram}${facebook}${whatsapp}${phone}${appIos}${appAndroid}${maps}`;
+      const serviceActions = service.id === 'fast-go-drive'
+        ? `${website}${whatsapp}${appIos}${appAndroid}`
+        : `${website}${instagram}${facebook}${whatsapp}${phone}${appIos}${appAndroid}${maps}`;
       const recommendedLabel = { pt:'Recomendado', en:'Recommended', fr:'Recommandé', es:'Recomendado', he:'מומלץ' }[currentLang] || 'Recomendado';
       const recommendedBadge = service.recommended ? `<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/95 border border-secondary/30 text-[10px] font-extrabold text-secondary">${recommendedLabel}</span>` : '';
       const featured = service.presentation === 'featured';
