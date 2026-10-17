@@ -7,6 +7,18 @@ const serviceTaxonomy = {
     specialty: {pt:'Especialidade',en:'Specialty',fr:'Spécialité',es:'Especialidad',he:'התמחות'},
     occasion: {pt:'Momento',en:'Occasion',fr:'Moment',es:'Momento',he:'מועד'}
   },
+  stayType: {
+    hostel: {pt:'Hostel',en:'Hostel',fr:'Auberge de jeunesse',es:'Hostel',he:'הוסטל'},
+    hotel: {pt:'Hotel',en:'Hotel',fr:'Hôtel',es:'Hotel',he:'מלון'},
+    pousada: {pt:'Pousada',en:'Guesthouse',fr:'Pousada',es:'Posada',he:'בית הארחה'},
+    alternative: {pt:'Hospedagem alternativa',en:'Alternative accommodation',fr:'Hébergement alternatif',es:'Alojamiento alternativo',he:'לינה חלופית'}
+  },
+  experienceType: {
+    wellness: {pt:'Bem-estar e yoga',en:'Wellness and yoga',fr:'Bien-être et yoga',es:'Bienestar y yoga',he:'בריאות ויוגה'},
+    dayUse: {pt:'Day Use',en:'Day use',fr:'Accès à la journée',es:'Pase de día',he:'כניסה יומית'},
+    sports: {pt:'Esportes',en:'Sports',fr:'Sports',es:'Deportes',he:'ספורט'},
+    culture: {pt:'Cultura e oficinas',en:'Culture and workshops',fr:'Culture et ateliers',es:'Cultura y talleres',he:'תרבות וסדנאות'}
+  },
   type: {
     laundry: {pt:'Lavanderia',en:'Laundry',fr:'Blanchisserie',es:'Lavandería',he:'מכבסה'},
     supermarket: {pt:'Supermercado',en:'Supermarket',fr:'Supermarché',es:'Supermercado',he:'סופרמרקט'},

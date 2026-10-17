@@ -1148,6 +1148,7 @@ function getServiceCategoryLabel(category) {
     diving: 'servicesDiving',
     food: 'servicesFood',
     stay: 'servicesStay',
+    experience: 'servicesExperiences',
     essentials: 'servicesPractical'
   };
   return t(keys[category] || 'servicesAll');

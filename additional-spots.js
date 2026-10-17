@@ -2318,7 +2318,7 @@ touristSpots.forEach(spot => {
 const servicesData = [
   {
     id: 'pousada-lacosta',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Lacosta',
     baseLocation: { address: 'Avenida Riachuelo, 5531, Praia Grande, Ilhabela - SP' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2411,7 +2411,7 @@ const servicesData = [
   },
   {
     id: 'dpny-beach-hotel',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'DPNY Beach Hotel & SPA',
     baseLocation: { nearSpotId: 'praia-do-curral', address: 'Av. José Pacheco do Nascimento, 7668, Praia do Curral' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2423,7 +2423,7 @@ const servicesData = [
   },
   {
     id: 'vila-kebaya',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'Hotel Boutique Vila Kebaya',
     baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua Antônio Lisboa Alves, 167, Vila' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2435,7 +2435,7 @@ const servicesData = [
   },
   {
     id: 'porto-pacuiba-hotel',
-    category: 'stay',
+    category: 'stay', stayType: 'hotel',
     name: 'Porto Pacuíba Hotel',
     baseLocation: { address: 'Av. Leonardo Reale, 2392, Viana' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2505,7 +2505,7 @@ const servicesData = [
   },
   {
     id: 'pousada-armacao-dos-ventos',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Armação dos Ventos',
     baseLocation: { nearSpotId: 'praia-da-armacao', address: 'Avenida Perimetral Norte, 4260, Praia da Armação' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2517,7 +2517,7 @@ const servicesData = [
   },
   {
     id: 'pousada-canto-bravo',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Canto Bravo',
     baseLocation: { spotId: 'praia-do-bonete', address: 'Praia do Bonete, 1' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2529,7 +2529,7 @@ const servicesData = [
   },
   {
     id: 'pousada-iguana-azul',
-    category: 'stay',
+    category: 'stay', stayType: 'pousada',
     name: 'Pousada Iguana Azul',
     baseLocation: { address: "Rua Conde D'eu, 102, Bexiga" },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2706,7 +2706,7 @@ const servicesData = [
   },
   {
     id: 'la-gloria-house',
-    category: 'stay',
+    category: 'stay', stayType: 'alternative',
     featured: true,
     name: 'La Gloria House',
     baseLocation: { nearSpotId: 'praia-do-portinho' },
@@ -3224,10 +3224,185 @@ const servicesData = [
     phone:'12991251628', phoneDisplay:'(12) 99125-1628'
   },
 
+  // Separate services; same operator group, individual commercial identities and official images.
+  {
+    id: 'hostel-da-vila', category: 'stay', name: 'Hostel da Vila',
+    operatorGroupId: 'grupo-hostel-da-vila', stayType: 'hostel',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'], presentation: 'compact',
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/home',
+    image: 'assets/images/hostel-da-vila_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/home'
+  },
+  {
+    id: 'floresta-bar', category: 'food', name: 'Floresta Bar',
+    operatorGroupId: 'grupo-hostel-da-vila', serviceType: ['bar'], serviceFormats: ['snacks'], serviceOccasions: ['afternoon','night'],
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP (Floresta Bar)' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['bar','food','drinks','live-music'], presentation: 'featured',
+    featured: true, recommended: true,
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar',
+    image: 'assets/images/floresta-bar_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar'
+  },
+  {
+    id: 'aula-yoga-hostel-da-vila', category: 'experience', name: 'Aula de Yoga — Hostel da Vila',
+    operatorGroupId: 'grupo-hostel-da-vila', experienceType: 'wellness',
+    baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP (deck da piscina)' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['yoga','wellness'], presentation: 'compact',
+    url: 'https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga',
+    image: 'assets/images/aula-yoga-hostel-da-vila_oficial.webp',
+    imageCredit: 'Hostel da Vila', imageSource: 'https://www.hosteldavila.com.br/pt/ilhabela/experiencias/aula-de-yoga'
+  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Hostel da Vila": {
+  "pt": {
+    "type": "Hostel",
+    "description": "Hostel na Vila, junto à Mata Atlântica, com dormitórios compartilhados, quartos privativos e acomodações criativas.",
+    "tags": [
+      "Centro Histórico",
+      "Hostel",
+      "Acomodações criativas"
+    ]
+  },
+  "en": {
+    "type": "Hostel",
+    "description": "Hostel in the historic Vila, near the Atlantic Forest, offering shared dorms, private rooms and unusual stays.",
+    "tags": [
+      "Historic center",
+      "Hostel",
+      "Creative stays"
+    ]
+  },
+  "fr": {
+    "type": "Auberge de jeunesse",
+    "description": "Auberge dans le centre historique, près de la forêt atlantique, avec dortoirs, chambres privées et logements insolites.",
+    "tags": [
+      "Centre historique",
+      "Auberge",
+      "Logements insolites"
+    ]
+  },
+  "es": {
+    "type": "Hostel",
+    "description": "Hostel en el centro histórico, junto a la Mata Atlántica, con dormitorios compartidos, habitaciones privadas y alojamientos originales.",
+    "tags": [
+      "Centro histórico",
+      "Hostel",
+      "Alojamientos originales"
+    ]
+  },
+  "he": {
+    "type": "הוסטל",
+    "description": "הוסטל במרכז ההיסטורי של איליאבלה, ליד היער האטלנטי, עם חדרים משותפים, פרטיים ואפשרויות לינה מיוחדות.",
+    "tags": [
+      "המרכז ההיסטורי",
+      "הוסטל",
+      "לינה מיוחדת"
+    ]
+  }
+},
+  "Floresta Bar": {
+  "pt": {
+    "type": "Bar",
+    "description": "Bar aberto ao público dentro do Hostel da Vila, em meio à Mata Atlântica, com drinks, comidinhas e programação cultural. Consulte os eventos antes da visita.",
+    "tags": [
+      "Drinks",
+      "Música",
+      "Mata Atlântica"
+    ]
+  },
+  "en": {
+    "type": "Bar",
+    "description": "Public bar inside Hostel da Vila, in the Atlantic Forest, with cocktails, snacks and cultural events. Check the schedule before visiting.",
+    "tags": [
+      "Cocktails",
+      "Music",
+      "Atlantic Forest"
+    ]
+  },
+  "fr": {
+    "type": "Bar",
+    "description": "Bar ouvert au public au sein du Hostel da Vila, en forêt atlantique, proposant cocktails, collations et événements culturels. Vérifiez le programme.",
+    "tags": [
+      "Cocktails",
+      "Musique",
+      "Forêt atlantique"
+    ]
+  },
+  "es": {
+    "type": "Bar",
+    "description": "Bar abierto al público dentro del Hostel da Vila, rodeado de Mata Atlántica, con cócteles, aperitivos y eventos culturales. Consulta la programación.",
+    "tags": [
+      "Cócteles",
+      "Música",
+      "Mata Atlántica"
+    ]
+  },
+  "he": {
+    "type": "בר",
+    "description": "בר הפתוח לקהל בתוך הוסטל דה וילה, לצד היער האטלנטי, עם קוקטיילים, נשנושים ואירועי תרבות. יש לבדוק את לוח האירועים.",
+    "tags": [
+      "קוקטיילים",
+      "מוזיקה",
+      "יער אטלנטי"
+    ]
+  }
+},
+  "Aula de Yoga — Hostel da Vila": {
+  "pt": {
+    "type": "Bem-estar · Yoga",
+    "description": "Aula de yoga no deck da piscina do Hostel da Vila, com tapete incluído e contribuição colaborativa conforme a programação publicada. Consulte a disponibilidade.",
+    "tags": [
+      "Yoga",
+      "Bem-estar",
+      "Deck da piscina"
+    ]
+  },
+  "en": {
+    "type": "Wellness · Yoga",
+    "description": "Yoga on the Hostel da Vila pool deck, with mats provided and a contribution-based format under the published schedule. Confirm availability.",
+    "tags": [
+      "Yoga",
+      "Wellness",
+      "Pool deck"
+    ]
+  },
+  "fr": {
+    "type": "Bien-être · Yoga",
+    "description": "Yoga sur la terrasse de la piscine du Hostel da Vila, tapis fourni et participation libre selon le programme annoncé. Vérifiez les disponibilités.",
+    "tags": [
+      "Yoga",
+      "Bien-être",
+      "Piscine"
+    ]
+  },
+  "es": {
+    "type": "Bienestar · Yoga",
+    "description": "Yoga junto a la piscina del Hostel da Vila, con esterilla incluida y aportación colaborativa según el programa. Consulta la disponibilidad.",
+    "tags": [
+      "Yoga",
+      "Bienestar",
+      "Piscina"
+    ]
+  },
+  "he": {
+    "type": "בריאות · יוגה",
+    "description": "שיעור יוגה ליד בריכת הוסטל דה וילה, כולל מזרן, בתשלום לפי יכולת בהתאם לתוכנית המתפרסמת. יש לבדוק זמינות.",
+    "tags": [
+      "יוגה",
+      "בריאות",
+      "בריכה"
+    ]
+  }
+},
+
   'Pousada Lacosta': {
     pt: { type: 'Pousada', description: 'Pousada na Avenida Riachuelo, no bairro Praia Grande, em Ilhabela.', tags: ['Praia Grande', 'Hospedagem'] },
     en: { type: 'Guesthouse', description: 'Guesthouse on Avenida Riachuelo, in the Praia Grande neighborhood of Ilhabela.', tags: ['Praia Grande', 'Accommodation'] },
