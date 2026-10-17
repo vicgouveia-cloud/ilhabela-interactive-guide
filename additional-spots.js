@@ -2333,14 +2333,14 @@ const servicesData = [
   },
 
   {
-    id: 'caicara-beach-bike', category: 'essentials', name: 'Caiçara Beach',
+    id: 'caicara-beach-bike', category: 'mobility', name: 'Caiçara Beach',
     baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 658, Perequê' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['bike-rental', 'kayak', 'stand-up-paddle', 'equipment-rental'], presentation: 'compact',
     whatsapp: '12991470443', whatsappDisplay: '(12) 99147-0443', url: 'https://caicarabeach.com.br/'
   },
   {
-    id: 'webtur-ilhabela', category: 'essentials', name: 'Webtur',
+    id: 'webtur-ilhabela', category: 'mobility', name: 'Webtur',
     baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Vila, Ilhabela' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
     activities: ['bike-rental'], presentation: 'compact', url: 'https://webtur.com/'
@@ -2447,7 +2447,7 @@ const servicesData = [
   },
   {
     id: 'localiza-sao-sebastiao',
-    category: 'essentials',
+    category: 'mobility',
     name: 'Localiza — São Sebastião',
     baseLocation: { address: 'Av. Guarda Mor Lobo Viana, 1052, Porto Grande, São Sebastião' },
     serviceArea: { scope: 'regional', modes: [], verifiedModes: [] },
@@ -2459,7 +2459,7 @@ const servicesData = [
   },
   {
     id: 'nova-aluguel-de-carros',
-    category: 'essentials',
+    category: 'mobility',
     name: 'NOVA Aluguel de Carros',
     baseLocation: { address: 'Av. Princesa Isabel, 2808, Barra Velha, Ilhabela - SP' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -2472,7 +2472,7 @@ const servicesData = [
   },
   {
     id: 'easy-aluguel-de-bike',
-    category: 'essentials',
+    category: 'mobility',
     name: 'Easy Aluguel de Bike',
     baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Av. Pedro de Paula Moraes, 713, Saco da Capela' },
     serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
@@ -3063,7 +3063,7 @@ const servicesData = [
     url:'https://www.drogariasaopaulo.com.br/'
   },
   {
-    id:'aquabus-ilhabela', category:'essentials', name:'Aquabus Ilhabela',
+    id:'aquabus-ilhabela', category:'mobility', name:'Aquabus Ilhabela',
     baseLocation:{address:'Píeres municipais de Ilhabela'},
     serviceArea:{scope:'island-route',modes:['water-transport']}, activities:['public-transport','water-transport'],
     presentation:'compact', serviceType:['transport'],
@@ -3071,7 +3071,7 @@ const servicesData = [
     url:'https://www.ilhabela.sp.gov.br/portal/servicos/1122/horario-do-aquabus'
   },
   {
-    id:'onibus-municipal-expresso-fenix', category:'essentials', name:'Ônibus Municipal Expresso Fênix',
+    id:'onibus-municipal-expresso-fenix', category:'mobility', name:'Ônibus Municipal Expresso Fênix',
     baseLocation:{address:'Linhas municipais em toda a ilha'},
     serviceArea:{scope:'island-route',modes:['road-transport']}, activities:['public-transport','bus'],
     presentation:'compact', serviceType:['transport'],
@@ -3079,7 +3079,7 @@ const servicesData = [
     url:'https://www.ilhabela.sp.gov.br/portal/servicos/1004/horario-onibus-municipal'
   },
   {
-    id:'travessia-balsa-ilhabela', category:'essentials', name:'Travessia de Balsa São Sebastião–Ilhabela',
+    id:'travessia-balsa-ilhabela', category:'mobility', name:'Travessia de Balsa São Sebastião–Ilhabela',
     baseLocation:{address:'Terminal da Balsa, Av. Princesa Isabel, s/n, Barra Velha, Ilhabela - SP'},
     serviceArea:{scope:'intercity-route',modes:['ferry']}, activities:['ferry','island-access'],
     presentation:'compact', serviceType:['ferry'],
@@ -3327,9 +3327,9 @@ const servicesData = [
   },
 
   // Mobilidade e Transportes batch: verified commercial rentals, official taxi stands and public transit info.
-  // Preserved under category 'essentials', clean presentation, without unauthorized photos or automatic recommendation.
+  // Migrated under category 'mobility', clean presentation, without unauthorized photos.
   {
-    id: 'jesse-locadora-veiculos', category: 'essentials', name: 'Jessé Locadora de Carros e Motos',
+    id: 'jesse-locadora-veiculos', category: 'mobility', name: 'Jessé Locadora de Carros e Motos',
     practicalType: 'car-rental',
     baseLocation: { address: 'Av. Princesa Isabel, 2756, Barra Velha, Ilhabela - SP' },
     serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
@@ -3338,7 +3338,7 @@ const servicesData = [
     url: 'https://jesselocadora.com.br/'
   },
   {
-    id: 'ponto-de-taxi-balsa', category: 'essentials', name: 'Ponto de Táxi — Balsa (Barra Velha)',
+    id: 'ponto-de-taxi-balsa', category: 'mobility', name: 'Ponto de Táxi — Balsa (Barra Velha)',
     practicalType: 'taxi-point',
     baseLocation: { address: 'Terminal da Balsa, Av. Princesa Isabel, s/n, Barra Velha, Ilhabela - SP' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
@@ -3346,7 +3346,7 @@ const servicesData = [
     url: 'https://www.ilhabela.sp.gov.br/'
   },
   {
-    id: 'ponto-de-taxi-vila', category: 'essentials', name: 'Ponto de Táxi — Vila (Centro Histórico)',
+    id: 'ponto-de-taxi-vila', category: 'mobility', name: 'Ponto de Táxi — Vila (Centro Histórico)',
     practicalType: 'taxi-point',
     baseLocation: { address: 'Praça Coronel Julião, s/n, Centro Histórico, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
@@ -3354,7 +3354,7 @@ const servicesData = [
     url: 'https://www.ilhabela.sp.gov.br/'
   },
   {
-    id: 'transporte-por-aplicativo-info', category: 'essentials', name: 'Transporte por Aplicativo — Orientações',
+    id: 'transporte-por-aplicativo-info', category: 'mobility', name: 'Transporte por Aplicativo — Orientações',
     practicalType: 'app-transport',
     baseLocation: { address: 'Circulação municipal em toda a ilha' },
     serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
@@ -3362,7 +3362,17 @@ const servicesData = [
     url: 'https://www.ilhabela.sp.gov.br/'
   },
   {
-    id: 'transfer-executivo-gru-ilhabela', category: 'essentials', name: 'Transfer Executivo — Aeroportos e Litoral',
+    id: 'fast-go-drive', category: 'mobility', name: 'Fast Go Drive',
+    practicalType: 'app-transport', recommended: true,
+    baseLocation: { address: 'Circulação municipal em toda a ilha e região' },
+    serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
+    activities: ['app-transport'], presentation: 'compact',
+    image: 'assets/images/fast-go-drive_oficial.webp', imageCredit: 'Fast Go Drive',
+    phone: '12981879636', phoneDisplay: '(12) 98187-9636', whatsapp: '12981879636',
+    instagram: '@fastgodrive_', url: 'https://fastgodrive.com.br/'
+  },
+  {
+    id: 'transfer-executivo-gru-ilhabela', category: 'mobility', name: 'Transfer Executivo — Aeroportos e Litoral',
     practicalType: 'transfer',
     baseLocation: { address: 'São Paulo / Aeroportos (GRU e CGH) ↔ Ilhabela' },
     serviceArea: { scope: 'intercity-route', modes: ['road'], verifiedModes: [] },
@@ -3402,6 +3412,13 @@ const serviceTranslations = {
     fr: {"type":"Utilité publique","description":"Le transport de passagers par application à Ilhabela est encadré par la mairie, avec des autorisations accordées à des plateformes enregistrées telles que Fast Go Drive et Leva Eu. Il est conseillé de vérifier la disponibilité des trajets à l’avance pour l’aller comme pour le retour, y compris avec les applications courantes.","tags":["Utilité publique","Mobilité urbaine","Transport par appli"]},
     es: {"type":"Utilidad pública","description":"El transporte de pasajeros por aplicación en Ilhabela está regulado por la municipalidad, con autorización para plataformas registradas como Fast Go Drive y Leva Eu. Se recomienda consultar la disponibilidad de viajes con anticipación tanto para la ida como para la vuelta, incluso al utilizar aplicaciones convencionales.","tags":["Utilidad pública","Movilidad urbana","Transporte por app"]},
     he: {"type":"מידע לתועלת הציבור","description":"הסעת נוסעים באפליקציות באיליאבלה מוסדרת על ידי העירייה, עם רישוי לפלטפורמות מורשות כגון Fast Go Drive ו-Leva Eu. מומלץ לוודא זמינות נסיעות מראש הן לנסיעה הלוך והן לחזור, כולל בעת שימוש באפליקציות בינלאומיות נפוצות.","tags":["שירות לציבור","תחבורה עירונית","אפליקציות נסיעה"]}
+  },
+  "Fast Go Drive": {
+    pt: {"type":"Transporte por aplicativo","description":"Plataforma de mobilidade urbana com motoristas locais credenciados em Ilhabela e região. Atendimento para corridas urbanas, passeios e viagens via aplicativo e WhatsApp.","tags":["Transporte por app","Mobilidade urbana","Motorista particular"]},
+    en: {"type":"Ride-hailing service","description":"Urban mobility platform with registered local drivers serving Ilhabela and the region. Available for local rides, day trips and transfers via app and WhatsApp.","tags":["Ride-hailing","Urban mobility","Private driver"]},
+    fr: {"type":"Transport par application","description":"Plateforme de mobilité urbaine avec chauffeurs locaux enregistrés à Ilhabela et dans la région. Disponible pour trajets urbains, excursions et transferts via appli et WhatsApp.","tags":["Transport par appli","Mobilité urbaine","Chauffeur privé"]},
+    es: {"type":"Transporte por aplicación","description":"Plataforma de movilidad urbana con conductores locales registrados en Ilhabela y la región. Servicio para traslados urbanos, paseos y viajes mediante aplicación y WhatsApp.","tags":["Transporte por app","Movilidad urbana","Conductor privado"]},
+    he: {"type":"תחבורה באפליקציה","description":"פלטפורמת ניידות ותחבורה עירונית עם נהגים מקומיים מורשים באיליאבלה והסביבה. שירות לנסיעות עירוניות, טיולים והסעות דרך האפליקציה ו-WhatsApp.","tags":["הסעות באפליקציה","תחבורה עירונית","נהג פרטי"]}
   },
   "Transfer Executivo — Aeroportos e Litoral": {
     pt: {"type":"Transfer executivo","description":"Serviço funcional de translado privativo e executivo entre os aeroportos de São Paulo (Guarulhos e Congonhas) e Ilhabela, com agendamento prévio e veículos climatizados.","tags":["Aeroporto Guarulhos","Transfer privativo","Agendamento"]},

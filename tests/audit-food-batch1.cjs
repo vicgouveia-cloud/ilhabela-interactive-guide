@@ -14,8 +14,8 @@ const services = vm.runInContext('servicesData', ctx);
 const taxonomy = vm.runInContext('serviceTaxonomy', ctx);
 const ids = services.map(s => s.id);
 
-assert.equal(services.length, 124, 'Total services must be 124 (120 previous + 4 food additions)');
-assert.equal(new Set(ids).size, 124, 'All service IDs must be unique');
+assert.equal(services.length, 125, 'Total services must be 125 (120 previous + 4 food additions + Fast Go Drive)');
+assert.equal(new Set(ids).size, 125, 'All service IDs must be unique');
 
 const foodServices = services.filter(s => s.category === 'food');
 assert.equal(foodServices.length, 64, 'Food category must have exactly 64 records');
