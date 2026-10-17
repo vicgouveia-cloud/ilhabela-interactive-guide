@@ -3369,7 +3369,9 @@ const servicesData = [
     activities: ['app-transport'], presentation: 'compact',
     image: 'assets/images/fast-go-drive_oficial.webp', imageCredit: 'Fast Go Drive',
     phone: '12981879636', phoneDisplay: '(12) 98187-9636', whatsapp: '12981879636',
-    instagram: '@fastgodrive_', url: 'https://fastgodrive.com.br/'
+    instagram: '@fastgodrive_', url: 'https://fastgodrive.com.br/',
+    appIos: 'https://apps.apple.com/br/app/fast-go-drive-passageiro/id6443738440',
+    appAndroid: 'https://play.google.com/store/apps/details?id=br.pass.appfastgodriver'
   },
   {
     id: 'transfer-executivo-gru-ilhabela', category: 'mobility', name: 'Transfer Executivo — Aeroportos e Litoral',

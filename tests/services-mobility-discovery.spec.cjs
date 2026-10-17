@@ -114,19 +114,32 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       // Check Fast Go Drive card
       const fastGoCard = appResults.filter({ has: page.locator('h2', { hasText: 'Fast Go Drive' }) });
       await expect(fastGoCard).toHaveCount(1);
-      await expect(fastGoCard.locator('h2', { hasText: 'Fast Go Drive' })).toBeVisible();
+      // Must have official WebP image
+      const fastGoImg = fastGoCard.locator('img[src*="fast-go-drive_oficial.webp"]');
+      await expect(fastGoImg).toHaveCount(1);
+      await expect(fastGoImg).toBeVisible();
       // Must have recommended badge
       const recommendedText = { pt: 'Recomendado', en: 'Recommended', fr: 'Recommandé', es: 'Recomendado', he: 'מומלץ' }[language];
       await expect(fastGoCard.locator('span', { hasText: recommendedText })).toBeVisible();
+      // Must have Website action
+      await expect(fastGoCard.locator('a[href="https://fastgodrive.com.br/"]')).toBeVisible();
+      // Must have Instagram action
+      await expect(fastGoCard.locator('a[href*="instagram.com/fastgodrive_"]')).toBeVisible();
       // Must have WhatsApp action
       await expect(fastGoCard.locator('a[href*="wa.me/5512981879636"]')).toBeVisible();
       // Must have phone action with dir="ltr"
       const fastGoPhone = fastGoCard.locator('a[href="tel:+5512981879636"]');
       await expect(fastGoPhone).toHaveAttribute('dir', 'ltr');
-      // Must have Instagram action
-      await expect(fastGoCard.locator('a[href*="instagram.com/fastgodrive_"]')).toBeVisible();
-      // Must have Website action
-      await expect(fastGoCard.locator('a[href="https://fastgodrive.com.br/"]')).toBeVisible();
+      // Must have direct iOS app link
+      const fastGoIos = fastGoCard.locator('a[href="https://apps.apple.com/br/app/fast-go-drive-passageiro/id6443738440"]');
+      await expect(fastGoIos).toBeVisible();
+      await expect(fastGoIos).toContainText('iPhone');
+      // Must have direct Android app link
+      const fastGoAndroid = fastGoCard.locator('a[href="https://play.google.com/store/apps/details?id=br.pass.appfastgodriver"]');
+      await expect(fastGoAndroid).toBeVisible();
+      await expect(fastGoAndroid).toContainText('Android');
+      // Must have exactly 6 symmetrical actions in the 2-column grid
+      await expect(fastGoCard.locator('.grid a')).toHaveCount(6);
       // Must NOT have Google Maps button
       await expect(fastGoCard.locator('a[href*="maps"]')).toHaveCount(0);
 

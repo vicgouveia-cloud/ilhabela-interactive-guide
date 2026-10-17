@@ -70,6 +70,8 @@ assert.equal(fastGo.phoneDisplay, '(12) 98187-9636');
 assert.equal(fastGo.whatsapp, '12981879636');
 assert.equal(fastGo.instagram, '@fastgodrive_');
 assert.equal(fastGo.url, 'https://fastgodrive.com.br/');
+assert.equal(fastGo.appIos, 'https://apps.apple.com/br/app/fast-go-drive-passageiro/id6443738440');
+assert.equal(fastGo.appAndroid, 'https://play.google.com/store/apps/details?id=br.pass.appfastgodriver');
 assert(!fastGo.baseLocation?.nearSpotId, 'Fast Go Drive must not have nearSpotId proxy link');
 for (const lang of ['pt', 'en', 'es', 'fr', 'he']) {
   const tr = fastGo.translations[lang];
