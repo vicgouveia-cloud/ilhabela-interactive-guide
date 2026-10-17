@@ -15,8 +15,9 @@ const cases=[
  ['floresta-bar','food','assets/images/floresta-bar_oficial.webp'],
  ['aula-yoga-hostel-da-vila','experience','assets/images/aula-yoga-hostel-da-vila_oficial.webp']
 ];
-assert.equal(services.length,113,'expected 109 historical services, three Vila records and one Recanto de Gaya record');
-assert.equal(new Set(services.map(s=>s.id)).size,113,'service IDs must remain unique');
+assert.equal(services.length,112,'expected 108 remaining historical services, three Vila records and one Recanto de Gaya record');
+assert.equal(new Set(services.map(s=>s.id)).size,112,'service IDs must remain unique');
+assert(!services.some(s=>s.id==='ruda-destinos' || s.name==='Rudá Destinos'),'Rudá Destinos must be removed');
 for(const [id,category,image] of cases){
   const row=services.find(s=>s.id===id);
   assert(row,id+': missing');
