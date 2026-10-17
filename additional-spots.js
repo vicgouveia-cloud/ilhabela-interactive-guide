@@ -2458,18 +2458,6 @@ const servicesData = [
     url: 'https://www.localiza.com/brasil/pt-br/rede-de-agencias/sao-sebastiao'
   },
   {
-    id: 'ruda-destinos',
-    category: 'tour',
-    name: 'Rudá Destinos',
-    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Av. Princesa Isabel, 1295, Loja 2, Perequê' },
-    serviceArea: { scope: 'regional', modes: ['transfer', '4x4'], verifiedModes: ['transfer', '4x4'] },
-    activities: ['airport-transfer', 'private-transfer', '4x4-tour'],
-    presentation: 'compact',
-    whatsapp: '12974418182',
-    whatsappDisplay: '(12) 97441-8182',
-    url: 'https://loja-rudadestinos.paytour.com.br/'
-  },
-  {
     id: 'nova-aluguel-de-carros',
     category: 'essentials',
     name: 'NOVA Aluguel de Carros',
@@ -3548,13 +3536,6 @@ const serviceTranslations = {
     fr: { type: "Location de voitures", description: "Location de voitures à São Sebastião, sur le continent, comme option régionale pour les visiteurs d’Ilhabela." },
     es: { type: "Alquiler de autos", description: "Alquiler de autos en São Sebastião, en el continente, como opción regional para visitantes de Ilhabela." },
     he: { type: "השכרת רכב", description: "השכרת רכב בסאו סבסטיאו, ביבשת, כאפשרות אזורית למבקרים באיליאבלה." }
-  },
-  "Rudá Destinos": {
-    pt: { type: "Receptivo e transfer", description: "Operadora regional com transfer privativo, traslado de aeroporto e passeio 4x4." },
-    en: { type: "Receptive & transfers", description: "Regional operator offering private transfers, airport transfers and 4x4 tours." },
-    fr: { type: "Réceptif et transferts", description: "Opérateur régional proposant transferts privés, transferts aéroport et excursions en 4x4." },
-    es: { type: "Receptivo y traslados", description: "Operador regional con traslados privados, traslados de aeropuerto y paseos 4x4." },
-    he: { type: "שירותי תיירות והסעות", description: "מפעיל אזורי המציע הסעות פרטיות, הסעות משדה התעופה וטיולי 4x4." }
   },
   "NOVA Aluguel de Carros": {
     pt: { type: "Locadora de veículos", description: "Aluguel de carros com base em Barra Velha, Ilhabela." },
