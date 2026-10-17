@@ -1,0 +1,39 @@
+name: SERV-COWORK-FOOD-01 validation
+on:
+  push:
+    branches:
+      - feat/services-food-shortcuts-coworking
+    paths:
+      - .github/workflows/serv-cowork-food-check.yml
+permissions:
+  contents: read
+jobs:
+  directory:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - name: Syntax and catalog audits
+        run: |
+          node --check additional-spots.js
+          node --check services-directory.js
+          node --check service-taxonomy.js
+          node tests/audit-cowork-food-discovery.cjs
+          node tests/audit-hostel-vila-services.cjs
+      - run: npx playwright install --with-deps chromium
+      - name: Validate filters and coworkings, five locales and widths, with card regressions
+        run: npx playwright test tests/services-cowork-food-discovery.spec.cjs tests/services-global-actions.spec.cjs tests/services-recanto-gaya.spec.cjs --trace=off --workers=3
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: cowork-food-browser-failures
+          path: |
+            playwright-report/
+            test-results/
+          retention-days: 7
+          if-no-files-found: ignore
