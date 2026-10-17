@@ -14,8 +14,8 @@ const services = vm.runInContext('servicesData', ctx);
 const taxonomy = vm.runInContext('serviceTaxonomy', ctx);
 const ids = services.map(s => s.id);
 
-assert.equal(services.length, 120, '115 previous records plus five verified mobility additions');
-assert.equal(new Set(ids).size, 120, 'no duplicate service IDs');
+assert.equal(services.length, 124, '120 previous records plus four verified food additions');
+assert.equal(new Set(ids).size, 124, 'no duplicate service IDs');
 
 const essentials = services.filter(s => s.category === 'essentials');
 assert.equal(essentials.length, 32, '32 essential services (including 13 mobility, 3 coworking, 2 marinas, and public essentials)');

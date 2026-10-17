@@ -3214,6 +3214,44 @@ const servicesData = [
     phone:'12991251628', phoneDisplay:'(12) 99125-1628'
   },
 
+  // Expansão Gastronômica — Lote 1 (SVC-FOOD-01A):
+  // Estabelecimentos consolidados com endereço físico verificado, sem imagens arbitrárias e sem recomendações automáticas.
+  {
+    id: 'pescadora-cozinha-do-mar', category: 'food', name: 'Pescadora — Cozinha do Mar',
+    baseLocation: { address: 'Av. Força Expedicionária Brasileira, 495, Santa Tereza, Ilhabela - SP', nearSpotId: 'praia-de-santa-tereza' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'],
+    presentation: 'compact', serviceType: ['restaurant'], serviceFormats: ['aLaCarte'],
+    serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'dinner'],
+    phone: '1238962650', phoneDisplay: '(12) 3896-2650', instagram: '@pescadoracozinhadomar'
+  },
+  {
+    id: 'restaurante-nova-iorqui', category: 'food', name: 'Restaurante Nova Iorqui',
+    baseLocation: { address: 'Av. Governador Mário Covas Júnior, 18322, Borrifos, Ilhabela - SP' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'],
+    presentation: 'compact', serviceType: ['restaurant', 'bar'], serviceFormats: ['aLaCarte', 'snacks'],
+    serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'afternoon'],
+    phone: '1238941833', phoneDisplay: '(12) 3894-1833', whatsapp: '12981784866',
+    instagram: '@novaiorquiilhabela', url: 'https://www.novaiorqui.com.br/'
+  },
+  {
+    id: 'espaco-tangara', category: 'food', name: 'Espaço Tangará',
+    baseLocation: { address: 'Av. Eng. Martinho Storace, 12717, Praia do Jabaquara, Ilhabela - SP', nearSpotId: 'praia-do-jabaquara' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'],
+    presentation: 'compact', serviceType: ['restaurant', 'bar'], serviceFormats: ['aLaCarte', 'snacks'],
+    serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'afternoon'],
+    phone: '12996428825', phoneDisplay: '(12) 99642-8825', whatsapp: '12996428825',
+    instagram: '@tangarailhabela', url: 'https://tangarailhabela.com.br/'
+  },
+  {
+    id: 'prainha-do-juliao', category: 'food', name: 'Prainha do Julião Bar & Restaurante',
+    baseLocation: { address: 'Av. Riachuelo, 5370, Praia do Julião, Ilhabela - SP', nearSpotId: 'praia-do-juliao' },
+    serviceArea: { scope: 'venue', modes: ['on-site'] }, activities: ['food', 'drinks'],
+    presentation: 'compact', serviceType: ['restaurant', 'bar', 'kiosk'], serviceFormats: ['aLaCarte', 'snacks'],
+    serviceSpecialties: ['seafood', 'brazilian'], serviceOccasions: ['lunch', 'afternoon'],
+    phone: '1238941867', phoneDisplay: '(12) 3894-1867', whatsapp: '12991810008',
+    instagram: '@prainhadojuliao', url: 'https://prainhadojuliao.com.br/'
+  },
+
   // Separate services; same operator group, individual commercial identities and official images.
   // Recanto de Gaya: customer prefers direct Instagram contact, not WhatsApp.
   // Address and accommodation types corroborated by the hosts' published Booking profile.
@@ -4192,6 +4230,34 @@ const serviceTranslations = {
     fr:{type:"Pizzeria",description:"Pizzeria a Pereque proposant des pizzas artisanales avec livraison et a emporter.",tags:["Pereque","Pizza","Livraison"]},
     es:{type:"Pizzeria",description:"Pizzeria en Pereque con pizzas artesanales y opciones de delivery y para llevar.",tags:["Pereque","Pizza","Delivery"]},
     he:{type:"פיצרייה",description:"פיצרייה באזור Pereque עם פיצות בעבודת יד, משלוחים ואיסוף.",tags:["Pereque","פיצה","משלוחים"]}
+  },
+  "Pescadora — Cozinha do Mar": {
+    pt: {"type":"Restaurante de frutos do mar","description":"Restaurante especializado em frutos do mar e peixes frescos com menu assinado pela chef Renata Vanzetto, à beira-mar na Praia de Santa Tereza. Atendimento presencial habitualmente por ordem de chegada; consulte disponibilidade e horários sazonais.","tags":["Santa Tereza","Frutos do mar","Cozinha autoral"]},
+    en: {"type":"Seafood restaurant","description":"Seafood and fresh fish restaurant with a menu created by chef Renata Vanzetto, set by the water at Praia de Santa Tereza. In-person seating typically operates on a walk-in basis; check seasonal hours and availability.","tags":["Santa Tereza","Seafood","Signature cuisine"]},
+    fr: {"type":"Restaurant de fruits de mer","description":"Restaurant de fruits de mer et de poissons frais signé par la cheffe Renata Vanzetto, en bord de mer à Praia de Santa Tereza. Accueil sur place généralement par ordre d’arrivée ; vérifiez les horaires saisonniers.","tags":["Santa Tereza","Fruits de mer","Cuisine d’auteur"]},
+    es: {"type":"Restaurante de mariscos","description":"Restaurante especializado en mariscos y pescados frescos con menú creado por la chef Renata Vanzetto, frente al mar en Praia de Santa Tereza. Atención presencial habitualmente por orden de llegada; consulte horarios de temporada.","tags":["Santa Tereza","Mariscos","Cocina de autor"]},
+    he: {"type":"מסעדת מאכלי ים","description":"מסעדת דגים ומאכלי ים טריים בניצוחה של השפית רנאטה ונזטו, על קו המים בחוף סנטה תרזה. הישיבה במקום מתנהלת לרוב על בסיס מקום פנוי בהגעה; מומלץ לוודא שעות פעילות עונתיות.","tags":["סנטה תרזה","מאכלי ים","מטבח שף"]}
+  },
+  "Restaurante Nova Iorqui": {
+    pt: {"type":"Restaurante e bar costeiro","description":"Tradicional restaurante e bar de costeira no extremo sul de Ilhabela, fundado em 1999 no bairro dos Borrifos. Famoso pelos pratos de frutos do mar, almoço e fim de tarde com vista panorâmica para o canal e mar aberto; consulte horários com antecedência.","tags":["Borrifos","Frutos do mar","Vista costeira"]},
+    en: {"type":"Coastal restaurant and bar","description":"Traditional coastal restaurant and bar at the southern tip of Ilhabela, operating in Borrifos since 1999. Renowned for fresh seafood dishes, lunch and afternoon coastal views; check operating hours in advance.","tags":["Borrifos","Seafood","Coastal view"]},
+    fr: {"type":"Restaurant et bar côtier","description":"Restaurant et bar côtier traditionnel à la pointe sud d’Ilhabela, établi à Borrifos depuis 1999. Réputé pour ses fruits de mer, déjeuners et fins d’après-midi face à la mer ; vérifiez les horaires à l’avance.","tags":["Borrifos","Fruits de mer","Vue côtière"]},
+    es: {"type":"Restaurante y bar costero","description":"Tradicional restaurante y bar costero en el extremo sur de Ilhabela, en el barrio de Borrifos desde 1999. Famoso por sus platos de mariscos, almuerzos y tardes frente al mar abierto; consulte horarios con anticipación.","tags":["Borrifos","Mariscos","Vista costera"]},
+    he: {"type":"מסעדה ובר על המצוק","description":"מסעדה ובר חופים מסורתיים בקצה הדרומי של איליאבלה, הפועלים ברובע בוריפוס מאז 1999. מפורסמת במנות דגים ופירות ים, ארוחות צהריים ושעות אחה״צ מול נוף פנורמי לים; מומלץ לברר שעות פעילות מראש.","tags":["בוריפוס","מאכלי ים","נוף לים"]}
+  },
+  "Espaço Tangará": {
+    pt: {"type":"Restaurante e bar de praia","description":"Complexo gastronômico pé na areia na paradisíaca Praia do Jabaquara, no extremo norte. Combina culinária mediterrânea com ingredientes caiçaras, serviço de praia e ambiente integrado à natureza.","tags":["Praia do Jabaquara","Pé na areia","Culinária caiçara"]},
+    en: {"type":"Beach restaurant and bar","description":"Beachfront dining venue on the pristine sands of Praia do Jabaquara, on the far northern coast. Blends Mediterranean flavors with local coastal ingredients, beach service and nature.","tags":["Jabaquara Beach","Beachfront","Coastal cuisine"]},
+    fr: {"type":"Restaurant et bar de plage","description":"Espace gastronomique les pieds dans le sable sur la plage préservée de Jabaquara, au nord de l’île. Alliant cuisine méditerranéenne et saveurs caiçaras, service de plage et nature.","tags":["Plage de Jabaquara","Pieds dans l’eau","Cuisine côtière"]},
+    es: {"type":"Restaurante y bar de playa","description":"Complejo gastronómico frente al mar en la playa de Jabaquara, en el extremo norte de la isla. Combina cocina mediterránea con ingredientes locales caiçaras y servicio de playa.","tags":["Playa de Jabaquara","Frente al mar","Cocina caiçara"]},
+    he: {"type":"מסעדה ובר חוף","description":"מתחם קולינרי על קו המים בחוף ז'באקווארה השמור, בצפון האי. משלב מטבח ים-תיכוני עם מרכיבים מקומיים, שירות חוף ואווירה שלווה בטבע.","tags":["חוף ז'באקווארה","על החוף","מטבח מקומי"]}
+  },
+  "Prainha do Julião Bar & Restaurante": {
+    pt: {"type":"Restaurante e quiosque de praia","description":"Estrutura completa à beira-mar na Praia do Julião, com salão panorâmico e serviço de praia. Especializado em peixes artesanais, frutos do mar da ilha, petiscos e coquetelaria praiana.","tags":["Praia do Julião","Frutos do mar","Quiosque de praia"]},
+    en: {"type":"Beach restaurant and kiosk","description":"Full-service beachfront venue on Praia do Julião, featuring a panoramic lounge and beachside service. Specializes in fresh local fish, island seafood, appetizers and refreshing cocktails.","tags":["Julião Beach","Seafood","Beach kiosk"]},
+    fr: {"type":"Restaurant et kiosque de plage","description":"Structure complète en bord de mer sur la plage do Julião, avec salon panoramique et service de plage. Spécialités de poissons locaux, fruits de mer de l’île, tapas et cocktails frais.","tags":["Plage do Julião","Fruits de mer","Kiosque de plage"]},
+    es: {"type":"Restaurante y quiosco de playa","description":"Completa estructura frente al mar en Praia do Julião, con salón panorámico y servicio de playa. Especialidad en pescados frescos artesanales, mariscos locales y coctelería.","tags":["Playa do Julião","Mariscos","Quiosco de playa"]},
+    he: {"type":"מסעדה וקיוסק חוף","description":"מתחם חוף מלא על קו המים בחוף ז'וליאו, עם טרקלין פנורמי ושירות חוף. מתמחה בדגים טריים, פירות ים מקומיים, מנות שיתוף וקוקטיילים מרעננים.","tags":["חוף ז'וליאו","מאכלי ים","קיוסק חוף"]}
   },
 };
 

@@ -15,8 +15,8 @@ const cases=[
  ['floresta-bar','food','assets/images/floresta-bar_oficial.webp'],
  ['aula-yoga-hostel-da-vila','experience','assets/images/aula-yoga-hostel-da-vila_oficial.webp']
 ];
-assert.equal(services.length,120,'115 previous services plus five verified mobility additions');
-assert.equal(new Set(services.map(s=>s.id)).size,120,'service IDs must remain unique');
+assert.equal(services.length,124,'120 previous services plus four verified food additions');
+assert.equal(new Set(services.map(s=>s.id)).size,124,'service IDs must remain unique');
 assert(!services.some(s=>s.id==='ruda-destinos' || s.name==='Rudá Destinos'),'Rudá Destinos must be removed');
 for(const [id,category,image] of cases){
   const row=services.find(s=>s.id===id);
