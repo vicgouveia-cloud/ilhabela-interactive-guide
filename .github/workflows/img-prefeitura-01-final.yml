@@ -1,0 +1,31 @@
+name: IMG-PREFEITURA-01 final browser verification
+on:
+  push:
+    branches:
+      - feat/img-prefeitura-01-3praias
+    paths:
+      - .github/workflows/img-prefeitura-01-final.yml
+permissions:
+  contents: read
+jobs:
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts
+      - run: npx playwright install --with-deps chromium
+      - name: Validate photo assets, attribution and canonical across 3 widths and 5 languages
+        run: npx playwright test tests/img-prefeitura-01-browser.spec.cjs --trace=off --workers=2
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: img-prefeitura-01-browser-final-report
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore

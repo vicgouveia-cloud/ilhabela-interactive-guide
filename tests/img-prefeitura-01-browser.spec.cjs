@@ -17,13 +17,13 @@ for (const width of [320,390,1440]) for (const lang of ['pt','en','es','fr','he'
       await expect(cardImage).toHaveAttribute('src',`assets/images/${file}`);
       await cardImage.scrollIntoViewIfNeeded();
       await cardImage.evaluate(img=>img.decode());
-      const caption=await page.evaluate(id=>touristSpots.find(s=>s.id===id).photoCaption[currentLang],id);
-      await expect(cardImage).toHaveAttribute('alt',caption);
+      const title=await page.evaluate(id=>getSpotTranslation(touristSpots.find(s=>s.id===id)).title,id);
+      await expect(cardImage).toHaveAttribute('alt',title);
       await page.evaluate(id=>openSpotModal(id),id);
       const img=page.locator('#modal-main-img');
       await expect(img).toHaveAttribute('src',`assets/images/${file}`);
       await img.evaluate(img=>img.decode());
-      await expect(img).toHaveAttribute('alt',caption);
+      await expect(img).toHaveAttribute('alt',title);
       await expect(page.locator('#modal-photo-credit')).toContainText('Prefeitura de Ilhabela · Sectur Ilhabela');
       await expect(page.locator('#modal-photo-license')).toBeHidden();
       await page.evaluate(()=>closeSpotModal());
