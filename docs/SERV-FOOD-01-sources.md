@@ -13,8 +13,10 @@ Ampliar o diretório de **Comer e Beber** (`category: 'food'`) com quatro estabe
 - **Atração de Referência:** `praia-de-santa-tereza` (em frente à praia).
 - **Proposta Gastronômica:** Restaurante especializado em peixes frescos e frutos do mar com cardápio autoral assinado pela chef Renata Vanzetto.
 - **Forma de Atendimento:** Atendimento presencial habitualmente por ordem de chegada; consulte disponibilidade e horários sazonais antes da visita.
-- **Canais Oficiais:**
-  - *Telefone:* (12) 3896-2650 (Restaurante) / (12) 3896-1595 (Escritório).
+- **Canais Oficiais e Conciliação Telefônica:**
+  - *Telefone do Restaurante:* (12) 3896-2650 (divulgado diretamente na bio oficial do Instagram @pescadoracozinhadomar e confirmado como canal de atendimento presencial).
+  - *Telefone do Escritório:* (12) 3896-1595 (canal corporativo/administrativo divulgado pelo estabelecimento).
+  - *Telefone Secundário / Diretórios Locais:* (12) 3896-5874 (registrado na Associação Comercial e Empresarial de Ilhabela - ACEI e guias locais; linha alternativa/legada do imóvel, priorizando-se o contato primário ativo divulgado pelo restaurante).
   - *Instagram Oficial:* [@pescadoracozinhadomar](https://www.instagram.com/pescadoracozinhadomar/).
 - **Classificação:** `serviceType: ['restaurant']`, `serviceFormats: ['aLaCarte']`, `serviceSpecialties: ['seafood', 'brazilian']`, `serviceOccasions: ['lunch', 'dinner']`.
 - **Ações:** Instagram, Telefone, Google Maps.
@@ -24,7 +26,7 @@ Ampliar o diretório de **Comer e Beber** (`category: 'food'`) com quatro estabe
 - **Endereço Físico:** Av. Governador Mário Covas Júnior, 18322 – Borrifos / Porto dos Frades, Ilhabela - SP.
 - **Atração de Referência:** Nenhuma atração isolada imediata; preserva seu endereço real na via costeira sul sem vincular proxy artificial.
 - **Proposta Gastronômica:** Tradicional restaurante e bar costeiro em funcionamento desde 1999, famoso pelos pratos de frutos do mar e vista panorâmica para o mar aberto e canal.
-- **Horário de Atendimento:** Diariamente, das 12h às 18h (almoço e fim de tarde na costeira; não opera com atendimento noturno regular).
+- **Horário de Atendimento e Consulta Prévia:** Operação focada em almoço e entardecer na costeira, sem atendimento noturno regular. Como as fontes públicas e diretórios divergem quanto ao horário exato de encerramento (variando entre 17h, 18h e o pôr do sol, além de alterações na baixa e alta temporada), orienta-se expressamente a consulta prévia por telefone ou redes sociais antes do deslocamento ao extremo sul da ilha.
 - **Canais Oficiais:**
   - *Telefone:* (12) 3894-1833.
   - *WhatsApp:* (12) 98178-4866.
