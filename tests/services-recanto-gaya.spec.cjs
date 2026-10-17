@@ -36,6 +36,7 @@ for(const lang of Object.keys(languages))for(const width of [320,390,1440]){
    await expect(links.nth(1)).toContainText('Google Maps');
    await expect(recanto.locator('a[href^="https://wa.me/"]')).toHaveCount(0);
    await expect(recanto.locator('a[href^="tel:"]')).toHaveCount(0);
-   await expect(recanto).toContainText('Perequê');
+   const address=await page.evaluate(()=>servicesData.find(s=>s.id==='recanto-de-gaya').baseLocation.address);
+   expect(address).toContain('Perequê');
  });
 }
