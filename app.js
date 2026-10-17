@@ -1140,7 +1140,8 @@ function getServiceCategoryLabel(category) {
     food: 'servicesFood',
     stay: 'servicesStay',
     experience: 'servicesExperiences',
-    essentials: 'servicesPractical'
+    essentials: 'servicesPractical',
+    mobility: 'servicesMobility'
   };
   return t(keys[category] || 'servicesAll');
 }

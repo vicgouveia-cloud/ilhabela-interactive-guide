@@ -54,17 +54,22 @@
       stayType: { pt: 'Tipo de hospedagem', en: 'Accommodation type', fr: 'Type d’hébergement', es: 'Tipo de alojamiento', he: 'סוג לינה' },
       experienceType: { pt: 'Tipo de experiência', en: 'Experience type', fr: 'Type d’expérience', es: 'Tipo de experiencia', he: 'סוג חוויה' },
       all: { pt: 'Todos', en: 'All', fr: 'Tous', es: 'Todos', he: 'הכול' },
+      health: { pt: 'Saúde e emergência', en: 'Health & emergency', fr: 'Santé et urgences', es: 'Salud y emergencias', he: 'בריאות וחירום' },
+      coworking: { pt: 'Coworking', en: 'Coworking', fr: 'Coworking', es: 'Coworking', he: 'חלל עבודה משותף' },
+      laundry: { pt: 'Lavanderias', en: 'Laundromats', fr: 'Laveries', es: 'Lavanderías', he: 'מכבסות' },
+      nauticalSupport: { pt: 'Apoio náutico e marinas', en: 'Nautical support & marinas', fr: 'Services nautiques et marinas', es: 'Apoyo náutico y marinas', he: 'שירותים ימיים ומרינות' },
+      supermarket: { pt: 'Supermercados e conveniência', en: 'Supermarkets & convenience', fr: 'Supermarchés et commerces', es: 'Supermercados y conveniencia', he: 'סופרמרקטים וחנויות נוחות' },
+      touristInfo: { pt: 'Informações turísticas', en: 'Tourist information', fr: 'Informations touristiques', es: 'Información turística', he: 'מידע תיירותי' },
+      equipmentRental: { pt: 'Aluguel de equipamentos', en: 'Equipment rental', fr: 'Location d’équipements', es: 'Alquiler de equipos', he: 'השכרת ציוד' },
       transfer: { pt: 'Transfer / receptivo', en: 'Transfer / reception', fr: 'Transfert / accueil', es: 'Traslado / receptivo', he: 'הסעות / קבלה' },
       boatTour: { pt: 'Passeios de barco', en: 'Boat tours', fr: 'Excursions en bateau', es: 'Paseos en barco', he: 'סיורי סירה' },
       fourByFour: { pt: 'Passeios 4x4', en: '4x4 tours', fr: 'Excursions 4x4', es: 'Paseos 4x4', he: 'סיורי 4x4' },
       guidedHiking: { pt: 'Trilhas guiadas', en: 'Guided hikes', fr: 'Randonnées guidées', es: 'Senderismo guiado', he: 'טיולים רגליים מודרכים' },
       carRental: { pt: 'Aluguel de veículos', en: 'Vehicle rental', fr: 'Location de véhicules', es: 'Alquiler de vehículos', he: 'השכרת רכב' },
       bikeRental: { pt: 'Aluguel de bicicleta', en: 'Bike rental', fr: 'Location de vélo', es: 'Alquiler de bicicleta', he: 'השכרת אופניים' },
-      nauticalSupport: { pt: 'Apoio náutico', en: 'Nautical support', fr: 'Services nautiques', es: 'Apoyo náutico', he: 'שירותים ימיים' },
       marina: { pt: 'Marina', en: 'Marina', fr: 'Marina', es: 'Marina', he: 'מרינה' },
-      coworking: { pt: 'Coworking', en: 'Coworking', fr: 'Coworking', es: 'Coworking', he: 'חלל עבודה משותף' },
       mobility: { pt: 'Mobilidade e Transportes', en: 'Mobility and Transport', fr: 'Mobilité et Transports', es: 'Movilidad y Transportes', he: 'תחבורה והתניידות' },
-      mobilityModality: { pt: 'Modalidade', en: 'Transport mode', fr: 'Mode de transport', es: 'Modalidad de transporte', he: 'אופן תחבורה' },
+      mobilityModality: { pt: 'Modalidade de transporte', en: 'Transport mode', fr: 'Mode de transport', es: 'Modalidad de transporte', he: 'אופן תחבורה' },
       allTransport: { pt: 'Todos os transportes', en: 'All transport', fr: 'Tous les transports', es: 'Todos los transportes', he: 'כל אמצעי התחבורה' },
       taxiModal: { pt: 'Táxis', en: 'Taxis', fr: 'Taxis', es: 'Taxis', he: 'מוניות' },
       busModal: { pt: 'Ônibus', en: 'Bus', fr: 'Bus', es: 'Autobús', he: 'אוטובוס' },
@@ -96,14 +101,7 @@
       });
       return;
     }
-    if (category === 'essentials') {
-      const practicalOptions = [
-        ['all', dl('all')],
-        ['mobility', dl('mobility')],
-        ['coworking', dl('coworking')],
-        ['nautical-support', dl('nauticalSupport')],
-        ['marina', dl('marina')]
-      ];
+    if (category === 'mobility') {
       const mobilityOptions = [
         ['all', dl('allTransport')],
         ['taxi', dl('taxiModal')],
@@ -115,29 +113,31 @@
         ['transfer', dl('transferModal')],
         ['app-transport', dl('appTransportModal')]
       ];
+      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('mobilityModality')}</span><select id="services-mobility-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${mobilityOptions.map(([id, label]) => `<option value="${id}"${id === mobilityFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
+      document.getElementById('services-mobility-filter')?.addEventListener('change', event => {
+        mobilityFilter = event.target.value;
+        window.renderServicesPage();
+      });
+      return;
+    }
+    if (category === 'essentials') {
+      const practicalOptions = [
+        ['all', dl('all')],
+        ['health', dl('health')],
+        ['coworking', dl('coworking')],
+        ['laundry', dl('laundry')],
+        ['nautical', dl('nauticalSupport')],
+        ['supermarket', dl('supermarket')],
+        ['tourist-info', dl('touristInfo')],
+        ['equipment', dl('equipmentRental')]
+      ];
 
-      let practicalHtml = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
-
-      if (practicalFilter === 'mobility') {
-        practicalHtml += `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('mobilityModality')}</span><select id="services-mobility-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${mobilityOptions.map(([id, label]) => `<option value="${id}"${id === mobilityFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
-      }
-
-      foodFilters.innerHTML = practicalHtml;
+      foodFilters.innerHTML = `<label class="flex flex-col gap-1 text-[11px] font-bold text-on-surface-variant"><span>${dl('practicalType')}</span><select id="services-practical-filter" class="min-h-10 px-3 rounded-xl border border-black/10 bg-surface text-xs font-bold text-primary">${practicalOptions.map(([id, label]) => `<option value="${id}"${id === practicalFilter ? ' selected' : ''}>${label}</option>`).join('')}</select></label>`;
 
       document.getElementById('services-practical-filter')?.addEventListener('change', event => {
         practicalFilter = event.target.value;
-        if (practicalFilter !== 'mobility') {
-          mobilityFilter = 'all';
-        }
         window.renderServicesPage();
       });
-
-      if (practicalFilter === 'mobility') {
-        document.getElementById('services-mobility-filter')?.addEventListener('change', event => {
-          mobilityFilter = event.target.value;
-          window.renderServicesPage();
-        });
-      }
       return;
     }
     if (category === 'stay' || category === 'experience') {
@@ -259,7 +259,9 @@
   };
 
   window.renderServicesPage = function renderServicesPage() {
-    const categories = ['all', ...new Set(servicesData.map(service => service.category))];
+    const categoryOrder = ['all', 'food', 'tour', 'stay', 'mobility', 'essentials', 'experience', 'diving'];
+    const availableCategories = new Set(servicesData.map(service => service.category));
+    const categories = ['all', ...categoryOrder.filter(c => c !== 'all' && availableCategories.has(c)), ...[...availableCategories].filter(c => !categoryOrder.includes(c))];
     const categoryLabels = {
       prompt: { pt: 'O que você procura?', en: 'What are you looking for?', fr: 'Que recherchez-vous ?', es: '¿Qué estás buscando?', he: 'מה אתם מחפשים?' },
       refinements: { pt: 'Refine sua busca', en: 'Refine your search', fr: 'Affinez votre recherche', es: 'Refina tu búsqueda', he: 'סינון נוסף' },
@@ -282,6 +284,8 @@
       category = nextCategory;
       if (category !== 'essentials') {
         practicalFilter = 'all';
+      }
+      if (category !== 'mobility') {
         mobilityFilter = 'all';
       }
       if (category !== 'tour') tourFilter = 'all';
@@ -292,7 +296,7 @@
 
     renderFoodFilters();
     const refinementWrap = document.getElementById('services-refinement-wrap');
-    const hasRefinements = ['food', 'tour', 'essentials', 'stay', 'experience'].includes(category);
+    const hasRefinements = ['food', 'tour', 'mobility', 'essentials', 'stay', 'experience'].includes(category);
     refinementWrap?.classList.toggle('hidden', !hasRefinements);
     renderDistanceLabels();
     updateNearbyButton();
@@ -311,27 +315,40 @@
     rows = rows.filter(row => matchesFoodFilters(row.service));
     if (category === 'stay' && stayFilter !== 'all') rows = rows.filter(row => row.service.stayType === stayFilter);
     if (category === 'experience' && experienceFilter !== 'all') rows = rows.filter(row => row.service.experienceType === experienceFilter);
-    const mobilityActivities = ['car-rental', 'bike-rental', 'taxi-point', 'public-transport', 'ferry', 'transfer', 'app-transport', 'island-access', 'water-transport', 'bus', 'motorcycle-rental', 'airport-transfer', 'private-transfer'];
+    if (category === 'mobility' && mobilityFilter !== 'all') {
+      if (mobilityFilter === 'taxi') {
+        rows = rows.filter(row => (row.service.activities || []).includes('taxi-point') || row.service.practicalType === 'taxi-point');
+      } else if (mobilityFilter === 'bus') {
+        rows = rows.filter(row => (row.service.activities || []).includes('bus'));
+      } else if (mobilityFilter === 'ferry') {
+        rows = rows.filter(row => (row.service.activities || []).includes('ferry'));
+      } else if (mobilityFilter === 'aquabus') {
+        rows = rows.filter(row => (row.service.activities || []).includes('water-transport'));
+      } else if (mobilityFilter === 'car-rental') {
+        rows = rows.filter(row => (row.service.activities || []).includes('car-rental') || row.service.practicalType === 'car-rental');
+      } else if (mobilityFilter === 'bike-rental') {
+        rows = rows.filter(row => (row.service.activities || []).includes('bike-rental'));
+      } else if (mobilityFilter === 'transfer') {
+        rows = rows.filter(row => (row.service.activities || []).some(act => ['transfer', 'airport-transfer', 'private-transfer'].includes(act)) || row.service.practicalType === 'transfer');
+      } else if (mobilityFilter === 'app-transport') {
+        rows = rows.filter(row => (row.service.activities || []).includes('app-transport') || row.service.practicalType === 'app-transport');
+      }
+    }
     if (category === 'essentials' && practicalFilter !== 'all') {
-      if (practicalFilter === 'mobility') {
-        rows = rows.filter(row => (row.service.activities || []).some(act => mobilityActivities.includes(act)));
-        if (mobilityFilter === 'taxi') {
-          rows = rows.filter(row => (row.service.activities || []).includes('taxi-point'));
-        } else if (mobilityFilter === 'bus') {
-          rows = rows.filter(row => (row.service.activities || []).includes('bus'));
-        } else if (mobilityFilter === 'ferry') {
-          rows = rows.filter(row => (row.service.activities || []).includes('ferry'));
-        } else if (mobilityFilter === 'aquabus') {
-          rows = rows.filter(row => (row.service.activities || []).includes('water-transport'));
-        } else if (mobilityFilter === 'car-rental') {
-          rows = rows.filter(row => (row.service.activities || []).includes('car-rental'));
-        } else if (mobilityFilter === 'bike-rental') {
-          rows = rows.filter(row => (row.service.activities || []).includes('bike-rental'));
-        } else if (mobilityFilter === 'transfer') {
-          rows = rows.filter(row => (row.service.activities || []).some(act => ['transfer', 'airport-transfer', 'private-transfer'].includes(act)));
-        } else if (mobilityFilter === 'app-transport') {
-          rows = rows.filter(row => (row.service.activities || []).includes('app-transport'));
-        }
+      if (practicalFilter === 'health') {
+        rows = rows.filter(row => (row.service.activities || []).some(act => ['hospital', 'emergency-care', 'pharmacy', 'public-health'].includes(act)));
+      } else if (practicalFilter === 'coworking') {
+        rows = rows.filter(row => (row.service.activities || []).includes('coworking'));
+      } else if (practicalFilter === 'laundry') {
+        rows = rows.filter(row => (row.service.activities || []).includes('laundry'));
+      } else if (practicalFilter === 'nautical' || practicalFilter === 'nautical-support' || practicalFilter === 'marina') {
+        rows = rows.filter(row => (row.service.activities || []).some(act => ['nautical-support', 'marina'].includes(act)));
+      } else if (practicalFilter === 'supermarket' || practicalFilter === 'groceries') {
+        rows = rows.filter(row => (row.service.activities || []).some(act => ['groceries', 'supermarket', 'beverages', 'liquor-store', 'convenience'].includes(act)));
+      } else if (practicalFilter === 'tourist-info' || practicalFilter === 'tourist-information') {
+        rows = rows.filter(row => (row.service.activities || []).some(act => ['tourist-information', 'visitor-support'].includes(act)));
+      } else if (practicalFilter === 'equipment' || practicalFilter === 'equipment-rental') {
+        rows = rows.filter(row => (row.service.activities || []).includes('equipment-rental'));
       } else {
         rows = rows.filter(row => (row.service.activities || []).includes(practicalFilter));
       }
@@ -418,7 +435,8 @@
       const details = (tr.features || tr.tags || []).length
         ? (tr.features || tr.tags || [])
         : (service.activities || []).map(activity => activityLabels[activity]?.[currentLang]).filter(Boolean);
-      const image = service.image ? `<img src="/${service.image.replace(/^\//, '')}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : `<div class="w-full h-full flex items-center justify-center bg-surface-container/70"><span class="material-symbols-outlined text-primary/35 text-5xl">${service.category === 'food' ? 'restaurant' : 'storefront'}</span></div>`;
+      const fallbackIcon = service.category === 'food' ? 'restaurant' : (service.category === 'mobility' ? 'directions_car' : 'storefront');
+      const image = service.image ? `<img src="/${service.image.replace(/^\//, '')}" alt="${service.name}" class="w-full h-full object-cover" loading="lazy" decoding="async">` : `<div class="w-full h-full flex items-center justify-center bg-surface-container/70"><span class="material-symbols-outlined text-primary/35 text-5xl">${fallbackIcon}</span></div>`;
       // Stable action hierarchy: website, social media, messaging, phone, directions.
       const actionBase = 'h-11 min-w-0 px-2 rounded-xl border border-black/10 text-primary text-[11px] sm:text-xs font-bold flex items-center justify-center gap-1.5 overflow-hidden';
       const actionIcon = symbol => `<span aria-hidden="true" class="material-symbols-outlined text-[16px] shrink-0">${symbol}</span>`;
@@ -430,9 +448,13 @@
       const facebook = facebookUrl ? `<a href="${facebookUrl}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('public')}${actionText('Facebook')}</a>` : '';
       const whatsapp = service.whatsapp ? `<a href="https://wa.me/55${service.whatsapp}?text=${encodeURIComponent(t('localWhatsappMessage'))}" target="_blank" rel="noopener noreferrer" class="${actionBase} bg-[#25D366] text-white border-transparent">${actionIcon('chat')}${actionText('WhatsApp')}</a>` : '';
       const phone = service.phone ? `<a href="tel:+55${service.phone}" dir="ltr" class="${actionBase}" title="${service.phoneDisplay || service.phone}">${actionIcon('call')}<span class="truncate" dir="ltr"><bdi>${service.phoneDisplay || service.phone}</bdi></span></a>` : '';
-      const hasPhysicalLocation = !['transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela', 'onibus-municipal-expresso-fenix', 'aquabus-ilhabela', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila'].includes(service.id);
+      const appIos = service.appIos ? `<a href="${service.appIos}" target="_blank" rel="noopener noreferrer" class="${actionBase}" title="Fast Go Drive Passageiro — iPhone">${actionIcon('phone_iphone')}${actionText('iPhone')}</a>` : '';
+      const appAndroid = service.appAndroid ? `<a href="${service.appAndroid}" target="_blank" rel="noopener noreferrer" class="${actionBase}" title="Fast Go Drive Passageiro — Android">${actionIcon('phone_android')}${actionText('Android')}</a>` : '';
+      const hasPhysicalLocation = !['fast-go-drive', 'transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela', 'onibus-municipal-expresso-fenix', 'aquabus-ilhabela', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila'].includes(service.id);
       const maps = hasPhysicalLocation ? `<a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('map')}${actionText('Google Maps')}</a>` : '';
-      const serviceActions = `${website}${instagram}${facebook}${whatsapp}${phone}${maps}`;
+      const serviceActions = service.id === 'fast-go-drive'
+        ? `${website}${whatsapp}${appIos}${appAndroid}`
+        : `${website}${instagram}${facebook}${whatsapp}${phone}${appIos}${appAndroid}${maps}`;
       const recommendedLabel = { pt:'Recomendado', en:'Recommended', fr:'Recommandé', es:'Recomendado', he:'מומלץ' }[currentLang] || 'Recomendado';
       const recommendedBadge = service.recommended ? `<span class="absolute top-3 right-3 px-2.5 py-1 rounded-full bg-white/95 border border-secondary/30 text-[10px] font-extrabold text-secondary">${recommendedLabel}</span>` : '';
       const featured = service.presentation === 'featured';
