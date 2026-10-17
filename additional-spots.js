@@ -2466,7 +2466,9 @@ const servicesData = [
     activities: ['car-rental'],
     presentation: 'compact',
     phone: '1233077077',
-    phoneDisplay: '(12) 3307-7077'
+    phoneDisplay: '(12) 3307-7077',
+    whatsapp: '1233077077',
+    url: 'https://www.novaaluguel.com.br/'
   },
   {
     id: 'easy-aluguel-de-bike',
@@ -3286,10 +3288,92 @@ const servicesData = [
     url: 'https://reservailhabela.com.br/'
   },
 
+  // Mobilidade e Transportes batch: verified commercial rentals, official taxi stands and public transit info.
+  // Preserved under category 'essentials', clean presentation, without unauthorized photos or automatic recommendation.
+  {
+    id: 'jesse-locadora-veiculos', category: 'essentials', name: 'Jessé Locadora de Carros e Motos',
+    practicalType: 'car-rental',
+    baseLocation: { address: 'Av. Princesa Isabel, 2756, Barra Velha, Ilhabela - SP', nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['car-rental', 'motorcycle-rental'], presentation: 'compact',
+    phone: '12997368387', phoneDisplay: '(12) 99736-8387', whatsapp: '12997368387',
+    url: 'https://jesselocadora.com.br/'
+  },
+  {
+    id: 'ponto-de-taxi-balsa', category: 'essentials', name: 'Ponto de Táxi — Balsa (Barra Velha)',
+    practicalType: 'taxi-point',
+    baseLocation: { address: 'Terminal da Balsa, Av. Princesa Isabel, s/n, Barra Velha, Ilhabela - SP', nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
+    activities: ['taxi-point'], presentation: 'compact',
+    phone: '1238958222', phoneDisplay: '(12) 3895-8222',
+    url: 'https://www.ilhabela.sp.gov.br/'
+  },
+  {
+    id: 'ponto-de-taxi-vila', category: 'essentials', name: 'Ponto de Táxi — Vila (Centro Histórico)',
+    practicalType: 'taxi-point',
+    baseLocation: { address: 'Praça Coronel Julião, s/n, Centro Histórico, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
+    serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
+    activities: ['taxi-point'], presentation: 'compact',
+    phone: '1238965000', phoneDisplay: '(12) 3896-5000',
+    url: 'https://www.ilhabela.sp.gov.br/'
+  },
+  {
+    id: 'transporte-por-aplicativo-info', category: 'essentials', name: 'Transporte por Aplicativo — Orientações',
+    practicalType: 'app-transport',
+    baseLocation: { address: 'Circulação insular, Ilhabela - SP', nearSpotId: 'centro-historico-vila' },
+    serviceArea: { scope: 'island-route', modes: ['road'], verifiedModes: [] },
+    activities: ['app-transport'], presentation: 'compact',
+    url: 'https://www.ilhabela.sp.gov.br/'
+  },
+  {
+    id: 'transfer-executivo-gru-ilhabela', category: 'essentials', name: 'Transfer Executivo — Aeroportos e Litoral',
+    practicalType: 'transfer',
+    baseLocation: { address: 'Atendimento São Paulo / Aeroportos ↔ Ilhabela', nearSpotId: 'praia-do-pereque' },
+    serviceArea: { scope: 'intercity-route', modes: ['road'], verifiedModes: [] },
+    activities: ['transfer', 'airport-transfer', 'private-transfer'], presentation: 'compact',
+    phone: '11916947035', phoneDisplay: '(11) 91694-7035', whatsapp: '11916947035',
+    url: 'https://www.transferexecutivo.com.br/'
+  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Jessé Locadora de Carros e Motos": {
+    pt: {"type":"Locadora de veículos","description":"Locação de carros e motos com base em Barra Velha, próximo à balsa. Opções práticas para quem visita Ilhabela e deseja autonomia para circular pela ilha.","tags":["Barra Velha","Aluguel de carros","Aluguel de motos"]},
+    en: {"type":"Vehicle rental","description":"Car and motorcycle rental based in Barra Velha, near the ferry terminal. Practical transport options for independent travel in Ilhabela.","tags":["Barra Velha","Car rental","Motorcycle rental"]},
+    fr: {"type":"Location de véhicules","description":"Location de voitures et de motos à Barra Velha, près du débarcadère du ferry. Solutions pratiques pour visiter l’île en toute autonomie.","tags":["Barra Velha","Location de voitures","Location de motos"]},
+    es: {"type":"Alquiler de vehículos","description":"Alquiler de autos y motos con base en Barra Velha, cerca de la balsa. Opciones prácticas para recorrer Ilhabela con autonomía.","tags":["Barra Velha","Alquiler de autos","Alquiler de motos"]},
+    he: {"type":"השכרת רכב ואופנועים","description":"השכרת רכבים ואופנועים בבארה וליה, בסמוך למעבורת. אפשרויות נוחות להתניידות עצמאית ברחבי איליאבלה.","tags":["בארה וליה","השכרת רכב","השכרת אופנועים"]}
+  },
+  "Ponto de Táxi — Balsa (Barra Velha)": {
+    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial de táxis localizado na saída do desembarque da balsa em Barra Velha. Corridas locais e transfers pela ilha operando com taxímetro homologado.","tags":["Terminal da Balsa","Barra Velha","Táxi oficial"]},
+    en: {"type":"Official taxi stand","description":"Official taxi stand located at the ferry arrival exit in Barra Velha. Local rides and transfers across the island with metered fares.","tags":["Ferry terminal","Barra Velha","Official taxi"]},
+    fr: {"type":"Station de taxis officielle","description":"Station officielle de taxis située à la sortie du ferry à Barra Velha. Courses locales et transferts sur l’île avec compteur homologué.","tags":["Terminal du ferry","Barra Velha","Taxi officiel"]},
+    es: {"type":"Parada oficial de taxis","description":"Parada oficial de taxis ubicada a la salida del desembarque de la balsa en Barra Velha. Viajes locales y traslados con taxímetro homologado.","tags":["Terminal de balsa","Barra Velha","Taxi oficial"]},
+    he: {"type":"תחנת מוניות רשמית","description":"תחנת מוניות רשמית ביציאה ממסוף המעבורת בבארה וליה. נסיעות מקומיות והסעות עם מונה מאושר.","tags":["מסוף המעבורת","בארה וליה","מונית רשמית"]}
+  },
+  "Ponto de Táxi — Vila (Centro Histórico)": {
+    pt: {"type":"Ponto de táxi oficial","description":"Ponto oficial de táxis na Praça Coronel Julião, no Centro Histórico (Vila). Atendimento para a região norte, praias, hotéis e centro gastronômico.","tags":["Centro Histórico","Vila","Táxi oficial"]},
+    en: {"type":"Official taxi stand","description":"Official taxi stand at Praça Coronel Julião in the historic center (Vila). Service for northern beaches, hotels and dining areas.","tags":["Historic center","Vila","Official taxi"]},
+    fr: {"type":"Station de taxis officielle","description":"Station officielle de taxis sur la place Coronel Julião, au centre historique (Vila). Dessertes vers le nord, hôtels et restaurants.","tags":["Centre historique","Vila","Taxi officiel"]},
+    es: {"type":"Parada oficial de taxis","description":"Parada oficial de taxis en la Praça Coronel Julião, en el centro histórico (Vila). Servicio hacia el norte, playas, hoteles y restaurantes.","tags":["Centro histórico","Vila","Taxi oficial"]},
+    he: {"type":"תחנת מוניות רשמית","description":"תחנת מוניות רשמית בכיכר קורונל ז'וליאו במרכז ההיסטורי (וילה). שירות לחופי הצפון, למלונות ולמסעדות.","tags":["המרכז ההיסטורי","וילה","מונית רשמית"]}
+  },
+  "Transporte por Aplicativo — Orientações": {
+    pt: {"type":"Utilidade pública","description":"A oferta de motoristas por aplicativos (Uber e 99) em Ilhabela é reduzida e instável. Não confie neles como único meio de retorno de praias distantes; prefira táxis oficiais ou ônibus municipais.","tags":["Utilidade pública","Mobilidade urbana","Aviso importante"]},
+    en: {"type":"Public utility","description":"Ride-hailing availability (Uber and 99) in Ilhabela is limited and irregular. Do not rely on them as your sole way back from remote beaches; prefer official taxis or municipal buses.","tags":["Public utility","Urban mobility","Important notice"]},
+    fr: {"type":"Utilité publique","description":"La disponibilité des VTC (Uber et 99) à Ilhabela est limitée et irrégulière. Ne comptez pas uniquement sur eux pour rentrer des plages éloignées; privilégiez les taxis officiels ou les bus.","tags":["Utilité publique","Mobilité urbaine","Avis important"]},
+    es: {"type":"Utilidad pública","description":"La disponibilidad de transporte por aplicación (Uber y 99) en Ilhabela es reducida e irregular. No dependas de ellos como único medio para volver de playas alejadas; opta por taxis oficiales o autobuses.","tags":["Utilidad pública","Movilidad urbana","Aviso importante"]},
+    he: {"type":"מידע לתועלת הציבור","description":"הזמינות של אפליקציות נסיעה (Uber ו-99) באיליאבלה מוגבלת ולא סדירה. אין להסתמך עליהן בלעדית לחזרה מחופים מרוחקים; מומלץ להיעזר במוניות רשמיות או באוטובוסים עירוניים.","tags":["שירות לציבור","תחבורה עירונית","הודעה חשובה"]}
+  },
+  "Transfer Executivo — Aeroportos e Litoral": {
+    pt: {"type":"Transfer executivo","description":"Serviço funcional de translado privativo e executivo entre os aeroportos de São Paulo (Guarulhos e Congonhas) e Ilhabela, com agendamento prévio e veículos climatizados.","tags":["Aeroporto Guarulhos","Transfer privativo","Agendamento"]},
+    en: {"type":"Executive transfer","description":"Dedicated private and executive transfer service connecting São Paulo airports (GRU and CGH) to Ilhabela, with advance booking and air-conditioned vehicles.","tags":["Guarulhos Airport","Private transfer","Advance booking"]},
+    fr: {"type":"Transfert exécutif","description":"Service de transfert privé dédié reliant les aéroports de São Paulo (GRU et CGH) à Ilhabela, sur réservation avec véhicules climatisés.","tags":["Aéroport Guarulhos","Transfert privé","Réservation"]},
+    es: {"type":"Traslado ejecutivo","description":"Servicio funcional de traslado privado y ejecutivo entre los aeropuertos de São Paulo (GRU y CGH) e Ilhabela, con reserva previa y vehículos climatizados.","tags":["Aeropuerto Guarulhos","Traslado privado","Reserva previa"]},
+    he: {"type":"הסעות מנהלים","description":"שירות הסעות פרטי בין נמלי התעופה של סאו פאולו (גוארוליוס וקונגונייס) לאיליאבלה, בהזמנה מראש וברכבים ממוזגים.","tags":["נמל תעופה גוארוליוס", "הסעה פרטית", "הזמנה מראש"]}
+  },
   "Vila Hub": {
     pt: {"type":"Coworking","description":"Espaço de trabalho compartilhado do Hostel da Vila, no Centro Histórico, com estações de trabalho e opções de uso recorrente. Consulte os planos atuais no site.","tags":["Centro Histórico","Coworking","Estações de trabalho"]},
     en: {"type":"Coworking","description":"Shared workspace at Hostel da Vila in the historic center, offering workstations and recurring plans. Check current plans on the official website.","tags":["Historic center","Coworking","Workstations"]},
