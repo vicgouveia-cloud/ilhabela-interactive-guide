@@ -4,7 +4,9 @@ const crypto = require('node:crypto');
 const { chromium } = require(path.join(__dirname, '..', 'node_modules', 'playwright'));
 
 const ROOT = path.resolve(__dirname, '..');
-const SCRATCH = 'C:/Users/victo/.gemini/antigravity/brain/eaef6853-9f14-4135-8bb9-86f250989bb9/scratch';
+// Place original source JPEGs in .tmp/img03-sources, or point IMG03_SOURCE_DIR to a folder containing the source files.
+// The verified source URLs and SHA-256 hashes remain recorded in docs/IMG-03-provenance.md.
+const SCRATCH = path.resolve(process.env.IMG03_SOURCE_DIR || path.join(ROOT, '.tmp', 'img03-sources'));
 
 const items = [
   {
