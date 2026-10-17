@@ -43,7 +43,7 @@ assert.deepEqual(Array.from(bar.serviceType),['bar']);
 assert(bar.featured && bar.recommended && bar.presentation==='compact','Floresta Bar remains recommended without enlarged card');
 assert.equal(yoga.experienceType,'wellness');
 assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&['diving','tour'].includes(s.category)),'pending tours or diving added');
-assert(!services.some(s=>s.operatorGroupId==='grupo-hostel-da-vila'&&(s.activities||[]).includes('coworking')),'coworking not approved in this lot');
+assert(!services.some(s=>['hostel-da-vila','floresta-bar','aula-yoga-hostel-da-vila'].includes(s.id)&&(s.activities||[]).includes('coworking')),'existing service records must not be reclassified as coworking');
 const recanto=services.find(s=>s.id==='recanto-de-gaya');
 assert(recanto,'Recanto de Gaya missing');
 assert.equal(recanto.category,'stay');
