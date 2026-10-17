@@ -1,0 +1,120 @@
+name: IMG-PREFEITURA-01 import three municipality beach photographs
+on:
+  push:
+    branches:
+      - feat/img-prefeitura-01-3praias
+    paths:
+      - .github/workflows/img-prefeitura-01-import.yml
+permissions:
+  contents: write
+jobs:
+  import-authorized-photographs:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: python -m pip install --disable-pip-version-check Pillow==11.3.0
+      - name: Download precisely attributed municipal JPEGs and convert without cropping
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/ilhabela-prefeitura-01
+          python - <<'PY'
+          import json, hashlib, subprocess
+          from pathlib import Path
+          from PIL import Image, ImageOps
+          items = [{"id":"praia-de-santa-tereza","source":"https://www.ilhabela.sp.gov.br/imgeditor/Santa%20Tereza%20-%20Ilhabela.jpg","dest":"assets/images/praia-de-santa-tereza_prefeitura.webp"},{"id":"praia-do-barreiros","source":"https://www.ilhabela.sp.gov.br/imgeditor/Praia%20dos%20Barreiros%20-%20Ilhabela.jpg","dest":"assets/images/praia-do-barreiros_prefeitura.webp"},{"id":"praia-da-ponta-azeda","source":"https://www.ilhabela.sp.gov.br/imgeditor/Praia%20da%20Ponta%20Azeda%20%E2%80%93%20Ilhabela.jpg","dest":"assets/images/praia-da-ponta-azeda_prefeitura.webp"}]
+          evidence = []
+          for item in items:
+              out = Path(item['dest'])
+              if out.exists(): raise RuntimeError('Already exists: '+str(out))
+              temp = Path('/tmp/ilhabela-prefeitura-01')/(item['id']+'.jpg')
+              subprocess.run(['curl','--fail','--silent','--show-error','--location','--retry','3','--connect-timeout','15','--max-time','90','-A','IlhabelaTrip/1.0 (municipal photo source)','--output',str(temp),item['source']],check=True)
+              raw=temp.read_bytes()
+              if len(raw)<25000: raise RuntimeError('Suspicious small JPEG: '+item['id'])
+              with Image.open(temp) as src:
+                  src.verify()
+              with Image.open(temp) as src:
+                  if src.format!='JPEG' or src.width<800 or src.height<450: raise RuntimeError('Unexpected format/dimensions: '+item['id'])
+                  original_size=[src.width,src.height]
+                  photo=ImageOps.exif_transpose(src).convert('RGB')
+                  photo.thumbnail((1280,960),Image.Resampling.LANCZOS)
+                  photo.save(out,'WEBP',quality=82,method=6)
+                  with Image.open(out) as check: check.verify()
+              evidence.append({**item,'original_dimensions':original_size,'original_sha256':hashlib.sha256(raw).hexdigest(),'webp_sha256':hashlib.sha256(out.read_bytes()).hexdigest(),'webp_bytes':out.stat().st_size})
+              print(item['id'],original_size,out.stat().st_size,'bytes')
+          report = '# IMG-PREFEITURA-01 — fontes e transformações\n\n' +
+                   'Publicação de origem: https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15452/conheca-42-praias-de-ilhabela (01/08/2025; Sectur Ilhabela).\n\n' +
+                   'O responsável pelo Ilhabela Trip confirmou nesta conversa, em 17/10/2026, ter autorização para usar as três imagens. Os documentos e as condições formais da autorização não foram apresentados aqui; não há afirmação de licença aberta nem identificação do fotógrafo individual.\n\n' +
+                   'O crédito público é Prefeitura de Ilhabela · Sectur Ilhabela; confirmar se o documento de autorização exige outro crédito. Os arquivos foram redimensionados, se necessário, e convertidos em WebP, sem recorte.\n\n' +
+                   '## Registro técnico\n\n```json\n'+json.dumps(evidence,ensure_ascii=False,indent=2)+'\n```\n'
+          Path('docs/IMG-PREFEITURA-01-provenance.md').write_text(report,encoding='utf-8')
+          PY
+      - name: Regenerate only three affected static attraction pages and adjust two category hubs
+        shell: bash
+        run: |
+          set -euo pipefail
+          export ATTRACTION_OUTPUT_DIR="$(mktemp -d)"
+          node scripts/generate-attraction-pages.cjs
+          for id in praia-de-santa-tereza praia-do-barreiros praia-da-ponta-azeda; do
+            cp "$ATTRACTION_OUTPUT_DIR/$id/index.html" "lugares/$id/index.html"
+          done
+          python - <<'PY'
+          from pathlib import Path
+          variants = {
+              'praia-de-santa-tereza':'praia-de-santa-tereza_prefeitura.webp',
+              'praia-do-barreiros':'praia-do-barreiros_prefeitura.webp',
+              'praia-da-ponta-azeda':'praia-da-ponta-azeda_prefeitura.webp'
+          }
+          for page in (Path('o-que-fazer/index.html'),Path('praias/index.html')):
+              content=page.read_text(encoding='utf-8')
+              for slug,name in variants.items():
+                  old=f'<a class="image" href="/lugares/{slug}/"><img src="/assets/images/attraction-placeholder.svg"'
+                  new=f'<a class="image" href="/lugares/{slug}/"><img src="/assets/images/{name}"'
+                  if content.count(old)!=1: raise RuntimeError(f'Expected one placeholder {page}: {slug}; found {content.count(old)}')
+                  content=content.replace(old,new,1)
+              page.write_text(content,encoding='utf-8')
+          PY
+      - run: npm ci --ignore-scripts
+      - name: Verify photo source, attribution, metadata, three attraction pages and two hubs
+        run: |
+          node tests/audit-prefeitura-photos.cjs
+          node tests/audit-attraction-images.cjs
+          node tests/audit-attraction-pages.cjs
+          node tests/audit-attraction-generator.cjs
+      - name: Commit only expected resulting images, pages and provenance
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -- assets/images/praia-de-santa-tereza_prefeitura.webp assets/images/praia-do-barreiros_prefeitura.webp assets/images/praia-da-ponta-azeda_prefeitura.webp
+          git add -- lugares/praia-de-santa-tereza/index.html lugares/praia-do-barreiros/index.html lugares/praia-da-ponta-azeda/index.html
+          git add -- o-que-fazer/index.html praias/index.html docs/IMG-PREFEITURA-01-provenance.md
+          git diff --cached --check
+          python - <<'PY'
+          import subprocess
+          required={
+              'assets/images/praia-de-santa-tereza_prefeitura.webp',
+              'assets/images/praia-do-barreiros_prefeitura.webp',
+              'assets/images/praia-da-ponta-azeda_prefeitura.webp',
+              'lugares/praia-de-santa-tereza/index.html',
+              'lugares/praia-do-barreiros/index.html',
+              'lugares/praia-da-ponta-azeda/index.html',
+              'o-que-fazer/index.html','praias/index.html','docs/IMG-PREFEITURA-01-provenance.md'
+          }
+          changed=set(subprocess.check_output(['git','diff','--cached','--name-only'],text=True).splitlines())
+          if changed!=required: raise RuntimeError(f'Expected exactly {required}, got {changed}')
+          PY
+          git commit -m 'assets(img-prefeitura-01): add three permission-confirmed beach photos and static pages'
+          git push origin HEAD:refs/heads/feat/img-prefeitura-01-3praias
