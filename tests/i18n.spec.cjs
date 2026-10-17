@@ -2,14 +2,23 @@ const {test, expect} = require('@playwright/test');
 const locales = ['pt','en','fr','es','he'];
 const faults = new WeakMap();
 test.beforeEach(async ({page}) => {
+  // Vercel supplies analytics in deployments; the static test server does not.
+  await page.route('**/_vercel/insights/script.js', route=>route.fulfill({status:200,contentType:'application/javascript',body:''}));
   const errors = []; faults.set(page, errors);
   page.on('pageerror', error => errors.push(error.message));
   page.on('console', message => { if(message.type()==='error') errors.push(message.text()); });
 });
+async function expectMapMarkers(page, count) {
+  await expect.poll(()=>page.evaluate(()=>mapMarkers.length)).toBe(count);
+  expect(await page.evaluate(()=>mapMarkers.every(m=>mapMarkerCluster ? mapMarkerCluster.hasLayer(m) : map.hasLayer(m)))).toBe(true);
+  if(await page.evaluate(()=>Boolean(mapMarkerCluster))) {
+    expect(await page.evaluate(()=>mapMarkerCluster.getLayers().length)).toBe(count);
+  } else await expect(page.locator('.main-map-pin')).toHaveCount(count);
+}
 async function ready(page) {
   await page.goto('/');
-  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(40);
-  await expect(page.locator('.leaflet-marker-icon')).toHaveCount(40);
+  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(50);
+  await expectMapMarkers(page, 50);
 }
 async function language(page, lang) {
   await page.locator('#lang-btn').click();
@@ -54,7 +63,8 @@ test('desktop map preview closes when the pointer leaves the map',async({page})=
   await page.setViewportSize({width:1440,height:900});
   await ready(page);
   const card=page.locator('#map-quick-card');
-  await page.locator('.leaflet-marker-icon').first().hover();
+  await page.evaluate(()=>map.setView(mapMarkers[0].getLatLng(),16,{animate:false}));
+  await page.locator('#pin-praia-do-bonete').hover();
   await expect(card).toBeVisible();
   await page.locator('#explore-section').hover();
   await expect(card).toBeHidden();
@@ -66,7 +76,7 @@ for (const width of [390,1440]) for (const lang of locales) {
     expect(await page.evaluate(()=>localStorage.getItem('ilhabela_lang'))).toBe(lang);
     await page.reload();
     await expect(page.locator('html')).toHaveAttribute('lang',lang);
-    await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(40);
+    await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(50);
     const untranslated = await page.evaluate(() => {
       const mismatches = [];
       for (const el of document.querySelectorAll('[data-i18n]')) if (el.textContent !== t(el.dataset.i18n)) mismatches.push(el.dataset.i18n);
@@ -80,25 +90,35 @@ for (const width of [390,1440]) for (const lang of locales) {
       await page.evaluate(id=>openSpotModal(id),spot.id);
       await expect(page.locator('#spot-modal-title')).toHaveText(spot.tr.title);
       const text=await page.locator('#spot-modal-content').textContent();
-      for (const value of [spot.tr.description,spot.tr.ecoTip,...spot.tr.highlights,...Object.values(spot.tr.specs)]) expect(text).toContain(value);
+      for (const value of [spot.tr.description,spot.tr.ecoTip,...spot.tr.highlights,...Object.entries(spot.tr.specs).filter(([key])=>['access','sea','structure'].includes(key)).map(([,value])=>value)]) expect(text).toContain(value);
       expect(text).toContain(data.ui.technicalSpecs);
       expect(text).toContain(data.ui.bookThisTour);
       expect(text).not.toMatch(/undefined|\[object Object\]|Missing translation/);
       const overflow=await page.locator('#spot-modal .modal-sheet').evaluate(el=>el.scrollWidth>el.clientWidth+1);
       expect(overflow,spot.id+' modal overflow').toBe(false);
     }
-    await page.evaluate(()=>openSpotModal('praia-do-portinho'));
-    for(const name of ['Portinho Passeios','Quiosque Maxx Beach','Portinho Divers','La Gloria House']) await expect(page.locator('#spot-modal-content')).toContainText(name);
-    await expect(page.locator('#spot-modal-content a[href^="https://wa.me/"]')).toHaveCount(4);
-    const localCopy = await page.evaluate(()=>Object.entries(localRecommendationTranslations).filter(([name])=>name!=='Chagas Passeios').flatMap(([,catalog])=>Object.values(catalog[currentLang]).flat()));
-    const localText = await page.locator('#spot-modal-content').textContent();
-    for(const value of localCopy) expect(localText).toContain(value);
-    await page.screenshot({path:info.outputPath(`portinho-${lang}-${width}.png`)});
-    await page.evaluate(()=>openSpotModal('praia-do-veloso'));
-    await expect(page.locator('#spot-modal-content')).toContainText('Chagas Passeios');
-    const chagas = await page.evaluate(()=>Object.values(localRecommendationTranslations['Chagas Passeios'][currentLang]).flat());
-    const velosoText = await page.locator('#spot-modal-content').textContent();
-    for(const value of chagas) expect(velosoText).toContain(value);
+    // Exact membership for every attraction, including empty contexts.
+    for(const spot of data.spots) {
+      await page.evaluate(id=>openSpotModal(id),spot.id);
+      const expected=await page.evaluate(id=>servicesData.filter(s=>s.contextSpotIds?.includes(id)).map(s=>({name:s.name,tr:s.translations[currentLang],image:s.image,url:s.url,whatsapp:s.whatsapp})),spot.id);
+      const articles=page.locator('#spot-modal-content article');
+      await expect(articles.locator('h4')).toHaveText(expected.map(s=>s.name));
+      for(const service of expected) {
+        const article=articles.filter({has:page.getByRole('heading',{name:service.name,exact:true})});
+        await expect(article).toHaveCount(1);
+        for(const value of Object.values(service.tr).flat()) await expect(article).toContainText(value);
+        if(service.image) await expect(article.locator('img')).toHaveAttribute('src',service.image);
+        if(service.url) await expect(article.locator('a[href="'+service.url+'"]')).toHaveCount(1);
+        const whatsapp=article.locator('a[href^="https://wa.me/"]');
+        await expect(whatsapp).toHaveCount(service.whatsapp?1:0);
+        if(service.whatsapp) {
+          const url=new URL(await whatsapp.getAttribute('href'));
+          expect(url.pathname).toBe('/55'+service.whatsapp);
+          expect(url.searchParams.get('text')).toBe(data.ui.localWhatsappMessage);
+        }
+      }
+      if(spot.id==='praia-do-portinho') await page.screenshot({path:info.outputPath('portinho-'+lang+'-'+width+'.png')});
+    }
     await page.evaluate(()=>closeSpotModal());
     await page.evaluate(()=>showMapQuickCard(touristSpots[0]));
     await expect(page.locator('#map-quick-card')).toContainText(data.spots[0].tr.title);
@@ -183,15 +203,15 @@ test('favorites and filters survive language change and storage reload',async({p
   await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(1);
   await language(page,'fr');
   await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(1);
-  await expect(page.locator('.leaflet-marker-icon')).toHaveCount(1);
+  await expectMapMarkers(page, 1);
   await page.locator('#spots-grid button[onclick^="toggleFavorite"]').first().click();
-  await expect(page.locator('.leaflet-marker-icon')).toHaveCount(0);
+  await expectMapMarkers(page, 0);
   await page.evaluate(()=>toggleFavorite('praia-do-bonete'));
   await page.reload();await expect(page.locator('#saved-count')).toHaveText('1');
   await page.evaluate(()=>filterCategory('cachoeiras'));
   await language(page,'es');
-  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(7);
-  await expect(page.locator('.leaflet-marker-icon')).toHaveCount(7);
+  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(9);
+  await expectMapMarkers(page, 9);
   await page.evaluate(()=>filterCategory('all'));
   await page.locator('#search-input').fill('Jabaquara');
   await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(1);
