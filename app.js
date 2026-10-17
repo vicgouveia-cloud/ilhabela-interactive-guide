@@ -983,15 +983,6 @@ function openSpotModal(spotId, options = {}) {
     </div>
   `;
 
-  const contactEntry = document.createElement('button');
-  contactEntry.type = 'button';
-  contactEntry.dataset.contactEntry = '';
-  contactEntry.dataset.contactType = 'attraction';
-  contactEntry.dataset.contactId = spot.id;
-  contactEntry.dataset.contactName = tr.title;
-  contactEntry.textContent = 'Dúvidas e sugestões';
-  content.append(contactEntry);
-
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   if (!modal.contains(previousFocus) || !previousFocus.isConnected) {
