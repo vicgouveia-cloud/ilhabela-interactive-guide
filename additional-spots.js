@@ -3225,6 +3225,17 @@ const servicesData = [
   },
 
   // Separate services; same operator group, individual commercial identities and official images.
+  // Recanto de Gaya: customer prefers direct Instagram contact, not WhatsApp.
+  // Address and accommodation types corroborated by the hosts' published Booking profile.
+  {
+    id: 'recanto-de-gaya', category: 'stay', name: 'Recanto de Gaya',
+    stayType: 'hostel', featured: true, recommended: true, presentation: 'compact',
+    baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    contactPreference: 'instagram', instagram: '@recantodegaya_',
+    sourceUrl: 'https://linktr.ee/recantodegaya'
+  },
   {
     id: 'hostel-da-vila', category: 'stay', name: 'Hostel da Vila',
     operatorGroupId: 'grupo-hostel-da-vila', stayType: 'hostel',
@@ -3261,6 +3272,14 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  'Recanto de Gaya': {
+    pt: { type: 'Hostel', description: 'Hospedagem no Perequê com dormitório compartilhado e suítes privativas, cozinha compartilhada, jardim e Wi-Fi. Contato preferencial pelo Instagram.', tags: ['Perequê', 'Hostel', 'Quartos privativos e compartilhados'] },
+    en: { type: 'Hostel', description: 'Accommodation in Perequê with a shared dormitory and private suites, shared kitchen, garden and Wi-Fi. Instagram is the preferred contact channel.', tags: ['Perequê', 'Hostel', 'Private and shared rooms'] },
+    fr: { type: 'Auberge de jeunesse', description: 'Hébergement à Perequê avec dortoir et suites privées, cuisine commune, jardin et Wi-Fi. Contact privilégié via Instagram.', tags: ['Perequê', 'Auberge', 'Chambres privées et dortoir'] },
+    es: { type: 'Hostel', description: 'Alojamiento en Perequê con dormitorio compartido y suites privadas, cocina compartida, jardín y Wi-Fi. El contacto preferido es Instagram.', tags: ['Perequê', 'Hostel', 'Habitaciones privadas y compartidas'] },
+    he: { type: 'הוסטל', description: 'אירוח בפרקה עם חדר משותף וסוויטות פרטיות, מטבח משותף, גינה ואינטרנט אלחוטי. ערוץ הקשר המועדף הוא אינסטגרם.', tags: ['פרקה', 'הוסטל', 'חדרים פרטיים ומשותפים'] }
+  },
+
   "Hostel da Vila": {
   "pt": {
     "type": "Hostel",
