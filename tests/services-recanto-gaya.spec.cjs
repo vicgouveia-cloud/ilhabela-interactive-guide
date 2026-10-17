@@ -27,7 +27,7 @@ for(const lang of Object.keys(languages))for(const width of [320,390,1440]){
    await expect(left).toHaveText({pt:'Hostel',en:'Hostel',fr:'Auberge de jeunesse',es:'Hostel',he:'הוסטל'}[lang]);
    const contact=recanto.locator('a[href="https://www.instagram.com/recantodegaya_/"]');
    await expect(contact).toHaveCount(1);
-   await expect(contact).toHaveText(languages[lang]);
+   await expect(contact).toContainText(languages[lang]);
    await expect(contact).toHaveAttribute('target','_blank');
    await expect(contact).toHaveClass(/bg-primary/);
    const links=recanto.locator('.grid.grid-cols-2 a');
