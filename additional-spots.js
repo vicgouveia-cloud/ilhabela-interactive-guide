@@ -3240,7 +3240,7 @@ const servicesData = [
     operatorGroupId: 'grupo-hostel-da-vila', serviceType: ['bar'], serviceFormats: ['snacks'], serviceOccasions: ['afternoon','night'],
     baseLocation: { nearSpotId: 'centro-historico-vila', address: 'Rua São Benedito, 202, Centro Histórico, Ilhabela - SP (Floresta Bar)' },
     serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
-    activities: ['bar','food','drinks','live-music'], presentation: 'featured',
+    activities: ['bar','food','drinks','live-music'], presentation: 'compact',
     featured: true, recommended: true,
     url: 'https://www.hosteldavila.com.br/pt/ilhabela/floresta-bar',
     image: 'assets/images/floresta-bar_oficial.webp',
