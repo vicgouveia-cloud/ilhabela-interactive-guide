@@ -85,7 +85,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script type="module" src="/speed-insights.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
 }
 
 // Validate every page before touching output; a new attraction needs reviewed copy.

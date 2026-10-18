@@ -106,7 +106,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script type="module" src="/speed-insights.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
 }
 
 // 1. Generate EN pilot attraction pages
@@ -214,7 +214,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script type="module" src="/speed-insights.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
 
 fs.mkdirSync(path.join(ROOT, 'en', 'o-que-fazer'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'en', 'o-que-fazer', 'index.html'), discoveryHubHtml);
@@ -254,7 +254,7 @@ document.addEventListener('click',function(event){
   if(!link||typeof window.va!=='function')return;
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
-</script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
+</script><script defer src="/_vercel/insights/script.js"></script><script type="module" src="/speed-insights.js"></script><script defer src="/bottom-nav.js?v=2"></script></body></html>`;
 
   const catDir = path.join(ROOT, 'en', catId);
   fs.mkdirSync(catDir, { recursive: true });
