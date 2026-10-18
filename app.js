@@ -33,9 +33,10 @@ document.addEventListener('DOMContentLoaded', () => {
   if (initialSpotId && touristSpots.some(spot => spot.id === initialSpotId)) {
     openSpotModal(initialSpotId, { updateUrl: false });
   }
-  if (initialParams.get('view') === 'trip' && typeof openPlannerSummary === 'function') {
-    setTimeout(() => openPlannerSummary(), 0);
-  }
+  document.querySelector('header a[href="/?view=trip"]')?.addEventListener('click', event => {
+    event.preventDefault();
+    openPlannerSummary();
+  });
 
   // Set default booking date to tomorrow
   const tomorrow = new Date();

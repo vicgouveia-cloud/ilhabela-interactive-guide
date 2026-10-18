@@ -524,9 +524,12 @@ function setPlannerView(view) {
   }
 }
 
+let plannerReturnFocus = null;
+
 function openPlanner(e, options = {}) {
   if (e) e.preventDefault();
   const modal = document.getElementById('planner-modal');
+  if (modal.classList.contains('hidden')) plannerReturnFocus = document.activeElement;
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
@@ -537,6 +540,8 @@ function openPlanner(e, options = {}) {
   modal.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
 
   setPlannerView(options.view || currentPlannerView);
+  [...modal.querySelectorAll('button:not(:disabled), a[href], select, [tabindex="0"]')]
+    .find(control => control.getClientRects().length)?.focus({ preventScroll: true });
 }
 
 function openPlannerSummary() {
@@ -553,6 +558,13 @@ function closePlanner() {
   modal.classList.remove('flex');
   document.body.style.overflow = '';
   document.body.classList.remove('planner-open');
+  const params = new URLSearchParams(location.search);
+  if (params.get('view') === 'trip') {
+    params.delete('view');
+    history.replaceState(history.state, '', location.pathname + (params.size ? '?' + params : '') + location.hash);
+  }
+  if (plannerReturnFocus?.isConnected) plannerReturnFocus.focus({ preventScroll: true });
+  plannerReturnFocus = null;
   window.dispatchEvent(new Event('planner-visibility-change'));
 }
 
