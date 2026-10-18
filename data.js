@@ -3023,14 +3023,14 @@ const touristSpots = [
     "reviews": 0,
     "image": "assets/images/pico-de-sao-sebastiao_1.jpg",
     "tags": [
-      "1.378m - Ponto Mais Alto",
-      "Montanhismo",
-      "Extremo",
-      "Mata Virgem"
+      "Referência geográfica",
+      "Cume elevado",
+      "Área protegida",
+      "Rota não validada"
     ],
     "attributes": {
       "isDiving": false,
-      "isSunset": true,
+      "isSunset": false,
       "isKiosk": false,
       "isWild": true,
       "isFamily": false,
@@ -3038,113 +3038,113 @@ const touristSpots = [
       "is4x4": false
     },
     "specs": {
-      "difficulty": "extreme",
-      "distance": "14 km (ida e volta)",
-      "duration": "8h a 10h de expedição",
-      "elevation": "+1.378m (cume mais alto da ilha)",
-      "access": "Obrigatório acompanhamento de guia credenciado do Parque Estadual",
+      "difficulty": "unknown",
+      "distance": "Não validada para visitação",
+      "duration": "Não estimada sem rota confirmada",
+      "elevation": "+1.378 m de altitude (referência geográfica)",
+      "access": "Acesso público e monitoria não confirmados; consulte o Parque Estadual",
       "sea": "Não se aplica (Cume supremo acima das nuvens)",
-      "structure": "Área 100% selvagem e protegida"
+      "structure": "Sem infraestrutura turística confirmada no percurso"
     },
     "translations": {
       "pt": {
         "title": "Pico de São Sebastião",
-        "subtitle": "O ponto culminante de Ilhabela a 1.378 metros de altitude",
-        "description": "O cume mais alto de todo o arquipélago de Ilhabela. Uma expedição de montanhismo avançado que cruza a floresta nebular intocada até atingir o topo da ilha, frequentemente acima do mar de nuvens.",
+        "subtitle": "Cume de 1.378 m; trilha e condições de visitação não confirmadas",
+        "description": "O Pico de São Sebastião é uma referência geográfica de montanha na área protegida de Ilhabela. Este guia não confirmou, junto ao Parque Estadual, uma trilha pública autorizada de subida, nem extensão, duração ou exigências de monitoria específicas. Não utilize a posição no mapa como entrada da trilha ou autorização de acesso. Antes de planejar qualquer expedição, consulte a gestão do Parque Estadual de Ilhabela.",
         "highlights": [
-          "Ponto mais alto do arquipélago (1.378m)",
-          "Florestas nebulares de altitude com orquídeas raras",
-          "Vista sem limites para o oceano e continente",
-          "A maior conquista de montanha da ilha"
+          "Referência de alta montanha do arquipélago",
+          "Trilha pública e itinerário ainda não validados",
+          "Distância e duração não confirmadas",
+          "Consultar o Parque antes de qualquer tentativa"
         ],
-        "ecoTip": "Expedição extrema de preservação integral. Obrigatório contratar guia credenciado.",
+        "ecoTip": "Área protegida e terreno remoto: não entre por rotas informais nem planeje visita ao pôr do sol. Confirme visitação e condições com o Parque.",
         "specs": {
-          "distance": "14 km (ida e volta)",
-          "duration": "8h a 10h de expedição",
-          "elevation": "+1.378m (cume mais alto da ilha)",
-          "access": "Obrigatório acompanhamento de guia credenciado do Parque Estadual",
+          "distance": "Não validada para visitação",
+          "duration": "Não estimada sem rota confirmada",
+          "elevation": "+1.378 m de altitude (referência geográfica)",
+          "access": "Acesso público e monitoria não confirmados; consulte o Parque Estadual",
           "sea": "Não se aplica (Cume supremo acima das nuvens)",
-          "structure": "Área 100% selvagem e protegida"
+          "structure": "Sem infraestrutura turística confirmada no percurso"
         }
       },
       "en": {
         "title": "São Sebastião Peak (Pico de São Sebastião)",
-        "subtitle": "The highest summit in Ilhabela at 4,521 feet (1,378m)",
-        "description": "The crowning summit of the entire island. An advanced mountaineering expedition ascending through pristine cloud forests to stand above the clouds with panoramic vistas of the ocean.",
+        "subtitle": "1,378 m summit; public trail and visitor access unverified",
+        "description": "São Sebastião Peak is a mountain landmark within Ilhabela's protected landscape. This guide has not verified an authorized public summit trail, its length or time, or specific guiding requirements with the State Park. Do not use the map pin as a trail entrance or a permit to visit. Check directly with Ilhabela State Park management before planning an expedition.",
         "highlights": [
-          "Highest point on the archipelago (1,378m)",
-          "High-altitude cloud rainforest & rare orchids",
-          "Boundless views over the Atlantic ocean",
-          "The ultimate mountaineering achievement"
+          "Protected high-mountain landmark",
+          "Public summit route not verified",
+          "Walking time and distance unconfirmed",
+          "Check with State Park management first"
         ],
-        "ecoTip": "Strict conservation zone. Certified mountain guide required.",
+        "ecoTip": "This is remote protected terrain. Do not attempt informal routes or plan a sunset ascent; check access and conditions with the Park.",
         "specs": {
-          "distance": "14 km (round trip)",
-          "duration": "8–10 h expedition",
-          "elevation": "+1,378 m (island’s highest summit)",
-          "access": "An accredited State Park guide is mandatory",
+          "distance": "Visitor route not verified",
+          "duration": "Unknown without confirmed trail",
+          "elevation": "+1,378 m elevation (geographic reference)",
+          "access": "Public trail access and guiding rules unverified; check with State Park",
           "sea": "Not applicable (highest summit above the clouds)",
-          "structure": "Entirely wild, protected area"
+          "structure": "No confirmed visitor facilities on the route"
         }
       },
       "fr": {
         "title": "Pic de São Sebastião",
-        "subtitle": "Le point culminant d Ilhabela à 1 378 mètres d altitude",
-        "description": "Le plus haut sommet de tout l archipel. Une expédition de haute montagne traversant la forêt de nuages jusqu au sommet souvent au-dessus d une mer de brume.",
+        "subtitle": "Sommet de 1 378 m ; sentier et accès public non vérifiés",
+        "description": "Le Pico de São Sebastião est un sommet de référence dans l'espace protégé d'Ilhabela. Ce guide n'a pas confirmé auprès du Parc d'État l'existence d'un itinéraire public autorisé jusqu'au sommet, ni sa longueur, sa durée ou les règles précises d'accompagnement. Ne considérez pas le point sur la carte comme un départ de sentier ou une autorisation de visite. Renseignez-vous auprès de la gestion du Parc avant toute expédition.",
         "highlights": [
-          "Point culminant de l île (1 378 m)",
-          "Forêt de nuages et orchidées rares",
-          "Vue infinie sur l océan et la côte",
-          "Le défi suprême de randonnée"
+          "Sommet remarquable en zone protégée",
+          "Itinéraire public non validé",
+          "Durée et distance non confirmées",
+          "Vérifier auprès du Parc avant le départ"
         ],
-        "ecoTip": "Zone de réserve intégrale. Guide certifié obligatoire.",
+        "ecoTip": "Ne suivez pas de chemins improvisés et ne prévoyez pas de randonnée au coucher du soleil. Contactez le Parc.",
         "specs": {
-          "distance": "14 km (aller-retour)",
-          "duration": "8 à 10 h d’expédition",
-          "elevation": "+1 378 m (plus haut sommet de l’île)",
-          "access": "Accompagnement obligatoire par un guide agréé du parc d’État",
+          "distance": "Itinéraire public non vérifié",
+          "duration": "Indéterminée sans sentier confirmé",
+          "elevation": "+1 378 m d'altitude (référence géographique)",
+          "access": "Accès public et accompagnement non confirmés ; contacter le Parc d'État",
           "sea": "Sans objet (sommet le plus élevé au-dessus des nuages)",
-          "structure": "Zone entièrement sauvage et protégée"
+          "structure": "Aucun équipement touristique confirmé sur le parcours"
         }
       },
       "es": {
         "title": "Pico de São Sebastião",
-        "subtitle": "El punto más alto de Ilhabela a 1.378 metros de altitud",
-        "description": "La cumbre máxima de la isla. Una expedición de montañismo avanzado que asciende por bosques de niebla vírgenes hasta superar las nubes con vistas panorámicas únicas.",
+        "subtitle": "Cumbre de 1.378 m; acceso y sendero público sin confirmar",
+        "description": "El Pico de São Sebastião es una referencia geográfica de alta montaña en un área protegida de Ilhabela. Esta guía no ha confirmado con el Parque Estatal una ruta pública autorizada a la cumbre, ni su distancia, duración o requisitos específicos de monitoría. No utilices la coordenada del mapa como entrada al sendero ni como permiso de acceso. Consulta directamente con la administración del Parque antes de planear una expedición.",
         "highlights": [
-          "Punto más alto del archipiélago (1.378 m)",
-          "Bosque de niebla con orquídeas endémicas",
-          "Vistas espectaculares sobre el océano",
-          "La mayor conquista de montaña"
+          "Referencia de alta montaña protegida",
+          "Ruta pública a la cumbre sin validar",
+          "Duración y distancia no confirmadas",
+          "Consultar al Parque antes de visitar"
         ],
-        "ecoTip": "Zona de máxima protección. Guía certificado obligatorio.",
+        "ecoTip": "No accedas por rutas informales ni planees una visita al atardecer. Verifica el acceso con el Parque Estatal.",
         "specs": {
-          "distance": "14 km (ida y vuelta)",
-          "duration": "8 a 10 h de expedición",
-          "elevation": "+1.378 m (cumbre más alta de la isla)",
-          "access": "Acompañamiento obligatorio de guía acreditado del Parque Estatal",
+          "distance": "Ruta pública no validada",
+          "duration": "Sin estimación sin ruta confirmada",
+          "elevation": "+1.378 m de altitud (referencia geográfica)",
+          "access": "Acceso y requisitos de monitoría sin confirmar; consultar al Parque Estatal",
           "sea": "No corresponde (cumbre más alta sobre las nubes)",
-          "structure": "Zona totalmente salvaje y protegida"
+          "structure": "Sin instalaciones turísticas confirmadas en la ruta"
         }
       },
       "he": {
         "title": "פסגת סאו סבסטיאו (Pico de São Sebastião)",
-        "subtitle": "הנקודה הגבוהה ביותר באיליאבלה בגובה 1,378 מטר",
-        "description": "הפסגה הגבוהה ביותר בכל הארכיפלג. מסע טיפוס הרים מתקדם העובר דרך יער עננים בתולי עד לפסגה החולשת מעל שכבת העננים עם נוף פנורמי אינסופי.",
+        "subtitle": "פסגה בגובה 1,378 מטר; מסלול וגישה לציבור טרם אומתו",
+        "description": "פסגת סאו סבסטיאו היא נקודת ציון הררית בשטח מוגן באיליאבלה. המדריך עדיין לא אימת מול הנהלת הפארק המדינתי שביל ציבורי מורשה לפסגה, את אורכו, את משך ההליכה או את דרישות ההדרכה הספציפיות. אין לראות בנקודה על המפה כניסה לשביל או אישור לביקור. יש לברר ישירות מול הנהלת הפארק לפני תכנון כל מסע.",
         "highlights": [
-          "הנקודה הגבוהה ביותר באי (1,378 מ׳)",
-          "יער עננים נדיר וסחלבים פראיים",
-          "נוף אינסופי של האוקיינוס והיבשת",
-          "ההישג האולטימטיבי לחובבי טיפוס הרים"
+          "נקודת ציון הררית בשטח מוגן",
+          "אין מסלול ציבורי מאומת לפסגה",
+          "המרחק והמשך לא אושרו",
+          "יש לבדוק עם הפארק לפני ביקור"
         ],
-        "ecoTip": "שמורה מוגנת ברמה הגבוהה ביותר. חובה לצאת בליווי מדריך מוסמך.",
+        "ecoTip": "אין להשתמש בדרכים לא רשמיות או לתכנן עלייה בשקיעה. בדקו את תנאי הביקור מול הנהלת הפארק.",
         "specs": {
-          "distance": "14 ק״מ (הלוך וחזור)",
-          "duration": "מסע של 8–10 שעות",
-          "elevation": "+1,378 מ׳ (הפסגה הגבוהה באי)",
-          "access": "חובה בליווי מדריך מורשה של פארק המדינה",
+          "distance": "מסלול ציבורי טרם אומת",
+          "duration": "לא ידוע ללא מסלול מאומת",
+          "elevation": "+1,378 מטר גובה (נקודת ציון גאוגרפית)",
+          "access": "גישה ודרישות הדרכה לא אומתו; יש לפנות לפארק",
           "sea": "לא רלוונטי (הפסגה הגבוהה מעל העננים)",
-          "structure": "אזור פראי ומוגן לחלוטין"
+          "structure": "לא אושרו מתקני תיירות לאורך המסלול"
         }
       }
     },
@@ -3179,112 +3179,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "Trilha curta a partir do canto direito da Praia de Castelhanos",
-      "duration": "10 min de parada fotográfica",
-      "elevation": "+220m de altitude",
-      "access": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante",
+      "distance": "Caminho curto com escadaria a partir da praia",
+      "duration": "Tempo variável conforme condições",
+      "elevation": "Altitude não confirmada",
+      "access": "Chegue a Castelhanos por 4x4 autorizado, passeio contratado ou barco; na praia siga ao canto direito olhando o mar",
       "sea": "Vista espetacular da baía oceânica",
-      "structure": "Deck de madeira com vista panorâmica"
+      "structure": "Escadaria suspensa e deck com piso metálico e grades vazadas"
     },
     "translations": {
       "pt": {
         "title": "Mirante do Coração de Castelhanos",
-        "subtitle": "O ângulo perfeito que revela o contorno de coração da baía",
-        "description": "Localizado no canto direito da Praia de Castelhanos, o acesso começa no fim da faixa de areia e segue por uma trilha curta até o ponto de onde a baía revela seu famoso formato de coração.",
+        "subtitle": "Vista do coração de Castelhanos, com escadaria e deck reformados",
+        "description": "O Mirante do Coração fica no canto direito da Praia de Castelhanos para quem olha o mar. Depois de chegar à praia por transporte autorizado ou barco, siga a trilha curta e a escadaria de subida. A Prefeitura informou que o mirante foi reformado em 2024, com degraus suspensos e deck de piso metálico e grades vazadas. O acesso tem escadas e inclinação, portanto não deve ser apresentado como percurso inteiramente acessível.",
         "highlights": [
-          "Vista do formato de coração mais famoso do Brasil",
-          "Trilha curta a partir do canto direito de Castelhanos",
-          "Vista elevada da praia e da Mata Atlântica",
-          "Acesso a partir da própria Praia de Castelhanos"
+          "Vista da baía em formato de coração",
+          "Acesso pelo canto direito da praia",
+          "Escadaria reformada e deck metálico",
+          "Planeje previamente a chegada a Castelhanos"
         ],
-        "ecoTip": "Tenha cuidado na beirada da encosta e utilize o deck de observação.",
+        "ecoTip": "Permaneça na escadaria e no deck; evite beiradas e degraus molhados. Confirme condições de acesso a Castelhanos.",
         "specs": {
-          "distance": "Trilha curta a partir do canto direito da Praia de Castelhanos",
-          "duration": "10 min de parada fotográfica",
-          "elevation": "+220m de altitude",
-          "access": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante",
+          "distance": "Caminho curto com escadaria a partir da praia",
+          "duration": "Tempo variável conforme condições",
+          "elevation": "Altitude não confirmada",
+          "access": "Chegue a Castelhanos por 4x4 autorizado, passeio contratado ou barco; na praia siga ao canto direito olhando o mar",
           "sea": "Vista espetacular da baía oceânica",
-          "structure": "Deck de madeira com vista panorâmica"
+          "structure": "Escadaria suspensa e deck com piso metálico e grades vazadas"
         }
       },
       "en": {
         "title": "Heart Overlook (Mirante do Coração)",
-        "subtitle": "The vantage point revealing Castelhanos iconic heart contour",
-        "description": "Located at the right-hand end of Castelhanos Beach when facing the sea, the access starts at the end of the sand and follows a short trail to the viewpoint overlooking the bay's famous heart shape.",
+        "subtitle": "Heart-shaped bay view with renovated stairs and metal deck",
+        "description": "The Heart Lookout is at the right-hand end of Castelhanos Beach when facing the ocean. After reaching the beach with authorized transport or by boat, follow the short trail and staircase uphill. The municipality reported renovations in 2024, including suspended steps and a metal-floor lookout deck with open grilles. The climb involves steps and a slope, so do not assume step-free accessibility.",
         "highlights": [
-          "Famous heart-shaped coastal contour",
-          "Unbeatable postcard photography spot",
-          "Elevated view over the beach and Atlantic Forest",
-          "Accessed from Castelhanos Beach itself"
+          "Famous heart-shaped bay view",
+          "Approach from the right-hand end of the beach",
+          "Renovated staircase and metal lookout deck",
+          "Arrange transport to Castelhanos first"
         ],
-        "ecoTip": "Stay on designated observation decks.",
+        "ecoTip": "Stay on the staircase and designated deck. Avoid wet steps and exposed edges, and check Castelhanos access conditions.",
         "specs": {
-          "distance": "Short trail from the right-hand end of Castelhanos Beach",
-          "duration": "10 min photo stop",
-          "elevation": "+220 m altitude",
-          "access": "Reach Castelhanos by 4x4 or boat; from the right-hand end of the beach when facing the sea, follow the short trail to the viewpoint",
+          "distance": "Short uphill path with stairs from the beach",
+          "duration": "Varies with conditions",
+          "elevation": "Elevation not verified",
+          "access": "Reach Castelhanos by authorized 4x4, organized tour or boat; follow the beach to the right when facing the sea",
           "sea": "Spectacular view of the ocean bay",
-          "structure": "Wooden deck with panoramic views"
+          "structure": "Suspended steps and lookout deck with metal flooring and open grilles"
         }
       },
       "fr": {
         "title": "Belvédère du Cœur de Castelhanos",
-        "subtitle": "Le point de vue révélant la forme de cœur de la baie",
-        "description": "Situé à l’extrémité droite de la plage de Castelhanos lorsque l’on regarde la mer, l’accès commence au bout du sable puis suit un court sentier jusqu’au belvédère qui révèle la célèbre forme de cœur de la baie.",
+        "subtitle": "Vue sur la baie en cœur, escalier et plateforme rénovés",
+        "description": "Le belvédère du Cœur se trouve à l'extrémité droite de la plage de Castelhanos en regardant la mer. Après avoir rejoint la plage en transport autorisé ou en bateau, suivez le court sentier puis les escaliers en montée. La municipalité a annoncé en 2024 la rénovation des marches suspendues et d'une plateforme à sol métallique et grilles ajourées. L'accès comprend des marches et une pente ; il ne doit pas être considéré comme entièrement accessible.",
         "highlights": [
-          "Vue célèbre de la baie en forme de cœur",
-          "Spot photo inoubliable",
-          "Vue en hauteur sur la plage et la forêt atlantique",
-          "Accès depuis la plage de Castelhanos"
+          "Vue célèbre sur la baie en forme de cœur",
+          "Accès depuis le côté droit de la plage",
+          "Escaliers et plateforme métallique rénovés",
+          "Organiser d'abord le trajet vers Castelhanos"
         ],
-        "ecoTip": "Restez sur les plateformes aménagées.",
+        "ecoTip": "Restez sur les escaliers et la plateforme ; évitez les marches mouillées et les bords exposés.",
         "specs": {
-          "distance": "Court sentier depuis l’extrémité droite de la plage de Castelhanos",
-          "duration": "Arrêt photo de 10 min",
-          "elevation": "+220 m d’altitude",
-          "access": "Rejoignez Castelhanos en 4x4 ou en bateau ; depuis l’extrémité droite de la plage face à la mer, suivez le court sentier jusqu’au belvédère",
+          "distance": "Court sentier et escaliers depuis la plage",
+          "duration": "Variable selon les conditions",
+          "elevation": "Altitude non confirmée",
+          "access": "Rejoignez Castelhanos en 4x4 autorisé, excursion ou bateau ; depuis la plage, prenez à droite face à la mer",
           "sea": "Vue spectaculaire sur la baie océanique",
-          "structure": "Terrasse en bois avec vue panoramique"
+          "structure": "Marches suspendues et plateforme à sol métallique ajouré"
         }
       },
       "es": {
         "title": "Mirador del Corazón de Castelhanos",
-        "subtitle": "El punto panorámico que revela la bahía en forma de corazón",
-        "description": "Ubicado en el extremo derecho de la Playa de Castelhanos mirando hacia el mar, el acceso comienza al final de la arena y sigue por un sendero corto hasta el mirador que revela la famosa forma de corazón de la bahía.",
+        "subtitle": "Vista de la bahía en forma de corazón con escaleras renovadas",
+        "description": "El Mirante do Coração está en el extremo derecho de la Playa de Castelhanos al mirar hacia el mar. Tras llegar a la playa en transporte autorizado o barco, sigue el sendero corto y las escaleras de subida. El municipio informó de una reforma en 2024 con peldaños suspendidos y una plataforma de piso metálico y rejillas abiertas. Hay escalones y pendiente, por lo que no debe asumirse accesibilidad sin barreras.",
         "highlights": [
-          "Silueta en forma de corazón famosa",
-          "Postal fotográfica obligada",
-          "Vista elevada de la playa y la Mata Atlántica",
-          "Acceso desde la propia Playa de Castelhanos"
+          "Bahía con forma de corazón",
+          "Acceso por el extremo derecho de la playa",
+          "Escaleras y plataforma metálica renovadas",
+          "Organiza primero la llegada a Castelhanos"
         ],
-        "ecoTip": "Permanece en los miradores designados.",
+        "ecoTip": "Permanece en la escalera y en la plataforma; evita peldaños mojados y bordes expuestos.",
         "specs": {
-          "distance": "Sendero corto desde el extremo derecho de la Playa de Castelhanos",
-          "duration": "Parada fotográfica de 10 min",
-          "elevation": "+220 m de altitud",
-          "access": "Llega a Castelhanos en 4x4 o barco; desde el extremo derecho de la playa mirando al mar, sigue el sendero corto hasta el mirador",
+          "distance": "Sendero corto y escaleras desde la playa",
+          "duration": "Variable según las condiciones",
+          "elevation": "Altitud no confirmada",
+          "access": "Llega a Castelhanos en 4x4 autorizado, tour o barco; en la playa, ve a la derecha mirando al mar",
           "sea": "Vista espectacular de la bahía oceánica",
-          "structure": "Plataforma de madera con vista panorámica"
+          "structure": "Escaleras suspendidas y plataforma de piso metálico y rejillas"
         }
       },
       "he": {
         "title": "תצפית הלב של קסטליאנוס (Mirante do Coração)",
-        "subtitle": "נקודת התצפית החושפת את המפרץ המפורסם בצורת לב",
-        "description": "ממוקמת במעבר ההרים בירידה למפרץ קסטליאנוס. מנקודה זו מתגלה המראה המרהיב של שני חלקי החוף היוצרים יחד צורת לב מושלמת המוקפת במי ים טורקיז.",
+        "subtitle": "תצפית על המפרץ בצורת לב עם מדרגות ומשטח מחודשים",
+        "description": "תצפית הלב נמצאת בקצה הימני של חוף קסטליאנוס כשפונים אל הים. לאחר שמגיעים לחוף ברכב מורשה או בסירה, הולכים בשביל קצר ועולים במדרגות לנקודת התצפית. לפי העירייה, המקום שופץ בשנת 2024 ונוספו מדרגות תלויות ומשטח תצפית עם רצפת מתכת וסורגים פתוחים. הגישה כוללת שיפוע ומדרגות, ולכן אין להניח שהיא נגישה ללא מכשולים.",
         "highlights": [
-          "מפרץ הלב המפורסם של ברזיל",
-          "נקודת צילום חובה למטיילים",
-          "חיבור הרים טרופיים עם אוקיינוס פתוח",
-          "עצירה קלאסית בסיורי 4x4"
+          "מראה המפרץ המפורסם בצורת לב",
+          "כניסה מהקצה הימני של החוף",
+          "מדרגות ומשטח מתכת מחודשים",
+          "יש לתאם מראש הגעה לקסטליאנוס"
         ],
-        "ecoTip": "הישארו על מרפסות התצפית המוסדרות.",
+        "ecoTip": "הישארו במדרגות ובמשטח התצפית והיזהרו ממדרגות רטובות ומשפת המדרון.",
         "specs": {
-          "distance": "תצפית לצד הירידה ל-Castelhanos",
-          "duration": "עצירת צילום של 10 דקות",
-          "elevation": "גובה +220 מ׳",
-          "access": "כביש פארק המדינה של Castelhanos (4x4 או הליכה)",
+          "distance": "שביל קצר ומדרגות בעלייה מהחוף",
+          "duration": "המשך משתנה לפי התנאים",
+          "elevation": "הגובה לא אומת",
+          "access": "מגיעים לקסטליאנוס ברכב שטח מורשה, בסיור או בסירה; בחוף פונים ימינה כשמביטים לים",
           "sea": "נוף מרהיב של המפרץ האוקייני",
-          "structure": "מרפסת עץ עם נוף פנורמי"
+          "structure": "מדרגות תלויות ומשטח תצפית עם רצפת מתכת וסורגים פתוחים"
         }
       }
     },
