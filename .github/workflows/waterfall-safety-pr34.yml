@@ -1,0 +1,52 @@
+name: Waterfall safety PR 34 validation
+
+on:
+  push:
+    branches:
+      - fix/waterfall-safety-official-20261018
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: waterfall-safety-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check syntax of modified scripts
+        run: |
+          node --check data.js
+          node --check tests/audit-waterfall-safety.cjs
+          node --check scripts/generate-attraction-pages.cjs
+      - name: Waterfall safety regression gate
+        run: node tests/audit-waterfall-safety.cjs
+      - name: Run all repository audits
+        run: npm run test:audits
+      - name: Install Chromium for browser tests
+        run: npx playwright install --with-deps chromium
+      - name: Run complete audit and Playwright suite
+        run: npm test
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: waterfall-safety-test-diagnostics
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
