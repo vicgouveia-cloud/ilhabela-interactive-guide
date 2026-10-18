@@ -2191,8 +2191,8 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "2 km a partir de Castelhanos",
-      "duration": "45 min de caminhada",
+      "distance": "4 a 5 km (percurso da trilha)",
+      "duration": "1h a 1h30",
       "elevation": "+90m",
       "access": "Início no canto esquerdo da Baía de Castelhanos",
       "sea": "Não se aplica (Queda de 40 metros em meio à floresta)",
@@ -2202,17 +2202,17 @@ const touristSpots = [
       "pt": {
         "title": "Cachoeira do Gato",
         "subtitle": "Imponente queda de 40 metros na Baía de Castelhanos",
-        "description": "Uma das maiores e mais volumosas quedas d água de Ilhabela. A trilha parte da praia de Castelhanos e cruza passarelas suspensas cercadas por samambaias gigantes e árvores centenárias.",
+        "description": "Uma das maiores e mais volumosas quedas d água de Ilhabela. A trilha parte da praia de Castelhanos e cruza passarelas suspensas cercadas por samambaias gigantes e árvores centenárias. A queda principal é somente para contemplação; o banho é destinado ao Poço do Gordo, conforme o Parque Estadual.",
         "highlights": [
           "Queda colossal de 40 metros",
-          "Poço amplo para banho refrescante",
+          "Banho no Poço do Gordo; queda principal só para contemplação",
           "Trilha com pontes suspensas",
           "Observação de aves raras"
         ],
-        "ecoTip": "Trilha dentro do Parque Estadual. Mantenha-se na rota demarcada.",
+        "ecoTip": "Não entre na água da queda principal. Respeite a sinalização e as pedras escorregadias.",
         "specs": {
-          "distance": "2 km a partir de Castelhanos",
-          "duration": "45 min de caminhada",
+          "distance": "4 a 5 km (percurso da trilha)",
+          "duration": "1h a 1h30",
           "elevation": "+90m",
           "access": "Início no canto esquerdo da Baía de Castelhanos",
           "sea": "Não se aplica (Queda de 40 metros em meio à floresta)",
@@ -2222,17 +2222,17 @@ const touristSpots = [
       "en": {
         "title": "Cat Waterfall (Cachoeira do Gato)",
         "subtitle": "Magnificent 130-foot cascade in Castelhanos Bay",
-        "description": "One of the tallest and most powerful waterfalls on the island. The trail starts from Castelhanos beach, passing wooden bridges and giant ferns in the heart of primary rainforest.",
+        "description": "One of the tallest and most powerful waterfalls on the island. The trail starts from Castelhanos beach, passing wooden bridges and giant ferns in the heart of primary rainforest. The main waterfall is for viewing only; swimming is reserved for Poço do Gordo under State Park rules.",
         "highlights": [
           "Colossal 40-meter waterfall",
-          "Large refreshing swimming pool",
+          "Main waterfall: viewing only; swimming at Poço do Gordo",
           "Scenic suspension bridge paths",
           "Rare tropical birdwatching"
         ],
-        "ecoTip": "State Park protected zone. Stay on marked trails.",
+        "ecoTip": "Do not enter the main waterfall. Follow park signs and beware of slippery rocks.",
         "specs": {
-          "distance": "2 km from Castelhanos",
-          "duration": "45 min walk",
+          "distance": "4 to 5 km (official trail route)",
+          "duration": "1 to 1.5 hours",
           "elevation": "+90 m",
           "access": "Starts at the left end of Baía de Castelhanos",
           "sea": "Not applicable (40 m waterfall in the forest)",
@@ -2242,17 +2242,17 @@ const touristSpots = [
       "fr": {
         "title": "Cascade du Chat (Cachoeira do Gato)",
         "subtitle": "Majestueuse chute de 40 mètres à Castelhanos",
-        "description": "L une des plus hautes cascades d Ilhabela. Le sentier commence à la baie de Castelhanos et traverse des ponts suspendus sous une canopée tropicale luxuriante.",
+        "description": "L une des plus hautes cascades d Ilhabela. Le sentier commence à la baie de Castelhanos et traverse des ponts suspendus sous une canopée tropicale luxuriante. La cascade principale est réservée à la contemplation ; la baignade est destinée au Poço do Gordo, selon le parc.",
         "highlights": [
           "Chute monumentale de 40 mètres",
-          "Grand bassin pour une baignade vivifiante",
+          "Cascade principale : contemplation uniquement ; baignade au Poço do Gordo",
           "Passerelles en bois suspendues",
           "Observation d oiseaux tropicaux"
         ],
-        "ecoTip": "Zone protégée du Parc d État. Restez sur le sentier balisé.",
+        "ecoTip": "N'entrez pas dans l'eau de la cascade principale. Respectez les panneaux et méfiez-vous des rochers glissants.",
         "specs": {
-          "distance": "2 km depuis Castelhanos",
-          "duration": "45 min de marche",
+          "distance": "4 à 5 km (parcours officiel)",
+          "duration": "1 h à 1 h 30",
           "elevation": "+90 m",
           "access": "Départ à l’extrémité gauche de Baía de Castelhanos",
           "sea": "Sans objet (cascade de 40 m au cœur de la forêt)",
@@ -2262,17 +2262,17 @@ const touristSpots = [
       "es": {
         "title": "Cascada do Gato",
         "subtitle": "Imponente caída de 40 metros en Castelhanos",
-        "description": "Una de las cascadas más grandes y caudalosas de la isla. El sendero parte desde la playa de Castelhanos a través de puentes colgantes rodeados de selva virgen.",
+        "description": "Una de las cascadas más grandes y caudalosas de la isla. El sendero parte desde la playa de Castelhanos a través de puentes colgantes rodeados de selva virgen. La cascada principal es solo para contemplación; el baño está destinado al Poço do Gordo, según el Parque Estadual.",
         "highlights": [
           "Impresionante caída de 40 metros",
-          "Poza profunda para nadar",
+          "Cascada principal: solo contemplación; baño en Poço do Gordo",
           "Sendero con puentes de madera",
           "Avistamiento de aves silvestres"
         ],
-        "ecoTip": "Zona del Parque Estatal. Respeta el sendero marcado y no dejes basura.",
+        "ecoTip": "No entres al agua de la cascada principal. Respeta las señales y las rocas resbaladizas.",
         "specs": {
-          "distance": "2 km desde Castelhanos",
-          "duration": "45 min caminando",
+          "distance": "4 a 5 km (recorrido oficial)",
+          "duration": "1 h a 1 h 30",
           "elevation": "+90 m",
           "access": "Inicio en el extremo izquierdo de Baía de Castelhanos",
           "sea": "No corresponde (cascada de 40 m en el bosque)",
@@ -2282,17 +2282,17 @@ const touristSpots = [
       "he": {
         "title": "מפל החתול (Cachoeira do Gato)",
         "subtitle": "מפל מים שוצף בגובה 40 מטר במפרץ קסטליאנוס",
-        "description": "אחד המפלים הגבוהים והמרשימים ביותר באיליאבלה. המסלול יוצא ישירות מחוף קסטליאנוס ועובר דרך גשרי עץ תלויים בתוך יער גשם בתולי.",
+        "description": "אחד המפלים הגבוהים והמרשימים ביותר באיליאבלה. המסלול יוצא ישירות מחוף קסטליאנוס ועובר דרך גשרי עץ תלויים בתוך יער גשם בתולי. המפל הראשי מיועד לתצפית בלבד; הרחצה מיועדת לפוסו דו גורדו, בהתאם לכללי הפארק.",
         "highlights": [
           "מפל ענק בגובה 40 מטר",
-          "בריכת שחייה טבעית גדולה ומרעננת",
+          "המפל הראשי לתצפית בלבד; רחצה בפוסו דו גורדו",
           "גשרים תלויים וצמחייה טרופית",
           "תצפיות על ציפורים נדירות"
         ],
-        "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים.",
+        "ecoTip": "אין להיכנס למים במפל הראשי. יש להישמע לשילוט ולהיזהר מסלעים חלקלקים.",
         "specs": {
-          "distance": "2 ק״מ מ-Castelhanos",
-          "duration": "45 דקות הליכה",
+          "distance": "4 עד 5 ק״מ (מסלול רשמי)",
+          "duration": "שעה עד שעה וחצי",
           "elevation": "+90 מ׳",
           "access": "תחילה בקצה השמאלי של Baía de Castelhanos",
           "sea": "לא רלוונטי (מפל בגובה 40 מ׳ בתוך היער)",
