@@ -80,4 +80,15 @@ const other=['mirante-do-baepi','mirante-do-piuva','mirante-do-morro-da-cruz','m
 for(const id of other){
  assert.equal(read('lugares/'+id+'/index.html'),historical('lugares/'+id+'/index.html'),id+' static neighbor changed');
 }
+// EN pilot page must align with current translated data and generator rather than old summit promises.
+const en=primary.find(x=>x.id==='pico-de-sao-sebastiao').translations.en;
+const englishPage=read('en/lugares/pico-de-sao-sebastiao/index.html');
+const englishGenerator=read('scripts/generate-i18n-pilot.cjs');
+assert(englishPage.includes('<p class="sub">'+escape(en.subtitle)+'</p>'),'EN summit subtitle stale');
+assert(englishPage.includes('<h1>'+escape(en.title)+'</h1><p>'+escape(en.description)+'</p>'),'EN summit description stale');
+assert(englishPage.includes('<meta name="description" content="'+escape(en.description.slice(0,220))+'">'),'EN summit meta stale');
+assert(englishPage.includes('<h2>How to get there</h2><p>Summit access has not been verified'),'EN access warning missing');
+assert(englishGenerator.includes('Summit access has not been verified by this guide'),'EN generator still has unverified routing promise');
+assert(!englishPage.includes('An accredited State Park guide is mandatory'),'EN inherited mandatory-guide claim must not return');
+assert(read('en/o-que-fazer/index.html').includes(escape(en.subtitle)),'EN discovery hub stale');
 console.log('PEAKS-LOOKOUTS-FACTUAL-01 PASS: 2 records × 5 languages, SEO/access/source, safety filters and 48 attractions preserved.');

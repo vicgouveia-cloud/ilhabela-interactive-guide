@@ -34,7 +34,7 @@ const PILOT_SPOTS = [
   {
     id: 'pico-de-sao-sebastiao',
     validated: true,
-    accessEn: 'An accredited State Park guide is mandatory'
+    accessEn: 'Summit access has not been verified by this guide. The summit coordinates are not a public trail entrance or a road destination. Check with Ilhabela State Park management whether visits are authorized and which entry, guide and booking rules apply before planning any ascent.'
   },
   {
     id: 'baia-de-castelhanos',
