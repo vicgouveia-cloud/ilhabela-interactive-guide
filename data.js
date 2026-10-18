@@ -2234,7 +2234,7 @@ const touristSpots = [
           "distance": "4 to 5 km (official trail)",
           "duration": "1 to 1.5 hours",
           "elevation": "+90 m",
-          "access": "Ponta do Gato, Canto do Ribeirão, Castelhanos.",
+          "access": "The trail starts at Ponta do Gato, Canto do Ribeirão, in Castelhanos; reach the area by boat or 4x4.",
           "sea": "Not applicable (40 m waterfall in the forest)",
           "structure": "No facilities; marked trail with walkways and suspended wooden bridges"
         }
@@ -2254,7 +2254,7 @@ const touristSpots = [
           "distance": "4 à 5 km (sentier officiel)",
           "duration": "1 h à 1 h 30",
           "elevation": "+90 m",
-          "access": "Ponta do Gato, Canto do Ribeirão, Castelhanos.",
+          "access": "Départ du sentier à Ponta do Gato, Canto do Ribeirão, Castelhanos ; accès à la région par bateau ou 4x4.",
           "sea": "Sans objet (cascade de 40 m au cœur de la forêt)",
           "structure": "Sans équipements ; sentier balisé avec passerelles et ponts suspendus en bois"
         }
@@ -2274,7 +2274,7 @@ const touristSpots = [
           "distance": "4 a 5 km (sendero oficial)",
           "duration": "1 h a 1 h 30",
           "elevation": "+90 m",
-          "access": "Ponta do Gato, Canto do Ribeirão, Castelhanos.",
+          "access": "Inicio del sendero en Ponta do Gato, Canto do Ribeirão, Castelhanos; acceso a la zona en barco o 4x4.",
           "sea": "No corresponde (cascada de 40 m en el bosque)",
           "structure": "Sin infraestructura; sendero señalizado con pasarelas y puentes colgantes de madera"
         }
@@ -2294,7 +2294,7 @@ const touristSpots = [
           "distance": "4–5 ק״מ (שביל רשמי)",
           "duration": "שעה עד שעה וחצי",
           "elevation": "+90 מ׳",
-          "access": "Ponta do Gato, Canto do Ribeirão, Castelhanos.",
+          "access": "תחילת השביל ב־Ponta do Gato, Canto do Ribeirão, Castelhanos; ההגעה לאזור בסירה או ברכב 4x4.",
           "sea": "לא רלוונטי (מפל בגובה 40 מ׳ בתוך היער)",
           "structure": "ללא תשתיות; שביל מסומן עם מעברים וגשרי עץ תלויים"
         }
