@@ -158,10 +158,28 @@ test('small mobile and tablet layouts, including RTL category scrolling',async({
       await page.keyboard.press('Escape');
     }
   }
-  await page.setViewportSize({width:390,height:900});
-  await page.evaluate(()=>{const el=document.getElementById('category-filter-list');el.scrollLeft=0;el.dispatchEvent(new Event('scroll'));});
-  await page.locator('[data-filter-scroll="right"]').click();
-  await expect.poll(()=>page.locator('#category-filter-list').evaluate(el=>Math.abs(el.scrollLeft))).toBeGreaterThan(10);
+  for (const lang of ['pt','he']) {
+    await page.evaluate(lang=>setLanguage(lang),lang);
+    for(const width of [390,1024]) {
+      await page.setViewportSize({width,height:900});
+      const track=page.locator('#category-filter-list');
+      await track.scrollIntoViewIfNeeded();
+      await track.evaluate(el=>{el.style.scrollBehavior='auto';el.scrollLeft=0;el.dispatchEvent(new Event('scroll'));});
+      const next=page.locator('[data-filter-scroll="right"]');
+      if(width===390) {
+        await expect(next).toBeHidden();
+        // A horizontal wheel gesture exercises the native overflow rail in both directions.
+        await track.hover();
+        await page.mouse.wheel(lang==='he'?-280:280,0);
+      } else {
+        await expect(next).toBeVisible();
+        await expect(next).toBeEnabled();
+        await next.click();
+      }
+      await expect.poll(()=>track.evaluate(el=>Math.abs(el.scrollLeft))).toBeGreaterThan(10);
+      await expect(page.locator('.cat-pill').last()).toBeAttached();
+    }
+  }
   expect(faults.get(page)).toEqual([]);
 });
 test('open modal language switches preserve gallery, booking choices and drafts',async({page})=>{

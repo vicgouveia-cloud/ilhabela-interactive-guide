@@ -38,7 +38,9 @@ for (const [category, label, intro] of categories) {
   const description = `${label} em Ilhabela: ${selected.length} lugares do catálogo do Ilhabela Trip. ${intro}`;
   for (const needle of [`<title>${esc(title)}</title>`, `<meta name="description" content="${esc(description)}">`, `<link rel="canonical" href="${BASE}/${category}/">`, `<h1>${esc(label)} em Ilhabela</h1>`, `<meta property="og:title" content="${esc(title)}">`, `<meta property="og:description" content="${esc(description)}">`, `<meta property="og:url" content="${BASE}/${category}/">`, '<meta property="og:type" content="website">']) assert(html.includes(needle), `${category}: missing ${needle}`);
   assert(!/melhor(?:es)?|ranking/i.test(html), `${category}: ranking language`);
-  assert(html.includes(analytics), `${category}: same analytics as discovery hub`);
+  const categoryAnalytics = html.replace(/\r\n/g, '\n').match(/<script>\nwindow\.va=[\s\S]*?<\/script><script defer src="\/_vercel\/insights\/script\.js"><\/script>/)?.[0];
+  assert(categoryAnalytics, `${category}: analytics snippet present`);
+  assert.equal(categoryAnalytics, analytics, `${category}: same analytics as discovery hub`);
   assert.equal((html.match(/src="\/_vercel\/insights\/script\.js"/g) || []).length, 1);
   let listener;
   const browser = { window: {}, document: { addEventListener(type, fn) { assert.equal(type, 'click'); listener = fn; } } };

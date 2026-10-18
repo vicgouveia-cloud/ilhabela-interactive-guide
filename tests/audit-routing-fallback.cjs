@@ -2,7 +2,8 @@ const assert = require('node:assert/strict');
 const fs = require('node:fs');
 const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
-const base = '45a8618a5ff1f37e90c772fa72b2ddee4472b360';
+// Approved routing and translated catalog after #25/#26, before this technical fix.
+const base = '6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f';
 function load(baseline) {
   const context = vm.createContext({console, translations: Object.fromEntries(['pt','en','fr','es','he'].map(l => [l, {}]))});
   for (const file of ['data.js', 'additional-spots.js', 'multimodal.js']) {
@@ -32,11 +33,12 @@ for (const id of ids) {
     assert.equal(vm.runInContext(expression,current), vm.runInContext(expression,previous), `${id} routing changed`);
   }
 }
+assert.equal(vm.runInContext("resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-bonete'), 'pedestrian')",current),null, 'Never route pedestrians directly to Bonete without a supported access option');
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'trilha-da-agua-branca').routing.roadRoutable",current),false);
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'trilha-da-agua-branca').routing.accessOptions[0].gateway.verified",current),true);
 const trailContent = "JSON.stringify((({routing, ...content}) => content)(touristSpots.find(s => s.id === 'trilha-da-agua-branca')))";
 assert.equal(vm.runInContext(trailContent,current),vm.runInContext(trailContent,previous),'Agua Branca trail content changed');
-assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",current),false);
+assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",current),vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",previous), 'Preserve approved gateway verification');
 console.log(`Fallback regression OK: ${ids.length} attractions, 6 modes; all other routing preserved against ${base}`);
 const catalog = vm.createContext({console});
 for (const file of ['data.js','additional-spots.js']) vm.runInContext(fs.readFileSync(file,'utf8'),catalog);

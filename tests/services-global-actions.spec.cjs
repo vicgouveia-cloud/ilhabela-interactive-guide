@@ -23,7 +23,20 @@ for(const lang of ['pt','en','es','fr','he'])for(const width of [320,390,1440]){
          return {icon:el.querySelector('.material-symbols-outlined')?.textContent.trim(),className:el.className,width:rect.width,height:rect.height,href:el.getAttribute('href')};
        }));
        expect(info.length).toBeGreaterThan(0);
-       expect(info.at(-1).icon).toBe('map');
+       const name=await card.locator('h2').textContent();
+       const hasLocation=await page.evaluate(name=>{
+         const service=servicesData.find(s=>s.name===name);
+         if(!service) throw new Error('Card missing from catalog: '+name);
+         return service.hasPhysicalLocation!==false && !['fast-go-drive','transporte-por-aplicativo-info','transfer-executivo-gru-ilhabela','onibus-municipal-expresso-fenix','aquabus-ilhabela','ponto-de-taxi-balsa','ponto-de-taxi-vila'].includes(service.id);
+       },name);
+       expect(info.filter(x=>x.icon==='map')).toHaveLength(hasLocation?1:0);
+       if(hasLocation) {
+         expect(info.at(-1).icon).toBe('map');
+         const mapUrl=new URL(info.at(-1).href);
+         expect(mapUrl.origin+mapUrl.pathname).toBe('https://www.google.com/maps/search/');
+         expect(mapUrl.searchParams.get('api')).toBe('1');
+         expect(mapUrl.searchParams.get('query')).toContain(name);
+       }
        const ordering=info.map(x=>rank[x.icon]);
        for(const index of ordering)expect(index).toBeDefined();
        expect(ordering).toEqual([...ordering].sort((a,b)=>a-b));

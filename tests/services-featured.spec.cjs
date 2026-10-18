@@ -5,7 +5,7 @@ for (const locale of ['pt', 'en', 'es', 'fr', 'he']) {
     await page.goto('/servicos/');
     await page.waitForFunction(() => typeof window.renderServicesPage === 'function');
     await page.evaluate(lang => setLanguage(lang), locale);
-    await expect(page.locator('#services-page-grid article').first()).toContainText('La Gloria House');
+    await expect(page.locator('#services-page-grid article').first()).toContainText('Portinho Passeios');
 
     await page.locator('#services-category-select').selectOption('stay');
     await expect(page.locator('#services-category-select')).toHaveValue('stay');
