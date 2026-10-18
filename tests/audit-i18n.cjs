@@ -85,7 +85,7 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 // ordering and pre-existing translations stay intact; only new localized fields are added.
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi','pico-de-sao-sebastiao','mirante-do-coracao']);
 
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
@@ -101,6 +101,7 @@ for (const group of ['touristSpots','guidesData']) {
 require('./audit-waterfall-safety.cjs');
 require('./audit-waterfall-factual-02.cjs');
 require('./audit-trails-factual-01.cjs');
+require('./audit-peaks-lookouts-factual-01.cjs');
 // Services use the last approved full service architecture; attractions/guides retain the historic contract above.
 const servicesBaseSha = '1a7613e4c0273deca5094a6e5842d9461be50c51';
 const servicesBaseline = load(file=>execFileSync('git',['show',servicesBaseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));

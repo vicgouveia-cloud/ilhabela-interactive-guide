@@ -7,7 +7,7 @@ const { execFileSync } = require('node:child_process');
 const ROOT = path.resolve(__dirname, '..');
 const MAIN_BASE = process.env.MAIN_BASE || '07b970870dc6544494aa08e5aa965b31ec1f9f71';
 const ID = 'cachoeira-do-poco-fundo';
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi','pico-de-sao-sebastiao','mirante-do-coracao']);
 
 const IMAGE = 'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp';
 const SOURCE = 'https://commons.wikimedia.org/wiki/File:Trilha_do_Po%C3%A7o_Fundo.jpg';
@@ -105,4 +105,5 @@ assert.equal(entry.images[0],IMAGE);
 require('./audit-waterfall-safety.cjs');
 require('./audit-waterfall-factual-02.cjs');
 require('./audit-trails-factual-01.cjs');
+require('./audit-peaks-lookouts-factual-01.cjs');
 console.log('IMG-01C OK: Poço Fundo and all photos/coordinates preserved; three waterfall editorial changes guarded separately.');

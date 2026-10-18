@@ -200,21 +200,21 @@
     }
   },
   "pico-de-sao-sebastiao": {
-    "copy": "Obrigatório acompanhamento de guia credenciado do Parque Estadual",
+    "copy": "O guia não tem rota de subida ao Pico de São Sebastião validada pelo Parque Estadual. A coordenada do cume não é um ponto de embarque ou chegada rodoviária. Antes de qualquer tentativa de visita, consulte a gestão do Parque Estadual sobre autorização, entrada, monitoria e condições.",
     "provenance": {
-      "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/pico-de-sao-sebastiao/index.html",
-      "verification": "not-revalidated",
+      "kind": "editorial-official-source-review",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/ap/parque-estadual-ilhabela/",
+      "verification": "no summit trail/access listed in consulted park itinerary; visitor conditions pending direct park confirmation",
       "pendingEmbarkation": false,
-      "pendingAccess": false
+      "pendingAccess": true
     }
   },
   "mirante-do-coracao": {
-    "copy": "Chegue a Castelhanos por 4x4 ou barco; no fim da faixa de areia, à direita para quem olha o mar, siga a trilha curta até o mirante O ponto da atração não deve ser tratado automaticamente como destino rodoviário. Alternativa por barco: o ponto de embarque ainda deve ser confirmado diretamente com o operador.",
+    "copy": "Chegue a Castelhanos por 4x4 autorizado, passeio contratado ou barco; na praia siga ao canto direito olhando o mar. A subida até o mirante é feita pela escadaria reformada em 2024, até o deck com piso metálico e grades vazadas. A coordenada do mirante não é destino rodoviário; se chegar por barco, confirme o ponto de embarque com o operador.",
     "provenance": {
-      "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/mirante-do-coracao/index.html",
-      "verification": "not-revalidated",
+      "kind": "official-municipal-source-review",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/14079/prefeitura-de-ilhabela-realiza-melhorias-turisticas-e-de-seguranca-na-baia-de-castelhanos",
+      "verification": "municipal restoration and physical access corroborated; boat embarkation/road endpoint not independently verified",
       "pendingEmbarkation": true,
       "pendingAccess": true
     }
