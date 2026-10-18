@@ -2332,11 +2332,11 @@ const touristSpots = [
       "is4x4": false
     },
     "specs": {
-      "difficulty": "easy",
+      "difficulty": "moderate",
       "distance": "Cerca de 720 m (ida e volta, Prefeitura)",
-      "duration": "Até 1h (Prefeitura)",
+      "duration": "Até 1h (Parque Estadual)",
       "elevation": "+30m",
-      "access": "Trilha curta junto à Praia da Feiticeira; a Prefeitura indica monitoria",
+      "access": "Entrada oficial: final da Alameda dos Guapuruvus, Feiticeira; monitoria obrigatória e agendamento online (Parque Estadual)",
       "sea": "Não se aplica (Três quedas e duchas naturais)",
       "structure": "Estacionamento próximo e passarela inicial de madeira"
     },
@@ -2344,19 +2344,19 @@ const touristSpots = [
       "pt": {
         "title": "Cachoeira dos Três Tombos",
         "subtitle": "Trilha curta com três quedas: atenção às pedras escorregadias",
-        "description": "Conjunto de três quedas próximo à Praia da Feiticeira, com trilha curta. Há pontos de banho no início, mas pedras escorregadias e a força da água exigem cuidado. A terceira queda não tem poço para mergulho. A Prefeitura recomenda monitoria para o passeio.",
+        "description": "Conjunto de três quedas próximo à Praia da Feiticeira, com trilha curta. Há pontos de banho no início, mas pedras escorregadias e a força da água exigem cuidado. A terceira queda não tem poço para mergulho. O Parque Estadual exige monitoria e informa agendamento online.",
         "highlights": [
-          "Trilha curta próxima à Feiticeira",
+          "Trilha curta com monitoria obrigatória",
           "Banho possível apenas nos pontos apropriados",
           "Cuidado com pedras escorregadias",
           "Terceira queda sem poço para mergulho"
         ],
-        "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira.",
+        "ecoTip": "Siga as orientações do monitor; evite entrar na água com correnteza forte ou pedras escorregadias.",
         "specs": {
           "distance": "Cerca de 720 m (ida e volta, Prefeitura)",
-          "duration": "Até 1h (Prefeitura)",
+          "duration": "Até 1h (Parque Estadual)",
           "elevation": "+30m",
-          "access": "Trilha curta junto à Praia da Feiticeira; a Prefeitura indica monitoria",
+          "access": "Entrada oficial: final da Alameda dos Guapuruvus, Feiticeira; monitoria obrigatória e agendamento online (Parque Estadual)",
           "sea": "Não se aplica (Três quedas e duchas naturais)",
           "structure": "Estacionamento próximo e passarela inicial de madeira"
         }
@@ -2364,19 +2364,19 @@ const touristSpots = [
       "en": {
         "title": "Três Tombos Waterfall",
         "subtitle": "Short three-waterfall trail: beware slippery rocks",
-        "description": "Three waterfalls near Praia da Feiticeira, reached by a short trail. Bathing is possible near the start, but slippery rocks and strong currents demand care. There is no plunge pool at the third waterfall. The municipality recommends a guide.",
+        "description": "Three waterfalls near Praia da Feiticeira, reached by a short trail. Bathing is possible near the start, but slippery rocks and strong currents demand care. There is no plunge pool at the third waterfall. The State Park requires a guide and offers online booking.",
         "highlights": [
-          "Short trail near Feiticeira",
+          "Short trail with mandatory guide",
           "Swim only where conditions permit",
           "Watch out for slippery rocks",
           "No plunge pool at the third waterfall"
         ],
-        "ecoTip": "Great refreshing stop right next to Feiticeira beach.",
+        "ecoTip": "Follow the guide’s instructions; avoid the water when currents are strong or rocks are slippery.",
         "specs": {
           "distance": "About 720 m round trip (municipality)",
-          "duration": "Up to 1 hour (municipality)",
+          "duration": "Up to 1 hour (State Park)",
           "elevation": "+30 m",
-          "access": "Short trail near Praia da Feiticeira; local guide advised",
+          "access": "Official trailhead: end of Alameda dos Guapuruvus, Feiticeira; guide required and online booking (State Park)",
           "sea": "Not applicable (three waterfalls and natural showers)",
           "structure": "Nearby parking and an initial wooden walkway"
         }
@@ -2384,19 +2384,19 @@ const touristSpots = [
       "fr": {
         "title": "Cascade des Trois Tombos",
         "subtitle": "Courte randonnée vers trois cascades : rochers glissants",
-        "description": "Trois cascades près de Praia da Feiticeira, accessibles par un court sentier. La baignade est possible au début, mais les rochers glissants et le courant exigent de la prudence. La troisième chute n'a pas de bassin de baignade. Guide recommandé par la municipalité.",
+        "description": "Trois cascades près de Praia da Feiticeira, accessibles par un court sentier. La baignade est possible au début, mais les rochers glissants et le courant exigent de la prudence. La troisième chute n'a pas de bassin de baignade. Le Parc d’État impose un guide et indique une réservation en ligne.",
         "highlights": [
-          "Court sentier près de Feiticeira",
+          "Court sentier avec guide obligatoire",
           "Baignade uniquement si les conditions le permettent",
           "Attention aux rochers glissants",
           "Pas de bassin à la troisième chute"
         ],
-        "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira.",
+        "ecoTip": "Suivez les consignes du guide et évitez l’eau si le courant est fort ou les rochers glissants.",
         "specs": {
           "distance": "Environ 720 m aller-retour (municipalité)",
-          "duration": "Jusqu'à 1 heure (municipalité)",
+          "duration": "Jusqu'à 1 heure (Parc d'État)",
           "elevation": "+30 m",
-          "access": "Court sentier près de Praia da Feiticeira ; guide conseillé",
+          "access": "Départ officiel : bout de l’Alameda dos Guapuruvus, Feiticeira ; guide obligatoire et réservation en ligne (Parc d’État)",
           "sea": "Sans objet (trois cascades et douches naturelles)",
           "structure": "Parking à proximité et passerelle initiale en bois"
         }
@@ -2404,19 +2404,19 @@ const touristSpots = [
       "es": {
         "title": "Cascada de los Tres Tombos",
         "subtitle": "Ruta corta a tres cascadas: cuidado con las rocas resbaladizas",
-        "description": "Tres cascadas cerca de Praia da Feiticeira, accesibles por un sendero corto. Se puede bañar al inicio, pero las rocas resbaladizas y la fuerza del agua exigen precaución. La tercera caída no tiene poza para sumergirse. El municipio recomienda un guía.",
+        "description": "Tres cascadas cerca de Praia da Feiticeira, accesibles por un sendero corto. Se puede bañar al inicio, pero las rocas resbaladizas y la fuerza del agua exigen precaución. La tercera caída no tiene poza para sumergirse. El Parque Estatal exige monitor y señala reserva en línea.",
         "highlights": [
-          "Ruta corta cerca de Feiticeira",
+          "Ruta corta con monitor obligatorio",
           "Baño solo donde las condiciones lo permitan",
           "Precaución con rocas resbaladizas",
           "Tercera caída sin poza para zambullirse"
         ],
-        "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira.",
+        "ecoTip": "Sigue las indicaciones del monitor y evita el agua con corriente fuerte o rocas resbaladizas.",
         "specs": {
           "distance": "Unos 720 m ida y vuelta (municipio)",
-          "duration": "Hasta 1 hora (municipio)",
+          "duration": "Hasta 1 hora (Parque Estatal)",
           "elevation": "+30 m",
-          "access": "Sendero corto junto a Praia da Feiticeira; guía recomendado",
+          "access": "Inicio oficial: final de Alameda dos Guapuruvus, Feiticeira; monitor obligatorio y reserva en línea (Parque Estatal)",
           "sea": "No corresponde (tres cascadas y duchas naturales)",
           "structure": "Estacionamiento cercano y pasarela inicial de madera"
         }
@@ -2424,19 +2424,19 @@ const touristSpots = [
       "he": {
         "title": "מפל שלושת השלבים (Cachoeira dos Três Tombos)",
         "subtitle": "מסלול קצר לשלושה מפלים: זהירות מסלעים חלקלקים",
-        "description": "שלושה מפלים ליד חוף פייטיסיירה במסלול קצר. אפשר להתרחץ בתחילת המסלול, אך סלעים חלקלקים וזרם חזק מחייבים זהירות. במפל השלישי אין בריכה לצלילה. העירייה ממליצה על מדריך.",
+        "description": "שלושה מפלים ליד חוף פייטיסיירה במסלול קצר. אפשר להתרחץ בתחילת המסלול, אך סלעים חלקלקים וזרם חזק מחייבים זהירות. במפל השלישי אין בריכה לצלילה. הפארק המדינתי מחייב מדריך ומציין הזמנה באינטרנט.",
         "highlights": [
-          "מסלול קצר ליד פייטיסיירה",
+          "מסלול קצר עם מדריך חובה",
           "רחצה רק כאשר התנאים מתאימים",
           "זהירות מסלעים חלקלקים",
           "אין בריכת צלילה במפל השלישי"
         ],
-        "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה.",
+        "ecoTip": "יש להישמע למדריך ולהימנע מכניסה למים כשיש זרם חזק או סלעים חלקלקים.",
         "specs": {
           "distance": "כ־720 מטר הלוך ושוב (העירייה)",
-          "duration": "עד שעה (העירייה)",
+          "duration": "עד שעה (הפארק המדינתי)",
           "elevation": "+30 מ׳",
-          "access": "שביל קצר ליד חוף פייטיסיירה; מומלץ מדריך",
+          "access": "תחילת השביל הרשמית בסוף אלמדה דוס גואפורובוס, פייטיסיירה; מדריך חובה והזמנה מקוונת (הפארק המדינתי)",
           "sea": "לא רלוונטי (שלושה מפלים ומקלחות טבעיות)",
           "structure": "חניה סמוכה ומעבר עץ בתחילת הדרך"
         }
