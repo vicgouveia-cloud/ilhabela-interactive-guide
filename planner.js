@@ -494,7 +494,6 @@ function setPlannerView(view) {
   if (showSummary) renderSummary();
   else {
     if (plannerMap) {
-      plannerMap._animatingZoom = false;
       plannerMap.stop();
     }
     renderPlannerFilters();
@@ -525,7 +524,6 @@ function openPlannerSummary() {
 function closePlanner() {
   plannerOriginPickMode = false;
   if (plannerMap) {
-    plannerMap._animatingZoom = false;
     plannerMap.stop();
   }
   const modal = document.getElementById('planner-modal');
@@ -1321,13 +1319,7 @@ function removeFromPlanner(id) {
 
 function destroyPlannerMap() {
   if (!plannerMap) return;
-  plannerMap._animatingZoom = false;
   plannerMap.stop();
-  plannerMap._animateZoom = function() {};
-  plannerMap._onZoomTransitionEnd = function() {};
-  if (plannerMap._mapPane) {
-    L.DomEvent.off(plannerMap._mapPane);
-  }
   if (plannerRouteLine) {
     plannerRouteLine.remove();
     plannerRouteLine = null;
@@ -1347,7 +1339,7 @@ function initPlannerMap() {
   if (!mapContainer || mapContainer.hidden) return;
 
   if (!plannerMap) {
-    plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false }).setView([-23.820, -45.365], 11);
+    plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false, zoomAnimation: false }).setView([-23.820, -45.365], 11);
     plannerMap.on('click', event => {
       if (!plannerOriginPickMode) return;
       plannerOriginPickMode = false;
@@ -1358,7 +1350,6 @@ function initPlannerMap() {
       maxZoom: 19
     }).addTo(plannerMap);
   } else {
-    plannerMap._animatingZoom = false;
     plannerMap.stop();
     if (plannerRouteLine) {
       plannerRouteLine.remove();
@@ -1370,7 +1361,7 @@ function initPlannerMap() {
     }
     plannerMapMarkers.forEach(marker => marker.remove());
     plannerMapMarkers = [];
-    plannerMap.invalidateSize();
+    plannerMap.invalidateSize({ animate: false });
   }
 
   const bounds = L.latLngBounds();
