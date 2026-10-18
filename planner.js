@@ -211,6 +211,28 @@ Object.assign(translations.fr, { plannerNavigateReturn: "Naviguer vers le point 
 Object.assign(translations.es, { plannerNavigateReturn: "Navegar de regreso al origen" });
 Object.assign(translations.he, { plannerNavigateReturn: "נווטו חזרה לנקודת ההתחלה" });
 
+// Keep this page usable when Storage is denied (e.g. private mode / browser policy).
+// Catch only the browser API operations; validation and serialization errors still propagate.
+const plannerStorageCache = new Map();
+function plannerStorageRead(key) {
+  try {
+    const value = localStorage.getItem(key);
+    if (value !== null) plannerStorageCache.set(key, value);
+    return value === null ? (plannerStorageCache.get(key) ?? null) : value;
+  } catch {
+    return plannerStorageCache.get(key) ?? null;
+  }
+}
+function plannerStorageWrite(key, value) {
+  const text = String(value);
+  plannerStorageCache.set(key, text);
+  try {
+    localStorage.setItem(key, text);
+  } catch {
+    // The current trip stays usable in memory; the next write retries Storage.
+  }
+}
+
 // State
 let tripSelection = [];
 let tripDays = {};
@@ -225,7 +247,7 @@ let plannerOrigin = null;
 let tripDayOrigins = {};
 let tripDayReturnToOrigin = {};
 let tripCompletedStops = {};
-let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
+let plannerTravelMode = plannerStorageRead('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
 let plannerRouteLine = null;
@@ -275,7 +297,7 @@ function trackGuideEvent(name, data = {}) {
 // Initialize
 function initPlanner() {
   try {
-    const saved = localStorage.getItem('ilhabela_trip');
+    const saved = plannerStorageRead('ilhabela_trip');
     if (saved) {
       tripSelection = JSON.parse(saved);
       if (!Array.isArray(tripSelection)) tripSelection = [];
@@ -284,21 +306,21 @@ function initPlanner() {
     tripSelection = [];
   }
   try {
-    const savedDays = JSON.parse(localStorage.getItem('ilhabela_trip_days') || '{}');
+    const savedDays = JSON.parse(plannerStorageRead('ilhabela_trip_days') || '{}');
     tripDays = savedDays && typeof savedDays === 'object' && !Array.isArray(savedDays) ? savedDays : {};
   } catch(e) {
     tripDays = {};
   }
   try {
-    const savedOrigins = JSON.parse(localStorage.getItem('ilhabela_trip_origins') || '{}');
+    const savedOrigins = JSON.parse(plannerStorageRead('ilhabela_trip_origins') || '{}');
     tripDayOrigins = savedOrigins && typeof savedOrigins === 'object' && !Array.isArray(savedOrigins) ? savedOrigins : {};
     Object.keys(tripDayOrigins).forEach(day => {
       if (!isValidPlannerOrigin(tripDayOrigins[day])) delete tripDayOrigins[day];
     });
-    localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
-    const savedReturns = JSON.parse(localStorage.getItem('ilhabela_trip_returns') || '{}');
+    plannerStorageWrite('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
+    const savedReturns = JSON.parse(plannerStorageRead('ilhabela_trip_returns') || '{}');
     tripDayReturnToOrigin = savedReturns && typeof savedReturns === 'object' && !Array.isArray(savedReturns) ? savedReturns : {};
-    const savedCompleted = JSON.parse(localStorage.getItem('ilhabela_trip_completed') || '{}');
+    const savedCompleted = JSON.parse(plannerStorageRead('ilhabela_trip_completed') || '{}');
     tripCompletedStops = savedCompleted && typeof savedCompleted === 'object' && !Array.isArray(savedCompleted) ? savedCompleted : {};
     Object.keys(tripCompletedStops).forEach(key => {
       if (key.includes(':') || !tripCompletedStops[key]) return;
@@ -313,7 +335,7 @@ function initPlanner() {
   const validSpotIds = new Set(touristSpots.map(spot => spot.id));
   // One-time compatibility migration: legacy favorites now belong to Minha Viagem.
   try {
-    const legacySaved = JSON.parse(localStorage.getItem('ilhabela_saved') || '[]');
+    const legacySaved = JSON.parse(plannerStorageRead('ilhabela_saved') || '[]');
     if (Array.isArray(legacySaved)) {
       legacySaved.filter(id => validSpotIds.has(id)).forEach(id => {
         if (!tripSelection.includes(id)) tripSelection.push(id);
@@ -322,11 +344,11 @@ function initPlanner() {
   } catch(e) { /* Invalid legacy data is ignored. */ }
   const validSelection = tripSelection.filter(id => validSpotIds.has(id));
   if (validSelection.length !== tripSelection.length) tripSelection = validSelection;
-  localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
+  plannerStorageWrite('ilhabela_trip', JSON.stringify(tripSelection));
   Object.keys(tripDays).forEach(id => {
     if (!validSpotIds.has(id) || !tripSelection.includes(id)) delete tripDays[id];
   });
-  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
+  plannerStorageWrite('ilhabela_trip_days', JSON.stringify(tripDays));
   updatePlannerBadge();
 }
 
@@ -336,7 +358,7 @@ function invalidatePlannerRoute() {
 }
 
 function saveTripSelection() {
-  localStorage.setItem('ilhabela_trip', JSON.stringify(tripSelection));
+  plannerStorageWrite('ilhabela_trip', JSON.stringify(tripSelection));
   Object.keys(tripDays).forEach(id => {
     if (!tripSelection.includes(id)) delete tripDays[id];
   });
@@ -353,10 +375,10 @@ function saveTripSelection() {
     const day = separator >= 0 ? Number(key.slice(0, separator)) : getSpotTripDay(id);
     if (!tripSelection.includes(id) || getSpotTripDay(id) !== day) delete tripCompletedStops[key];
   });
-  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
-  localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
-  localStorage.setItem('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
-  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
+  plannerStorageWrite('ilhabela_trip_days', JSON.stringify(tripDays));
+  plannerStorageWrite('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
+  plannerStorageWrite('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
+  plannerStorageWrite('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
   updatePlannerBadge();
 }
 
@@ -371,8 +393,8 @@ function setSpotTripDay(id, day) {
   const previousDay = getSpotTripDay(id);
   tripDays[id] = parsedDay;
   if (previousDay !== parsedDay) delete tripCompletedStops[`${previousDay}:${id}`];
-  localStorage.setItem('ilhabela_trip_days', JSON.stringify(tripDays));
-  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
+  plannerStorageWrite('ilhabela_trip_days', JSON.stringify(tripDays));
+  plannerStorageWrite('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
   invalidatePlannerRoute();
   renderSummary();
 }
@@ -392,7 +414,7 @@ function saveActiveDayOrigin(coords) {
   if (coords !== null && !isValidPlannerOrigin(coords)) return false;
   if (coords) tripDayOrigins[activeTripDay] = coords;
   else delete tripDayOrigins[activeTripDay];
-  localStorage.setItem('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
+  plannerStorageWrite('ilhabela_trip_origins', JSON.stringify(tripDayOrigins));
   plannerOrigin = coords || null;
   invalidatePlannerRoute();
   renderSummary();
@@ -400,7 +422,7 @@ function saveActiveDayOrigin(coords) {
 
 function setActiveDayReturn(enabled) {
   tripDayReturnToOrigin[activeTripDay] = !!enabled;
-  localStorage.setItem('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
+  plannerStorageWrite('ilhabela_trip_returns', JSON.stringify(tripDayReturnToOrigin));
   invalidatePlannerRoute();
   renderSummary();
 }
@@ -673,7 +695,7 @@ function setPlannerStopCompleted(id, completed = true) {
   const key = getPlannerCompletionKey(id, activeTripDay);
   if (completed) tripCompletedStops[key] = true;
   else delete tripCompletedStops[key];
-  localStorage.setItem('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
+  plannerStorageWrite('ilhabela_trip_completed', JSON.stringify(tripCompletedStops));
   renderSummary();
 }
 
@@ -973,7 +995,7 @@ function isSpotRoutableForMode(spot, mode = plannerTravelMode) {
 function plannerSetTravelMode(mode) {
   if (!['auto', 'bicycle', 'pedestrian', '4x4'].includes(mode) || mode === plannerTravelMode) return;
   plannerTravelMode = mode;
-  localStorage.setItem('ilhabela_travel_mode', mode);
+  plannerStorageWrite('ilhabela_travel_mode', mode);
   invalidatePlannerRoute();
   renderSummary();
 }
