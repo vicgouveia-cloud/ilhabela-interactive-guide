@@ -140,13 +140,13 @@
     }
   },
   "cachoeira-do-gato": {
-    "copy": "Início no canto esquerdo da Baía de Castelhanos",
+    "copy": "A trilha começa na Ponta do Gato, no Canto do Ribeirão em Castelhanos. Chegada à baía por barco ou estrada com 4x4; o ponto exato de transição para a trilha não está validado como rota navegável.",
     "provenance": {
-      "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-gato/index.html",
-      "verification": "not-revalidated",
-      "pendingEmbarkation": false,
-      "pendingAccess": false
+      "kind": "official-route-description",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-gato/",
+      "verification": "general-start-only; exact gateway not validated",
+      "pendingEmbarkation": true,
+      "pendingAccess": true
     }
   },
   "cachoeira-dos-tres-tombos": {
@@ -160,13 +160,13 @@
     }
   },
   "cachoeira-da-friagem": {
-    "copy": "Início no bairro da Praia da Siriúba (norte)",
+    "copy": "Início da caminhada após o trecho urbanizado, no final da Alameda dos Pássaros, na Siriúba, em área de condomínio. A monitoria é obrigatória; confirme as condições de acesso com o Parque Estadual.",
     "provenance": {
-      "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-friagem/index.html",
-      "verification": "not-revalidated",
+      "kind": "official-route-description",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-friagem/",
+      "verification": "general-start-only; exact gateway not validated",
       "pendingEmbarkation": false,
-      "pendingAccess": false
+      "pendingAccess": true
     }
   },
   "trilha-da-agua-branca": {
