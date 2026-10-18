@@ -46,7 +46,7 @@ const expected={
   specs:{pt:'metálico',en:'metal',es:'metálico',fr:'métallique',he:'מתכת'}
  }
 };
-const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
+const escape=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 for(const [id,pin] of Object.entries(expected)){
  const s=primary.find(x=>x.id===id),old=oldPrimary.find(x=>x.id===id);
  assert(s&&old,id+' missing');
