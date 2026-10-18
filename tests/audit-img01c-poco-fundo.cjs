@@ -48,6 +48,7 @@ assert(newSpot.photoCaption.pt.includes('não aparece'));
 for(const locale of ['pt','en','fr','es','he']) {
   assert(typeof newSpot.photoCaption[locale]==='string' && newSpot.photoCaption[locale].trim(),ID+' caption '+locale);
 }
+const safety = require('./fixtures/waterfall-safety-overrides.json').attractions;
 const approvedContext = vm.createContext({console});
 for(const file of ['data.js','additional-spots.js','attraction-photos.js']) vm.runInContext(execFileSync('git',['show','6c48fd8:'+file],{cwd:ROOT,encoding:'utf8'}),approvedContext);
 const approvedSpots=Array.from(vm.runInContext('touristSpots',approvedContext));
@@ -64,7 +65,9 @@ for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-ba
 
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
-  assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
+  // Three later officially verified safety corrections replace only their approved copy.
+  if(safety[original.id]) assert.equal(JSON.stringify(actual.translations),JSON.stringify(safety[original.id].translations),original.id+' reviewed safety translations');
+  else assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
   assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
 }
 for (const id of [

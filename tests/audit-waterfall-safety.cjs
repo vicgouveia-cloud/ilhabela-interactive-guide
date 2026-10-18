@@ -9,7 +9,7 @@ const ids=['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos
 const langs=['pt','en','fr','es','he'];
 const load=read=>{
  const ctx=vm.createContext({console});
- for(const file of ['data.js','additional-spots.js'])vm.runInContext(read(file),ctx,{filename:file});
+ for(const file of ['data.js','additional-spots.js','attraction-photos.js'])vm.runInContext(read(file),ctx,{filename:file});
  return JSON.parse(vm.runInContext('JSON.stringify({touristSpots,servicesData,routingGateways})',ctx));
 };
 const now=load(file=>fs.readFileSync(path.join(ROOT,file),'utf8'));
