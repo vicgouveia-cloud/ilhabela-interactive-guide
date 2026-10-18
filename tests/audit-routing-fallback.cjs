@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 // Approved routing and translated catalog after #25/#26, before this technical fix.
 const base = '6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f';
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-veloso','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
 
 function load(baseline) {
   const context = vm.createContext({console, translations: Object.fromEntries(['pt','en','fr','es','he'].map(l => [l, {}]))});

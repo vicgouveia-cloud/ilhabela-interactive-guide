@@ -1918,112 +1918,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "2 a 3 km (Parque Estadual)",
-      "duration": "2h a 2h30 (Parque Estadual)",
+      "distance": "1 km a partir do bairro do Veloso",
+      "duration": "25 min de caminhada",
       "elevation": "+110m",
-      "access": "Final da Rua José Pereira Carolo, à direita do Camping do Sítio; monitoria obrigatória e agendamento online",
+      "access": "Trilha sombreada a partir do bairro do Veloso (lado sul)",
       "sea": "Não se aplica (Queda d água de 30m cercada por mata virgem)",
-      "structure": "Trilha natural com guarita de entrada; consulte orientações do Parque Estadual"
+      "structure": "Trilha nativa sinalizada, sem comércio no topo"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira do Veloso",
-        "subtitle": "Trilha de 2h a 2h30 com monitoria obrigatória",
-        "description": "A Trilha do Veloso atravessa a Mata Atlântica até uma queda de mais de 30 metros. Segundo o Parque Estadual, o percurso tem 2 a 3 km, leva de 2h a 2h30, apresenta dificuldade moderada e exige monitoria. A entrada fica no final da Rua José Pereira Carolo, à direita do Camping do Sítio. Consulte o agendamento online antes de ir.",
+        "subtitle": "Queda majestosa de 30 metros cercada por samambaias gigantes",
+        "description": "Uma das mais belas e preservadas cachoeiras do sul da ilha. A caminhada de 25 minutos atravessa a floresta até um imponente paredão rochoso com ducha refrescante.",
         "highlights": [
-          "Monitoria obrigatória no Parque Estadual",
-          "Trilha de 2 a 3 km e 2h a 2h30",
-          "Queda com mais de 30 metros",
-          "Entrada no final da Rua José Pereira Carolo"
+          "Queda d água de 30 metros",
+          "Samambaias arborescentes gigantes",
+          "Ambiente tranquilo e sombreado",
+          "Poço de água límpida para banho"
         ],
-        "ecoTip": "Faça o passeio com monitor autorizado; respeite as orientações e evite pedras molhadas e correnteza.",
+        "ecoTip": "Use calçado com boa aderência nas pedras.",
         "specs": {
-          "distance": "2 a 3 km (Parque Estadual)",
-          "duration": "2h a 2h30 (Parque Estadual)",
+          "distance": "1 km a partir do bairro do Veloso",
+          "duration": "25 min de caminhada",
           "elevation": "+110m",
-          "access": "Final da Rua José Pereira Carolo, à direita do Camping do Sítio; monitoria obrigatória",
+          "access": "Trilha sombreada a partir do bairro do Veloso (lado sul)",
           "sea": "Não se aplica (Queda d água de 30m cercada por mata virgem)",
-          "structure": "Trilha natural com guarita; confirmar agendamento junto ao Parque Estadual"
+          "structure": "Trilha nativa sinalizada, sem comércio no topo"
         }
       },
       "en": {
         "title": "Veloso Waterfall",
-        "subtitle": "2–2.5 hour trail with a mandatory guide",
-        "description": "The Veloso trail crosses the Atlantic Forest to a waterfall over 30 meters high. The State Park lists a 2–3 km route, 2–2.5 hours, moderate difficulty and mandatory guiding. The trailhead is at the end of Rua José Pereira Carolo, to the right of Camping do Sítio. Check online booking before visiting.",
+        "subtitle": "Majestic 100-foot cascade surrounded by giant tree ferns",
+        "description": "One of the most serene waterfalls in southern Ilhabela. The 25-minute jungle walk leads to an impressive rock amphitheater with a powerful refreshing shower.",
         "highlights": [
-          "Mandatory State Park guide",
-          "2–3 km trail, 2–2.5 hours",
-          "Waterfall over 30 meters high",
-          "Trailhead at Rua José Pereira Carolo"
+          "30-meter dramatic cascade",
+          "Ancient giant tree ferns",
+          "Quiet and shaded rainforest setting",
+          "Refreshing clear dip pool"
         ],
-        "ecoTip": "Visit with an authorized guide; follow instructions and avoid wet rocks and strong currents.",
+        "ecoTip": "Wear shoes with good traction on slippery stones.",
         "specs": {
-          "distance": "2–3 km (State Park)",
-          "duration": "2–2.5 hours (State Park)",
+          "distance": "1 km from the Veloso neighborhood",
+          "duration": "25 min walk",
           "elevation": "+110 m",
-          "access": "End of Rua José Pereira Carolo, right of Camping do Sítio; guide required",
+          "access": "Shaded trail from Veloso (south side)",
           "sea": "Not applicable (30 m waterfall surrounded by untouched forest)",
-          "structure": "Natural trail and entrance gate; check State Park booking"
+          "structure": "Signposted native trail, no shops at the top"
         }
       },
       "fr": {
         "title": "Cascade do Veloso",
-        "subtitle": "Sentier de 2 h à 2 h 30 avec guide obligatoire",
-        "description": "Le sentier du Veloso traverse la forêt atlantique jusqu'à une cascade de plus de 30 mètres. Le Parc d'État indique 2 à 3 km, 2 h à 2 h 30 de marche, une difficulté modérée et un guide obligatoire. Le départ se trouve au bout de la Rua José Pereira Carolo, à droite du Camping do Sítio. Vérifiez la réservation en ligne.",
+        "subtitle": "Chute majestueuse de 30 mètres au milieu des fougères géantes",
+        "description": "L une des cascades les plus préservées du sud de l île. Une marche de 25 minutes mène à un amphithéâtre rocheux grandiose et une douche revigorante.",
         "highlights": [
-          "Guide obligatoire du Parc d'État",
-          "2 à 3 km en 2 h à 2 h 30",
-          "Cascade de plus de 30 mètres",
-          "Départ Rua José Pereira Carolo"
+          "Chute d eau de 30 mètres",
+          "Fougères arborescentes géantes",
+          "Ambiance calme et ombragée",
+          "Bassin de baignade rafraîchissant"
         ],
-        "ecoTip": "Partez avec un guide habilité ; respectez ses consignes et évitez les rochers humides.",
+        "ecoTip": "Portez des chaussures adhérentes pour marcher sur les roches.",
         "specs": {
-          "distance": "2 à 3 km (Parc d'État)",
-          "duration": "2 h à 2 h 30 (Parc d'État)",
+          "distance": "1 km depuis le quartier Veloso",
+          "duration": "25 min de marche",
           "elevation": "+110 m",
-          "access": "Bout de la Rua José Pereira Carolo, à droite du Camping do Sítio ; guide obligatoire",
+          "access": "Sentier ombragé depuis Veloso (côté sud)",
           "sea": "Sans objet (cascade de 30 m entourée de forêt vierge)",
-          "structure": "Sentier naturel et guérite ; vérifier la réservation"
+          "structure": "Sentier naturel balisé, aucun commerce au sommet"
         }
       },
       "es": {
         "title": "Cascada do Veloso",
-        "subtitle": "Sendero de 2 a 2,5 horas con monitor obligatorio",
-        "description": "La ruta del Veloso atraviesa la Mata Atlántica hasta una cascada de más de 30 metros. El Parque Estatal indica 2–3 km, de 2 a 2,5 horas, dificultad moderada y monitor obligatorio. La entrada está al final de Rua José Pereira Carolo, a la derecha del Camping do Sítio. Consulta la reserva en línea.",
+        "subtitle": "Majestuosa caída de 30 metros entre helechos gigantes",
+        "description": "Una de las cascadas más hermosas del sur. Una caminata de 25 minutos por la selva te lleva a un anfiteatro rocoso con una ducha natural inolvidable.",
         "highlights": [
-          "Monitor obligatorio del Parque Estatal",
-          "2 a 3 km y de 2 a 2,5 horas",
-          "Cascada de más de 30 metros",
-          "Entrada por Rua José Pereira Carolo"
+          "Caída de agua de 30 metros",
+          "Helechos gigantes milenarios",
+          "Ambiente sereno y con sombra",
+          "Poza cristalina para refrescarse"
         ],
-        "ecoTip": "Ve con un monitor autorizado; sigue las indicaciones y evita rocas mojadas y corrientes fuertes.",
+        "ecoTip": "Usa calzado adecuado para no resbalar en las piedras.",
         "specs": {
-          "distance": "2–3 km (Parque Estatal)",
-          "duration": "2 a 2,5 horas (Parque Estatal)",
+          "distance": "1 km desde el barrio Veloso",
+          "duration": "25 min caminando",
           "elevation": "+110 m",
-          "access": "Final de Rua José Pereira Carolo, a la derecha del Camping do Sítio; monitor obligatorio",
+          "access": "Sendero sombreado desde Veloso (lado sur)",
           "sea": "No corresponde (cascada de 30 m rodeada de bosque virgen)",
-          "structure": "Sendero natural y control de acceso; comprobar reserva"
+          "structure": "Sendero natural señalizado, sin comercios arriba"
         }
       },
       "he": {
         "title": "מפל ולוזו (Cachoeira do Veloso)",
-        "subtitle": "מסלול של שעתיים עד שעתיים וחצי עם מדריך חובה",
-        "description": "שביל ולוזו עובר ביער האטלנטי עד למפל שגובהו מעל 30 מטר. לפי הפארק המדינתי אורכו 2–3 ק״מ, משך ההליכה שעתיים עד שעתיים וחצי, דרגת הקושי בינונית ונדרש מדריך. הכניסה בסוף רחוב ז׳וזה פריירה קרולו, מימין לקמפינג דו סיטיו. יש לבדוק הזמנה מראש.",
+        "subtitle": "מפל מרהיב בגובה 30 מטר המוקף בשרכי ענק טרופיים",
+        "description": "אחד המפלים היפים והשלווים בדרום האי. הליכה נעימה של 25 דקות בתוך יער הגשם מובילה למפל מים שוצף עם בריכת מים צלולה ומקלחת טבעית מרעננת.",
         "highlights": [
-          "ליווי מדריך חובה",
-          "2–3 ק״מ, שעתיים עד שעתיים וחצי",
-          "מפל בגובה מעל 30 מטר",
-          "תחילת השביל ברחוב ז׳וזה פריירה קרולו"
+          "מפל מרשים בגובה 30 מטר",
+          "שרכי ענק עתיקים וצמחייה טרופית",
+          "אווירה שקטה ומוצלת",
+          "בריכת מים קרירה וצלולה"
         ],
-        "ecoTip": "טיילו עם מדריך מוסמך, הישמעו להוראות והימנעו מסלעים רטובים וזרם חזק.",
+        "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים.",
         "specs": {
-          "distance": "2–3 ק״מ (הפארק המדינתי)",
-          "duration": "שעתיים עד שעתיים וחצי (הפארק)",
+          "distance": "1 ק״מ משכונת Veloso",
+          "duration": "25 דקות הליכה",
           "elevation": "+110 מ׳",
-          "access": "סוף רחוב ז׳וזה פריירה קרולו, מימין לקמפינג דו סיטיו; מדריך חובה",
+          "access": "שביל מוצל משכונת Veloso (דרום)",
           "sea": "לא רלוונטי (מפל בגובה 30 מ׳ מוקף יער בתולי)",
-          "structure": "שביל טבעי ועמדת כניסה; בדקו הזמנה בפארק"
+          "structure": "שביל טבעי מסומן, ללא מסחר למעלה"
         }
       }
     },

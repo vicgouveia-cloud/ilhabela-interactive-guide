@@ -120,11 +120,11 @@
     }
   },
   "cachoeira-do-veloso": {
-    "copy": "A navegação terrestre termina no ponto anteriormente validado (-23.876020628872798, -45.43576108900807). O Parque Estadual informa que a entrada da trilha fica no final da Rua José Pereira Carolo, à direita do Camping do Sítio. Monitoria obrigatória e agendamento online; confirme a ligação entre o ponto de navegação e a entrada.",
+    "copy": "A navegação terrestre termina no acesso validado (-23.876020628872798, -45.43576108900807); o trecho final continua a pé ou por trilha conforme a atração. Trilha sombreada a partir do bairro do Veloso (lado sul)",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-veloso/",
-      "verification": "editorial access guidance checked against cited authority, 2026-10-18; existing navigation waypoint not revalidated",
+      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-veloso/index.html",
+      "verification": "not-revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }

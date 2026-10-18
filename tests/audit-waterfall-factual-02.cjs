@@ -1,4 +1,4 @@
-// WATERFALL-FACTUAL-02: six formerly unreviewed attractions, independent of PR34 facts.
+// WATERFALL-FACTUAL-02: five authorized attractions, independent of PR34 facts.
 const assert=require('node:assert/strict');
 const fs=require('node:fs');
 const path=require('node:path');
@@ -21,7 +21,6 @@ const access=JSON.parse(read('scripts/attraction-access-copy.json'));
 const expected={
  'cachoeira-da-laje':{image:'assets/images/cachoeira-da-laje_1.jpg',coords:[-23.932171146209154,-45.40923386772312],pt:['4,6 km','pedras escorregadias'],en:'4.6 km',fr:'4,6 km',es:'4,6 km',he:'4.6',source:'https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-bonete/'},
  'cachoeira-da-toca':{image:'assets/images/cachoeira-da-toca_1.jpg',coords:[-23.8056,-45.3489],pt:['propriedade particular','Pedras molhadas'],en:'privately owned',fr:'propriété privée',es:'propiedad privada',he:'הפרטית',source:'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15089/dia-dos-namorados-3-dicas-para-aproveitar-ilhabela-em-casal'},
- 'cachoeira-do-veloso':{image:'assets/images/cachoeira-do-veloso_1.jpg',coords:[-23.8767,-45.4267],pt:['2h a 2h30','exige monitoria'],en:'mandatory guiding',fr:'guide obligatoire',es:'monitor obligatorio',he:'נדרש מדריך',source:'https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-veloso/'},
  'cachoeira-do-paqueta':{image:'assets/images/cachoeira-do-paqueta_1.jpg',coords:[-23.8572,-45.4089],pt:['acidentes graves','fatais'],en:'potentially fatal',fr:'mortels',es:'mortales',he:'קטלניות',source:'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/122/prefeitura-de-ilhabela-alerta-sobre-risco-ao-visitar-cachoeira-do-paqueta'},
  'poco-do-furado':{image:'assets/images/attraction-placeholder.svg',coords:[-23.8325,-45.3604],pt:['570 metros','não se estende'],en:'570 meters',fr:'570 mètres',es:'570 metros',he:'570',source:'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16294/cachoeiras-em-ilhabela-conheca-7-opcoes-de-facil-acesso'},
  'cachoeira-do-poco-fundo':{image:'assets/images/attraction-placeholder.svg',coords:[-23.910209781923758,-45.343693232441986],pt:['10 minutos','barco'],en:'10 minutes',fr:'10 minutes',es:'10 minutos',he:'כעשר דקות',source:'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16294/cachoeiras-em-ilhabela-conheca-7-opcoes-de-facil-acesso'}
@@ -62,9 +61,18 @@ for(const [id,rule] of Object.entries(expected)){
   assert(content.includes(esc(pt.subtitle)),id+': stale hub '+hub);
  }
 }
-const veloso=raw.find(s=>s.id==='cachoeira-do-veloso');
-assert.equal(veloso.specs.difficulty,'moderate');
-assert(veloso.specs.duration.includes('2h30')&&veloso.specs.access.includes('obrigatória'));
+// Explicitly guarantee that Veloso is not part of this batch.
+const {execFileSync}=require('node:child_process');
+const BASE='d9a897fe4287fe88f65476eac8e482a36f073a11';
+const baseData=execFileSync('git',['show',BASE+':data.js'],{cwd:ROOT,encoding:'utf8',maxBuffer:10*1024*1024});
+const marker='const touristSpots = ',from=baseData.indexOf(marker),to=baseData.indexOf('];',from);
+const oldVeloso=JSON.parse(baseData.slice(from+marker.length,to+1)).find(s=>s.id==='cachoeira-do-veloso');
+assert.deepEqual(raw.find(s=>s.id==='cachoeira-do-veloso'),oldVeloso,'Veloso must remain identical to main');
+for(const path of ['lugares/cachoeira-do-veloso/index.html']){
+ assert.equal(read(path),execFileSync('git',['show',BASE+':'+path],{cwd:ROOT,encoding:'utf8'}),'Veloso static page must remain unchanged');
+}
+const baseAccess=JSON.parse(execFileSync('git',['show',BASE+':scripts/attraction-access-copy.json'],{cwd:ROOT,encoding:'utf8'}));
+assert.deepEqual(access['cachoeira-do-veloso'],baseAccess['cachoeira-do-veloso'],'Veloso access unchanged');
 const paqueta=raw.find(s=>s.id==='cachoeira-do-paqueta');
 assert(paqueta.translations.pt.subtitle.includes('acidentes graves'));
 assert(paqueta.specs.structure.includes('segurança'));
@@ -73,4 +81,4 @@ const furado=raw.find(s=>s.id==='poco-do-furado');
 assert(furado.translations.pt.description.includes('rampa acessível')&&furado.translations.pt.description.includes('não se estende'));
 const fundo=raw.find(s=>s.id==='cachoeira-do-poco-fundo');
 assert(fundo.translations.pt.specs.access.includes('barco'));
-console.log('WATERFALL-FACTUAL-02 PASS: 6 attractions, 5 locales, safety/source/meta/hubs and original media/coordinates/routing');
+console.log('WATERFALL-FACTUAL-02 PASS: 5 attractions, 5 locales; Veloso unchanged, safety/source/meta/hubs and original media/coordinates/routing');

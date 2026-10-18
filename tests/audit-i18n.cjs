@@ -85,7 +85,7 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 // ordering and pre-existing translations stay intact; only new localized fields are added.
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-veloso','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
 
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
