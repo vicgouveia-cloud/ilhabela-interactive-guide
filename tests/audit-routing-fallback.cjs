@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 // Approved routing and translated catalog after #25/#26, before this technical fix.
 const base = '6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f';
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-veloso','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
 
 function load(baseline) {
   const context = vm.createContext({console, translations: Object.fromEntries(['pt','en','fr','es','he'].map(l => [l, {}]))});
@@ -44,6 +44,7 @@ const trailContent = "JSON.stringify((({routing, ...content}) => content)(touris
 assert.equal(vm.runInContext(trailContent,current),vm.runInContext(trailContent,previous),'Agua Branca trail content changed');
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",current),vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",previous), 'Preserve approved gateway verification');
 require('./audit-waterfall-safety.cjs');
+require('./audit-waterfall-factual-02.cjs');
 console.log(`Fallback regression OK: ${ids.length} attractions, 6 modes, full operational facts preserved; 3 safety editorials separately audited.`);
 const catalog = vm.createContext({console});
 for (const file of ['data.js','additional-spots.js']) vm.runInContext(fs.readFileSync(file,'utf8'),catalog);
