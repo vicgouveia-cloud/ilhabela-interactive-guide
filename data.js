@@ -2470,31 +2470,31 @@ const touristSpots = [
       "is4x4": false
     },
     "specs": {
-      "difficulty": "moderate",
-      "distance": "1.5 km (trilha)",
-      "duration": "35 min",
+      "distance": "2 a 3 km (trilha)",
+      "duration": "1h30 a 2h",
       "elevation": "+140m",
-      "access": "Início no bairro da Praia da Siriúba (norte)",
+      "access": "Final da Alameda dos Pássaros, Siriúba; monitoria obrigatória",
       "sea": "Não se aplica (Ducha natural sobre rochas com vista do canal)",
-      "structure": "Trilha nativa entre bambuzais e mata atlântica"
+      "structure": "Trilha nativa entre bambuzais e mata atlântica",
+      "difficulty": "hard"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Friagem",
         "subtitle": "Ducha natural refrescante no norte com vista do canal de São Sebastião",
-        "description": "Localizada no norte da ilha a partir da Siriúba, a trilha sobe em meio a bambuzais até uma queda de 25 metros que se despenha sobre pedras lisas com vista para o canal.",
+        "description": "Localizada no norte da ilha a partir da Siriúba, a trilha sobe em meio a bambuzais até uma queda de 25 metros que se despenha sobre pedras lisas com vista para o canal. O Parque Estadual classifica a trilha como difícil, com percurso de 1h30 a 2h e monitoria ambiental obrigatória.",
         "highlights": [
           "Vista panorâmica do canal de São Sebastião",
           "Ducha natural revigorante",
           "Trilha sombreada e fresca",
-          "Pouco movimentada e privativa"
+          "Monitoria ambiental obrigatória"
         ],
-        "ecoTip": "Traga água potável e use repelente.",
+        "ecoTip": "É obrigatório realizar esta trilha com monitor ambiental. Confirme as condições e o agendamento junto ao Parque Estadual.",
         "specs": {
-          "distance": "1.5 km (trilha)",
-          "duration": "35 min",
+          "distance": "2 a 3 km (trilha)",
+          "duration": "1h30 a 2h",
           "elevation": "+140m",
-          "access": "Início no bairro da Praia da Siriúba (norte)",
+          "access": "Final da Alameda dos Pássaros, Siriúba; monitoria obrigatória",
           "sea": "Não se aplica (Ducha natural sobre rochas com vista do canal)",
           "structure": "Trilha nativa entre bambuzais e mata atlântica"
         }
@@ -2502,19 +2502,19 @@ const touristSpots = [
       "en": {
         "title": "Friagem Waterfall (Cachoeira da Friagem)",
         "subtitle": "Northern mountain shower cascade with sea channel views",
-        "description": "Located in the north near Siriúba, this serene trail ascends through lush bamboo groves to a 80-foot cascade spilling over granite rocks with panoramic coastal views.",
+        "description": "Located in the north near Siriúba, this serene trail ascends through lush bamboo groves to a 80-foot cascade spilling over granite rocks with panoramic coastal views. The State Park rates the trail difficult, with a 1.5-to-2-hour route and a mandatory environmental guide.",
         "highlights": [
           "Panoramic sea channel vista",
           "Invigorating natural power shower",
           "Shaded cool bamboo trail",
-          "Quiet and private atmosphere"
+          "Environmental guide required"
         ],
-        "ecoTip": "Bring drinking water and insect repellent.",
+        "ecoTip": "An environmental guide is mandatory on this trail. Check the route conditions and make arrangements with the State Park.",
         "specs": {
-          "distance": "1.5 km (trail)",
-          "duration": "35 min",
+          "distance": "2 to 3 km (trail)",
+          "duration": "1.5 to 2 hours",
           "elevation": "+140 m",
-          "access": "Starts in the Praia da Siriúba neighborhood (north)",
+          "access": "End of Alameda dos Pássaros, Siriúba; guide required",
           "sea": "Not applicable (natural shower over rocks overlooking the channel)",
           "structure": "Native trail through bamboo groves and Atlantic Forest"
         }
@@ -2522,19 +2522,19 @@ const touristSpots = [
       "fr": {
         "title": "Cascade da Friagem",
         "subtitle": "Douche naturelle rafraîchissante avec vue sur le canal marin",
-        "description": "Située au nord près de Siriúba, le sentier monte à travers les bambous vers une chute de 25 mètres offrant une vue splendide sur le canal.",
+        "description": "Située au nord près de Siriúba, le sentier monte à travers les bambous vers une chute de 25 mètres offrant une vue splendide sur le canal. Le parc classe ce sentier comme difficile, avec un parcours de 1 h 30 à 2 h et un accompagnateur environnemental obligatoire.",
         "highlights": [
           "Vue panoramique sur le canal",
           "Douche naturelle énergisante",
           "Sentier ombragé agréable",
-          "Site calme et peu fréquenté"
+          "Accompagnement environnemental obligatoire"
         ],
-        "ecoTip": "Prévoyez de l eau et un répulsif.",
+        "ecoTip": "Un accompagnateur environnemental est obligatoire. Vérifiez les conditions et organisez la visite avec le parc.",
         "specs": {
-          "distance": "1,5 km (sentier)",
-          "duration": "35 min",
+          "distance": "2 à 3 km (sentier)",
+          "duration": "1 h 30 à 2 h",
           "elevation": "+140 m",
-          "access": "Départ du quartier Praia da Siriúba (nord)",
+          "access": "Fin de l'Alameda dos Pássaros, Siriúba ; accompagnateur obligatoire",
           "sea": "Sans objet (douche naturelle sur les rochers avec vue sur le canal)",
           "structure": "Sentier naturel entre bambouseraies et forêt atlantique"
         }
@@ -2542,19 +2542,19 @@ const touristSpots = [
       "es": {
         "title": "Cascada da Friagem",
         "subtitle": "Ducha natural refrescante con vistas panorámicas al canal",
-        "description": "Ubicada en el norte de la isla, el sendero sube entre cañaverales de bambú hasta una caída de 25 metros con vistas al mar.",
+        "description": "Ubicada en el norte de la isla, el sendero sube entre cañaverales de bambú hasta una caída de 25 metros con vistas al mar. El Parque Estadual clasifica el sendero como difícil, con recorrido de 1 h 30 a 2 h y monitor ambiental obligatorio.",
         "highlights": [
           "Vista panorámica al canal de São Sebastião",
           "Ducha natural revitalizante",
           "Sendero fresco con sombra",
-          "Ambiente tranquilo y privado"
+          "Monitor ambiental obligatorio"
         ],
-        "ecoTip": "Lleva agua y repelente.",
+        "ecoTip": "Esta ruta exige monitor ambiental. Consulta las condiciones y organiza el acompañamiento con el Parque Estadual.",
         "specs": {
-          "distance": "1,5 km (sendero)",
-          "duration": "35 min",
+          "distance": "2 a 3 km (sendero)",
+          "duration": "1 h 30 a 2 h",
           "elevation": "+140 m",
-          "access": "Inicio en el barrio Praia da Siriúba (norte)",
+          "access": "Final de Alameda dos Pássaros, Siriúba; monitor obligatorio",
           "sea": "No corresponde (ducha natural sobre rocas con vista al canal)",
           "structure": "Sendero natural entre bambúes y Mata Atlántica"
         }
@@ -2562,19 +2562,19 @@ const touristSpots = [
       "he": {
         "title": "מפל פריאז׳ם (Cachoeira da Friagem)",
         "subtitle": "מפל מים מרענן בצפון האי עם נוף פנורמי לתעלת הים",
-        "description": "ממוקם בצפון האי מעל חוף סיריאובה. המסלול עולה בין עצי חזרן (במבוק) אל מפל בגובה 25 מטר הנשפך על סלעי גרניט ומשקיף אל הים.",
+        "description": "ממוקם בצפון האי מעל חוף סיריאובה. המסלול עולה בין עצי חזרן (במבוק) אל מפל בגובה 25 מטר הנשפך על סלעי גרניט ומשקיף אל הים. הפארק מסווג את השביל כקשה, עם מסלול של שעה וחצי עד שעתיים וחובת ליווי של מדריך סביבתי.",
         "highlights": [
           "נוף פנורמי אל תעלת הים",
           "מקלחת מים טבעית ממריצה",
           "שביל מוצל וקריר",
-          "אתר שקט ואינטימי"
+          "חובה בליווי מדריך סביבתי"
         ],
-        "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים.",
+        "ecoTip": "חובה לטייל עם מדריך סביבתי. בדקו את תנאי המסלול ותאמו את הביקור עם הפארק.",
         "specs": {
-          "distance": "1.5 ק״מ (שביל)",
-          "duration": "35 דקות",
+          "distance": "2 עד 3 ק״מ (שביל)",
+          "duration": "שעה וחצי עד שעתיים",
           "elevation": "+140 מ׳",
-          "access": "תחילה בשכונת Praia da Siriúba (צפון)",
+          "access": "סוף Alameda dos Pássaros בסיריאובה; מדריך חובה",
           "sea": "לא רלוונטי (מקלחת טבעית על סלעים עם נוף לתעלה)",
           "structure": "שביל טבעי בין חורשות במבוק והיער האטלנטי"
         }

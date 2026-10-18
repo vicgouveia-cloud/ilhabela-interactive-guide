@@ -160,13 +160,15 @@
     }
   },
   "cachoeira-da-friagem": {
-    "copy": "Início no bairro da Praia da Siriúba (norte)",
+    "copy": "A trilha tem referência de entrada ao final da Alameda dos Pássaros, na Siriúba, depois do trecho urbanizado. Monitoria ambiental obrigatória; a transição exata ainda não foi georreferenciada neste guia.",
     "provenance": {
       "kind": "preserved-editorial-copy",
       "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-friagem/index.html",
       "verification": "not-revalidated",
       "pendingEmbarkation": false,
-      "pendingAccess": false
+      "pendingAccess": false,
+      "officialSource": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-friagem/",
+      "reviewedAt": "2026-10-18"
     }
   },
   "trilha-da-agua-branca": {
