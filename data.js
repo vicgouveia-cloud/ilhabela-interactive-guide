@@ -3310,7 +3310,7 @@ const touristSpots = [
     ],
     "attributes": {
       "isDiving": false,
-      "isSunset": true,
+      "isSunset": false,
       "isKiosk": false,
       "isWild": true,
       "isFamily": false,

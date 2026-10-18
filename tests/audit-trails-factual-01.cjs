@@ -25,7 +25,11 @@ for(const [id,c] of Object.entries(official)){
  assert(now&&before,id+': missing');
  // Only editorial copy changes: no image, location, metadata or routing mutations.
  for(const key of Object.keys(before).filter(k=>!['tags','specs','translations'].includes(k))){
-  assert.deepEqual(now[key],before[key],id+' unexpectedly changed '+key);
+  if(id==='pico-do-baepi' && key==='attributes'){
+   assert.equal(before.attributes.isSunset,true,'Baepi historic sunset flag');
+   assert.equal(now.attributes.isSunset,false,'Do not recommend Baepi as sunset outing');
+   assert.deepEqual({...now.attributes,isSunset:true},before.attributes,id+' preserve other flags');
+  }else assert.deepEqual(now[key],before[key],id+' unexpectedly changed '+key);
  }
  assert.deepEqual(now.coords,before.coords,id+' coords');
  assert.deepEqual(now.routing,before.routing,id+' routing');
