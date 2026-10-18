@@ -51,6 +51,9 @@ for(const locale of ['pt','en','fr','es','he']) {
 const approvedContext = vm.createContext({console});
 for(const file of ['data.js','additional-spots.js','attraction-photos.js']) vm.runInContext(execFileSync('git',['show','6c48fd8:'+file],{cwd:ROOT,encoding:'utf8'}),approvedContext);
 const approvedSpots=Array.from(vm.runInContext('touristSpots',approvedContext));
+const {maskSafetyChanges}=require('./safety-preservation-contract.cjs');
+const safetyNormalized=maskSafetyChanges({touristSpots:after.spots.map(s=>JSON.parse(JSON.stringify(s)))},{touristSpots:approvedSpots.map(s=>JSON.parse(JSON.stringify(s)))});
+const safetyNormalizedById=new Map(safetyNormalized.touristSpots.map(s=>[s.id,s]));
 for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-baepi')) {
   const actual=currentById.get(original.id);
   // PERF-01A approved correction: keep the historical IMG-01C checks for every
@@ -64,7 +67,7 @@ for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-ba
 
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
-  assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
+  assert.equal(JSON.stringify(safetyNormalizedById.get(original.id).translations),JSON.stringify(original.translations),original.id+' translations outside scoped safety advisories');
   assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
 }
 for (const id of [

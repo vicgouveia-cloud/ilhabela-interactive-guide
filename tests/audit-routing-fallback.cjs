@@ -13,6 +13,11 @@ function load(baseline) {
 }
 const current = load(false), previous = load(true);
 const ids = vm.runInContext('touristSpots.map(s => s.id)', current);
+const {maskSafetyChanges}=require('./safety-preservation-contract.cjs');
+const currentSpots=JSON.parse(vm.runInContext('JSON.stringify(touristSpots)',current));
+const priorSpots=JSON.parse(vm.runInContext('JSON.stringify(touristSpots)',previous));
+const unchanged=maskSafetyChanges({touristSpots:currentSpots},{touristSpots:priorSpots}).touristSpots;
+const unchangedById=new Map(unchanged.map(s=>[s.id,s]));
 for (const id of ids) {
   for (const mode of ['auto','4x4','bicycle','pedestrian','boat','trail']) {
     const expression = `JSON.stringify(resolvePlannerAccess(touristSpots.find(s => s.id === ${JSON.stringify(id)}), ${JSON.stringify(mode)}))`;
@@ -30,7 +35,7 @@ for (const id of ids) {
   }
   if (id !== 'trilha-da-agua-branca') {
     const expression = `JSON.stringify(touristSpots.find(s => s.id === ${JSON.stringify(id)}))`;
-    assert.equal(vm.runInContext(expression,current), vm.runInContext(expression,previous), `${id} routing changed`);
+    assert.equal(JSON.stringify(unchangedById.get(id)), vm.runInContext(expression,previous), `${id} fields outside approved safety changes`);
   }
 }
 assert.equal(vm.runInContext("resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-bonete'), 'pedestrian')",current),null, 'Never route pedestrians directly to Bonete without a supported access option');
