@@ -1095,12 +1095,12 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
     ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerRoutePartialEstimateHint')}</div>`
     : '';
   const visitStats = visit.covered
-    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${totalEstimateLabel}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${routeCoverageHint}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
+    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${totalEstimateLabel}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
     : visit.total
       ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
       : '';
   const routeStats = plannerOptimizedRoute
-    ? `<div class="planner-route-stats space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary">${t('planner4x4RouteHint')}</p>` : ''}</div>`
+    ? `<div class="planner-route-stats space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary"><strong>${t('plannerApproximateEstimate')}.</strong> ${t('planner4x4RouteHint')}</p>` : ''}${routeCoverageHint}</div>`
     : '';
   const specialRows = specialSpots.map(spot => {
     const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');
