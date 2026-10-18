@@ -229,6 +229,7 @@ let plannerTravelMode = localStorage.getItem('ilhabela_travel_mode') || 'auto';
 let plannerOptimizedRoute = null;
 let plannerRouteRevision = 0;
 let plannerRouteLine = null;
+let plannerOriginMarker = null;
 let plannerOriginPickMode = false;
 let plannerOriginErrorDay = null;
 
@@ -492,6 +493,10 @@ function setPlannerView(view) {
   summary.classList.toggle('flex', showSummary);
   if (showSummary) renderSummary();
   else {
+    if (plannerMap) {
+      plannerMap._animatingZoom = false;
+      plannerMap.stop();
+    }
     renderPlannerFilters();
     generateDeckQueue();
     renderDeckCard();
@@ -519,6 +524,10 @@ function openPlannerSummary() {
 
 function closePlanner() {
   plannerOriginPickMode = false;
+  if (plannerMap) {
+    plannerMap._animatingZoom = false;
+    plannerMap.stop();
+  }
   const modal = document.getElementById('planner-modal');
   modal.classList.add('hidden');
   modal.classList.remove('flex');
@@ -885,9 +894,7 @@ function renderSummary() {
   if (isEmpty) {
     daySelector.replaceChildren();
     plannerOriginPickMode = false;
-    if (plannerMap) { plannerMap.remove(); plannerMap = null; }
-    plannerMapMarkers = [];
-    plannerRouteLine = null;
+    destroyPlannerMap();
     listContainer.innerHTML = `<div class="planner-empty-state">
       <span class="material-symbols-outlined" aria-hidden="true">travel_explore</span>
       <h3>${t('tripEmptyTitle')}</h3>
@@ -1312,24 +1319,60 @@ function removeFromPlanner(id) {
   renderSummary();
 }
 
-function initPlannerMap() {
-  plannerRouteLine = null;
-  if (plannerMap) {
-    plannerMap.remove();
-    plannerMap = null;
+function destroyPlannerMap() {
+  if (!plannerMap) return;
+  plannerMap._animatingZoom = false;
+  plannerMap.stop();
+  plannerMap._animateZoom = function() {};
+  plannerMap._onZoomTransitionEnd = function() {};
+  if (plannerMap._mapPane) {
+    L.DomEvent.off(plannerMap._mapPane);
   }
-  plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false }).setView([-23.820, -45.365], 11);
-  plannerMap.on('click', event => {
-    if (!plannerOriginPickMode) return;
-    plannerOriginPickMode = false;
-    saveActiveDayOrigin([event.latlng.lat, event.latlng.lng]);
-  });
-  L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>',
-    maxZoom: 19
-  }).addTo(plannerMap);
-
+  if (plannerRouteLine) {
+    plannerRouteLine.remove();
+    plannerRouteLine = null;
+  }
+  if (plannerOriginMarker) {
+    plannerOriginMarker.remove();
+    plannerOriginMarker = null;
+  }
+  plannerMapMarkers.forEach(marker => marker.remove());
   plannerMapMarkers = [];
+  plannerMap.remove();
+  plannerMap = null;
+}
+
+function initPlannerMap() {
+  const mapContainer = document.getElementById('planner-map');
+  if (!mapContainer || mapContainer.hidden) return;
+
+  if (!plannerMap) {
+    plannerMap = L.map('planner-map', { zoomControl: false, attributionControl: false }).setView([-23.820, -45.365], 11);
+    plannerMap.on('click', event => {
+      if (!plannerOriginPickMode) return;
+      plannerOriginPickMode = false;
+      saveActiveDayOrigin([event.latlng.lat, event.latlng.lng]);
+    });
+    L.tileLayer('https://{s}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png', {
+      attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors, Tiles style by <a href="https://www.hotosm.org/">Humanitarian OpenStreetMap Team</a>',
+      maxZoom: 19
+    }).addTo(plannerMap);
+  } else {
+    plannerMap._animatingZoom = false;
+    plannerMap.stop();
+    if (plannerRouteLine) {
+      plannerRouteLine.remove();
+      plannerRouteLine = null;
+    }
+    if (plannerOriginMarker) {
+      plannerOriginMarker.remove();
+      plannerOriginMarker = null;
+    }
+    plannerMapMarkers.forEach(marker => marker.remove());
+    plannerMapMarkers = [];
+    plannerMap.invalidateSize();
+  }
+
   const bounds = L.latLngBounds();
 
   getPlannerDisplaySpots().forEach((spot, index) => {
@@ -1366,11 +1409,11 @@ function initPlannerMap() {
     plannerOptimizedRoute.shape.forEach(coord => bounds.extend(coord));
   }
   if (isValidPlannerOrigin(plannerOrigin)) {
-    L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerDayOrigin').replace('{n}', activeTripDay));
+    plannerOriginMarker = L.circleMarker(plannerOrigin, { radius: 7, weight: 3, fillOpacity: 1 }).addTo(plannerMap).bindPopup(t('plannerDayOrigin').replace('{n}', activeTripDay));
     bounds.extend(plannerOrigin);
   }
-  if (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length) {
-    plannerMap.fitBounds(bounds, { padding: [30, 30] });
+  if (bounds.isValid() && (plannerMapMarkers.length > 0 || plannerOptimizedRoute?.shape?.length || isValidPlannerOrigin(plannerOrigin))) {
+    plannerMap.fitBounds(bounds, { padding: [30, 30], animate: false });
   }
 }
 
