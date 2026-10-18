@@ -11,7 +11,7 @@ const baseline=JSON.parse(vm.runInContext('JSON.stringify(touristSpots.map(s=>({
 assert.equal(spots.length,50);
 assert.equal(spots.filter(s=>s.image==='assets/images/attraction-placeholder.svg').length,0);
 const cases=[
-{ id:'cachoeira-do-gato', must:['Poço do Gordo','somente para contemplação'],words:['viewing only','contemplation','contemplación','לצפייה'],source:'https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-gato/' },
+{ id:'cachoeira-do-gato', must:['Poço do Gordo','apenas para contemplação'],words:['viewing only','contemplation','contemplación','לצפייה'],source:'https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-gato/' },
 { id:'cachoeira-da-friagem',must:['Monitoria obrigatória','1h30 a 2h'],words:['mandatory','obligatoire','obligatorio','חובה'],source:'https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-friagem/' },
 { id:'cachoeira-dos-tres-tombos',must:['pedras escorregadias','terceira queda não tem poço'],words:['slippery','glissants','resbaladizas','חלקלקים'],source:'https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16294/cachoeiras-em-ilhabela-conheca-7-opcoes-de-facil-acesso'}
 ];
@@ -30,7 +30,10 @@ for(const item of cases){
  assert(html.includes('<meta name="description" content="'+pt.description+'">'),item.id+': stale SEO meta');
  assert(html.includes('<h2>Como chegar</h2>'),item.id+': missing access section');
  assert(html.includes(pt.highlights[0]),item.id+': stale safety highlights');
- const json=JSON.parse(html.match(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/)[1]);
+ const ldOpen='<script type="application/ld+json">',ldClose='</script>';
+ const start=html.indexOf(ldOpen),end=html.indexOf(ldClose,start+ldOpen.length);
+ assert(start>=0 && end>start,item.id+': JSON-LD missing');
+ const json=JSON.parse(html.slice(start+ldOpen.length,end));
  assert.equal(json.description,pt.description,item.id+': schema description changed independently');
 }
 for(const entry of baseline) {
