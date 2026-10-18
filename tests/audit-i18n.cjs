@@ -93,9 +93,13 @@ for (const group of ['touristSpots','guidesData']) {
     for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
   });
 }
-const correctedServiceDescriptions = require('./fixtures/service-description-translations.json');
-for(const service of baseline.servicesData) for(const [lang,description] of Object.entries(correctedServiceDescriptions[service.name]||{})) service.translations[lang].description=description;
-assert.deepEqual(data.servicesData,baseline.servicesData,'services facts, media, contacts, order, translations and contexts preserved');
+// Services use the last approved full service architecture; attractions/guides retain the historic contract above.
+const servicesBaseSha = '04d73b8d82e5ad65ea2faad5fcf4a4ac959c6b36';
+const servicesBaseline = load(file=>execFileSync('git',['show',servicesBaseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
+const addedServiceIds = ['israel-quero-pizza-delivery','israel-quero-pizza-itaguacu'];
+assert.equal(data.servicesData.filter(s=>addedServiceIds.includes(s.id)).length,2,'exactly two Israel Quero Pizza units');
+assert.deepEqual(data.servicesData.filter(s=>!addedServiceIds.includes(s.id)),servicesBaseline.servicesData,'all previous service facts, media, contacts, translations and order preserved');
+require('./audit-israel-quero-pizza.cjs');
 assert.equal(new Set(data.servicesData.map(s=>s.id)).size,data.servicesData.length,'unique service IDs');
 const contexts={};
 for(const service of data.servicesData) for(const id of service.contextSpotIds||[]) {

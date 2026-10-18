@@ -20,7 +20,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
       // 1. Navigate to food category
       const category = page.locator('#services-category-select');
       await category.selectOption('food');
-      await expect(page.locator('#services-page-grid article')).toHaveCount(64);
+      await expect(page.locator('#services-page-grid article')).toHaveCount(66);
 
       // 2. Verify all 4 batch 1 restaurants are present
       for (const name of batch1Names) {
@@ -95,7 +95,7 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
 
       // Reset to all
       await page.locator('[data-service-food-shortcut="all"]').click();
-      await expect(page.locator('#services-page-grid article')).toHaveCount(64);
+      await expect(page.locator('#services-page-grid article')).toHaveCount(66);
 
       // 5. Visual screenshots for delivery artifacts
       if ((language === 'pt' || language === 'he') && (width === 390 || width === 1440)) {
