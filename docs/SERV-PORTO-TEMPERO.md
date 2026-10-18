@@ -1,6 +1,6 @@
 # Porto do Engenho e Tempero da Ilha
 
-**Status: rascunho. Promoção à main retida por testes sem aprovação integral.**
+**Promoção à main autorizada explicitamente pelo usuário após a apresentação dos resultados abaixo, em 18/10/2026. As falhas conhecidas permanecem registradas; a suíte não foi declarada integralmente aprovada.**
 
 Verificado em 18/10/2026, a partir da main `1a7613e4c0273deca5094a6e5842d9461be50c51`.
 
@@ -58,8 +58,8 @@ Os 15 cenários Playwright dedicados aos dois restaurantes passaram localmente. 
 - O timeout de Minha viagem foi reproduzido no checkout intacto `1a7613e` servido separadamente na porta 4184, com o mesmo erro e a mesma linha 31. A falha da seta RTL foi observada na suíte completa; não foi repetida isoladamente.
 - Na suíte completa de serviços, cinco cenários de `services-featured.spec.cjs` esperam La Gloria House como primeiro resultado global, mas a ordenação atual retorna Portinho Passeios. O caso PT foi reproduzido na main intacta, na mesma linha 8.
 - Quinze cenários de `services-global-actions.spec.cjs` exigem Maps como última ação de todos os primeiros cards, incluindo Israel Quero Pizza Delivery, que corretamente tem apenas WhatsApp. O caso PT/320 foi reproduzido na main intacta, na mesma linha 26 (`map` esperado, `chat` recebido).
-- Os testes históricos não foram alterados para obter aprovação. Corrigir esses contratos e o fluxo fora do catálogo demanda trabalho separado; não se promove este rascunho fingindo que a suíte está verde.
+- Os testes históricos não foram alterados para obter aprovação. Corrigir esses contratos e o fluxo fora do catálogo demanda trabalho separado. Após conhecer os resultados, o usuário autorizou a publicação; os testes não foram alterados para ocultar as falhas.
 
-Verificação de produção antes de qualquer promoção: `main` permaneceu em `1a7613e4c0273deca5094a6e5842d9461be50c51`; deploy existente `dpl_8BYhuymtUwFfibezkQ6qKCcdcKEf`, projeto `ilhabela-guide` / `prj_vHdA1kFW1UkEWT2ZqejmLlD8cman`, Vercel **READY** com esse mesmo SHA; https://ilhabelatrip.com/servicos/ respondeu HTTP 200. Os 129/68 registros deste rascunho **não foram publicados em produção**.
+Verificação histórica de produção anterior à autorização final: `main` permaneceu em `1a7613e4c0273deca5094a6e5842d9461be50c51`; deploy existente `dpl_8BYhuymtUwFfibezkQ6qKCcdcKEf`, projeto `ilhabela-guide` / `prj_vHdA1kFW1UkEWT2ZqejmLlD8cman`, Vercel **READY** com esse mesmo SHA; https://ilhabelatrip.com/servicos/ respondeu HTTP 200. Naquela verificação, os 129/68 registros deste rascunho ainda não estavam em produção. O resultado da promoção autorizada posteriormente deve ser conferido pelo SHA na main e no deploy Vercel correspondente.
 
 Resultado final da suíte de serviços: **142 cenários executados; 122 passaram e 20 falharam** (5 de expectativa de primeiro resultado e 15 da regra universal de Maps descritas acima). Os 15 novos cenários passaram nesta execução e também na execução dedicada inicial. Não houve testes ignorados para contornar os bloqueios.
