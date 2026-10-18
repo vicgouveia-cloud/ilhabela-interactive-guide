@@ -1,0 +1,45 @@
+const assert = require('node:assert/strict');
+const fs = require('node:fs');
+const path = require('node:path');
+const vm = require('node:vm');
+const crypto = require('node:crypto');
+const root = path.resolve(__dirname, '..');
+const ctx = vm.createContext({console});
+for (const file of ['data.js','additional-spots.js']) vm.runInContext(fs.readFileSync(path.join(root,file),'utf8'),ctx);
+const services = JSON.parse(vm.runInContext('JSON.stringify(servicesData)',ctx));
+const units = services.filter(s=>s.id.startsWith('israel-quero-pizza'));
+assert.equal(units.length,2);
+const [delivery,venue] = ['delivery','itaguacu'].map(suffix=>units.find(s=>s.id==='israel-quero-pizza-'+suffix));
+assert.equal(delivery.name,'Israel Quero Pizza — Delivery');
+assert.equal(venue.name,'Israel Quero Pizza — Itaguaçu');
+assert.equal(delivery.recommended,true);
+assert.equal(venue.recommended,false);
+assert.deepEqual(delivery.serviceFormats,['delivery']);
+assert.deepEqual(delivery.serviceArea.modes,['delivery']);
+assert.deepEqual(delivery.serviceArea.verifiedModes,['delivery']);
+assert.deepEqual(venue.serviceFormats,['aLaCarte','takeaway']);
+assert.deepEqual(venue.serviceArea.modes,['on-site']);
+assert.deepEqual(venue.serviceArea.verifiedModes,['on-site']);
+assert.equal(delivery.hasPhysicalLocation,false);
+assert.equal(delivery.baseLocation,undefined);
+assert.equal(delivery.whatsapp,'12992519182');
+assert.equal(delivery.whatsappDisplay,'(12) 99251-9182');
+assert.equal(delivery.phone,undefined);
+assert.equal(venue.whatsapp,undefined);
+assert.equal(venue.phone,undefined);
+assert.equal(venue.baseLocation.address,'Rua Benedito Marques Santana, 3, Itaguaçu, Ilhabela - SP, 11630-000');
+for(const unit of units) {
+  assert.equal(unit.category,'food');
+  assert.deepEqual(unit.serviceType,['pizzeria']);
+  assert.deepEqual(unit.serviceSpecialties,['pizza']);
+  assert.equal(unit.contextSpotIds,undefined);
+  assert.equal(unit.image,'assets/images/israel-quero-pizza-logo-card.webp');
+  assert.deepEqual(Object.keys(unit.translations).sort(),['en','es','fr','he','pt']);
+  assert.equal(new Set(Object.values(unit.translations).map(tr=>tr.description)).size,5);
+  for(const tr of Object.values(unit.translations)) assert.ok(tr.type && tr.description && tr.tags.length>=2);
+}
+// Literal crop of the original flyer, re-encoded as WebP for compact hosting. No redrawn logo.
+const image=fs.readFileSync(path.join(root,delivery.image));
+assert.equal(image.length,4172);
+assert.equal(crypto.createHash('sha256').update(image).digest('hex'),fs.readFileSync(path.join(__dirname,'fixtures/israel-logo.sha256'),'utf8').trim());
+console.log('PASS Israel Quero Pizza: two units, delivery-only recommendation/contact, venue takeaway/address, literal logo and five locales');
