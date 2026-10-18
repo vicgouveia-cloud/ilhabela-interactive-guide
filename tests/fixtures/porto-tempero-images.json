@@ -1,0 +1,16 @@
+[
+  {
+    "id": "porto-do-engenho",
+    "path": "assets/images/porto-do-engenho-logo-card.webp",
+    "sha256": "1947c78e082b0a2f5034ae1571f27ed2d50142c6a2e0801a8492f97c83ffca33",
+    "bytes": 1814,
+    "sourceSha256": "c995c121d343ba2954d8020d5f34a7dc58f9b834ee560b90127dff71072a912c"
+  },
+  {
+    "id": "tempero-da-ilha",
+    "path": "assets/images/tempero-da-ilha-logo-card.webp",
+    "sha256": "1c995f6a7703af47c5ad48af01f144f18d5e03e6c51a4fc9ae03718bde27cf36",
+    "bytes": 7096,
+    "sourceSha256": "3bbc47fed172c6117a1d58bbfe03995f9cff4877783eb6dca23af5ce8979d79c"
+  }
+]

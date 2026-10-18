@@ -1,0 +1,26 @@
+{
+  "verifiedOn": "2026-10-18",
+  "usage": "Official public brand logos for editorial identification, explicitly requested by guide owner; no open license claimed",
+  "images": [
+    {
+      "id": "porto-do-engenho",
+      "sourcePage": "https://www.instagram.com/portodoengenhoilhabela/",
+      "sourceField": "og:image",
+      "sourceUrl": "https://scontent.cdninstagram.com/v/t51.2885-19/397352672_716907396971927_1905550109549599963_n.jpg?stp=dst-jpg_s100x100_tt6&_nc_cat=106&ccb=7-5&_nc_sid=bf7eb4&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=zjmtC6XN47wQ7kNvwGwyKIC&_nc_oc=Adr4XaPwIWOvH8spAp98kVVpjGlpkMaNlMKAWFP8gAwtzh5TVKvCUvvGZNp5ZGpZuoeD6Wg8cKbU__3uh33crlep&_nc_zt=24&_nc_ht=scontent.cdninstagram.com&_nc_ss=7c689&oh=00_AQNB4CLSvd6SSrdUErBjGzfU13ZP70uRuKxirOzwMt1W7A&oe=6ADA8165",
+      "originalDimensions": [
+        100,
+        100
+      ]
+    },
+    {
+      "id": "tempero-da-ilha",
+      "sourcePage": "https://linktr.ee/temperoda.ilha",
+      "sourceField": "account.profilePictureUrl",
+      "sourceUrl": "https://ugc.production.linktr.ee/5be20a3f-33f9-4202-8d60-92b2d782e8fa_Logo.png",
+      "originalDimensions": [
+        2000,
+        2000
+      ]
+    }
+  ]
+}
