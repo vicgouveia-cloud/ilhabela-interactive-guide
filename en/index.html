@@ -93,7 +93,7 @@
       <div class="header-controls flex items-center gap-3">
         
         <!-- Language Selector -->
-        <button type="button" class="contact-header-entry" data-contact-entry aria-label="Get in touch" aria-haspopup="dialog" title="Get in touch"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></button>
+        <button type="button" class="contact-header-entry" data-contact-entry aria-label="Fale com a gente" aria-haspopup="dialog" title="Fale com a gente"><svg aria-hidden="true" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="3"/><path d="m3 7 9 6 9-6"/></svg></button>
         <div id="language-selector" class="relative">
           <button id="lang-btn" type="button" aria-expanded="false" aria-controls="language-menu" data-i18n-aria-label="chooseLanguage" class="flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-surface-container/80 border border-black/10 text-xs font-bold text-primary hover:bg-surface-container transition-colors">
             <span class="material-symbols-outlined text-[16px]">language</span>
@@ -409,6 +409,8 @@
   <!-- Summary View (hidden by default) -->
   <div id="planner-summary-view" class="hidden flex-col flex-1 overflow-hidden">
     <div id="planner-origin-map-hint" hidden role="status" class="px-4 py-2 flex-shrink-0 bg-white text-primary text-xs font-bold"></div>
+    <!-- Select the trip day before viewing its map. -->
+    <div id="planner-day-selector" hidden class="planner-days flex flex-shrink-0 gap-2 overflow-x-auto px-4 pt-3 pb-1" role="group"></div>
     <!-- Map -->
     <div id="planner-map" class="w-full flex-shrink-0" style="height:240px; min-height:180px;"></div>
     <!-- Back to deck button -->
@@ -578,13 +580,16 @@
   </script>
   <script defer src="/_vercel/insights/script.js"></script>
 
+  <!-- Vercel Speed Insights -->
+  <script type="module" src="/speed-insights.js"></script>
+
   <!-- Scripts with Cache Busting -->
   <link rel="stylesheet" href="/contact.css">
   <script defer src="/contact.js"></script>
   <script src="/translations.js?v=4.9"></script>
   <script src="/data.js?v=4.5"></script>
   <script src="/additional-spots.js?v=5.1"></script>
-  <script src="/attraction-photos.js?v=1.1"></script>
+  <script src="/attraction-photos.js?v=1.3"></script>
   <script src="/responsive-images.js"></script>
   <script src="/app.js?v=5.2"></script>
 <script src="/multimodal.js?v=5.5"></script>
