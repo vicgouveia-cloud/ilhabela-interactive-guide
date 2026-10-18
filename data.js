@@ -2201,7 +2201,7 @@ const touristSpots = [
     "translations": {
       "pt": {
         "title": "Cachoeira do Gato",
-        "subtitle": "Imponente queda de 40 metros na Baía de Castelhanos",
+        "subtitle": "Queda principal somente para contemplação; banho no Poço do Gordo",
         "description": "Uma das maiores e mais volumosas quedas d água de Ilhabela. A trilha parte da praia de Castelhanos e cruza passarelas suspensas cercadas por samambaias gigantes e árvores centenárias. A queda principal é somente para contemplação; o banho é destinado ao Poço do Gordo, conforme o Parque Estadual.",
         "highlights": [
           "Queda colossal de 40 metros",
@@ -2221,7 +2221,7 @@ const touristSpots = [
       },
       "en": {
         "title": "Cat Waterfall (Cachoeira do Gato)",
-        "subtitle": "Magnificent 130-foot cascade in Castelhanos Bay",
+        "subtitle": "Main waterfall for viewing only; swimming at Poço do Gordo",
         "description": "One of the tallest and most powerful waterfalls on the island. The trail starts from Castelhanos beach, passing wooden bridges and giant ferns in the heart of primary rainforest. The main waterfall is for viewing only; swimming is reserved for Poço do Gordo under State Park rules.",
         "highlights": [
           "Colossal 40-meter waterfall",
@@ -2241,7 +2241,7 @@ const touristSpots = [
       },
       "fr": {
         "title": "Cascade du Chat (Cachoeira do Gato)",
-        "subtitle": "Majestueuse chute de 40 mètres à Castelhanos",
+        "subtitle": "Cascade principale à contempler ; baignade au Poço do Gordo",
         "description": "L une des plus hautes cascades d Ilhabela. Le sentier commence à la baie de Castelhanos et traverse des ponts suspendus sous une canopée tropicale luxuriante. La cascade principale est réservée à la contemplation ; la baignade est destinée au Poço do Gordo, selon le parc.",
         "highlights": [
           "Chute monumentale de 40 mètres",
@@ -2261,7 +2261,7 @@ const touristSpots = [
       },
       "es": {
         "title": "Cascada do Gato",
-        "subtitle": "Imponente caída de 40 metros en Castelhanos",
+        "subtitle": "Cascada principal solo para contemplación; baño en Poço do Gordo",
         "description": "Una de las cascadas más grandes y caudalosas de la isla. El sendero parte desde la playa de Castelhanos a través de puentes colgantes rodeados de selva virgen. La cascada principal es solo para contemplación; el baño está destinado al Poço do Gordo, según el Parque Estadual.",
         "highlights": [
           "Impresionante caída de 40 metros",
@@ -2281,7 +2281,7 @@ const touristSpots = [
       },
       "he": {
         "title": "מפל החתול (Cachoeira do Gato)",
-        "subtitle": "מפל מים שוצף בגובה 40 מטר במפרץ קסטליאנוס",
+        "subtitle": "המפל הראשי לתצפית בלבד; רחצה בפוסו דו גורדו",
         "description": "אחד המפלים הגבוהים והמרשימים ביותר באיליאבלה. המסלול יוצא ישירות מחוף קסטליאנוס ועובר דרך גשרי עץ תלויים בתוך יער גשם בתולי. המפל הראשי מיועד לתצפית בלבד; הרחצה מיועדת לפוסו דו גורדו, בהתאם לכללי הפארק.",
         "highlights": [
           "מפל ענק בגובה 40 מטר",
@@ -2481,7 +2481,7 @@ const touristSpots = [
     "translations": {
       "pt": {
         "title": "Cachoeira da Friagem",
-        "subtitle": "Ducha natural refrescante no norte com vista do canal de São Sebastião",
+        "subtitle": "Trilha difícil e com monitoria obrigatória na Siriúba",
         "description": "Localizada no norte da ilha a partir da Siriúba, a trilha sobe em meio a bambuzais até uma queda de 25 metros que se despenha sobre pedras lisas com vista para o canal. O Parque Estadual classifica a trilha como difícil, com percurso de 1h30 a 2h e monitoria ambiental obrigatória.",
         "highlights": [
           "Vista panorâmica do canal de São Sebastião",
@@ -2501,7 +2501,7 @@ const touristSpots = [
       },
       "en": {
         "title": "Friagem Waterfall (Cachoeira da Friagem)",
-        "subtitle": "Northern mountain shower cascade with sea channel views",
+        "subtitle": "Difficult Siriúba trail with mandatory environmental guide",
         "description": "Located in the north near Siriúba, this serene trail ascends through lush bamboo groves to a 80-foot cascade spilling over granite rocks with panoramic coastal views. The State Park rates the trail difficult, with a 1.5-to-2-hour route and a mandatory environmental guide.",
         "highlights": [
           "Panoramic sea channel vista",
@@ -2521,7 +2521,7 @@ const touristSpots = [
       },
       "fr": {
         "title": "Cascade da Friagem",
-        "subtitle": "Douche naturelle rafraîchissante avec vue sur le canal marin",
+        "subtitle": "Sentier difficile à Siriúba avec accompagnateur obligatoire",
         "description": "Située au nord près de Siriúba, le sentier monte à travers les bambous vers une chute de 25 mètres offrant une vue splendide sur le canal. Le parc classe ce sentier comme difficile, avec un parcours de 1 h 30 à 2 h et un accompagnateur environnemental obligatoire.",
         "highlights": [
           "Vue panoramique sur le canal",
@@ -2541,7 +2541,7 @@ const touristSpots = [
       },
       "es": {
         "title": "Cascada da Friagem",
-        "subtitle": "Ducha natural refrescante con vistas panorámicas al canal",
+        "subtitle": "Sendero difícil en Siriúba con monitor ambiental obligatorio",
         "description": "Ubicada en el norte de la isla, el sendero sube entre cañaverales de bambú hasta una caída de 25 metros con vistas al mar. El Parque Estadual clasifica el sendero como difícil, con recorrido de 1 h 30 a 2 h y monitor ambiental obligatorio.",
         "highlights": [
           "Vista panorámica al canal de São Sebastião",
@@ -2561,7 +2561,7 @@ const touristSpots = [
       },
       "he": {
         "title": "מפל פריאז׳ם (Cachoeira da Friagem)",
-        "subtitle": "מפל מים מרענן בצפון האי עם נוף פנורמי לתעלת הים",
+        "subtitle": "שביל קשה בסיריאובה עם חובת ליווי מדריך סביבתי",
         "description": "ממוקם בצפון האי מעל חוף סיריאובה. המסלול עולה בין עצי חזרן (במבוק) אל מפל בגובה 25 מטר הנשפך על סלעי גרניט ומשקיף אל הים. הפארק מסווג את השביל כקשה, עם מסלול של שעה וחצי עד שעתיים וחובת ליווי של מדריך סביבתי.",
         "highlights": [
           "נוף פנורמי אל תעלת הים",
