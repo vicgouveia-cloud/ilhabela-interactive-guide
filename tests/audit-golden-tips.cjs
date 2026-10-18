@@ -14,7 +14,8 @@ function load(read) {
 const current = load(f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const previous = load(f => execFileSync('git', ['show', `${BASE}:${f}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 }));
 const approved = load(f => execFileSync('git', ['show', '6c48fd8:' + f], {cwd:ROOT, encoding:'utf8', maxBuffer:10e6}));
-assert.deepEqual(current, approved, 'Approved catalog, translations and UI data preserved');
+const {SAFETY_IDS,maskSafetyChanges}=require('./safety-preservation-contract.cjs');
+assert.deepEqual(maskSafetyChanges(current,approved),approved,'Approved catalog and 47 attractions fully preserved; three safety records changed only in explicitly scoped fields');
 assert.deepEqual(current.touristSpots.map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]),previous.touristSpots.map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]),'All 250 original ecoTips exactly preserved');
 assert.equal(current.touristSpots.length, 50);
 for (const spot of current.touristSpots) for (const lang of ['pt','en','es','fr','he']) {
@@ -25,6 +26,7 @@ const app=fs.readFileSync(path.join(ROOT,'app.js'),'utf8');
 assert(!app.includes('bg-amber-50 border border-amber-200 space-y-1'),'Removed global repellent warning must not return');
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
+  if(SAFETY_IDS.includes(id))continue; // Covered by safety-specific static page tests below.
   const old = execFileSync('git', ['show', `6c48fd8:${file}`], { cwd: ROOT });
   assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
 }

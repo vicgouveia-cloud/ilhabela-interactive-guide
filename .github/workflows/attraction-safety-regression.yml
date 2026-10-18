@@ -1,0 +1,48 @@
+name: Attraction safety regression
+on:
+  pull_request:
+    paths:
+      - 'data.js'
+      - 'scripts/attraction-access-copy.json'
+      - 'lugares/cachoeira-do-gato/index.html'
+      - 'lugares/cachoeira-da-friagem/index.html'
+      - 'lugares/cachoeira-dos-tres-tombos/index.html'
+      - 'cachoeiras/index.html'
+      - 'o-que-fazer/index.html'
+      - 'tests/**'
+      - '.github/workflows/attraction-safety-regression.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check scripts and scoped safety contracts
+        run: |
+          node --check data.js
+          node --check tests/audit-attraction-safety.cjs
+          node --check tests/safety-preservation-contract.cjs
+          node tests/audit-attraction-safety.cjs
+          node tests/audit-i18n.cjs
+          node tests/audit-golden-tips.cjs
+      - run: npx playwright install --with-deps chromium
+      - name: Complete regression suite
+        run: npm test
+      - uses: actions/upload-artifact@v4
+        if: failure()
+        with:
+          name: attraction-safety-failures
+          path: |
+            test-results/
+            playwright-report/
+          retention-days: 7
