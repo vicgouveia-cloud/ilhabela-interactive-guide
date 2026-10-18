@@ -100,11 +100,11 @@
     }
   },
   "cachoeira-da-laje": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.936275064037446, -45.42730164154816); o trecho final continua a pé ou por trilha conforme a atração. Pela Trilha do Bonete a partir da Ponta da Sepituba",
+    "copy": "A navegação terrestre termina no acesso já validado em Sepituba (-23.936275064037446, -45.42730164154816). Continue a pé pela Trilha do Bonete: o Parque Estadual informa 4,6 km de ida e volta somente até a Laje. Confira o agendamento e as condições das travessias.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-laje/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-bonete/",
+      "verification": "editorial access guidance checked against cited authority, 2026-10-18; existing navigation waypoint not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
@@ -120,21 +120,21 @@
     }
   },
   "cachoeira-do-veloso": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.876020628872798, -45.43576108900807); o trecho final continua a pé ou por trilha conforme a atração. Trilha sombreada a partir do bairro do Veloso (lado sul)",
+    "copy": "A navegação terrestre termina no ponto anteriormente validado (-23.876020628872798, -45.43576108900807). O Parque Estadual informa que a entrada da trilha fica no final da Rua José Pereira Carolo, à direita do Camping do Sítio. Monitoria obrigatória e agendamento online; confirme a ligação entre o ponto de navegação e a entrada.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-veloso/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-veloso/",
+      "verification": "editorial access guidance checked against cited authority, 2026-10-18; existing navigation waypoint not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
   },
   "cachoeira-do-paqueta": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.869517499616304, -45.423931160172216); o trecho final continua a pé ou por trilha conforme a atração. Início no bairro do Bexiga (lado sul), subida em trilha",
+    "copy": "Na região do Bexiga, a navegação terrestre termina no ponto previamente validado (-23.869517499616304, -45.423931160172216), não necessariamente na entrada da trilha. A Prefeitura alertou para risco de acidentes graves e até fatais no local, situado em área particular. Não siga além de avisos, interdições ou trechos expostos.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-paqueta/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/122/prefeitura-de-ilhabela-alerta-sobre-risco-ao-visitar-cachoeira-do-paqueta",
+      "verification": "editorial access guidance checked against cited authority, 2026-10-18; existing navigation waypoint not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }

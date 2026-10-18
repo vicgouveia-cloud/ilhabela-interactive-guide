@@ -124,7 +124,8 @@ const touristSpots = [
       "isFamily": false,
       "isSurf": true,
       "is4x4": false
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "trail",
         "boat"
@@ -146,7 +147,11 @@ const touristSpots = [
         {
           "id": "road-trail",
           "mode": "trail",
-          "approachModes": ["auto", "4x4", "bicycle"],
+          "approachModes": [
+            "auto",
+            "4x4",
+            "bicycle"
+          ],
           "gatewayId": "sepituba-trailhead",
           "destinationDirect": false,
           "finalMode": "trail",
@@ -163,7 +168,6 @@ const touristSpots = [
         }
       ]
     },
-
     "specs": {
       "difficulty": "moderate",
       "distance": "12 km (trilha)",
@@ -304,7 +308,8 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": true,
       "is4x4": true
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "4x4",
         "boat"
@@ -326,7 +331,9 @@ const touristSpots = [
         {
           "id": "common-car",
           "mode": "road",
-          "approachModes": ["auto"],
+          "approachModes": [
+            "auto"
+          ],
           "gatewayId": "castelhanos-park-entrance",
           "destinationDirect": false,
           "finalMode": "4x4",
@@ -335,7 +342,9 @@ const touristSpots = [
         {
           "id": "own-4x4",
           "mode": "4x4",
-          "approachModes": ["4x4"],
+          "approachModes": [
+            "4x4"
+          ],
           "gatewayId": null,
           "destinationDirect": true,
           "finalMode": null,
@@ -352,7 +361,6 @@ const touristSpots = [
         }
       ]
     },
-
     "specs": {
       "difficulty": "moderate",
       "distance": "22 km de travessia off-road",
@@ -633,7 +641,8 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": false,
       "is4x4": false
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "road",
         "walk"
@@ -647,7 +656,6 @@ const touristSpots = [
         "durationMinutes": 5
       }
     },
-
     "specs": {
       "difficulty": "easy",
       "distance": "300m a pé da estrada",
@@ -1630,110 +1638,110 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "3.5 km na Trilha do Bonete",
-      "duration": "1h de caminhada a partir de Sepituba",
+      "distance": "Cerca de 4,6 km ida e volta (Parque Estadual)",
+      "duration": "Cerca de 2h ida e volta (Prefeitura)",
       "elevation": "+120m",
-      "access": "Pela Trilha do Bonete a partir da Ponta da Sepituba",
+      "access": "Trilha do Bonete a partir do final da SP-131, Sepituba; agendamento online no Parque Estadual",
       "sea": "Não se aplica (Água doce de rio cristalina e refrescante)",
       "structure": "Ponte pênsil de madeira sobre o rio, área para piquenique natural"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Laje",
-        "subtitle": "O famoso escorregador natural de pedra de 30 metros",
-        "description": "A primeira grande parada na Trilha do Bonete. Famosa pela laje lisa de pedra inclinada que serve como um escorregador natural gigante que deságua em um poço fundo de águas esmeralda.",
+        "subtitle": "Trilha até poços naturais; atenção às pedras e à correnteza",
+        "description": "A Cachoeira da Laje é a primeira parada da Trilha do Bonete, a partir da Sepituba. O Parque Estadual informa 4,6 km de ida e volta até a Laje, enquanto a Prefeitura cita cerca de 5,1 km para o passeio. Há poços para banho, mas pedras escorregadias e correnteza exigem cautela. Use as passarelas ao atravessar rios.",
         "highlights": [
-          "Tobogã de pedra natural de 30m",
-          "Poço amplo e profundo para mergulho",
-          "Ponte pênsil suspensa sobre o rio",
-          "Parada obrigatória dos trilheiros"
+          "Primeira cachoeira da Trilha do Bonete",
+          "Cerca de 4,6 km ida e volta (Parque Estadual)",
+          "Poços naturais: observe as condições antes do banho",
+          "Pedras escorregadias e travessias por passarela"
         ],
-        "ecoTip": "Desça no tobogã apenas sentado e verifique a profundidade antes de mergulhar.",
+        "ecoTip": "Evite mergulhos e escorregadores com correnteza forte; avalie as condições locais antes de entrar na água.",
         "specs": {
-          "distance": "3.5 km na Trilha do Bonete",
-          "duration": "1h de caminhada a partir de Sepituba",
+          "distance": "4,6 km ida e volta até a Laje (Parque Estadual)",
+          "duration": "Cerca de 2h ida e volta (Prefeitura)",
           "elevation": "+120m",
-          "access": "Pela Trilha do Bonete a partir da Ponta da Sepituba",
+          "access": "Ponta da Sepituba, final da SP-131; acesso pela Trilha do Bonete e agendamento no Parque Estadual",
           "sea": "Não se aplica (Água doce de rio cristalina e refrescante)",
           "structure": "Ponte pênsil de madeira sobre o rio, área para piquenique natural"
         }
       },
       "en": {
         "title": "Laje Waterfall (Cachoeira da Laje)",
-        "subtitle": "Famous 100-foot natural rock water slide and deep emerald pool",
-        "description": "The premier stop along the Bonete trail. Renowned for its smooth granite rock face that creates a thrilling natural water slide plunging into deep crystal pool.",
+        "subtitle": "Trail to natural pools; beware of slippery rocks and currents",
+        "description": "Laje Waterfall is the first major stop on the Bonete trail from Sepituba. The State Park lists a 4.6 km round trip to Laje, while the municipality reports about 5.1 km for the outing. Natural pools may allow bathing, but slippery rocks and currents require caution. Use the footbridges when crossing streams.",
         "highlights": [
-          "30-meter natural rock water slide",
-          "Deep emerald swimming pool",
-          "Scenic suspension bridge across the river",
-          "Top hiker rest spot"
+          "First waterfall on the Bonete trail",
+          "About 4.6 km round trip (State Park)",
+          "Check water conditions before bathing",
+          "Slippery rocks and designated footbridges"
         ],
-        "ecoTip": "Slide only in a seated position and check pool depth first.",
+        "ecoTip": "Avoid diving or using the rock slide in strong currents; assess conditions before entering the water.",
         "specs": {
-          "distance": "3.5 km along the Bonete trail",
-          "duration": "1 h walk from Sepituba",
+          "distance": "4.6 km round trip to Laje (State Park)",
+          "duration": "About 2 hours round trip (municipality)",
           "elevation": "+120 m",
-          "access": "Bonete trail from Ponta da Sepituba",
+          "access": "Start at Sepituba, end of SP-131; follow the Bonete trail and check State Park booking",
           "sea": "Not applicable (clear, refreshing river water)",
           "structure": "Wooden suspension bridge over the river and natural picnic area"
         }
       },
       "fr": {
         "title": "Cascade da Laje",
-        "subtitle": "Toboggan naturel en roche de 30 mètres et vasque profonde",
-        "description": "L escale incontournable du sentier de Bonete. Une dalle de granit lisse forme un toboggan aquatique naturel débouchant dans une vasque d eau émeraude.",
+        "subtitle": "Sentier vers des bassins naturels : rochers glissants et courant",
+        "description": "La cascade da Laje est la première grande halte du sentier du Bonete, au départ de Sepituba. Le Parc d'État indique 4,6 km aller-retour jusqu'à Laje, tandis que la municipalité annonce environ 5,1 km. Des bassins permettent parfois la baignade, mais les rochers glissants et le courant exigent de la prudence. Empruntez les passerelles pour traverser les rivières.",
         "highlights": [
-          "Toboggan naturel de 30 mètres",
-          "Grand bassin profond de baignade",
-          "Pont suspendu au-dessus du torrent",
-          "Halte favorite des randonneurs"
+          "Première cascade du sentier du Bonete",
+          "Environ 4,6 km aller-retour (Parc d'État)",
+          "Vérifier les conditions avant la baignade",
+          "Rochers glissants et passerelles"
         ],
-        "ecoTip": "Glissez assis et vérifiez la profondeur avant de sauter.",
+        "ecoTip": "Évitez les plongeons et le toboggan naturel en cas de courant fort; vérifiez les conditions sur place.",
         "specs": {
-          "distance": "3,5 km sur le sentier du Bonete",
-          "duration": "1 h de marche depuis Sepituba",
+          "distance": "4,6 km aller-retour jusqu'à Laje (Parc d'État)",
+          "duration": "Environ 2 h aller-retour (municipalité)",
           "elevation": "+120 m",
-          "access": "Sentier du Bonete depuis Ponta da Sepituba",
+          "access": "Départ à Sepituba, fin de la SP-131 ; sentier du Bonete, réservation auprès du Parc d'État",
           "sea": "Sans objet (eau de rivière cristalline et rafraîchissante)",
           "structure": "Pont suspendu en bois sur la rivière et aire naturelle de pique-nique"
         }
       },
       "es": {
         "title": "Cascada da Laje",
-        "subtitle": "Tobogán natural de piedra de 30 metros y poza profunda",
-        "description": "La parada más famosa del sendero a Bonete. Una gran roca lisa sirve de tobogán acuático natural que desemboca en una poza de aguas cristalinas.",
+        "subtitle": "Sendero a pozas naturales: precaución con rocas y corriente",
+        "description": "La cascada da Laje es la primera gran parada del sendero a Bonete desde Sepituba. El Parque Estatal indica 4,6 km ida y vuelta hasta Laje y el municipio señala unos 5,1 km para el paseo. Hay pozas naturales, pero las rocas resbaladizas y la corriente exigen precaución. Utiliza las pasarelas para cruzar los ríos.",
         "highlights": [
-          "Tobogán natural de piedra de 30 m",
-          "Poza profunda para nadar",
-          "Puente colgante de madera",
-          "Parada obligada de senderistas"
+          "Primera cascada de la ruta a Bonete",
+          "Unos 4,6 km ida y vuelta (Parque Estatal)",
+          "Comprobar condiciones antes del baño",
+          "Rocas resbaladizas y pasarelas"
         ],
-        "ecoTip": "Deslízate sentado y revisa la profundidad del agua.",
+        "ecoTip": "Evita saltos y toboganes naturales con corriente fuerte; comprueba las condiciones antes de entrar al agua.",
         "specs": {
-          "distance": "3,5 km por el sendero de Bonete",
-          "duration": "1 h caminando desde Sepituba",
+          "distance": "4,6 km ida y vuelta hasta Laje (Parque Estatal)",
+          "duration": "Unas 2 horas ida y vuelta (municipio)",
           "elevation": "+120 m",
-          "access": "Sendero de Bonete desde Ponta da Sepituba",
+          "access": "Inicio en Sepituba, final de la SP-131; sendero a Bonete, reserva del Parque Estatal",
           "sea": "No corresponde (agua de río cristalina y refrescante)",
           "structure": "Puente colgante de madera sobre el río y zona natural de pícnic"
         }
       },
       "he": {
         "title": "מפל לאז׳י (Cachoeira da Laje)",
-        "subtitle": "מגלשת סלע טבעית באורך 30 מטר ובריכת מים עמוקה",
-        "description": "העצירה המפורסמת ביותר בטרק לחוף בונטה. משטח סלע גרניט חלק משמש כמגלשת מים טבעית ענקית הנשפכת לתוך בריכת מים צלולים ומרעננים.",
+        "subtitle": "שביל לבריכות טבעיות; זהירות מסלעים חלקים ומזרם חזק",
+        "description": "מפל לאז׳ה הוא התחנה הראשונה בשביל בונטה היוצא מספיטובה. לפי הפארק המדינתי המסלול עד למפל וחזרה הוא כ־4.6 ק״מ, ולפי העירייה כ־5.1 ק״מ. יש בריכות טבעיות, אך סלעים חלקלקים וזרם מים חזק מחייבים זהירות. חצו נחלים רק בגשרים המיועדים לכך.",
         "highlights": [
-          "מגלשת סלע טבעית באורך 30 מטר",
-          "בריכת מים עמוקה לשחייה",
-          "גשר תלוי מעל הנהר",
-          "תחנת מנוחה מושלמת למטיילים"
+          "המפל הראשון בשביל בונטה",
+          "כ־4.6 ק״מ הלוך ושוב לפי הפארק",
+          "יש לבדוק תנאים לפני רחצה",
+          "סלעים חלקים וגשרים לחציית נחלים"
         ],
-        "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה.",
+        "ecoTip": "הימנעו מקפיצה למים ומשימוש במגלשת הסלע בזרם חזק; בדקו את התנאים במקום.",
         "specs": {
-          "distance": "3.5 ק״מ בשביל Bonete",
-          "duration": "שעת הליכה מ-Sepituba",
+          "distance": "4.6 ק״מ הלוך ושוב עד למפל (הפארק המדינתי)",
+          "duration": "כשעתיים הלוך ושוב (העירייה)",
           "elevation": "+120 מ׳",
-          "access": "שביל Bonete מ-Ponta da Sepituba",
+          "access": "התחלה בספיטובה בקצה כביש SP-131, בשביל בונטה; בדקו הזמנה בפארק המדינתי",
           "sea": "לא רלוונטי (מי נהר צלולים ומרעננים)",
           "structure": "גשר תלוי מעץ מעל הנהר ואזור פיקניק טבעי"
         }
@@ -1910,112 +1918,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "1 km a partir do bairro do Veloso",
-      "duration": "25 min de caminhada",
+      "distance": "2 a 3 km (Parque Estadual)",
+      "duration": "2h a 2h30 (Parque Estadual)",
       "elevation": "+110m",
-      "access": "Trilha sombreada a partir do bairro do Veloso (lado sul)",
+      "access": "Final da Rua José Pereira Carolo, à direita do Camping do Sítio; monitoria obrigatória e agendamento online",
       "sea": "Não se aplica (Queda d água de 30m cercada por mata virgem)",
-      "structure": "Trilha nativa sinalizada, sem comércio no topo"
+      "structure": "Trilha natural com guarita de entrada; consulte orientações do Parque Estadual"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira do Veloso",
-        "subtitle": "Queda majestosa de 30 metros cercada por samambaias gigantes",
-        "description": "Uma das mais belas e preservadas cachoeiras do sul da ilha. A caminhada de 25 minutos atravessa a floresta até um imponente paredão rochoso com ducha refrescante.",
+        "subtitle": "Trilha de 2h a 2h30 com monitoria obrigatória",
+        "description": "A Trilha do Veloso atravessa a Mata Atlântica até uma queda de mais de 30 metros. Segundo o Parque Estadual, o percurso tem 2 a 3 km, leva de 2h a 2h30, apresenta dificuldade moderada e exige monitoria. A entrada fica no final da Rua José Pereira Carolo, à direita do Camping do Sítio. Consulte o agendamento online antes de ir.",
         "highlights": [
-          "Queda d água de 30 metros",
-          "Samambaias arborescentes gigantes",
-          "Ambiente tranquilo e sombreado",
-          "Poço de água límpida para banho"
+          "Monitoria obrigatória no Parque Estadual",
+          "Trilha de 2 a 3 km e 2h a 2h30",
+          "Queda com mais de 30 metros",
+          "Entrada no final da Rua José Pereira Carolo"
         ],
-        "ecoTip": "Use calçado com boa aderência nas pedras.",
+        "ecoTip": "Faça o passeio com monitor autorizado; respeite as orientações e evite pedras molhadas e correnteza.",
         "specs": {
-          "distance": "1 km a partir do bairro do Veloso",
-          "duration": "25 min de caminhada",
+          "distance": "2 a 3 km (Parque Estadual)",
+          "duration": "2h a 2h30 (Parque Estadual)",
           "elevation": "+110m",
-          "access": "Trilha sombreada a partir do bairro do Veloso (lado sul)",
+          "access": "Final da Rua José Pereira Carolo, à direita do Camping do Sítio; monitoria obrigatória",
           "sea": "Não se aplica (Queda d água de 30m cercada por mata virgem)",
-          "structure": "Trilha nativa sinalizada, sem comércio no topo"
+          "structure": "Trilha natural com guarita; confirmar agendamento junto ao Parque Estadual"
         }
       },
       "en": {
         "title": "Veloso Waterfall",
-        "subtitle": "Majestic 100-foot cascade surrounded by giant tree ferns",
-        "description": "One of the most serene waterfalls in southern Ilhabela. The 25-minute jungle walk leads to an impressive rock amphitheater with a powerful refreshing shower.",
+        "subtitle": "2–2.5 hour trail with a mandatory guide",
+        "description": "The Veloso trail crosses the Atlantic Forest to a waterfall over 30 meters high. The State Park lists a 2–3 km route, 2–2.5 hours, moderate difficulty and mandatory guiding. The trailhead is at the end of Rua José Pereira Carolo, to the right of Camping do Sítio. Check online booking before visiting.",
         "highlights": [
-          "30-meter dramatic cascade",
-          "Ancient giant tree ferns",
-          "Quiet and shaded rainforest setting",
-          "Refreshing clear dip pool"
+          "Mandatory State Park guide",
+          "2–3 km trail, 2–2.5 hours",
+          "Waterfall over 30 meters high",
+          "Trailhead at Rua José Pereira Carolo"
         ],
-        "ecoTip": "Wear shoes with good traction on slippery stones.",
+        "ecoTip": "Visit with an authorized guide; follow instructions and avoid wet rocks and strong currents.",
         "specs": {
-          "distance": "1 km from the Veloso neighborhood",
-          "duration": "25 min walk",
+          "distance": "2–3 km (State Park)",
+          "duration": "2–2.5 hours (State Park)",
           "elevation": "+110 m",
-          "access": "Shaded trail from Veloso (south side)",
+          "access": "End of Rua José Pereira Carolo, right of Camping do Sítio; guide required",
           "sea": "Not applicable (30 m waterfall surrounded by untouched forest)",
-          "structure": "Signposted native trail, no shops at the top"
+          "structure": "Natural trail and entrance gate; check State Park booking"
         }
       },
       "fr": {
         "title": "Cascade do Veloso",
-        "subtitle": "Chute majestueuse de 30 mètres au milieu des fougères géantes",
-        "description": "L une des cascades les plus préservées du sud de l île. Une marche de 25 minutes mène à un amphithéâtre rocheux grandiose et une douche revigorante.",
+        "subtitle": "Sentier de 2 h à 2 h 30 avec guide obligatoire",
+        "description": "Le sentier du Veloso traverse la forêt atlantique jusqu'à une cascade de plus de 30 mètres. Le Parc d'État indique 2 à 3 km, 2 h à 2 h 30 de marche, une difficulté modérée et un guide obligatoire. Le départ se trouve au bout de la Rua José Pereira Carolo, à droite du Camping do Sítio. Vérifiez la réservation en ligne.",
         "highlights": [
-          "Chute d eau de 30 mètres",
-          "Fougères arborescentes géantes",
-          "Ambiance calme et ombragée",
-          "Bassin de baignade rafraîchissant"
+          "Guide obligatoire du Parc d'État",
+          "2 à 3 km en 2 h à 2 h 30",
+          "Cascade de plus de 30 mètres",
+          "Départ Rua José Pereira Carolo"
         ],
-        "ecoTip": "Portez des chaussures adhérentes pour marcher sur les roches.",
+        "ecoTip": "Partez avec un guide habilité ; respectez ses consignes et évitez les rochers humides.",
         "specs": {
-          "distance": "1 km depuis le quartier Veloso",
-          "duration": "25 min de marche",
+          "distance": "2 à 3 km (Parc d'État)",
+          "duration": "2 h à 2 h 30 (Parc d'État)",
           "elevation": "+110 m",
-          "access": "Sentier ombragé depuis Veloso (côté sud)",
+          "access": "Bout de la Rua José Pereira Carolo, à droite du Camping do Sítio ; guide obligatoire",
           "sea": "Sans objet (cascade de 30 m entourée de forêt vierge)",
-          "structure": "Sentier naturel balisé, aucun commerce au sommet"
+          "structure": "Sentier naturel et guérite ; vérifier la réservation"
         }
       },
       "es": {
         "title": "Cascada do Veloso",
-        "subtitle": "Majestuosa caída de 30 metros entre helechos gigantes",
-        "description": "Una de las cascadas más hermosas del sur. Una caminata de 25 minutos por la selva te lleva a un anfiteatro rocoso con una ducha natural inolvidable.",
+        "subtitle": "Sendero de 2 a 2,5 horas con monitor obligatorio",
+        "description": "La ruta del Veloso atraviesa la Mata Atlántica hasta una cascada de más de 30 metros. El Parque Estatal indica 2–3 km, de 2 a 2,5 horas, dificultad moderada y monitor obligatorio. La entrada está al final de Rua José Pereira Carolo, a la derecha del Camping do Sítio. Consulta la reserva en línea.",
         "highlights": [
-          "Caída de agua de 30 metros",
-          "Helechos gigantes milenarios",
-          "Ambiente sereno y con sombra",
-          "Poza cristalina para refrescarse"
+          "Monitor obligatorio del Parque Estatal",
+          "2 a 3 km y de 2 a 2,5 horas",
+          "Cascada de más de 30 metros",
+          "Entrada por Rua José Pereira Carolo"
         ],
-        "ecoTip": "Usa calzado adecuado para no resbalar en las piedras.",
+        "ecoTip": "Ve con un monitor autorizado; sigue las indicaciones y evita rocas mojadas y corrientes fuertes.",
         "specs": {
-          "distance": "1 km desde el barrio Veloso",
-          "duration": "25 min caminando",
+          "distance": "2–3 km (Parque Estatal)",
+          "duration": "2 a 2,5 horas (Parque Estatal)",
           "elevation": "+110 m",
-          "access": "Sendero sombreado desde Veloso (lado sur)",
+          "access": "Final de Rua José Pereira Carolo, a la derecha del Camping do Sítio; monitor obligatorio",
           "sea": "No corresponde (cascada de 30 m rodeada de bosque virgen)",
-          "structure": "Sendero natural señalizado, sin comercios arriba"
+          "structure": "Sendero natural y control de acceso; comprobar reserva"
         }
       },
       "he": {
         "title": "מפל ולוזו (Cachoeira do Veloso)",
-        "subtitle": "מפל מרהיב בגובה 30 מטר המוקף בשרכי ענק טרופיים",
-        "description": "אחד המפלים היפים והשלווים בדרום האי. הליכה נעימה של 25 דקות בתוך יער הגשם מובילה למפל מים שוצף עם בריכת מים צלולה ומקלחת טבעית מרעננת.",
+        "subtitle": "מסלול של שעתיים עד שעתיים וחצי עם מדריך חובה",
+        "description": "שביל ולוזו עובר ביער האטלנטי עד למפל שגובהו מעל 30 מטר. לפי הפארק המדינתי אורכו 2–3 ק״מ, משך ההליכה שעתיים עד שעתיים וחצי, דרגת הקושי בינונית ונדרש מדריך. הכניסה בסוף רחוב ז׳וזה פריירה קרולו, מימין לקמפינג דו סיטיו. יש לבדוק הזמנה מראש.",
         "highlights": [
-          "מפל מרשים בגובה 30 מטר",
-          "שרכי ענק עתיקים וצמחייה טרופית",
-          "אווירה שקטה ומוצלת",
-          "בריכת מים קרירה וצלולה"
+          "ליווי מדריך חובה",
+          "2–3 ק״מ, שעתיים עד שעתיים וחצי",
+          "מפל בגובה מעל 30 מטר",
+          "תחילת השביל ברחוב ז׳וזה פריירה קרולו"
         ],
-        "ecoTip": "נעלו נעליים עם אחיזה טובה בסלעים.",
+        "ecoTip": "טיילו עם מדריך מוסמך, הישמעו להוראות והימנעו מסלעים רטובים וזרם חזק.",
         "specs": {
-          "distance": "1 ק״מ משכונת Veloso",
-          "duration": "25 דקות הליכה",
+          "distance": "2–3 ק״מ (הפארק המדינתי)",
+          "duration": "שעתיים עד שעתיים וחצי (הפארק)",
           "elevation": "+110 מ׳",
-          "access": "שביל מוצל משכונת Veloso (דרום)",
+          "access": "סוף רחוב ז׳וזה פריירה קרולו, מימין לקמפינג דו סיטיו; מדריך חובה",
           "sea": "לא רלוונטי (מפל בגובה 30 מ׳ מוקף יער בתולי)",
-          "structure": "שביל טבעי מסומן, ללא מסחר למעלה"
+          "structure": "שביל טבעי ועמדת כניסה; בדקו הזמנה בפארק"
         }
       }
     },
@@ -2034,10 +2042,10 @@ const touristSpots = [
     "reviews": 0,
     "image": "assets/images/cachoeira-do-paqueta_1.jpg",
     "tags": [
-      "Piscina Infinita",
-      "Vista para o Mar",
-      "Trilha Média",
-      "Bordegol"
+      "Alerta de Risco",
+      "Área Particular",
+      "Pedras Escorregadias",
+      "Vista do Canal"
     ],
     "attributes": {
       "isDiving": false,
@@ -2053,109 +2061,109 @@ const touristSpots = [
       "distance": "1.2 km (trilha)",
       "duration": "30 min de caminhada",
       "elevation": "+150m",
-      "access": "Início no bairro do Bexiga (lado sul), subida em trilha",
+      "access": "Acesso na região do Bexiga; área particular com riscos graves alertados pela Prefeitura",
       "sea": "Não se aplica (Água doce de nascente gelada e revigorante)",
-      "structure": "Sem estrutura comercial no topo; natureza 100% nativa"
+      "structure": "Segundo alerta municipal de 2024, falta sinalização e estrutura de segurança adequada"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira do Paquetá",
-        "subtitle": "A famosa piscina de borda infinita natural com vista para o oceano",
-        "description": "Composta por três níveis de quedas d água, Paquetá é mundialmente conhecida pelo poço superior que forma uma piscina infinita de pedra suspensa sobre o canal de São Sebastião.",
+        "subtitle": "Alerta da Prefeitura: risco de acidentes graves e fatais",
+        "description": "A Cachoeira do Paquetá, na região do Bexiga, é conhecida pelo poço com vista para o Canal de São Sebastião. A Prefeitura de Ilhabela alertou oficialmente em 2024 para risco de acidentes graves e até fatais: há pedras escorregadias, sinalização insuficiente e falta de estruturas adequadas. Trata-se de área particular. Não considere a borda elevada um local seguro para banho ou fotografias.",
         "highlights": [
-          "Piscina infinita natural suspensa",
-          "Vista panorâmica do pôr do sol",
-          "Hidromassagem natural na queda intermediária",
-          "Águas cristalinas da serra"
+          "Alerta oficial de acidentes graves e fatais",
+          "Pedras escorregadias e falta de proteção",
+          "Área particular sem estrutura adequada de segurança",
+          "Não se aproxime das bordas para fotografias"
         ],
-        "ecoTip": "Cuidado nas pedras molhadas pois são escorregadias.",
+        "ecoTip": "Evite bordas expostas, mergulhos e aproximação de quedas; respeite avisos e possíveis restrições de acesso.",
         "specs": {
           "distance": "1.2 km (trilha)",
           "duration": "30 min de caminhada",
           "elevation": "+150m",
-          "access": "Início no bairro do Bexiga (lado sul), subida em trilha",
+          "access": "Região do Bexiga; área particular e acesso com riscos sinalizados pela Prefeitura",
           "sea": "Não se aplica (Água doce de nascente gelada e revigorante)",
-          "structure": "Sem estrutura comercial no topo; natureza 100% nativa"
+          "structure": "Prefeitura alerta para insuficiência de sinalização e proteção (2024)"
         }
       },
       "en": {
         "title": "Paquetá Waterfall",
-        "subtitle": "Natural infinity pool overlooking the open ocean",
-        "description": "Featuring three breathtaking tiers of cascades, Paquetá is famous for its top pool that forms a natural stone infinity ledge floating above the ocean channel.",
+        "subtitle": "Municipal warning: serious and potentially fatal accidents",
+        "description": "Paquetá Waterfall near Bexiga is known for its elevated pool overlooking the São Sebastião Channel. In 2024, Ilhabela's municipality warned of serious and potentially fatal accidents due to slippery rocks, insufficient signs and inadequate safety structures. This is private property. Do not treat the exposed pool edge as a safe place for swimming or photos.",
         "highlights": [
-          "Natural infinity pool ledge",
-          "Sunset ocean vista",
-          "Natural hydromassage plunge pools",
-          "Pristine rainforest mountain water"
+          "Official warning of serious and fatal accidents",
+          "Slippery rocks and inadequate safeguards",
+          "Private property with limited safety infrastructure",
+          "Keep away from exposed edges for photos"
         ],
-        "ecoTip": "Rocks can be slippery. Tread carefully.",
+        "ecoTip": "Avoid exposed edges, dives and falls; heed warnings and any access restrictions.",
         "specs": {
           "distance": "1.2 km (trail)",
           "duration": "30 min walk",
           "elevation": "+150 m",
-          "access": "Starts in Bexiga (south side), uphill trail",
+          "access": "Bexiga area; private property with officially reported access hazards",
           "sea": "Not applicable (cold, invigorating spring water)",
-          "structure": "No commercial facilities at the top; entirely native nature"
+          "structure": "Municipal warning: inadequate signs and safety infrastructure (2024)"
         }
       },
       "fr": {
         "title": "Cascade do Paquetá",
-        "subtitle": "Piscine naturelle à débordement avec vue sur l océan",
-        "description": "Composée de trois cascades successives, Paquetá est célèbre pour son bassin supérieur formant une piscine à débordement naturelle suspendue au-dessus du canal.",
+        "subtitle": "Alerte municipale : accidents graves, voire mortels",
+        "description": "La cascade du Paquetá, près de Bexiga, est connue pour son bassin surplombant le canal de São Sebastião. En 2024, la municipalité d'Ilhabela a alerté sur des accidents graves, voire mortels, liés aux rochers glissants, au manque de signalisation et de protections adaptées. Le site est privé. Ne considérez pas le bord surélevé comme un endroit sûr pour nager ou prendre des photos.",
         "highlights": [
-          "Piscine naturelle à débordement",
-          "Vue imprenable sur le coucher de soleil",
-          "Bassin d hydromassage naturel",
-          "Eaux pures des montagnes"
+          "Alerte officielle sur les accidents graves ou mortels",
+          "Rochers glissants et protections insuffisantes",
+          "Site privé dépourvu de sécurité adaptée",
+          "Ne vous approchez pas du bord pour des photos"
         ],
-        "ecoTip": "Attention aux roches glissantes.",
+        "ecoTip": "Évitez les bords exposés, les plongeons et les chutes ; respectez les avertissements et restrictions.",
         "specs": {
           "distance": "1,2 km (sentier)",
           "duration": "30 min de marche",
           "elevation": "+150 m",
-          "access": "Départ du quartier Bexiga (sud), montée par sentier",
+          "access": "Secteur Bexiga ; terrain privé, accès présentant des risques signalés",
           "sea": "Sans objet (eau de source froide et revigorante)",
-          "structure": "Aucun équipement commercial au sommet ; nature entièrement indigène"
+          "structure": "Alerte municipale : signalisation et dispositifs de protection insuffisants (2024)"
         }
       },
       "es": {
         "title": "Cascada do Paquetá",
-        "subtitle": "Piscina de borde infinito natural con vista al mar",
-        "description": "Compuesta por tres niveles de caídas de agua, destaca por su poza superior que forma una increíble piscina infinita de piedra con vistas al canal.",
+        "subtitle": "Advertencia municipal: accidentes graves y mortales",
+        "description": "La cascada de Paquetá, cerca de Bexiga, es conocida por su poza elevada con vistas al canal de São Sebastião. En 2024, el municipio de Ilhabela advirtió del riesgo de accidentes graves e incluso mortales debido a rocas resbaladizas, señalización insuficiente y falta de protección. Está en una propiedad privada. No consideres seguro el borde elevado para bañarte o tomar fotos.",
         "highlights": [
-          "Piscina infinita natural",
-          "Vista panorámica al mar y puesta de sol",
-          "Hidromasaje natural entre rocas",
-          "Agua de vertiente cristalina"
+          "Alerta oficial de accidentes graves o mortales",
+          "Rocas resbaladizas y falta de protección",
+          "Propiedad privada sin seguridad adecuada",
+          "No te acerques a los bordes para hacer fotos"
         ],
-        "ecoTip": "Camina con cuidado sobre las rocas húmedas.",
+        "ecoTip": "Evita bordes expuestos, saltos y caídas; respeta advertencias y restricciones de acceso.",
         "specs": {
           "distance": "1,2 km (sendero)",
           "duration": "30 min caminando",
           "elevation": "+150 m",
-          "access": "Inicio en Bexiga (lado sur), subida por sendero",
+          "access": "Zona de Bexiga; propiedad privada con riesgos señalados oficialmente",
           "sea": "No corresponde (agua de manantial fría y revitalizante)",
-          "structure": "Sin infraestructura comercial arriba; naturaleza totalmente nativa"
+          "structure": "Alerta municipal: señalización y protección insuficientes (2024)"
         }
       },
       "he": {
         "title": "מפל פאקטה (Cachoeira do Paquetá)",
-        "subtitle": "בריכת אינסוף טבעית עם נוף מרהיב לאוקיינוס",
-        "description": "מפל בעל 3 מדרגות מים, כאשר המדרגה העליונה יוצרת בריכת אינסוף טבעית תלויה בין הסלעים עם נוף פנורמי מרהיב לשקיעה.",
+        "subtitle": "אזהרת העירייה: סכנת תאונות קשות ואף קטלניות",
+        "description": "מפל פקטה ליד בקסיגה מוכר בזכות בריכת הסלע המשקיפה על תעלת סאו סבסטיאו. בשנת 2024 פרסמה עיריית איליאבלה אזהרה מפני תאונות קשות ואף קטלניות בשל סלעים חלקים, שילוט חסר ואמצעי בטיחות לא מספקים. המקום נמצא בשטח פרטי. אין לראות בשפת הבריכה הגבוהה מקום בטוח לרחצה או לצילום.",
         "highlights": [
-          "בריכת אינסוף טבעית בסלע",
-          "נוף שקיעה פנורמי מעל הים",
-          "זרמי מים לג׳קוזי טבעי",
-          "מים צלולים ממעיינות ההר"
+          "אזהרה רשמית מפני תאונות קשות וקטלניות",
+          "סלעים חלקים והיעדר אמצעי הגנה",
+          "שטח פרטי ללא תשתית בטיחות מתאימה",
+          "אין להתקרב לשפה החשופה לצילום"
         ],
-        "ecoTip": "הסלעים חלקים, יש ללכת בזהירות.",
+        "ecoTip": "הימנעו מקצוות חשופים ומקפיצה למים; כבדו שלטי אזהרה והגבלות כניסה.",
         "specs": {
           "distance": "1.2 ק״מ (שביל)",
           "duration": "30 דקות הליכה",
           "elevation": "+150 מ׳",
-          "access": "תחילה בשכונת Bexiga (דרום), עלייה בשביל",
+          "access": "אזור בקסיגה; שטח פרטי עם סיכונים שפורסמו על ידי העירייה",
           "sea": "לא רלוונטי (מי מעיין קרים ומרעננים)",
-          "structure": "ללא תשתיות מסחריות למעלה; טבע מקומי לחלוטין"
+          "structure": "אזהרת העירייה על מחסור בשילוט ובהגנות בטיחות (2024)"
         }
       }
     },
@@ -2165,7 +2173,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-do-gato",
     "category": "cachoeiras",
     "coords": [
@@ -2306,7 +2313,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-dos-tres-tombos",
     "category": "cachoeiras",
     "coords": [
@@ -2447,7 +2453,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-da-friagem",
     "category": "cachoeiras",
     "coords": [
