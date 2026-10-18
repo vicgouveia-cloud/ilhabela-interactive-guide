@@ -1778,112 +1778,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "100m da entrada (estrada de Castelhanos)",
-      "duration": "5 min de caminhada",
+      "distance": "Trecho interno de visitação; confirmar no local",
+      "duration": "Tempo de visita variável; confirmar com a administração",
       "elevation": "Fácil",
-      "access": "Início da Estrada de Castelhanos (bairro Reino)",
+      "access": "Fazenda da Toca, início da Estrada de Castelhanos; propriedade particular, confirme visitação e ingresso",
       "sea": "Não se aplica (Tobogã de pedra e duchas naturais)",
-      "structure": "Alambique histórico, restaurante, banheiros, estacionamento e duchas"
+      "structure": "Estrutura de visitação privada; disponibilidade e taxa devem ser confirmadas"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Toca",
-        "subtitle": "Tobogã natural de 50 metros, gruta e alambique centenário",
-        "description": "Uma das atrações históricas e divertidas mais famosas da ilha. Conta com um tobogã de pedra natural de 50 metros, gruta sob a cachoeira e visitação ao alambique tradicional de cachaça da Toca.",
+        "subtitle": "Gruta, tobogã natural e engenho em propriedade privada",
+        "description": "A Cachoeira da Toca fica na Fazenda da Toca, propriedade particular próxima ao início da Estrada de Castelhanos. É conhecida pela gruta e pelo escorregador natural de pedra, citado com cerca de 50 metros. O local pode cobrar entrada e oferecer serviços, sujeitos a confirmação com a administração. Pedras molhadas, poços profundos e correnteza exigem cuidado; não há garantia de uso seguro do tobogã.",
         "highlights": [
-          "Tobogã de pedra super emocionante de 50m",
-          "Gruta natural da Toca",
-          "Degustação no alambique histórico",
-          "Estrutura completa com restaurante e banheiros"
+          "Cachoeira e gruta na Fazenda da Toca",
+          "Escorregador natural de pedra: avalie os riscos",
+          "Propriedade privada com possível cobrança de ingresso",
+          "Confirme funcionamento e serviços antes da visita"
         ],
-        "ecoTip": "Propriedade privada preservada com taxa simbólica de manutenção.",
+        "ecoTip": "Evite o tobogã e os poços quando não houver condições seguras; siga as orientações do responsável pelo local.",
         "specs": {
-          "distance": "100m da entrada (estrada de Castelhanos)",
-          "duration": "5 min de caminhada",
+          "distance": "Trecho de visitação na fazenda; confirme no local",
+          "duration": "Tempo variável conforme a visita",
           "elevation": "Fácil",
-          "access": "Início da Estrada de Castelhanos (bairro Reino)",
+          "access": "Fazenda da Toca, início da Estrada de Castelhanos; entrada particular",
           "sea": "Não se aplica (Tobogã de pedra e duchas naturais)",
-          "structure": "Alambique histórico, restaurante, banheiros, estacionamento e duchas"
+          "structure": "Estrutura e taxa de entrada sujeitas à confirmação com o local"
         }
       },
       "en": {
         "title": "Toca Waterfall (Cachoeira da Toca)",
-        "subtitle": "160-foot natural water slide, grotto, and historic distillery",
-        "description": "One of the most famous historic attractions in Ilhabela. Features an exhilarating 50-meter natural granite slide, a rock grotto beneath the cascade, and an artisanal sugar-cane distillery.",
+        "subtitle": "Grotto, natural rock slide and historic private estate",
+        "description": "Toca Waterfall lies on the privately owned Fazenda da Toca near the start of the Castelhanos road. It is known for a grotto and a natural rock slide reportedly about 50 meters long. Admission and visitor facilities may be available; confirm current arrangements with the operator. Wet rocks, deep pools and currents pose risks, and the slide should never be assumed safe to use.",
         "highlights": [
-          "Thrilling 50-meter natural rock slide",
-          "Natural cavern grotto",
-          "Artisanal cachaça tasting",
-          "Full family amenities & restaurant"
+          "Grotto at the historic Fazenda da Toca",
+          "Natural rock slide: assess safety first",
+          "Private property; admission may be charged",
+          "Confirm opening and facilities in advance"
         ],
-        "ecoTip": "Preserved private reserve with a nominal maintenance entrance fee.",
+        "ecoTip": "Avoid the slide and pools when conditions are unsafe; follow the site's staff instructions.",
         "specs": {
-          "distance": "100 m from the entrance (Castelhanos road)",
-          "duration": "5 min walk",
+          "distance": "Short estate visit; confirm on site",
+          "duration": "Variable, depending on your visit",
           "elevation": "Easy",
-          "access": "Start of Estrada de Castelhanos (Reino neighborhood)",
+          "access": "Fazenda da Toca, start of Castelhanos road; privately managed entry",
           "sea": "Not applicable (rock slide and natural showers)",
-          "structure": "Historic distillery, restaurant, toilets, parking and showers"
+          "structure": "Facilities and admission subject to confirmation"
         }
       },
       "fr": {
         "title": "Cascade da Toca",
-        "subtitle": "Toboggan naturel de 50 mètres, grotte et distillerie historique",
-        "description": "Une attraction incontournable mêlant fun et patrimoine. Grand toboggan rocheux naturel, grotte sous la cascade et visite d une distillerie artisanale de cachaça.",
+        "subtitle": "Grotte, glissade rocheuse naturelle et ancienne exploitation privée",
+        "description": "La cascade da Toca se situe sur la propriété privée Fazenda da Toca, près du début de la route de Castelhanos. On y trouve une grotte et une glissade naturelle sur roche d'environ 50 mètres selon les descriptions locales. L'entrée et les installations peuvent être payantes : renseignez-vous auprès de l'exploitant. Rochers humides, bassins profonds et courant présentent des risques ; la glissade n'est pas garantie sûre.",
         "highlights": [
-          "Toboggan naturel palpitant de 50 m",
-          "Grotte naturelle de la Toca",
-          "Dégustation à la distillerie historique",
-          "Infrastructures complètes et restaurant"
+          "Grotte de la Fazenda da Toca",
+          "Glissade rocheuse : vérifier les risques",
+          "Propriété privée, entrée possiblement payante",
+          "Confirmer les horaires et services"
         ],
-        "ecoTip": "Réserve privée avec petit droit d entrée pour l entretien du site.",
+        "ecoTip": "Évitez les bassins et la glissade si les conditions sont dangereuses ; suivez les consignes du site.",
         "specs": {
-          "distance": "100 m de l’entrée (route de Castelhanos)",
-          "duration": "5 min de marche",
+          "distance": "Visite sur la propriété ; à confirmer sur place",
+          "duration": "Durée variable selon la visite",
           "elevation": "Facile",
-          "access": "Début de Estrada de Castelhanos (quartier Reino)",
+          "access": "Fazenda da Toca, début de la route de Castelhanos ; accès privé",
           "sea": "Sans objet (toboggan rocheux et douches naturelles)",
-          "structure": "Distillerie historique, restaurant, toilettes, parking et douches"
+          "structure": "Services et tarif à confirmer auprès de l'exploitant"
         }
       },
       "es": {
         "title": "Cascada da Toca",
-        "subtitle": "Tobogán natural de 50 metros, gruta y destilería histórica",
-        "description": "Una de las atracciones más divertidas e históricas. Cuenta con un tobogán de piedra de 50 metros, gruta natural y visita a la destilería de cachaça tradicional.",
+        "subtitle": "Gruta, tobogán natural y antigua hacienda privada",
+        "description": "La cascada da Toca está en la propiedad privada Fazenda da Toca, cerca del inicio de la carretera a Castelhanos. Es conocida por una gruta y un tobogán natural de roca de unos 50 metros según referencias locales. Puede cobrarse entrada y haber servicios; confirma las condiciones con la administración. Las rocas mojadas, las pozas profundas y la corriente implican riesgos; no supongas que el tobogán es seguro.",
         "highlights": [
-          "Emocionante tobogán de roca de 50 m",
-          "Gruta natural bajo la cascada",
-          "Degustación en el alambique tradicional",
-          "Restaurante y servicios completos"
+          "Gruta de la histórica Fazenda da Toca",
+          "Tobogán de piedra: comprobar riesgos",
+          "Propiedad privada con posible entrada de pago",
+          "Confirmar horarios y servicios antes de ir"
         ],
-        "ecoTip": "Propiedad privada con tarifa simbólica para conservación.",
+        "ecoTip": "Evita los toboganes y pozas si no hay condiciones seguras; sigue las indicaciones del personal.",
         "specs": {
-          "distance": "100 m de la entrada (carretera de Castelhanos)",
-          "duration": "5 min caminando",
+          "distance": "Recorrido dentro de la finca; confirmar",
+          "duration": "Duración variable de visita",
           "elevation": "Fácil",
-          "access": "Inicio de Estrada de Castelhanos (barrio Reino)",
+          "access": "Fazenda da Toca, inicio de la carretera de Castelhanos; acceso privado",
           "sea": "No corresponde (tobogán de piedra y duchas naturales)",
-          "structure": "Destilería histórica, restaurante, baños, estacionamiento y duchas"
+          "structure": "Servicios y tarifa sujetos a confirmación"
         }
       },
       "he": {
         "title": "מפל טוקה (Cachoeira da Toca)",
-        "subtitle": "מגלשת סלע ענקית באורך 50 מטר, מערה ומזקקה היסטורית",
-        "description": "אחת האטרקציות המהנות וההיסטוריות באיליאבלה. כולל מגלשת סלע טבעית באורך 50 מטר, מערה מתחת למפל וטעימות במזקקת קשאסה מסורתית.",
+        "subtitle": "מערה, מגלשת סלע טבעית ואתר היסטורי בשטח פרטי",
+        "description": "מפל טוקה נמצא בחוות טוקה הפרטית סמוך לתחילת הדרך לקסטליאנוס. המקום ידוע במערה ובמגלשת סלע טבעית שאורכה לפי תיאורים מקומיים כ־50 מטר. ייתכנו דמי כניסה ושירותים למבקרים, ויש לברר מראש עם המפעיל. סלעים רטובים, בריכות עמוקות וזרם חזק מסוכנים; אין להניח שהשימוש במגלשה בטוח.",
         "highlights": [
-          "מגלשת סלע טבעית ומרגשת באורך 50 מטר",
-          "מערת סלעים טבעית",
-          "טעימות במזקקה היסטורית",
-          "מסעדה ושירותים מסודרים לכל המשפחה"
+          "מערה בחוות טוקה ההיסטורית",
+          "מגלשת סלע טבעית: יש להעריך סיכונים",
+          "שטח פרטי, ייתכן תשלום בכניסה",
+          "בדקו שעות פתיחה ושירותים מראש"
         ],
-        "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה.",
+        "ecoTip": "הימנעו ממגלשת הסלע ומהבריכות בתנאים מסוכנים ופעלו לפי הוראות צוות המקום.",
         "specs": {
-          "distance": "100 מ׳ מהכניסה (כביש Castelhanos)",
-          "duration": "5 דקות הליכה",
+          "distance": "מסלול בתוך החווה; יש לברר במקום",
+          "duration": "משך ביקור משתנה",
           "elevation": "קל",
-          "access": "תחילת Estrada de Castelhanos (שכונת Reino)",
+          "access": "חוות טוקה בתחילת דרך קסטליאנוס; כניסה לשטח פרטי",
           "sea": "לא רלוונטי (מגלשת סלע ומקלחות טבעיות)",
-          "structure": "מזקקה היסטורית, מסעדה, שירותים, חניה ומקלחות"
+          "structure": "שירותים ומחיר כניסה טעונים אישור מהמפעיל"
         }
       }
     },

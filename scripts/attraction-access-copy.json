@@ -110,11 +110,11 @@
     }
   },
   "cachoeira-da-toca": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.826654676666603, -45.341884430628895); o trecho final continua a pé ou por trilha conforme a atração. Início da Estrada de Castelhanos (bairro Reino)",
+    "copy": "A navegação termina no ponto de acesso anteriormente validado (-23.826654676666603, -45.341884430628895), que não substitui confirmação da entrada na Fazenda da Toca. Propriedade particular próxima ao início da Estrada de Castelhanos; verifique horários, ingresso e condições diretamente com o responsável.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-toca/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/15089/dia-dos-namorados-3-dicas-para-aproveitar-ilhabela-em-casal",
+      "verification": "editorial itinerary checked against municipal tourism guidance, 2026-10-18; existing navigation gateway/pin not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
@@ -450,11 +450,11 @@
     }
   },
   "poco-do-furado": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.833094685835388, -45.36101034668008); o trecho final continua a pé ou por trilha conforme a atração. Parque Municipal das Cachoeiras; trecho final a pé",
+    "copy": "A navegação terrestre termina no acesso anteriormente validado (-23.833094685835388, -45.36101034668008). Siga a pé pelo Parque Municipal das Cachoeiras, na Água Branca: depois da primeira piscina com rampa, o caminho até o Poço do Furado continua em trilha natural não acessível pela rampa. Cerca de 570 metros ida e volta.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/poco-do-furado/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16294/cachoeiras-em-ilhabela-conheca-7-opcoes-de-facil-acesso",
+      "verification": "editorial itinerary checked against municipal tourism guidance, 2026-10-18; existing navigation gateway/pin not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
@@ -490,11 +490,11 @@
     }
   },
   "cachoeira-do-poco-fundo": {
-    "copy": "A pé a partir do Bonete",
+    "copy": "Primeiro chegue à comunidade do Bonete por barco ou pela trilha longa desde Sepituba. Da Praia do Bonete, a Prefeitura descreve cerca de 10 minutos de caminhada por caminho sinalizado até a cachoeira. Não há acesso de carro ao Bonete.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-poco-fundo/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16294/cachoeiras-em-ilhabela-conheca-7-opcoes-de-facil-acesso",
+      "verification": "editorial itinerary checked against municipal tourism guidance, 2026-10-18; existing navigation gateway/pin not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
