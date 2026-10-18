@@ -140,31 +140,31 @@
     }
   },
   "cachoeira-do-gato": {
-    "copy": "Início no canto esquerdo da Baía de Castelhanos",
+    "copy": "A trilha começa na Ponta do Gato, Canto do Ribeirão, em Castelhanos. O acesso à região é por barco ou pela Estrada de Castelhanos com veículo 4x4. A transição exata à trilha ainda não tem coordenada validada.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-do-gato/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-gato/",
+      "verification": "access copy reviewed against official park information on 2026-10-18; existing routing gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
   },
   "cachoeira-dos-tres-tombos": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.854116510544785, -45.405701165557744); o trecho final continua a pé ou por trilha conforme a atração. Acesso asfaltado próximo à Praia da Feiticeira",
+    "copy": "A navegação terrestre termina no ponto de chegada já validado (-23.854116510544785, -45.405701165557744); o trecho final deve ser confirmado localmente. A entrada oficial da trilha fica no final da Alameda dos Guapuruvus, na Feiticeira. Monitoria obrigatória e agendamento online conforme o Parque Estadual.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-dos-tres-tombos/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-cachoeira-pancada-dagua/",
+      "verification": "access copy reviewed against official park information on 2026-10-18; existing routing gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
   },
   "cachoeira-da-friagem": {
-    "copy": "Início no bairro da Praia da Siriúba (norte)",
+    "copy": "Trilha monitorada a partir do final da Alameda dos Pássaros, na Siriúba, após o trecho urbanizado. Monitoria obrigatória; não há coordenada de entrada confirmada para navegação automática.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-friagem/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-friagem/",
+      "verification": "access copy reviewed against official park information on 2026-10-18; existing routing gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }

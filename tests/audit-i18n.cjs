@@ -85,14 +85,20 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 // ordering and pre-existing translations stay intact; only new localized fields are added.
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos']);
+
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
+assert.deepEqual(data.touristSpots.map(s=>s.id),baseline.touristSpots.map(s=>s.id),'all 50 attraction ids and order preserved');
 for (const group of ['touristSpots','guidesData']) {
-  assert.deepEqual(data[group].map(withoutTranslations),baseline[group].map(withoutTranslations),group+' immutable facts');
+  const preserved = values => group==='touristSpots' ? values.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id)) : values;
+  assert.deepEqual(preserved(data[group]).map(withoutTranslations),preserved(baseline[group]).map(withoutTranslations),group+' immutable facts outside approved waterfall editorial changes');
   baseline[group].forEach((old,i)=>{
+    if(group==='touristSpots' && EDITORIAL_WATERFALL_IDS.has(old.id)) return; // Verified by audit-waterfall-safety.
     for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
   });
 }
+require('./audit-waterfall-safety.cjs');
 // Services use the last approved full service architecture; attractions/guides retain the historic contract above.
 const servicesBaseSha = '1a7613e4c0273deca5094a6e5842d9461be50c51';
 const servicesBaseline = load(file=>execFileSync('git',['show',servicesBaseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));

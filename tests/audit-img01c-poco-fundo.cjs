@@ -7,6 +7,8 @@ const { execFileSync } = require('node:child_process');
 const ROOT = path.resolve(__dirname, '..');
 const MAIN_BASE = process.env.MAIN_BASE || '07b970870dc6544494aa08e5aa965b31ec1f9f71';
 const ID = 'cachoeira-do-poco-fundo';
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos']);
+
 const IMAGE = 'assets/images/cachoeira-do-poco-fundo-acesso_commons.webp';
 const SOURCE = 'https://commons.wikimedia.org/wiki/File:Trilha_do_Po%C3%A7o_Fundo.jpg';
 const LICENSE = 'https://creativecommons.org/licenses/by-sa/4.0/';
@@ -64,7 +66,7 @@ for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-ba
 
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
-  assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
+  if(!EDITORIAL_WATERFALL_IDS.has(original.id)) assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
   assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
 }
 for (const id of [
@@ -100,4 +102,5 @@ for(const hub of ['o-que-fazer/index.html','cachoeiras/index.html']) {
 }
 assert(fs.readFileSync(path.join(ROOT,'index.html'),'utf8').includes('attraction-photos.js?v=1.3'));
 assert.equal(entry.images[0],IMAGE);
-console.log('IMG-01C OK: Poço Fundo access sign licensed and correctly identified; existing attractions and remaining placeholders preserved.');
+require('./audit-waterfall-safety.cjs');
+console.log('IMG-01C OK: Poço Fundo and all photos/coordinates preserved; three waterfall editorial changes guarded separately.');
