@@ -32,7 +32,7 @@ test('maritime provider selection validates eligibility before applying recommen
       activities: ['boat-tour']
     };
     const normal = { ...eligible, id: '__test_normal', featured: false };
-    servicesData.push(normal, nonEligible);
+    servicesData.splice(0,servicesData.length,normal,nonEligible);
     const profile = { requiredMode: 'boat', requiredActivity: 'boat-tour' };
     const baseline = getMaritimeProvidersForProfile(profile).map(x => x.id);
     servicesData.push(eligible);
@@ -53,7 +53,7 @@ test('nautical experience selection honors qualifying recommendation', async ({ 
       serviceArea: { scope: 'island', modes: [profile.requiredMode], verifiedModes: [profile.requiredMode] },
       activities: [profile.requiredActivity]
     };
-    servicesData.push({ ...base, id: '__nautical_normal', featured: false });
+    servicesData.splice(0,servicesData.length,{ ...base, id: '__nautical_normal', featured: false });
     const baseline = getNauticalExperienceOptionsForSpot(profile.spotIds[0])[0].providers.map(x => x.id);
     servicesData.push({ ...base, id: '__nautical_featured', featured: true });
     const selected = getNauticalExperienceOptionsForSpot(profile.spotIds[0])[0].providers.map(x => x.id);

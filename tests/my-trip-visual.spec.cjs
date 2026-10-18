@@ -22,11 +22,20 @@ for (const width of [390, 1440]) for (const lang of ['pt', 'en', 'es', 'fr', 'he
       openPlannerSummary();
     }, lang);
     const list = page.locator('#planner-summary-list');
+    const openOrganizer=async()=>{
+      const editor=page.locator('#planner-organize-details');
+      if(await editor.getAttribute('open')===null) {
+        await page.locator('.planner-agenda button[onclick="plannerOpenReorderFromAgenda()"]').click();
+      }
+      await expect(editor).toHaveAttribute('open','');
+    };
     await expect(page.locator('html')).toHaveAttribute('dir', lang === 'he' ? 'rtl' : 'ltr');
     await expect(page.locator('#planner-origin-actions')).toContainText(await page.evaluate(() => t('plannerOriginQuestion').replace('{n}', 1)));
     await page.screenshot({path:path.resolve(__dirname, '../../my-trip-evidence', process.env.TRIP_STAGE || 'after', `${lang}-${width}-pending.png`)});
+    await openOrganizer();
     await page.locator('button[onclick="movePlannerSpot(\'praia-grande\', -1)"]').click();
     expect(await page.evaluate(() => tripSelection.slice(0, 2))).toEqual(['praia-grande', 'praia-do-curral']);
+    await openOrganizer();
     await page.locator('select[onchange*="setSpotTripDay(\'praia-do-bonete\'"]').selectOption('2');
     await page.locator('button[onclick="setActiveTripDay(2)"]').click();
     expect(await page.evaluate(() => getActiveTripSpots().map(s => s.id))).toEqual(['praia-do-bonete']);
@@ -52,6 +61,7 @@ for (const width of [390, 1440]) for (const lang of ['pt', 'en', 'es', 'fr', 'he
     await page.screenshot({path:path.resolve(__dirname, '../../my-trip-evidence', process.env.TRIP_STAGE || 'after', `${lang}-${width}-configured.png`)});
     await page.locator('#planner-origin-actions').scrollIntoViewIfNeeded();
     await page.screenshot({path:path.resolve(__dirname, '../../my-trip-evidence', process.env.TRIP_STAGE || 'after', `${lang}-${width}-origin.png`)});
+    await openOrganizer();
     await page.locator('select[onchange*="setSpotTripDay"]').first().scrollIntoViewIfNeeded();
     await page.screenshot({path:path.resolve(__dirname, '../../my-trip-evidence', process.env.TRIP_STAGE || 'after', `${lang}-${width}-cards.png`)});
     await page.locator('button[onclick="setPlannerStopCompleted(\'praia-grande\', true)"]').click();
@@ -64,11 +74,13 @@ for (const width of [390, 1440]) for (const lang of ['pt', 'en', 'es', 'fr', 'he
     expect(overflow).toEqual([]);
     if (process.env.TRIP_STAGE !== 'before') {
       await expect(page.locator('button[onclick="setActiveTripDay(1)"]')).toHaveAttribute('aria-pressed', 'true');
+      await openOrganizer();
       await expect(page.locator('button[onclick="movePlannerSpot(\'praia-do-curral\', -1)"]')).toHaveAccessibleName(await page.evaluate(() => t('plannerMoveUp')));
       const target = page.locator('button[onclick="movePlannerSpot(\'praia-do-curral\', -1)"]');
       await target.focus();
       await page.keyboard.press('Enter');
       expect(await page.evaluate(() => tripSelection[0])).toBe('praia-do-curral');
+      await openOrganizer();
       const controls = await page.locator('.planner-edit-card').first().locator('button, select').evaluateAll(elements => elements.map(el => {
         const box = el.getBoundingClientRect(); return {x:box.x,y:box.y,width:box.width,height:box.height};
       }));
@@ -83,6 +95,7 @@ for (const width of [390, 1440]) for (const lang of ['pt', 'en', 'es', 'fr', 'he
     await page.evaluate(() => plannerMap.fire('click',{latlng:{lat:-23.82,lng:-45.38}}));
     expect(await page.evaluate(() => plannerOrigin)).toEqual([-23.82,-45.38]);
     expect(await page.evaluate(() => tripDayOrigins[2])).toEqual([-23.8,-45.36]);
+    await openOrganizer();
     await page.locator('button[onclick="removeFromPlanner(\'baia-de-castelhanos\')"]').click();
     expect(await page.evaluate(() => isSpotInTrip('baia-de-castelhanos'))).toBe(false);
     await page.reload();
