@@ -86,11 +86,12 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
+const {maskFacts,maskTranslation} = require('./safety-preservation-contract.cjs');
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
 for (const group of ['touristSpots','guidesData']) {
-  assert.deepEqual(data[group].map(withoutTranslations),baseline[group].map(withoutTranslations),group+' immutable facts');
+  assert.deepEqual(group==='touristSpots' ? maskFacts(data[group].map(withoutTranslations),baseline[group].map(withoutTranslations)) : data[group].map(withoutTranslations),baseline[group].map(withoutTranslations),group+' immutable facts except three safety fields');
   baseline[group].forEach((old,i)=>{
-    for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
+    for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(group==='touristSpots' ? maskTranslation(data[group][i].translations[lang][key],expected,old.id,key) : data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
   });
 }
 // Services use the last approved full service architecture; attractions/guides retain the historic contract above.

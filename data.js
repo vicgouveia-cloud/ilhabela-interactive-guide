@@ -2342,12 +2342,12 @@ const touristSpots = [
       "pt": {
         "title": "Cachoeira dos Três Tombos",
         "subtitle": "Trilha curta; terceiro poço aberto apenas para contemplação",
-        "description": "Também conhecida como Pancada d’Água, reúne três quedas próximas à Praia da Feiticeira. Terceiro poço apenas para contemplação; mantenha distância segura, siga a sinalização e nade somente nas áreas permitidas.",
+        "description": "Três quedas próximas à Praia da Feiticeira, conhecidas também como Pancada d’Água. O percurso é curto e de baixa dificuldade. O banho pode ser realizado somente nos locais permitidos no início da trilha; o terceiro poço é aberto apenas para contemplação, mantendo distância segura da queda e respeitando a sinalização.",
         "highlights": [
-          "Trilha curta; terceiro poço aberto apenas para contemplação",
-          "Terceiro poço apenas para contemplação; mantenha distância segura, siga a sinalização e nade somente nas áreas permitidas.",
-          "Trilha curta; terceiro poço aberto apenas para contemplação",
-          "Terceiro poço apenas para contemplação; mantenha distância segura, siga a sinalização e nade somente nas áreas permitidas."
+          "Trilha curta de baixa dificuldade",
+          "Banho somente nos locais permitidos",
+          "Terceiro poço apenas para contemplação",
+          "Respeite a sinalização e a distância da queda"
         ],
         "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira.",
         "specs": {
@@ -2362,12 +2362,12 @@ const touristSpots = [
       "en": {
         "title": "Três Tombos Waterfall",
         "subtitle": "Short trail; third pool for viewing only",
-        "description": "Third pool is for viewing only; stay clear of the waterfall, follow signs, and swim only in permitted areas.",
+        "description": "Three waterfalls near Praia da Feiticeira, also known as Pancada d’Água. The trail is short and low difficulty. Swimming is possible only where allowed near the start of the path; the third pool is open for viewing only. Keep a safe distance from the falls and follow all signs.",
         "highlights": [
-          "Short trail; third pool for viewing only",
-          "Third pool is for viewing only; stay clear of the waterfall, follow signs, and swim only in permitted areas.",
-          "Short trail; third pool for viewing only",
-          "Third pool is for viewing only; stay clear of the waterfall, follow signs, and swim only in permitted areas."
+          "Short, low-difficulty trail",
+          "Swim only in designated areas",
+          "Third pool for viewing only",
+          "Follow signs and keep a safe distance"
         ],
         "ecoTip": "Great refreshing stop right next to Feiticeira beach.",
         "specs": {
@@ -2382,12 +2382,12 @@ const touristSpots = [
       "fr": {
         "title": "Cascade des Trois Tombos",
         "subtitle": "Courte randonnée ; troisième bassin réservé à la contemplation",
-        "description": "Troisième bassin réservé à la contemplation : gardez vos distances, respectez les panneaux et ne nagez que dans les zones autorisées.",
+        "description": "Trois chutes près de Praia da Feiticeira, également connues sous le nom de Pancada d’Água. Le sentier est court et peu difficile. La baignade n’est possible que dans les zones autorisées au début du chemin ; le troisième bassin est réservé à la contemplation. Respectez les panneaux et les distances de sécurité.",
         "highlights": [
-          "Courte randonnée ; troisième bassin réservé à la contemplation",
-          "Troisième bassin réservé à la contemplation : gardez vos distances, respectez les panneaux et ne nagez que dans les zones autorisées.",
-          "Courte randonnée ; troisième bassin réservé à la contemplation",
-          "Troisième bassin réservé à la contemplation : gardez vos distances, respectez les panneaux et ne nagez que dans les zones autorisées."
+          "Sentier court et peu difficile",
+          "Baignade uniquement dans les zones autorisées",
+          "Troisième bassin réservé à la contemplation",
+          "Respectez panneaux et distances de sécurité"
         ],
         "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira.",
         "specs": {
@@ -2402,12 +2402,12 @@ const touristSpots = [
       "es": {
         "title": "Cascada de los Tres Tombos",
         "subtitle": "Sendero corto; tercer pozo solo para contemplación",
-        "description": "El tercer pozo es solo para contemplación: mantén distancia, respeta las señales y báñate solo en zonas permitidas.",
+        "description": "Tres cascadas cerca de Praia da Feiticeira, conocidas también como Pancada d’Água. El sendero es corto y de baja dificultad. Solo se permite el baño en las zonas habilitadas al comienzo del recorrido; el tercer pozo es exclusivamente para contemplación. Respeta las señales y mantén una distancia segura.",
         "highlights": [
-          "Sendero corto; tercer pozo solo para contemplación",
-          "El tercer pozo es solo para contemplación: mantén distancia, respeta las señales y báñate solo en zonas permitidas.",
-          "Sendero corto; tercer pozo solo para contemplación",
-          "El tercer pozo es solo para contemplación: mantén distancia, respeta las señales y báñate solo en zonas permitidas."
+          "Sendero corto y de baja dificultad",
+          "Baño solo en zonas habilitadas",
+          "Tercer pozo solo para contemplación",
+          "Respeta señales y distancias de seguridad"
         ],
         "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira.",
         "specs": {
@@ -2422,12 +2422,12 @@ const touristSpots = [
       "he": {
         "title": "מפל שלושת השלבים (Cachoeira dos Três Tombos)",
         "subtitle": "מסלול קצר; הבריכה השלישית לצפייה בלבד",
-        "description": "הבריכה השלישית מיועדת לצפייה בלבד: שמרו מרחק מהמפל, צייתו לשילוט ורחצו רק במקומות מותרים.",
+        "description": "שלושה מפלים ליד Praia da Feiticeira, הידועים גם בשם Pancada d’Água. המסלול קצר וברמת קושי נמוכה. הרחצה מותרת רק במקומות המיועדים לכך בתחילת השביל; הבריכה השלישית מיועדת לצפייה בלבד. יש לשמור מרחק בטוח מהמפל ולציית לשילוט.",
         "highlights": [
-          "מסלול קצר; הבריכה השלישית לצפייה בלבד",
-          "הבריכה השלישית מיועדת לצפייה בלבד: שמרו מרחק מהמפל, צייתו לשילוט ורחצו רק במקומות מותרים.",
-          "מסלול קצר; הבריכה השלישית לצפייה בלבד",
-          "הבריכה השלישית מיועדת לצפייה בלבד: שמרו מרחק מהמפל, צייתו לשילוט ורחצו רק במקומות מותרים."
+          "שביל קצר ברמת קושי נמוכה",
+          "רחצה רק במקומות המותרים",
+          "הבריכה השלישית לצפייה בלבד",
+          "יש לציית לשילוט ולשמור מרחק בטוח"
         ],
         "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה.",
         "specs": {
