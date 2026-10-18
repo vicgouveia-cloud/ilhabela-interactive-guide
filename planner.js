@@ -524,9 +524,12 @@ function setPlannerView(view) {
   }
 }
 
+let plannerReturnFocus = null;
+
 function openPlanner(e, options = {}) {
   if (e) e.preventDefault();
   const modal = document.getElementById('planner-modal');
+  if (modal.classList.contains('hidden')) plannerReturnFocus = document.activeElement;
   modal.classList.remove('hidden');
   modal.classList.add('flex');
   document.body.style.overflow = 'hidden';
@@ -537,6 +540,8 @@ function openPlanner(e, options = {}) {
   modal.querySelectorAll('[data-i18n]').forEach(el => { el.textContent = t(el.dataset.i18n); });
 
   setPlannerView(options.view || currentPlannerView);
+  [...modal.querySelectorAll('button:not(:disabled), a[href], select, [tabindex="0"]')]
+    .find(control => control.getClientRects().length)?.focus({ preventScroll: true });
 }
 
 function openPlannerSummary() {
@@ -553,6 +558,13 @@ function closePlanner() {
   modal.classList.remove('flex');
   document.body.style.overflow = '';
   document.body.classList.remove('planner-open');
+  const params = new URLSearchParams(location.search);
+  if (params.get('view') === 'trip') {
+    params.delete('view');
+    history.replaceState(history.state, '', location.pathname + (params.size ? '?' + params : '') + location.hash);
+  }
+  if (plannerReturnFocus?.isConnected) plannerReturnFocus.focus({ preventScroll: true });
+  plannerReturnFocus = null;
   window.dispatchEvent(new Event('planner-visibility-change'));
 }
 
@@ -1083,12 +1095,12 @@ function renderPlannerRoutingPanel(roadSpots, specialSpots) {
     ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerRoutePartialEstimateHint')}</div>`
     : '';
   const visitStats = visit.covered
-    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${totalEstimateLabel}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${routeCoverageHint}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
+    ? `<div class="text-xs text-primary space-y-1"><div><strong>${t('plannerVisitTime')}:</strong> ${formatPlannerRange(visit.min, visit.max)}</div>${plannerOptimizedRoute ? `<div><strong>${totalEstimateLabel}:</strong> ${formatPlannerRange(visit.min + travelMinutes, visit.max + travelMinutes)}</div>` : ''}${visit.partial ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>` : ''}</div>`
     : visit.total
       ? `<div class="text-[11px] text-on-surface-variant"><strong>${t('plannerPartialEstimate')}.</strong> ${t('plannerPartialEstimateHint')}</div>`
       : '';
   const routeStats = plannerOptimizedRoute
-    ? `<div class="planner-route-stats space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary">${t('planner4x4RouteHint')}</p>` : ''}</div>`
+    ? `<div class="planner-route-stats space-y-1"><div class="flex gap-4 text-xs font-bold text-primary"><span>${t('plannerRouteDistance')}: ${(plannerOptimizedRoute.distanceKm || 0).toFixed(1)} km</span><span>${t('plannerRouteDriveTime')}: ${formatPlannerDuration(plannerOptimizedRoute.timeSeconds)}</span></div>${plannerTravelMode === '4x4' ? `<p class="text-[11px] font-semibold text-tertiary"><strong>${t('plannerApproximateEstimate')}.</strong> ${t('planner4x4RouteHint')}</p>` : ''}${routeCoverageHint}</div>`
     : '';
   const specialRows = specialSpots.map(spot => {
     const modes = (spot.routing?.modes || ['unknown']).map(getPlannerModeLabel).join(' · ');

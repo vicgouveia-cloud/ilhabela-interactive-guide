@@ -30,7 +30,7 @@ const currentById = new Map(after.spots.map(s=>[s.id,s]));
 assert.equal(before.spots.length,50);
 assert.equal(after.spots.length,50);
 assert.equal(Object.keys(before.library).length,26);
-assert.equal(Object.keys(after.library).length,28);
+assert.equal(Object.keys(after.library).length,34);
 assert.equal(before.spots.map(s=>s.id).join('|'), after.spots.map(s=>s.id).join('|'));
 
 const newSpot = currentById.get(ID), oldSpot = oldById.get(ID), entry=after.library[ID];
@@ -48,7 +48,10 @@ assert(newSpot.photoCaption.pt.includes('não aparece'));
 for(const locale of ['pt','en','fr','es','he']) {
   assert(typeof newSpot.photoCaption[locale]==='string' && newSpot.photoCaption[locale].trim(),ID+' caption '+locale);
 }
-for(const original of before.spots.filter(s=>s.id!==ID && s.id!=='mirante-do-baepi')) {
+const approvedContext = vm.createContext({console});
+for(const file of ['data.js','additional-spots.js','attraction-photos.js']) vm.runInContext(execFileSync('git',['show','6c48fd8:'+file],{cwd:ROOT,encoding:'utf8'}),approvedContext);
+const approvedSpots=Array.from(vm.runInContext('touristSpots',approvedContext));
+for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-baepi')) {
   const actual=currentById.get(original.id);
   // PERF-01A approved correction: keep the historical IMG-01C checks for every
   // other photo, while requiring the exact authorized user photograph.
@@ -67,10 +70,10 @@ for(const original of before.spots.filter(s=>s.id!==ID && s.id!=='mirante-do-bae
 for (const id of [
   'praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado',
   'mirante-do-morro-da-cruz','mirante-dos-barreiros'
-])assert.equal(currentById.get(id).image,'assets/images/attraction-placeholder.svg',id+' pending');
+])assert.notEqual(currentById.get(id).image,'assets/images/attraction-placeholder.svg',id+' approved later photograph');
 
-const changes=execFileSync('git',['diff','--name-status',MAIN_BASE,'--','assets/images/'],{cwd:ROOT,encoding:'utf8'}).trim();
-assert.equal(changes,'A\t'+IMAGE,'no existing photo file can be changed in IMG-01C');
+const changes=execFileSync('git',['diff','--name-status','6c48fd8','--','assets/images/'],{cwd:ROOT,encoding:'utf8'}).trim();
+assert.equal(changes,'','all approved image files preserved during technical correction');
 const bytes=fs.readFileSync(path.join(ROOT,IMAGE));
 assert(bytes.length>20000,'photo must be nontrivial');
 assert.equal(bytes.subarray(0,4).toString('ascii'),'RIFF');

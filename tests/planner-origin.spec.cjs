@@ -58,6 +58,7 @@ test('fresh geolocation, denial and manual map selection preserve separate day o
     navigator.geolocation.getCurrentPosition = (success, failure) => failure({code: 1});
     plannerUseMyLocation();
     const denied = plannerOrigin;
+    message = document.querySelector('#planner-origin-actions [role="alert"]')?.textContent;
     plannerStartOriginPick();
     plannerMap.fire('click', {latlng: {lat: -23.82, lng: -45.38}});
     const manual = plannerOrigin;
@@ -67,7 +68,7 @@ test('fresh geolocation, denial and manual map selection preserve separate day o
   });
   expect(result.fresh).toEqual([-23.8, -45.36]);
   expect(result.denied).toBeNull();
-  expect(result.message).toBe('Não foi possível acessar sua localização.');
+  expect(result.message).toBe(await page.evaluate(()=>t('plannerOriginFailureHint')));
   expect(result.manual).toEqual([-23.82, -45.38]);
   expect(result.restored).toEqual(result.fresh);
   expect(result.stored).toEqual({'1': result.fresh, '2': result.manual});

@@ -15,7 +15,7 @@ for (const width of [390,1440]) for (const lang of ['pt','en','es','fr','he']) {
     await expect(organizer).not.toHaveAttribute('open','');
     await expect(transport).not.toHaveAttribute('open','');
     await expect(page.locator('#planner-routing-panel button[onclick="plannerOpenGoogleMaps(0)"]')).toBeVisible();
-    await expect(page.locator('#planner-routing-panel button[onclick="plannerOptimizeRoute()"]')).toBeVisible();
+    await expect(page.locator('#planner-preparation button[onclick="plannerOptimizeRoute()"]')).toBeVisible();
     await expect(page.locator('#planner-routing-panel button[onclick="plannerDownloadOffline()"]')).toBeHidden();
     await organizer.locator('summary').click();
     await transport.locator('summary').click();

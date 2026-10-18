@@ -4,7 +4,8 @@ module.exports = defineConfig({
   testMatch: '*.spec.cjs',
   timeout: 120000,
   workers: 2,
-  use: {baseURL: process.env.PREVIEW_URL || 'http://127.0.0.1:4173', screenshot:'only-on-failure', trace:'retain-on-failure'},
+  // Legacy UI contracts assert Portuguese copy; language-detection tests override navigator explicitly.
+  use: {locale:'pt-BR', baseURL: process.env.PREVIEW_URL || 'http://127.0.0.1:4173', screenshot:'only-on-failure', trace:'retain-on-failure'},
   reporter: [['list'], ['html', {open:'never'}]],
   webServer: process.env.PREVIEW_URL ? undefined : {command:'node tests/server.cjs', url:'http://127.0.0.1:4173', reuseExistingServer:true}
 });

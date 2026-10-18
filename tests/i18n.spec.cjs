@@ -158,10 +158,28 @@ test('small mobile and tablet layouts, including RTL category scrolling',async({
       await page.keyboard.press('Escape');
     }
   }
-  await page.setViewportSize({width:390,height:900});
-  await page.evaluate(()=>{const el=document.getElementById('category-filter-list');el.scrollLeft=0;el.dispatchEvent(new Event('scroll'));});
-  await page.locator('[data-filter-scroll="right"]').click();
-  await expect.poll(()=>page.locator('#category-filter-list').evaluate(el=>Math.abs(el.scrollLeft))).toBeGreaterThan(10);
+  for (const lang of ['pt','he']) {
+    await page.evaluate(lang=>setLanguage(lang),lang);
+    for(const width of [390,1024]) {
+      await page.setViewportSize({width,height:900});
+      const track=page.locator('#category-filter-list');
+      await track.scrollIntoViewIfNeeded();
+      await track.evaluate(el=>{el.style.scrollBehavior='auto';el.scrollLeft=0;el.dispatchEvent(new Event('scroll'));});
+      const next=page.locator('[data-filter-scroll="right"]');
+      if(width===390) {
+        await expect(next).toBeHidden();
+        // A horizontal wheel gesture exercises the native overflow rail in both directions.
+        await track.hover();
+        await page.mouse.wheel(lang==='he'?-280:280,0);
+      } else {
+        await expect(next).toBeVisible();
+        await expect(next).toBeEnabled();
+        await next.click();
+      }
+      await expect.poll(()=>track.evaluate(el=>Math.abs(el.scrollLeft))).toBeGreaterThan(10);
+      await expect(page.locator('.cat-pill').last()).toBeAttached();
+    }
+  }
   expect(faults.get(page)).toEqual([]);
 });
 test('open modal language switches preserve gallery, booking choices and drafts',async({page})=>{
@@ -175,12 +193,12 @@ test('open modal language switches preserve gallery, booking choices and drafts'
   }
   await page.locator('#spot-modal button[onclick*="openBookingForSpot"]').click();
   await expect(page.locator('#booking-tour')).toHaveValue('praia-do-bonete');
-  await page.locator('#booking-guide').selectOption('guide-marina-silva');
+  await page.locator('#booking-guide').selectOption('guide-trilhabela');
   await page.locator('#booking-shift').selectOption('Dia Inteiro');
   await page.locator('#booking-notes').fill('Family request');
   for(const lang of locales){
     await page.locator('#booking-modal [data-language-select]').selectOption(lang);
-    await expect(page.locator('#booking-guide')).toHaveValue('guide-marina-silva');
+    await expect(page.locator('#booking-guide')).toHaveValue('guide-trilhabela');
     await expect(page.locator('#booking-tour')).toHaveValue('praia-do-bonete');
     await expect(page.locator('#booking-notes')).toHaveValue('Family request');
     const result=await page.evaluate(()=>{
@@ -196,18 +214,25 @@ test('open modal language switches preserve gallery, booking choices and drafts'
   await expect(page.locator('#spot-modal')).toBeHidden();
   expect(faults.get(page)).toEqual([]);
 });
-test('favorites and filters survive language change and storage reload',async({page})=>{
+test('trip selection and filters survive language change and storage reload',async({page})=>{
   await ready(page);
-  await page.locator('#spots-grid button[onclick^="toggleFavorite"]').first().click();
-  await page.locator('#btn-saved-counter').click();
-  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(1);
+  await page.locator('#spots-grid .glass-card').first().click();
+  await page.locator('#spot-modal .spot-trip-toggle').click();
+  await expect(page.locator('#spot-modal .spot-trip-toggle')).toHaveAttribute('aria-pressed','true');
+  expect(await page.evaluate(()=>tripSelection)).toEqual(['praia-do-bonete']);
+  await page.evaluate(()=>closeSpotModal());
   await language(page,'fr');
-  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(1);
-  await expectMapMarkers(page, 1);
-  await page.locator('#spots-grid button[onclick^="toggleFavorite"]').first().click();
-  await expectMapMarkers(page, 0);
-  await page.evaluate(()=>toggleFavorite('praia-do-bonete'));
-  await page.reload();await expect(page.locator('#saved-count')).toHaveText('1');
+  await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(50);
+  await expectMapMarkers(page,50);
+  await page.locator('#spots-grid .glass-card').first().click();
+  await expect(page.locator('#spot-modal .spot-trip-toggle')).toHaveAttribute('aria-pressed','true');
+  await page.locator('#spot-modal .spot-trip-toggle').click();
+  expect(await page.evaluate(()=>tripSelection)).toEqual([]);
+  await page.locator('#spot-modal .spot-trip-toggle').click();
+  await page.evaluate(()=>closeSpotModal());
+  await page.reload();
+  expect(await page.evaluate(()=>tripSelection)).toEqual(['praia-do-bonete']);
+  expect(await page.evaluate(()=>JSON.parse(localStorage.getItem('ilhabela_trip')))).toEqual(['praia-do-bonete']);
   await page.evaluate(()=>filterCategory('cachoeiras'));
   await language(page,'es');
   await expect(page.locator('#spots-grid > .glass-card')).toHaveCount(9);
@@ -218,7 +243,7 @@ test('favorites and filters survive language change and storage reload',async({p
   expect(faults.get(page)).toEqual([]);
 });
 test('invalid and unavailable localStorage do not prevent initialization',async({page})=>{
-  await page.addInitScript(()=>{localStorage.setItem('ilhabela_lang','__proto__');localStorage.setItem('ilhabela_saved','{bad json');});
+  await page.addInitScript(()=>{localStorage.setItem('ilhabela_lang','__proto__');localStorage.setItem('ilhabela_trip','{bad json');});
   await ready(page);await expect(page.locator('html')).toHaveAttribute('lang','pt');
   expect(faults.get(page)).toEqual([]);
   await page.addInitScript(()=>{Storage.prototype.getItem=()=>{throw new Error('blocked');};Storage.prototype.setItem=()=>{throw new Error('blocked');};});

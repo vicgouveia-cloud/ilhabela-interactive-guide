@@ -53,13 +53,14 @@ for (const width of [390, 1440]) for (const lang of locales) {
       });
       await expect(page.locator('#pin-praia-do-juliao')).toBeVisible();
       const size = await page.locator('#pin-praia-do-juliao .pin-icon-wrap').boundingBox();
-      expect(size.width).toBe(27);
+      // Layout coordinates can differ by a few millionths of a CSS pixel after a map transform.
+      expect(size.width).toBeCloseTo(27, 3);
       await page.evaluate(() => resetMapView());
     } else {
       expect(await page.evaluate(() => mapMarkerCluster)).toBeNull();
       await expect(page.locator('#map .main-map-pin')).toHaveCount(await page.evaluate(() => touristSpots.length));
       const size = await page.locator('#map .main-map-pin .pin-icon-wrap').first().boundingBox();
-      expect(size.width).toBe(36);
+      expect(size.width).toBeCloseTo(36, 3);
     }
     await page.evaluate(() => filterCategory('cachoeiras'));
     expect(await page.evaluate(() => mapMarkers.length)).toBe(await page.evaluate(() => getFilteredSpots().length));

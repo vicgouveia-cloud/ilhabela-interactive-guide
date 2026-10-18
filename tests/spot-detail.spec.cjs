@@ -28,8 +28,9 @@ for(const width of [390,1440]) for(const lang of ['pt','en','es','fr','he']) {
   expect(await page.evaluate(()=>isSpotInTrip(selectedSpotId))).toBe(true);
   await modal.locator('.spot-trip-toggle').press('Enter');
   await expect(modal.locator('.spot-trip-toggle')).toHaveAttribute('aria-pressed','false');
-  const first=modal.locator('select').first();await first.focus();await page.keyboard.press('Shift+Tab');
-  await expect(modal.locator('[data-contact-entry]')).toBeFocused();
+  const controls=modal.locator('button:visible, a[href]:visible, select:visible, [tabindex="0"]:visible');
+  const first=controls.first();const last=controls.last();await first.focus();await page.keyboard.press('Shift+Tab');
+  await expect(last).toBeFocused();
   await page.keyboard.press('Tab');await expect(first).toBeFocused();
   await page.keyboard.press('Escape');await expect(modal).toBeHidden();await expect(opener).toBeFocused();
   await page.locator('#tab-map').click();

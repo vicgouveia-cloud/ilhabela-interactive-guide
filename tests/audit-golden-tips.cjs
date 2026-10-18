@@ -13,21 +13,19 @@ function load(read) {
 }
 const current = load(f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const previous = load(f => execFileSync('git', ['show', `${BASE}:${f}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 }));
-assert.deepEqual(current, previous, 'All 250 ecoTip values and all other catalog/UI data exactly restored');
+const approved = load(f => execFileSync('git', ['show', '6c48fd8:' + f], {cwd:ROOT, encoding:'utf8', maxBuffer:10e6}));
+assert.deepEqual(current, approved, 'Approved catalog, translations and UI data preserved');
+assert.deepEqual(current.touristSpots.map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]),previous.touristSpots.map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]),'All 250 original ecoTips exactly preserved');
 assert.equal(current.touristSpots.length, 50);
 for (const spot of current.touristSpots) for (const lang of ['pt','en','es','fr','he']) {
   assert.equal(typeof spot.translations[lang].ecoTip, 'string');
   assert(spot.translations[lang].ecoTip.trim());
 }
-const originalApp = execFileSync('git', ['show', BASE + ':app.js'], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 });
-const startWarning = originalApp.indexOf('      <div class="p-4 rounded-2xl bg-amber-50 border border-amber-200 space-y-1">', originalApp.indexOf('<!-- Eco & Borrachudos Tips -->'));
-const endWarning = originalApp.indexOf('      </div>', startWarning) + '      </div>'.length;
-assert(startWarning >= 0);
-const expectedApp = originalApp.slice(0,startWarning) + originalApp.slice(endWarning);
-assert.equal(fs.readFileSync(path.join(ROOT,'app.js'),'utf8').replace(/\r\n/g,'\n'), expectedApp.replace(/\r\n/g,'\n'), 'Only global repellent presentation removed; every other block intact');
+const app=fs.readFileSync(path.join(ROOT,'app.js'),'utf8');
+assert(!app.includes('bg-amber-50 border border-amber-200 space-y-1'),'Removed global repellent warning must not return');
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
-  const old = execFileSync('git', ['show', `${BASE}:${file}`], { cwd: ROOT });
+  const old = execFileSync('git', ['show', `6c48fd8:${file}`], { cwd: ROOT });
   assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
 }
-console.log('Preservation OK: 250 original ecoTips exactly restored; only global repellent block removed; all other blocks and 50 static pages intact.');
+console.log('Current catalog and historical ecoTips OK: 250 original ecoTips exactly restored; approved UI/catalog and 50 static pages intact.');

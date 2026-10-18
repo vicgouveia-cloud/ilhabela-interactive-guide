@@ -331,6 +331,7 @@ test('total duration is marked partial when calculated route omits final access 
   });
   expect(result.partialHtml).toContain('Estimativa parcial');
   expect(result.partialHtml).toContain('não inclui trechos finais');
+  expect(result.normalHtml).toContain('Tempo em deslocamento');
   expect(result.normalHtml).toContain('Duração estimada');
   expect(result.normalHtml).not.toContain('não inclui trechos finais');
 });
@@ -579,16 +580,23 @@ test('offline export follows optimized order for the active day', async ({page})
   expect(curral).toBeLessThan(pereque);
 });
 
-test('offline export rejects missing photos and excess selection', async ({page}) => {
+test('offline export rejects excess selection and explicitly labels unavailable photos', async ({page}) => {
   await page.goto('/');
   await page.waitForFunction(() => typeof buildOfflineTrip === 'function');
   expect(await page.evaluate(async () => {
     try { await buildOfflineTrip(touristSpots.slice(0,11)); return false; } catch { return true; }
   })).toBe(true);
   await page.route('**/assets/images/**', route => route.abort());
-  expect(await page.evaluate(async () => {
-    try { await buildOfflineTrip([touristSpots[0]]); return false; } catch { return true; }
-  })).toBe(true);
+  const html=await page.evaluate(async ()=>(await buildOfflineTrip([touristSpots[0]])).text());
+  expect(html).toContain('Foto indisponível no arquivo offline');
+  expect(html).not.toContain('<img');
+  expect(html).not.toContain('<script');
+  const document=await page.evaluate(html=>{
+    const doc=new DOMParser().parseFromString(html,'text/html');
+    return {count:doc.querySelectorAll('article').length,text:doc.body.textContent};
+  },html);
+  expect(document.count).toBe(1);
+  expect(document.text).toContain(await page.evaluate(()=>getSpotTranslation(touristSpots[0]).title));
 });
 
 
@@ -604,7 +612,7 @@ test('maritime profiles match providers by capability without context links', as
   for (const options of [data.bonete, data.fome, data.eustaquio, data.castelhanos]) {
     expect(options).toHaveLength(1);
     expect(options[0].embarkation).toBeNull();
-    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['chagas-passeios', 'portinho-passeios']);
+    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['portinho-passeios']);
   }
   expect(data.fome[0].id).toBe('east-coast');
   expect(data.eustaquio[0].id).toBe('east-coast');
@@ -623,7 +631,7 @@ test('planner renders maritime candidates without claiming verified coverage', a
   });
   expect(result.options.map(option => option.id).sort()).toEqual(['bonete', 'east-coast']);
   expect(result.html).toContain('Opções de barco');
-  expect(result.html).toContain('Chagas Passeios');
+  expect(result.html).not.toContain('Chagas Passeios');
   expect(result.html).toContain('Portinho Passeios');
   expect(result.html).toContain('cobertura marítima confirmada');
   expect(result.html).toContain('Confirme saída, horário, disponibilidade e condições');
@@ -645,7 +653,7 @@ test('remote coastal beaches use maritime transport profiles without activity-on
   expect(result.indaiauba[0].id).toBe('south-remote-coast');
   expect(result.poco[0].id).toBe('north-remote-coast');
   for (const options of [result.enchova, result.indaiauba, result.poco]) {
-    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['chagas-passeios', 'portinho-passeios']);
+    expect(options[0].providers.map(provider => provider.id).sort()).toEqual(['portinho-passeios']);
     expect(options[0].embarkation).toBeNull();
   }
   expect(result.whales).toEqual([]);
@@ -670,7 +678,8 @@ test('nautical experiences keep whale watching and diving providers separate', a
   }
   for (const options of [result.aymore, result.cabras, result.asturias]) {
     expect(options[0].id).toBe('diving');
-    expect(options[0].providers.map(provider => provider.id)).toEqual(['portinho-divers']);
+    expect(options[0].providers.map(provider => provider.id)).toEqual(['oceano-sub','aquaticos-ilhabela','narwhal-ilhabela','prados-dive','trilhabela-turismo','maremar-turismo','ilhaeco','wahoo-ilhabela','portinho-divers']);
+    expect(options[0].providers.every(provider=>provider.serviceArea.verifiedModes.includes('diving')&&provider.activities.includes('diving'))).toBe(true);
   }
   expect(result.beach).toEqual([]);
 });

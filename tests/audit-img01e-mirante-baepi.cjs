@@ -30,7 +30,7 @@ function loadCatalog() {
 
 const { spots, library } = loadCatalog();
 assert.equal(spots.length, 50, 'Catalog should have 50 spots');
-assert.equal(Object.keys(library).length, 28, 'Should have 28 verified photo entries');
+assert.equal(Object.keys(library).length, 34, 'Approved IMG-03 library has 34 verified photo entries');
 
 const spot = spots.find(s => s.id === ID);
 assert(spot, 'Spot not found: ' + ID);
@@ -90,11 +90,12 @@ assert.equal(cardImg, '/' + IMAGE, 'Discovery hub card image mismatch');
 for (const pId of PENDING_IDS) {
   const pSpot = spots.find(s => s.id === pId);
   assert(pSpot, 'Pending spot missing: ' + pId);
-  assert.equal(pSpot.image, 'assets/images/attraction-placeholder.svg', `${pId} should retain SVG placeholder`);
+  assert.notEqual(pSpot.image, 'assets/images/attraction-placeholder.svg', `${pId}: approved IMG-02/03 photograph retained`);
+  assert(library[pId], `${pId}: provenance required`);
 }
 
 // 7. Index cache version
 const indexHtml = fs.readFileSync(path.join(ROOT, 'index.html'), 'utf8');
 assert(indexHtml.includes('attraction-photos.js?v=1.3'), 'index.html cache version should be v=1.3');
 
-console.log('IMG-01E OK: Mirante do Baepi fully verified with Public Domain photography; 6 placeholders retained.');
+console.log('IMG-01E OK: Mirante do Baepi fully verified with Public Domain photography; six later approved photographs and provenance retained.');
