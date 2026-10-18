@@ -57,6 +57,8 @@ for (const item of cases) {
  assert.equal(schema.geo.longitude,pinned.coords[1],item.id+': schema lon changed');
 }
 const tombos=spots.find(s=>s.id==='cachoeira-dos-tres-tombos');
+const warningWords={pt:'correnteza',en:'currents',fr:'courant',es:'corriente',he:'זרם'};
+for(const [lang,word] of Object.entries(warningWords)) assert(tombos.translations[lang].ecoTip.includes(word),'Três Tombos ecoTip safety '+lang);
 assert.equal(tombos.specs.difficulty,'moderate');
 assert(tombos.specs.duration.includes('Parque Estadual'));
 assert(tombos.specs.access.includes('Alameda dos Guapuruvus')&&tombos.specs.access.includes('obrigatória'));
