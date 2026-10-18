@@ -1,0 +1,27 @@
+name: SAFE-WATERFALL-01 temporary branch validation
+on:
+  push:
+    branches:
+      - fix/waterfall-safety-facts-20261018
+permissions:
+  contents: read
+jobs:
+  browser-and-audits:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install pinned dependencies
+        run: npm ci
+      - name: Install browser and dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Full existing audit suite and browser regression suite
+        run: npm test
+      - name: Static SEO and official waterfall safety consistency
+        run: npm run test:seo
