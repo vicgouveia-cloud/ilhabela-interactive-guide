@@ -124,7 +124,8 @@ const touristSpots = [
       "isFamily": false,
       "isSurf": true,
       "is4x4": false
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "trail",
         "boat"
@@ -146,7 +147,11 @@ const touristSpots = [
         {
           "id": "road-trail",
           "mode": "trail",
-          "approachModes": ["auto", "4x4", "bicycle"],
+          "approachModes": [
+            "auto",
+            "4x4",
+            "bicycle"
+          ],
           "gatewayId": "sepituba-trailhead",
           "destinationDirect": false,
           "finalMode": "trail",
@@ -163,7 +168,6 @@ const touristSpots = [
         }
       ]
     },
-
     "specs": {
       "difficulty": "moderate",
       "distance": "12 km (trilha)",
@@ -304,7 +308,8 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": true,
       "is4x4": true
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "4x4",
         "boat"
@@ -326,7 +331,9 @@ const touristSpots = [
         {
           "id": "common-car",
           "mode": "road",
-          "approachModes": ["auto"],
+          "approachModes": [
+            "auto"
+          ],
           "gatewayId": "castelhanos-park-entrance",
           "destinationDirect": false,
           "finalMode": "4x4",
@@ -335,7 +342,9 @@ const touristSpots = [
         {
           "id": "own-4x4",
           "mode": "4x4",
-          "approachModes": ["4x4"],
+          "approachModes": [
+            "4x4"
+          ],
           "gatewayId": null,
           "destinationDirect": true,
           "finalMode": null,
@@ -352,7 +361,6 @@ const touristSpots = [
         }
       ]
     },
-
     "specs": {
       "difficulty": "moderate",
       "distance": "22 km de travessia off-road",
@@ -633,7 +641,8 @@ const touristSpots = [
       "isFamily": true,
       "isSurf": false,
       "is4x4": false
-    },"routing": {
+    },
+    "routing": {
       "modes": [
         "road",
         "walk"
@@ -647,7 +656,6 @@ const touristSpots = [
         "durationMinutes": 5
       }
     },
-
     "specs": {
       "difficulty": "easy",
       "distance": "300m a pé da estrada",
@@ -1630,110 +1638,110 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "3.5 km na Trilha do Bonete",
-      "duration": "1h de caminhada a partir de Sepituba",
+      "distance": "Cerca de 4,6 km ida e volta (Parque Estadual)",
+      "duration": "Cerca de 2h ida e volta (Prefeitura)",
       "elevation": "+120m",
-      "access": "Pela Trilha do Bonete a partir da Ponta da Sepituba",
+      "access": "Trilha do Bonete a partir do final da SP-131, Sepituba; agendamento online no Parque Estadual",
       "sea": "Não se aplica (Água doce de rio cristalina e refrescante)",
       "structure": "Ponte pênsil de madeira sobre o rio, área para piquenique natural"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Laje",
-        "subtitle": "O famoso escorregador natural de pedra de 30 metros",
-        "description": "A primeira grande parada na Trilha do Bonete. Famosa pela laje lisa de pedra inclinada que serve como um escorregador natural gigante que deságua em um poço fundo de águas esmeralda.",
+        "subtitle": "Trilha até poços naturais; atenção às pedras e à correnteza",
+        "description": "A Cachoeira da Laje é a primeira parada da Trilha do Bonete, a partir da Sepituba. O Parque Estadual informa 4,6 km de ida e volta até a Laje, enquanto a Prefeitura cita cerca de 5,1 km para o passeio. Há poços para banho, mas pedras escorregadias e correnteza exigem cautela. Use as passarelas ao atravessar rios.",
         "highlights": [
-          "Tobogã de pedra natural de 30m",
-          "Poço amplo e profundo para mergulho",
-          "Ponte pênsil suspensa sobre o rio",
-          "Parada obrigatória dos trilheiros"
+          "Primeira cachoeira da Trilha do Bonete",
+          "Cerca de 4,6 km ida e volta (Parque Estadual)",
+          "Poços naturais: observe as condições antes do banho",
+          "Pedras escorregadias e travessias por passarela"
         ],
-        "ecoTip": "Desça no tobogã apenas sentado e verifique a profundidade antes de mergulhar.",
+        "ecoTip": "Evite mergulhos e escorregadores com correnteza forte; avalie as condições locais antes de entrar na água.",
         "specs": {
-          "distance": "3.5 km na Trilha do Bonete",
-          "duration": "1h de caminhada a partir de Sepituba",
+          "distance": "4,6 km ida e volta até a Laje (Parque Estadual)",
+          "duration": "Cerca de 2h ida e volta (Prefeitura)",
           "elevation": "+120m",
-          "access": "Pela Trilha do Bonete a partir da Ponta da Sepituba",
+          "access": "Ponta da Sepituba, final da SP-131; acesso pela Trilha do Bonete e agendamento no Parque Estadual",
           "sea": "Não se aplica (Água doce de rio cristalina e refrescante)",
           "structure": "Ponte pênsil de madeira sobre o rio, área para piquenique natural"
         }
       },
       "en": {
         "title": "Laje Waterfall (Cachoeira da Laje)",
-        "subtitle": "Famous 100-foot natural rock water slide and deep emerald pool",
-        "description": "The premier stop along the Bonete trail. Renowned for its smooth granite rock face that creates a thrilling natural water slide plunging into deep crystal pool.",
+        "subtitle": "Trail to natural pools; beware of slippery rocks and currents",
+        "description": "Laje Waterfall is the first major stop on the Bonete trail from Sepituba. The State Park lists a 4.6 km round trip to Laje, while the municipality reports about 5.1 km for the outing. Natural pools may allow bathing, but slippery rocks and currents require caution. Use the footbridges when crossing streams.",
         "highlights": [
-          "30-meter natural rock water slide",
-          "Deep emerald swimming pool",
-          "Scenic suspension bridge across the river",
-          "Top hiker rest spot"
+          "First waterfall on the Bonete trail",
+          "About 4.6 km round trip (State Park)",
+          "Check water conditions before bathing",
+          "Slippery rocks and designated footbridges"
         ],
-        "ecoTip": "Slide only in a seated position and check pool depth first.",
+        "ecoTip": "Avoid diving or using the rock slide in strong currents; assess conditions before entering the water.",
         "specs": {
-          "distance": "3.5 km along the Bonete trail",
-          "duration": "1 h walk from Sepituba",
+          "distance": "4.6 km round trip to Laje (State Park)",
+          "duration": "About 2 hours round trip (municipality)",
           "elevation": "+120 m",
-          "access": "Bonete trail from Ponta da Sepituba",
+          "access": "Start at Sepituba, end of SP-131; follow the Bonete trail and check State Park booking",
           "sea": "Not applicable (clear, refreshing river water)",
           "structure": "Wooden suspension bridge over the river and natural picnic area"
         }
       },
       "fr": {
         "title": "Cascade da Laje",
-        "subtitle": "Toboggan naturel en roche de 30 mètres et vasque profonde",
-        "description": "L escale incontournable du sentier de Bonete. Une dalle de granit lisse forme un toboggan aquatique naturel débouchant dans une vasque d eau émeraude.",
+        "subtitle": "Sentier vers des bassins naturels : rochers glissants et courant",
+        "description": "La cascade da Laje est la première grande halte du sentier du Bonete, au départ de Sepituba. Le Parc d'État indique 4,6 km aller-retour jusqu'à Laje, tandis que la municipalité annonce environ 5,1 km. Des bassins permettent parfois la baignade, mais les rochers glissants et le courant exigent de la prudence. Empruntez les passerelles pour traverser les rivières.",
         "highlights": [
-          "Toboggan naturel de 30 mètres",
-          "Grand bassin profond de baignade",
-          "Pont suspendu au-dessus du torrent",
-          "Halte favorite des randonneurs"
+          "Première cascade du sentier du Bonete",
+          "Environ 4,6 km aller-retour (Parc d'État)",
+          "Vérifier les conditions avant la baignade",
+          "Rochers glissants et passerelles"
         ],
-        "ecoTip": "Glissez assis et vérifiez la profondeur avant de sauter.",
+        "ecoTip": "Évitez les plongeons et le toboggan naturel en cas de courant fort; vérifiez les conditions sur place.",
         "specs": {
-          "distance": "3,5 km sur le sentier du Bonete",
-          "duration": "1 h de marche depuis Sepituba",
+          "distance": "4,6 km aller-retour jusqu'à Laje (Parc d'État)",
+          "duration": "Environ 2 h aller-retour (municipalité)",
           "elevation": "+120 m",
-          "access": "Sentier du Bonete depuis Ponta da Sepituba",
+          "access": "Départ à Sepituba, fin de la SP-131 ; sentier du Bonete, réservation auprès du Parc d'État",
           "sea": "Sans objet (eau de rivière cristalline et rafraîchissante)",
           "structure": "Pont suspendu en bois sur la rivière et aire naturelle de pique-nique"
         }
       },
       "es": {
         "title": "Cascada da Laje",
-        "subtitle": "Tobogán natural de piedra de 30 metros y poza profunda",
-        "description": "La parada más famosa del sendero a Bonete. Una gran roca lisa sirve de tobogán acuático natural que desemboca en una poza de aguas cristalinas.",
+        "subtitle": "Sendero a pozas naturales: precaución con rocas y corriente",
+        "description": "La cascada da Laje es la primera gran parada del sendero a Bonete desde Sepituba. El Parque Estatal indica 4,6 km ida y vuelta hasta Laje y el municipio señala unos 5,1 km para el paseo. Hay pozas naturales, pero las rocas resbaladizas y la corriente exigen precaución. Utiliza las pasarelas para cruzar los ríos.",
         "highlights": [
-          "Tobogán natural de piedra de 30 m",
-          "Poza profunda para nadar",
-          "Puente colgante de madera",
-          "Parada obligada de senderistas"
+          "Primera cascada de la ruta a Bonete",
+          "Unos 4,6 km ida y vuelta (Parque Estatal)",
+          "Comprobar condiciones antes del baño",
+          "Rocas resbaladizas y pasarelas"
         ],
-        "ecoTip": "Deslízate sentado y revisa la profundidad del agua.",
+        "ecoTip": "Evita saltos y toboganes naturales con corriente fuerte; comprueba las condiciones antes de entrar al agua.",
         "specs": {
-          "distance": "3,5 km por el sendero de Bonete",
-          "duration": "1 h caminando desde Sepituba",
+          "distance": "4,6 km ida y vuelta hasta Laje (Parque Estatal)",
+          "duration": "Unas 2 horas ida y vuelta (municipio)",
           "elevation": "+120 m",
-          "access": "Sendero de Bonete desde Ponta da Sepituba",
+          "access": "Inicio en Sepituba, final de la SP-131; sendero a Bonete, reserva del Parque Estatal",
           "sea": "No corresponde (agua de río cristalina y refrescante)",
           "structure": "Puente colgante de madera sobre el río y zona natural de pícnic"
         }
       },
       "he": {
         "title": "מפל לאז׳י (Cachoeira da Laje)",
-        "subtitle": "מגלשת סלע טבעית באורך 30 מטר ובריכת מים עמוקה",
-        "description": "העצירה המפורסמת ביותר בטרק לחוף בונטה. משטח סלע גרניט חלק משמש כמגלשת מים טבעית ענקית הנשפכת לתוך בריכת מים צלולים ומרעננים.",
+        "subtitle": "שביל לבריכות טבעיות; זהירות מסלעים חלקים ומזרם חזק",
+        "description": "מפל לאז׳ה הוא התחנה הראשונה בשביל בונטה היוצא מספיטובה. לפי הפארק המדינתי המסלול עד למפל וחזרה הוא כ־4.6 ק״מ, ולפי העירייה כ־5.1 ק״מ. יש בריכות טבעיות, אך סלעים חלקלקים וזרם מים חזק מחייבים זהירות. חצו נחלים רק בגשרים המיועדים לכך.",
         "highlights": [
-          "מגלשת סלע טבעית באורך 30 מטר",
-          "בריכת מים עמוקה לשחייה",
-          "גשר תלוי מעל הנהר",
-          "תחנת מנוחה מושלמת למטיילים"
+          "המפל הראשון בשביל בונטה",
+          "כ־4.6 ק״מ הלוך ושוב לפי הפארק",
+          "יש לבדוק תנאים לפני רחצה",
+          "סלעים חלקים וגשרים לחציית נחלים"
         ],
-        "ecoTip": "התגלשו בישיבה בלבד ובדקו את עומק המים לפני קפיצה.",
+        "ecoTip": "הימנעו מקפיצה למים ומשימוש במגלשת הסלע בזרם חזק; בדקו את התנאים במקום.",
         "specs": {
-          "distance": "3.5 ק״מ בשביל Bonete",
-          "duration": "שעת הליכה מ-Sepituba",
+          "distance": "4.6 ק״מ הלוך ושוב עד למפל (הפארק המדינתי)",
+          "duration": "כשעתיים הלוך ושוב (העירייה)",
           "elevation": "+120 מ׳",
-          "access": "שביל Bonete מ-Ponta da Sepituba",
+          "access": "התחלה בספיטובה בקצה כביש SP-131, בשביל בונטה; בדקו הזמנה בפארק המדינתי",
           "sea": "לא רלוונטי (מי נהר צלולים ומרעננים)",
           "structure": "גשר תלוי מעץ מעל הנהר ואזור פיקניק טבעי"
         }
@@ -1770,112 +1778,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "100m da entrada (estrada de Castelhanos)",
-      "duration": "5 min de caminhada",
+      "distance": "Trecho interno de visitação; confirmar no local",
+      "duration": "Tempo de visita variável; confirmar com a administração",
       "elevation": "Fácil",
-      "access": "Início da Estrada de Castelhanos (bairro Reino)",
+      "access": "Fazenda da Toca, início da Estrada de Castelhanos; propriedade particular, confirme visitação e ingresso",
       "sea": "Não se aplica (Tobogã de pedra e duchas naturais)",
-      "structure": "Alambique histórico, restaurante, banheiros, estacionamento e duchas"
+      "structure": "Estrutura de visitação privada; disponibilidade e taxa devem ser confirmadas"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Toca",
-        "subtitle": "Tobogã natural de 50 metros, gruta e alambique centenário",
-        "description": "Uma das atrações históricas e divertidas mais famosas da ilha. Conta com um tobogã de pedra natural de 50 metros, gruta sob a cachoeira e visitação ao alambique tradicional de cachaça da Toca.",
+        "subtitle": "Gruta, tobogã natural e engenho em propriedade privada",
+        "description": "A Cachoeira da Toca fica na Fazenda da Toca, propriedade particular próxima ao início da Estrada de Castelhanos. É conhecida pela gruta e pelo escorregador natural de pedra, citado com cerca de 50 metros. O local pode cobrar entrada e oferecer serviços, sujeitos a confirmação com a administração. Pedras molhadas, poços profundos e correnteza exigem cuidado; não há garantia de uso seguro do tobogã.",
         "highlights": [
-          "Tobogã de pedra super emocionante de 50m",
-          "Gruta natural da Toca",
-          "Degustação no alambique histórico",
-          "Estrutura completa com restaurante e banheiros"
+          "Cachoeira e gruta na Fazenda da Toca",
+          "Escorregador natural de pedra: avalie os riscos",
+          "Propriedade privada com possível cobrança de ingresso",
+          "Confirme funcionamento e serviços antes da visita"
         ],
-        "ecoTip": "Propriedade privada preservada com taxa simbólica de manutenção.",
+        "ecoTip": "Evite o tobogã e os poços quando não houver condições seguras; siga as orientações do responsável pelo local.",
         "specs": {
-          "distance": "100m da entrada (estrada de Castelhanos)",
-          "duration": "5 min de caminhada",
+          "distance": "Trecho de visitação na fazenda; confirme no local",
+          "duration": "Tempo variável conforme a visita",
           "elevation": "Fácil",
-          "access": "Início da Estrada de Castelhanos (bairro Reino)",
+          "access": "Fazenda da Toca, início da Estrada de Castelhanos; entrada particular",
           "sea": "Não se aplica (Tobogã de pedra e duchas naturais)",
-          "structure": "Alambique histórico, restaurante, banheiros, estacionamento e duchas"
+          "structure": "Estrutura e taxa de entrada sujeitas à confirmação com o local"
         }
       },
       "en": {
         "title": "Toca Waterfall (Cachoeira da Toca)",
-        "subtitle": "160-foot natural water slide, grotto, and historic distillery",
-        "description": "One of the most famous historic attractions in Ilhabela. Features an exhilarating 50-meter natural granite slide, a rock grotto beneath the cascade, and an artisanal sugar-cane distillery.",
+        "subtitle": "Grotto, natural rock slide and historic private estate",
+        "description": "Toca Waterfall lies on the privately owned Fazenda da Toca near the start of the Castelhanos road. It is known for a grotto and a natural rock slide reportedly about 50 meters long. Admission and visitor facilities may be available; confirm current arrangements with the operator. Wet rocks, deep pools and currents pose risks, and the slide should never be assumed safe to use.",
         "highlights": [
-          "Thrilling 50-meter natural rock slide",
-          "Natural cavern grotto",
-          "Artisanal cachaça tasting",
-          "Full family amenities & restaurant"
+          "Grotto at the historic Fazenda da Toca",
+          "Natural rock slide: assess safety first",
+          "Private property; admission may be charged",
+          "Confirm opening and facilities in advance"
         ],
-        "ecoTip": "Preserved private reserve with a nominal maintenance entrance fee.",
+        "ecoTip": "Avoid the slide and pools when conditions are unsafe; follow the site's staff instructions.",
         "specs": {
-          "distance": "100 m from the entrance (Castelhanos road)",
-          "duration": "5 min walk",
+          "distance": "Short estate visit; confirm on site",
+          "duration": "Variable, depending on your visit",
           "elevation": "Easy",
-          "access": "Start of Estrada de Castelhanos (Reino neighborhood)",
+          "access": "Fazenda da Toca, start of Castelhanos road; privately managed entry",
           "sea": "Not applicable (rock slide and natural showers)",
-          "structure": "Historic distillery, restaurant, toilets, parking and showers"
+          "structure": "Facilities and admission subject to confirmation"
         }
       },
       "fr": {
         "title": "Cascade da Toca",
-        "subtitle": "Toboggan naturel de 50 mètres, grotte et distillerie historique",
-        "description": "Une attraction incontournable mêlant fun et patrimoine. Grand toboggan rocheux naturel, grotte sous la cascade et visite d une distillerie artisanale de cachaça.",
+        "subtitle": "Grotte, glissade rocheuse naturelle et ancienne exploitation privée",
+        "description": "La cascade da Toca se situe sur la propriété privée Fazenda da Toca, près du début de la route de Castelhanos. On y trouve une grotte et une glissade naturelle sur roche d'environ 50 mètres selon les descriptions locales. L'entrée et les installations peuvent être payantes : renseignez-vous auprès de l'exploitant. Rochers humides, bassins profonds et courant présentent des risques ; la glissade n'est pas garantie sûre.",
         "highlights": [
-          "Toboggan naturel palpitant de 50 m",
-          "Grotte naturelle de la Toca",
-          "Dégustation à la distillerie historique",
-          "Infrastructures complètes et restaurant"
+          "Grotte de la Fazenda da Toca",
+          "Glissade rocheuse : vérifier les risques",
+          "Propriété privée, entrée possiblement payante",
+          "Confirmer les horaires et services"
         ],
-        "ecoTip": "Réserve privée avec petit droit d entrée pour l entretien du site.",
+        "ecoTip": "Évitez les bassins et la glissade si les conditions sont dangereuses ; suivez les consignes du site.",
         "specs": {
-          "distance": "100 m de l’entrée (route de Castelhanos)",
-          "duration": "5 min de marche",
+          "distance": "Visite sur la propriété ; à confirmer sur place",
+          "duration": "Durée variable selon la visite",
           "elevation": "Facile",
-          "access": "Début de Estrada de Castelhanos (quartier Reino)",
+          "access": "Fazenda da Toca, début de la route de Castelhanos ; accès privé",
           "sea": "Sans objet (toboggan rocheux et douches naturelles)",
-          "structure": "Distillerie historique, restaurant, toilettes, parking et douches"
+          "structure": "Services et tarif à confirmer auprès de l'exploitant"
         }
       },
       "es": {
         "title": "Cascada da Toca",
-        "subtitle": "Tobogán natural de 50 metros, gruta y destilería histórica",
-        "description": "Una de las atracciones más divertidas e históricas. Cuenta con un tobogán de piedra de 50 metros, gruta natural y visita a la destilería de cachaça tradicional.",
+        "subtitle": "Gruta, tobogán natural y antigua hacienda privada",
+        "description": "La cascada da Toca está en la propiedad privada Fazenda da Toca, cerca del inicio de la carretera a Castelhanos. Es conocida por una gruta y un tobogán natural de roca de unos 50 metros según referencias locales. Puede cobrarse entrada y haber servicios; confirma las condiciones con la administración. Las rocas mojadas, las pozas profundas y la corriente implican riesgos; no supongas que el tobogán es seguro.",
         "highlights": [
-          "Emocionante tobogán de roca de 50 m",
-          "Gruta natural bajo la cascada",
-          "Degustación en el alambique tradicional",
-          "Restaurante y servicios completos"
+          "Gruta de la histórica Fazenda da Toca",
+          "Tobogán de piedra: comprobar riesgos",
+          "Propiedad privada con posible entrada de pago",
+          "Confirmar horarios y servicios antes de ir"
         ],
-        "ecoTip": "Propiedad privada con tarifa simbólica para conservación.",
+        "ecoTip": "Evita los toboganes y pozas si no hay condiciones seguras; sigue las indicaciones del personal.",
         "specs": {
-          "distance": "100 m de la entrada (carretera de Castelhanos)",
-          "duration": "5 min caminando",
+          "distance": "Recorrido dentro de la finca; confirmar",
+          "duration": "Duración variable de visita",
           "elevation": "Fácil",
-          "access": "Inicio de Estrada de Castelhanos (barrio Reino)",
+          "access": "Fazenda da Toca, inicio de la carretera de Castelhanos; acceso privado",
           "sea": "No corresponde (tobogán de piedra y duchas naturales)",
-          "structure": "Destilería histórica, restaurante, baños, estacionamiento y duchas"
+          "structure": "Servicios y tarifa sujetos a confirmación"
         }
       },
       "he": {
         "title": "מפל טוקה (Cachoeira da Toca)",
-        "subtitle": "מגלשת סלע ענקית באורך 50 מטר, מערה ומזקקה היסטורית",
-        "description": "אחת האטרקציות המהנות וההיסטוריות באיליאבלה. כולל מגלשת סלע טבעית באורך 50 מטר, מערה מתחת למפל וטעימות במזקקת קשאסה מסורתית.",
+        "subtitle": "מערה, מגלשת סלע טבעית ואתר היסטורי בשטח פרטי",
+        "description": "מפל טוקה נמצא בחוות טוקה הפרטית סמוך לתחילת הדרך לקסטליאנוס. המקום ידוע במערה ובמגלשת סלע טבעית שאורכה לפי תיאורים מקומיים כ־50 מטר. ייתכנו דמי כניסה ושירותים למבקרים, ויש לברר מראש עם המפעיל. סלעים רטובים, בריכות עמוקות וזרם חזק מסוכנים; אין להניח שהשימוש במגלשה בטוח.",
         "highlights": [
-          "מגלשת סלע טבעית ומרגשת באורך 50 מטר",
-          "מערת סלעים טבעית",
-          "טעימות במזקקה היסטורית",
-          "מסעדה ושירותים מסודרים לכל המשפחה"
+          "מערה בחוות טוקה ההיסטורית",
+          "מגלשת סלע טבעית: יש להעריך סיכונים",
+          "שטח פרטי, ייתכן תשלום בכניסה",
+          "בדקו שעות פתיחה ושירותים מראש"
         ],
-        "ecoTip": "שמורה פרטית מטופחת עם דמי כניסה סמליים לתחזוקה.",
+        "ecoTip": "הימנעו ממגלשת הסלע ומהבריכות בתנאים מסוכנים ופעלו לפי הוראות צוות המקום.",
         "specs": {
-          "distance": "100 מ׳ מהכניסה (כביש Castelhanos)",
-          "duration": "5 דקות הליכה",
+          "distance": "מסלול בתוך החווה; יש לברר במקום",
+          "duration": "משך ביקור משתנה",
           "elevation": "קל",
-          "access": "תחילת Estrada de Castelhanos (שכונת Reino)",
+          "access": "חוות טוקה בתחילת דרך קסטליאנוס; כניסה לשטח פרטי",
           "sea": "לא רלוונטי (מגלשת סלע ומקלחות טבעיות)",
-          "structure": "מזקקה היסטורית, מסעדה, שירותים, חניה ומקלחות"
+          "structure": "שירותים ומחיר כניסה טעונים אישור מהמפעיל"
         }
       }
     },
@@ -2034,10 +2042,10 @@ const touristSpots = [
     "reviews": 0,
     "image": "assets/images/cachoeira-do-paqueta_1.jpg",
     "tags": [
-      "Piscina Infinita",
-      "Vista para o Mar",
-      "Trilha Média",
-      "Bordegol"
+      "Alerta de Risco",
+      "Área Particular",
+      "Pedras Escorregadias",
+      "Vista do Canal"
     ],
     "attributes": {
       "isDiving": false,
@@ -2053,109 +2061,109 @@ const touristSpots = [
       "distance": "1.2 km (trilha)",
       "duration": "30 min de caminhada",
       "elevation": "+150m",
-      "access": "Início no bairro do Bexiga (lado sul), subida em trilha",
+      "access": "Acesso na região do Bexiga; área particular com riscos graves alertados pela Prefeitura",
       "sea": "Não se aplica (Água doce de nascente gelada e revigorante)",
-      "structure": "Sem estrutura comercial no topo; natureza 100% nativa"
+      "structure": "Segundo alerta municipal de 2024, falta sinalização e estrutura de segurança adequada"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira do Paquetá",
-        "subtitle": "A famosa piscina de borda infinita natural com vista para o oceano",
-        "description": "Composta por três níveis de quedas d água, Paquetá é mundialmente conhecida pelo poço superior que forma uma piscina infinita de pedra suspensa sobre o canal de São Sebastião.",
+        "subtitle": "Alerta da Prefeitura: risco de acidentes graves e fatais",
+        "description": "A Cachoeira do Paquetá, na região do Bexiga, é conhecida pelo poço com vista para o Canal de São Sebastião. A Prefeitura de Ilhabela alertou oficialmente em 2024 para risco de acidentes graves e até fatais: há pedras escorregadias, sinalização insuficiente e falta de estruturas adequadas. Trata-se de área particular. Não considere a borda elevada um local seguro para banho ou fotografias.",
         "highlights": [
-          "Piscina infinita natural suspensa",
-          "Vista panorâmica do pôr do sol",
-          "Hidromassagem natural na queda intermediária",
-          "Águas cristalinas da serra"
+          "Alerta oficial de acidentes graves e fatais",
+          "Pedras escorregadias e falta de proteção",
+          "Área particular sem estrutura adequada de segurança",
+          "Não se aproxime das bordas para fotografias"
         ],
-        "ecoTip": "Cuidado nas pedras molhadas pois são escorregadias.",
+        "ecoTip": "Evite bordas expostas, mergulhos e aproximação de quedas; respeite avisos e possíveis restrições de acesso.",
         "specs": {
           "distance": "1.2 km (trilha)",
           "duration": "30 min de caminhada",
           "elevation": "+150m",
-          "access": "Início no bairro do Bexiga (lado sul), subida em trilha",
+          "access": "Região do Bexiga; área particular e acesso com riscos sinalizados pela Prefeitura",
           "sea": "Não se aplica (Água doce de nascente gelada e revigorante)",
-          "structure": "Sem estrutura comercial no topo; natureza 100% nativa"
+          "structure": "Prefeitura alerta para insuficiência de sinalização e proteção (2024)"
         }
       },
       "en": {
         "title": "Paquetá Waterfall",
-        "subtitle": "Natural infinity pool overlooking the open ocean",
-        "description": "Featuring three breathtaking tiers of cascades, Paquetá is famous for its top pool that forms a natural stone infinity ledge floating above the ocean channel.",
+        "subtitle": "Municipal warning: serious and potentially fatal accidents",
+        "description": "Paquetá Waterfall near Bexiga is known for its elevated pool overlooking the São Sebastião Channel. In 2024, Ilhabela's municipality warned of serious and potentially fatal accidents due to slippery rocks, insufficient signs and inadequate safety structures. This is private property. Do not treat the exposed pool edge as a safe place for swimming or photos.",
         "highlights": [
-          "Natural infinity pool ledge",
-          "Sunset ocean vista",
-          "Natural hydromassage plunge pools",
-          "Pristine rainforest mountain water"
+          "Official warning of serious and fatal accidents",
+          "Slippery rocks and inadequate safeguards",
+          "Private property with limited safety infrastructure",
+          "Keep away from exposed edges for photos"
         ],
-        "ecoTip": "Rocks can be slippery. Tread carefully.",
+        "ecoTip": "Avoid exposed edges, dives and falls; heed warnings and any access restrictions.",
         "specs": {
           "distance": "1.2 km (trail)",
           "duration": "30 min walk",
           "elevation": "+150 m",
-          "access": "Starts in Bexiga (south side), uphill trail",
+          "access": "Bexiga area; private property with officially reported access hazards",
           "sea": "Not applicable (cold, invigorating spring water)",
-          "structure": "No commercial facilities at the top; entirely native nature"
+          "structure": "Municipal warning: inadequate signs and safety infrastructure (2024)"
         }
       },
       "fr": {
         "title": "Cascade do Paquetá",
-        "subtitle": "Piscine naturelle à débordement avec vue sur l océan",
-        "description": "Composée de trois cascades successives, Paquetá est célèbre pour son bassin supérieur formant une piscine à débordement naturelle suspendue au-dessus du canal.",
+        "subtitle": "Alerte municipale : accidents graves, voire mortels",
+        "description": "La cascade du Paquetá, près de Bexiga, est connue pour son bassin surplombant le canal de São Sebastião. En 2024, la municipalité d'Ilhabela a alerté sur des accidents graves, voire mortels, liés aux rochers glissants, au manque de signalisation et de protections adaptées. Le site est privé. Ne considérez pas le bord surélevé comme un endroit sûr pour nager ou prendre des photos.",
         "highlights": [
-          "Piscine naturelle à débordement",
-          "Vue imprenable sur le coucher de soleil",
-          "Bassin d hydromassage naturel",
-          "Eaux pures des montagnes"
+          "Alerte officielle sur les accidents graves ou mortels",
+          "Rochers glissants et protections insuffisantes",
+          "Site privé dépourvu de sécurité adaptée",
+          "Ne vous approchez pas du bord pour des photos"
         ],
-        "ecoTip": "Attention aux roches glissantes.",
+        "ecoTip": "Évitez les bords exposés, les plongeons et les chutes ; respectez les avertissements et restrictions.",
         "specs": {
           "distance": "1,2 km (sentier)",
           "duration": "30 min de marche",
           "elevation": "+150 m",
-          "access": "Départ du quartier Bexiga (sud), montée par sentier",
+          "access": "Secteur Bexiga ; terrain privé, accès présentant des risques signalés",
           "sea": "Sans objet (eau de source froide et revigorante)",
-          "structure": "Aucun équipement commercial au sommet ; nature entièrement indigène"
+          "structure": "Alerte municipale : signalisation et dispositifs de protection insuffisants (2024)"
         }
       },
       "es": {
         "title": "Cascada do Paquetá",
-        "subtitle": "Piscina de borde infinito natural con vista al mar",
-        "description": "Compuesta por tres niveles de caídas de agua, destaca por su poza superior que forma una increíble piscina infinita de piedra con vistas al canal.",
+        "subtitle": "Advertencia municipal: accidentes graves y mortales",
+        "description": "La cascada de Paquetá, cerca de Bexiga, es conocida por su poza elevada con vistas al canal de São Sebastião. En 2024, el municipio de Ilhabela advirtió del riesgo de accidentes graves e incluso mortales debido a rocas resbaladizas, señalización insuficiente y falta de protección. Está en una propiedad privada. No consideres seguro el borde elevado para bañarte o tomar fotos.",
         "highlights": [
-          "Piscina infinita natural",
-          "Vista panorámica al mar y puesta de sol",
-          "Hidromasaje natural entre rocas",
-          "Agua de vertiente cristalina"
+          "Alerta oficial de accidentes graves o mortales",
+          "Rocas resbaladizas y falta de protección",
+          "Propiedad privada sin seguridad adecuada",
+          "No te acerques a los bordes para hacer fotos"
         ],
-        "ecoTip": "Camina con cuidado sobre las rocas húmedas.",
+        "ecoTip": "Evita bordes expuestos, saltos y caídas; respeta advertencias y restricciones de acceso.",
         "specs": {
           "distance": "1,2 km (sendero)",
           "duration": "30 min caminando",
           "elevation": "+150 m",
-          "access": "Inicio en Bexiga (lado sur), subida por sendero",
+          "access": "Zona de Bexiga; propiedad privada con riesgos señalados oficialmente",
           "sea": "No corresponde (agua de manantial fría y revitalizante)",
-          "structure": "Sin infraestructura comercial arriba; naturaleza totalmente nativa"
+          "structure": "Alerta municipal: señalización y protección insuficientes (2024)"
         }
       },
       "he": {
         "title": "מפל פאקטה (Cachoeira do Paquetá)",
-        "subtitle": "בריכת אינסוף טבעית עם נוף מרהיב לאוקיינוס",
-        "description": "מפל בעל 3 מדרגות מים, כאשר המדרגה העליונה יוצרת בריכת אינסוף טבעית תלויה בין הסלעים עם נוף פנורמי מרהיב לשקיעה.",
+        "subtitle": "אזהרת העירייה: סכנת תאונות קשות ואף קטלניות",
+        "description": "מפל פקטה ליד בקסיגה מוכר בזכות בריכת הסלע המשקיפה על תעלת סאו סבסטיאו. בשנת 2024 פרסמה עיריית איליאבלה אזהרה מפני תאונות קשות ואף קטלניות בשל סלעים חלקים, שילוט חסר ואמצעי בטיחות לא מספקים. המקום נמצא בשטח פרטי. אין לראות בשפת הבריכה הגבוהה מקום בטוח לרחצה או לצילום.",
         "highlights": [
-          "בריכת אינסוף טבעית בסלע",
-          "נוף שקיעה פנורמי מעל הים",
-          "זרמי מים לג׳קוזי טבעי",
-          "מים צלולים ממעיינות ההר"
+          "אזהרה רשמית מפני תאונות קשות וקטלניות",
+          "סלעים חלקים והיעדר אמצעי הגנה",
+          "שטח פרטי ללא תשתית בטיחות מתאימה",
+          "אין להתקרב לשפה החשופה לצילום"
         ],
-        "ecoTip": "הסלעים חלקים, יש ללכת בזהירות.",
+        "ecoTip": "הימנעו מקצוות חשופים ומקפיצה למים; כבדו שלטי אזהרה והגבלות כניסה.",
         "specs": {
           "distance": "1.2 ק״מ (שביל)",
           "duration": "30 דקות הליכה",
           "elevation": "+150 מ׳",
-          "access": "תחילה בשכונת Bexiga (דרום), עלייה בשביל",
+          "access": "אזור בקסיגה; שטח פרטי עם סיכונים שפורסמו על ידי העירייה",
           "sea": "לא רלוונטי (מי מעיין קרים ומרעננים)",
-          "structure": "ללא תשתיות מסחריות למעלה; טבע מקומי לחלוטין"
+          "structure": "אזהרת העירייה על מחסור בשילוט ובהגנות בטיחות (2024)"
         }
       }
     },
@@ -2165,7 +2173,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-do-gato",
     "category": "cachoeiras",
     "coords": [
@@ -2306,7 +2313,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-dos-tres-tombos",
     "category": "cachoeiras",
     "coords": [
@@ -2447,7 +2453,6 @@ const touristSpots = [
     ]
   },
   {
-    
     "id": "cachoeira-da-friagem",
     "category": "cachoeiras",
     "coords": [

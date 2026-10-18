@@ -1758,16 +1758,147 @@ const additionalTouristSpots = [
     }
   },
   {
-    "id": "poco-do-furado", "category": "cachoeiras", "coords": [-23.8325, -45.3604], "rating": null, "reviews": 0,
-    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Piscina natural","Trilha curta","Mata Atlântica"],
-    "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
-    "specs": {"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"},
+    "id": "poco-do-furado",
+    "category": "cachoeiras",
+    "coords": [
+      -23.8325,
+      -45.3604
+    ],
+    "rating": null,
+    "reviews": 0,
+    "image": "assets/images/attraction-placeholder.svg",
+    "images": [
+      "assets/images/attraction-placeholder.svg"
+    ],
+    "tags": [
+      "Piscina natural",
+      "Trilha curta",
+      "Mata Atlântica"
+    ],
+    "attributes": {
+      "isDiving": false,
+      "isSunset": false,
+      "isKiosk": false,
+      "isWild": true,
+      "isFamily": true,
+      "isSurf": false,
+      "is4x4": false
+    },
+    "specs": {
+      "difficulty": "easy",
+      "distance": "Cerca de 570 m ida e volta",
+      "duration": "Caminhada curta",
+      "elevation": "—",
+      "access": "Parque Municipal das Cachoeiras; trecho final a pé",
+      "sea": "Não se aplica",
+      "structure": "Estacionamento e estrutura na entrada do parque"
+    },
     "translations": {
-      "pt": {"title":"Poço do Furado","subtitle":"Piscina natural dentro do Parque das Cachoeiras","description":"Poço acessível por uma caminhada curta dentro do Parque Municipal das Cachoeiras. O pin é aproximado; a navegação de carro termina na entrada do parque.","highlights":["Piscina natural","Trilha curta","Mata Atlântica","Parque das Cachoeiras"],"ecoTip":"Siga a trilha sinalizada e não saia do percurso.","specs":{"difficulty":"easy","distance":"Cerca de 570 m ida e volta","duration":"Caminhada curta","elevation":"—","access":"Parque Municipal das Cachoeiras; trecho final a pé","sea":"Não se aplica","structure":"Estacionamento e estrutura na entrada do parque"}},
-      "en": {"title":"Poço do Furado","subtitle":"Natural pool inside Parque das Cachoeiras","description":"A natural pool reached by a short walk inside Parque Municipal das Cachoeiras. The attraction pin is approximate; driving navigation ends at the park entrance.","highlights":["Natural pool","Short trail","Atlantic Forest","Waterfall park"],"ecoTip":"Stay on the marked trail.","specs":{"difficulty":"easy","distance":"About 570 m round trip","duration":"Short walk","elevation":"—","access":"Parque Municipal das Cachoeiras; final stretch on foot","sea":"Not applicable","structure":"Parking and facilities at the park entrance"}},
-      "fr": {"title":"Poço do Furado","subtitle":"Bassin naturel dans le Parque das Cachoeiras","description":"Bassin naturel accessible par une courte marche dans le parc. Le point de l’attraction est approximatif; la navigation en voiture s’arrête à l’entrée.","highlights":["Bassin naturel","Courte randonnée","Forêt atlantique","Parc des cascades"],"ecoTip":"Restez sur le sentier balisé.","specs":{"difficulty":"easy","distance":"Environ 570 m aller-retour","duration":"Courte marche","elevation":"—","access":"Parque Municipal das Cachoeiras ; dernière partie à pied","sea":"Sans objet","structure":"Parking et installations à l’entrée du parc"}},
-      "es": {"title":"Poço do Furado","subtitle":"Poza natural dentro del Parque das Cachoeiras","description":"Poza natural accesible por una caminata corta dentro del parque. El punto de la atracción es aproximado; la navegación en coche termina en la entrada.","highlights":["Poza natural","Sendero corto","Mata Atlántica","Parque de cascadas"],"ecoTip":"Permanece en el sendero señalizado.","specs":{"difficulty":"easy","distance":"Unos 570 m ida y vuelta","duration":"Caminata corta","elevation":"—","access":"Parque Municipal das Cachoeiras; tramo final a pie","sea":"No se aplica","structure":"Estacionamiento e instalaciones en la entrada del parque"}},
-      "he": {"title":"Poço do Furado","subtitle":"בריכה טבעית בפארק המפלים","description":"בריכה טבעית שאליה מגיעים בהליכה קצרה בתוך הפארק. נקודת האטרקציה משוערת; הניווט ברכב מסתיים בכניסה לפארק.","highlights":["בריכה טבעית","מסלול קצר","היער האטלנטי","פארק המפלים"],"ecoTip":"הישארו בשביל המסומן.","specs":{"difficulty":"easy","distance":"כ־570 מ׳ הלוך ושוב","duration":"הליכה קצרה","elevation":"—","access":"Parque Municipal das Cachoeiras; הקטע האחרון ברגל","sea":"לא רלוונטי","structure":"חניה ומתקנים בכניסה לפארק"}}
+      "pt": {
+        "title": "Poço do Furado",
+        "subtitle": "Trilha natural além da piscina acessível do parque",
+        "description": "O Poço do Furado fica no Parque Municipal das Cachoeiras, na Água Branca, e exige caminhada de cerca de 570 metros ida e volta após o primeiro ponto de banho. A rampa acessível chega à primeira piscina, mas não se estende ao Poço do Furado, cujo trecho segue por terreno natural. A localização do pin é aproximada; a navegação de carro termina na entrada do parque.",
+        "highlights": [
+          "Cerca de 570 m ida e volta (Prefeitura)",
+          "Trilha em terreno natural após a primeira piscina",
+          "A rampa acessível não chega ao Poço do Furado",
+          "Pin aproximado; navegação até a entrada do parque"
+        ],
+        "ecoTip": "O trecho final não possui a acessibilidade da rampa; evite caminhar com chuva forte e observe pedras escorregadias.",
+        "specs": {
+          "difficulty": "easy",
+          "distance": "570 m ida e volta (Prefeitura)",
+          "duration": "Caminhada curta; tempo varia conforme o terreno",
+          "elevation": "—",
+          "access": "Parque Municipal das Cachoeiras, Água Branca; trecho final em trilha natural",
+          "sea": "Não se aplica",
+          "structure": "Estacionamento e banheiros na entrada; rampa somente até a primeira piscina"
+        }
+      },
+      "en": {
+        "title": "Poço do Furado",
+        "subtitle": "Natural trail beyond the park's accessible first pool",
+        "description": "Poço do Furado is inside Parque Municipal das Cachoeiras in Água Branca. The walk is about 570 meters round trip beyond the first swimming area. The accessible ramp reaches the first pool only; the onward path to Poço do Furado follows natural, uneven terrain. The attraction pin is approximate and driving directions end at the park entrance.",
+        "highlights": [
+          "About 570 m round trip (municipality)",
+          "Uneven natural trail beyond the first pool",
+          "Accessible ramp does not reach Poço do Furado",
+          "Approximate pin; drive to the park entrance"
+        ],
+        "ecoTip": "The final trail is not wheelchair-accessible like the initial ramp; avoid heavy rain and slippery rocks.",
+        "specs": {
+          "difficulty": "easy",
+          "distance": "570 m round trip (municipality)",
+          "duration": "Short walk, depending on trail conditions",
+          "elevation": "—",
+          "access": "Municipal Waterfalls Park, Água Branca; final section on a natural trail",
+          "sea": "Not applicable",
+          "structure": "Parking and toilets near entrance; ramp reaches only the first pool"
+        }
+      },
+      "fr": {
+        "title": "Poço do Furado",
+        "subtitle": "Sentier naturel après le premier bassin accessible du parc",
+        "description": "Le Poço do Furado se trouve dans le Parque Municipal das Cachoeiras, à Água Branca. Le parcours est d'environ 570 mètres aller-retour après le premier bassin. La rampe accessible s'arrête au premier bassin : la suite vers le Poço do Furado se fait sur un sentier naturel irrégulier. La position sur la carte est approximative et l'itinéraire en voiture s'arrête à l'entrée.",
+        "highlights": [
+          "Environ 570 m aller-retour (municipalité)",
+          "Sentier naturel après le premier bassin",
+          "La rampe accessible ne va pas jusqu'au Poço do Furado",
+          "Point sur la carte approximatif"
+        ],
+        "ecoTip": "Le tronçon final n'offre pas l'accessibilité de la rampe ; évitez la pluie forte et les rochers glissants.",
+        "specs": {
+          "difficulty": "easy",
+          "distance": "570 m aller-retour (municipalité)",
+          "duration": "Courte marche selon l'état du sentier",
+          "elevation": "—",
+          "access": "Parque Municipal das Cachoeiras, Água Branca ; dernière portion sur sentier naturel",
+          "sea": "Sans objet",
+          "structure": "Parking et sanitaires à l'entrée ; rampe limitée au premier bassin"
+        }
+      },
+      "es": {
+        "title": "Poço do Furado",
+        "subtitle": "Sendero natural después de la primera poza accesible",
+        "description": "Poço do Furado está dentro del Parque Municipal das Cachoeiras, en Água Branca. La caminata es de unos 570 metros ida y vuelta después de la primera poza. La rampa accesible llega solo a la primera piscina; el resto del camino hasta Poço do Furado es natural y desigual. El punto del mapa es aproximado y la ruta en coche termina en la entrada del parque.",
+        "highlights": [
+          "Unos 570 m ida y vuelta (municipio)",
+          "Sendero natural tras la primera poza",
+          "La rampa accesible no llega a Poço do Furado",
+          "Marcador aproximado; coche hasta la entrada"
+        ],
+        "ecoTip": "La ruta final no tiene la accesibilidad de la rampa; evita lluvia fuerte y rocas resbaladizas.",
+        "specs": {
+          "difficulty": "easy",
+          "distance": "570 m ida y vuelta (municipio)",
+          "duration": "Caminata corta según el terreno",
+          "elevation": "—",
+          "access": "Parque Municipal das Cachoeiras, Água Branca; tramo final a pie por sendero",
+          "sea": "No se aplica",
+          "structure": "Estacionamiento y baños en la entrada; rampa solo hasta primera poza"
+        }
+      },
+      "he": {
+        "title": "Poço do Furado",
+        "subtitle": "שביל טבעי מעבר לבריכה הראשונה הנגישה בפארק",
+        "description": "פוסו דו פוראדו נמצא בפארק העירוני של המפלים באזור אגואה ברנקה. המרחק הוא כ־570 מטר הלוך ושוב מעבר לבריכה הראשונה. רמפת הנגישות מגיעה רק לבריכה הראשונה; ההמשך לפוסו דו פוראדו עובר בשביל טבעי ולא אחיד. סיכת המפה משוערת והניווט ברכב מסתיים בכניסה לפארק.",
+        "highlights": [
+          "כ־570 מטר הלוך ושוב לפי העירייה",
+          "שביל טבעי מעבר לבריכה הראשונה",
+          "הרמפה הנגישה אינה מגיעה לפוסו דו פוראדו",
+          "סימון מפה משוער; נסיעה עד הכניסה"
+        ],
+        "ecoTip": "החלק האחרון אינו נגיש כמו הרמפה; הימנעו מהליכה בגשם חזק ומסלעים חלקלקים.",
+        "specs": {
+          "difficulty": "easy",
+          "distance": "570 מטר הלוך ושוב (העירייה)",
+          "duration": "הליכה קצרה בהתאם לתנאי השביל",
+          "elevation": "—",
+          "access": "הפארק העירוני באזור אגואה ברנקה; קטע אחרון בשביל טבעי",
+          "sea": "לא רלוונטי",
+          "structure": "חניה ושירותים בכניסה; רמפה נגישה רק לבריכה הראשונה"
+        }
+      }
     }
   },
   {
@@ -1810,16 +1941,147 @@ const additionalTouristSpots = [
     }
   },
   {
-    "id": "cachoeira-do-poco-fundo", "category": "cachoeiras", "coords": [-23.910209781923758, -45.343693232441986], "rating": null, "reviews": 0,
-    "image": "assets/images/attraction-placeholder.svg", "images": ["assets/images/attraction-placeholder.svg"], "tags": ["Bonete","Mata Atlântica","Água doce"],
-    "attributes": {"isDiving":false,"isSunset":false,"isKiosk":false,"isWild":true,"isFamily":true,"isSurf":false,"is4x4":false},
-    "specs": {"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"},
+    "id": "cachoeira-do-poco-fundo",
+    "category": "cachoeiras",
+    "coords": [
+      -23.910209781923758,
+      -45.343693232441986
+    ],
+    "rating": null,
+    "reviews": 0,
+    "image": "assets/images/attraction-placeholder.svg",
+    "images": [
+      "assets/images/attraction-placeholder.svg"
+    ],
+    "tags": [
+      "Bonete",
+      "Mata Atlântica",
+      "Água doce"
+    ],
+    "attributes": {
+      "isDiving": false,
+      "isSunset": false,
+      "isKiosk": false,
+      "isWild": true,
+      "isFamily": true,
+      "isSurf": false,
+      "is4x4": false
+    },
+    "specs": {
+      "difficulty": "moderate",
+      "distance": "Caminhada a partir do Bonete",
+      "duration": "Passeio curto a partir da comunidade",
+      "elevation": "—",
+      "access": "A pé a partir do Bonete",
+      "sea": "Não se aplica",
+      "structure": "Sem acesso rodoviário direto"
+    },
     "translations": {
-      "pt": {"title":"Cachoeira do Poço Fundo","subtitle":"Cachoeira próxima à comunidade do Bonete","description":"Cachoeira acessível a pé a partir do Bonete, ideal para combinar com uma estadia ou visita à comunidade.","highlights":["Água doce","Bonete","Mata Atlântica","Caminhada"],"ecoTip":"Respeite a trilha e leve de volta todo o lixo.","specs":{"difficulty":"moderate","distance":"Caminhada a partir do Bonete","duration":"Passeio curto a partir da comunidade","elevation":"—","access":"A pé a partir do Bonete","sea":"Não se aplica","structure":"Sem acesso rodoviário direto"}},
-      "en": {"title":"Poço Fundo Waterfall","subtitle":"Waterfall near the Bonete community","description":"A waterfall reached on foot from Bonete, well suited to combine with a stay or visit to the community.","highlights":["Fresh water","Bonete","Atlantic Forest","Walking"],"ecoTip":"Respect the trail and carry all waste back.","specs":{"difficulty":"moderate","distance":"Walk from Bonete","duration":"Short outing from the community","elevation":"—","access":"On foot from Bonete","sea":"Not applicable","structure":"No direct road access"}},
-      "fr": {"title":"Cascade Poço Fundo","subtitle":"Cascade proche de la communauté de Bonete","description":"Cascade accessible à pied depuis Bonete, à combiner avec un séjour ou une visite de la communauté.","highlights":["Eau douce","Bonete","Forêt atlantique","Marche"],"ecoTip":"Respectez le sentier et remportez tous vos déchets.","specs":{"difficulty":"moderate","distance":"Marche depuis Bonete","duration":"Courte sortie depuis la communauté","elevation":"—","access":"À pied depuis Bonete","sea":"Sans objet","structure":"Pas d’accès routier direct"}},
-      "es": {"title":"Cascada Poço Fundo","subtitle":"Cascada cerca de la comunidad de Bonete","description":"Cascada accesible a pie desde Bonete, ideal para combinar con una estancia o visita a la comunidad.","highlights":["Agua dulce","Bonete","Mata Atlántica","Caminata"],"ecoTip":"Respeta el sendero y llévate todos tus residuos.","specs":{"difficulty":"moderate","distance":"Caminata desde Bonete","duration":"Paseo corto desde la comunidad","elevation":"—","access":"A pie desde Bonete","sea":"No se aplica","structure":"Sin acceso directo por carretera"}},
-      "he": {"title":"מפל פוסו פונדו","subtitle":"מפל סמוך לקהילת בונטה","description":"מפל שאליו מגיעים ברגל מבונטה, ומתאים לשילוב עם ביקור או שהייה בקהילה.","highlights":["מים מתוקים","Bonete","היער האטלנטי","הליכה"],"ecoTip":"שמרו על השביל וקחו את כל הפסולת חזרה.","specs":{"difficulty":"moderate","distance":"הליכה מבונטה","duration":"טיול קצר מהקהילה","elevation":"—","access":"ברגל מבונטה","sea":"לא רלוונטי","structure":"ללא גישה ישירה בכביש"}}
+      "pt": {
+        "title": "Cachoeira do Poço Fundo",
+        "subtitle": "Caminhada de cerca de 10 minutos a partir do Bonete",
+        "description": "A Cachoeira do Poço Fundo fica próxima à comunidade do Bonete e é alcançada por trilha sinalizada de cerca de 10 minutos a partir da praia, segundo a Prefeitura. Para chegar ao Bonete, é preciso fazer a longa trilha a partir de Sepituba ou utilizar barco, conforme as condições do mar. Não confunda o acesso curto desde a comunidade com o deslocamento necessário para chegar ao Bonete.",
+        "highlights": [
+          "Cerca de 10 minutos a pé desde a Praia do Bonete",
+          "Chegada ao Bonete por trilha longa ou barco",
+          "Caminho final sinalizado em meio à mata",
+          "Observe profundidade e correnteza antes do banho"
+        ],
+        "ecoTip": "Não presuma que os poços são seguros para mergulho; avalie a correnteza, respeite a comunidade e recolha o lixo.",
+        "specs": {
+          "difficulty": "moderate",
+          "distance": "Trilha curta desde a Praia do Bonete",
+          "duration": "Cerca de 10 min a pé desde o Bonete (Prefeitura)",
+          "elevation": "—",
+          "access": "Primeiro chegar ao Bonete por trilha ou barco; continuar a pé pela trilha local",
+          "sea": "Não se aplica",
+          "structure": "Sem acesso de automóveis à comunidade e ao poço"
+        }
+      },
+      "en": {
+        "title": "Poço Fundo Waterfall",
+        "subtitle": "About a 10-minute walk from Bonete Beach",
+        "description": "Poço Fundo Waterfall is near the Bonete community. According to the municipality, a marked trail takes about 10 minutes from the beach. Reaching Bonete itself requires a long hike from Sepituba or a boat trip, subject to sea conditions. Do not confuse the short local walk with the time and effort required to reach Bonete.",
+        "highlights": [
+          "About 10 minutes on foot from Bonete Beach",
+          "Reach Bonete by long hike or boat",
+          "Marked final path through forest",
+          "Check currents and water depth before bathing"
+        ],
+        "ecoTip": "Never assume pools are safe for diving; check the current and respect the local community.",
+        "specs": {
+          "difficulty": "moderate",
+          "distance": "Short trail from Bonete Beach",
+          "duration": "About 10 minutes from Bonete (municipality)",
+          "elevation": "—",
+          "access": "First reach Bonete by trail or boat, then follow the local walking path",
+          "sea": "Not applicable",
+          "structure": "No road access to the community or waterfall"
+        }
+      },
+      "fr": {
+        "title": "Cascade Poço Fundo",
+        "subtitle": "Environ 10 minutes de marche depuis la plage du Bonete",
+        "description": "La cascade du Poço Fundo est proche de la communauté du Bonete. Selon la municipalité, un sentier balisé demande environ 10 minutes depuis la plage. Pour rejoindre le Bonete, il faut d'abord suivre un long sentier depuis Sepituba ou prendre un bateau, selon les conditions de mer. Ne confondez pas la courte marche locale avec le trajet nécessaire pour atteindre le village.",
+        "highlights": [
+          "Environ 10 minutes à pied depuis le Bonete",
+          "Accès au Bonete par longue randonnée ou bateau",
+          "Dernier sentier balisé en forêt",
+          "Vérifier courant et profondeur avant la baignade"
+        ],
+        "ecoTip": "Ne présumez pas qu'un bassin permet de plonger sans risque ; respectez la communauté et le milieu naturel.",
+        "specs": {
+          "difficulty": "moderate",
+          "distance": "Court sentier depuis la plage du Bonete",
+          "duration": "Environ 10 min depuis le Bonete (municipalité)",
+          "elevation": "—",
+          "access": "Rejoindre d'abord le Bonete à pied ou en bateau, puis suivre le sentier local",
+          "sea": "Sans objet",
+          "structure": "Aucun accès routier à la communauté ou à la cascade"
+        }
+      },
+      "es": {
+        "title": "Cascada Poço Fundo",
+        "subtitle": "Unos 10 minutos andando desde la playa de Bonete",
+        "description": "La cascada do Poço Fundo está cerca de la comunidad del Bonete. Según el municipio, se llega por un sendero señalizado de unos 10 minutos desde la playa. Para llegar primero al Bonete hay que hacer una larga caminata desde Sepituba o viajar en barco, según el estado del mar. No confundas el paseo corto desde la comunidad con el trayecto para llegar a Bonete.",
+        "highlights": [
+          "Unos 10 minutos a pie desde la playa del Bonete",
+          "Llegada al Bonete por ruta larga o barco",
+          "Sendero final señalizado por bosque",
+          "Comprobar corriente y profundidad antes del baño"
+        ],
+        "ecoTip": "No supongas que las pozas son seguras para saltar; comprueba las condiciones y respeta la comunidad.",
+        "specs": {
+          "difficulty": "moderate",
+          "distance": "Sendero corto desde la playa del Bonete",
+          "duration": "Unos 10 minutos desde Bonete (municipio)",
+          "elevation": "—",
+          "access": "Llegar primero al Bonete por sendero o barco; continuar a pie por ruta local",
+          "sea": "No se aplica",
+          "structure": "Sin acceso por carretera a la comunidad ni al pozo"
+        }
+      },
+      "he": {
+        "title": "מפל פוסו פונדו",
+        "subtitle": "כעשר דקות הליכה מחוף בונטה",
+        "description": "מפל פוסו פונדו נמצא בקרבת קהילת בונטה. לפי העירייה מגיעים אליו בשביל מסומן בהליכה של כעשר דקות מהחוף. כדי להגיע לבונטה עצמה יש ללכת במסלול ארוך מספיטובה או להגיע בסירה, בהתאם לתנאי הים. אין לבלבל בין ההליכה הקצרה מהכפר לבין הדרך הארוכה הנדרשת כדי להגיע לבונטה.",
+        "highlights": [
+          "כעשר דקות הליכה מחוף בונטה",
+          "הגעה לבונטה במסלול הליכה ארוך או בסירה",
+          "שביל מסומן בתוך היער",
+          "יש לבדוק זרם ועומק לפני רחצה"
+        ],
+        "ecoTip": "אין להניח שהבריכות בטוחות לקפיצה; בדקו תנאים וכבדו את הקהילה המקומית.",
+        "specs": {
+          "difficulty": "moderate",
+          "distance": "שביל קצר מחוף בונטה",
+          "duration": "כעשר דקות מבונטה (העירייה)",
+          "elevation": "—",
+          "access": "תחילה מגיעים לבונטה בשביל ארוך או בסירה ואז הולכים בשביל המקומי",
+          "sea": "לא רלוונטי",
+          "structure": "אין גישה בכביש לקהילה או למפל"
+        }
+      }
     }
   }
 
