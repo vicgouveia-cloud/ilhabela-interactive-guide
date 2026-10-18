@@ -2603,10 +2603,10 @@ const touristSpots = [
     "reviews": 0,
     "image": "assets/images/trilha-da-agua-branca_1.jpg",
     "tags": [
-      "Auto-guiada",
+      "Cinco Poços",
       "Birdwatching",
-      "Poços para Banho",
-      "Família"
+      "Trilha Sinalizada",
+      "Parque Estadual"
     ],
     "attributes": {
       "isDiving": false,
@@ -2619,112 +2619,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "2.2 km (circuito estruturado)",
-      "duration": "1h30 a 2h",
+      "distance": "Cerca de 3,6 km ida e volta (Prefeitura)",
+      "duration": "Aproximadamente 2h (Prefeitura)",
       "elevation": "+80m",
-      "access": "Guarita do Parque Estadual de Ilhabela (Estrada de Castelhanos)",
+      "access": "Guarita do Parque Estadual na Estrada de Castelhanos; confirmar agendamento e regras",
       "sea": "Não se aplica (5 poços naturais e cachoeiras de água cristalina)",
-      "structure": "Centro de visitantes, banheiros, torres de observação de aves e passarelas"
+      "structure": "Trilha sinalizada e cinco poços; acessibilidade varia conforme o trecho"
     },
     "translations": {
       "pt": {
         "title": "Trilha da Água Branca",
-        "subtitle": "Trilha estruturada do Parque Estadual com 5 poços e birdwatching",
-        "description": "A trilha mais acessível e educativa de Ilhabela. Conta com passarelas, placas de interpretação botânica, torres para observação de aves e cinco poços naturais cristalinos para banho.",
+        "subtitle": "Cinco poços naturais em cerca de 3,6 km ida e volta",
+        "description": "A Trilha da Água Branca, no Parque Estadual de Ilhabela, tem cerca de 3,6 km ida e volta e duração aproximada de 2 horas, segundo a Prefeitura. O caminho sinalizado passa por cinco poços: Pedra, Escada, Ducha, Jequitibá e Jabuti. A existência de infraestrutura não significa acessibilidade integral, nem que todos os trechos sejam seguros para banho. Confirme regras e condições de visitação com o Parque.",
         "highlights": [
-          "5 poços naturais de águas límpidas",
-          "Torres para observação de aves (Birdwatching)",
-          "Excelente para crianças e famílias",
-          "Centro de visitantes do Parque Estadual"
+          "Cinco poços naturais ao longo da trilha",
+          "Cerca de 3,6 km ida e volta",
+          "Aproximadamente 2 horas de caminhada",
+          "Acessibilidade e segurança variam conforme o trecho"
         ],
-        "ecoTip": "Excelente opção para dias nublados ou para caminhadas leves com crianças.",
+        "ecoTip": "Verifique a correnteza e as pedras antes de entrar na água; confira agendamento e regras de monitoria com o Parque.",
         "specs": {
-          "distance": "2.2 km (circuito estruturado)",
-          "duration": "1h30 a 2h",
+          "distance": "3,6 km ida e volta (Prefeitura)",
+          "duration": "Cerca de 2h (Prefeitura)",
           "elevation": "+80m",
-          "access": "Guarita do Parque Estadual de Ilhabela (Estrada de Castelhanos)",
+          "access": "Estrada de Castelhanos, guarita do Parque Estadual; confirme agendamento",
           "sea": "Não se aplica (5 poços naturais e cachoeiras de água cristalina)",
-          "structure": "Centro de visitantes, banheiros, torres de observação de aves e passarelas"
+          "structure": "Trilha sinalizada; acessibilidade variável"
         }
       },
       "en": {
         "title": "Água Branca State Park Trail",
-        "subtitle": "Educational nature trail with 5 natural plunge pools & birding towers",
-        "description": "The most accessible and family-friendly trail on the island. Features raised wooden walkways, botanical interpretation signs, birdwatching observation towers, and five crystal pools.",
+        "subtitle": "Five natural pools over about 3.6 km round trip",
+        "description": "The Água Branca trail in Ilhabela State Park covers approximately 3.6 km round trip and takes around 2 hours, according to the municipality. It passes five natural pools: Pedra, Escada, Ducha, Jequitibá and Jabuti. Visitor facilities do not guarantee step-free access to the entire route or safe bathing everywhere. Check current park entry and booking requirements.",
         "highlights": [
-          "5 pristine natural swimming holes",
-          "Birdwatching canopy towers",
-          "Perfect for children and families",
-          "State Park visitor center amenities"
+          "Five natural pools along the route",
+          "About 3.6 km round trip",
+          "Around 2 hours of walking",
+          "Access and water safety vary by section"
         ],
-        "ecoTip": "Ideal for cloudy days or gentle family rainforest walks.",
+        "ecoTip": "Beware of wet rocks and currents; confirm access and guide rules with the Park.",
         "specs": {
-          "distance": "2.2 km (developed circuit)",
-          "duration": "1 h 30 min–2 h",
+          "distance": "3.6 km round trip (municipality)",
+          "duration": "About 2 hours (municipality)",
           "elevation": "+80 m",
-          "access": "Ilhabela State Park checkpoint (Estrada de Castelhanos)",
+          "access": "Castelhanos Road, State Park entrance gate; check booking",
           "sea": "Not applicable (5 natural pools and clear-water waterfalls)",
-          "structure": "Visitor center, toilets, birdwatching towers and walkways"
+          "structure": "Marked trail; accessibility varies by section"
         }
       },
       "fr": {
         "title": "Sentier d Água Branca",
-        "subtitle": "Sentier éducatif du parc avec 5 vasques et tours d observation",
-        "description": "Le sentier le plus accessible d Ilhabela. Aménagé avec des passerelles en bois, des tours d observation d oiseaux et cinq bassins naturels cristallins pour la baignade.",
+        "subtitle": "Cinq bassins naturels sur environ 3,6 km aller-retour",
+        "description": "Le sentier Água Branca du Parc d'État d'Ilhabela fait environ 3,6 km aller-retour et prend quelque 2 heures selon la municipalité. Il traverse cinq bassins naturels : Pedra, Escada, Ducha, Jequitibá et Jabuti. La présence d'installations ne garantit pas l'accessibilité de tout le parcours ni la sécurité de chaque bassin. Vérifiez les règles et les réservations du Parc.",
         "highlights": [
-          "5 bassins naturels d eau pure",
-          "Tours d observation ornithologique",
-          "Parfait pour les familles et enfants",
-          "Centre d accueil du Parc d État"
+          "Cinq bassins naturels sur le parcours",
+          "Environ 3,6 km aller-retour",
+          "Environ 2 heures de marche",
+          "Accessibilité et baignade variables"
         ],
-        "ecoTip": "Idéal pour une sortie nature facile en famille.",
+        "ecoTip": "Attention aux rochers mouillés et au courant ; vérifiez les règles d'accès et d'accompagnement.",
         "specs": {
-          "distance": "2,2 km (circuit aménagé)",
-          "duration": "1 h 30 à 2 h",
+          "distance": "3,6 km aller-retour (municipalité)",
+          "duration": "Environ 2 h (municipalité)",
           "elevation": "+80 m",
-          "access": "Poste du parc d’État d’Ilhabela (Estrada de Castelhanos)",
+          "access": "Route de Castelhanos, entrée du Parc ; vérifier la réservation",
           "sea": "Sans objet (5 bassins naturels et cascades cristallines)",
-          "structure": "Centre d’accueil, toilettes, tours d’observation des oiseaux et passerelles"
+          "structure": "Sentier balisé ; accessibilité variable"
         }
       },
       "es": {
         "title": "Sendero de Água Branca",
-        "subtitle": "Sendero educativo del Parque con 5 pozas y torres de aves",
-        "description": "El sendero más accesible y educativo de la isla. Cuenta con pasarelas de madera, señalización botánica, miradores de aves y cinco pozas cristalinas para bañarse.",
+        "subtitle": "Cinco pozas naturales en unos 3,6 km ida y vuelta",
+        "description": "La ruta de Água Branca en el Parque Estatal de Ilhabela mide aproximadamente 3,6 km ida y vuelta y dura unas 2 horas, según el municipio. Pasa por cinco pozas naturales: Pedra, Escada, Ducha, Jequitibá y Jabuti. Tener infraestructura no significa accesibilidad en todo el trayecto ni que sea seguro bañarse en cualquier punto. Consulta las reglas y reservas del Parque.",
         "highlights": [
-          "5 pozas naturales de agua cristalina",
-          "Torres de observación de aves",
-          "Ideal para familias y niños",
-          "Centro de visitantes del Parque"
+          "Cinco pozas naturales en el recorrido",
+          "Unos 3,6 km ida y vuelta",
+          "Aproximadamente 2 horas a pie",
+          "Accesibilidad y seguridad variables"
         ],
-        "ecoTip": "Opción perfecta para caminatas familiares relajadas.",
+        "ecoTip": "Ten cuidado con rocas mojadas y corrientes; confirma las reglas de acceso y monitoría.",
         "specs": {
-          "distance": "2,2 km (circuito acondicionado)",
-          "duration": "1 h 30 min a 2 h",
+          "distance": "3,6 km ida y vuelta (municipio)",
+          "duration": "Unas 2 horas (municipio)",
           "elevation": "+80 m",
-          "access": "Puesto del Parque Estatal de Ilhabela (Estrada de Castelhanos)",
+          "access": "Carretera a Castelhanos, portería del Parque Estatal; comprobar reserva",
           "sea": "No corresponde (5 pozas naturales y cascadas de agua cristalina)",
-          "structure": "Centro de visitantes, baños, torres de observación de aves y pasarelas"
+          "structure": "Sendero señalizado; accesibilidad variable"
         }
       },
       "he": {
         "title": "שביל אגואה ברנקה (Trilha da Água Branca)",
-        "subtitle": "שביל טבע מוסדר בפארק הלאומי עם 5 בריכות ומגדלי צפרות",
-        "description": "השביל הנגיש והנוח ביותר באי למשפחות. כולל שבילי עץ מסודרים, מגדלי תצפית על ציפורים טרופיות ו-5 בריכות מים טבעיות וצלולות לרחצה.",
+        "subtitle": "חמש בריכות טבעיות במסלול של כ־3.6 ק״מ הלוך ושוב",
+        "description": "שביל אגואה ברנקה בפארק המדינתי איליאבלה הוא באורך כ־3.6 ק״מ הלוך ושוב ונמשך כשעתיים לפי העירייה. הוא עובר בחמש בריכות טבעיות: פדרה, אסקדה, דושה, ז׳קיטיבה וז׳בוטי. קיומם של מתקנים אינו מבטיח נגישות לכל אורך השביל או רחצה בטוחה בכל מקום. בדקו את תנאי הכניסה וההזמנה בפארק.",
         "highlights": [
-          "5 בריכות מים טבעיות ומרעננות",
-          "מגדלי תצפית על ציפורים",
-          "מושלם למשפחות עם ילדים",
-          "מרכז מבקרים של הפארק הלאומי"
+          "חמש בריכות טבעיות לאורך השביל",
+          "כ־3.6 ק״מ הלוך ושוב",
+          "כשעתיים של הליכה",
+          "נגישות ובטיחות משתנות לאורך הדרך"
         ],
-        "ecoTip": "אפשרות מצוינת לטיול משפחתי קליל ומהנה בטבע.",
+        "ecoTip": "היזהרו מסלעים רטובים ומזרמים; בדקו את כללי הכניסה וההדרכה בפארק.",
         "specs": {
-          "distance": "2.2 ק״מ (מסלול מוסדר)",
-          "duration": "שעה וחצי עד שעתיים",
+          "distance": "3.6 ק״מ הלוך ושוב (העירייה)",
+          "duration": "כשעתיים (העירייה)",
           "elevation": "+80 מ׳",
-          "access": "עמדת פארק המדינה של Ilhabela (Estrada de Castelhanos)",
+          "access": "שער הפארק בדרך קסטליאנוס; בדקו הזמנה",
           "sea": "לא רלוונטי (5 בריכות טבעיות ומפלים צלולים)",
-          "structure": "מרכז מבקרים, שירותים, מגדלי צפרות ומעברים"
+          "structure": "שביל מסומן; הנגישות משתנה"
         }
       }
     },
@@ -2759,112 +2759,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "hard",
-      "distance": "12 km (só ida)",
-      "duration": "4h30 a 5h30",
+      "distance": "Cerca de 12 km só ida / 24 km ida e volta",
+      "duration": "4 a 6h só ida (Prefeitura, conforme condições)",
       "elevation": "+380m acumulados",
-      "access": "Início na Ponta da Sepituba (extremo sul da ilha)",
+      "access": "Guarita no final da SP-131, Sepituba; verificar agendamento online",
       "sea": "Deságua na fantástica Praia do Bonete",
-      "structure": "Trilha rústica com pontes e paradas na Cachoeira da Laje e Areado"
+      "structure": "Trilha rústica, travessias com passarelas; Bonete sem acesso rodoviário"
     },
     "translations": {
       "pt": {
         "title": "Trilha Tradicional do Bonete",
-        "subtitle": "A travessia clássica de 12 km pela Mata Atlântica até a praia isolada",
-        "description": "Uma das trilhas mais clássicas do ecoturismo brasileiro. Corta a densa floresta costeira, atravessando três cachoeiras com poços cristalinos antes de revelar a majestosa Praia do Bonete.",
+        "subtitle": "Trilha difícil: 12 km só ida, cerca de 24 km ida e volta",
+        "description": "A Trilha do Bonete parte da guarita no final da SP-131, em Sepituba, e atravessa a Mata Atlântica e rios até a comunidade do Bonete. São aproximadamente 12 km só de ida ou 24 km ida e volta; a Prefeitura estima 4 a 6 horas para a ida, conforme as condições. O Parque Estadual classifica a trilha como difícil, informa agendamento online e monitoria opcional. Use as passarelas nas travessias. A volta de barco deve ser confirmada previamente com operador e depende do mar.",
         "highlights": [
-          "Parada para banho na Cachoeira da Laje",
-          "Cachoeira do Areado com praia de rio",
-          "Vista do mirante costeiro",
-          "Chegada triunfal ao Bonete"
+          "Cerca de 12 km só ida e 24 km ida e volta",
+          "Trilha difícil com travessias de rios",
+          "Cachoeiras da Laje, Areado e Saquinho",
+          "Chegada à comunidade tradicional do Bonete"
         ],
-        "ecoTip": "Contrate um guia local credenciado para apoio, segurança e relatos da história caiçara.",
+        "ecoTip": "Um guia local é recomendado mesmo quando opcional. Leve água e planeje o retorno sem presumir disponibilidade de barco.",
         "specs": {
-          "distance": "12 km (só ida)",
-          "duration": "4h30 a 5h30",
+          "distance": "12 km só ida; 24 km ida e volta",
+          "duration": "4 a 6h só ida (Prefeitura, variável)",
           "elevation": "+380m acumulados",
-          "access": "Início na Ponta da Sepituba (extremo sul da ilha)",
+          "access": "Final da SP-131, Sepituba; agendamento online no Parque",
           "sea": "Deságua na fantástica Praia do Bonete",
-          "structure": "Trilha rústica com pontes e paradas na Cachoeira da Laje e Areado"
+          "structure": "Passarelas nos rios; sem estrada até o Bonete"
         }
       },
       "en": {
         "title": "Bonete Classic Rainforest Trail",
-        "subtitle": "The iconic 7.5-mile trek through pristine rainforest to an isolated paradise",
-        "description": "One of Brazil most famous coastal hiking trails. Traverses deep Atlantic jungle, crossing three stunning river cascades before descending onto remote Bonete Beach.",
+        "subtitle": "Difficult hike: 12 km one way, around 24 km round trip",
+        "description": "The Bonete trail begins at the State Park gate at the end of SP-131 in Sepituba, crossing Atlantic Forest and streams to the Bonete community. Allow around 12 km one way or 24 km round trip. The municipality estimates 4–6 hours for the outward walk, depending on conditions. The State Park rates the route difficult, lists online booking and says guiding is optional. Use footbridges across streams. Any return boat must be arranged in advance and depends on sea conditions.",
         "highlights": [
-          "Natural slide at Laje Waterfall",
-          "Areado river beach stop",
-          "Dramatic coastal ocean viewpoints",
-          "Triumphant arrival at Bonete Beach"
+          "Around 12 km each way, 24 km round trip",
+          "Difficult trail and river crossings",
+          "Laje, Areado and Saquinho waterfalls",
+          "Traditional Bonete community"
         ],
-        "ecoTip": "Hiring a certified local guide ensures safety and enriches your trip with native caiçara lore.",
+        "ecoTip": "A local guide is recommended even where optional. Carry water and plan the return without assuming a boat will be available.",
         "specs": {
-          "distance": "12 km (one way)",
-          "duration": "4 h 30 min–5 h 30 min",
+          "distance": "12 km one way; 24 km round trip",
+          "duration": "4–6 hours one way (municipality)",
           "elevation": "+380 m cumulative ascent",
-          "access": "Starts at Ponta da Sepituba (far south of the island)",
+          "access": "State Park gate at end of SP-131 in Sepituba; online booking",
           "sea": "Ends at spectacular Praia do Bonete",
-          "structure": "Rustic trail with bridges and stops at Cachoeira da Laje and Areado"
+          "structure": "Footbridges at streams; no road access to Bonete"
         }
       },
       "fr": {
         "title": "Sentier Traditionnel do Bonete",
-        "subtitle": "La grande traversée de 12 km à travers la forêt tropicale",
-        "description": "Une randonnée légendaire de l écotourisme brésilien. Elle serpente à travers la forêt dense, franchissant trois cascades limpides avant d atteindre la plage sauvage de Bonete.",
+        "subtitle": "Randonnée difficile : 12 km à l'aller, 24 km aller-retour",
+        "description": "Le sentier du Bonete part de la guérite du Parc au bout de la SP-131 à Sepituba, et traverse la forêt et des rivières jusqu'à la communauté du Bonete. Le trajet fait environ 12 km à l'aller ou 24 km aller-retour. La municipalité estime 4 à 6 heures pour l'aller selon les conditions. Le Parc classe la randonnée comme difficile, indique une réservation en ligne et un guide facultatif. Utilisez les passerelles pour les rivières. Tout retour en bateau doit être confirmé à l'avance et dépend de la mer.",
         "highlights": [
-          "Baignade à la cascade da Laje",
-          "Halte à la cascade do Areado",
-          "Vues spectaculaires sur l océan",
-          "Arrivée magique au village caiçara"
+          "Environ 12 km par sens, 24 km aller-retour",
+          "Sentier difficile et passages de rivières",
+          "Cascades Laje, Areado et Saquinho",
+          "Communauté traditionnelle du Bonete"
         ],
-        "ecoTip": "L accompagnement par un guide certifié est vivement recommandé pour votre sécurité.",
+        "ecoTip": "Un guide local reste conseillé même s'il est facultatif. Prévoyez eau et retour sans compter sur un bateau non confirmé.",
         "specs": {
-          "distance": "12 km (aller simple)",
-          "duration": "4 h 30 à 5 h 30",
+          "distance": "12 km à l'aller ; 24 km aller-retour",
+          "duration": "4 à 6 h pour l'aller (municipalité)",
           "elevation": "+380 m de dénivelé cumulé",
-          "access": "Départ à Ponta da Sepituba (extrême sud de l’île)",
+          "access": "Guérite au bout de la SP-131, Sepituba ; réservation en ligne",
           "sea": "Débouche sur la superbe Praia do Bonete",
-          "structure": "Sentier rustique avec ponts et arrêts à Cachoeira da Laje et Areado"
+          "structure": "Passerelles sur les rivières ; pas de route jusqu'au Bonete"
         }
       },
       "es": {
         "title": "Sendero Tradicional do Bonete",
-        "subtitle": "La travesía clásica de 12 km por la selva hasta la playa aislada",
-        "description": "Una de las caminatas más famosas de Brasil. Atraviesa la selva atlántica costera cruzando tres cascadas cristalinas antes de llegar a la increíble playa de Bonete.",
+        "subtitle": "Ruta difícil: 12 km por trayecto, unos 24 km ida y vuelta",
+        "description": "La ruta al Bonete comienza en la portería del Parque Estatal al final de la SP-131, en Sepituba, y cruza bosques y ríos hasta la comunidad del Bonete. Son unos 12 km solo ida o 24 km ida y vuelta. El municipio estima 4–6 horas para la ida según las condiciones. El Parque clasifica la ruta como difícil, indica reserva en línea y monitoría opcional. Usa las pasarelas al cruzar los ríos. El regreso en barco debe acordarse previamente y depende del mar.",
         "highlights": [
-          "Tobogán natural en Cascada da Laje",
-          "Playa de río en Cascada do Areado",
-          "Miradores sobre el océano",
-          "Llegada triunfal a Bonete"
+          "12 km por trayecto y 24 km ida y vuelta",
+          "Ruta difícil con cruces de ríos",
+          "Cascadas Laje, Areado y Saquinho",
+          "Comunidad tradicional del Bonete"
         ],
-        "ecoTip": "Se aconseja contratar un guía local certificado para una experiencia segura y enriquecedora.",
+        "ecoTip": "Se recomienda guía local aunque sea opcional. Lleva agua y planea el regreso sin contar con un barco sin confirmar.",
         "specs": {
-          "distance": "12 km (solo ida)",
-          "duration": "4 h 30 min a 5 h 30 min",
+          "distance": "12 km solo ida; 24 km ida y vuelta",
+          "duration": "4–6 horas solo ida (municipio)",
           "elevation": "+380 m de ascenso acumulado",
-          "access": "Inicio en Ponta da Sepituba (extremo sur de la isla)",
+          "access": "Portería del Parque al final de SP-131, Sepituba; reserva en línea",
           "sea": "Desemboca en la fantástica Praia do Bonete",
-          "structure": "Sendero rústico con puentes y paradas en Cachoeira da Laje y Areado"
+          "structure": "Pasarelas sobre ríos; sin carretera al Bonete"
         }
       },
       "he": {
         "title": "טרק בונטה הקלאסי (Trilha do Bonete)",
-        "subtitle": "מסע של 12 ק״מ ביער הגשם אל אחד החופים המבודדים והיפים בעולם",
-        "description": "אחד הטרקים המפורסמים והאהובים בברזיל. המסלול חוצה את יער הגשם העבות, עובר דרך 3 מפלים עם בריכות מים צלולות ומסתיים בחוף בונטה המרהיב.",
+        "subtitle": "מסלול קשה: כ־12 ק״מ לכל כיוון, כ־24 ק״מ הלוך ושוב",
+        "description": "שביל בונטה מתחיל בשער הפארק בקצה כביש SP-131 בספיטובה ועובר ביער האטלנטי ובנחלים עד לקהילת בונטה. אורכו כ־12 ק״מ לכיוון אחד או 24 ק״מ הלוך ושוב. לפי העירייה ההליכה לכיוון אחד נמשכת 4–6 שעות בהתאם לתנאים. הפארק מסווג את המסלול כקשה, מציין הזמנה מקוונת ומדריך כאפשרות שאינה חובה. חצו נחלים על הגשרים. יש לתאם מראש כל חזרה בסירה ולבדוק את מצב הים.",
         "highlights": [
-          "מגלשת סלע טבעית במפל לאז׳י",
-          "עצירה במפל אראדו",
-          "תצפיות מרהיבות על האוקיינוס",
-          "הגעה מרגשת לכפר הדייגים בונטה"
+          "כ־12 ק״מ לכל כיוון, 24 ק״מ הלוך ושוב",
+          "שביל קשה עם חציית נחלים",
+          "מפלי לאז׳ה, אראדו וסאקיניו",
+          "הקהילה המסורתית של בונטה"
         ],
-        "ecoTip": "מומלץ בחום לשכור מדריך מקומי מוסמך לבטיחות ולהכרת סיפורי המקום.",
+        "ecoTip": "מומלץ מדריך מקומי גם אם אינו חובה. קחו מים ותכננו חזרה בלי להסתמך על סירה שלא תואמה.",
         "specs": {
-          "distance": "12 ק״מ (לכיוון אחד)",
-          "duration": "4.5–5.5 שעות",
+          "distance": "12 ק״מ לכיוון; 24 ק״מ הלוך ושוב",
+          "duration": "4–6 שעות לכיוון אחד (העירייה)",
           "elevation": "+380 מ׳ עלייה מצטברת",
-          "access": "תחילה ב-Ponta da Sepituba (הקצה הדרומי של האי)",
+          "access": "שער הפארק בקצה SP-131 בספיטובה; הזמנה מקוונת",
           "sea": "מסתיים ב-Praia do Bonete המרהיב",
-          "structure": "שביל כפרי עם גשרים ועצירות ב-Cachoeira da Laje וב-Areado"
+          "structure": "גשרים בנחלים; אין כביש לבונטה"
         }
       }
     },
@@ -3303,14 +3303,14 @@ const touristSpots = [
     "reviews": 0,
     "image": "assets/images/pico-do-baepi_1.jpg",
     "tags": [
-      "1.048m de Altitude",
-      "Vista 360°",
-      "Trilha Desafiadora",
+      "Monitoria Obrigatória",
+      "Pico 1.048m",
+      "Trilha Difícil",
       "Mata Atlântica"
     ],
     "attributes": {
       "isDiving": false,
-      "isSunset": true,
+      "isSunset": false,
       "isKiosk": false,
       "isWild": true,
       "isFamily": false,
@@ -3319,112 +3319,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "hard",
-      "distance": "7.4 km (ida e volta)",
-      "duration": "4h30 a 6h",
+      "distance": "7 a 8 km (Parque Estadual)",
+      "duration": "5h30 a 6h (Parque Estadual)",
       "elevation": "+1.048m de altitude",
-      "access": "Início no bairro do Itaguaçu (Parque Estadual de Ilhabela)",
+      "access": "Final da Rua Morro da Cruz, Itaguaçu; monitoria obrigatória e agendamento online",
       "sea": "Não se aplica (Cume com vista 360° do canal, oceano e Serra do Mar)",
-      "structure": "Sem estrutura no percurso; ponto de apoio e cadastro na base do Parque"
+      "structure": "Trilha íngreme; não presumir instalações ao longo do percurso"
     },
     "translations": {
       "pt": {
         "title": "Pico do Baepi",
-        "subtitle": "A subida ao gigante de 1.048m com vista panorâmica de 360°",
-        "description": "O cume mais famoso de Ilhabela proporciona uma das visões mais espetaculares do litoral brasileiro. A trilha íngreme atravessa floresta primária até atingir as rochas do topo com vista para todo o arquipélago.",
+        "subtitle": "Trilha difícil de 5h30 a 6h com monitoria obrigatória",
+        "description": "A Trilha do Pico do Baepi começa no final da Rua Morro da Cruz, em Itaguaçu, e sobe pela Mata Atlântica até o cume de 1.048 metros. O Parque Estadual informa percurso de 7 a 8 km, duração de 5h30 a 6h, dificuldade alta, monitoria obrigatória e agendamento online. O mirante a cerca de 400 metros do início é um passeio distinto da subida completa. Respeite os horários da trilha e não planeje retornar após escurecer.",
         "highlights": [
-          "Vista panorâmica 360° de tirar o fôlego",
-          "Sensação inigualável de conquista",
-          "Fauna e flora ricas da Mata Atlântica",
-          "Contemplação do pôr do sol e nuvens"
+          "Monitoria obrigatória e agendamento online",
+          "7 a 8 km e cerca de 5h30 a 6h",
+          "Mirante inicial a cerca de 400 metros",
+          "Pico de 1.048 m com vista panorâmica"
         ],
-        "ecoTip": "Leve no mínimo 2 litros de água, lanches calóricos e agasalho para o topo (vento frio).",
+        "ecoTip": "Agende um monitor e leve água, calçado aderente e agasalho. Não planeje subir para ver o pôr do sol.",
         "specs": {
-          "distance": "7.4 km (ida e volta)",
-          "duration": "4h30 a 6h",
+          "distance": "7 a 8 km (Parque Estadual)",
+          "duration": "5h30 a 6h (Parque Estadual)",
           "elevation": "+1.048m de altitude",
-          "access": "Início no bairro do Itaguaçu (Parque Estadual de Ilhabela)",
+          "access": "Final da Rua Morro da Cruz, Itaguaçu; monitoria obrigatória",
           "sea": "Não se aplica (Cume com vista 360° do canal, oceano e Serra do Mar)",
-          "structure": "Sem estrutura no percurso; ponto de apoio e cadastro na base do Parque"
+          "structure": "Trilha íngreme sem estrutura garantida no cume"
         }
       },
       "en": {
         "title": "Baepi Peak",
-        "subtitle": "Ascent to the 3,440-foot giant with 360-degree panoramic summit",
-        "description": "The most iconic mountain summit in Ilhabela offers unforgettable vistas of the archipelago, the channel, and the coastal mountains of São Paulo state.",
+        "subtitle": "Difficult 5.5–6 hour hike with mandatory guiding",
+        "description": "The Baepi Peak trail starts at the end of Rua Morro da Cruz in Itaguaçu and climbs through Atlantic Forest to the 1,048-meter summit. The State Park lists 7–8 km, a 5.5–6 hour hike, difficult terrain, mandatory guiding and online booking. A lookout about 400 meters from the entrance is separate from reaching the summit. Follow official trail hours and do not plan to descend after dark.",
         "highlights": [
-          "Breathtaking 360° archipelago views",
-          "Rewarding high-altitude physical challenge",
-          "Rich Atlantic rainforest biodiversity",
-          "Cloudscapes and golden light"
+          "Mandatory guide and online booking",
+          "7–8 km and approximately 5.5–6 hours",
+          "Early lookout around 400 meters from start",
+          "Panoramic 1,048-meter summit"
         ],
-        "ecoTip": "Carry at least 2 liters of water, energy snacks, and a windbreaker for the breezy summit.",
+        "ecoTip": "Book an authorized guide and carry water, suitable shoes and warm clothing. Do not plan a sunset ascent.",
         "specs": {
-          "distance": "7.4 km (round trip)",
-          "duration": "4 h 30 min–6 h",
+          "distance": "7–8 km (State Park)",
+          "duration": "5.5–6 hours (State Park)",
           "elevation": "+1,048 m altitude",
-          "access": "Starts in Itaguaçu (Ilhabela State Park)",
+          "access": "End of Rua Morro da Cruz, Itaguaçu; guide required",
           "sea": "Not applicable (summit with 360° views of the channel, ocean and Serra do Mar)",
-          "structure": "No facilities on the route; support and registration point at the park base"
+          "structure": "Steep forest hike; summit facilities not guaranteed"
         }
       },
       "fr": {
         "title": "Pic du Baepi",
-        "subtitle": "Ascension du géant de 1 048 m avec panorama à 360°",
-        "description": "Le sommet le plus emblématique d Ilhabela offre une vue époustouflante sur l archipel et le canal de São Sebastião au terme d une randonnée sportive.",
+        "subtitle": "Ascension difficile de 5 h 30 à 6 h avec guide obligatoire",
+        "description": "Le sentier du Pico do Baepi part du bout de la Rua Morro da Cruz à Itaguaçu et grimpe dans la forêt jusqu'au sommet de 1 048 mètres. Le Parc d'État indique 7 à 8 km, une durée de 5 h 30 à 6 h, une difficulté élevée, un guide obligatoire et une réservation en ligne. Un belvédère situé à environ 400 mètres du départ ne correspond pas à l'ascension complète. Respectez les horaires et ne prévoyez pas de descendre de nuit.",
         "highlights": [
-          "Panorama grandiose à 360°",
-          "Défi sportif très gratifiant",
-          "Immersion en forêt tropicale primaire",
-          "Mer de nuages au lever du jour"
+          "Guide obligatoire et réservation en ligne",
+          "7 à 8 km pour 5 h 30 à 6 h",
+          "Belvédère à environ 400 mètres du départ",
+          "Sommet panoramique de 1 048 mètres"
         ],
-        "ecoTip": "Prévoyez au moins 2 litres d eau, des collations énergétiques et un coupe-vent.",
+        "ecoTip": "Réservez avec un guide habilité, apportez eau, chaussures adaptées et vêtements chauds. Ne partez pas pour voir le coucher du soleil.",
         "specs": {
-          "distance": "7,4 km (aller-retour)",
-          "duration": "4 h 30 à 6 h",
+          "distance": "7 à 8 km (Parc d'État)",
+          "duration": "5 h 30 à 6 h (Parc d'État)",
           "elevation": "+1 048 m d’altitude",
-          "access": "Départ du quartier Itaguaçu (parc d’État d’Ilhabela)",
+          "access": "Bout de la Rua Morro da Cruz, Itaguaçu ; guide obligatoire",
           "sea": "Sans objet (sommet avec vue à 360° sur le canal, l’océan et Serra do Mar)",
-          "structure": "Aucun équipement sur le parcours ; point d’assistance et d’inscription à la base du parc"
+          "structure": "Sentier escarpé sans services garantis au sommet"
         }
       },
       "es": {
         "title": "Pico do Baepi",
-        "subtitle": "Ascenso a la cumbre de 1.048 m con vista panorámica de 360°",
-        "description": "El pico más famoso de Ilhabela ofrece una de las vistas más impresionantes de la costa brasileña tras superar un sendero empinado a través de selva virgen.",
+        "subtitle": "Ruta difícil de 5,5 a 6 horas con monitor obligatorio",
+        "description": "La ruta al Pico do Baepi empieza al final de Rua Morro da Cruz, en Itaguaçu, y sube por la Mata Atlántica hasta la cumbre de 1.048 metros. El Parque Estatal informa 7–8 km, duración de 5,5–6 horas, dificultad alta, monitor obligatorio y reserva en línea. Hay un mirador a unos 400 metros del inicio, pero no equivale a llegar a la cumbre. Respeta los horarios y no planees bajar de noche.",
         "highlights": [
-          "Vista panorámica 360° inigualable",
-          "Gran desafío físico gratificante",
-          "Flora y fauna endémica de la Mata Atlántica",
-          "Cielos y nubes sobre el mar"
+          "Monitor obligatorio y reserva en línea",
+          "7–8 km y 5,5–6 horas",
+          "Mirador inicial a unos 400 metros",
+          "Cumbre panorámica de 1.048 metros"
         ],
-        "ecoTip": "Lleva mínimo 2 litros de agua por persona, comida energética y abrigo para la cumbre.",
+        "ecoTip": "Reserva un monitor autorizado y lleva agua, calzado adecuado y abrigo. No programes la subida al atardecer.",
         "specs": {
-          "distance": "7,4 km (ida y vuelta)",
-          "duration": "4 h 30 min a 6 h",
+          "distance": "7–8 km (Parque Estatal)",
+          "duration": "5,5–6 horas (Parque Estatal)",
           "elevation": "+1.048 m de altitud",
-          "access": "Inicio en Itaguaçu (Parque Estatal de Ilhabela)",
+          "access": "Final de Rua Morro da Cruz, Itaguaçu; monitor obligatorio",
           "sea": "No corresponde (cumbre con vista de 360° al canal, océano y Serra do Mar)",
-          "structure": "Sin infraestructura en la ruta; punto de apoyo y registro en la base del parque"
+          "structure": "Sendero empinado sin servicios garantizados en la cima"
         }
       },
       "he": {
         "title": "פסגת באפי (Pico do Baepi)",
-        "subtitle": "טיפוס לפסגת ההר בגובה 1,048 מטר עם תצפית פנורמית 360°",
-        "description": "הפסגה המפורסמת ביותר באיליאבלה מציעה את אחת התצפיות היפות ביותר בברזיל. מסלול תלול ומאתגר בתוך יער גשם עשיר עד לפסגת הסלעים החולשת על כל הארכיפלג.",
+        "subtitle": "מסלול קשה של 5.5–6 שעות עם מדריך חובה",
+        "description": "שביל פסגת באפי מתחיל בסוף רחוב מורו דה קרוז באיטגואסו ומטפס ביער עד לפסגה בגובה 1,048 מטר. לפי הפארק המדינתי אורך המסלול 7–8 ק״מ, משכו 5.5–6 שעות, דרגת הקושי גבוהה, ונדרשים מדריך והזמנה מקוונת. נקודת תצפית במרחק כ־400 מטר מהכניסה אינה זהה לעלייה המלאה לפסגה. יש לכבד את שעות השביל ולא לתכנן ירידה בחשכה.",
         "highlights": [
-          "תצפית 360° עוצרת נשימה על כל האי והים",
-          "תחושת הישג וספורט מאתגר",
-          "מגוון ביולוגי עשיר של יער הגשם",
-          "עננים ונופי שקיעה מעל המים"
+          "מדריך חובה והזמנה מקוונת",
+          "7–8 ק״מ, 5.5–6 שעות",
+          "נקודת תצפית כ־400 מטר מהכניסה",
+          "פסגה בגובה 1,048 מטר עם נוף פנורמי"
         ],
-        "ecoTip": "קחו לפחות 2 ליטר מים לאדם, חטיפי אנרגיה וביגוד חם לפסגה.",
+        "ecoTip": "הזמינו מדריך מוסמך והביאו מים, נעליים מתאימות וביגוד חם. אל תתכננו טיפוס לקראת השקיעה.",
         "specs": {
-          "distance": "7.4 ק״מ (הלוך וחזור)",
-          "duration": "4.5–6 שעות",
+          "distance": "7–8 ק״מ (הפארק המדינתי)",
+          "duration": "5.5–6 שעות (הפארק המדינתי)",
           "elevation": "גובה +1,048 מ׳",
-          "access": "תחילה בשכונת Itaguaçu (פארק המדינה של Ilhabela)",
+          "access": "סוף רחוב מורו דה קרוז באיטגואסו; מדריך חובה",
           "sea": "לא רלוונטי (פסגה עם נוף של 360° לתעלה, לאוקיינוס ול-Serra do Mar)",
-          "structure": "ללא תשתיות במסלול; נקודת סיוע ורישום בבסיס הפארק"
+          "structure": "שביל תלול ללא שירותים מובטחים בפסגה"
         }
       }
     },

@@ -4,7 +4,7 @@ const vm = require('node:vm');
 const {execFileSync} = require('node:child_process');
 // Approved routing and translated catalog after #25/#26, before this technical fix.
 const base = '6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f';
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
+const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi']);
 
 function load(baseline) {
   const context = vm.createContext({console, translations: Object.fromEntries(['pt','en','fr','es','he'].map(l => [l, {}]))});
@@ -40,12 +40,13 @@ for (const id of ids) {
 assert.equal(vm.runInContext("resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-bonete'), 'pedestrian')",current),null, 'Never route pedestrians directly to Bonete without a supported access option');
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'trilha-da-agua-branca').routing.roadRoutable",current),false);
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'trilha-da-agua-branca').routing.accessOptions[0].gateway.verified",current),true);
-const trailContent = "JSON.stringify((({routing, ...content}) => content)(touristSpots.find(s => s.id === 'trilha-da-agua-branca')))";
-assert.equal(vm.runInContext(trailContent,current),vm.runInContext(trailContent,previous),'Agua Branca trail content changed');
+const trailContent = "JSON.stringify((({id,category,image,images,coords}) => ({id,category,image,images,coords}))(touristSpots.find(s => s.id === 'trilha-da-agua-branca')))";
+assert.equal(vm.runInContext(trailContent,current),vm.runInContext(trailContent,previous),'Agua Branca media/coordinates changed');
 assert.equal(vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",current),vm.runInContext("touristSpots.find(s => s.id === 'cachoeira-dos-tres-tombos').routing.accessOptions[0].gateway.verified",previous), 'Preserve approved gateway verification');
 require('./audit-waterfall-safety.cjs');
 require('./audit-waterfall-factual-02.cjs');
-console.log(`Fallback regression OK: ${ids.length} attractions, 6 modes, full operational facts preserved; 3 safety editorials separately audited.`);
+require('./audit-trails-factual-01.cjs');
+console.log(`Fallback regression OK: ${ids.length} attractions, 6 modes, full operational facts preserved; 11 editorial attractions separately audited.`);
 const catalog = vm.createContext({console});
 for (const file of ['data.js','additional-spots.js']) vm.runInContext(fs.readFileSync(file,'utf8'),catalog);
 console.log(vm.runInContext(`JSON.stringify(touristSpots.reduce((a,s)=>{const r=s.routing;const k=r.accessOptions?.length?'explicit':r.gatewayId?'gateway':r.roadRoutable?'direct':'pending';(a[k]??=[]).push(s.id);return a;},{}),null,2)`,catalog));

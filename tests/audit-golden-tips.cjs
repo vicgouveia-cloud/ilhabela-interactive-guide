@@ -6,7 +6,7 @@ const { execFileSync } = require('node:child_process');
 const ROOT = path.resolve(__dirname, '..');
 const BASE = 'f66a6fbcce8cbeb4b09400604ce7e41e274c55f2';
 const files = ['data.js', 'additional-spots.js', 'translations.js'];
-const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo']);
+const APPROVED_EDITORIAL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi']);
 function load(read) {
   const c = vm.createContext({ console, document: { addEventListener() {} } });
   for (const file of files) vm.runInContext(read(file), c);
@@ -15,15 +15,16 @@ function load(read) {
 const current = load(f => fs.readFileSync(path.join(ROOT, f), 'utf8'));
 const previous = load(f => execFileSync('git', ['show', `${BASE}:${f}`], { cwd: ROOT, encoding: 'utf8', maxBuffer: 10e6 }));
 const approved = load(f => execFileSync('git', ['show', '6c48fd8:' + f], {cwd:ROOT, encoding:'utf8', maxBuffer:10e6}));
-// Only the three safety-reviewed waterfall entries may differ from the approved catalog.
+// Only the eleven explicitly reviewed attraction records may differ from the approved catalog.
 // Every other attraction, all guides and the complete UI locale dictionary remain exact.
-const withoutSafetyEdits = item => ({...item, touristSpots:item.touristSpots.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id))});
+const withoutSafetyEdits = item => ({...item, touristSpots:item.touristSpots.filter(s=>!APPROVED_EDITORIAL_IDS.has(s.id))});
 assert.deepEqual(current.touristSpots.map(s=>s.id),approved.touristSpots.map(s=>s.id),'all attraction ids and ordering preserved');
-assert.deepEqual(withoutSafetyEdits(current), withoutSafetyEdits(approved), 'Approved catalog and UI preserved except three separately audited waterfall entries');
+assert.deepEqual(withoutSafetyEdits(current), withoutSafetyEdits(approved), 'Approved catalog and UI preserved except eleven independently audited attraction entries');
 require('./audit-waterfall-safety.cjs');
 require('./audit-waterfall-factual-02.cjs');
-const originalEcoTips = items => items.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id)).map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]);
-assert.deepEqual(originalEcoTips(current.touristSpots),originalEcoTips(previous.touristSpots),'210 historic ecoTips preserved; eight corrected waterfalls covered by dedicated audits');
+require('./audit-trails-factual-01.cjs');
+const originalEcoTips = items => items.filter(s=>!APPROVED_EDITORIAL_IDS.has(s.id)).map(s=>[s.id,...['pt','en','es','fr','he'].map(lang=>s.translations[lang].ecoTip)]);
+assert.deepEqual(originalEcoTips(current.touristSpots),originalEcoTips(previous.touristSpots),'195 historic ecoTips preserved; eight waterfalls and three trails covered by dedicated audits');
 assert.equal(current.touristSpots.length, 50);
 for (const spot of current.touristSpots) for (const lang of ['pt','en','es','fr','he']) {
   assert.equal(typeof spot.translations[lang].ecoTip, 'string');
@@ -34,6 +35,6 @@ assert(!app.includes('bg-amber-50 border border-amber-200 space-y-1'),'Removed g
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
   const old = execFileSync('git', ['show', `6c48fd8:${file}`], { cwd: ROOT });
-  if (!EDITORIAL_WATERFALL_IDS.has(id)) assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
+  if (!APPROVED_EDITORIAL_IDS.has(id)) assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
 }
-console.log('Golden tips OK: 210 historic ecoTips and 42 original attraction pages unchanged; 8 reviewed waterfalls protected by dedicated audits.');
+console.log('Golden tips OK: 195 historic ecoTips and 39 original attraction pages unchanged; 11 editorial attractions protected by dedicated audits.');

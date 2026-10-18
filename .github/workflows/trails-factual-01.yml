@@ -1,0 +1,80 @@
+name: Trails factual 01 validation
+
+on:
+  push:
+    branches:
+      - audit/trails-factual-01-20261018
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: trails-factual-01-${{ github.sha }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout PR branch
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Fetch historical baseline commits referenced by audits
+        shell: bash
+        run: |
+          set -euo pipefail
+          for sha in \
+            f66a6fbcce8cbeb4b09400604ce7e41e274c55f2 \
+            565d20ebf05926328e87bc416c650737311bb0cf \
+            07b970870dc6544494aa08e5aa965b31ec1f9f71 \
+            1a7613e4c0273deca5094a6e5842d9461be50c51 \
+            6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f
+          do
+            git fetch --no-tags origin "$sha"
+            git cat-file -e "$sha^{commit}"
+          done
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci
+      - name: Check syntax of modified scripts
+        run: |
+          node --check data.js
+          node --check tests/audit-waterfall-safety.cjs
+          node --check tests/audit-waterfall-factual-02.cjs
+          node --check tests/audit-trails-factual-01.cjs
+          node --check additional-spots.js
+          node --check scripts/generate-attraction-pages.cjs
+      - name: Trail facts and prior waterfall regression gates
+        run: |
+          node tests/audit-waterfall-safety.cjs
+          node tests/audit-waterfall-factual-02.cjs
+          node tests/audit-trails-factual-01.cjs
+      - name: Run all repository audits
+        id: audits
+        run: npm run test:audits
+      - name: Install Chromium for browser tests
+        if: always()
+        run: npx playwright install --with-deps chromium
+      - name: Run complete audit and Playwright suite
+        if: success()
+        run: npm test
+      - name: Run Playwright independently if auditors fail
+        if: failure() && steps.audits.outcome == 'failure'
+        run: npx playwright test
+      - name: Upload failure diagnostics
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: trail-factual-test-diagnostics
+          path: |
+            playwright-report/
+            test-results/
+          if-no-files-found: ignore
+          retention-days: 7
