@@ -86,11 +86,27 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
+// The three independently sourced waterfall safety corrections are the ONLY
+// post-approval exceptions. The full expected values live in a reviewed fixture.
+const safetyExceptions = require('./fixtures/waterfall-safety-overrides.json').attractions;
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
 for (const group of ['touristSpots','guidesData']) {
-  assert.deepEqual(data[group].map(withoutTranslations),baseline[group].map(withoutTranslations),group+' immutable facts');
+  const expectedFacts = baseline[group].map(old => {
+    const facts = structuredClone(withoutTranslations(old));
+    if (group === 'touristSpots' && safetyExceptions[old.id]) {
+      facts.tags = safetyExceptions[old.id].tags;
+      facts.specs = safetyExceptions[old.id].specs;
+    }
+    return facts;
+  });
+  assert.deepEqual(data[group].map(withoutTranslations),expectedFacts,group+' immutable facts except reviewed waterfall safety corrections');
   baseline[group].forEach((old,i)=>{
-    for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
+    for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) {
+      let expected=structuredClone(value);
+      if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]);
+      if(group==='touristSpots' && safetyExceptions[old.id]) expected=structuredClone(safetyExceptions[old.id].translations[lang][key]);
+      assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key);
+    }
   });
 }
 // Services use the last approved full service architecture; attractions/guides retain the historic contract above.

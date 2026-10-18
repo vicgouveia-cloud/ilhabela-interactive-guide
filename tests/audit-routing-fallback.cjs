@@ -11,6 +11,7 @@ function load(baseline) {
   }
   return context;
 }
+const safety = require('./fixtures/waterfall-safety-overrides.json').attractions;
 const current = load(false), previous = load(true);
 const ids = vm.runInContext('touristSpots.map(s => s.id)', current);
 for (const id of ids) {
@@ -30,7 +31,16 @@ for (const id of ids) {
   }
   if (id !== 'trilha-da-agua-branca') {
     const expression = `JSON.stringify(touristSpots.find(s => s.id === ${JSON.stringify(id)}))`;
-    assert.equal(vm.runInContext(expression,current), vm.runInContext(expression,previous), `${id} routing changed`);
+    const actual=JSON.parse(vm.runInContext(expression,current));
+    const historic=JSON.parse(vm.runInContext(expression,previous));
+    if(safety[id]) {
+      // No route, gateway, coordinates, photo or non-safety fields may change.
+      for(const field of Object.keys(historic)){
+        if(['tags','specs','translations'].includes(field))continue;
+        assert.deepEqual(actual[field],historic[field],id+' '+field+' routing/other facts unchanged');
+      }
+      for(const field of ['tags','specs','translations'])assert.deepEqual(actual[field],safety[id][field],id+' '+field+' reviewed exception');
+    } else assert.deepEqual(actual,historic,id+' routing and content changed');
   }
 }
 assert.equal(vm.runInContext("resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-bonete'), 'pedestrian')",current),null, 'Never route pedestrians directly to Bonete without a supported access option');

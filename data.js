@@ -2178,7 +2178,7 @@ const touristSpots = [
       "Queda 40m",
       "Trilha na Mata",
       "Castelhanos",
-      "Poço Amplo"
+      "Banho: Poço do Gordo"
     ],
     "attributes": {
       "isDiving": false,
@@ -2191,112 +2191,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "moderate",
-      "distance": "2 km a partir de Castelhanos",
-      "duration": "45 min de caminhada",
-      "elevation": "+90m",
-      "access": "Início no canto esquerdo da Baía de Castelhanos",
-      "sea": "Não se aplica (Queda de 40 metros em meio à floresta)",
-      "structure": "Sem estrutura; trilha sinalizada com passarelas e pontes de madeira suspensas"
+      "distance": "De 4 a 5 km (trilha)",
+      "duration": "1h a 1h30 (percurso)",
+      "elevation": "Desnível não informado pelo Parque",
+      "access": "Trilha desde a Ponta do Gato, no Canto do Ribeirão da Baía de Castelhanos; chegada à baía por barco ou estrada com 4x4",
+      "sea": "Não se aplica; queda principal somente para contemplação. Banho no Poço do Gordo.",
+      "structure": "Trilha na Mata Atlântica com travessia por ponte pênsil"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira do Gato",
-        "subtitle": "Imponente queda de 40 metros na Baía de Castelhanos",
-        "description": "Uma das maiores e mais volumosas quedas d água de Ilhabela. A trilha parte da praia de Castelhanos e cruza passarelas suspensas cercadas por samambaias gigantes e árvores centenárias.",
+        "subtitle": "Queda principal para contemplação na Baía de Castelhanos",
+        "description": "A trilha parte da Ponta do Gato, no Canto do Ribeirão em Castelhanos, e passa por uma ponte pênsil. A queda principal é somente para contemplação; o banho é destinado ao Poço do Gordo.",
         "highlights": [
-          "Queda colossal de 40 metros",
-          "Poço amplo para banho refrescante",
-          "Trilha com pontes suspensas",
-          "Observação de aves raras"
+          "Cachoeira para contemplação",
+          "Banho destinado ao Poço do Gordo",
+          "Trilha na Mata Atlântica com ponte pênsil",
+          "Percurso moderado de 1h a 1h30"
         ],
         "ecoTip": "Trilha dentro do Parque Estadual. Mantenha-se na rota demarcada.",
         "specs": {
-          "distance": "2 km a partir de Castelhanos",
-          "duration": "45 min de caminhada",
-          "elevation": "+90m",
-          "access": "Início no canto esquerdo da Baía de Castelhanos",
-          "sea": "Não se aplica (Queda de 40 metros em meio à floresta)",
-          "structure": "Sem estrutura; trilha sinalizada com passarelas e pontes de madeira suspensas"
+          "distance": "De 4 a 5 km de trilha",
+          "duration": "1h a 1h30 (percurso)",
+          "elevation": "Desnível não informado pelo Parque",
+          "access": "Início na Ponta do Gato, Canto do Ribeirão, Castelhanos; chegada à baía por barco ou 4x4",
+          "sea": "Queda principal somente para contemplação; banho no Poço do Gordo",
+          "structure": "Ponte pênsil e trilha na Mata Atlântica"
         }
       },
       "en": {
         "title": "Cat Waterfall (Cachoeira do Gato)",
-        "subtitle": "Magnificent 130-foot cascade in Castelhanos Bay",
-        "description": "One of the tallest and most powerful waterfalls on the island. The trail starts from Castelhanos beach, passing wooden bridges and giant ferns in the heart of primary rainforest.",
+        "subtitle": "Main waterfall for viewing only in Castelhanos Bay",
+        "description": "The trail starts at Ponta do Gato, in Canto do Ribeirão in Castelhanos, and crosses a suspension bridge. The main waterfall is for viewing only; swimming is designated for Poço do Gordo.",
         "highlights": [
-          "Colossal 40-meter waterfall",
-          "Large refreshing swimming pool",
-          "Scenic suspension bridge paths",
-          "Rare tropical birdwatching"
+          "Main waterfall for viewing only",
+          "Swimming designated for Poço do Gordo",
+          "Atlantic Forest trail with a suspension bridge",
+          "Moderate walk of 1 to 1.5 hours"
         ],
         "ecoTip": "State Park protected zone. Stay on marked trails.",
         "specs": {
-          "distance": "2 km from Castelhanos",
-          "duration": "45 min walk",
-          "elevation": "+90 m",
-          "access": "Starts at the left end of Baía de Castelhanos",
-          "sea": "Not applicable (40 m waterfall in the forest)",
-          "structure": "No facilities; marked trail with walkways and suspended wooden bridges"
+          "distance": "4 to 5 km of trail",
+          "duration": "1 to 1.5 hours (route)",
+          "elevation": "Elevation gain not specified by the park",
+          "access": "Start at Ponta do Gato, Canto do Ribeirão, Castelhanos; reach the bay by boat or 4x4",
+          "sea": "Main waterfall for viewing only; swimming at Poço do Gordo",
+          "structure": "Suspension bridge and Atlantic Forest trail"
         }
       },
       "fr": {
         "title": "Cascade du Chat (Cachoeira do Gato)",
-        "subtitle": "Majestueuse chute de 40 mètres à Castelhanos",
-        "description": "L une des plus hautes cascades d Ilhabela. Le sentier commence à la baie de Castelhanos et traverse des ponts suspendus sous une canopée tropicale luxuriante.",
+        "subtitle": "Cascade principale réservée à la contemplation à Castelhanos",
+        "description": "Le sentier part de Ponta do Gato, au Canto do Ribeirão à Castelhanos, et traverse un pont suspendu. La cascade principale est réservée à la contemplation ; la baignade est prévue au Poço do Gordo.",
         "highlights": [
-          "Chute monumentale de 40 mètres",
-          "Grand bassin pour une baignade vivifiante",
-          "Passerelles en bois suspendues",
-          "Observation d oiseaux tropicaux"
+          "Cascade principale réservée à la contemplation",
+          "Baignade prévue au Poço do Gordo",
+          "Sentier en forêt atlantique avec pont suspendu",
+          "Parcours modéré de 1 h à 1 h 30"
         ],
         "ecoTip": "Zone protégée du Parc d État. Restez sur le sentier balisé.",
         "specs": {
-          "distance": "2 km depuis Castelhanos",
-          "duration": "45 min de marche",
-          "elevation": "+90 m",
-          "access": "Départ à l’extrémité gauche de Baía de Castelhanos",
-          "sea": "Sans objet (cascade de 40 m au cœur de la forêt)",
-          "structure": "Sans équipements ; sentier balisé avec passerelles et ponts suspendus en bois"
+          "distance": "4 à 5 km de sentier",
+          "duration": "1 h à 1 h 30 (parcours)",
+          "elevation": "Dénivelé non précisé par le parc",
+          "access": "Départ à Ponta do Gato, Canto do Ribeirão, Castelhanos ; accès à la baie par bateau ou 4x4",
+          "sea": "Cascade principale réservée à la contemplation ; baignade au Poço do Gordo",
+          "structure": "Pont suspendu et sentier en forêt atlantique"
         }
       },
       "es": {
         "title": "Cascada do Gato",
-        "subtitle": "Imponente caída de 40 metros en Castelhanos",
-        "description": "Una de las cascadas más grandes y caudalosas de la isla. El sendero parte desde la playa de Castelhanos a través de puentes colgantes rodeados de selva virgen.",
+        "subtitle": "Cascada principal solo para contemplación en Castelhanos",
+        "description": "El sendero parte de Ponta do Gato, en Canto do Ribeirão, Castelhanos, y cruza un puente colgante. La cascada principal es solo para contemplación; el baño se realiza en el Poço do Gordo.",
         "highlights": [
-          "Impresionante caída de 40 metros",
-          "Poza profunda para nadar",
-          "Sendero con puentes de madera",
-          "Avistamiento de aves silvestres"
+          "Cascada principal solo para contemplación",
+          "Baño en el Poço do Gordo",
+          "Sendero en la Mata Atlántica con puente colgante",
+          "Recorrido moderado de 1 a 1,5 horas"
         ],
         "ecoTip": "Zona del Parque Estatal. Respeta el sendero marcado y no dejes basura.",
         "specs": {
-          "distance": "2 km desde Castelhanos",
-          "duration": "45 min caminando",
-          "elevation": "+90 m",
-          "access": "Inicio en el extremo izquierdo de Baía de Castelhanos",
-          "sea": "No corresponde (cascada de 40 m en el bosque)",
-          "structure": "Sin infraestructura; sendero señalizado con pasarelas y puentes colgantes de madera"
+          "distance": "De 4 a 5 km de sendero",
+          "duration": "De 1 a 1,5 horas (recorrido)",
+          "elevation": "Desnivel no indicado por el parque",
+          "access": "Inicio en Ponta do Gato, Canto do Ribeirão, Castelhanos; acceso a la bahía en barco o 4x4",
+          "sea": "Cascada principal solo para contemplación; baño en Poço do Gordo",
+          "structure": "Puente colgante y sendero por la Mata Atlántica"
         }
       },
       "he": {
         "title": "מפל החתול (Cachoeira do Gato)",
-        "subtitle": "מפל מים שוצף בגובה 40 מטר במפרץ קסטליאנוס",
-        "description": "אחד המפלים הגבוהים והמרשימים ביותר באיליאבלה. המסלול יוצא ישירות מחוף קסטליאנוס ועובר דרך גשרי עץ תלויים בתוך יער גשם בתולי.",
+        "subtitle": "המפל הראשי לתצפית בלבד במפרץ קסטליאנוס",
+        "description": "השביל מתחיל בפונטה דו גאטו, בקאנטו דו ריבייראו שבקסטליאנוס, ועובר בגשר תלוי. המפל הראשי מיועד לצפייה בלבד; הרחצה מיועדת לפוסו דו גורדו.",
         "highlights": [
-          "מפל ענק בגובה 40 מטר",
-          "בריכת שחייה טבעית גדולה ומרעננת",
-          "גשרים תלויים וצמחייה טרופית",
-          "תצפיות על ציפורים נדירות"
+          "המפל הראשי מיועד לתצפית בלבד",
+          "רחצה בפוסו דו גורדו",
+          "שביל ביער האטלנטי עם גשר תלוי",
+          "מסלול בדרגת קושי בינונית, שעה עד שעה וחצי"
         ],
         "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים.",
         "specs": {
-          "distance": "2 ק״מ מ-Castelhanos",
-          "duration": "45 דקות הליכה",
-          "elevation": "+90 מ׳",
-          "access": "תחילה בקצה השמאלי של Baía de Castelhanos",
-          "sea": "לא רלוונטי (מפל בגובה 40 מ׳ בתוך היער)",
-          "structure": "ללא תשתיות; שביל מסומן עם מעברים וגשרי עץ תלויים"
+          "distance": "4 עד 5 ק״מ בשביל",
+          "duration": "שעה עד שעה וחצי (מסלול)",
+          "elevation": "הפרש הגבהים אינו מצוין במידע הפארק",
+          "access": "תחילת השביל בפונטה דו גאטו, קאנטו דו ריבייראו, קסטליאנוס; הגעה למפרץ בסירה או ברכב 4x4",
+          "sea": "המפל הראשי לתצפית בלבד; רחצה בפוסו דו גורדו",
+          "structure": "גשר תלוי ושביל ביער האטלנטי"
         }
       }
     },
@@ -2316,9 +2316,9 @@ const touristSpots = [
     "image": "assets/images/cachoeira-dos-tres-tombos_1.jpg",
     "tags": [
       "Fácil Acesso",
-      "Família",
+      "Trilha Curta",
       "Três Quedas",
-      "Ducha Natural"
+      "3º Poço: Contemplação"
     ],
     "attributes": {
       "isDiving": false,
@@ -2331,112 +2331,112 @@ const touristSpots = [
     },
     "specs": {
       "difficulty": "easy",
-      "distance": "400m de caminhada leve",
-      "duration": "10 min",
-      "elevation": "+30m",
-      "access": "Acesso asfaltado próximo à Praia da Feiticeira",
-      "sea": "Não se aplica (Três quedas e duchas naturais)",
-      "structure": "Estacionamento próximo e passarela inicial de madeira"
+      "distance": "Aproximadamente 720 m (ida e volta)",
+      "duration": "Caminhada curta; duração variável",
+      "elevation": "Desnível não informado pela Prefeitura",
+      "access": "Acesso por trilha curta perto da Praia da Feiticeira; orientação de guia local recomendada. Terceiro poço apenas para contemplação.",
+      "sea": "Não se aplica (conjunto de três quedas)",
+      "structure": "Estacionamento próximo à primeira queda; respeite a sinalização e as áreas de restrição"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira dos Três Tombos",
-        "subtitle": "Perfeita para famílias, crianças e banho de ducha natural",
-        "description": "Composta por 3 quedas distintas a poucos metros uma da outra. A primeira queda conta com um poço amplo de águas calmas e uma ducha natural de fácil acesso para todas as idades.",
+        "subtitle": "Trilha curta com restrições de segurança no terceiro poço",
+        "description": "Próxima à Praia da Feiticeira, a Cachoeira dos Três Tombos tem três quedas e trilha curta de cerca de 720 m ida e volta. A Prefeitura recomenda guia local. O terceiro poço foi liberado somente para contemplação, com distância da queda e sinalização de segurança.",
         "highlights": [
-          "Acesso super fácil e rápido",
-          "Ótima para crianças e idosos",
-          "Ducha natural sob a queda d água",
-          "Poço raso e seguro"
+          "Trilha curta de baixa dificuldade",
+          "Guia local recomendado pela Prefeitura",
+          "Banho possível em trecho inicial conforme condições e sinalização",
+          "Terceiro poço apenas para contemplação"
         ],
-        "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira.",
+        "ecoTip": "Respeite placas e áreas restritas. O terceiro poço é destinado somente à contemplação; evite permanecer sob a queda.",
         "specs": {
-          "distance": "400m de caminhada leve",
-          "duration": "10 min",
-          "elevation": "+30m",
-          "access": "Acesso asfaltado próximo à Praia da Feiticeira",
-          "sea": "Não se aplica (Três quedas e duchas naturais)",
-          "structure": "Estacionamento próximo e passarela inicial de madeira"
+          "distance": "Cerca de 720 m (ida e volta)",
+          "duration": "Caminhada curta; tempo variável",
+          "elevation": "Desnível não informado pela Prefeitura",
+          "access": "Trilha perto da Praia da Feiticeira; a Prefeitura recomenda guia local",
+          "sea": "Não se aplica (três quedas d’água)",
+          "structure": "Estacionamento próximo; respeitar sinalização e restrições de acesso"
         }
       },
       "en": {
         "title": "Três Tombos Waterfall",
-        "subtitle": "Family-friendly triple cascades with natural massage showers",
-        "description": "Features three separate falls within short walking distance. The main pool is shallow, safe, and easily accessible for families with children and seniors.",
+        "subtitle": "Short trail with safety restrictions at the third pool",
+        "description": "Near Praia da Feiticeira, Três Tombos has three falls and a short, roughly 720 m return trail. The municipality recommends a local guide. The third pool is open for viewing only, with safety signage and a required distance from the waterfall.",
         "highlights": [
-          "Very easy and short walk",
-          "Safe for kids and all ages",
-          "Natural invigorating shower cascade",
-          "Calm and shallow pool"
+          "Short, low-difficulty trail",
+          "Local guide recommended by the municipality",
+          "Bathing possible near the beginning, subject to local conditions and signs",
+          "Third pool for viewing only"
         ],
-        "ecoTip": "Great refreshing stop right next to Feiticeira beach.",
+        "ecoTip": "Follow warning signs and restricted areas. The third pool is for viewing only; stay away from the waterfall face.",
         "specs": {
-          "distance": "400 m easy walk",
-          "duration": "10 min",
-          "elevation": "+30 m",
-          "access": "Paved access near Praia da Feiticeira",
-          "sea": "Not applicable (three waterfalls and natural showers)",
-          "structure": "Nearby parking and an initial wooden walkway"
+          "distance": "About 720 m (round trip)",
+          "duration": "Short walk; time varies",
+          "elevation": "Elevation gain not specified by the municipality",
+          "access": "Trail near Praia da Feiticeira; the municipality recommends a local guide",
+          "sea": "Not applicable (three cascades)",
+          "structure": "Nearby parking; obey access restrictions and safety signs"
         }
       },
       "fr": {
         "title": "Cascade des Trois Tombos",
-        "subtitle": "Idéale pour les familles et douche naturelle sous la chute",
-        "description": "Composée de 3 cascades successives très faciles d accès. Le premier bassin peu profond permet une baignade en toute sécurité pour petits et grands.",
+        "subtitle": "Court sentier avec restrictions de sécurité au troisième bassin",
+        "description": "Près de Praia da Feiticeira, Três Tombos compte trois cascades et un court sentier d’environ 720 m aller-retour. La mairie recommande un guide local. Le troisième bassin n’est ouvert qu’à la contemplation, avec une distance à respecter et une signalisation de sécurité.",
         "highlights": [
-          "Accès très facile et rapide",
-          "Parfait pour enfants et seniors",
-          "Massage naturel sous la cascade",
-          "Bassin calme et peu profond"
+          "Sentier court de faible difficulté",
+          "Guide local recommandé par la mairie",
+          "Baignade possible au début selon les conditions et la signalisation",
+          "Troisième bassin réservé à la contemplation"
         ],
-        "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira.",
+        "ecoTip": "Respectez les panneaux et les zones interdites. Le troisième bassin est réservé à la contemplation ; restez éloignés de la chute.",
         "specs": {
-          "distance": "400 m de marche facile",
-          "duration": "10 min",
-          "elevation": "+30 m",
-          "access": "Accès goudronné près de Praia da Feiticeira",
-          "sea": "Sans objet (trois cascades et douches naturelles)",
-          "structure": "Parking à proximité et passerelle initiale en bois"
+          "distance": "Environ 720 m (aller-retour)",
+          "duration": "Petite marche ; durée variable",
+          "elevation": "Dénivelé non indiqué par la mairie",
+          "access": "Sentier proche de Praia da Feiticeira ; un guide local est recommandé",
+          "sea": "Sans objet (trois cascades)",
+          "structure": "Stationnement à proximité ; respecter les panneaux et les restrictions"
         }
       },
       "es": {
         "title": "Cascada de los Tres Tombos",
-        "subtitle": "Ideal para familias con duchas naturales refrescantes",
-        "description": "Compuesta por 3 caídas sucesivas a pasos de la entrada. Su poza principal es poco profunda y segura, ideal para relajarse bajo el chorro de agua natural.",
+        "subtitle": "Sendero corto con restricciones de seguridad en la tercera poza",
+        "description": "Cerca de Praia da Feiticeira, Três Tombos tiene tres cascadas y un sendero corto de unos 720 m ida y vuelta. El municipio recomienda guía local. La tercera poza está abierta solo para contemplación, manteniendo distancia de la caída y respetando la señalización.",
         "highlights": [
-          "Acceso fácil y muy corto",
-          "Apta para todas las edades",
-          "Ducha natural relajante",
-          "Poza segura y tranquila"
+          "Sendero corto de baja dificultad",
+          "Guía local recomendado por el municipio",
+          "Baño posible al inicio según condiciones y señalización",
+          "Tercera poza solo para contemplación"
         ],
-        "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira.",
+        "ecoTip": "Respeta las señales y las zonas restringidas. La tercera poza es solo para contemplación; mantente lejos de la caída.",
         "specs": {
-          "distance": "400 m de caminata fácil",
-          "duration": "10 min",
-          "elevation": "+30 m",
-          "access": "Acceso asfaltado cerca de Praia da Feiticeira",
-          "sea": "No corresponde (tres cascadas y duchas naturales)",
-          "structure": "Estacionamiento cercano y pasarela inicial de madera"
+          "distance": "Unos 720 m (ida y vuelta)",
+          "duration": "Caminata corta; tiempo variable",
+          "elevation": "Desnivel no informado por el municipio",
+          "access": "Sendero cerca de Praia da Feiticeira; se recomienda guía local",
+          "sea": "No corresponde (tres cascadas)",
+          "structure": "Estacionamiento cercano; respetar señales y restricciones"
         }
       },
       "he": {
         "title": "מפל שלושת השלבים (Cachoeira dos Três Tombos)",
-        "subtitle": "מושלם למשפחות עם ילדים ורחצה מרעננת",
-        "description": "שלושה מפלים סמוכים במרחק הליכה קצרה וקלה ביותר. הבריכה הראשונה רדודה, בטוחה וכוללת מקלחת מים טבעית מושלמת לכל המשפחה.",
+        "subtitle": "שביל קצר עם הגבלות בטיחות בבריכה השלישית",
+        "description": "ליד חוף פייטיסיירה נמצאים שלושה מפלים ושביל קצר של כ-720 מטר הלוך ושוב. העירייה ממליצה על מדריך מקומי. הבריכה השלישית פתוחה לצפייה בלבד, תוך שמירת מרחק מהמפל וציות לשילוט הבטיחות.",
         "highlights": [
-          "הגעה קלה ומהירה של 10 דקות",
-          "מתאים ביותר לילדים ולכל גיל",
-          "מקלחת מים טבעית",
-          "בריכה רדודה ובטוחה"
+          "שביל קצר בדרגת קושי קלה",
+          "העירייה ממליצה על מדריך מקומי",
+          "רחצה אפשרית בתחילת השביל בכפוף לתנאים ולשילוט",
+          "הבריכה השלישית לתצפית בלבד"
         ],
-        "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה.",
+        "ecoTip": "יש לציית לשלטים ולהגבלות. הבריכה השלישית מיועדת לצפייה בלבד; התרחקו מקיר המפל.",
         "specs": {
-          "distance": "400 מ׳ של הליכה קלה",
-          "duration": "10 דקות",
-          "elevation": "+30 מ׳",
-          "access": "גישה סלולה ליד Praia da Feiticeira",
-          "sea": "לא רלוונטי (שלושה מפלים ומקלחות טבעיות)",
-          "structure": "חניה סמוכה ומעבר עץ בתחילת הדרך"
+          "distance": "כ-720 מטר הלוך ושוב",
+          "duration": "הליכה קצרה; משך הזמן משתנה",
+          "elevation": "הפרש הגבהים אינו מצוין במידע העירייה",
+          "access": "שביל ליד חוף פייטיסיירה; העירייה ממליצה על מדריך מקומי",
+          "sea": "לא רלוונטי (שלושה מפלים)",
+          "structure": "חניה בקרבת מקום; יש לציית לשילוט ולהגבלות"
         }
       }
     },
@@ -2457,8 +2457,8 @@ const touristSpots = [
     "tags": [
       "Vista do Canal",
       "Norte da Ilha",
-      "Trilha Panorâmica",
-      "Ducha"
+      "Trilha Difícil",
+      "Monitoria Obrigatória"
     ],
     "attributes": {
       "isDiving": false,
@@ -2470,113 +2470,113 @@ const touristSpots = [
       "is4x4": false
     },
     "specs": {
-      "difficulty": "moderate",
-      "distance": "1.5 km (trilha)",
-      "duration": "35 min",
-      "elevation": "+140m",
-      "access": "Início no bairro da Praia da Siriúba (norte)",
-      "sea": "Não se aplica (Ducha natural sobre rochas com vista do canal)",
-      "structure": "Trilha nativa entre bambuzais e mata atlântica"
+      "difficulty": "hard",
+      "distance": "De 2 a 3 km (trilha)",
+      "duration": "1h30 a 2h (percurso)",
+      "elevation": "Desnível não informado pelo Parque",
+      "access": "Trilha no fim da Alameda dos Pássaros, Siriúba; inicia após trecho urbanizado em condomínio. Monitoria obrigatória.",
+      "sea": "Não se aplica (cachoeira de aproximadamente 25 m)",
+      "structure": "Mata Atlântica, riacho e trecho de sapezal; monitoria obrigatória"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira da Friagem",
-        "subtitle": "Ducha natural refrescante no norte com vista do canal de São Sebastião",
-        "description": "Localizada no norte da ilha a partir da Siriúba, a trilha sobe em meio a bambuzais até uma queda de 25 metros que se despenha sobre pedras lisas com vista para o canal.",
+        "subtitle": "Trilha difícil e monitorada até cachoeira na Siriúba",
+        "description": "Na região da Siriúba, a trilha da Friagem exige monitoria e tem percurso classificado como difícil, de 1h30 a 2h. O acesso começa após trecho urbanizado no fim da Alameda dos Pássaros, seguindo pela Mata Atlântica.",
         "highlights": [
-          "Vista panorâmica do canal de São Sebastião",
-          "Ducha natural revigorante",
-          "Trilha sombreada e fresca",
-          "Pouco movimentada e privativa"
+          "Monitoria obrigatória segundo o Parque Estadual",
+          "Percurso difícil de 1h30 a 2h",
+          "Vista para o Canal de São Sebastião",
+          "Trilha por mata, riacho e sapezal"
         ],
-        "ecoTip": "Traga água potável e use repelente.",
+        "ecoTip": "A monitoria é obrigatória segundo o Parque Estadual. Confirme acesso, agendamento e condições da trilha antes de sair.",
         "specs": {
-          "distance": "1.5 km (trilha)",
-          "duration": "35 min",
-          "elevation": "+140m",
-          "access": "Início no bairro da Praia da Siriúba (norte)",
-          "sea": "Não se aplica (Ducha natural sobre rochas com vista do canal)",
-          "structure": "Trilha nativa entre bambuzais e mata atlântica"
+          "distance": "De 2 a 3 km de trilha",
+          "duration": "1h30 a 2h (percurso)",
+          "elevation": "Desnível não informado pelo Parque",
+          "access": "Fim da Alameda dos Pássaros, na Siriúba; acesso pela área de condomínio, com monitoria obrigatória",
+          "sea": "Não se aplica (cachoeira de cerca de 25 m)",
+          "structure": "Trilha por Mata Atlântica, riacho e sapezal"
         }
       },
       "en": {
         "title": "Friagem Waterfall (Cachoeira da Friagem)",
-        "subtitle": "Northern mountain shower cascade with sea channel views",
-        "description": "Located in the north near Siriúba, this serene trail ascends through lush bamboo groves to a 80-foot cascade spilling over granite rocks with panoramic coastal views.",
+        "subtitle": "Difficult guided trail to a waterfall in Siriúba",
+        "description": "In the Siriúba area, the Friagem trail requires a guide and is rated difficult, taking 1.5 to 2 hours. The trail begins beyond the developed section at the end of Alameda dos Pássaros and continues through the Atlantic Forest.",
         "highlights": [
-          "Panoramic sea channel vista",
-          "Invigorating natural power shower",
-          "Shaded cool bamboo trail",
-          "Quiet and private atmosphere"
+          "Guided supervision required by the State Park",
+          "Difficult route lasting 1.5 to 2 hours",
+          "Views of the São Sebastião Channel",
+          "Forest trail crossing a stream and grassland"
         ],
-        "ecoTip": "Bring drinking water and insect repellent.",
+        "ecoTip": "The State Park requires guided supervision. Confirm access, booking and trail conditions before setting out.",
         "specs": {
-          "distance": "1.5 km (trail)",
-          "duration": "35 min",
-          "elevation": "+140 m",
-          "access": "Starts in the Praia da Siriúba neighborhood (north)",
-          "sea": "Not applicable (natural shower over rocks overlooking the channel)",
-          "structure": "Native trail through bamboo groves and Atlantic Forest"
+          "distance": "2 to 3 km of trail",
+          "duration": "1.5 to 2 hours (route)",
+          "elevation": "Elevation gain not specified by the park",
+          "access": "End of Alameda dos Pássaros in Siriúba; access via condominium area, guided supervision required",
+          "sea": "Not applicable (approximately 25 m waterfall)",
+          "structure": "Atlantic Forest trail with stream crossing and grassy section"
         }
       },
       "fr": {
         "title": "Cascade da Friagem",
-        "subtitle": "Douche naturelle rafraîchissante avec vue sur le canal marin",
-        "description": "Située au nord près de Siriúba, le sentier monte à travers les bambous vers une chute de 25 mètres offrant une vue splendide sur le canal.",
+        "subtitle": "Sentier difficile avec accompagnement obligatoire à Siriúba",
+        "description": "Dans la région de Siriúba, le sentier de la Friagem exige un accompagnement et est classé difficile, avec un parcours de 1 h 30 à 2 h. Il commence après la zone urbanisée, au bout de l’Alameda dos Pássaros, puis traverse la forêt atlantique.",
         "highlights": [
-          "Vue panoramique sur le canal",
-          "Douche naturelle énergisante",
-          "Sentier ombragé agréable",
-          "Site calme et peu fréquenté"
+          "Accompagnement obligatoire selon le parc",
+          "Parcours difficile de 1 h 30 à 2 h",
+          "Vue sur le canal de São Sebastião",
+          "Sentier en forêt, ruisseau et végétation ouverte"
         ],
-        "ecoTip": "Prévoyez de l eau et un répulsif.",
+        "ecoTip": "L’accompagnement est obligatoire selon le parc. Vérifiez les conditions d’accès, la réservation et l’état du sentier.",
         "specs": {
-          "distance": "1,5 km (sentier)",
-          "duration": "35 min",
-          "elevation": "+140 m",
-          "access": "Départ du quartier Praia da Siriúba (nord)",
-          "sea": "Sans objet (douche naturelle sur les rochers avec vue sur le canal)",
-          "structure": "Sentier naturel entre bambouseraies et forêt atlantique"
+          "distance": "2 à 3 km de sentier",
+          "duration": "1 h 30 à 2 h (parcours)",
+          "elevation": "Dénivelé non précisé par le parc",
+          "access": "Fin de l’Alameda dos Pássaros à Siriúba, accès par un lotissement ; accompagnement obligatoire",
+          "sea": "Sans objet (cascade d’environ 25 m)",
+          "structure": "Sentier en forêt atlantique, ruisseau et végétation ouverte"
         }
       },
       "es": {
         "title": "Cascada da Friagem",
-        "subtitle": "Ducha natural refrescante con vistas panorámicas al canal",
-        "description": "Ubicada en el norte de la isla, el sendero sube entre cañaverales de bambú hasta una caída de 25 metros con vistas al mar.",
+        "subtitle": "Sendero difícil con monitoría obligatoria en Siriúba",
+        "description": "En la zona de Siriúba, el sendero de Friagem requiere acompañamiento y está clasificado como difícil, con un recorrido de 1 h 30 a 2 h. Comienza tras el tramo urbanizado al final de Alameda dos Pássaros y sigue por la Mata Atlántica.",
         "highlights": [
-          "Vista panorámica al canal de São Sebastião",
-          "Ducha natural revitalizante",
-          "Sendero fresco con sombra",
-          "Ambiente tranquilo y privado"
+          "Monitoría obligatoria según el parque",
+          "Recorrido difícil de 1 h 30 a 2 h",
+          "Vistas al canal de São Sebastião",
+          "Sendero por bosque, arroyo y pastizal"
         ],
-        "ecoTip": "Lleva agua y repelente.",
+        "ecoTip": "El parque exige monitoría. Confirma las condiciones de acceso, la reserva y el estado del sendero antes de salir.",
         "specs": {
-          "distance": "1,5 km (sendero)",
-          "duration": "35 min",
-          "elevation": "+140 m",
-          "access": "Inicio en el barrio Praia da Siriúba (norte)",
-          "sea": "No corresponde (ducha natural sobre rocas con vista al canal)",
-          "structure": "Sendero natural entre bambúes y Mata Atlántica"
+          "distance": "De 2 a 3 km de sendero",
+          "duration": "De 1 h 30 a 2 h (recorrido)",
+          "elevation": "Desnivel no indicado por el parque",
+          "access": "Final de Alameda dos Pássaros en Siriúba; acceso por zona de condominio con monitoría obligatoria",
+          "sea": "No corresponde (cascada de unos 25 m)",
+          "structure": "Sendero por Mata Atlántica, arroyo y pastizal"
         }
       },
       "he": {
         "title": "מפל פריאז׳ם (Cachoeira da Friagem)",
-        "subtitle": "מפל מים מרענן בצפון האי עם נוף פנורמי לתעלת הים",
-        "description": "ממוקם בצפון האי מעל חוף סיריאובה. המסלול עולה בין עצי חזרן (במבוק) אל מפל בגובה 25 מטר הנשפך על סלעי גרניט ומשקיף אל הים.",
+        "subtitle": "מסלול קשה למפל באזור סיריאובה בליווי חובה",
+        "description": "באזור סיריאובה, מסלול פריאז׳ם מחייב ליווי ונחשב קשה, עם זמן הליכה של שעה וחצי עד שעתיים. השביל מתחיל אחרי הקטע הבנוי בסוף אלמדה דוס פאסארוס וממשיך ביער האטלנטי.",
         "highlights": [
-          "נוף פנורמי אל תעלת הים",
-          "מקלחת מים טבעית ממריצה",
-          "שביל מוצל וקריר",
-          "אתר שקט ואינטימי"
+          "ליווי חובה לפי הנהלת הפארק",
+          "מסלול קשה של שעה וחצי עד שעתיים",
+          "נוף לתעלת סאו סבסטיאו",
+          "שביל ביער וחציית נחל ושטח עשבוני"
         ],
-        "ecoTip": "קחו מים לשתייה וחומר דוחה יתושים.",
+        "ecoTip": "הפארק דורש ליווי. יש לוודא אפשרות כניסה, הזמנה ומצב השביל לפני היציאה.",
         "specs": {
-          "distance": "1.5 ק״מ (שביל)",
-          "duration": "35 דקות",
-          "elevation": "+140 מ׳",
-          "access": "תחילה בשכונת Praia da Siriúba (צפון)",
-          "sea": "לא רלוונטי (מקלחת טבעית על סלעים עם נוף לתעלה)",
-          "structure": "שביל טבעי בין חורשות במבוק והיער האטלנטי"
+          "distance": "2 עד 3 ק״מ בשביל",
+          "duration": "שעה וחצי עד שעתיים (מסלול)",
+          "elevation": "הפרש הגבהים אינו מצוין במידע הפארק",
+          "access": "סוף אלמדה דוס פאסארוס בסיריאובה; מעבר באזור מגורים עם ליווי חובה",
+          "sea": "לא רלוונטי (מפל בגובה כ-25 מטר)",
+          "structure": "שביל ביער האטלנטי, חציית נחל ושטח עשבוני"
         }
       }
     },
