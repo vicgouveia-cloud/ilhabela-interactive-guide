@@ -170,21 +170,21 @@
     }
   },
   "trilha-da-agua-branca": {
-    "copy": "Guarita do Parque Estadual de Ilhabela (Estrada de Castelhanos)",
+    "copy": "A navegação rodoviária termina no acesso previamente validado da Estrada de Castelhanos (-23.839249751545807, -45.36002116037754). Continue apenas pela trilha de visitantes; são cerca de 3,6 km ida e volta, segundo a Prefeitura. Confirme agendamento e regras do Parque antes de ir.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/trilha-da-agua-branca/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://www.ilhabela.sp.gov.br/portal/noticias/0/3/16722/trilhas-em-ilhabela-veja-algumas-opcoes-de-diferentes-niveis-de-dificuldade-para-conhecer",
+      "verification": "editorial trail guidance reviewed against official source 2026-10-18; existing navigation gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
   },
   "trilha-do-bonete": {
-    "copy": "Início na Ponta da Sepituba (extremo sul da ilha)",
+    "copy": "A entrada oficial da trilha fica na guarita no final da SP-131, Sepituba. São cerca de 12 km só de ida ao Bonete (24 km ida e volta). Confirme agendamento no Parque e planeje a volta; o retorno de barco depende de operador e condições do mar.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/trilha-do-bonete/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-bonete/",
+      "verification": "editorial trail guidance reviewed against official source 2026-10-18; existing navigation gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
@@ -220,11 +220,11 @@
     }
   },
   "pico-do-baepi": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.802132860104887, -45.35514446231041); o trecho final continua a pé ou por trilha conforme a atração. Início no bairro do Itaguaçu (Parque Estadual de Ilhabela)",
+    "copy": "O ponto rodoviário anteriormente validado (-23.802132860104887, -45.35514446231041) não substitui a entrada oficial informada pelo Parque, no final da Rua Morro da Cruz, em Itaguaçu. Monitoria obrigatória, agendamento online e horários específicos. O mirante a 400 m é diferente da subida ao pico.",
     "provenance": {
       "kind": "preserved-editorial-copy",
-      "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/pico-do-baepi/index.html",
-      "verification": "not-revalidated",
+      "reference": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-do-pico-do-baepi/",
+      "verification": "editorial trail guidance reviewed against official source 2026-10-18; existing navigation gateway not revalidated",
       "pendingEmbarkation": false,
       "pendingAccess": false
     }
