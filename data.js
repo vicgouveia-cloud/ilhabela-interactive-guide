@@ -2330,111 +2330,111 @@ const touristSpots = [
       "is4x4": false
     },
     "specs": {
-      "difficulty": "easy",
-      "distance": "400m de caminhada leve",
-      "duration": "10 min",
+      "difficulty": "moderate",
+      "distance": "até 1 km (trilha)",
+      "duration": "até 1h (percurso)",
       "elevation": "+30m",
-      "access": "Acesso asfaltado próximo à Praia da Feiticeira",
+      "access": "Guarita no final da Alameda dos Guapuruvus, Feiticeira; monitoria obrigatória",
       "sea": "Não se aplica (Três quedas e duchas naturais)",
       "structure": "Estacionamento próximo e passarela inicial de madeira"
     },
     "translations": {
       "pt": {
         "title": "Cachoeira dos Três Tombos",
-        "subtitle": "Perfeita para famílias, crianças e banho de ducha natural",
-        "description": "Composta por 3 quedas distintas a poucos metros uma da outra. A primeira queda conta com um poço amplo de águas calmas e uma ducha natural de fácil acesso para todas as idades.",
+        "subtitle": "Três quedas na Feiticeira com monitoria obrigatória",
+        "description": "Na Feiticeira, a Trilha da Pancada d'Água (Três Tombos) reúne três quedas em meio à Mata Atlântica. O acompanhamento de monitor ambiental é obrigatório. O terceiro poço, reaberto sob restrições de segurança após avaliação geológica, é somente para contemplação, a uma distância segura da queda.",
         "highlights": [
-          "Acesso super fácil e rápido",
-          "Ótima para crianças e idosos",
-          "Ducha natural sob a queda d água",
-          "Poço raso e seguro"
+          "Três quedas na Mata Atlântica",
+          "Monitor ambiental obrigatório",
+          "Terceiro poço: somente contemplação",
+          "Cuidado com pedras escorregadias"
         ],
-        "ecoTip": "Ideal para um mergulho refrescante após um dia de praia na Feiticeira.",
+        "ecoTip": "Respeite as placas de segurança e mantenha distância da terceira queda. Não entre no terceiro poço; adie a visita sob chuva forte.",
         "specs": {
-          "distance": "400m de caminhada leve",
-          "duration": "10 min",
+          "distance": "até 1 km (trilha)",
+          "duration": "até 1h (percurso)",
           "elevation": "+30m",
-          "access": "Acesso asfaltado próximo à Praia da Feiticeira",
+          "access": "Guarita no final da Alameda dos Guapuruvus, Feiticeira; monitoria obrigatória",
           "sea": "Não se aplica (Três quedas e duchas naturais)",
           "structure": "Estacionamento próximo e passarela inicial de madeira"
         }
       },
       "en": {
         "title": "Três Tombos Waterfall",
-        "subtitle": "Family-friendly triple cascades with natural massage showers",
-        "description": "Features three separate falls within short walking distance. The main pool is shallow, safe, and easily accessible for families with children and seniors.",
+        "subtitle": "Three waterfalls in Feiticeira: guide required",
+        "description": "In Feiticeira, the Pancada d'Água (Três Tombos) trail connects three waterfalls in the Atlantic Forest. An environmental guide is mandatory. The third pool, reopened with safety restrictions after a geological assessment, is for viewing only; keep a safe distance from the falls.",
         "highlights": [
-          "Very easy and short walk",
-          "Safe for kids and all ages",
-          "Natural invigorating shower cascade",
-          "Calm and shallow pool"
+          "Three waterfalls in the Atlantic Forest",
+          "Environmental guide required",
+          "Third pool: viewing only",
+          "Beware of slippery rocks"
         ],
-        "ecoTip": "Great refreshing stop right next to Feiticeira beach.",
+        "ecoTip": "Follow safety signs and keep away from the third waterfall. Do not enter the third pool; postpone the visit in heavy rain.",
         "specs": {
-          "distance": "400 m easy walk",
-          "duration": "10 min",
+          "distance": "up to 1 km (trail)",
+          "duration": "up to 1 hour (route)",
           "elevation": "+30 m",
-          "access": "Paved access near Praia da Feiticeira",
+          "access": "Entrance gate at the end of Alameda dos Guapuruvus, Feiticeira; guide required",
           "sea": "Not applicable (three waterfalls and natural showers)",
           "structure": "Nearby parking and an initial wooden walkway"
         }
       },
       "fr": {
         "title": "Cascade des Trois Tombos",
-        "subtitle": "Idéale pour les familles et douche naturelle sous la chute",
-        "description": "Composée de 3 cascades successives très faciles d accès. Le premier bassin peu profond permet une baignade en toute sécurité pour petits et grands.",
+        "subtitle": "Trois cascades à Feiticeira : accompagnement obligatoire",
+        "description": "À Feiticeira, le sentier da Pancada d'Água (Três Tombos) relie trois cascades en forêt atlantique. Un accompagnateur environnemental est obligatoire. Le troisième bassin, rouvert sous restrictions après une étude géologique, est réservé à la contemplation ; restez à distance de la chute.",
         "highlights": [
-          "Accès très facile et rapide",
-          "Parfait pour enfants et seniors",
-          "Massage naturel sous la cascade",
-          "Bassin calme et peu profond"
+          "Trois cascades en forêt atlantique",
+          "Accompagnateur obligatoire",
+          "Troisième bassin : contemplation uniquement",
+          "Attention aux rochers glissants"
         ],
-        "ecoTip": "Parfait pour se rafraîchir après la plage de Feiticeira.",
+        "ecoTip": "Respectez les panneaux de sécurité et restez loin de la troisième chute. N'entrez pas dans le troisième bassin ; reportez la visite en cas de fortes pluies.",
         "specs": {
-          "distance": "400 m de marche facile",
-          "duration": "10 min",
+          "distance": "jusqu'à 1 km (sentier)",
+          "duration": "jusqu'à 1 h (parcours)",
           "elevation": "+30 m",
-          "access": "Accès goudronné près de Praia da Feiticeira",
+          "access": "Guérite au bout de l'Alameda dos Guapuruvus, Feiticeira ; accompagnateur obligatoire",
           "sea": "Sans objet (trois cascades et douches naturelles)",
           "structure": "Parking à proximité et passerelle initiale en bois"
         }
       },
       "es": {
         "title": "Cascada de los Tres Tombos",
-        "subtitle": "Ideal para familias con duchas naturales refrescantes",
-        "description": "Compuesta por 3 caídas sucesivas a pasos de la entrada. Su poza principal es poco profunda y segura, ideal para relajarse bajo el chorro de agua natural.",
+        "subtitle": "Tres cascadas en Feiticeira: monitor obligatorio",
+        "description": "En Feiticeira, el sendero da Pancada d'Água (Três Tombos) une tres cascadas en la Mata Atlántica. Es obligatorio ir con monitor ambiental. La tercera poza, reabierta con restricciones tras una evaluación geológica, es solo para contemplación; mantén una distancia segura de la caída.",
         "highlights": [
-          "Acceso fácil y muy corto",
-          "Apta para todas las edades",
-          "Ducha natural relajante",
-          "Poza segura y tranquila"
+          "Tres cascadas en la Mata Atlántica",
+          "Monitor ambiental obligatorio",
+          "Tercera poza: solo contemplación",
+          "Precaución con rocas resbaladizas"
         ],
-        "ecoTip": "Excelente parada después de disfrutar la playa da Feiticeira.",
+        "ecoTip": "Respeta las señales de seguridad y aléjate de la tercera caída. No entres en la tercera poza; aplaza la visita con lluvia fuerte.",
         "specs": {
-          "distance": "400 m de caminata fácil",
-          "duration": "10 min",
+          "distance": "hasta 1 km (sendero)",
+          "duration": "hasta 1 h (recorrido)",
           "elevation": "+30 m",
-          "access": "Acceso asfaltado cerca de Praia da Feiticeira",
+          "access": "Guarita al final de Alameda dos Guapuruvus, Feiticeira; monitor obligatorio",
           "sea": "No corresponde (tres cascadas y duchas naturales)",
           "structure": "Estacionamiento cercano y pasarela inicial de madera"
         }
       },
       "he": {
         "title": "מפל שלושת השלבים (Cachoeira dos Três Tombos)",
-        "subtitle": "מושלם למשפחות עם ילדים ורחצה מרעננת",
-        "description": "שלושה מפלים סמוכים במרחק הליכה קצרה וקלה ביותר. הבריכה הראשונה רדודה, בטוחה וכוללת מקלחת מים טבעית מושלמת לכל המשפחה.",
+        "subtitle": "שלושה מפלים בפייטיסיירה: חובה בליווי מדריך",
+        "description": "בפייטיסיירה, שביל פנקאדה ד׳אגואה (טרס טומבוס) עובר ליד שלושה מפלים ביער האטלנטי. חובה בליווי מדריך סביבתי. הבריכה השלישית נפתחה מחדש תחת מגבלות בטיחות לאחר בדיקה גאולוגית והיא מיועדת לתצפית בלבד, תוך שמירה על מרחק בטוח מהמפל.",
         "highlights": [
-          "הגעה קלה ומהירה של 10 דקות",
-          "מתאים ביותר לילדים ולכל גיל",
-          "מקלחת מים טבעית",
-          "בריכה רדודה ובטוחה"
+          "שלושה מפלים ביער האטלנטי",
+          "מדריך סביבתי חובה",
+          "הבריכה השלישית לתצפית בלבד",
+          "זהירות מסלעים חלקלקים"
         ],
-        "ecoTip": "מומלץ לשלב עצירה מרעננת לאחר ביקור בחוף פייטיסיירה.",
+        "ecoTip": "יש להישמע לשילוט ולהתרחק מהמפל השלישי. אין להיכנס לבריכה השלישית; דחו ביקור בגשם כבד.",
         "specs": {
-          "distance": "400 מ׳ של הליכה קלה",
-          "duration": "10 דקות",
+          "distance": "עד 1 ק״מ (שביל)",
+          "duration": "עד שעה (מסלול)",
           "elevation": "+30 מ׳",
-          "access": "גישה סלולה ליד Praia da Feiticeira",
+          "access": "שער הכניסה בסוף Alameda dos Guapuruvus בפייטיסיירה; מדריך חובה",
           "sea": "לא רלוונטי (שלושה מפלים ומקלחות טבעיות)",
           "structure": "חניה סמוכה ומעבר עץ בתחילת הדרך"
         }
