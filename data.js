@@ -2249,7 +2249,7 @@ const touristSpots = [
           "Sentier en forêt atlantique avec pont suspendu",
           "Parcours modéré de 1 h à 1 h 30"
         ],
-        "ecoTip": "Zone protégée du parc d’État. Restez sur les sentiers balisés.",
+        "ecoTip": "Zone protégée du Parc d État. Restez sur le sentier balisé.",
         "specs": {
           "distance": "4 à 5 km de sentier",
           "duration": "1 h à 1 h 30 (parcours)",
@@ -2269,7 +2269,7 @@ const touristSpots = [
           "Sendero en la Mata Atlántica con puente colgante",
           "Recorrido moderado de 1 a 1,5 horas"
         ],
-        "ecoTip": "Zona protegida del Parque Estatal. Respeta los senderos señalizados.",
+        "ecoTip": "Zona del Parque Estatal. Respeta el sendero marcado y no dejes basura.",
         "specs": {
           "distance": "De 4 a 5 km de sendero",
           "duration": "De 1 a 1,5 horas (recorrido)",
@@ -2289,7 +2289,7 @@ const touristSpots = [
           "שביל ביער האטלנטי עם גשר תלוי",
           "מסלול בדרגת קושי בינונית, שעה עד שעה וחצי"
         ],
-        "ecoTip": "השביל נמצא בשמורת טבע מוגנת. הישארו במסלול המסומן.",
+        "ecoTip": "שמורה מוגנת בפארק הלאומי. הישארו בשבילים המסומנים.",
         "specs": {
           "distance": "4 עד 5 ק״מ בשביל",
           "duration": "שעה עד שעה וחצי (מסלול)",
