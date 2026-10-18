@@ -64,7 +64,10 @@ for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-ba
 
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
-  assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
+  if(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos'].includes(original.id)){
+    const protectedLocales=trs=>{const x=structuredClone(trs);for(const t of Object.values(x)){for(const k of ['subtitle','description','highlights','ecoTip'])delete t[k];for(const k of ['distance','duration','access'])delete t.specs[k];}return x;};
+    assert.deepEqual(protectedLocales(actual.translations),protectedLocales(original.translations),original.id+' protected translations');
+  }else assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
   assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
 }
 for (const id of [

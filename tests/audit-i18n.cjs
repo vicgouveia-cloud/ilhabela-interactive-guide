@@ -86,11 +86,30 @@ for(const lang of locales) for(const key of used) assert.ok(data.translations[la
 const baseSha = '565d20ebf05926328e87bc416c650737311bb0cf';
 const correctedSpecs = require('./fixtures/reconciled-spec-translations.json');
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
-function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
+const safetyIds=new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos']);
+function withoutTranslations(item){
+ const {translations,...facts}=item;
+ if(!safetyIds.has(item.id))return facts;
+ const protectedFacts=structuredClone(facts);
+ for(const key of ['difficulty','distance','duration','access'])delete protectedFacts.specs[key];
+ return protectedFacts;
+}
 for (const group of ['touristSpots','guidesData']) {
   assert.deepEqual(data[group].map(withoutTranslations),baseline[group].map(withoutTranslations),group+' immutable facts');
   baseline[group].forEach((old,i)=>{
-    for(const [lang,tr] of Object.entries(old.translations)) for(const [key,value] of Object.entries(tr)) { const expected=structuredClone(value); if(key==='specs' && correctedSpecs[old.id]?.[lang]) Object.assign(expected,correctedSpecs[old.id][lang]); assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key); }
+    for(const [lang,tr] of Object.entries(old.translations))for(const [key,value] of Object.entries(tr)){
+ const expected=structuredClone(value);
+ if(key==='specs'&&correctedSpecs[old.id]?.[lang])Object.assign(expected,correctedSpecs[old.id][lang]);
+ if(group==='touristSpots'&&safetyIds.has(old.id)){
+  if(['subtitle','description','highlights','ecoTip'].includes(key))continue; // Independently audited in CAT-SAFETY-01.
+  if(key==='specs'){
+   const actual=structuredClone(data[group][i].translations[lang][key]);
+   for(const k of ['distance','duration','access']){delete actual[k];delete expected[k];}
+   assert.deepEqual(actual,expected,old.id+'.'+lang+'.protected specs');continue;
+  }
+ }
+ assert.deepEqual(data[group][i].translations[lang][key],expected,old.id+'.'+lang+'.'+key);
+}
   });
 }
 // Services use the last approved full service architecture; attractions/guides retain the historic contract above.

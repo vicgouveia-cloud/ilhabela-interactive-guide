@@ -150,23 +150,27 @@
     }
   },
   "cachoeira-dos-tres-tombos": {
-    "copy": "A navegação terrestre termina no acesso validado (-23.854116510544785, -45.405701165557744); o trecho final continua a pé ou por trilha conforme a atração. Acesso asfaltado próximo à Praia da Feiticeira",
+    "copy": "A navegação terrestre termina no acesso validado (-23.854116510544785, -45.405701165557744); o trecho final continua a pé. A guarita oficial fica no final da Alameda dos Guapuruvus, Feiticeira. Monitoria obrigatória; terceiro poço somente para contemplação.",
     "provenance": {
       "kind": "preserved-editorial-copy",
       "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-dos-tres-tombos/index.html",
       "verification": "not-revalidated",
       "pendingEmbarkation": false,
-      "pendingAccess": false
+      "pendingAccess": false,
+      "officialSource": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-cachoeira-pancada-dagua/",
+      "reviewedAt": "2026-10-18"
     }
   },
   "cachoeira-da-friagem": {
-    "copy": "Início no bairro da Praia da Siriúba (norte)",
+    "copy": "A trilha tem referência de entrada ao final da Alameda dos Pássaros, na Siriúba, depois do trecho urbanizado. Monitoria ambiental obrigatória; a transição exata ainda não foi georreferenciada neste guia.",
     "provenance": {
       "kind": "preserved-editorial-copy",
       "reference": "bf877d6f0fa4ee393211c620ebd9439cce379dbe:lugares/cachoeira-da-friagem/index.html",
       "verification": "not-revalidated",
       "pendingEmbarkation": false,
-      "pendingAccess": false
+      "pendingAccess": false,
+      "officialSource": "https://guiadeareasprotegidas.sp.gov.br/trilha/trilha-da-friagem/",
+      "reviewedAt": "2026-10-18"
     }
   },
   "trilha-da-agua-branca": {
