@@ -48,3 +48,14 @@ O primeiro preview (1fe456f, dpl_G8oCxWeDABJtB4jsvcJc2EWUPNvU) concluiu o build,
 ## Verificação de publicação
 
 Após a integração, confirmar o SHA de main e o deployment Production concluído na integração Vercel/GitHub. Executar node scripts/verify-deployed-seo.cjs https://ilhabelatrip.com: verifica HTTP, indexabilidade e igualdade do HTML das 290 páginas e dos assets com o build validado. Repetir os cenários internacionais apontando PREVIEW_URL para o site público. Estado final, SHAs e evidências ficam no relatório de execução do projeto, sem gerar deploy adicional apenas para registrar o resultado.
+
+## Produção validada
+
+O PR #39 foi integrado em dbcf6d04a953274eeb4a3bd702e7f887789c851c. O deployment dpl_9NJQ2K8cJBHe2rBVymp2QXT1aXsp ficou READY em production, associado a ilhabelatrip.com e www.ilhabelatrip.com. A integração GitHub/Vercel confirmou o mesmo SHA.
+
+- 290/290 páginas HTTP 200, indexáveis, com HTML igual ao build validado; 18 bundles JS/CSS iguais.
+- Sitemap e robots HTTP 200 e iguais ao build; 290 URLs no sitemap.
+- 25/25 cenários internacionais em produção, incluindo desktop/mobile, RTL, serviços, roteiros, CTAs, mapa, imagens e conteúdo sem JavaScript; zero pageerrors.
+- A primeira rodada em produção teve duas falhas de sincronização: consultava complete antes da imagem terminar de carregar. Os traces registram HTTP 200 e as capturas mostram a imagem carregada. O teste passou a aguardar image.decode(), que rejeita imagens inválidas; a asserção de complete/naturalWidth e a exigência de zero pageerrors permanecem. A nova rodada passou em 51,4 segundos. Nenhum skip foi adicionado.
+
+A correção final acima altera somente teste e documentação; a saída pública permanece byte a byte idêntica. O relatório de execução local registra o SHA final de main e o deployment final para evitar um novo commit apenas para atualizar o próprio identificador.

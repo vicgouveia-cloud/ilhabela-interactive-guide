@@ -12,6 +12,7 @@ for(const lang of ['en','es','fr','he'])for(const width of [390,1440]){
     await page.locator('article[data-spot="praia-do-curral"] h2 a').click();
     await expect(page).toHaveURL(new RegExp('/'+lang+'/lugares/praia-do-curral/'));
     await expect(page.locator('h1')).not.toBeEmpty();
+    await page.locator('.hero').evaluate(img=>img.decode());
     expect(await page.locator('.hero').evaluate(img=>img.complete&&img.naturalWidth>0)).toBe(true);
     expect(await page.evaluate(()=>document.documentElement.scrollWidth<=innerWidth+1)).toBe(true);
     await page.screenshot({path:info.outputPath(`attraction-${lang}-${width}.png`),fullPage:true});
