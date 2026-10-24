@@ -2,7 +2,7 @@
   "name": "ilhabela-interactive-guide",
   "private": true,
   "scripts": {
-    "test": "npm run test:audits && node --require ./tests/strict-browser.cjs node_modules/@playwright/test/cli.js test",
+    "test": "npm run build && npm run test:audits && node --require ./tests/strict-browser.cjs node_modules/@playwright/test/cli.js test",
     "test:audit": "node tests/audit-i18n.cjs",
     "test:e2e": "playwright test",
     "dev": "node tests/server.cjs",
@@ -11,7 +11,7 @@
     "build:seo": "node scripts/generate-attraction-pages.cjs && node scripts/generate-discovery-hub.cjs && node scripts/generate-category-hubs.cjs && node scripts/generate-itinerary-hubs.cjs && node scripts/generate-international.cjs",
     "test:audits": "node tests/run-audits.cjs",
     "build:assets": "node scripts/build-assets.cjs",
-    "build": "npm run build:assets && npm run build:seo"
+    "build": "npm run build:assets && npm run build:seo && node scripts/export-public.cjs"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",

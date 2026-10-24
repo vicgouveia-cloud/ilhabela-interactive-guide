@@ -37,6 +37,14 @@ O parser transitivo de CSS foi fixado em 7.1.6: npm audit sem vulnerabilidades; 
 - Inspeção visual de capturas desktop/mobile; fotos e RTL conferidos. Capturas automáticas passaram a usar o diretório de resultados do teste em vez de um caminho pessoal externo.
 - Build, dados estruturados, links, sitemap, serviços, Israel, Porto/Tempero, origem, rotas, storage, mapas, agenda, galeria, contato e idiomas cobertos.
 
+## Empacotamento Vercel
+
+O primeiro preview (1fe456f, dpl_G8oCxWeDABJtB4jsvcJc2EWUPNvU) concluiu o build, mas falhou por ausência da saída public exigida pela plataforma. A correção declara buildCommand/outputDirectory em vercel.json e exporta somente páginas, scripts/CSS públicos, robots, sitemap e assets para public/. Ferramentas, testes, dependências e arquivos privados de desenvolvimento não entram na saída estática.
+
+- 31/31 auditorias após a correção, incluindo 462 arquivos públicos byte a byte idênticos ao build validado.
+- 25/25 casos internacionais repetidos contra o servidor usando a pasta public/, em vez das fontes.
+- npm test passa a gerar o build antes das auditorias e do navegador.
+
 ## Verificação de publicação
 
 Após a integração, confirmar o SHA de main e o deployment Production concluído na integração Vercel/GitHub. Executar node scripts/verify-deployed-seo.cjs https://ilhabelatrip.com: verifica HTTP, indexabilidade e igualdade do HTML das 290 páginas e dos assets com o build validado. Repetir os cenários internacionais apontando PREVIEW_URL para o site público. Estado final, SHAs e evidências ficam no relatório de execução do projeto, sem gerar deploy adicional apenas para registrar o resultado.
