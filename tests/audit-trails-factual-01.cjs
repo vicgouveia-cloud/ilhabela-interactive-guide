@@ -75,6 +75,6 @@ assert(baepi.translations.pt.description.includes('400 metros'));
 for(const id of ['trilha-da-cabecuda-farol','piscinas-naturais-do-sul','mirante-do-baepi']){
  const now=fresh.find(x=>x.id===id),prev=historical.find(x=>x.id===id);
  assert.deepEqual(now,prev,id+' unexpectedly edited');
- assert.equal(read('lugares/'+id+'/index.html'),old('lugares/'+id+'/index.html'),id+' static unexpectedly edited');
+ assert.equal(require('../scripts/seo-common.cjs').metadata(read('lugares/'+id+'/index.html'), '/'+('lugares/'+id+'/index.html').replace('index.html','')),require('../scripts/seo-common.cjs').metadata(old('lugares/'+id+'/index.html'), '/'+('lugares/'+id+'/index.html').replace('index.html','')),id+' static unexpectedly edited');
 }
 console.log('TRAIL-FACTUAL-01 PASS: 3 factual attractions × 5 languages, source, SEO, routing/media and 3 untouched neighbors.');

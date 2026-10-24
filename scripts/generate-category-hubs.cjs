@@ -38,6 +38,6 @@ document.addEventListener('click',function(event){
 });
 </script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
   fs.mkdirSync(path.join(ROOT, category), { recursive: true });
-  fs.writeFileSync(path.join(ROOT, category, 'index.html'), html);
+  fs.writeFileSync(path.join(ROOT, category, 'index.html'), require('./seo-common.cjs').metadata(html, '/' + category + '/'));
   console.log(`Generated ${category}/: ${selected.length} attractions.`);
 }

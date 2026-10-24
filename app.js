@@ -222,10 +222,10 @@ function initMap() {
     bounds: archipelagoBounds
   });
 
-  mapLayers.satellite.addTo(map);
-
   // Keep the initial and reset view focused on the municipality's archipelago.
   map.fitBounds([[-23.98, -45.46], [-23.69, -45.23]], { padding: [18, 18] });
+  // Attach tiles only after the final initial viewport, avoiding discarded initial requests.
+  mapLayers.satellite.addTo(map);
 
   // Invalidate size on container resize (fixes mobile orientation change / layout shifts)
   if (window.ResizeObserver) {

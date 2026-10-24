@@ -25,7 +25,7 @@ const memoryFs = {
   writeFileSync(file, html) { generated.set(file, html); }
 };
 vm.runInNewContext(fs.readFileSync(path.join(ROOT, 'scripts/generate-attraction-pages.cjs'), 'utf8'), {
-  require(name) { return name === 'node:fs' ? memoryFs : require(name); },
+  require(name) { return name === 'node:fs' ? memoryFs : name === './seo-common.cjs' ? require('../scripts/seo-common.cjs') : require(name); },
   __dirname: path.join(ROOT, 'scripts'), process: { env: {} }, console: { log() {} }
 });
 const esc = value => String(value).replace(/[&<>"']/g, ch => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[ch]));

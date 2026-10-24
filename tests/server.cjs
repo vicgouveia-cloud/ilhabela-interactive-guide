@@ -1,7 +1,7 @@
 const http = require('node:http');
 const fs = require('node:fs');
 const path = require('node:path');
-const root = path.resolve(__dirname, '..');
+const root = path.resolve(process.env.TEST_SITE_DIR || path.resolve(__dirname, '..'));
 const types = {'.html':'text/html', '.js':'text/javascript', '.css':'text/css', '.jpg':'image/jpeg', '.png':'image/png', '.webp':'image/webp'};
 http.createServer((request, response) => {
   const file = path.resolve(root, '.' + decodeURIComponent(new URL(request.url, 'http://localhost').pathname.replace(/\/$/, '/index.html')));

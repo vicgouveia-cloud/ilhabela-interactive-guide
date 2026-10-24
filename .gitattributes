@@ -1,0 +1,4 @@
+# Minified output preserves whitespace inside HTML template strings.
+# Review authored sources; keep generated bundles collapsed on GitHub.
+assets/build/** linguist-generated=true
+assets/build/*.js whitespace=-blank-at-eol

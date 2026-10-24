@@ -69,7 +69,7 @@ const marker='const touristSpots = ',from=baseData.indexOf(marker),to=baseData.i
 const oldVeloso=JSON.parse(baseData.slice(from+marker.length,to+1)).find(s=>s.id==='cachoeira-do-veloso');
 assert.deepEqual(raw.find(s=>s.id==='cachoeira-do-veloso'),oldVeloso,'Veloso must remain identical to main');
 for(const path of ['lugares/cachoeira-do-veloso/index.html']){
- assert.equal(read(path),execFileSync('git',['show',BASE+':'+path],{cwd:ROOT,encoding:'utf8'}),'Veloso static page must remain unchanged');
+ assert.equal(require('../scripts/seo-common.cjs').metadata(read(path), '/'+(path).replace('index.html','')),require('../scripts/seo-common.cjs').metadata(execFileSync('git',['show',BASE+':'+path],{cwd:ROOT,encoding:'utf8'}), '/'+(path).replace('index.html','')),'Veloso static page must remain unchanged');
 }
 const baseAccess=JSON.parse(execFileSync('git',['show',BASE+':scripts/attraction-access-copy.json'],{cwd:ROOT,encoding:'utf8'}));
 assert.deepEqual(access['cachoeira-do-veloso'],baseAccess['cachoeira-do-veloso'],'Veloso access unchanged');

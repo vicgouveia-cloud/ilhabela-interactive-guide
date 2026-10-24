@@ -98,6 +98,13 @@ for (const entry of fs.readdirSync(OUT, { withFileTypes:true })) {
 for (const { spot, html } of pages) {
   const dir = path.join(OUT, spot.id);
   fs.mkdirSync(dir, { recursive:true });
-  fs.writeFileSync(path.join(dir, 'index.html'), html);
+  const target = path.join(dir, 'index.html');
+  const decorate = source => require('./seo-common.cjs').metadata(source, '/lugares/' + spot.id + '/');
+  const generated = decorate(html);
+  const existing = fs.existsSync(target) ? decorate(fs.readFileSync(target,'utf8')) : null;
+  const semantic = node => node.nodeName === '#text' ? (node.value.trim() ? {text:node.value.replace(/\r\n/g,'\n')} : null) : {name:node.nodeName,attrs:node.attrs,children:(node.childNodes||[]).map(semantic).filter(Boolean)};
+  const parse = require('parse5').parse;
+  const same = existing && JSON.stringify(semantic(parse(existing))) === JSON.stringify(semantic(parse(generated)));
+  fs.writeFileSync(target, same ? existing : generated);
 }
 console.log(`Generated ${spots.length} attraction pages in lugares/.`);
