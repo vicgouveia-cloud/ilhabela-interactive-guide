@@ -2,18 +2,27 @@
   "name": "ilhabela-interactive-guide",
   "private": true,
   "scripts": {
-    "test": "npm run test:audits && playwright test",
+    "test": "npm run test:audits && node --require ./tests/strict-browser.cjs node_modules/@playwright/test/cli.js test",
     "test:audit": "node tests/audit-i18n.cjs",
     "test:e2e": "playwright test",
     "dev": "node tests/server.cjs",
     "build:attractions": "node scripts/generate-attraction-pages.cjs",
     "test:seo": "node tests/audit-attraction-generator.cjs && node tests/audit-reconciled-attractions.cjs && node tests/audit-attraction-images.cjs && node tests/audit-img01b-licensed-photos.cjs && node tests/audit-attraction-pages.cjs && node tests/audit-discovery-hub.cjs && node tests/audit-category-hubs.cjs && node tests/audit-itinerary-hubs.cjs && node tests/audit-routing-data.cjs && node tests/audit-sitemap.cjs && node tests/audit-seo-i18n.cjs && node scripts/audit-international-indexability.cjs",
-    "build:seo": "node scripts/generate-attraction-pages.cjs && node scripts/generate-discovery-hub.cjs && node scripts/generate-category-hubs.cjs && node scripts/generate-itinerary-hubs.cjs && node scripts/generate-i18n-pilot.cjs && node scripts/generate-sitemap.cjs",
-    "test:audits": "node tests/run-audits.cjs"
+    "build:seo": "node scripts/generate-attraction-pages.cjs && node scripts/generate-discovery-hub.cjs && node scripts/generate-category-hubs.cjs && node scripts/generate-itinerary-hubs.cjs && node scripts/generate-international.cjs",
+    "test:audits": "node tests/run-audits.cjs",
+    "build:assets": "node scripts/build-assets.cjs",
+    "build": "npm run build:assets && npm run build:seo"
   },
   "devDependencies": {
     "@playwright/test": "1.58.2",
     "acorn": "8.15.0",
-    "parse5": "7.3.0"
+    "esbuild": "0.25.12",
+    "leaflet": "1.9.4",
+    "leaflet.markercluster": "1.5.3",
+    "parse5": "7.3.0",
+    "tailwindcss": "3.4.17"
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.6"
   }
 }

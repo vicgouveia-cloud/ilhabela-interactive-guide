@@ -31,4 +31,4 @@ document.addEventListener('click',function(event){
   window.va('event',{name:'SEO Entry Action',data:{action:link.dataset.analytics}});
 });
 </script><script defer src="/_vercel/insights/script.js"></script><script defer src="/bottom-nav.js?v=1"></script></body></html>`;
-fs.mkdirSync(path.join(ROOT,'o-que-fazer'),{recursive:true});fs.writeFileSync(path.join(ROOT,'o-que-fazer','index.html'),html);console.log(`Generated discovery hub with ${spots.length} attractions.`);
+fs.mkdirSync(path.join(ROOT,'o-que-fazer'),{recursive:true});fs.writeFileSync(path.join(ROOT,'o-que-fazer','index.html'),require('./seo-common.cjs').metadata(html,'/o-que-fazer/'));console.log(`Generated discovery hub with ${spots.length} attractions.`);

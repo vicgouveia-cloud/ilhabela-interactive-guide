@@ -180,7 +180,7 @@ for (const width of [390, 1440]) for (const lang of locales) {
 }
 test('mobile clustering fallback keeps every attraction when the plugin is unavailable', async ({ page }) => {
   await page.setViewportSize({ width: 390, height: 844 });
-  await page.route('**/leaflet.markercluster.js', route => route.abort());
+  await page.route('**/assets/build/markercluster.js', route => route.abort());
   await page.goto('/');
   await page.waitForFunction(() => mapMarkers.length === touristSpots.length);
   expect(await page.evaluate(() => mapMarkerCluster)).toBeNull();

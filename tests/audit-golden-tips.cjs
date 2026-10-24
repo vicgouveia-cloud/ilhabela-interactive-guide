@@ -36,6 +36,6 @@ assert(!app.includes('bg-amber-50 border border-amber-200 space-y-1'),'Removed g
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
   const old = execFileSync('git', ['show', `6c48fd8:${file}`], { cwd: ROOT });
-  if (!APPROVED_EDITORIAL_IDS.has(id)) assert.equal(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), old.toString().replace(/\r\n/g, '\n'), `${id}: static page unchanged`);
+  if (!APPROVED_EDITORIAL_IDS.has(id)) assert.equal(require('../scripts/seo-common.cjs').metadata(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), require('../scripts/seo-common.cjs').metadata(old.toString().replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), `${id}: static page unchanged`);
 }
 console.log('Golden tips OK: 185 historic ecoTips and 37 original attraction pages unchanged; 13 editorial attractions protected by dedicated audits.');

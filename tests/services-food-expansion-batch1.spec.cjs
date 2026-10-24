@@ -10,7 +10,7 @@ const batch1Names = [
 
 for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
   for (const width of [320, 390, 1440]) {
-    test(`SVC-FOOD-01A: batch 1 food expansion discovery in ${language} at ${width}px`, async ({ page }) => {
+    test(`SVC-FOOD-01A: batch 1 food expansion discovery in ${language} at ${width}px`, async ({ page }, testInfo) => {
       await page.setViewportSize({ width, height: 900 });
       await page.goto('/servicos/', { waitUntil: 'domcontentloaded' });
       await page.waitForFunction(() => document.querySelectorAll('#services-page-grid article').length > 0);
@@ -99,9 +99,8 @@ for (const language of ['pt', 'en', 'es', 'fr', 'he']) {
 
       // 5. Visual screenshots for delivery artifacts
       if ((language === 'pt' || language === 'he') && (width === 390 || width === 1440)) {
-        const artDir = 'C:/Users/victo/.gemini/antigravity/brain/eaef6853-9f14-4135-8bb9-86f250989bb9';
         const shotName = `svc_food_01a_${width === 1440 ? 'desktop' : 'mobile'}_${language}.png`;
-        await page.screenshot({ path: path.join(artDir, shotName), fullPage: false });
+        await page.screenshot({ path: testInfo.outputPath(shotName), fullPage: false });
       }
     });
   }

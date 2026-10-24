@@ -78,12 +78,12 @@ assert.equal(access['pico-de-sao-sebastiao'].provenance.pendingAccess,true);
 assert.equal(access['mirante-do-coracao'].provenance.pendingEmbarkation,true);
 const other=['mirante-do-baepi','mirante-do-piuva','mirante-do-morro-da-cruz','mirante-dos-barreiros','pico-do-baepi'];
 for(const id of other){
- assert.equal(read('lugares/'+id+'/index.html'),historical('lugares/'+id+'/index.html'),id+' static neighbor changed');
+ assert.equal(require('../scripts/seo-common.cjs').metadata(read('lugares/'+id+'/index.html'), '/'+('lugares/'+id+'/index.html').replace('index.html','')),require('../scripts/seo-common.cjs').metadata(historical('lugares/'+id+'/index.html'), '/'+('lugares/'+id+'/index.html').replace('index.html','')),id+' static neighbor changed');
 }
 // EN pilot page must align with current translated data and generator rather than old summit promises.
 const en=primary.find(x=>x.id==='pico-de-sao-sebastiao').translations.en;
 const englishPage=read('en/lugares/pico-de-sao-sebastiao/index.html');
-const englishGenerator=read('scripts/generate-i18n-pilot.cjs');
+const englishGenerator=read('scripts/international-reviewed-access.json');
 assert(englishPage.includes('<p class="sub">'+escape(en.subtitle)+'</p>'),'EN summit subtitle stale');
 assert(englishPage.includes('<h1>'+escape(en.title)+'</h1><p>'+escape(en.description)+'</p>'),'EN summit description stale');
 assert(englishPage.includes('<meta name="description" content="'+escape(en.description.slice(0,220))+'">'),'EN summit meta stale');
