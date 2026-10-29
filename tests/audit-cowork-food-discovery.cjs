@@ -10,9 +10,9 @@ for(const file of ['data.js','additional-spots.js','service-taxonomy.js']) {
 const services=vm.runInContext('servicesData',ctx);
 const taxonomy=vm.runInContext('serviceTaxonomy',ctx);
 const ids=services.map(s=>s.id);
-assert.equal(services.length, 129,'Current catalog: 129 services, 68 food');
+assert.equal(services.length, 130,'Current catalog: 130 services, 68 food');
 assert.equal(new Set(ids).size,services.length,'no duplicate service IDs');
-assert.equal(services.filter(s=>s.category==='food').length, 68,'Current catalog: 129 services, 68 food');
+assert.equal(services.filter(s=>s.category==='food').length, 68,'Current catalog: 130 services, 68 food');
 for(const type of ['restaurant','bar','kiosk','cafe']){
   assert(services.some(s=>s.category==='food'&&(s.serviceType||[]).includes(type)),'missing existing food subtype '+type);
 }

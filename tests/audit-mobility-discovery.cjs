@@ -14,8 +14,8 @@ const services = vm.runInContext('servicesData', ctx);
 const taxonomy = vm.runInContext('serviceTaxonomy', ctx);
 const ids = services.map(s => s.id);
 
-assert.equal(services.length, 129, 'Current catalog: 129 services, 68 food');
-assert.equal(new Set(ids).size, 129, 'no duplicate service IDs');
+assert.equal(services.length, 130, 'Current catalog: 130 services, 68 food');
+assert.equal(new Set(ids).size, 130, 'no duplicate service IDs');
 
 const essentials = services.filter(s => s.category === 'essentials');
 assert.equal(essentials.length, 19, '19 practical services (including 3 coworking, 4 health, 3 laundry, 2 marinas, 4 supermarkets/adega, 1 equipment, 2 tourist info)');

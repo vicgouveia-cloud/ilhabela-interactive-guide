@@ -13,10 +13,10 @@ function load(read) {
 const {services,taxonomy} = load(f=>fs.readFileSync(path.join(root,f),'utf8'));
 const baseline = load(f=>execFileSync('git',['show',`1a7613e4c0273deca5094a6e5842d9461be50c51:${f}`],{cwd:root,encoding:'utf8',maxBuffer:10e6}));
 const ids = ['porto-do-engenho','tempero-da-ilha'];
-assert.equal(services.length,129);
+assert.equal(services.length,130);
 assert.equal(services.filter(s=>s.category==='food').length,68);
-assert.equal(new Set(services.map(s=>s.id)).size,129);
-assert.deepEqual(services.filter(s=>!ids.includes(s.id)),baseline.services,'All 127 previous services remain identical and in order');
+assert.equal(new Set(services.map(s=>s.id)).size,130);
+assert.deepEqual(services.filter(s=>!ids.includes(s.id) && s.id !== 'ondas-do-mar'),baseline.services,'All 127 previous services remain identical and in order');
 const [porto,tempero] = ids.map(id=>services.find(s=>s.id===id));
 assert.deepEqual(porto.serviceType,['restaurant','bar']);
 assert.deepEqual(porto.serviceFormats,['aLaCarte']);
@@ -52,4 +52,4 @@ for(const row of [porto,tempero]) {
   assert.ok(bytes.length<30000,'Optimized local brand image');
   assert.equal(crypto.createHash('sha256').update(bytes).digest('hex'),record.sha256);
 }
-console.log('PASS Porto/Tempero: 129 services, 68 food, 127 preserved, official brands, verified contacts, taxonomy and 5 languages');
+console.log('PASS Porto/Tempero: 130 services, 68 food, 127 preserved, official brands, verified contacts, taxonomy and 5 languages');

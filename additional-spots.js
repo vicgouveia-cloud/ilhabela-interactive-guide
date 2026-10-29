@@ -3525,6 +3525,19 @@ const servicesData = [
   // Recanto de Gaya: customer prefers direct Instagram contact, not WhatsApp.
   // Address and accommodation types corroborated by the hosts' published Booking profile.
   {
+    id: 'ondas-do-mar', category: 'stay', name: 'Suites Ondas do Mar',
+    stayType: 'alternative', presentation: 'compact',
+    baseLocation: { address: 'Ilhabela - SP' },
+    serviceArea: { scope: 'base', modes: [], verifiedModes: [] },
+    activities: ['lodging'],
+    phone: '12991264617', phoneDisplay: '(12) 99126-4617',
+    contactPreference: 'instagram', instagram: '@suitesondasdomar',
+    sourceUrl: 'https://www.instagram.com/suitesondasdomar/'
+  },
+  // Separate services; same operator group, individual commercial identities and official images.
+  // Recanto de Gaya: customer prefers direct Instagram contact, not WhatsApp.
+  // Address and accommodation types corroborated by the hosts' published Booking profile.
+  {
     id: 'recanto-de-gaya', category: 'stay', name: 'Recanto de Gaya',
     stayType: 'hostel', featured: true, recommended: true, presentation: 'compact',
     baseLocation: { nearSpotId: 'praia-do-pereque', address: 'Rua Benedito Serafim Sampaio, 320 - Perequê, Ilhabela - SP' },
@@ -3656,6 +3669,53 @@ const servicesData = [
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Suites Ondas do Mar": {
+  "pt": {
+    "type": "Suítes",
+    "description": "Hospedagem em Ilhabela com quartos e vista para o mar. Aceita pets; consulte condições e reservas pelos canais oficiais.",
+    "tags": [
+      "Ilhabela",
+      "Suítes",
+      "Aceita pets"
+    ]
+  },
+  "en": {
+    "type": "Suites",
+    "description": "Accommodation in Ilhabela with rooms and sea views. Pets are welcome; contact the official channels for conditions and reservations.",
+    "tags": [
+      "Ilhabela",
+      "Suites",
+      "Pets welcome"
+    ]
+  },
+  "fr": {
+    "type": "Suites",
+    "description": "Hébergement à Ilhabela avec chambres et vue sur la mer. Les animaux sont les bienvenus ; consultez les conditions et les disponibilités auprès des contacts officiels.",
+    "tags": [
+      "Ilhabela",
+      "Suites",
+      "Animaux acceptés"
+    ]
+  },
+  "es": {
+    "type": "Suites",
+    "description": "Alojamiento en Ilhabela con habitaciones y vistas al mar. Acepta mascotas; consulte las condiciones y las reservas por los canales oficiales.",
+    "tags": [
+      "Ilhabela",
+      "Suites",
+      "Acepta mascotas"
+    ]
+  },
+  "he": {
+    "type": "סוויטות",
+    "description": "אירוח באיליאבלה עם חדרים ונוף לים. חיות מחמד מתקבלות; לבירור תנאים והזמנות פנו לערוצים הרשמיים.",
+    "tags": [
+      "איליאבלה",
+      "סוויטות",
+      "חיות מחמד מתקבלות"
+    ]
+  }
+},
   "Porto do Engenho": {"pt": {"type": "Restaurante e bar", "description": "Restaurante e bar de praia em Engenho D’Água, com frutos do mar e cozinha brasileira. Opção para almoço e fim de tarde; consulte o Instagram oficial para confirmar os horários.", "tags": ["Engenho D’Água", "Frutos do mar", "Cozinha brasileira"]}, "en": {"type": "Restaurant and bar", "description": "Beach restaurant and bar in Engenho D’Água serving seafood and Brazilian cuisine. An option for lunch and late afternoon; check opening hours on the official Instagram.", "tags": ["Engenho D’Água", "Seafood", "Brazilian cuisine"]}, "es": {"type": "Restaurante y bar", "description": "Restaurante y bar de playa en Engenho D’Água, con mariscos y cocina brasileña. Opción para almorzar y pasar la tarde; confirme los horarios en el Instagram oficial.", "tags": ["Engenho D’Água", "Mariscos", "Cocina brasileña"]}, "fr": {"type": "Restaurant et bar", "description": "Restaurant et bar de plage à Engenho D’Água, proposant fruits de mer et cuisine brésilienne. Une option pour le déjeuner et la fin d’après-midi ; vérifiez les horaires sur Instagram officiel.", "tags": ["Engenho D’Água", "Fruits de mer", "Cuisine brésilienne"]}, "he": {"type": "מסעדה ובר", "description": "מסעדה ובר חוף באנז׳ניו ד׳אגואה, המגישים מאכלי ים ואוכל ברזילאי. אפשרות לארוחת צהריים ולבילוי אחר הצהריים; יש לוודא שעות פתיחה באינסטגרם הרשמי.", "tags": ["אנז׳ניו ד׳אגואה", "מאכלי ים", "מטבח ברזילאי"]}},
   "Tempero da Ilha": {"pt": {"type": "Restaurante", "description": "Restaurante no Perequê, na R. Luiz Ameixeiro, 65. O canal oficial informa buffet das 11h30 às 16h30 e pizzas e hambúrgueres das 18h às 23h. Cardápio e contato no Linktree oficial.", "tags": ["Perequê", "Buffet no almoço", "Pizza e hambúrguer"]}, "en": {"type": "Restaurant", "description": "Restaurant in Perequê at R. Luiz Ameixeiro, 65. Its official channel lists a buffet from 11:30 am to 4:30 pm and pizzas and burgers from 6 pm to 11 pm. Menu and contact details are on the official Linktree.", "tags": ["Perequê", "Lunch buffet", "Pizza and burgers"]}, "es": {"type": "Restaurante", "description": "Restaurante en Perequê, en R. Luiz Ameixeiro, 65. El canal oficial anuncia buffet de 11:30 a 16:30 y pizzas y hamburguesas de 18:00 a 23:00. Menú y contacto en el Linktree oficial.", "tags": ["Perequê", "Buffet de almuerzo", "Pizza y hamburguesas"]}, "fr": {"type": "Restaurant", "description": "Restaurant à Perequê, R. Luiz Ameixeiro, 65. Le canal officiel annonce un buffet de 11 h 30 à 16 h 30 et des pizzas et burgers de 18 h à 23 h. Carte et coordonnées sur le Linktree officiel.", "tags": ["Perequê", "Buffet au déjeuner", "Pizza et burgers"]}, "he": {"type": "מסעדה", "description": "מסעדה בפרקה, ברחוב R. Luiz Ameixeiro, 65. לפי הערוץ הרשמי, הבופה פועל מ־11:30 עד 16:30, ופיצות והמבורגרים מוגשים מ־18:00 עד 23:00. תפריט ופרטי קשר ב־Linktree הרשמי.", "tags": ["פרקה", "בופה בצהריים", "פיצה והמבורגרים"]}},
 
