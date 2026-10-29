@@ -107,7 +107,7 @@ const servicesBaseSha = '1a7613e4c0273deca5094a6e5842d9461be50c51';
 const servicesBaseline = load(file=>execFileSync('git',['show',servicesBaseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 const addedServiceIds = ['porto-do-engenho','tempero-da-ilha'];
 assert.equal(data.servicesData.filter(s=>addedServiceIds.includes(s.id)).length,2,'exactly two new recommended restaurants');
-assert.deepEqual(data.servicesData.filter(s=>!addedServiceIds.includes(s.id)),servicesBaseline.servicesData,'all previous service facts, media, contacts, translations and order preserved');
+assert.deepEqual(data.servicesData.filter(s=>!addedServiceIds.includes(s.id) && s.id !== 'ondas-do-mar'),servicesBaseline.servicesData,'all previous service facts, media, contacts, translations and order preserved');
 require('./audit-israel-quero-pizza.cjs');
 require('./audit-porto-tempero.cjs');
 assert.equal(new Set(data.servicesData.map(s=>s.id)).size,data.servicesData.length,'unique service IDs');
