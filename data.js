@@ -3856,8 +3856,8 @@ const touristSpots = [
     "id": "santuario-ilha-das-cabras",
     "category": "mergulho",
     "coords": [
-      -23.8569,
-      -45.4208
+      -23.8294,
+      -45.39263
     ],
     "rating": null,
     "reviews": 0,
