@@ -7,7 +7,7 @@ if (!cabras || !Array.isArray(cabras.coords) || cabras.coords.some((n, i) => n !
 for (const lang of ['pt', 'en', 'es', 'fr', 'he']) {
   const page = path.join(ROOT, ...(lang === 'pt' ? [] : [lang]), 'lugares', 'santuario-ilha-das-cabras', 'index.html');
   const html = fs.readFileSync(page, 'utf8');
-  const json = html.match(/<script type="application\\/ld\\+json">([\\s\\S]*?)<\\/script>/);
+  const json = html.match(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/);
   if (!json) { failures.push('Ilha das Cabras: schema ausente em ' + lang); continue; }
   const geo = JSON.parse(json[1]).geo;
   if (geo?.latitude !== cabrasCoords[0] || geo?.longitude !== cabrasCoords[1]) {
