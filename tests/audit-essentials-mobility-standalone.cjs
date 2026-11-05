@@ -16,16 +16,16 @@ const translations = vm.runInContext('translations', ctx);
 const ids = services.map(s => s.id);
 
 // 1. Total count and uniqueness
-assert.equal(services.length, 129, '129 services including Porto do Engenho and Tempero da Ilha');
-assert.equal(new Set(ids).size, 129, 'All service IDs must be unique');
+assert.equal(services.length, 130, '130 services including Porto do Engenho and Tempero da Ilha');
+assert.equal(new Set(ids).size, 130, 'All service IDs must be unique');
 
 // 2. Category distribution
 const byCat = {};
 services.forEach(s => { byCat[s.category] = (byCat[s.category] || 0) + 1; });
 assert.equal(byCat.mobility, 14, '14 services under category mobility');
 assert.equal(byCat.essentials, 19, '19 services under category essentials');
-assert.equal(byCat.food, 68, 'Current catalog: 129 services, 68 food');
-assert.equal(byCat.stay, 10, '10 services under category stay');
+assert.equal(byCat.food, 68, 'Current catalog: 130 services, 68 food');
+assert.equal(byCat.stay, 11, '11 services under category stay');
 assert.equal(byCat.tour, 12, '12 services under category tour');
 assert.equal(byCat.diving, 5, '5 services under category diving');
 assert.equal(byCat.experience, 1, '1 service under category experience');

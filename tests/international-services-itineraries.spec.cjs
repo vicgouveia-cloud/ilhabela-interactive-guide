@@ -4,7 +4,7 @@ for(const lang of ['en','es','fr','he'])for(const width of [390,1440]){
     await page.setViewportSize({width,height:900});
     const errors=[];page.on('pageerror',e=>errors.push(e.message));
     await page.goto(`/${lang}/servicos/`);
-    await expect(page.locator('#services-page-grid article')).toHaveCount(129);
+    await expect(page.locator('#services-page-grid article')).toHaveCount(130);
     expect(await page.evaluate(()=>currentLang)).toBe(lang);
     await page.locator('#services-category-select').selectOption('food');
     await expect(page.locator('#services-page-grid article')).toHaveCount(68);
@@ -19,7 +19,7 @@ for(const lang of ['en','es','fr','he'])for(const width of [390,1440]){
     const context=await browser.newContext({javaScriptEnabled:false});
     const staticPage=await context.newPage();
     await staticPage.goto(`${process.env.PREVIEW_URL||'http://127.0.0.1:4173'}/${lang}/servicos/`);
-    await expect(staticPage.locator('#services-page-grid article')).toHaveCount(129);
+    await expect(staticPage.locator('#services-page-grid article')).toHaveCount(130);
     await context.close();expect(errors).toEqual([]);
   });
 }
