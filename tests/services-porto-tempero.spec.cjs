@@ -8,7 +8,7 @@ for(const lang of ['pt','en','es','fr','he']) for(const width of [320,390,1440])
     await page.evaluate(l=>setLanguage(l),lang);
     await expect(page.locator('html')).toHaveAttribute('dir',lang==='he'?'rtl':'ltr');
     await page.locator('#services-category-select').selectOption('food');
-    await expect(page.locator('#services-page-grid article')).toHaveCount(68);
+    await expect(page.locator('#services-page-grid article')).toHaveCount(69);
     const card=name=>page.locator('#services-page-grid article').filter({has:page.locator('h2',{hasText:name,exact:true})});
     const porto=card('Porto do Engenho'),tempero=card('Tempero da Ilha');
     for(const [row,id]of [[porto,'porto-do-engenho'],[tempero,'tempero-da-ilha']]) {
