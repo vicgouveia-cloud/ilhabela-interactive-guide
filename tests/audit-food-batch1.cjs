@@ -14,11 +14,11 @@ const services = vm.runInContext('servicesData', ctx);
 const taxonomy = vm.runInContext('serviceTaxonomy', ctx);
 const ids = services.map(s => s.id);
 
-assert.equal(services.length, 129, '129 services including Porto do Engenho and Tempero da Ilha');
-assert.equal(new Set(ids).size, 129, 'All service IDs must be unique');
+assert.equal(services.length, 130, '130 services including Pastel da Praia');
+assert.equal(new Set(ids).size, 130, 'All service IDs must be unique');
 
 const foodServices = services.filter(s => s.category === 'food');
-assert.equal(foodServices.length, 68, 'Food category must have exactly 68 records');
+assert.equal(foodServices.length, 69, 'Food category must have exactly 69 records');
 
 const batch1 = [
   {
