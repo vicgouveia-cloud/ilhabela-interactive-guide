@@ -451,7 +451,7 @@
       const appIos = service.appIos ? `<a href="${service.appIos}" target="_blank" rel="noopener noreferrer" class="${actionBase}" title="Fast Go Drive Passageiro — iPhone">${actionIcon('phone_iphone')}${actionText('iPhone')}</a>` : '';
       const appAndroid = service.appAndroid ? `<a href="${service.appAndroid}" target="_blank" rel="noopener noreferrer" class="${actionBase}" title="Fast Go Drive Passageiro — Android">${actionIcon('phone_android')}${actionText('Android')}</a>` : '';
       const hasPhysicalLocation = service.hasPhysicalLocation !== false && !['fast-go-drive', 'transporte-por-aplicativo-info', 'transfer-executivo-gru-ilhabela', 'onibus-municipal-expresso-fenix', 'aquabus-ilhabela', 'ponto-de-taxi-balsa', 'ponto-de-taxi-vila'].includes(service.id);
-      const maps = hasPhysicalLocation ? `<a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('map')}${actionText('Google Maps')}</a>` : '';
+      const maps = hasPhysicalLocation && service.mapLocationVerified !== false ? `<a href="${mapUrl(service)}" target="_blank" rel="noopener noreferrer" class="${actionBase}">${actionIcon('map')}${actionText('Google Maps')}</a>` : '';
       const serviceActions = service.id === 'fast-go-drive'
         ? `${website}${whatsapp}${appIos}${appAndroid}`
         : `${website}${instagram}${facebook}${whatsapp}${phone}${appIos}${appAndroid}${maps}`;

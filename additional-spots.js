@@ -3652,10 +3652,75 @@ const servicesData = [
     url: 'https://www.transferexecutivo.com.br/'
   },
 
+  // Limited listing at the user's specified Praia Grande location.
+  // Distinct public listing at Rua Pernambuco, Piúva is NOT assumed to be this unit.
+  // Exact point/links/images require independent confirmation before map navigation.
+  {
+    id: 'rei-do-pastel-praia-grande',
+    name: 'Rei do Pastel',
+    category: 'food',
+    baseLocation: { nearSpotId: 'praia-grande', address: 'Praia Grande, Ilhabela - SP (endereço exato não confirmado)' },
+    serviceArea: { scope: 'venue', modes: ['on-site'], verifiedModes: [] },
+    activities: ['food'],
+    presentation: 'compact',
+    serviceType: ['streetFood'],
+    serviceFormats: [],
+    serviceSpecialties: [],
+    serviceOccasions: [],
+    mapLocationVerified: false
+  },
+
 ];
 
 // Conteúdo traduzido pertence à própria entidade Service; nomes comerciais, contatos e URLs são invariáveis.
 const serviceTranslations = {
+  "Rei do Pastel": {
+    "pt": {
+      "type": "Pastelaria",
+      "description": "Pastelaria indicada na região da Praia Grande, em Ilhabela. O endereço exato, os contatos e os horários desta unidade ainda não foram confirmados; confira os dados antes de visitar.",
+      "tags": [
+        "Praia Grande",
+        "Pastéis",
+        "Localização a confirmar"
+      ]
+    },
+    "en": {
+      "type": "Brazilian pastry shop",
+      "description": "A pastel shop reported in the Praia Grande area of Ilhabela. The exact address, contact details and opening times for this location have not yet been confirmed; check before visiting.",
+      "tags": [
+        "Praia Grande",
+        "Brazilian pastéis",
+        "Location unverified"
+      ]
+    },
+    "es": {
+      "type": "Pastelería brasileña",
+      "description": "Pastelería de pasteles salados ubicada, según la información recibida, en la zona de Praia Grande, Ilhabela. Aún no se han confirmado la dirección exacta, los contactos ni los horarios de esta unidad; compruébalos antes de ir.",
+      "tags": [
+        "Praia Grande",
+        "Pasteles brasileños",
+        "Ubicación por confirmar"
+      ]
+    },
+    "fr": {
+      "type": "Échoppe de pastéis brésiliens",
+      "description": "Établissement de pastéis signalé dans le secteur de Praia Grande, à Ilhabela. L'adresse précise, les coordonnées et les horaires de cette adresse restent à confirmer ; vérifiez avant votre visite.",
+      "tags": [
+        "Praia Grande",
+        "Pastéis brésiliens",
+        "Adresse à confirmer"
+      ]
+    },
+    "he": {
+      "type": "חנות פסטל ברזילאי",
+      "description": "דוכן פסטל שדווח כי הוא נמצא באזור פראיה גראנדה באיליאבלה. הכתובת המדויקת, פרטי ההתקשרות ושעות הפעילות של המקום עדיין לא אומתו; יש לבדוק אותם לפני הביקור.",
+      "tags": [
+        "פראיה גראנדה",
+        "פסטל ברזילאי",
+        "מיקום ממתין לאימות"
+      ]
+    }
+  },
   "Porto do Engenho": {"pt": {"type": "Restaurante e bar", "description": "Restaurante e bar de praia em Engenho D’Água, com frutos do mar e cozinha brasileira. Opção para almoço e fim de tarde; consulte o Instagram oficial para confirmar os horários.", "tags": ["Engenho D’Água", "Frutos do mar", "Cozinha brasileira"]}, "en": {"type": "Restaurant and bar", "description": "Beach restaurant and bar in Engenho D’Água serving seafood and Brazilian cuisine. An option for lunch and late afternoon; check opening hours on the official Instagram.", "tags": ["Engenho D’Água", "Seafood", "Brazilian cuisine"]}, "es": {"type": "Restaurante y bar", "description": "Restaurante y bar de playa en Engenho D’Água, con mariscos y cocina brasileña. Opción para almorzar y pasar la tarde; confirme los horarios en el Instagram oficial.", "tags": ["Engenho D’Água", "Mariscos", "Cocina brasileña"]}, "fr": {"type": "Restaurant et bar", "description": "Restaurant et bar de plage à Engenho D’Água, proposant fruits de mer et cuisine brésilienne. Une option pour le déjeuner et la fin d’après-midi ; vérifiez les horaires sur Instagram officiel.", "tags": ["Engenho D’Água", "Fruits de mer", "Cuisine brésilienne"]}, "he": {"type": "מסעדה ובר", "description": "מסעדה ובר חוף באנז׳ניו ד׳אגואה, המגישים מאכלי ים ואוכל ברזילאי. אפשרות לארוחת צהריים ולבילוי אחר הצהריים; יש לוודא שעות פתיחה באינסטגרם הרשמי.", "tags": ["אנז׳ניו ד׳אגואה", "מאכלי ים", "מטבח ברזילאי"]}},
   "Tempero da Ilha": {"pt": {"type": "Restaurante", "description": "Restaurante no Perequê, na R. Luiz Ameixeiro, 65. O canal oficial informa buffet das 11h30 às 16h30 e pizzas e hambúrgueres das 18h às 23h. Cardápio e contato no Linktree oficial.", "tags": ["Perequê", "Buffet no almoço", "Pizza e hambúrguer"]}, "en": {"type": "Restaurant", "description": "Restaurant in Perequê at R. Luiz Ameixeiro, 65. Its official channel lists a buffet from 11:30 am to 4:30 pm and pizzas and burgers from 6 pm to 11 pm. Menu and contact details are on the official Linktree.", "tags": ["Perequê", "Lunch buffet", "Pizza and burgers"]}, "es": {"type": "Restaurante", "description": "Restaurante en Perequê, en R. Luiz Ameixeiro, 65. El canal oficial anuncia buffet de 11:30 a 16:30 y pizzas y hamburguesas de 18:00 a 23:00. Menú y contacto en el Linktree oficial.", "tags": ["Perequê", "Buffet de almuerzo", "Pizza y hamburguesas"]}, "fr": {"type": "Restaurant", "description": "Restaurant à Perequê, R. Luiz Ameixeiro, 65. Le canal officiel annonce un buffet de 11 h 30 à 16 h 30 et des pizzas et burgers de 18 h à 23 h. Carte et coordonnées sur le Linktree officiel.", "tags": ["Perequê", "Buffet au déjeuner", "Pizza et burgers"]}, "he": {"type": "מסעדה", "description": "מסעדה בפרקה, ברחוב R. Luiz Ameixeiro, 65. לפי הערוץ הרשמי, הבופה פועל מ־11:30 עד 16:30, ופיצות והמבורגרים מוגשים מ־18:00 עד 23:00. תפריט ופרטי קשר ב־Linktree הרשמי.", "tags": ["פרקה", "בופה בצהריים", "פיצה והמבורגרים"]}},
 

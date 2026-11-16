@@ -27,7 +27,7 @@ for(const lang of ['pt','en','es','fr','he'])for(const width of [320,390,1440]){
        const hasLocation=await page.evaluate(name=>{
          const service=servicesData.find(s=>s.name===name);
          if(!service) throw new Error('Card missing from catalog: '+name);
-         return service.hasPhysicalLocation!==false && !['fast-go-drive','transporte-por-aplicativo-info','transfer-executivo-gru-ilhabela','onibus-municipal-expresso-fenix','aquabus-ilhabela','ponto-de-taxi-balsa','ponto-de-taxi-vila'].includes(service.id);
+         return service.hasPhysicalLocation!==false && service.mapLocationVerified!==false && !['fast-go-drive','transporte-por-aplicativo-info','transfer-executivo-gru-ilhabela','onibus-municipal-expresso-fenix','aquabus-ilhabela','ponto-de-taxi-balsa','ponto-de-taxi-vila'].includes(service.id);
        },name);
        expect(info.filter(x=>x.icon==='map')).toHaveLength(hasLocation?1:0);
        if(hasLocation) {
