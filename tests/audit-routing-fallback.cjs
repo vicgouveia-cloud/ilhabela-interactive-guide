@@ -6,14 +6,16 @@ const {execFileSync} = require('node:child_process');
 const base = '6c48fd8aef9d0ed8fb85ea40175e3cc497aa5c2f';
 const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friagem','cachoeira-dos-tres-tombos','cachoeira-da-laje','cachoeira-da-toca','cachoeira-do-paqueta','poco-do-furado','cachoeira-do-poco-fundo','trilha-da-agua-branca','trilha-do-bonete','pico-do-baepi','pico-de-sao-sebastiao','mirante-do-coracao']);
 
-function load(baseline) {
+function load(baseline, baselineSha=base) {
   const context = vm.createContext({console, translations: Object.fromEntries(['pt','en','fr','es','he'].map(l => [l, {}]))});
   for (const file of ['data.js', 'additional-spots.js', 'multimodal.js']) {
-    vm.runInContext(baseline ? execFileSync('git', ['show', `${base}:${file}`], {encoding:'utf8'}) : fs.readFileSync(file, 'utf8'), context, {filename:file});
+    vm.runInContext(baseline ? execFileSync('git', ['show', `${baselineSha}:${file}`], {encoding:'utf8'}) : fs.readFileSync(file, 'utf8'), context, {filename:file});
   }
   return context;
 }
 const current = load(false), previous = load(true);
+// Preserve the user-approved Ilha das Cabras GPS relocation, not its older baseline.
+const sanctuaryBaseline = load(true,'67e11246e6fbfb623a7dcfb246540f8b4d8b5d09');
 const ids = vm.runInContext('touristSpots.map(s => s.id)', current);
 for (const id of ids) {
   for (const mode of ['auto','4x4','bicycle','pedestrian','boat','trail']) {
@@ -28,13 +30,15 @@ for (const id of ids) {
         assert.equal(JSON.stringify(access.destination), vm.runInContext(`JSON.stringify(touristSpots.find(s => s.id === 'trilha-da-agua-branca').coords)`,previous));
       } else assert.equal(actual, 'null');
     }
+    else if(id==='santuario-ilha-das-cabras')
+      assert.equal(actual,vm.runInContext(expression,sanctuaryBaseline),id+'/'+mode+' approved GPS routing changed');
     else assert.equal(actual, vm.runInContext(expression, previous), `${id}/${mode} changed`);
   }
   if (id !== 'trilha-da-agua-branca') {
     const expression = EDITORIAL_WATERFALL_IDS.has(id)
       ? `JSON.stringify((({id,category,image,images,coords,routing})=>({id,category,image,images,coords,routing}))(touristSpots.find(s=>s.id===${JSON.stringify(id)})))`
       : `JSON.stringify(touristSpots.find(s => s.id === ${JSON.stringify(id)}))`;
-    assert.equal(vm.runInContext(expression,current),vm.runInContext(expression,previous),`${id} routing/media/coordinates changed`);
+    assert.equal(vm.runInContext(expression,current),vm.runInContext(expression,id==='santuario-ilha-das-cabras'?sanctuaryBaseline:previous),`${id} routing/media/coordinates changed`);
   }
 }
 assert.equal(vm.runInContext("resolvePlannerAccess(touristSpots.find(s => s.id === 'praia-do-bonete'), 'pedestrian')",current),null, 'Never route pedestrians directly to Bonete without a supported access option');

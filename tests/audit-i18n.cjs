@@ -90,8 +90,9 @@ const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friag
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
 assert.deepEqual(data.touristSpots.map(s=>s.id),baseline.touristSpots.map(s=>s.id),'all 50 attraction ids and order preserved');
+assert.deepEqual(data.touristSpots.find(s=>s.id==='santuario-ilha-das-cabras').coords,[-23.8294,-45.39263],'approved GPS for sanctuary preserved');
 for (const group of ['touristSpots','guidesData']) {
-  const preserved = values => group==='touristSpots' ? values.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id)) : values;
+  const preserved = values => group==='touristSpots' ? values.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id) && s.id!=='santuario-ilha-das-cabras') : values;
   assert.deepEqual(preserved(data[group]).map(withoutTranslations),preserved(baseline[group]).map(withoutTranslations),group+' immutable facts outside approved waterfall editorial changes');
   baseline[group].forEach((old,i)=>{
     if(group==='touristSpots' && EDITORIAL_WATERFALL_IDS.has(old.id)) return; // Verified by audit-waterfall-safety.

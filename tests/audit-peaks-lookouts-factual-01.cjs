@@ -17,6 +17,11 @@ const affected=['pico-de-sao-sebastiao','mirante-do-coracao'];
 for(const previous of oldPrimary){
  const actual=primary.find(x=>x.id===previous.id);
  assert(actual,previous.id+' missing');
+ if(previous.id==='santuario-ilha-das-cabras'){
+  assert.deepEqual({...actual,coords:previous.coords},previous,'sanctuary other than GPS must remain unchanged');
+  assert.deepEqual(actual.coords,[-23.8294,-45.39263],'approved islet GPS must remain stable');
+  continue;
+ }
  if(!affected.includes(previous.id)){assert.deepEqual(actual,previous,previous.id+' unexpectedly modified');continue;}
  for(const key of Object.keys(previous).filter(k=>!['specs','translations','tags','attributes'].includes(k))){
   assert.deepEqual(actual[key],previous[key],previous.id+' media/coords/routing changed: '+key);

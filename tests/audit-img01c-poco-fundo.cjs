@@ -67,7 +67,9 @@ for(const original of approvedSpots.filter(s=>s.id!==ID && s.id!=='mirante-do-ba
   for(const key of ['image','photoCredit','photoSource'])assert.equal(actual[key],original[key],original.id+' '+key);
   assert.deepEqual(Array.from(actual.images||[]),Array.from(original.images||[]),original.id+' gallery');
   if(!EDITORIAL_WATERFALL_IDS.has(original.id)) assert.equal(JSON.stringify(actual.translations),JSON.stringify(original.translations),original.id+' translations');
-  assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
+  if(original.id==='santuario-ilha-das-cabras')
+    assert.deepEqual(Array.from(actual.coords),[-23.8294,-45.39263],'approved sanctuary GPS must not revert');
+  else assert.equal(JSON.stringify(actual.coords),JSON.stringify(original.coords),original.id+' coordinates');
 }
 for (const id of [
   'praia-do-barreiros','praia-de-santa-tereza','praia-da-ponta-azeda','poco-do-furado',
