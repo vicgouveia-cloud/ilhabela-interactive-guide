@@ -13,7 +13,12 @@ const translations=vm.runInContext('translations',ctx);
 const services=vm.runInContext('servicesData',ctx);
 for(const s of spots){
   const file='lugares/'+s.id+'/index.html',route='/lugares/'+s.id+'/';
-  const before=execFileSync('git',['show','5a9f0f085dc0c4c1c45787779f1f6cbbd9ddab1f:'+file],{cwd:ROOT,encoding:'utf8'}).replace(/\r\n/g,'\n');
+  // The user's approved GPS relocation changed only the sanctuary coordinates after 5a9f0f0.
+  // Use the last published main snapshot for this single page; all other pages retain the historical reference.
+  const reference=s.id==='santuario-ilha-das-cabras'
+    ?'67e11246e6fbfb623a7dcfb246540f8b4d8b5d09'
+    :'5a9f0f085dc0c4c1c45787779f1f6cbbd9ddab1f';
+  const before=execFileSync('git',['show',reference+':'+file],{cwd:ROOT,encoding:'utf8'}).replace(/\r\n/g,'\n');
   const after=fs.readFileSync(path.join(ROOT,file),'utf8').replace(/\r\n/g,'\n');
   assert.equal(metadata(after,route),metadata(before,route),s.id+' approved Portuguese HTML preserved except audited hreflang');
 }

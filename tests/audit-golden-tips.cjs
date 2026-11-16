@@ -17,7 +17,14 @@ const previous = load(f => execFileSync('git', ['show', `${BASE}:${f}`], { cwd: 
 const approved = load(f => execFileSync('git', ['show', '6c48fd8:' + f], {cwd:ROOT, encoding:'utf8', maxBuffer:10e6}));
 // Only the thirteen explicitly reviewed attraction records may differ from the approved catalog.
 // Every other attraction, all guides and the complete UI locale dictionary remain exact.
-const withoutSafetyEdits = item => ({...item, touristSpots:item.touristSpots.filter(s=>!APPROVED_EDITORIAL_IDS.has(s.id))});
+// A previously published GPS correction moved Ilha das Cabras to its verified islet position.
+const APPROVED_GPS_ID='santuario-ilha-das-cabras';
+const oldSanctuary=approved.touristSpots.find(s=>s.id===APPROVED_GPS_ID);
+const currentSanctuary=current.touristSpots.find(s=>s.id===APPROVED_GPS_ID);
+assert(oldSanctuary&&currentSanctuary,'sanctuary must exist');
+assert.deepEqual({...currentSanctuary,coords:oldSanctuary.coords},oldSanctuary,'sanctuary attributes except approved GPS preserved');
+assert.deepEqual(currentSanctuary.coords,[-23.8294,-45.39263],'approved islet GPS must not regress');
+const withoutSafetyEdits = item => ({...item, touristSpots:item.touristSpots.filter(s=>!APPROVED_EDITORIAL_IDS.has(s.id) && s.id!==APPROVED_GPS_ID)});
 assert.deepEqual(current.touristSpots.map(s=>s.id),approved.touristSpots.map(s=>s.id),'all attraction ids and ordering preserved');
 assert.deepEqual(withoutSafetyEdits(current), withoutSafetyEdits(approved), 'Approved catalog and UI preserved except thirteen independently audited attraction entries');
 require('./audit-waterfall-safety.cjs');
@@ -36,6 +43,6 @@ assert(!app.includes('bg-amber-50 border border-amber-200 space-y-1'),'Removed g
 for (const id of current.touristSpots.map(s => s.id)) {
   const file = `lugares/${id}/index.html`;
   const old = execFileSync('git', ['show', `6c48fd8:${file}`], { cwd: ROOT });
-  if (!APPROVED_EDITORIAL_IDS.has(id)) assert.equal(require('../scripts/seo-common.cjs').metadata(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), require('../scripts/seo-common.cjs').metadata(old.toString().replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), `${id}: static page unchanged`);
+  if (!APPROVED_EDITORIAL_IDS.has(id) && id!==APPROVED_GPS_ID) assert.equal(require('../scripts/seo-common.cjs').metadata(fs.readFileSync(path.join(ROOT, file), 'utf8').replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), require('../scripts/seo-common.cjs').metadata(old.toString().replace(/\r\n/g, '\n'), '/'+file.replace('index.html','')), `${id}: static page unchanged`);
 }
-console.log('Golden tips OK: 185 historic ecoTips and 37 original attraction pages unchanged; 13 editorial attractions protected by dedicated audits.');
+console.log('Golden tips OK: 185 historic ecoTips and 36 original attraction pages unchanged; one approved GPS relocation preserved; 13 editorial attractions protected by dedicated audits.');

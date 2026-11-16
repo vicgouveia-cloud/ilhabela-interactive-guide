@@ -90,8 +90,9 @@ const EDITORIAL_WATERFALL_IDS = new Set(['cachoeira-do-gato','cachoeira-da-friag
 const baseline = load(file=>execFileSync('git',['show',baseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 function withoutTranslations(item) { const {translations,...facts}=item; return facts; }
 assert.deepEqual(data.touristSpots.map(s=>s.id),baseline.touristSpots.map(s=>s.id),'all 50 attraction ids and order preserved');
+assert.deepEqual(data.touristSpots.find(s=>s.id==='santuario-ilha-das-cabras').coords,[-23.8294,-45.39263],'approved GPS for sanctuary preserved');
 for (const group of ['touristSpots','guidesData']) {
-  const preserved = values => group==='touristSpots' ? values.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id)) : values;
+  const preserved = values => group==='touristSpots' ? values.filter(s=>!EDITORIAL_WATERFALL_IDS.has(s.id) && s.id!=='santuario-ilha-das-cabras') : values;
   assert.deepEqual(preserved(data[group]).map(withoutTranslations),preserved(baseline[group]).map(withoutTranslations),group+' immutable facts outside approved waterfall editorial changes');
   baseline[group].forEach((old,i)=>{
     if(group==='touristSpots' && EDITORIAL_WATERFALL_IDS.has(old.id)) return; // Verified by audit-waterfall-safety.
@@ -107,9 +108,10 @@ const servicesBaseSha = '1a7613e4c0273deca5094a6e5842d9461be50c51';
 const servicesBaseline = load(file=>execFileSync('git',['show',servicesBaseSha+':'+file],{cwd:root,encoding:'utf8',maxBuffer:10*1024*1024}));
 const addedServiceIds = ['porto-do-engenho','tempero-da-ilha'];
 assert.equal(data.servicesData.filter(s=>addedServiceIds.includes(s.id)).length,2,'exactly two new recommended restaurants');
-assert.deepEqual(data.servicesData.filter(s=>!addedServiceIds.includes(s.id)),servicesBaseline.servicesData,'all previous service facts, media, contacts, translations and order preserved');
+assert.deepEqual(data.servicesData.filter(s=>!addedServiceIds.includes(s.id) && s.id!=='pastel-da-praia'),servicesBaseline.servicesData,'all previous service facts, media, contacts, translations and order preserved');
 require('./audit-israel-quero-pizza.cjs');
 require('./audit-porto-tempero.cjs');
+require('./audit-pastel-da-praia.cjs');
 assert.equal(new Set(data.servicesData.map(s=>s.id)).size,data.servicesData.length,'unique service IDs');
 const contexts={};
 for(const service of data.servicesData) for(const id of service.contextSpotIds||[]) {
