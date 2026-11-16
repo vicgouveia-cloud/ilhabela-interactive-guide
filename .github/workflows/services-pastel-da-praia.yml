@@ -64,7 +64,7 @@ jobs:
           node tests/audit-pastel-da-praia.cjs
       - name: Run all repository audits
         id: audits
-        run: npm run test:audits
+        run: npm run build && npm run test:audits
       - name: Install Chromium for browser tests
         run: npx playwright install --with-deps chromium
       - name: Run complete audit and Playwright suite
